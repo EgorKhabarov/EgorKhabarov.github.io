@@ -30,7 +30,7 @@ showText({name});
             #     f.write(value.strip())
             print(key_path)
             text += """<button onclick="
-                PutHtmlText(getCheatSheat('cheatsheet/{name}'));
+                PutHtmlText(getCheatSheat('{name}'));
             " class="trigger">{title}</button>""".format(
                 name=key_path.replace("\\", "&#x2f;") + ".txt",
                 title="📄&nbsp;" + title.replace(" ", "&nbsp;")
