@@ -1,0 +1,31 @@
+Строки
+<pre><code class="language-cpp">#include &amp;lt;string&gt;
+std::string s1;                  // пустая строка
+std::string s2 = &quot;hello&quot;;        // hello
+std::string s3(&quot;welcome&quot;);       // welcome
+std::string s4(5, 'h');          // hhhhh
+std::string s5 = s2;             // hello
+
+string s1 = &quot;hello&quot;;
+s1.size() == 5                   // true
+s1.empty()                       // false
+</code></pre>
+Изменение строки
+<pre><code class="language-cpp">std::string hello = &quot;Hello&quot;;
+char c = hello[1];               // e
+hello[0] = 'M';
+std::cout &amp;lt;&amp;lt; hello &amp;lt;&amp;lt; std::endl; // Mello
+</code></pre>
+Форматирование строк
+<pre><code class="language-cpp">string text1 = &quot;text1&quot;;
+string text2 = &quot;text2&quot;;
+int number = 12345;
+string out = text1 + &quot; &quot; + to_string(number) + &quot; &quot; + text2;
+cout &amp;lt;&amp;lt; out &amp;lt;&amp;lt; endl;
+</code></pre>
+Получить полный ввод подобие input()
+<pre><code class="language-cpp">get_line(cin, out)
+</code></pre>
+Выберет только первое слово из введённых (подобие text.split()[0] в Python)
+<pre><code class="language-cpp">cin &gt;&gt; out
+</code></pre>

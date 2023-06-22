@@ -1,0 +1,76 @@
+Библиотека subprocess в Python используется для запуска новых процессов, подключения к существующим процессам, 
+выполнения команд в командной строке и многого другого. 
+Вот несколько примеров использования этой библиотеки:
+Запуск команды в командной строке
+<pre><code class="language-python">import subprocess
+
+result = subprocess.run(['ls', '-l'], capture_output=True, text=True)
+print(result.stdout)
+</code></pre>
+В этом примере мы использовали метод run для выполнения команды ls -l в командной строке. 
+Опция capture_output=True заставляет метод сохранять вывод команды, а опция text=True указывает, что мы ожидаем текстовый вывод.
+Запуск команды с переменными окружения
+<pre><code class="language-python">import subprocess
+
+env = {'MYVAR': 'myvalue'}
+result = subprocess.run(['env'], env=env, capture_output=True, text=True)
+print(result.stdout)
+В этом примере мы использовали опцию env для установки переменной окружения MYVAR 
+со значением myvalue и выполнения команды env, которая отображает все переменные окружения.
+</code></pre>
+Запуск процесса в фоновом режиме
+<pre><code class="language-python">import subprocess
+
+subprocess.Popen(['python', 'myscript.py'])
+</code></pre>
+Этот пример запускает скрипт myscript.py в фоновом режиме.
+Подключение к существующему процессу
+<pre><code class="language-python">import subprocess
+
+process = subprocess.Popen(['ssh', 'user@remotehost'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
+stdin_data = 'ls\n'
+process.stdin.write(stdin_data.encode())
+
+stdout_data = process.stdout.readline()
+print(stdout_data)
+</code></pre>
+Этот пример подключается к удаленному хосту по SSH и выполняет команду ls. 
+Мы используем метод write для передачи данных в стандартный ввод процесса, а метод readline для чтения данных из его стандартного вывода.
+Запуск команды с аргументами
+<pre><code class="language-python">import subprocess
+
+filename = 'example.txt'
+result = subprocess.run(['wc', '-l', filename], capture_output=True, text=True)
+print(result.stdout)
+</code></pre>
+В этом примере мы использовали метод run для выполнения команды wc -l example.txt в командной строке. 
+Мы передали аргументы команды в виде списка. 
+Результат сохраняется в переменную result, а затем выводится на экран.
+Получение кода возврата команды
+<pre><code class="language-python">import subprocess
+
+result = subprocess.run(['ls', 'nonexistent'], capture_output=True, text=True)
+print(result.returncode)
+</code></pre>
+В этом примере мы попытались выполнить команду ls nonexistent, которая должна завершиться с ошибкой, 
+потому что файла nonexistent не существует. 
+Мы использовали атрибут returncode объекта CompletedProcess, 
+который содержит код возврата команды. 
+В данном случае он равен 1, что означает ошибку.
+Запуск команды с использованием shell
+<pre><code class="language-python">import subprocess
+
+result = subprocess.run('echo &quot;Hello, world!&quot;', shell=True, capture_output=True, text=True)
+print(result.stdout)
+</code></pre>
+В этом примере мы использовали опцию shell=True, чтобы выполнить команду echo "Hello, world!" через оболочку. 
+Результат выводится на экран.
+Запуск команды с заданием текущей директории
+<pre><code class="language-python">import subprocess
+
+result = subprocess.run(['ls'], cwd='/tmp', capture_output=True, text=True)
+print(result.stdout)
+</code></pre>
+В этом примере мы использовали опцию cwd для выполнения команды ls в директории /tmp. 
+Результат выводится на экран.

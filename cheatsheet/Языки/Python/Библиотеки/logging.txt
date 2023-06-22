@@ -1,0 +1,58 @@
+import logging
+Запись в файл
+<pre><code class="language-python">logging.basicConfig(filename='example.log',
+                    level=logging.DEBUG)
+</code></pre>
+Запись в консоль
+<pre><code class="language-python">logging.basicConfig(level=logging.DEBUG,
+                    format='%(message)s')
+</code></pre>
+Запись в файл и в консоль
+<pre><code class="language-python">logging.basicConfig(filename='example.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+console = logging.StreamHandler()
+console.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s '
+                              '%(levelname)s '
+                              '%(message)s',
+                              datefmt='%Y-%m-%d %H:%M:%S')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+</code></pre>
+Для самих сообщений
+<pre><code>%s           строка
+%d           для целых чисел
+%c           для имени логгера
+%f           для чисел с плавающей точкой
+%r           для строковых представлений объектов
+%m           для сообщения журнала
+%x           целое число в шестнадцатеричной системе исчисления
+%o           целое число в восьмеричной системе исчисления
+%e, %E       число в экспоненциальной форме
+</code></pre>
+Для настроек логгирования
+<pre><code>%(message)s     сообщение журнала
+
+%(asctime)s     время записи сообщения в формате (по умолчанию YYYY-MM-DD HH:MM:SS,sss настраивать в basicConfig(datefmt))
+%(created)f     время записи сообщения в секундах, начиная с 1 января 1970 года
+
+%(filename)s    имя файла, в котором был вызван логгер
+%(funcName)s    имя функции, в которой был вызван логгер
+%(name)s        имя логгера, который записывает сообщение
+%(module)s      имя модуля, в котором был вызван логгер
+%(threadName)s  имя потока, в котором был вызван логгер
+%(processName)s имя процесса, в котором был вызван логгер
+
+%(levelname)s   уровень журнала (например, DEBUG, INFO, WARNING, ERROR, CRITICAL)
+%(levelno)s     уровень журнала в числовом формате (10 для DEBUG, 20 для INFO и т. д.)
+
+%(lineno)d      номер строки, в которой был вызван логгер
+%(pathname)s    полный путь к файлу, в котором был вызван логгер
+%(process)d     идентификатор процесса, в котором был вызван логгер
+%(thread)d      идентификатор потока, в котором был вызван логгер
+</code></pre>
+Код для применения функций к тексту
+<pre><code class="language-python">logging.info = lambda msg, *args, f=logging.info: f(Up(msg), *args)
+</code></pre>

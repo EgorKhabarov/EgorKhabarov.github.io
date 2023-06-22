@@ -1,0 +1,120 @@
+Конструктор класса очень удобен и по своему виду схож с обыкновенными функциями. 
+За счёт конструктора мы можем установить значения для объекта сразу при его создании.
+Конструктор должен иметь одинаковое название с классом. Пример создания конструктора показан ниже:
+<pre><code class="language-cpp">class Book {
+private:
+    int pages;
+    float weight;
+public: 
+    char name;
+
+    void getInfoBook () {
+        cout &amp;lt;&amp;lt; &quot;В книге &quot; &amp;lt;&amp;lt; name &amp;lt;&amp;lt; &quot; находиться &quot; &amp;lt;&amp;lt; pages &amp;lt;&amp;lt; &quot; страниц. &quot; &amp;lt;&amp;lt; endl;
+        cout &amp;lt;&amp;lt; &quot;При этом она весит &quot; &amp;lt;&amp;lt; weight &amp;lt;&amp;lt; endl;
+    } 
+
+    Book (int _pages, float _weight) {
+        pages = _pages;
+        weight = _weight;
+    }
+
+    Book (int _pages, float _weight, char _name) {
+        pages = _pages;
+        weight = _weight;
+        name = _name;
+    }
+};
+</code></pre>
+В одном классе может быть сразу несколько конструкторов. 
+Создав несколько конструкторов мы можем передавать разное количество параметров при создании объекта.
+Компилятор сам определяет какой конструктор необходимо использовать в зависимости от передаваемых параметров и их типов данных. 
+В коде выше переменные идут с модификатором доступа private. 
+Дело в том, что все переменные лучше делать либо private, либо protected. 
+Доступ к переменным должен осуществляться только за счёт методов и конструкторов. Доступ к полям напрямую должен быть закрыт.
+Дополнительно создадим два объекта и выведем информацию:
+<pre><code class="language-cpp">int main() {
+    Book sherlock_holms(460, 1.7f); // Используем 1 конструктор
+    sherlock_holms.name = 'S'; // Устанавливаем вручную значение для name
+    sherlock_holms.getInfoBook ();
+
+    Book green_mile(750, 2.8f, 'G'); // Используем второй конструктор
+    green_mile.getInfoBook ();
+
+    return 0;
+}
+</code></pre>
+Поскольку переменная name имеет public модификатор доступа, то мы можем ссылаться к ней отдельно. 
+Лучше так не делать и для неё тоже установить модификатор private.
+Также конструктор может не принимать параметров. 
+В таком случае при создании объекта ничего не надо дополнительно передавать.
+Деструкторы
+Деструкторы работают в обратную сторону от конструкторов. 
+Конструктор вызывается при создании объекта, а деструктор при удалении.
+Пример создания деструктора:
+<pre><code class="language-cpp">class Some {
+public:
+    ~Some () {
+        cout &amp;lt;&amp;lt; &quot;Работа с объектом завершена.&quot;;
+    }
+};
+</code></pre>
+Исходный код
+Конструкторы и деструкторы
+<pre><code class="language-cpp">using namespace std;
+
+class Auto {
+private:
+    int year, month, day;
+public:
+    Auto () {
+        year = 2000;
+        month = 12;
+        day = 31;
+
+        get();
+        cout &amp;lt;&amp;lt; endl;
+    }
+
+    Auto (int date_year, int date_month, int date_day) {
+        year = date_year;
+        month = date_month;
+        day = date_day;
+
+        get();
+        cout &amp;lt;&amp;lt; endl;
+    }
+
+    void message () {
+        cout &amp;lt;&amp;lt; &quot;Class is working!&quot; &amp;lt;&amp;lt; endl;
+    }
+
+    void set (int date_year, int date_month, int date_day) {
+        year = date_year;
+        month = date_month;
+        day = date_day;
+    }
+
+    void get () {
+        cout &amp;lt;&amp;lt; &quot;Year of this auto is - &quot; &amp;lt;&amp;lt; year &amp;lt;&amp;lt; &quot;, month is - &quot; &amp;lt;&amp;lt; month &amp;lt;&amp;lt; &quot;, day is - &quot; &amp;lt;&amp;lt; day &amp;lt;&amp;lt; endl;
+    }
+
+    ~Auto () {
+        cout &amp;lt;&amp;lt; &quot;Class is not working&quot; &amp;lt;&amp;lt; endl;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+
+    Auto shkoda (2015, 2, 13);
+    shkoda.message();
+    shkoda.set(2005, 11, 23);
+    shkoda.get();
+
+    Auto bmw;
+    bmw.set(2012, 1, 11);
+    bmw.get();
+
+    cin.get();
+    return 0;
+}
+</code></pre>

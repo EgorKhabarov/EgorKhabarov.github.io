@@ -1,0 +1,26 @@
+with
+В начале блока кода with вызывает метод <strong>enter</strong> у объекта,
+который используется для подготовки контекста.
+После того как код внутри блока завершился, вызывается метод <strong>exit</strong>,
+который используется для освобождения ресурсов.
+Контекстный менеджер with удобен для использования,
+так как он автоматически освобождает ресурсы в конце блока кода, что избавляет
+от необходимости ручного закрытия файла или освобождения других ресурсов.
+Контекстный менеджер with может быть использован не только с файлами,
+но и с другими объектами, которые поддерживают методы <strong>enter</strong> и <strong>exit</strong>.
+Например, он может быть использован для управления блокировками,
+сетевыми соединениями и т.д.
+<pre><code class="language-python">class Writer(object):
+    def __init__(self, path):
+        self.path = path
+
+    def __enter__(self):
+        self.file = open(self.path, 'w', encoding='UTF-8')
+        return self.file
+
+    def __exit__(self, *args):
+        self.file.close()
+
+with Writer('my_file.txt') as file:
+    file.write('hello world')
+</code></pre>

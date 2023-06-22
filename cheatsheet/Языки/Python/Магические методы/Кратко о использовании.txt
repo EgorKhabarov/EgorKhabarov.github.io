@@ -1,0 +1,22 @@
+Магический метод                Когда он вызывается (пример)      Объяснение
+<strong>new</strong>(cls [,...])             instance = MyClass(arg1, arg2)    <strong>new</strong> вызывается при создании экземпляра
+<strong>init</strong>(self [,...])           instance = MyClass(arg1, arg2)    <strong>init</strong> вызывается при создании экземпляра
+<strong>pos</strong>(self)                   +self                             Унарный знак плюса
+<strong>neg</strong>(self)                   -self                             Унарный знак минуса
+<strong>invert</strong>(self)                ~self                             Побитовая инверсия
+<strong>index</strong>(self)                 x[self]                           Преобразование, когда объект используется как индекс
+<strong>nonzero</strong>(self)               bool(self), if self:              Булевое значение объекта
+<strong>getattr</strong>(self, name)         self.name # name не определено    Пытаются получить несуществующий атрибут
+<strong>setattr</strong>(self, name, val)    self.name = val                   Присвоение любому атрибуту
+<strong>delattr</strong>(self, name)         del self.name                     Удаление атрибута
+<strong>getattribute</strong>(self, name)    self.name                         Получить любой атрибут
+<strong>getitem</strong>(self, key)          self[key]                         Получение элемента через индекс
+<strong>setitem</strong>(self, key, val)     self[key] = val                   Присвоение элементу через индекс
+<strong>delitem</strong>(self, key)          del self[key]                     Удаление элемента через индекс
+<strong>iter</strong>(self)                  for x in self                     Итерация
+<strong>contains</strong>(self, value)       value in self, value not in self  Проверка принадлежности с помощью in
+<strong>call</strong>(self [,...])           self(args)                        «Вызов» экземпляра
+<strong>enter</strong>(self)                 with self as x:                   with оператор менеджеров контекста
+<strong>exit</strong>(self, exc, val, trace) with self as x:                   with оператор менеджеров контекста
+<strong>getstate</strong>(self)              pickle.dump(pkl_file, self)       Сериализация
+<strong>setstate</strong>(self)              data = pickle.load(pkl_file)      Сериализация

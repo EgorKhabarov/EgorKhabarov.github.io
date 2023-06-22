@@ -1,0 +1,61 @@
+Обычные арифметические операторы
+<strong>add</strong>(self, other)       +         Сложение
+<strong>pos</strong>(self)              +self     Унарный плюс
+<strong>sub</strong>(self, other)       -         Вычитание
+<strong>neg</strong>(self)              -self     Отрицание
+<strong>mul</strong>(self, other)       *         Умножение
+<strong>floordiv</strong>(self, other)  //        Целочисленное деление
+Нету в python 3 ??? <strong>div</strong>(self, other)       /         Деление
+<strong>truediv</strong>(self, other)             Правильное деление. Нужно from <strong>future</strong> import division
+<strong>mod</strong>(self, other)       %         Остаток от деления
+<strong>divmod</strong>(self, other)              Определяет поведение для встроенной функции divmod()
+<strong>pow</strong>                    **        Возведение в степень
+<strong>lshift</strong>(self, other)    &lt;&lt;        Двоичный сдвиг влево
+<strong>rshift</strong>(self, other)    &gt;&gt;        Двоичный сдвиг вправо
+<strong>and</strong>(self, other)       &amp;         Двоичное И
+<strong>or</strong>(self, other)        |         Двоичное ИЛИ
+<strong>xor</strong>(self, other)       ^         Двоичный xor
+Каждый из этих методов должен возвращать значение, которое будет присвоено 
+переменной слева (например, для a += b, <strong>iadd</strong> должен вернуть a + b, что будет присвоено a). 
+<strong>iadd</strong>(self, other)      +=        Сложение с присваиванием
+<strong>isub</strong>(self, other)      -=        Вычитание с присваиванием
+<strong>imul</strong>(self, other)      <em>=        Умножение с присваиванием
+<strong>imatmul</strong>(self, other)   @=        Умножение матриц с присваиванием
+<strong>ifloordiv</strong>(self, other) //=       Целочисленное деление с присваиванием
+<strong>idiv</strong>(self, other)      /=        Деление с присваиванием
+<strong>itruediv</strong>(self, other)            Правильное деление с присваиванием. Нужно from <strong>future</strong> import division.
+<strong>imod_(self, other)       %=        Остаток от деления с присваиванием
+__ipow</strong>                   </em>*=       Возведение в степень с присваиванием
+<strong>ilshift</strong>(self, other)   &lt;&lt;=       Двоичный сдвиг влево с присваиванием
+<strong>irshift</strong>(self, other)   &gt;&gt;=       Двоичный сдвиг вправо с присваиванием
+<strong>iand</strong>(self, other)      &amp;=        Двоичное И с присваиванием
+<strong>ior</strong>(self, other)       |=        Двоичное ИЛИ с присваиванием
+<strong>ixor</strong>(self, other)      ^=        Двоичный xor с присваиванием
+<strong>abs</strong>(self)              встроенная функции abs().
+<strong>invert</strong>(self)           ~                            инвертирования оператором. Для объяснения что он делает смотри статью в Википедии о бинарных операторах.
+<strong>round</strong>(self)            встроенная функции round().  n это число знаков после запятой, до которого округлить.
+<strong>floor</strong>(self)            math.floor()                 округления до ближайшего меньшего целого.
+<strong>ceil</strong>(self)             math.ceil()                  округления до ближайшего большего целого.
+<strong>trunc</strong>(self)            math.trunc()                 обрезания до целого.
+Отражённая арифметика
+some_object + other
+Это «обычное» сложение. Единственное, чем отличается эквивалентное отражённое выражение, это порядок слагаемых:
+other + some_object
+В большинстве случаев, результат отражённой операции такой же, как её обычный эквивалент, 
+поэтому при определении <strong>radd</strong> вы можете ограничиться вызовом <strong>add</strong> да и всё. 
+Заметьте, что объект слева от оператора (other в примере) 
+не должен иметь обычной неотражённой версии этого метода.
+<strong>radd</strong>(self, other)      +         Отражённое сложение
+<strong>rsub</strong>(self, other)      -         Отражённое вычитание
+<strong>rmul</strong>(self, other)      *         Отражённое умножение
+<strong>rfloordiv</strong>(self, other) //        Отражённое целочисленное деление
+<strong>rdiv</strong>(self, other)      /         Отражённое деление
+<strong>rtruediv</strong>(self, other)            Отражённое правильное деление. Нужно from <strong>future</strong> import division
+<strong>rmod</strong>(self, other)      %         Отражённый остаток от деления
+<strong>rdivmod</strong>(self, other)             Определяет поведение для встроенной функции divmod(), когда вызывается divmod(other, self)
+<strong>rpow</strong>                   **        Отражённое возведение в степень
+<strong>rlshift</strong>(self, other)   &lt;&lt;        Отражённый двоичный сдвиг влево
+<strong>rrshift</strong>(self, other)   &gt;&gt;        Отражённый двоичный сдвиг вправо
+<strong>rand</strong>(self, other)      &amp;         Отражённое двоичное И
+<strong>ror</strong>(self, other)       |         Отражённое двоичное ИЛИ
+<strong>rxor</strong>(self, other)      ^         Отражённый двоичный xor

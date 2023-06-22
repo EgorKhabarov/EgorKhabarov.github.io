@@ -1,0 +1,176 @@
+Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов. 
+Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического 
+генерирования справочной информации и сообщений об ошибках.
+Вот несколько примеров использования библиотеки argparse в Python:
+Простой скрипт
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;echo&quot;, help=&quot;echo the string you use here&quot;)
+
+args = parser.parse_args()
+print(args.echo)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py hello
+</code></pre>
+Аргументы с флагами
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;--verbosity&quot;, help=&quot;increase output verbosity&quot;, action=&quot;store_true&quot;)
+
+args = parser.parse_args()
+if args.verbosity:
+    print(&quot;verbosity turned on&quot;)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py --verbosity
+</code></pre>
+Опциональный аргумент
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;--number&quot;, help=&quot;enter a number&quot;, type=int)
+
+args = parser.parse_args()
+if args.number:
+    print(args.number * 2)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py --number 5
+</code></pre>
+Обязательный аргумент
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;filename&quot;, help=&quot;the name of the file to read&quot;)
+
+args = parser.parse_args()
+print(args.filename)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py filename.txt
+</code></pre>
+Группировка аргументов
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+group = parser.add_mutually_exclusive_group()
+group.add_argument(&quot;--verbose&quot;, help=&quot;increase output verbosity&quot;, action=&quot;store_true&quot;)
+group.add_argument(&quot;--quiet&quot;, help=&quot;decrease output verbosity&quot;, action=&quot;store_true&quot;)
+
+args = parser.parse_args()
+if args.verbose:
+    print(&quot;verbosity turned on&quot;)
+elif args.quiet:
+    print(&quot;verbosity turned off&quot;)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py --verbose или python script.py --quiet
+</code></pre>
+Позиционные аргументы с выбором
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;operation&quot;, help=&quot;operation to perform&quot;, choices=[&quot;add&quot;, &quot;sub&quot;, &quot;mul&quot;, &quot;div&quot;])
+parser.add_argument(&quot;num1&quot;, help=&quot;first number&quot;, type=int)
+parser.add_argument(&quot;num2&quot;, help=&quot;second number&quot;, type=int)
+
+args = parser.parse_args()
+if args.operation == &quot;add&quot;:
+    print(args.num1 + args.num2)
+elif args.operation == &quot;sub&quot;:
+    print(args.num1 - args.num2)
+elif args.operation == &quot;mul&quot;:
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py add 5 3
+</code></pre>
+Описание программы и аргументов
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser(description=&quot;A simple calculator program&quot;)
+parser.add_argument(&quot;operation&quot;, help=&quot;operation to perform&quot;, choices=[&quot;add&quot;, &quot;sub&quot;, &quot;mul&quot;, &quot;div&quot;])
+parser.add_argument(&quot;num1&quot;, help=&quot;first number&quot;, type=int)
+parser.add_argument(&quot;num2&quot;, help=&quot;second number&quot;, type=int)
+
+args = parser.parse_args()
+if args.operation == &quot;add&quot;:
+    print(args.num1 + args.num2)
+elif args.operation == &quot;sub&quot;:
+    print(args.num1 - args.num2)
+elif args.operation == &quot;mul&quot;:
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+</code></pre>
+Для запуска скрипта нужно использовать команду: 
+<pre><code>python script.py --help
+</code></pre>
+Парсинг аргументов из файла
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+parser.add_argument(&quot;operation&quot;, help=&quot;operation to perform&quot;, choices=[&quot;add&quot;, &quot;sub&quot;, &quot;mul&quot;, &quot;div&quot;])
+parser.add_argument(&quot;num1&quot;, help=&quot;first number&quot;, type=int)
+parser.add_argument(&quot;num2&quot;, help=&quot;second number&quot;, type=int)
+
+args = parser.parse_args(['@args.txt'])
+if args.operation == &quot;add&quot;:
+    print(args.num1 + args.num2)
+elif args.operation == &quot;sub&quot;:
+    print(args.num1 - args.num2)
+elif args.operation == &quot;mul&quot;:
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+</code></pre>
+Для использования данного примера нужно создать файл "args.txt" со следующим содержимым
+<pre><code>add 5 3
+</code></pre>
+Затем, чтобы запустить скрипт, нужно использовать команду
+<pre><code>python script.py @args.txt
+</code></pre>
+Аргумент со значением по умолчанию
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;--verbosity&quot;, help=&quot;increase output verbosity&quot;, action=&quot;store_true&quot;)
+parser.add_argument(&quot;--num&quot;, help=&quot;a number&quot;, type=int, default=5)
+
+args = parser.parse_args()
+if args.verbosity:
+    print(&quot;verbosity turned on&quot;)
+print(args.num * 2)
+</code></pre>
+Для запуска скрипта нужно использовать команду
+<pre><code>python script.py --verbosity --num 3
+</code></pre>
+Поддержка субкоманд
+<pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser()
+subparsers = parser.add_subparsers(title='subcommands', dest='subcommand')
+
+parser_a = subparsers.add_parser('command_a', help='command a help')
+parser_a.add_argument('foo', type=int, help='foo help')
+
+parser_b = subparsers.add_parser('command_b', help='command b help')
+parser_b.add_argument('--bar', type=str, help='bar help')
+
+args = parser.parse_args()
+if args.subcommand == 'command_a':
+    print(args.foo)
+else:
+    print(args.bar)
+</code></pre>
+Для запуска скрипта нужно использовать команду: 
+<pre><code>python script.py command_a 5
+</code></pre>
+или
+<pre><code>python script.py command_b --bar test
+</code></pre>

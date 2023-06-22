@@ -1,0 +1,19 @@
+Запустить сервер
+<pre><code>./manage.py runserver
+</code></pre>
+Создать Django проект
+<pre><code>django-admin startproject PROJECTNAME
+</code></pre>
+Перейти в папку с этим проектом
+<pre><code>cd PROJECTNAME
+</code></pre>
+Создать приложение (App)
+<pre><code>./manage.py startapp APPNAME
+</code></pre>
+Сделать миграцию (изменение в базе данных)
+<pre><code>./manage.py makemigrations
+./manage.py migrate
+</code></pre>
+Создать админа
+<pre><code>./manage.py createsuperuser
+</code></pre>

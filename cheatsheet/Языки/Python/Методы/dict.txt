@@ -1,0 +1,14 @@
+.clear()       Удаляет все элементы
+.copy()        Возвращает поверхностную копию словаря
+.fromkeys()    Создает словарь из заданной последовательности
+               print(dict.fromkeys(('key1', 'key2', 'key3'), 0)) # {'key1': 0, 'key2': 0, 'key3': 0}
+.get()         Возвращает значение ключа
+               print({"model": "Mustang", "year": 1964}.get("model")) # Mustang
+.items()       Возвращает вид пары словаря (ключ, значение)
+.keys()        Возвращает объект просмотра всех ключей
+.pop()         Удаляет и возвращает элемент с заданным ключом
+.popitem()     Возвращает и удаляет последний элемент из словаря
+.setdefault()  Returns the value of the specified key. If the key does not exist: insert the key, with the specified value
+               Возвращает значение по ключу. Если ключ отсутствует он вставляет ключ
+.update()      Updates the dictionary with the specified key-value pairs
+.values()      Возвращает список всех значений в словаре

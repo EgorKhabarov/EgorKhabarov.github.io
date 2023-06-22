@@ -1,0 +1,12 @@
+https://vedis-python.readthedocs.io/en/latest/quickstart.html
+<pre><code class="language-python">from vedis import Vedis
+    db = Vedis(&quot;:mem:&quot;)  # Create an in-memory database.
+    db = Vedis(&quot;Dict.vedis&quot;)
+    with db.transaction():
+        db[&quot;key&quot;] = &quot;value&quot;
+        db.rollback()  # Undo changes.
+        db.commit()
+    print(db[&quot;key&quot;])
+</code></pre>
+Пример использования в боте
+https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/

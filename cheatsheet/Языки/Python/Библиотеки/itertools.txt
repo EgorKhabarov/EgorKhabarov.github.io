@@ -1,0 +1,101 @@
+Модуль itertools
+Возвращает итератор, который генерирует бесконечный ряд чисел, начиная с start, с шагом step.
+<pre><code class="language-python">from itertools import count
+
+count(start=0, step=1)
+</code></pre>
+Возвращает итератор, который бесконечно циклит элементы в iterable.
+<pre><code class="language-python">from itertools import cycle
+
+cycle(iterable)
+</code></pre>
+Возвращает итератор, который генерирует все возможные перестановки 
+элементов iterable с длиной r (по умолчанию длина равна длине iterable).
+Если r задан, то выдаются только перестановки из r элементов.
+<pre><code class="language-python">from itertools import permutations
+
+permutations(iterable, r=None)
+</code></pre>
+Возвращает итератор, который генерирует все возможные комбинации элементов iterable с длиной r.
+<pre><code class="language-python">from itertools import combinations
+
+combinations(iterable, r)
+</code></pre>
+Возвращает итератор, который генерирует все возможные комбинации элементов iterable с длиной r, с повторением элементов.
+<pre><code class="language-python">from itertools import combinations_with_replacement
+
+combinations_with_replacement(iterable, r)
+</code></pre>
+Возвращает итератор, который объединяет несколько итераторов в один.
+<pre><code class="language-python">from itertools import chain
+
+chain(*iterables)
+</code></pre>
+Возвращает итератор, который объединяет элементы из каждого итератора в кортежи. 
+Если итераторы разных длин, то элементы для дополнения берутся из fillvalue.
+<pre><code class="language-python">from itertools import zip_longest
+
+zip_longest(*iterables, fillvalue=None)
+</code></pre>
+Возвращает итератор, который группирует элементы iterable по значениям функции key.
+<pre><code class="language-python">from itertools import groupby
+
+groupby(iterable, key=None)
+</code></pre>
+Возвращает итератор, который выдаёт элементы из iterable, начиная с start, и заканчивая stop, с шагом step.
+<pre><code class="language-python">from itertools import islice
+
+islice(iterable, start, stop=None, step=1)
+</code></pre>
+Возвращает итератор, который применяет функцию function к каждому элементу iterable, который представлен в виде кортежа.
+<pre><code class="language-python">from itertools import starmap
+
+starmap(function, iterable)
+</code></pre>
+Возвращает итератор, который выдаёт все возможные пары (или кортежи) элементов из каждого из iterables. 
+repeat определяет, сколько раз каждый итератор будет повторен.
+<pre><code class="language-python">from itertools import product
+
+product(*iterables, repeat=1)
+</code></pre>
+Возвращает итератор, который выдаёт сумму (или другую комбинацию) элементов iterable, используя функцию func.
+<pre><code class="language-python">from itertools import accumulate
+
+accumulate(iterable, func=operator.add)
+</code></pre>
+Возвращает итератор, который выдаёт элементы data, соответствующие истинным значениям selectors.
+<pre><code class="language-python">from itertools import compress
+
+compress(data, selectors)
+</code></pre>
+Возвращает итератор, который выдаёт элементы iterable после первого элемента, для которого predicate вернёт ложное значение.
+<pre><code class="language-python">from itertools import dropwhile
+
+dropwhile(predicate, iterable)
+</code></pre>
+Возвращает итератор, который выдаёт элементы iterable, для которых predicate вернёт ложное значение.
+<pre><code class="language-python">from itertools import filterfalse
+
+filterfalse(predicate, iterable)
+</code></pre>
+Возвращает итератор, который выдаёт пары соседних элементов из iterable.
+<pre><code class="language-python">from itertools import pairwise
+
+pairwise(iterable)
+</code></pre>
+Возвращает итератор, который выдаёт object times раз (бесконечное количество раз, если times не указан).
+<pre><code class="language-python">from itertools import repeat
+
+repeat(object, times=None)
+</code></pre>
+Возвращает итератор, который выдаёт элементы iterable до первого элемента, для которого predicate вернёт ложное значение.
+<pre><code class="language-python">from itertools import takewhile
+
+takewhile(predicate, iterable)
+</code></pre>
+Возвращает n независимых итераторов, каждый из которых может быть 
+использован независимо для перебора элементов исходного iterable.
+<pre><code class="language-python">from itertools import tee
+
+tee(iterable, n=2)
+</code></pre>

@@ -1,0 +1,63 @@
+Создание строкового объекта было невозможным в языке Си. 
+Для создании строки использовался массив символов - char arr[]. 
+В языке C++ все было упрощено и для создания строк появился новый отдельный объект. 
+Вместе с объектом появились и новые функции для обработки строк. 
+Вместе с тем не стоит забывать, что строки до сих пор являются массивом символов, 
+а это означает, что с каждым символом можно работать по отдельности, будто это элемент одного общего массива.
+Работа со строками не отличается от работы с массивами. 
+Вот только для записи целой строки мы можем воспользоваться специальной функцией gets(). 
+С недавних пор более предпочтительно использовать метод gets_s(), что более защищен и позволяет выполнить получения строки от пользователя. 
+Язык C++ спокойно может работать с кириллицей, при условие что вы подключите обработку символов кириллицы. 
+Для корректной работы необходимо подключить библиотеку «clocale», а также в метода main воспользоваться функцией setlocale:
+<pre><code class="language-cpp">#include &amp;lt;clocale&gt;
+
+using namespace std; 
+
+int main() {
+    // Установка поддержки кириллицы
+    setlocale(LC_CTYPE, &quot;rus&quot;);
+
+    return 0; 
+}
+</code></pre>
+python
+<pre><code class="language-python">x = &quot;2&quot;
+y = &quot;4&quot;
+z = int(x + y + y)
+print(z+6) # 250
+</code></pre>
+C++
+<pre><code class="language-cpp">#include &amp;lt;iostream&gt;
+#include &amp;lt;string&gt;
+using namespace std;
+
+int main() {
+    string x = &quot;2&quot;;
+    string y = &quot;4&quot;;
+    int z = stoi(x + y + y);
+    cout &amp;lt;&amp;lt; z + 6 &amp;lt;&amp;lt; endl; // 250
+    return 0;
+}
+</code></pre>
+stoi() - это функция стандартной библиотеки C++, которая используется для преобразования строки 
+(например, содержащей текстовое представление числа) в целое число (int). 
+Функция std::stoi() возвращает полученное целое число.
+python
+<pre><code class="language-python">x = 2
+y = 4
+z = str(x + y + y)
+print(f&quot;f({z})&quot;) # f(10)
+</code></pre>
+С++
+<pre><code class="language-cpp">#include &amp;lt;iostream&gt;
+#include &amp;lt;string&gt;
+using namespace std;
+
+int main() {
+    int x = 2;
+    int y = 4;
+    string z = to_string(x + y + y);
+    cout &amp;lt;&amp;lt; &quot;f(&quot; &amp;lt;&amp;lt; z &amp;lt;&amp;lt; &quot;)&quot; &amp;lt;&amp;lt; endl; // f(10)
+    return 0;
+}
+</code></pre>

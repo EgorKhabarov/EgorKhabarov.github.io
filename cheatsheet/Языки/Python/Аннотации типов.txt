@@ -1,0 +1,128 @@
+<pre><code class="language-python">from typing import Any # Любой тип
+</code></pre>
+<pre><code class="language-python">from typing import Literal # Один из вариантов
+direction: Literal[&quot;ASC&quot;, &quot;DESC&quot;] = &quot;DESC&quot;
+</code></pre>
+<pre><code class="language-python">from typing import Union
+val: Union[int, float] = 20.8 # or 20
+</code></pre>
+<pre><code class="language-python">from typing import Final
+
+val: Final = 2
+val += 1 # Ошибки не произойдёт, но idle подсветит как ошибку.
+</code></pre>
+<h1>Использование статической проверки типов в Python</h1>
+Интерпретатор Python по умолчанию не осуществляет проверку типов.
+Однако была создана версия интерпретатора Python – mypy,
+которая обеспечивает проверку типов на уровне интерпретатора.
+<pre><code class="language-python">from typing import NoReturn
+# NoReturn сообщает что функция не завершается нормально.
+# Например она возбуждает исключение.
+
+def forever() -&gt; NoReturn:
+    while True:
+        pass
+</code></pre>
+Если это генераторная функция, то есть её тело содержит оператор yield, 
+для возвращаемого можно воспользоваться аннотацией <code>Iterable[T]</code>, либо <code>Generator[YT, ST, RT]</code>:
+<pre><code class="language-python">def generate_two() -&gt; Iterable[int]:
+    yield 1
+    yield &quot;2&quot;  # Incompatible types in &quot;yield&quot; (actual type &quot;str&quot;, expected type &quot;int&quot;)
+</code></pre>
+<pre><code class="language-python">from typing import Optional
+
+amount: int
+amount = None  # Incompatible types in assignment (expression has type &quot;None&quot;, variable has type &quot;int&quot;)
+
+price: Optional[int]
+price = None
+
+# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
+</code></pre>
+Предварительное объявление
+Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
+<pre><code class="language-python">class LinkedList:
+    data: Any
+    next: LinkedList  # NameError: name 'LinkedList' is not defined
+</code></pre>
+Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.
+<pre><code class="language-python">class LinkedList:
+    data: Any
+    next: 'LinkedList'
+</code></pre>
+Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
+<pre><code class="language-python">some_variable: 'somemodule.SomeClass'
+</code></pre>
+или
+<pre><code class="language-python">from __future__ import annotations
+
+class LinkedList:
+    data: int
+    next: LinkedList
+</code></pre>
+<h1>Generic-типы</h1>
+Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
+Например, если вы пишете контейнер, который хранит однотипные данные.
+Или функцию, которая возвращает данные того же типа, что и один из аргументов.
+Такие типы как List или Callable, которые, мы видели раньше как раз используют механизм дженериков.
+Но кроме стандартных типов, вы можете создать свои дженерик-типы.
+Для этого надо, во-первых, завести TypeVar переменную,
+которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
+<pre><code class="language-python">T = TypeVar(&quot;T&quot;)
+
+class LinkedList(Generic[T]):
+    data: T
+    next: &quot;LinkedList[T]&quot;
+
+    def __init__(self, data: T):
+        self.data = data
+
+head_int: LinkedList[int] = LinkedList(1)
+head_int.next = LinkedList(2)
+head_int.next = 2  # error: Incompatible types in assignment (expression has type &quot;int&quot;, variable has type &quot;LinkedList[int]&quot;)
+head_int.data += 1
+head_int.data.replace(&quot;0&quot;, &quot;1&quot;)  # error: &quot;int&quot; has no attribute &quot;replace&quot;
+
+head_str: LinkedList[str] = LinkedList(&quot;1&quot;)
+head_str.data.replace(&quot;0&quot;, &quot;1&quot;)
+
+head_str = LinkedList[str](1)  # error: Argument 1 to &quot;LinkedList&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;
+</code></pre>
+Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
+Если требуется, дженерик может иметь любое количеством параметров: Generic[T1, T2, T3].
+Также, при определении TypeVar вы можете ограничить допустимые типы:
+<pre><code class="language-python">T2 = TypeVar(&quot;T2&quot;, int, float)
+
+class SomethingNumeric(Generic[T2]):
+    pass
+
+x = SomethingNumeric[str]()  # error: Value of type variable &quot;T2&quot; of &quot;SomethingNumeric&quot; cannot be &quot;str&quot;
+</code></pre>
+<h1>Cast</h1>
+Иногда анализатор статический анализатор не может корректно определить тип переменной,
+в этом случае можно использовать функцию cast.
+Её единственная задача — показать анализатору, что выражение имеет определённый тип.
+Например:
+<pre><code class="language-python">from typing import List, cast
+
+def find_first_str(a: List[object]) -&gt; str:
+    index = next(i for i, x in enumerate(a) if isinstance(x, str))
+    return cast(str, a[index])
+</code></pre>
+Также это может быть полезно для декораторов:
+<pre><code class="language-python">MyCallable = TypeVar(&quot;MyCallable&quot;, bound=Callable)
+
+def logged(func: MyCallable) -&gt; MyCallable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(func.__name__, args, kwargs)
+        return func(*args, **kwargs)
+
+    return cast(MyCallable, wrapper)
+
+@logged
+def mysum(a: int, b: int) -&gt; int:
+    return a + b
+
+mysum(a=1)  # error: Missing positional argument &quot;b&quot; in call to &quot;mysum&quot;
+</code></pre>

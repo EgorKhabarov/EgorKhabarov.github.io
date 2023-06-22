@@ -1,0 +1,18 @@
+TSV - Tab Separated Values
+Текстовый формат файла, который похож на CSV, но вместо запятых использует табуляцию для
+разделения значений. Он также часто используется для хранения и обмена табличными данными.
+Пример
+<pre><code>Name        Age City
+John Smith  30  New York
+Jane Doe    25  Chicago
+</code></pre>
+Другие виды файлов баз данных
++---------------------------------------------------------------------+
+| .MDB (Microsoft Access) - файл базы данных Microsoft Access         |
+| .SQLite - файл базы данных SQLite                                   |
+| .SQL - файл скрипта SQL                                             |
+| .XLSX (Microsoft Excel) - файл электронной таблицы Microsoft Excel  |
+| .MDF (Microsoft SQL Server) - файл базы данных Microsoft SQL Server |
+| .GDB (Esri Geodatabase) - файл географической базы данных Esri      |
+| .DBF (dBase) - файл базы данных dBase                               |
++---------------------------------------------------------------------+
