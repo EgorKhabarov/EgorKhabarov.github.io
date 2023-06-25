@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="cheatsheet\icon.png">
+    <link rel="icon" type="image/png" href="./cheatsheet/icon.png">
     <title>Шпаргалка</title>
     <style>
         ::-webkit-scrollbar {
@@ -283,6 +283,7 @@ function getCheatSheat(url) {
 }
 
 function GET(url) {
+    console.log(url)
     return PutHtmlText(getCheatSheat(url))
 }
 
@@ -294,19 +295,19 @@ function GET(url) {
     <div id="Общее3" style="display:none;" class="button-folder">
     <button onclick="showText(Парадигмы2);" class="button">📂&nbsp;Парадигмы</button>
     <div id="Парадигмы2" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Общее&#x2f;Парадигмы&#x2f;Императивная.md');" class="button">📄&nbsp;Императивная</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;Парадигмы&#x2f;Декларативная.md');" class="button">📄&nbsp;Декларативная</button>
+<button onclick="GET('Общее&#x2f;Парадигмы&#x2f;Императивная.md');" class="button">📄&nbsp;Императивная</button>
+<button onclick="GET('Общее&#x2f;Парадигмы&#x2f;Декларативная.md');" class="button">📄&nbsp;Декларативная</button>
 
 </div>
-<button onclick="GET('cheatsheet/Общее&#x2f;ООП.md');" class="button">📄&nbsp;ООП</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;Интерпретатор Компилятор.md');" class="button">📄&nbsp;Интерпретатор&nbsp;Компилятор</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;sync asyn.md');" class="button">📄&nbsp;sync&nbsp;asyn</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;GIT.md');" class="button">📄&nbsp;GIT</button>
+<button onclick="GET('Общее&#x2f;ООП.md');" class="button">📄&nbsp;ООП</button>
+<button onclick="GET('Общее&#x2f;Интерпретатор Компилятор.md');" class="button">📄&nbsp;Интерпретатор&nbsp;Компилятор</button>
+<button onclick="GET('Общее&#x2f;sync asyn.md');" class="button">📄&nbsp;sync&nbsp;asyn</button>
+<button onclick="GET('Общее&#x2f;GIT.md');" class="button">📄&nbsp;GIT</button>
     <button onclick="showText(HTTP3);" class="button">📂&nbsp;HTTP</button>
     <div id="HTTP3" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;HTTР.md');" class="button">📄&nbsp;HTTР</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;Запросы.md');" class="button">📄&nbsp;Запросы</button>
-<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;Протоколы связи.md');" class="button">📄&nbsp;Протоколы&nbsp;связи</button>
+<button onclick="GET('Общее&#x2f;HTTP&#x2f;HTTР.md');" class="button">📄&nbsp;HTTР</button>
+<button onclick="GET('Общее&#x2f;HTTP&#x2f;Запросы.md');" class="button">📄&nbsp;Запросы</button>
+<button onclick="GET('Общее&#x2f;HTTP&#x2f;Протоколы связи.md');" class="button">📄&nbsp;Протоколы&nbsp;связи</button>
 
 </div>
 
@@ -317,109 +318,109 @@ function GET(url) {
     <div id="Python12" style="display:none;" class="button-folder">
     <button onclick="showText(Библиотеки8);" class="button">📂&nbsp;Библиотеки</button>
     <div id="Библиотеки8" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;io.md');" class="button">📄&nbsp;io</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;os.md');" class="button">📄&nbsp;os</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;sys.md');" class="button">📄&nbsp;sys</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;argparse.md');" class="button">📄&nbsp;argparse</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;subprocess.md');" class="button">📄&nbsp;subprocess</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;itertools.md');" class="button">📄&nbsp;itertools</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;collections.md');" class="button">📄&nbsp;collections</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;functools.md');" class="button">📄&nbsp;functools</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;contextlib.md');" class="button">📄&nbsp;contextlib</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;difflib.md');" class="button">📄&nbsp;difflib</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;random.md');" class="button">📄&nbsp;random</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;decimal.md');" class="button">📄&nbsp;decimal</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;fractions.md');" class="button">📄&nbsp;fractions</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;io.md');" class="button">📄&nbsp;io</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;os.md');" class="button">📄&nbsp;os</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;sys.md');" class="button">📄&nbsp;sys</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;argparse.md');" class="button">📄&nbsp;argparse</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;subprocess.md');" class="button">📄&nbsp;subprocess</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;itertools.md');" class="button">📄&nbsp;itertools</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;collections.md');" class="button">📄&nbsp;collections</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;functools.md');" class="button">📄&nbsp;functools</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;contextlib.md');" class="button">📄&nbsp;contextlib</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;difflib.md');" class="button">📄&nbsp;difflib</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;random.md');" class="button">📄&nbsp;random</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;decimal.md');" class="button">📄&nbsp;decimal</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;fractions.md');" class="button">📄&nbsp;fractions</button>
     <button onclick="showText(Django7);" class="button">📂&nbsp;Django</button>
     <div id="Django7" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;Django&#x2f;Команды.md');" class="button">📄&nbsp;Команды</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;Django&#x2f;Команды.md');" class="button">📄&nbsp;Команды</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;logging.md');" class="button">📄&nbsp;logging</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;textwrap.md');" class="button">📄&nbsp;textwrap</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;logging.md');" class="button">📄&nbsp;logging</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;textwrap.md');" class="button">📄&nbsp;textwrap</button>
     <button onclick="showText(PIL8);" class="button">📂&nbsp;PIL</button>
     <div id="PIL8" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;PIL&#x2f;ImageDraw.Draw.md');" class="button">📄&nbsp;ImageDraw.Draw</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;PIL&#x2f;ImageDraw.Draw.md');" class="button">📄&nbsp;ImageDraw.Draw</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;datetime.md');" class="button">📄&nbsp;datetime</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;datetime.md');" class="button">📄&nbsp;datetime</button>
 
 </div>
     <button onclick="showText(Методы9);" class="button">📂&nbsp;Методы</button>
     <div id="Методы9" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;list.md');" class="button">📄&nbsp;list</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;srt.md');" class="button">📄&nbsp;srt</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;dict.md');" class="button">📄&nbsp;dict</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;set.md');" class="button">📄&nbsp;set</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Методы&#x2f;list.md');" class="button">📄&nbsp;list</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Методы&#x2f;srt.md');" class="button">📄&nbsp;srt</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Методы&#x2f;dict.md');" class="button">📄&nbsp;dict</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Методы&#x2f;set.md');" class="button">📄&nbsp;set</button>
 
 </div>
     <button onclick="showText(Магическиеметоды10);" class="button">📂&nbsp;Магические&nbsp;методы</button>
     <div id="Магическиеметоды10" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Кратко о использовании.md');" class="button">📄&nbsp;Кратко&nbsp;о&nbsp;использовании</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сlass.md');" class="button">📄&nbsp;Сlass</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сравнения.md');" class="button">📄&nbsp;Сравнения</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Унарные операторы.md');" class="button">📄&nbsp;Унарные&nbsp;операторы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Преобразование типов.md');" class="button">📄&nbsp;Преобразование&nbsp;типов</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Контроль доступа к атрибутам.md');" class="button">📄&nbsp;Контроль&nbsp;доступа&nbsp;к&nbsp;атрибутам</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Магия контейнеров.md');" class="button">📄&nbsp;Магия&nbsp;контейнеров</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;isinstance().md');" class="button">📄&nbsp;isinstance()</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Вызываемые объекты.md');" class="button">📄&nbsp;Вызываемые&nbsp;объекты</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Менеджеры контекста.md');" class="button">📄&nbsp;Менеджеры&nbsp;контекста</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Построение дескрипторов.md');" class="button">📄&nbsp;Построение&nbsp;дескрипторов</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Копирование.md');" class="button">📄&nbsp;Копирование</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Ещё.md');" class="button">📄&nbsp;Ещё</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Кратко о использовании.md');" class="button">📄&nbsp;Кратко&nbsp;о&nbsp;использовании</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сlass.md');" class="button">📄&nbsp;Сlass</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сравнения.md');" class="button">📄&nbsp;Сравнения</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Унарные операторы.md');" class="button">📄&nbsp;Унарные&nbsp;операторы</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Преобразование типов.md');" class="button">📄&nbsp;Преобразование&nbsp;типов</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Контроль доступа к атрибутам.md');" class="button">📄&nbsp;Контроль&nbsp;доступа&nbsp;к&nbsp;атрибутам</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Магия контейнеров.md');" class="button">📄&nbsp;Магия&nbsp;контейнеров</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;isinstance().md');" class="button">📄&nbsp;isinstance()</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Вызываемые объекты.md');" class="button">📄&nbsp;Вызываемые&nbsp;объекты</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Менеджеры контекста.md');" class="button">📄&nbsp;Менеджеры&nbsp;контекста</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Построение дескрипторов.md');" class="button">📄&nbsp;Построение&nbsp;дескрипторов</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Копирование.md');" class="button">📄&nbsp;Копирование</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Ещё.md');" class="button">📄&nbsp;Ещё</button>
 
 </div>
     <button onclick="showText(ДекораторыЗамыкания11);" class="button">📂&nbsp;Декораторы&nbsp;Замыкания</button>
     <div id="ДекораторыЗамыкания11" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Декораторы Замыкания.md');" class="button">📄&nbsp;Декораторы&nbsp;Замыкания</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Аргументы dataclass.md');" class="button">📄&nbsp;Аргументы&nbsp;dataclass</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;property.md');" class="button">📄&nbsp;property</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;cached_property.md');" class="button">📄&nbsp;cached_property</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;staticmethod.md');" class="button">📄&nbsp;staticmethod</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;overload.md');" class="button">📄&nbsp;overload</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;final.md');" class="button">📄&nbsp;final</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Декораторы Замыкания.md');" class="button">📄&nbsp;Декораторы&nbsp;Замыкания</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Аргументы dataclass.md');" class="button">📄&nbsp;Аргументы&nbsp;dataclass</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;property.md');" class="button">📄&nbsp;property</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;cached_property.md');" class="button">📄&nbsp;cached_property</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;staticmethod.md');" class="button">📄&nbsp;staticmethod</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;overload.md');" class="button">📄&nbsp;overload</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;final.md');" class="button">📄&nbsp;final</button>
 
 </div>
     <button onclick="showText(pip12);" class="button">📂&nbsp;pip</button>
     <div id="pip12" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;pip&#x2f;pip.md');" class="button">📄&nbsp;pip</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;pip&#x2f;requirements.txt.md');" class="button">📄&nbsp;requirements.txt</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;pip&#x2f;pip.md');" class="button">📄&nbsp;pip</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;pip&#x2f;requirements.txt.md');" class="button">📄&nbsp;requirements.txt</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;with as.md');" class="button">📄&nbsp;with&nbsp;as</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;fstrings.md');" class="button">📄&nbsp;fstrings</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;print(file=).md');" class="button">📄&nbsp;print(file=)</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;for in list comprehension.md');" class="button">📄&nbsp;for&nbsp;in&nbsp;list&nbsp;comprehension</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Умножение списков.md');" class="button">📄&nbsp;Умножение&nbsp;списков</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;yield from.md');" class="button">📄&nbsp;yield&nbsp;from</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;PyCharm.md');" class="button">📄&nbsp;PyCharm</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;import.md');" class="button">📄&nbsp;import</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Встроенные функции.md');" class="button">📄&nbsp;Встроенные&nbsp;функции</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Аннотации типов.md');" class="button">📄&nbsp;Аннотации&nbsp;типов</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;with as.md');" class="button">📄&nbsp;with&nbsp;as</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;fstrings.md');" class="button">📄&nbsp;fstrings</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;print(file=).md');" class="button">📄&nbsp;print(file=)</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;for in list comprehension.md');" class="button">📄&nbsp;for&nbsp;in&nbsp;list&nbsp;comprehension</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Умножение списков.md');" class="button">📄&nbsp;Умножение&nbsp;списков</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;yield from.md');" class="button">📄&nbsp;yield&nbsp;from</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;PyCharm.md');" class="button">📄&nbsp;PyCharm</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;import.md');" class="button">📄&nbsp;import</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Встроенные функции.md');" class="button">📄&nbsp;Встроенные&nbsp;функции</button>
+<button onclick="GET('Языки&#x2f;Python&#x2f;Аннотации типов.md');" class="button">📄&nbsp;Аннотации&nbsp;типов</button>
 
 </div>
     <button onclick="showText(SQL13);" class="button">📂&nbsp;SQL</button>
     <div id="SQL13" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;JOIN.md');" class="button">📄&nbsp;JOIN</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Операторы.md');" class="button">📄&nbsp;Операторы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
+<button onclick="GET('Языки&#x2f;SQL&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
+<button onclick="GET('Языки&#x2f;SQL&#x2f;JOIN.md');" class="button">📄&nbsp;JOIN</button>
+<button onclick="GET('Языки&#x2f;SQL&#x2f;Операторы.md');" class="button">📄&nbsp;Операторы</button>
+<button onclick="GET('Языки&#x2f;SQL&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;RegExp.md');" class="button">📄&nbsp;RegExp</button>
+<button onclick="GET('Языки&#x2f;RegExp.md');" class="button">📄&nbsp;RegExp</button>
     <button onclick="showText(Dockerfile14);" class="button">📂&nbsp;Dockerfile</button>
     <div id="Dockerfile14" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Dockerfile&#x2f;Dockerfile.md');" class="button">📄&nbsp;Dockerfile</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Dockerfile&#x2f;RUN mkdir -p.md');" class="button">📄&nbsp;RUN&nbsp;mkdir&nbsp;-p</button>
+<button onclick="GET('Языки&#x2f;Dockerfile&#x2f;Dockerfile.md');" class="button">📄&nbsp;Dockerfile</button>
+<button onclick="GET('Языки&#x2f;Dockerfile&#x2f;RUN mkdir -p.md');" class="button">📄&nbsp;RUN&nbsp;mkdir&nbsp;-p</button>
 
 </div>
     <button onclick="showText(JavaScript15);" class="button">📂&nbsp;JavaScript</button>
     <div id="JavaScript15" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;Списки.md');" class="button">📄&nbsp;Списки</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;for.md');" class="button">📄&nbsp;for</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;handlebar.md');" class="button">📄&nbsp;handlebar</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;Переменные.md');" class="button">📄&nbsp;Переменные</button>
+<button onclick="GET('Языки&#x2f;JavaScript&#x2f;Списки.md');" class="button">📄&nbsp;Списки</button>
+<button onclick="GET('Языки&#x2f;JavaScript&#x2f;for.md');" class="button">📄&nbsp;for</button>
+<button onclick="GET('Языки&#x2f;JavaScript&#x2f;handlebar.md');" class="button">📄&nbsp;handlebar</button>
+<button onclick="GET('Языки&#x2f;JavaScript&#x2f;Переменные.md');" class="button">📄&nbsp;Переменные</button>
 
 </div>
     <button onclick="showText(CSS16);" class="button">📂&nbsp;CSS</button>
@@ -428,79 +429,79 @@ function GET(url) {
 </div>
     <button onclick="showText(HTML17);" class="button">📂&nbsp;HTML</button>
     <div id="HTML17" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;HTML&#x2f;html.md');" class="button">📄&nbsp;html</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;HTML&#x2f;tag input.md');" class="button">📄&nbsp;tag&nbsp;input</button>
+<button onclick="GET('Языки&#x2f;HTML&#x2f;html.md');" class="button">📄&nbsp;html</button>
+<button onclick="GET('Языки&#x2f;HTML&#x2f;tag input.md');" class="button">📄&nbsp;tag&nbsp;input</button>
 
 </div>
     <button onclick="showText(Cpp18);" class="button">📂&nbsp;Cpp</button>
     <div id="Cpp18" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;if-else,switch-case.md');" class="button">📄&nbsp;if-else,switch-case</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;rand.md');" class="button">📄&nbsp;rand</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;try-catch.md');" class="button">📄&nbsp;try-catch</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Массивы.md');" class="button">📄&nbsp;Массивы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатели.md');" class="button">📄&nbsp;Указатели</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Динамические массивы.md');" class="button">📄&nbsp;Динамические&nbsp;массивы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Символы и строки.md');" class="button">📄&nbsp;Символы&nbsp;и&nbsp;строки</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Структуры данных.md');" class="button">📄&nbsp;Структуры&nbsp;данных</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Перечисления (Enum).md');" class="button">📄&nbsp;Перечисления&nbsp;(Enum)</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Работа с файлами.md');" class="button">📄&nbsp;Работа&nbsp;с&nbsp;файлами</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Перегрузка функций.md');" class="button">📄&nbsp;Перегрузка&nbsp;функций</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Математические операции.md');" class="button">📄&nbsp;Математические&nbsp;операции</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;(Введение в ООП) Классы и объекты.md');" class="button">📄&nbsp;(Введение&nbsp;в&nbsp;ООП)&nbsp;Классы&nbsp;и&nbsp;объекты</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Конструкторы и деструкторы.md');" class="button">📄&nbsp;Конструкторы&nbsp;и&nbsp;деструкторы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;20 Дружественные функции.md');" class="button">📄&nbsp;20&nbsp;Дружественные&nbsp;функции</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Дружественные классы.md');" class="button">📄&nbsp;Дружественные&nbsp;классы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатель this.md');" class="button">📄&nbsp;Указатель&nbsp;this</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Наследование классов (ООП).md');" class="button">📄&nbsp;Наследование&nbsp;классов&nbsp;(ООП)</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Шаблоны функций (template).md');" class="button">📄&nbsp;Шаблоны&nbsp;функций&nbsp;(template)</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Шаблоны классов.md');" class="button">📄&nbsp;Шаблоны&nbsp;классов</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;end.md');" class="button">📄&nbsp;end</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;ChatGPT.md');" class="button">📄&nbsp;ChatGPT</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Операции над числами.md');" class="button">📄&nbsp;Операции&nbsp;над&nbsp;числами</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;for while.md');" class="button">📄&nbsp;for&nbsp;while</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Массив.md');" class="button">📄&nbsp;Массив</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Строка.md');" class="button">📄&nbsp;Строка</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатели2.md');" class="button">📄&nbsp;Указатели2</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;if-else,switch-case.md');" class="button">📄&nbsp;if-else,switch-case</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;rand.md');" class="button">📄&nbsp;rand</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;try-catch.md');" class="button">📄&nbsp;try-catch</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Массивы.md');" class="button">📄&nbsp;Массивы</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Указатели.md');" class="button">📄&nbsp;Указатели</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Динамические массивы.md');" class="button">📄&nbsp;Динамические&nbsp;массивы</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Символы и строки.md');" class="button">📄&nbsp;Символы&nbsp;и&nbsp;строки</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Структуры данных.md');" class="button">📄&nbsp;Структуры&nbsp;данных</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Перечисления (Enum).md');" class="button">📄&nbsp;Перечисления&nbsp;(Enum)</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Работа с файлами.md');" class="button">📄&nbsp;Работа&nbsp;с&nbsp;файлами</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Перегрузка функций.md');" class="button">📄&nbsp;Перегрузка&nbsp;функций</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Математические операции.md');" class="button">📄&nbsp;Математические&nbsp;операции</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;(Введение в ООП) Классы и объекты.md');" class="button">📄&nbsp;(Введение&nbsp;в&nbsp;ООП)&nbsp;Классы&nbsp;и&nbsp;объекты</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Конструкторы и деструкторы.md');" class="button">📄&nbsp;Конструкторы&nbsp;и&nbsp;деструкторы</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;20 Дружественные функции.md');" class="button">📄&nbsp;20&nbsp;Дружественные&nbsp;функции</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Дружественные классы.md');" class="button">📄&nbsp;Дружественные&nbsp;классы</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Указатель this.md');" class="button">📄&nbsp;Указатель&nbsp;this</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Наследование классов (ООП).md');" class="button">📄&nbsp;Наследование&nbsp;классов&nbsp;(ООП)</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Шаблоны функций (template).md');" class="button">📄&nbsp;Шаблоны&nbsp;функций&nbsp;(template)</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Шаблоны классов.md');" class="button">📄&nbsp;Шаблоны&nbsp;классов</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;end.md');" class="button">📄&nbsp;end</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;ChatGPT.md');" class="button">📄&nbsp;ChatGPT</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Операции над числами.md');" class="button">📄&nbsp;Операции&nbsp;над&nbsp;числами</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;for while.md');" class="button">📄&nbsp;for&nbsp;while</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Массив.md');" class="button">📄&nbsp;Массив</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Строка.md');" class="button">📄&nbsp;Строка</button>
+<button onclick="GET('Языки&#x2f;Cpp&#x2f;Указатели2.md');" class="button">📄&nbsp;Указатели2</button>
 
 </div>
     <button onclick="showText(Java22);" class="button">📂&nbsp;Java</button>
     <div id="Java22" style="display:none;" class="button-folder">
     <button onclick="showText(Запуск20);" class="button">📂&nbsp;Запуск</button>
     <div id="Запуск20" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Запуск&#x2f;Запуск.md');" class="button">📄&nbsp;Запуск</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Запуск&#x2f;Аргументы.md');" class="button">📄&nbsp;Аргументы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Запуск&#x2f;Запуск.md');" class="button">📄&nbsp;Запуск</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Запуск&#x2f;Аргументы.md');" class="button">📄&nbsp;Аргументы</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Логические операторы.md');" class="button">📄&nbsp;Логические&nbsp;операторы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Массив (Array).md');" class="button">📄&nbsp;Массив&nbsp;(Array)</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Логические операторы.md');" class="button">📄&nbsp;Логические&nbsp;операторы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Массив (Array).md');" class="button">📄&nbsp;Массив&nbsp;(Array)</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
     <button onclick="showText(Классы22);" class="button">📂&nbsp;Классы</button>
     <div id="Классы22" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Объекты, конструкторы.md');" class="button">📄&nbsp;Объекты,&nbsp;конструкторы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Объекты, конструкторы.md');" class="button">📄&nbsp;Объекты,&nbsp;конструкторы</button>
     <button onclick="showText(Методы22);" class="button">📂&nbsp;Методы</button>
     <div id="Методы22" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы.md');" class="button">📄&nbsp;Методы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы 2.md');" class="button">📄&nbsp;Методы&nbsp;2</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Не статические методы.md');" class="button">📄&nbsp;Не&nbsp;статические&nbsp;методы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Перегруженные методы.md');" class="button">📄&nbsp;Перегруженные&nbsp;методы</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Переопределение методов.md');" class="button">📄&nbsp;Переопределение&nbsp;методов</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы.md');" class="button">📄&nbsp;Методы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы 2.md');" class="button">📄&nbsp;Методы&nbsp;2</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Не статические методы.md');" class="button">📄&nbsp;Не&nbsp;статические&nbsp;методы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Перегруженные методы.md');" class="button">📄&nbsp;Перегруженные&nbsp;методы</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Переопределение методов.md');" class="button">📄&nbsp;Переопределение&nbsp;методов</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Наследование.md');" class="button">📄&nbsp;Наследование</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Классы&#x2f;Наследование.md');" class="button">📄&nbsp;Наследование</button>
 
 </div>
-<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Исключения.md');" class="button">📄&nbsp;Исключения</button>
+<button onclick="GET('Языки&#x2f;Java&#x2f;Исключения.md');" class="button">📄&nbsp;Исключения</button>
 
 </div>
     <button onclick="showText(Bash23);" class="button">📂&nbsp;Bash</button>
     <div id="Bash23" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Языки&#x2f;Bash&#x2f;help.md');" class="button">📄&nbsp;help</button>
-<button onclick="GET('cheatsheet/Языки&#x2f;Bash&#x2f;Переменные окружения.md');" class="button">📄&nbsp;Переменные&nbsp;окружения</button>
+<button onclick="GET('Языки&#x2f;Bash&#x2f;help.md');" class="button">📄&nbsp;help</button>
+<button onclick="GET('Языки&#x2f;Bash&#x2f;Переменные окружения.md');" class="button">📄&nbsp;Переменные&nbsp;окружения</button>
 
 </div>
 
@@ -509,27 +510,27 @@ function GET(url) {
     <div id="Другое26" style="display:none;" class="button-folder">
     <button onclick="showText(Форматыфайлов25);" class="button">📂&nbsp;Форматы&nbsp;файлов</button>
     <div id="Форматыфайлов25" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;JSON.md');" class="button">📄&nbsp;JSON</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;YAML.md');" class="button">📄&nbsp;YAML</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;TOML.md');" class="button">📄&nbsp;TOML</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;INI.md');" class="button">📄&nbsp;INI</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;XML.md');" class="button">📄&nbsp;XML</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;CSV.md');" class="button">📄&nbsp;CSV</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;TSV и другие.md');" class="button">📄&nbsp;TSV&nbsp;и&nbsp;другие</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;SQLite3 to CSV.md');" class="button">📄&nbsp;SQLite3&nbsp;to&nbsp;CSV</button>
-<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;Vedis db.md');" class="button">📄&nbsp;Vedis&nbsp;db</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;JSON.md');" class="button">📄&nbsp;JSON</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;YAML.md');" class="button">📄&nbsp;YAML</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;TOML.md');" class="button">📄&nbsp;TOML</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;INI.md');" class="button">📄&nbsp;INI</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;XML.md');" class="button">📄&nbsp;XML</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;CSV.md');" class="button">📄&nbsp;CSV</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;TSV и другие.md');" class="button">📄&nbsp;TSV&nbsp;и&nbsp;другие</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;SQLite3 to CSV.md');" class="button">📄&nbsp;SQLite3&nbsp;to&nbsp;CSV</button>
+<button onclick="GET('Другое&#x2f;Форматы файлов&#x2f;Vedis db.md');" class="button">📄&nbsp;Vedis&nbsp;db</button>
 
 </div>
     <button onclick="showText(Примерырешений26);" class="button">📂&nbsp;Примеры&nbsp;решений</button>
     <div id="Примерырешений26" style="display:none;" class="button-folder">
-<button onclick="GET('cheatsheet/Другое&#x2f;Примеры решений&#x2f;Пирамида граф.md');" class="button">📄&nbsp;Пирамида&nbsp;граф</button>
+<button onclick="GET('Другое&#x2f;Примеры решений&#x2f;Пирамида граф.md');" class="button">📄&nbsp;Пирамида&nbsp;граф</button>
 
 </div>
-<button onclick="GET('cheatsheet/Другое&#x2f;Пример этой кнопки.md');" class="button">📄&nbsp;Пример&nbsp;этой&nbsp;кнопки</button>
+<button onclick="GET('Другое&#x2f;Пример этой кнопки.md');" class="button">📄&nbsp;Пример&nbsp;этой&nbsp;кнопки</button>
 
 </div>
-<button onclick="GET('cheatsheet/Полезные ссылки.md');" class="button">📄&nbsp;Полезные&nbsp;ссылки</button>
-<button onclick="GET('cheatsheet/test.md');" class="button">📄&nbsp;test</button>
+<button onclick="GET('Полезные ссылки.md');" class="button">📄&nbsp;Полезные&nbsp;ссылки</button>
+<button onclick="GET('test.md');" class="button">📄&nbsp;test</button>
 
     </div>
 

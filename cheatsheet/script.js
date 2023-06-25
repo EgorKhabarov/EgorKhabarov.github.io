@@ -88,5 +88,6 @@ function getCheatSheat(url) {
 }
 
 function GET(url) {
+    console.log(url)
     return PutHtmlText(getCheatSheat(url))
 }

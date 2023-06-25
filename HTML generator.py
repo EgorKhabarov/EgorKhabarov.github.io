@@ -27,7 +27,7 @@ def buttons(dictionary: dict, directory=""):
             # //window.location.href = '{url}';
         else:
             print(key_path)
-            text += """<button onclick="GET('cheatsheet/{name}');" class="button">{title}</button>\n""".format(
+            text += """<button onclick="GET('{name}');" class="button">{title}</button>\n""".format(
                 name=key_path.replace("\\", "&#x2f;") + ".md",
                 title="📄&nbsp;" + title.replace(" ", "&nbsp;")
             )
@@ -44,7 +44,7 @@ result = f"""
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="cheatsheet\icon.png">
+    <link rel="icon" type="image/png" href="./cheatsheet/icon.png">
     <title>Шпаргалка</title>
     <style>
         {css_code}
