@@ -3,11 +3,7 @@
 <h4>contextlib.contextmanager</h4>
 <p>Декоратор превращает генераторную функцию в контекстный менеджер. 
 Генератор должен содержать точку входа и выхода из контекста.</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code117b" onclick="copyCode(code117, code117b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code117"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
 <span class="k">def</span> <span class="nf">my_context</span><span class="p">():</span>
@@ -17,25 +13,19 @@
 
 <span class="k">with</span> <span class="n">my_context</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside context&quot;</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере my_context() - это контекстный менеджер, который выводит сообщения при входе и выходе из контекста.</p>
 <h4>contextlib.suppress</h4>
 <p>это контекстный менеджер, который подавляет указанные исключения. 
 Он используется, когда вы хотите, чтобы программа продолжала работать даже при возникновении определенных ошибок. 
 Пример использования:</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code118b" onclick="copyCode(code118, code118b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code118"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;non_existent_file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере suppress используется для подавления исключения FileNotFoundError, 
 которое возникает, если файл non_existent_file.txt не найден. 
@@ -43,11 +33,7 @@
 <h4>contextlib.redirect_stdout и contextlib.redirect_stderr</h4>
 <p>эти контекстные менеджеры перенаправляют стандартный вывод и стандартный вывод ошибок соответственно в файл или объект. 
 Пример использования:</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code119b" onclick="copyCode(code119, code119b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code119"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
@@ -56,8 +42,7 @@
     <span class="n">contents</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере стандартный вывод перенаправляется в объект io.StringIO(), 
 а затем содержимое этого объекта выводится на экран.</p>
@@ -67,18 +52,13 @@
 <p>Это функция, которая превращает объект с методом close() в контекстный менеджер. 
 Это может быть полезно, например, для работы с файлами или соединениями. 
 Пример использования:</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code120b" onclick="copyCode(code120, code120b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code120"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https:&amp;sol;&amp;sol;www.example.com/&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">page</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">page</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере urlopen('https:&sol;&sol;www.example.com/') возвращает объект с методом close(), 
 который используется внутри контекстного менеджера closing.</p>
@@ -87,16 +67,11 @@
 Он может быть использован, когда нужен контекстный менеджер, 
 но никакой реальной работы в контексте выполнять не требуется. 
 Пример использования:</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code121b" onclick="copyCode(code121, code121b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code121"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">nullcontext</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере ничего не происходит в контексте, но благодаря использованию nullcontext, 
 код работает корректно в рамках контекстного менеджера.</p>
@@ -105,18 +80,13 @@
 Он может быть использован, когда требуется обеспечить надежное управление ресурсами в случае, 
 когда ресурсы могут быть открыты и закрыты в произвольном порядке. 
 Пример использования:</p>
-<div class="code-element">
-    <div class="lang-line">python<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code122b" onclick="copyCode(code122, code122b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code122"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
     <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;file1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;file2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;file3.txt&#39;</span><span class="p">]]</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере ExitStack используется для управления тремя файлами, которые могут быть открыты и закрыты в любом порядке. 
 Функция stack.enter_context(open(f)) добавляет каждый файл в стек контекстных менеджеров, 

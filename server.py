@@ -8,7 +8,7 @@ app = Flask(__name__)
 def cheatsheet():
     return send_file("cheatsheet/index.html")
 
-@app.route('/cheatsheet/<path:path>')
+@app.route('/<path:path>')
 def index_html_path(path: str):
     try:
         path = "/" + path.lstrip(r".\/").replace("..", "")

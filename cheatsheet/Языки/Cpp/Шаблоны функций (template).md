@@ -4,52 +4,33 @@
 а также в угловых скобках необходимо указывать принимаемый тип данных. 
 Можно принимать один или несколько типов данных. </p>
 <p>Пример создания шаблонной функции:</p>
-<div class="code-element">
-    <div class="lang-line">cpp<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// Указываем что это шаблон функции</span>
+<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" id="code353b" onclick="copyCode(code353, code353b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code353"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// Указываем что это шаблон функции</span>
 <span class="c1">// Принимаем параметр value и его тип данных мы получим</span>
 <span class="c1">// также в качестве передаваемого параметра - Type1</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">funct</span><span class="w"> </span><span class="p">(</span><span class="n">Type1</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// Просто выводим это значение</span>
 <span class="p">}</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>Для передачи нескольких типов данных стоит прописать следующее:</p>
-<div class="code-element">
-    <div class="lang-line">cpp<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="c1">// Здесь мы получаем сразу два типа данных</span>
+<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" id="code354b" onclick="copyCode(code354, code354b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code354"><div class="highlight"><pre><span></span><span class="c1">// Здесь мы получаем сразу два типа данных</span>
 <span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Type2</span><span class="o">&gt;</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">funct</span><span class="w"> </span><span class="p">(</span><span class="n">Type1</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">Type2</span><span class="w"> </span><span class="o">*</span><span class="n">newValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Мы можем использовать передаваемые типы в самой функции</span>
 <span class="w">    </span><span class="n">Type1</span><span class="w"> </span><span class="n">someNew</span><span class="p">;</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">newValue</span><span class="p">;</span><span class="w"> </span><span class="c1">// Просто выводим значение</span>
 <span class="p">}</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>Для вызова шаблонной функции пропишите следующее:</p>
-<div class="code-element">
-    <div class="lang-line">cpp<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="c1">// Вызов функции с одним параметром</span>
+<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" id="code355b" onclick="copyCode(code355, code355b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code355"><div class="highlight"><pre><span></span><span class="c1">// Вызов функции с одним параметром</span>
 <span class="n">funct</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
 <span class="c1">// Вызов с несколькими параметрами</span>
 <span class="n">funct</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">oneMoreValue</span><span class="p">);</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>Шаблоны функций</p>
-<div class="code-element">
-    <div class="lang-line">cpp<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" id="code356b" onclick="copyCode(code356, code356b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code356"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
@@ -85,8 +66,7 @@
 <span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>Обьяснение от ChatGPT:</p>
 <p>Шаблоны функций и классов в C++ - это механизм, который позволяет создавать 
@@ -94,16 +74,11 @@
 Вместо того, чтобы создавать отдельную функцию или класс для каждого типа данных, 
 вы можете определить шаблон, который может использоваться с разными типами данных.</p>
 <p>Определение шаблона функции выглядит так:</p>
-<div class="code-element">
-    <div class="lang-line">cpp<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" id="code357b" onclick="copyCode(code357, code357b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code357"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <span class="n">T</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <p>В этом примере T является параметром шаблона, который может быть любым типом данных. 
 Когда вы вызываете функцию max с разными типами данных, компилятор создает специализированную 
