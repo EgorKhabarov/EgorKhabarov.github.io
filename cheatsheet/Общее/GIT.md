@@ -117,12 +117,12 @@ git commit -a -m "комментарий"
 Мы работаем в нашем локальном репозитории 
 и не хотим нарушать или разрушать основной проект.</p>
 <div class="code-element">
-    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <div class="lang-line">bash<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
     </div>
-    <div class="code"><div class="highlight"><pre><span></span>git branch name               создаем новый ветки
-git checkout name             извлечение файла ветки
-git commit -m &quot;комментарий&quot;   подтверждаем
+    <div class="code"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>name<span class="w">               </span>создаем<span class="w"> </span>новый<span class="w"> </span>ветки
+git<span class="w"> </span>checkout<span class="w"> </span>name<span class="w">             </span>извлечение<span class="w"> </span>файла<span class="w"> </span>ветки
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;комментарий&quot;</span><span class="w">   </span>подтверждаем
 </pre></div></div>
 </div>
 
@@ -131,13 +131,13 @@ git commit -m &quot;комментарий&quot;   подтверждаем
 но нам нужно исправить ошибку на master. Я не хочу связываться с master напрямую, 
 и я не хочу связываться с образами hello-world, так как это еще не сделано.</p>
 <div class="code-element">
-    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <div class="lang-line">bash<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
     </div>
-    <div class="code"><div class="highlight"><pre><span></span>git checkout -b emergency-fix создаем новую ветку для решения чрезвычайной ситуации
-git status
-git add name
-git commit -m &quot;комментарий&quot;
+    <div class="code"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>emergency-fix<span class="w"> </span>создаем<span class="w"> </span>новую<span class="w"> </span>ветку<span class="w"> </span>для<span class="w"> </span>решения<span class="w"> </span>чрезвычайной<span class="w"> </span>ситуации
+git<span class="w"> </span>status
+git<span class="w"> </span>add<span class="w"> </span>name
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;комментарий&quot;</span>
 </pre></div></div>
 </div>
 
@@ -146,22 +146,24 @@ git commit -m &quot;комментарий&quot;
 поэтому давайте объединим ветки master и Emergency-fix.
 Во-первых, нам нужно перейти на ветку master:</p>
 <div class="code-element">
-    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <div class="lang-line">bash<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
     </div>
-    <div class="code"><div class="highlight"><pre><span></span>git checkout master
-git merge emergency-fix       объединяем текущую ветку (master) с Emergency-fix
-git branch -d emergency-fix   удалить Emergency-Fix
+    <div class="code"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+git<span class="w"> </span>merge<span class="w"> </span>emergency-fix<span class="w">       </span>объединяем<span class="w"> </span>текущую<span class="w"> </span>ветку<span class="w"> </span><span class="o">(</span>master<span class="o">)</span><span class="w"> </span>с<span class="w"> </span>Emergency-fix
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>emergency-fix<span class="w">   </span>удалить<span class="w"> </span>Emergency-Fix
 </pre></div></div>
 </div>
 
 <p>Объединить конфликт</p>
 <div class="code-element">
-    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <div class="lang-line">bash<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
     </div>
-    <div class="code"><div class="highlight"><pre><span></span>git checkout hello-world-images
-git add --all
-git commit -m &quot;added new image&quot;
+    <div class="code"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>hello-world-images
+git<span class="w"> </span>add<span class="w"> </span>--all
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;added new image&quot;</span>
 </pre></div></div>
 </div>
+
+<p><img alt="GIT.png" src="cheatsheet\Общее\GIT.png"></p>

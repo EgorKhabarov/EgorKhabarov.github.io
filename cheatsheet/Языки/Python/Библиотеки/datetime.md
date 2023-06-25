@@ -1,0 +1,1 @@
+<p><img alt="datetime.png" src="cheatsheet\Языки\Python\Библиотеки\datetime.png"></p>

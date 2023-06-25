@@ -132,7 +132,7 @@ git commit -a -m "комментарий"
 Мы работаем в нашем локальном репозитории 
 и не хотим нарушать или разрушать основной проект.
 
-```
+```bash
 git branch name               создаем новый ветки
 git checkout name             извлечение файла ветки
 git commit -m "комментарий"   подтверждаем
@@ -143,7 +143,7 @@ git commit -m "комментарий"   подтверждаем
 но нам нужно исправить ошибку на master. Я не хочу связываться с master напрямую, 
 и я не хочу связываться с образами hello-world, так как это еще не сделано.
 
-```
+```bash
 git checkout -b emergency-fix создаем новую ветку для решения чрезвычайной ситуации
 git status
 git add name
@@ -155,7 +155,7 @@ git commit -m "комментарий"
 поэтому давайте объединим ветки master и Emergency-fix.
 Во-первых, нам нужно перейти на ветку master:
 
-```
+```bash
 git checkout master
 git merge emergency-fix       объединяем текущую ветку (master) с Emergency-fix
 git branch -d emergency-fix   удалить Emergency-Fix
@@ -163,11 +163,13 @@ git branch -d emergency-fix   удалить Emergency-Fix
 
 Объединить конфликт
 
-```
+```bash
 git checkout hello-world-images
 git add --all
 git commit -m "added new image"
 ```
+
+<img alt="GIT.png" src="cheatsheet\Общее\GIT.png">
 """,
         "HTTP": {
             "HTTР": """HTTP
@@ -2529,7 +2531,10 @@ textlength          Возвращает длину текста.
 textsize            Возвращает размер текста. 
                     Принимает два аргумента: текст и шрифт.
 """
-                }
+                },
+                "datetime": """
+<img alt="datetime.png" src="cheatsheet\Языки\Python\Библиотеки\datetime.png">
+"""
             },
             "Методы": {
                 "list": """
@@ -5272,6 +5277,7 @@ CMD ["python3", "main.py"]
 ENV BOT_TOKEN=""
 ```
 
+<img alt="docker.png" src="cheatsheet\Языки\Dockerfile\docker.png">
 """,
             "RUN mkdir -p": r"""
 Команда mkdir используется для создания новой директории.
@@ -5380,6 +5386,9 @@ console.log(myGlobalVariable); // "Hello, World!"
 
         },
         "HTML": {
+            "html": """
+<img alt="html.png" src="cheatsheet\Языки\HTML\html.png">
+""",
             "tag input": """
 ```html
 <input type="text" id="">
@@ -8400,8 +8409,6 @@ button onclick="showText( {NAME} )" class="trigger"> {NAME} </button>
 &lt;code> без подсветки
 &lt;sql> подсветка sql
 &lt;python> подсветка питон
-
-<img alt="html1.png" src="cheatsheet/html1.png">
 """
 }
 

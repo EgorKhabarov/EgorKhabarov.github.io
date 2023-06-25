@@ -31,3 +31,5 @@ FROM:    Определяет базовый образ, на основе ко�
     <div class="code"><div class="highlight"><pre><span></span><span class="k">ENV</span><span class="w"> </span><span class="nv">BOT_TOKEN</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 </pre></div></div>
 </div>
+
+<p><img alt="docker.png" src="cheatsheet\Языки\Dockerfile\docker.png"></p>
