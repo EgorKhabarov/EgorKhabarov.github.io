@@ -169,7 +169,7 @@ git add --all
 git commit -m "added new image"
 ```
 
-<img alt="GIT.png" src="cheatsheet\Общее\GIT.png">
+<img alt="GIT.png" src="Общее\GIT.png">
 """,
         "HTTP": {
             "HTTР": """HTTP
@@ -2533,7 +2533,7 @@ textsize            Возвращает размер текста.
 """
                 },
                 "datetime": """
-<img alt="datetime.png" src="cheatsheet\Языки\Python\Библиотеки\datetime.png">
+<img alt="datetime.png" src="Языки\Python\Библиотеки\datetime.png">
 """
             },
             "Методы": {
@@ -5277,7 +5277,7 @@ CMD ["python3", "main.py"]
 ENV BOT_TOKEN=""
 ```
 
-<img alt="docker.png" src="cheatsheet\Языки\Dockerfile\docker.png">
+<img alt="docker.png" src="Языки\Dockerfile\docker.png">
 """,
             "RUN mkdir -p": r"""
 Команда mkdir используется для создания новой директории.
@@ -5387,7 +5387,7 @@ console.log(myGlobalVariable); // "Hello, World!"
         },
         "HTML": {
             "html": """
-<img alt="html.png" src="cheatsheet\Языки\HTML\html.png">
+<img alt="html.png" src="Языки\HTML\html.png">
 """,
             "tag input": """
 ```html
