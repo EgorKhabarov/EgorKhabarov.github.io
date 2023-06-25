@@ -44,7 +44,7 @@ result = f"""
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="http://s1.iconbird.com/ico/2013/12/505/w450h4001385925290Contact.png">
+    <link rel="icon" type="image/png" href="cheatsheet\icon.png">
     <title>Шпаргалка</title>
     <style>
         {css_code}
