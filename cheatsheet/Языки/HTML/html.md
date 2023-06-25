@@ -1,1 +1,1 @@
-<p><img alt="html.png" src="cheatsheet\Языки\HTML\html.png"></p>
+<p><img alt="html.png" src="Языки\HTML\html.png"></p>

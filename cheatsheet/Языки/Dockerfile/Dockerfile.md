@@ -32,4 +32,4 @@ FROM:    Определяет базовый образ, на основе ко�
 </pre></div></div>
 </div>
 
-<p><img alt="docker.png" src="cheatsheet\Языки\Dockerfile\docker.png"></p>
+<p><img alt="docker.png" src="Языки\Dockerfile\docker.png"></p>

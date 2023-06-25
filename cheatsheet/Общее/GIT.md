@@ -166,4 +166,4 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 </pre></div></div>
 </div>
 
-<p><img alt="GIT.png" src="cheatsheet\Общее\GIT.png"></p>
+<p><img alt="GIT.png" src="Общее\GIT.png"></p>
