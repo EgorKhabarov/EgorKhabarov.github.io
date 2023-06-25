@@ -6,34 +6,7 @@
     <link rel="icon" type="image/png" href="http://s1.iconbird.com/ico/2013/12/505/w450h4001385925290Contact.png">
     <title>Шпаргалка</title>
     <style>
-        
-
-/*Закругления у таблиц*/
-th:first-child {border-top-left-radius: .375rem;}
-th:last-child {border-top-right-radius: .375rem;}
-tr:last-child td:first-child {border-bottom-left-radius: .375rem;}
-tr:last-child td:last-child {border-bottom-right-radius: .375rem;}
-
-th {
-  /*font-weight: normal;*/
-  padding: 10px 15px;
-  background-color: #46494b;
-}
-td {
-  border-top: 1px solid #46494b;
-  padding: 10px 15px;
-  background-color: #3c3f41;
-}
-tr:hover td {
-  background: #46494b;
-}
-
-// Цвета ссылок
-a:link    {color: #539bf5;}
-a:active  {color: #6ba4e9;}
-a:visited {color: #539bf5;}
-
-::-webkit-scrollbar {
+        ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
     background-color: #393939;
@@ -42,8 +15,6 @@ a:visited {color: #539bf5;}
     border-radius: 10px;
     background-color: #505050;
 }
-
-
 body {
     background: #393939;
     color: #F1F1F1;
@@ -55,21 +26,61 @@ body {
     border-radius: 10px;
     max-height: 94vh;
 }
-.div-column {
+
+img {border-radius: 10px;}
+pre {margin-bottom: 0px;margin-top: 0px;}
+
+/* Цвета ссылок */
+a:link    {color: #539bf5;}
+a:active  {color: #6ba4e9;}
+a:visited {color: #539bf5;}
+
+/* Таблицы */
+th {
+  padding: 10px 15px;
+  background-color: #46494b;
+}
+td {
+  border-top: 1px solid #46494b;
+  padding: 10px 15px;
+  background-color: #3c3f41;
+}
+th:first-child {border-top-left-radius: .375rem;}
+th:last-child {border-top-right-radius: .375rem;}
+tr:last-child td:first-child {border-bottom-left-radius: .375rem;}
+tr:last-child td:last-child {border-bottom-right-radius: .375rem;}
+tr:hover td {background: #46494b;}
+
+
+/* Контейнер с кнопками выбора темы */
+.cheatsheet-buttons {
     display: flex;
     flex-direction: row;
     border: 0px solid;
     border-radius: 10px;
     height: 84vh;
-    width: 300px; //max-content;
+    width: 300px;
     background-color: #191919;
     padding: 20px;
     flex-direction: column;
     overflow-y: auto;
 }
-.trigger {
-    //max-
-    width: 350px;
+
+/* Папка с кнопками */
+.button-folder {
+    height: max-content;
+    width: 0px; //initial; //max-content;
+    border: 0px solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: #505050; //#AFB1B3; //#343434;
+    color: #AAAAAA;
+    margin: -3px 0px 8px 2px;
+}
+
+/* Кнопки выбора темы */
+.button {
+    max-width: 350px;
     font-size: 1em;
     display: flex;
     align-items: center;
@@ -77,26 +88,19 @@ body {
     padding: 0 20px;
     padding-left: 10px;
     min-height: 45px;
-    border: 1px solid #2B2B2B;// #000000;
+    border: 1px solid #2B2B2B;
     border-radius: 10px;
-    background-color: #323232;//#C0C0C0;
-    color: #AFB1B3;//#C0C0C0;//#212121;
+    background-color: #323232;
+    color: #AFB1B3;
     transition: background-color 0.2s ease-out;
 }
-.trigger:hover {
-    background-color: #424242;
-}
-.trigger:active {
-    background-color: #525252;
-}
-.trigger:focus {
-    background-color: #999999;
-    color: #252525;
-}
-.code-str-2 {
+.button:hover {background-color: #424242;}
+.button:active {background-color: #525252;}
+.button:focus {background-color: #999999;color: #252525;}
+
+/* Поле в котором появляется шпаргалка */
+.cheatsheet-field {
     display: flex;
-    //max-height: 860px;
-    //max-height: 100vh;
     height: 84vh;
     width: 100%;
     border: 0px solid;
@@ -108,55 +112,10 @@ body {
     margin: 0px 0px 0px 0px;
     overflow-y: auto;
     flex-direction: column;
+}
 
-    //background-color: #3c3f41;
-    //color: #bbbbbb;
-}
-.code-in-code {
-    display: flex;
-    //height: max-content;
-    flex-direction: column;
-    width: max-content; // 550px;
-    // padding: 10px;
-    // // //color: #AAAAAA;
-    // background-color: #1B1B1B;
-    // // border: 0px solid;
-    // // border-radius: 5px;
-    // // flex-direction: row;
-    // // padding:1rem 1rem 1rem 1rem;
-    // // //overflow-y:auto;
-    // // white-space:pre-wrap!important;
-    // // //background-color: #1B1B1B;
-    // border-radius:.0rem .0rem .375rem .375rem;
-    --tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity));
-    margin-bottom:1rem;
-    border-radius:.375rem;
-}
-.copy-code-in-code {
-    background-color: #5A5A5A;
-    border: 0px solid;
-    border-radius: 5px;
-    color: #AAAAAA;
-    //margin-right: 99%;
-    font-size: 10px;
-    width: max-content;
-    max-height: 25px;
-    transform: rotate(0deg);
-}
-.copy-code-in-code:hover {background-color: #ffffff;}
-.button-field {
-    //min-height: 24px;
-    height: max-content;
-    //min-width: 70px;
-    width: 0px; //initial; //max-content;
-    border: 0px solid;
-    border-radius: 10px;
-    padding-left: 10px;
-    background-color: #505050; //#AFB1B3; //#343434;
-    color: #AAAAAA;
-    margin: -3px 0px 8px 2px;
-}
-.MB {
+/* Кнопки усправления справа */
+.control-button {
     height: 64px;
     width: 64px;
     font-size: 1em;
@@ -171,40 +130,23 @@ body {
     color: #AFB1B3;
     transition: background-color 0.5s ease-out;
 }
-.MB:hover {background-color: #424242;}
-.MB:active {background-color: #323232;}
+.control-button:hover {background-color: #424242;}
+.control-button:active {background-color: #323232;}
 
 
-.highlight-code         {color:#A9B7C6;}
-.highlight-keyword      {color:#CC7832;}
-.highlight-arg          {color:#AA4926;}
-.highlight-digit        {color:#5897BB;}
-.highlight-default-func {color:#8888C6;}
-
-.highlight-func         {color:#FFC66D;}
-.highlight-decorator    {color:#BBB529;}
-.highlight-definition   {color:#B200B2;}
-.highlight-self         {color:#94558D;}
-.highlight-comment      {color:hsla(0,0%,100%,.5)}
-.highlight-comment span {color:hsla(0,0%,100%,.5)!important;}
-.highlight-comment span1 {color:hsla(0,0%,100%,.5)!important;}
-
-
-.highlight-text         {color:#529755!important;}.highlight-text span {color:#529755!important;}
-.highlight-binary-text  {color:#A5C261;}.highlight-binary-text span {color:#A5C261!important;}
-
-
-
-
-
-.code-in-code {
+/* Элемент с кодом внутри */
+.code-element {
+    display: flex;
+    flex-direction: column;
+    width: max-content; // 550px;
     --tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity));
     margin-bottom:1rem;
     border-radius:.375rem;
 }
-.top-line {
+
+/* Полоска вверху элемента code-element с языком и кнопкой для копирования */
+.lang-line {
     height: max-content;
-    //height: 15px; // max-content;
     border-radius:.375rem .375rem .0rem .0rem;
     display:flex;
     align-items:center;
@@ -214,93 +156,80 @@ body {
     padding-left:1rem;padding-right:1rem;
     padding-bottom:.35rem;padding-top:.35rem;
     font-size:.75rem;line-height:.75rem;
-    font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
+    sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
-.top-button {
+
+/* Кнопка для копирования кода */
+.copy-button {
     display:flex;
     margin-left:auto;
     gap:.5rem;
     background-color:rgba(52,53,65);border:0;color:#D9D9E3;
 }
-.top-button:hover {background-color: #424242;}
-.top-button:active {background-color: #323232;}
-.code-line {
+.copy-button:hover {background-color: #424242;}
+.copy-button:active {background-color: #323232;}
+
+/* Код */
+.code {
     padding:1rem 1rem 1rem 1rem;
     overflow-y:auto;
     white-space:pre-wrap!important;
     background-color: #1B1B1B;
     border-radius:.0rem .0rem .375rem .375rem;
-
     background-color: #272727;
 }
 
-
-
-
+/* Подсветка синтаксиса */
+.k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */
+.s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
+.c1, .cp, .cpf {color:hsla(0,0%,100%,.5)} /* Коммент */
+.mi, .mf {color:#5897BB;} /* Число */
+.nb, .kt {color:#8888C6;} /* Дефолтные функции */
+.fm {color:#B200B2;} /* Магические методы */
+.bp {color:#94558D;} /* Self */
+.nd {color:#BBB529;} /* Декоратор */
+.nf {color:#FFC66D;} /* Название функции */
+.na {color:#AA4926;} /* Аргумент */
     </style>
     <script>
         
+/* Скрыть / показать папку */
 function showText(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
-    } else {element.style.display = "none";}}
-
-function showButton(element) {
-    if (element.style.display == "none") {
-        element.style.display = "block";
-    } else {element.style.display = "none";}}
-
-function PutText(text) {
-    //let text = element.innerText;
-    let FieldElement = document.getElementById("field");
-    if (typeof FieldElement.innerText != 'undefined') {
-        FieldElement.innerText = text; // IE8-
-    } else {FieldElement.textContent = text; // Нормальные браузеры
-    }
-    document.getElementById('field').scrollTo(999999, document.getElementById('field').scrollHeight);
-    }
-
-function PutHtmlText(html) {
-    //let html = element.innerHTML;
-
-    let FieldElement = document.getElementById("field");
-
-    //if (typeof FieldElement.innerText != 'undefined') {
-
-    FieldElement.innerHTML = html; // IE8-
-
-    //} else {
-    //    FieldElement.textContent = html; // Нормальные браузеры
-    //}
-    document.getElementById('field').scrollTo(0, 0);
-
-
-    replaceCodeElement()
-    }
-
-function changeFontSizePlus(element) {
-    let currentSize = parseFloat(getComputedStyle(element).fontSize);
-    element.style.fontSize = (currentSize + 2) + "px";
-    ok()}
-
-function changeFontSizeMinus(element) {
-    let currentSize = parseFloat(getComputedStyle(element).fontSize);
-    element.style.fontSize = (currentSize - 2) + "px";
-    ok()}
-
-function changeFontSizeDefault(element) {
-    let currentSize = parseFloat(getComputedStyle(element).fontSize);
-    element.style.fontSize = 12 + "px";
-    ok()}
-
-function ok() {
-    let currentSize = parseFloat(getComputedStyle(field).fontSize);
-    let FontSizeElement = document.getElementById("FontSizeSize");
-    if (typeof FontSizeElement.innerText != 'undefined') {
-        FontSizeElement.innerText = (currentSize) + "px"; // IE8-
-    } else {FontSizeElement.textContent = (currentSize) + "px"; // Нормальные браузеры
+    } else {
+        element.style.display = "none";
     }
 }
+
+
+/* Изменение размера шрифта */
+function changeFontSize(element, action) {
+    let currentSize = parseFloat(getComputedStyle(element).fontSize);
+
+    if (action === "+") {
+        element.style.fontSize = (currentSize + 2) + "px";
+        currentSize += 2
+    } else if (action === "-") {
+        element.style.fontSize = (currentSize - 2) + "px";
+        currentSize -= 2
+    } else if (action === "=") {
+        element.style.fontSize = 12 + "px";
+        currentSize = 12
+    }
+
+    let FontSizeElement = document.getElementById("FontSizeSize");
+
+    if (typeof FontSizeElement.innerText != 'undefined') {
+        FontSizeElement.innerText = currentSize + "px"; // IE8-
+    } else {
+        FontSizeElement.textContent = currentSize + "px"; // Нормальные браузеры
+    }
+}
+
+
+/* Копирование всего текста */
 function copyTextFromDiv(element) {
     var text = element.innerText;
     console.log(text);
@@ -313,51 +242,39 @@ function copyTextFromDiv(element) {
     textArea.remove();
     //alert("Copied the text: " + text);
 }
-function copyTextFromDiv3(element) {
-    //var text = element.innerHTML;
-    var text = document.getElementById(element).innerText.slice(0, -9);
-    console.log(text);
-    var textArea = document.createElement("textarea");
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
+
+/*Копировать выделенный текст*/
+function copyTextFromDiv2() {
+
+    document.execCommand('copy');
 }
+
+/*Изменить цвет кнопки*/
 function changeColor(element) {
     element.style.backgroundColor = "#008000";
     setTimeout(function() {element.style.backgroundColor = "#525252";}, 2000);
 }
-function copyTextFromDiv2() {
-    document.execCommand('copy');
-}
 
 
+/*Взять нужную шпаргалку по пути*/
+function PutHtmlText(html) {
+    if (html != "") {
+        let FieldElement = document.getElementById("field");
 
-
-
-function addTextToURL(inputText) {
-    var currentURL = window.location.href;
-
-    if (currentURL.indexOf('?') !== -1) {
-        // Удаляем все параметры после '?'
-        currentURL = currentURL.substring(0, currentURL.indexOf('?'));
+        if (typeof FieldElement.innerText != 'undefined') {
+            FieldElement.innerHTML = html; // IE8-
+        } else {
+            FieldElement.textContent = html; // Нормальные браузеры
+        }
+        document.getElementById('field').scrollTo(0, 0);
     }
-
-    var newURL = currentURL + '?path=' + encodeURIComponent(inputText);
-    history.replaceState({}, document.title, newURL);
-}
-
-function getTextFromURL() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var pathParam = urlParams.get('path');
-    console.log(pathParam);
 }
 
 function getCheatSheat(url) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, false); // Используется синхронный запрос
     xhr.send();
+
     if (xhr.status === 200) {
         return xhr.responseText;
     } else {
@@ -365,499 +282,264 @@ function getCheatSheat(url) {
     }
 }
 
-
-
-
-function re12placeCodeElement() {
-  // Находим элемент <pre> с указанным идентификатором
-  var preElement = document.getElementById("field");
-
-  // Получаем содержимое <code> внутри <pre>
-  var codeContent = preElement.querySelector("code").innerText;
-
-  // Получаем язык из класса <code> (например, "language-python")
-  var lang = preElement.querySelector("code").className.split("-")[1];
-
-  // Создаем новый элемент <div> с классами и заменяемыми значениями
-  var newCodeElement = document.createElement("div");
-  newCodeElement.className = "code-in-code";
-  newCodeElement.innerHTML = `
-<div class="code-in-code">
-    <div class="top-line">${lang}<button class="top-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code-line">
-        <div class="language-python; highlight-code">${codeContent}</div>
-    </div>
-</div>
-  `;
-
-  // Заменяем элемент <pre> на новый элемент <div>
-  preElement.parentNode.replaceChild(newCodeElement, preElement);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-function replaceCodeElements() {
-  // Находим элемент <pre> с указанным идентификатором
-  var preElement = document.getElementById("field");
-
-  // Получаем все элементы <pre><code> внутри <pre id="field">
-  var codeElements = preElement.querySelectorAll("pre");
-
-  // Проходимся по каждому элементу <pre><code> и заменяем его содержимое
-  codeElements.forEach(function(codeElement) {
-    // Получаем содержимое <code>
-    var codeContent = codeElement.innerText;
-
-    // Получаем язык из класса <code> (например, "language-python")
-    var lang = codeElement.className.split("-")[1];
-
-    // Создаем новый элемент <div> с классами и заменяемыми значениями
-    var newCodeElement = document.createElement("div");
-    newCodeElement.className = "code-in-code";
-    newCodeElement.innerHTML = `
-<div class="code-in-code">
-    <div class="top-line">${lang}<button class="top-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
-    </div>
-    <div class="code-line">
-        <div class="language-python; highlight-code">${codeContent}</div>
-    </div>
-</div>
-    `;
-
-    // Заменяем элемент <pre><code> на новый элемент <div>
-    codeElement.parentNode.parentNode.replaceChild(newCodeElement, codeElement.parentNode);
-  });
+function GET(url) {
+    return PutHtmlText(getCheatSheat(url))
 }
 
     </script>
 </head>
 <body>
-    <div class="div-column">
-            <button onclick="
-showText(Общее);
-//window.location.href = 'Общее';
-" class="trigger">📂&nbsp;Общее</button>
-    <div id="Общее" style="display:none;" class="button-field">
-    <button onclick="
-showText(Парадигмы);
-//window.location.href = 'Парадигмы';
-" class="trigger">📂&nbsp;Парадигмы</button>
-    <div id="Парадигмы" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;Парадигмы&#x2f;Императивная.txt'));
-            " class="trigger">📄&nbsp;Императивная</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;Парадигмы&#x2f;Декларативная.txt'));
-            " class="trigger">📄&nbsp;Декларативная</button>
+    <div class="cheatsheet-buttons">
+            <button onclick="showText(Общее3);" class="button">📂&nbsp;Общее</button>
+    <div id="Общее3" style="display:none;" class="button-folder">
+    <button onclick="showText(Парадигмы2);" class="button">📂&nbsp;Парадигмы</button>
+    <div id="Парадигмы2" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Общее&#x2f;Парадигмы&#x2f;Императивная.md');" class="button">📄&nbsp;Императивная</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;Парадигмы&#x2f;Декларативная.md');" class="button">📄&nbsp;Декларативная</button>
+
 </div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;ООП.txt'));
-            " class="trigger">📄&nbsp;ООП</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;Интерпретатор Компилятор.txt'));
-            " class="trigger">📄&nbsp;Интерпретатор&nbsp;Компилятор</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;sync asyn.txt'));
-            " class="trigger">📄&nbsp;sync&nbsp;asyn</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;GIT.txt'));
-            " class="trigger">📄&nbsp;GIT</button>    <button onclick="
-showText(HTTP);
-//window.location.href = 'HTTP';
-" class="trigger">📂&nbsp;HTTP</button>
-    <div id="HTTP" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;HTTP&#x2f;HTTР.txt'));
-            " class="trigger">📄&nbsp;HTTР</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;HTTP&#x2f;Запросы.txt'));
-            " class="trigger">📄&nbsp;Запросы</button><button onclick="
-                PutHtmlText(getCheatSheat('Общее&#x2f;HTTP&#x2f;Протоколы связи.txt'));
-            " class="trigger">📄&nbsp;Протоколы&nbsp;связи</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;ООП.md');" class="button">📄&nbsp;ООП</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;Интерпретатор Компилятор.md');" class="button">📄&nbsp;Интерпретатор&nbsp;Компилятор</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;sync asyn.md');" class="button">📄&nbsp;sync&nbsp;asyn</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;GIT.md');" class="button">📄&nbsp;GIT</button>
+    <button onclick="showText(HTTP3);" class="button">📂&nbsp;HTTP</button>
+    <div id="HTTP3" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;HTTР.md');" class="button">📄&nbsp;HTTР</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;Запросы.md');" class="button">📄&nbsp;Запросы</button>
+<button onclick="GET('cheatsheet/Общее&#x2f;HTTP&#x2f;Протоколы связи.md');" class="button">📄&nbsp;Протоколы&nbsp;связи</button>
+
 </div>
 
 </div>
-    <button onclick="
-showText(Языки);
-//window.location.href = 'Языки';
-" class="trigger">📂&nbsp;Языки</button>
-    <div id="Языки" style="display:none;" class="button-field">
-    <button onclick="
-showText(Python);
-//window.location.href = 'Python';
-" class="trigger">📂&nbsp;Python</button>
-    <div id="Python" style="display:none;" class="button-field">
-    <button onclick="
-showText(Библиотеки);
-//window.location.href = 'Библиотеки';
-" class="trigger">📂&nbsp;Библиотеки</button>
-    <div id="Библиотеки" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;io.txt'));
-            " class="trigger">📄&nbsp;io</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;os.txt'));
-            " class="trigger">📄&nbsp;os</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;sys.txt'));
-            " class="trigger">📄&nbsp;sys</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;argparse.txt'));
-            " class="trigger">📄&nbsp;argparse</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;subprocess.txt'));
-            " class="trigger">📄&nbsp;subprocess</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;itertools.txt'));
-            " class="trigger">📄&nbsp;itertools</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;collections.txt'));
-            " class="trigger">📄&nbsp;collections</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;functools.txt'));
-            " class="trigger">📄&nbsp;functools</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;contextlib.txt'));
-            " class="trigger">📄&nbsp;contextlib</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;difflib.txt'));
-            " class="trigger">📄&nbsp;difflib</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;random.txt'));
-            " class="trigger">📄&nbsp;random</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;decimal.txt'));
-            " class="trigger">📄&nbsp;decimal</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;fractions.txt'));
-            " class="trigger">📄&nbsp;fractions</button>    <button onclick="
-showText(Django);
-//window.location.href = 'Django';
-" class="trigger">📂&nbsp;Django</button>
-    <div id="Django" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;Django&#x2f;Команды.txt'));
-            " class="trigger">📄&nbsp;Команды</button>
+    <button onclick="showText(Языки23);" class="button">📂&nbsp;Языки</button>
+    <div id="Языки23" style="display:none;" class="button-folder">
+    <button onclick="showText(Python12);" class="button">📂&nbsp;Python</button>
+    <div id="Python12" style="display:none;" class="button-folder">
+    <button onclick="showText(Библиотеки8);" class="button">📂&nbsp;Библиотеки</button>
+    <div id="Библиотеки8" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;io.md');" class="button">📄&nbsp;io</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;os.md');" class="button">📄&nbsp;os</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;sys.md');" class="button">📄&nbsp;sys</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;argparse.md');" class="button">📄&nbsp;argparse</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;subprocess.md');" class="button">📄&nbsp;subprocess</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;itertools.md');" class="button">📄&nbsp;itertools</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;collections.md');" class="button">📄&nbsp;collections</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;functools.md');" class="button">📄&nbsp;functools</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;contextlib.md');" class="button">📄&nbsp;contextlib</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;difflib.md');" class="button">📄&nbsp;difflib</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;random.md');" class="button">📄&nbsp;random</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;decimal.md');" class="button">📄&nbsp;decimal</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;fractions.md');" class="button">📄&nbsp;fractions</button>
+    <button onclick="showText(Django7);" class="button">📂&nbsp;Django</button>
+    <div id="Django7" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;Django&#x2f;Команды.md');" class="button">📄&nbsp;Команды</button>
+
 </div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;logging.txt'));
-            " class="trigger">📄&nbsp;logging</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;textwrap.txt'));
-            " class="trigger">📄&nbsp;textwrap</button>    <button onclick="
-showText(PIL);
-//window.location.href = 'PIL';
-" class="trigger">📂&nbsp;PIL</button>
-    <div id="PIL" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Библиотеки&#x2f;PIL&#x2f;ImageDraw.Draw.txt'));
-            " class="trigger">📄&nbsp;ImageDraw.Draw</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;logging.md');" class="button">📄&nbsp;logging</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;textwrap.md');" class="button">📄&nbsp;textwrap</button>
+    <button onclick="showText(PIL8);" class="button">📂&nbsp;PIL</button>
+    <div id="PIL8" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Библиотеки&#x2f;PIL&#x2f;ImageDraw.Draw.md');" class="button">📄&nbsp;ImageDraw.Draw</button>
+
 </div>
 
 </div>
-    <button onclick="
-showText(Методы);
-//window.location.href = 'Методы';
-" class="trigger">📂&nbsp;Методы</button>
-    <div id="Методы" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Методы&#x2f;list.txt'));
-            " class="trigger">📄&nbsp;list</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Методы&#x2f;srt.txt'));
-            " class="trigger">📄&nbsp;srt</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Методы&#x2f;dict.txt'));
-            " class="trigger">📄&nbsp;dict</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Методы&#x2f;set.txt'));
-            " class="trigger">📄&nbsp;set</button>
-</div>
-    <button onclick="
-showText(Магическиеметоды);
-//window.location.href = 'Магические методы';
-" class="trigger">📂&nbsp;Магические&nbsp;методы</button>
-    <div id="Магическиеметоды" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Кратко о использовании.txt'));
-            " class="trigger">📄&nbsp;Кратко&nbsp;о&nbsp;использовании</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сlass.txt'));
-            " class="trigger">📄&nbsp;Сlass</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сравнения.txt'));
-            " class="trigger">📄&nbsp;Сравнения</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Унарные операторы.txt'));
-            " class="trigger">📄&nbsp;Унарные&nbsp;операторы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Преобразование типов.txt'));
-            " class="trigger">📄&nbsp;Преобразование&nbsp;типов</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Контроль доступа к атрибутам.txt'));
-            " class="trigger">📄&nbsp;Контроль&nbsp;доступа&nbsp;к&nbsp;атрибутам</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Магия контейнеров.txt'));
-            " class="trigger">📄&nbsp;Магия&nbsp;контейнеров</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;isinstance().txt'));
-            " class="trigger">📄&nbsp;isinstance()</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Вызываемые объекты.txt'));
-            " class="trigger">📄&nbsp;Вызываемые&nbsp;объекты</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Менеджеры контекста.txt'));
-            " class="trigger">📄&nbsp;Менеджеры&nbsp;контекста</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Построение дескрипторов.txt'));
-            " class="trigger">📄&nbsp;Построение&nbsp;дескрипторов</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Копирование.txt'));
-            " class="trigger">📄&nbsp;Копирование</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Магические методы&#x2f;Ещё.txt'));
-            " class="trigger">📄&nbsp;Ещё</button>
-</div>
-    <button onclick="
-showText(ДекораторыЗамыкания);
-//window.location.href = 'Декораторы Замыкания';
-" class="trigger">📂&nbsp;Декораторы&nbsp;Замыкания</button>
-    <div id="ДекораторыЗамыкания" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Декораторы Замыкания.txt'));
-            " class="trigger">📄&nbsp;Декораторы&nbsp;Замыкания</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Аргументы dataclass.txt'));
-            " class="trigger">📄&nbsp;Аргументы&nbsp;dataclass</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;property.txt'));
-            " class="trigger">📄&nbsp;property</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;cached_property.txt'));
-            " class="trigger">📄&nbsp;cached_property</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;staticmethod.txt'));
-            " class="trigger">📄&nbsp;staticmethod</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;overload.txt'));
-            " class="trigger">📄&nbsp;overload</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;final.txt'));
-            " class="trigger">📄&nbsp;final</button>
-</div>
-    <button onclick="
-showText(pip);
-//window.location.href = 'pip';
-" class="trigger">📂&nbsp;pip</button>
-    <div id="pip" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;pip&#x2f;pip.txt'));
-            " class="trigger">📄&nbsp;pip</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;pip&#x2f;requirements.txt.txt'));
-            " class="trigger">📄&nbsp;requirements.txt</button>
-</div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;with as.txt'));
-            " class="trigger">📄&nbsp;with&nbsp;as</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;fstrings.txt'));
-            " class="trigger">📄&nbsp;fstrings</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;print(file=).txt'));
-            " class="trigger">📄&nbsp;print(file=)</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;for in list comprehension.txt'));
-            " class="trigger">📄&nbsp;for&nbsp;in&nbsp;list&nbsp;comprehension</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Умножение списков.txt'));
-            " class="trigger">📄&nbsp;Умножение&nbsp;списков</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;yield from.txt'));
-            " class="trigger">📄&nbsp;yield&nbsp;from</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;PyCharm.txt'));
-            " class="trigger">📄&nbsp;PyCharm</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;import.txt'));
-            " class="trigger">📄&nbsp;import</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Встроенные функции.txt'));
-            " class="trigger">📄&nbsp;Встроенные&nbsp;функции</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Python&#x2f;Аннотации типов.txt'));
-            " class="trigger">📄&nbsp;Аннотации&nbsp;типов</button>
-</div>
-    <button onclick="
-showText(SQL);
-//window.location.href = 'SQL';
-" class="trigger">📂&nbsp;SQL</button>
-    <div id="SQL" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;SQL&#x2f;Разное.txt'));
-            " class="trigger">📄&nbsp;Разное</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;SQL&#x2f;JOIN.txt'));
-            " class="trigger">📄&nbsp;JOIN</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;SQL&#x2f;Операторы.txt'));
-            " class="trigger">📄&nbsp;Операторы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;SQL&#x2f;Функции.txt'));
-            " class="trigger">📄&nbsp;Функции</button>
-</div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;RegExp.txt'));
-            " class="trigger">📄&nbsp;RegExp</button>    <button onclick="
-showText(Dockerfile);
-//window.location.href = 'Dockerfile';
-" class="trigger">📂&nbsp;Dockerfile</button>
-    <div id="Dockerfile" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Dockerfile&#x2f;Dockerfile.txt'));
-            " class="trigger">📄&nbsp;Dockerfile</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Dockerfile&#x2f;RUN mkdir -p.txt'));
-            " class="trigger">📄&nbsp;RUN&nbsp;mkdir&nbsp;-p</button>
-</div>
-    <button onclick="
-showText(JavaScript);
-//window.location.href = 'JavaScript';
-" class="trigger">📂&nbsp;JavaScript</button>
-    <div id="JavaScript" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;JavaScript&#x2f;Списки.txt'));
-            " class="trigger">📄&nbsp;Списки</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;JavaScript&#x2f;for.txt'));
-            " class="trigger">📄&nbsp;for</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;JavaScript&#x2f;handlebar.txt'));
-            " class="trigger">📄&nbsp;handlebar</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;JavaScript&#x2f;Переменные.txt'));
-            " class="trigger">📄&nbsp;Переменные</button>
-</div>
-    <button onclick="
-showText(CSS);
-//window.location.href = 'CSS';
-" class="trigger">📂&nbsp;CSS</button>
-    <div id="CSS" style="display:none;" class="button-field">
+    <button onclick="showText(Методы9);" class="button">📂&nbsp;Методы</button>
+    <div id="Методы9" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;list.md');" class="button">📄&nbsp;list</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;srt.md');" class="button">📄&nbsp;srt</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;dict.md');" class="button">📄&nbsp;dict</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Методы&#x2f;set.md');" class="button">📄&nbsp;set</button>
 
 </div>
-    <button onclick="
-showText(HTML);
-//window.location.href = 'HTML';
-" class="trigger">📂&nbsp;HTML</button>
-    <div id="HTML" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;HTML&#x2f;tag input.txt'));
-            " class="trigger">📄&nbsp;tag&nbsp;input</button>
-</div>
-    <button onclick="
-showText(Cpp);
-//window.location.href = 'Cpp';
-" class="trigger">📂&nbsp;Cpp</button>
-    <div id="Cpp" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Типы данных.txt'));
-            " class="trigger">📄&nbsp;Типы&nbsp;данных</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;if-else,switch-case.txt'));
-            " class="trigger">📄&nbsp;if-else,switch-case</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;rand.txt'));
-            " class="trigger">📄&nbsp;rand</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Циклы.txt'));
-            " class="trigger">📄&nbsp;Циклы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;try-catch.txt'));
-            " class="trigger">📄&nbsp;try-catch</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Массивы.txt'));
-            " class="trigger">📄&nbsp;Массивы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Указатели.txt'));
-            " class="trigger">📄&nbsp;Указатели</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Динамические массивы.txt'));
-            " class="trigger">📄&nbsp;Динамические&nbsp;массивы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Символы и строки.txt'));
-            " class="trigger">📄&nbsp;Символы&nbsp;и&nbsp;строки</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Структуры данных.txt'));
-            " class="trigger">📄&nbsp;Структуры&nbsp;данных</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Перечисления (Enum).txt'));
-            " class="trigger">📄&nbsp;Перечисления&nbsp;(Enum)</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Работа с файлами.txt'));
-            " class="trigger">📄&nbsp;Работа&nbsp;с&nbsp;файлами</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Функции.txt'));
-            " class="trigger">📄&nbsp;Функции</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Перегрузка функций.txt'));
-            " class="trigger">📄&nbsp;Перегрузка&nbsp;функций</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Математические операции.txt'));
-            " class="trigger">📄&nbsp;Математические&nbsp;операции</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;(Введение в ООП) Классы и объекты.txt'));
-            " class="trigger">📄&nbsp;(Введение&nbsp;в&nbsp;ООП)&nbsp;Классы&nbsp;и&nbsp;объекты</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Конструкторы и деструкторы.txt'));
-            " class="trigger">📄&nbsp;Конструкторы&nbsp;и&nbsp;деструкторы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;20 Дружественные функции.txt'));
-            " class="trigger">📄&nbsp;20&nbsp;Дружественные&nbsp;функции</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Дружественные классы.txt'));
-            " class="trigger">📄&nbsp;Дружественные&nbsp;классы</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Указатель this.txt'));
-            " class="trigger">📄&nbsp;Указатель&nbsp;this</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Наследование классов (ООП).txt'));
-            " class="trigger">📄&nbsp;Наследование&nbsp;классов&nbsp;(ООП)</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Шаблоны функций (template).txt'));
-            " class="trigger">📄&nbsp;Шаблоны&nbsp;функций&nbsp;(template)</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Шаблоны классов.txt'));
-            " class="trigger">📄&nbsp;Шаблоны&nbsp;классов</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;end.txt'));
-            " class="trigger">📄&nbsp;end</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;ChatGPT.txt'));
-            " class="trigger">📄&nbsp;ChatGPT</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Разное.txt'));
-            " class="trigger">📄&nbsp;Разное</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Операции над числами.txt'));
-            " class="trigger">📄&nbsp;Операции&nbsp;над&nbsp;числами</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;for while.txt'));
-            " class="trigger">📄&nbsp;for&nbsp;while</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Массив.txt'));
-            " class="trigger">📄&nbsp;Массив</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Строка.txt'));
-            " class="trigger">📄&nbsp;Строка</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Cpp&#x2f;Указатели2.txt'));
-            " class="trigger">📄&nbsp;Указатели2</button>
-</div>
-    <button onclick="
-showText(Java);
-//window.location.href = 'Java';
-" class="trigger">📂&nbsp;Java</button>
-    <div id="Java" style="display:none;" class="button-field">
+    <button onclick="showText(Магическиеметоды10);" class="button">📂&nbsp;Магические&nbsp;методы</button>
+    <div id="Магическиеметоды10" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Кратко о использовании.md');" class="button">📄&nbsp;Кратко&nbsp;о&nbsp;использовании</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сlass.md');" class="button">📄&nbsp;Сlass</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Сравнения.md');" class="button">📄&nbsp;Сравнения</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Унарные операторы.md');" class="button">📄&nbsp;Унарные&nbsp;операторы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Преобразование типов.md');" class="button">📄&nbsp;Преобразование&nbsp;типов</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Контроль доступа к атрибутам.md');" class="button">📄&nbsp;Контроль&nbsp;доступа&nbsp;к&nbsp;атрибутам</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Магия контейнеров.md');" class="button">📄&nbsp;Магия&nbsp;контейнеров</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;isinstance().md');" class="button">📄&nbsp;isinstance()</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Вызываемые объекты.md');" class="button">📄&nbsp;Вызываемые&nbsp;объекты</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Менеджеры контекста.md');" class="button">📄&nbsp;Менеджеры&nbsp;контекста</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Построение дескрипторов.md');" class="button">📄&nbsp;Построение&nbsp;дескрипторов</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Копирование.md');" class="button">📄&nbsp;Копирование</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Магические методы&#x2f;Ещё.md');" class="button">📄&nbsp;Ещё</button>
 
 </div>
-    <button onclick="
-showText(Bash);
-//window.location.href = 'Bash';
-" class="trigger">📂&nbsp;Bash</button>
-    <div id="Bash" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Bash&#x2f;help.txt'));
-            " class="trigger">📄&nbsp;help</button><button onclick="
-                PutHtmlText(getCheatSheat('Языки&#x2f;Bash&#x2f;Переменные окружения.txt'));
-            " class="trigger">📄&nbsp;Переменные&nbsp;окружения</button>
+    <button onclick="showText(ДекораторыЗамыкания11);" class="button">📂&nbsp;Декораторы&nbsp;Замыкания</button>
+    <div id="ДекораторыЗамыкания11" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Декораторы Замыкания.md');" class="button">📄&nbsp;Декораторы&nbsp;Замыкания</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;Аргументы dataclass.md');" class="button">📄&nbsp;Аргументы&nbsp;dataclass</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;property.md');" class="button">📄&nbsp;property</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;cached_property.md');" class="button">📄&nbsp;cached_property</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;staticmethod.md');" class="button">📄&nbsp;staticmethod</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;overload.md');" class="button">📄&nbsp;overload</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Декораторы Замыкания&#x2f;final.md');" class="button">📄&nbsp;final</button>
+
+</div>
+    <button onclick="showText(pip12);" class="button">📂&nbsp;pip</button>
+    <div id="pip12" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;pip&#x2f;pip.md');" class="button">📄&nbsp;pip</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;pip&#x2f;requirements.txt.md');" class="button">📄&nbsp;requirements.txt</button>
+
+</div>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;with as.md');" class="button">📄&nbsp;with&nbsp;as</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;fstrings.md');" class="button">📄&nbsp;fstrings</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;print(file=).md');" class="button">📄&nbsp;print(file=)</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;for in list comprehension.md');" class="button">📄&nbsp;for&nbsp;in&nbsp;list&nbsp;comprehension</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Умножение списков.md');" class="button">📄&nbsp;Умножение&nbsp;списков</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;yield from.md');" class="button">📄&nbsp;yield&nbsp;from</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;PyCharm.md');" class="button">📄&nbsp;PyCharm</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;import.md');" class="button">📄&nbsp;import</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Встроенные функции.md');" class="button">📄&nbsp;Встроенные&nbsp;функции</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Python&#x2f;Аннотации типов.md');" class="button">📄&nbsp;Аннотации&nbsp;типов</button>
+
+</div>
+    <button onclick="showText(SQL13);" class="button">📂&nbsp;SQL</button>
+    <div id="SQL13" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;JOIN.md');" class="button">📄&nbsp;JOIN</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Операторы.md');" class="button">📄&nbsp;Операторы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;SQL&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
+
+</div>
+<button onclick="GET('cheatsheet/Языки&#x2f;RegExp.md');" class="button">📄&nbsp;RegExp</button>
+    <button onclick="showText(Dockerfile14);" class="button">📂&nbsp;Dockerfile</button>
+    <div id="Dockerfile14" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Dockerfile&#x2f;Dockerfile.md');" class="button">📄&nbsp;Dockerfile</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Dockerfile&#x2f;RUN mkdir -p.md');" class="button">📄&nbsp;RUN&nbsp;mkdir&nbsp;-p</button>
+
+</div>
+    <button onclick="showText(JavaScript15);" class="button">📂&nbsp;JavaScript</button>
+    <div id="JavaScript15" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;Списки.md');" class="button">📄&nbsp;Списки</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;for.md');" class="button">📄&nbsp;for</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;handlebar.md');" class="button">📄&nbsp;handlebar</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;JavaScript&#x2f;Переменные.md');" class="button">📄&nbsp;Переменные</button>
+
+</div>
+    <button onclick="showText(CSS16);" class="button">📂&nbsp;CSS</button>
+    <div id="CSS16" style="display:none;" class="button-folder">
+
+</div>
+    <button onclick="showText(HTML17);" class="button">📂&nbsp;HTML</button>
+    <div id="HTML17" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;HTML&#x2f;tag input.md');" class="button">📄&nbsp;tag&nbsp;input</button>
+
+</div>
+    <button onclick="showText(Cpp18);" class="button">📂&nbsp;Cpp</button>
+    <div id="Cpp18" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;if-else,switch-case.md');" class="button">📄&nbsp;if-else,switch-case</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;rand.md');" class="button">📄&nbsp;rand</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;try-catch.md');" class="button">📄&nbsp;try-catch</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Массивы.md');" class="button">📄&nbsp;Массивы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатели.md');" class="button">📄&nbsp;Указатели</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Динамические массивы.md');" class="button">📄&nbsp;Динамические&nbsp;массивы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Символы и строки.md');" class="button">📄&nbsp;Символы&nbsp;и&nbsp;строки</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Структуры данных.md');" class="button">📄&nbsp;Структуры&nbsp;данных</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Перечисления (Enum).md');" class="button">📄&nbsp;Перечисления&nbsp;(Enum)</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Работа с файлами.md');" class="button">📄&nbsp;Работа&nbsp;с&nbsp;файлами</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Функции.md');" class="button">📄&nbsp;Функции</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Перегрузка функций.md');" class="button">📄&nbsp;Перегрузка&nbsp;функций</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Математические операции.md');" class="button">📄&nbsp;Математические&nbsp;операции</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;(Введение в ООП) Классы и объекты.md');" class="button">📄&nbsp;(Введение&nbsp;в&nbsp;ООП)&nbsp;Классы&nbsp;и&nbsp;объекты</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Конструкторы и деструкторы.md');" class="button">📄&nbsp;Конструкторы&nbsp;и&nbsp;деструкторы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;20 Дружественные функции.md');" class="button">📄&nbsp;20&nbsp;Дружественные&nbsp;функции</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Дружественные классы.md');" class="button">📄&nbsp;Дружественные&nbsp;классы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатель this.md');" class="button">📄&nbsp;Указатель&nbsp;this</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Наследование классов (ООП).md');" class="button">📄&nbsp;Наследование&nbsp;классов&nbsp;(ООП)</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Шаблоны функций (template).md');" class="button">📄&nbsp;Шаблоны&nbsp;функций&nbsp;(template)</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Шаблоны классов.md');" class="button">📄&nbsp;Шаблоны&nbsp;классов</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;end.md');" class="button">📄&nbsp;end</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;ChatGPT.md');" class="button">📄&nbsp;ChatGPT</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Разное.md');" class="button">📄&nbsp;Разное</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Операции над числами.md');" class="button">📄&nbsp;Операции&nbsp;над&nbsp;числами</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;for while.md');" class="button">📄&nbsp;for&nbsp;while</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Массив.md');" class="button">📄&nbsp;Массив</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Строка.md');" class="button">📄&nbsp;Строка</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Cpp&#x2f;Указатели2.md');" class="button">📄&nbsp;Указатели2</button>
+
+</div>
+    <button onclick="showText(Java22);" class="button">📂&nbsp;Java</button>
+    <div id="Java22" style="display:none;" class="button-folder">
+    <button onclick="showText(Запуск20);" class="button">📂&nbsp;Запуск</button>
+    <div id="Запуск20" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Запуск&#x2f;Запуск.md');" class="button">📄&nbsp;Запуск</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Запуск&#x2f;Аргументы.md');" class="button">📄&nbsp;Аргументы</button>
+
+</div>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Типы данных.md');" class="button">📄&nbsp;Типы&nbsp;данных</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Логические операторы.md');" class="button">📄&nbsp;Логические&nbsp;операторы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Массив (Array).md');" class="button">📄&nbsp;Массив&nbsp;(Array)</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Циклы.md');" class="button">📄&nbsp;Циклы</button>
+    <button onclick="showText(Классы22);" class="button">📂&nbsp;Классы</button>
+    <div id="Классы22" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Объекты, конструкторы.md');" class="button">📄&nbsp;Объекты,&nbsp;конструкторы</button>
+    <button onclick="showText(Методы22);" class="button">📂&nbsp;Методы</button>
+    <div id="Методы22" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы.md');" class="button">📄&nbsp;Методы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Методы 2.md');" class="button">📄&nbsp;Методы&nbsp;2</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Не статические методы.md');" class="button">📄&nbsp;Не&nbsp;статические&nbsp;методы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Перегруженные методы.md');" class="button">📄&nbsp;Перегруженные&nbsp;методы</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Методы&#x2f;Переопределение методов.md');" class="button">📄&nbsp;Переопределение&nbsp;методов</button>
+
+</div>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Классы&#x2f;Наследование.md');" class="button">📄&nbsp;Наследование</button>
+
+</div>
+<button onclick="GET('cheatsheet/Языки&#x2f;Java&#x2f;Исключения.md');" class="button">📄&nbsp;Исключения</button>
+
+</div>
+    <button onclick="showText(Bash23);" class="button">📂&nbsp;Bash</button>
+    <div id="Bash23" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Языки&#x2f;Bash&#x2f;help.md');" class="button">📄&nbsp;help</button>
+<button onclick="GET('cheatsheet/Языки&#x2f;Bash&#x2f;Переменные окружения.md');" class="button">📄&nbsp;Переменные&nbsp;окружения</button>
+
 </div>
 
 </div>
-    <button onclick="
-showText(Другое);
-//window.location.href = 'Другое';
-" class="trigger">📂&nbsp;Другое</button>
-    <div id="Другое" style="display:none;" class="button-field">
-    <button onclick="
-showText(Форматыфайлов);
-//window.location.href = 'Форматы файлов';
-" class="trigger">📂&nbsp;Форматы&nbsp;файлов</button>
-    <div id="Форматыфайлов" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;JSON.txt'));
-            " class="trigger">📄&nbsp;JSON</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;YAML.txt'));
-            " class="trigger">📄&nbsp;YAML</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;TOML.txt'));
-            " class="trigger">📄&nbsp;TOML</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;INI.txt'));
-            " class="trigger">📄&nbsp;INI</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;XML.txt'));
-            " class="trigger">📄&nbsp;XML</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;CSV.txt'));
-            " class="trigger">📄&nbsp;CSV</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;TSV и другие.txt'));
-            " class="trigger">📄&nbsp;TSV&nbsp;и&nbsp;другие</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;SQLite3 to CSV.txt'));
-            " class="trigger">📄&nbsp;SQLite3&nbsp;to&nbsp;CSV</button><button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Форматы файлов&#x2f;Vedis db.txt'));
-            " class="trigger">📄&nbsp;Vedis&nbsp;db</button>
+    <button onclick="showText(Другое26);" class="button">📂&nbsp;Другое</button>
+    <div id="Другое26" style="display:none;" class="button-folder">
+    <button onclick="showText(Форматыфайлов25);" class="button">📂&nbsp;Форматы&nbsp;файлов</button>
+    <div id="Форматыфайлов25" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;JSON.md');" class="button">📄&nbsp;JSON</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;YAML.md');" class="button">📄&nbsp;YAML</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;TOML.md');" class="button">📄&nbsp;TOML</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;INI.md');" class="button">📄&nbsp;INI</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;XML.md');" class="button">📄&nbsp;XML</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;CSV.md');" class="button">📄&nbsp;CSV</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;TSV и другие.md');" class="button">📄&nbsp;TSV&nbsp;и&nbsp;другие</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;SQLite3 to CSV.md');" class="button">📄&nbsp;SQLite3&nbsp;to&nbsp;CSV</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Форматы файлов&#x2f;Vedis db.md');" class="button">📄&nbsp;Vedis&nbsp;db</button>
+
 </div>
-    <button onclick="
-showText(Примерырешений);
-//window.location.href = 'Примеры решений';
-" class="trigger">📂&nbsp;Примеры&nbsp;решений</button>
-    <div id="Примерырешений" style="display:none;" class="button-field">
-<button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Примеры решений&#x2f;Пирамида граф.txt'));
-            " class="trigger">📄&nbsp;Пирамида&nbsp;граф</button>
+    <button onclick="showText(Примерырешений26);" class="button">📂&nbsp;Примеры&nbsp;решений</button>
+    <div id="Примерырешений26" style="display:none;" class="button-folder">
+<button onclick="GET('cheatsheet/Другое&#x2f;Примеры решений&#x2f;Пирамида граф.md');" class="button">📄&nbsp;Пирамида&nbsp;граф</button>
+
 </div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Другое&#x2f;Пример этой кнопки.txt'));
-            " class="trigger">📄&nbsp;Пример&nbsp;этой&nbsp;кнопки</button>
+<button onclick="GET('cheatsheet/Другое&#x2f;Пример этой кнопки.md');" class="button">📄&nbsp;Пример&nbsp;этой&nbsp;кнопки</button>
+
 </div>
-<button onclick="
-                PutHtmlText(getCheatSheat('Полезные ссылки.txt'));
-            " class="trigger">📄&nbsp;Полезные&nbsp;ссылки</button><button onclick="
-                PutHtmlText(getCheatSheat('test.txt'));
-            " class="trigger">📄&nbsp;test</button>
+<button onclick="GET('cheatsheet/Полезные ссылки.md');" class="button">📄&nbsp;Полезные&nbsp;ссылки</button>
+<button onclick="GET('cheatsheet/test.md');" class="button">📄&nbsp;test</button>
+
     </div>
 
-    <pre id="field" class="code-str-2">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
+    <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
 
-    <div class="div-column-1">
-        <button id="FontSizeSize" class="MB" style="padding-left: 12px;">12px</button>
-        <button onclick="changeFontSizePlus(field)" class="MB" style="padding-left: 25px;">+</button>
-        <button onclick="changeFontSizeMinus(field)" class="MB"  style="padding-left: 27px;">-</button>
-        <button onclick="changeFontSizeDefault(field)" class="MB">Default</button>
-        <button id="COPY" onclick="copyTextFromDiv(field); changeColor(COPY)" class="MB" style="padding-left: 12px;">Copy</button>
-        <button id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" class="MB" style="padding-left: 2px;">Copy selected</button>
+    <div>
+        <button id="FontSizeSize" class="control-button" style="padding-left: 12px;">12px</button>
+        <button onclick="changeFontSize(field, '+')" class="control-button" style="padding-left: 25px;">+</button>
+        <button onclick="changeFontSize(field, '-')" class="control-button"  style="padding-left: 27px;">-</button>
+        <button onclick="changeFontSize(field, '=')" class="control-button">Default</button>
+        <button id="COPY" onclick="copyTextFromDiv(field); changeColor(COPY)" class="control-button" style="padding-left: 12px;">Copy</button>
+        <button id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" class="control-button" style="padding-left: 2px;">Copy selected</button>
     </div>
 </body>
 </html>

@@ -1,0 +1,185 @@
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #393939;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #505050;
+}
+body {
+    background: #393939;
+    color: #F1F1F1;
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    border: 0px solid;
+    border-radius: 10px;
+    max-height: 94vh;
+}
+
+img {border-radius: 10px;}
+pre {margin-bottom: 0px;margin-top: 0px;}
+
+/* Цвета ссылок */
+a:link    {color: #539bf5;}
+a:active  {color: #6ba4e9;}
+a:visited {color: #539bf5;}
+
+/* Таблицы */
+th {
+  padding: 10px 15px;
+  background-color: #46494b;
+}
+td {
+  border-top: 1px solid #46494b;
+  padding: 10px 15px;
+  background-color: #3c3f41;
+}
+th:first-child {border-top-left-radius: .375rem;}
+th:last-child {border-top-right-radius: .375rem;}
+tr:last-child td:first-child {border-bottom-left-radius: .375rem;}
+tr:last-child td:last-child {border-bottom-right-radius: .375rem;}
+tr:hover td {background: #46494b;}
+
+
+/* Контейнер с кнопками выбора темы */
+.cheatsheet-buttons {
+    display: flex;
+    flex-direction: row;
+    border: 0px solid;
+    border-radius: 10px;
+    height: 84vh;
+    width: 300px;
+    background-color: #191919;
+    padding: 20px;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Папка с кнопками */
+.button-folder {
+    height: max-content;
+    width: 0px; //initial; //max-content;
+    border: 0px solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: #505050; //#AFB1B3; //#343434;
+    color: #AAAAAA;
+    margin: -3px 0px 8px 2px;
+}
+
+/* Кнопки выбора темы */
+.button {
+    max-width: 350px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 0 20px;
+    padding-left: 10px;
+    min-height: 45px;
+    border: 1px solid #2B2B2B;
+    border-radius: 10px;
+    background-color: #323232;
+    color: #AFB1B3;
+    transition: background-color 0.2s ease-out;
+}
+.button:hover {background-color: #424242;}
+.button:active {background-color: #525252;}
+.button:focus {background-color: #999999;color: #252525;}
+
+/* Поле в котором появляется шпаргалка */
+.cheatsheet-field {
+    display: flex;
+    height: 84vh;
+    width: 100%;
+    border: 0px solid;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2B2B2B;
+    color: #AAAAAA;
+    font-size: 12px;
+    margin: 0px 0px 0px 0px;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+/* Кнопки усправления справа */
+.control-button {
+    height: 64px;
+    width: 64px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 4px 8px;
+
+    min-height: 45px;
+    border: 1px solid #2B2B2B;
+    border-radius: 10px;
+    background-color: #525252;
+    color: #AFB1B3;
+    transition: background-color 0.5s ease-out;
+}
+.control-button:hover {background-color: #424242;}
+.control-button:active {background-color: #323232;}
+
+
+/* Элемент с кодом внутри */
+.code-element {
+    display: flex;
+    flex-direction: column;
+    width: max-content; // 550px;
+    --tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity));
+    margin-bottom:1rem;
+    border-radius:.375rem;
+}
+
+/* Полоска вверху элемента code-element с языком и кнопкой для копирования */
+.lang-line {
+    height: max-content;
+    border-radius:.375rem .375rem .0rem .0rem;
+    display:flex;
+    align-items:center;
+    position:relative;
+    tw-text-opacity:1;color:rgba(217,217,227,var(--tw-text-opacity));
+    tw-bg-opacity:1;background-color:rgba(52,53,65,var(--tw-bg-opacity));
+    padding-left:1rem;padding-right:1rem;
+    padding-bottom:.35rem;padding-top:.35rem;
+    font-size:.75rem;line-height:.75rem;
+    font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
+    sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+}
+
+/* Кнопка для копирования кода */
+.copy-button {
+    display:flex;
+    margin-left:auto;
+    gap:.5rem;
+    background-color:rgba(52,53,65);border:0;color:#D9D9E3;
+}
+.copy-button:hover {background-color: #424242;}
+.copy-button:active {background-color: #323232;}
+
+/* Код */
+.code {
+    padding:1rem 1rem 1rem 1rem;
+    overflow-y:auto;
+    white-space:pre-wrap!important;
+    background-color: #1B1B1B;
+    border-radius:.0rem .0rem .375rem .375rem;
+    background-color: #272727;
+}
+
+/* Подсветка синтаксиса */
+.k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */
+.s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
+.c1, .cp, .cpf {color:hsla(0,0%,100%,.5)} /* Коммент */
+.mi, .mf {color:#5897BB;} /* Число */
+.nb, .kt {color:#8888C6;} /* Дефолтные функции */
+.fm {color:#B200B2;} /* Магические методы */
+.bp {color:#94558D;} /* Self */
+.nd {color:#BBB529;} /* Декоратор */
+.nf {color:#FFC66D;} /* Название функции */
+.na {color:#AA4926;} /* Аргумент */

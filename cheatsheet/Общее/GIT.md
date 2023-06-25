@@ -1,0 +1,167 @@
+<p><a href='https://git-scm.com/' target='_blank'>https://git-scm.com/</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git config --global user.name "EgorKhabarov"</td>
+</tr>
+<tr>
+<td>git config --global user.email "not.a.fan.of.broccoli@gmail.com"</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git init</td>
+<td>инициализация нового репозитория</td>
+</tr>
+<tr>
+<td>git clone [url]</td>
+<td>клонирование существующего репозитория</td>
+</tr>
+<tr>
+<td>git add [file]</td>
+<td>добавление файла в индекс</td>
+</tr>
+<tr>
+<td>git commit -m "message"</td>
+<td>коммит с сообщением</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>просмотр изменений в файлах</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>просмотр текущего статуса репозитория<br>Tracked - файлы, о которых знает Git и которые добавляются в репозиторий.<br>Untracked - файлы, находящиеся в вашем рабочем каталоге, но не добавленные в репозиторий</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>просмотр списка веток</td>
+</tr>
+<tr>
+<td>git checkout [branch/commit]</td>
+<td>переключение на другую ветку/коммит</td>
+</tr>
+<tr>
+<td>git merge [branch]</td>
+<td>слияние ветки с текущей</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>получение и обновление удалённой ветки</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>отправка изменений на удалённый репозиторий</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>просмотр истории коммитов</td>
+</tr>
+<tr>
+<td>git reset [file]</td>
+<td>сброс индексации файла</td>
+</tr>
+<tr>
+<td>git rm [file]</td>
+<td>удаление файла из репозитория</td>
+</tr>
+<tr>
+<td>mkdir [path]</td>
+<td>сделать новый каталог</td>
+</tr>
+<tr>
+<td>cd [path]</td>
+<td>изменяет текущий рабочий каталог</td>
+</tr>
+<tr>
+<td>git init</td>
+<td>инициализировать Git в этой папке</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>проверяем статус</td>
+</tr>
+<tr>
+<td>git add [file_name]</td>
+<td>подготавливаем файл<br>Использование --all вместо отдельных имен файлов приведет к<br>stage изменению всех (новых, измененных и удаленных) файлов.<br>Сокращенная команда git add --all для git add -A</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>проверяем статус</td>
+</tr>
+<tr>
+<td>git commit -m "комментарий"</td>
+<td>подтверждаем</td>
+</tr>
+</tbody>
+</table>
+<p>Git Commit без этапа
+git status --short            увидеть изменения в более компактном виде
+git commit -a -m "комментарий"
+Обычно не рекомендуется пропускать промежуточную среду.
+Пропуск этапа этапа иногда может привести к включению нежелательных изменений.</p>
+<p>Новая ветка Git
+Мы работаем в нашем локальном репозитории 
+и не хотим нарушать или разрушать основной проект.</p>
+<div class="code-element">
+    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>git branch name               создаем новый ветки
+git checkout name             извлечение файла ветки
+git commit -m &quot;комментарий&quot;   подтверждаем
+</pre></div></div>
+</div>
+
+<p>Аварийное отделение
+Теперь представьте, что мы еще не закончили с образами hello-world, 
+но нам нужно исправить ошибку на master. Я не хочу связываться с master напрямую, 
+и я не хочу связываться с образами hello-world, так как это еще не сделано.</p>
+<div class="code-element">
+    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>git checkout -b emergency-fix создаем новую ветку для решения чрезвычайной ситуации
+git status
+git add name
+git commit -m &quot;комментарий&quot;
+</pre></div></div>
+</div>
+
+<p>Объединить ветки
+У нас готово аварийное исправление, 
+поэтому давайте объединим ветки master и Emergency-fix.
+Во-первых, нам нужно перейти на ветку master:</p>
+<div class="code-element">
+    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>git checkout master
+git merge emergency-fix       объединяем текущую ветку (master) с Emergency-fix
+git branch -d emergency-fix   удалить Emergency-Fix
+</pre></div></div>
+</div>
+
+<p>Объединить конфликт</p>
+<div class="code-element">
+    <div class="lang-line">text<button class="copy-button"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>git checkout hello-world-images
+git add --all
+git commit -m &quot;added new image&quot;
+</pre></div></div>
+</div>
