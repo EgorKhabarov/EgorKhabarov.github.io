@@ -131,8 +131,7 @@ tr:hover td {background: #46494b;}
 .code-element {
   display: flex;
   flex-direction: column;
-  width: max-content; // 550px;
-  --tw-bg-opacity:1;background-color:rgba(0,0,0,var(--tw-bg-opacity));
+  width: max-content;
   margin-bottom:1rem;
   border-radius:.375rem;
 }
@@ -144,8 +143,8 @@ tr:hover td {background: #46494b;}
   display:flex;
   align-items:center;
   position:relative;
-  tw-text-opacity:1;color:rgba(217,217,227,var(--tw-text-opacity));
-  tw-bg-opacity:1;background-color:rgba(52,53,65,var(--tw-bg-opacity));
+  color:rgba(217,217,227,1);
+  background-color:rgba(52,53,65,1);
   padding-left:1rem;padding-right:1rem;
   padding-bottom:.35rem;padding-top:.35rem;
   font-size:.75rem;line-height:.75rem;
