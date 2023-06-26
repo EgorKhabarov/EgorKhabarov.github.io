@@ -1,1 +1,0 @@
-<p><img alt="html.png" src="Языки\HTML\html.png"></p>

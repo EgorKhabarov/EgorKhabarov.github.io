@@ -5309,11 +5309,24 @@ console.log(myGlobalVariable); // "Hello, World!"
 """,
         },
         "CSS": {
-
+            "css": """
+<img alt="css.png" src="Языки\CSS\css.png">
+""",
+            "Селекторы": """
+<img alt="selectors.png" src="Языки/CSS/css_selectors.png">
+""",
+            "Единицы измерения": """
+<img alt="css_units.png" src="Языки/CSS/css_units.png">
+"""
         },
         "HTML": {
-            "html": """
-<img alt="html.png" src="Языки\HTML\html.png">
+            "Теги": r"""
+<img alt="tags1.png" src="Языки\HTML\tags1.png">
+<img alt="tags2.png" src="Языки\HTML\tags2.png">
+""",
+            "Символы и экранирование": r"""
+<img alt="html_character1.png" src="Языки\HTML\html_character1.png">
+<img alt="html_character1.png" src="Языки\HTML\html_character1.png">
 """,
             "tag input": """
 ```html
