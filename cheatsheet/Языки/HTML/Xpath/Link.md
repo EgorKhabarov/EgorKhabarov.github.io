@@ -1,0 +1,1 @@
+<p>Шпаргалка взята с сайта <a href='https://devhints.io/xpath' target='_blank'>https://devhints.io/xpath</a></p>

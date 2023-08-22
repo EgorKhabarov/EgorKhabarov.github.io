@@ -90,5 +90,8 @@ result = f"""
 </html>
 """
 
+# with open("cheatsheet/index.html", "w", encoding="utf-8") as file:
+#     file.write(BeautifulSoup(result, "html.parser").prettify())
+
 with open("cheatsheet/index.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(result, "html.parser").prettify())

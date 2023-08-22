@@ -91,6 +91,25 @@ function GET(url) {
     return PutHtmlText(getCheatSheat(url))
 }
 
+
+/* Для обработки консольного кода */
+function processPythonConsoleText(text) {
+  const lines = text.split('\n');
+  const userInputLines = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    if (line.startsWith('>>> ') || line.startsWith('... ')) {
+      userInputLines.push(line.slice(4));
+    } else if (line !== '') {
+      userInputLines.push('\n');
+    }
+  }
+
+  return userInputLines.join('');
+}
+
 function copyCode(element, elementButton) {
     const textarea = document.createElement('textarea');
     textarea.value = element.textContent;

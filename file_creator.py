@@ -38,6 +38,8 @@ def to_markup(markdown_text):
             _language = "python"
         elif language == "python-console":
             _language = "python"
+        # elif language == "row":
+        #     return """<div class="row">{}</div>""".format(code_block.strip())
         else:
             _language = language
         lexer = get_lexer_by_name(_language, stripall=True)

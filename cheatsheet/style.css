@@ -31,11 +31,13 @@ a:visited {color: #539bf5;}
 th {
   padding: 10px 15px;
   background-color: #46494b;
+  width: max-content;
 }
 td {
   border-top: 1px solid #46494b;
   padding: 10px 15px;
   background-color: #3c3f41;
+  width: max-content;
 }
 th:first-child {border-top-left-radius: .375rem;}
 th:last-child {border-top-right-radius: .375rem;}
@@ -177,15 +179,21 @@ tr:hover td {background: #46494b;}
 .k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */
 .s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
 .c1, .cp, .cpf {color:hsla(0,0%,100%,.5)} /* Коммент */
-.mi, .mf {color:#5897BB;} /* Число */
+.m, .mi, .mf {color:#5897BB;} /* Число */
 .nb, .kt {color:#8888C6;} /* Дефолтные функции */
 .fm {color:#B200B2;} /* Магические методы */
 .bp {color:#94558D;} /* Self */
 .nd {color:#BBB529;} /* Декоратор */
 .nf {color:#FFC66D;} /* Название функции */
-.na {color:#AA4926;} /* Аргумент */
+.na {color:#AA4926;} /* Аргумент
 
 
+/*
+.cheatsheet-field div.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}*/
 
 
 
