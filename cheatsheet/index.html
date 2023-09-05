@@ -1073,6 +1073,27 @@ function downloadFile(text, filename) {
    <button class="button" onclick="GET('test.md');">
     📄 test
    </button>
+   <button class="button" onclick="showText(Университет32);">
+    📂 Университет
+   </button>
+   <div class="button-folder" id="Университет32" style="display:none;">
+    <button class="button" onclick="showText(Высшаяматематика32);">
+     📂 Высшая математика
+    </button>
+    <div class="button-folder" id="Высшаяматематика32" style="display:none;">
+     <button class="button" onclick="showText(Матрицы32);">
+      📂 Матрицы
+     </button>
+     <div class="button-folder" id="Матрицы32" style="display:none;">
+      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Матрицы.md');">
+       📄 Матрицы
+      </button>
+      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Определители.md');">
+       📄 Определители
+      </button>
+     </div>
+    </div>
+   </div>
   </div>
   <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
   <div>
