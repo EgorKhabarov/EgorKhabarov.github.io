@@ -9298,6 +9298,85 @@ graph = [
     [12, 26, 51]]
 ```
 """,
+            "Определитель матрицы": """
+```python
+#file matrix.py
+class Matrix:
+    def __init__(self, matrix: list[list[int]]):
+        self.matrix = matrix
+
+    def get_minor(self, i: int, j: int) -> list[list[int]]:
+        result = [
+            list(row[:j] + row[j+1:])
+            for row_index, row in enumerate(self.matrix) if row_index != i
+        ]
+        return result
+
+    def det(self):
+        n = len(self.matrix)
+        if len({len(row) for row in self.matrix}) > 1 and n != x[0]:
+            raise ValueError("")
+
+        if n == 1:
+            return self.matrix[0][0]
+
+        elif n == 2:
+            return (
+                self.matrix[0][0] * self.matrix[1][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0]
+            )
+        elif n == 3:
+            return (
+                self.matrix[0][0] * self.matrix[1][1] * self.matrix[2][2]
+            ) + (
+                self.matrix[0][1] * self.matrix[1][2] * self.matrix[2][0]
+            ) + (
+                self.matrix[0][2] * self.matrix[1][0] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][2] * self.matrix[1][1] * self.matrix[2][0]
+            ) - (
+                self.matrix[0][0] * self.matrix[1][2] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0] * self.matrix[2][2]
+            )
+
+        else:
+            result = []
+            for j, x in enumerate(self.matrix[0]):
+                minor = self.get_minor(0, j)
+                result.append((-x if j % 2 else x) * Matrix(minor).det())
+            return sum(result)
+```
+
+```python
+#file test_matrix_1.py
+from matrix import Matrix
+
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+
+print(Matrix(m).det())
+```
+
+```python
+#file test_matrix_2.py
+from numpy import linalg
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+print(linalg.det(m))
+```
+"""
         },
         "Пример этой кнопки": """
 ```
