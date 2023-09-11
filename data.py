@@ -9343,9 +9343,10 @@ class Matrix:
 
         else:
             result = []
+            i = 0
             for j, x in enumerate(self.matrix[0]):
-                minor = self.get_minor(0, j)
-                result.append((-x if j % 2 else x) * Matrix(minor).det())
+                minor = self.get_minor(i, j)
+                result.append(x * ((-1)**(i+1 + j+1)) * Matrix(minor).det())
             return sum(result)
 ```
 
@@ -9496,6 +9497,9 @@ A = [
     [a31, a32, a33]
 ]
 det(A) = a11&#42;a22&#42;a33 + a12&#42;a23&#42;a31 + a13&#42;a21&#42;a32 - a13&#42;a22&#42;a31 - a12&#42;a21&#42;a33 - a11&#42;a32&#42;a23
+
+Минор это под табличка от основной матрицы.
+
 """,
             },
         },
