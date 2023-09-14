@@ -188,9 +188,11 @@
 </tbody>
 </table>
 <h1>Флаги</h1>
+<p><a href='https://docs.python.org/3/library/re.html#flags' target='_blank'>https://docs.python.org/3/library/re.html#flags</a></p>
 <table>
 <thead>
 <tr>
+<th></th>
 <th></th>
 <th></th>
 </tr>
@@ -198,19 +200,28 @@
 <tbody>
 <tr>
 <td>re.ASCII</td>
+<td>(?a)</td>
 <td>По умолчанию \w, \W, \b, \B, \d, \D, \s, \S соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII.</td>
 </tr>
 <tr>
 <td>re.IGNORECASE</td>
+<td>(?i)</td>
 <td>Не различать заглавные и маленькие буквы. Работает медленнее, но иногда удобно</td>
 </tr>
 <tr>
 <td>re.MULTILINE</td>
+<td>(?m)</td>
 <td>Специальные символы ^ и $ соответствуют началу и концу каждой строки</td>
 </tr>
 <tr>
 <td>re.DOTALL</td>
+<td>(?s)</td>
 <td>По умолчанию символ \n конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
+</tr>
+<tr>
+<td>re.VERBOSE</td>
+<td>(?x)</td>
+<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как &#42;?, (?:или (?P&lt;...&gt;. Например, и не допускаются.<br><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre>a = re.compile(<span class="s1">r&#34;&#34;&#34;\d +  # the integral part<br>                   &#92;.    # the decimal point<br>                   \d *  # some fractional digits&#34;&#34;&#34;</span>, re.X)<br>b = re.compile(<span class="s1">r"\d+.\d*"</span>)</pre></div></div></td>
 </tr>
 </tbody>
 </table>
