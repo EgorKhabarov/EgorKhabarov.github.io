@@ -163,8 +163,13 @@ C# - Разработчик говорит как это можно получи
 ```C#
 int[] N = new int[] { 5, 1, 3, 9, 12, 583, 998, 7538, 72, 53, 71, 85, 7, 2, 9 };
 List<int> nums = new List<int>();
-for(int i = 0; i < N.Length; i++) {
-if(N[i] > 3 && N[i] < 100){nums.Add(N[i]);}}
+
+for (int i = 0; i < N.Length; i++) {
+    if (N[i] > 3 && N[i] < 100){
+        nums.Add(N[i]);
+    }
+}
+
 int[] N2 = nums.ToArray();
 ```
 
