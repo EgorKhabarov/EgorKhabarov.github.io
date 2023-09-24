@@ -480,10 +480,10 @@ function downloadFile(text, filename) {
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" onclick="showText(Общее3);">
+   <button class="button" onclick="showText(Общее4);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее3" style="display:none;">
+   <div class="button-folder" id="Общее4" style="display:none;">
     <button class="button" onclick="showText(Парадигмы2);">
      📂 Парадигмы
     </button>
@@ -504,13 +504,21 @@ function downloadFile(text, filename) {
     <button class="button" onclick="GET('Общее/sync asyn.md');">
      📄 sync asyn
     </button>
-    <button class="button" onclick="GET('Общее/GIT.md');">
-     📄 GIT
+    <button class="button" onclick="showText(GIT3);">
+     📂 GIT
     </button>
-    <button class="button" onclick="showText(HTTP3);">
+    <div class="button-folder" id="GIT3" style="display:none;">
+     <button class="button" onclick="GET('Общее/GIT/Команды.md');">
+      📄 Команды
+     </button>
+     <button class="button" onclick="GET('Общее/GIT/.gitignore.md');">
+      📄 .gitignore
+     </button>
+    </div>
+    <button class="button" onclick="showText(HTTP4);">
      📂 HTTP
     </button>
-    <div class="button-folder" id="HTTP3" style="display:none;">
+    <div class="button-folder" id="HTTP4" style="display:none;">
      <button class="button" onclick="GET('Общее/HTTP/HTTР.md');">
       📄 HTTР
      </button>
@@ -522,18 +530,18 @@ function downloadFile(text, filename) {
      </button>
     </div>
    </div>
-   <button class="button" onclick="showText(Языки26);">
+   <button class="button" onclick="showText(Языки27);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки26" style="display:none;">
-    <button class="button" onclick="showText(Python12);">
+   <div class="button-folder" id="Языки27" style="display:none;">
+    <button class="button" onclick="showText(Python13);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python12" style="display:none;">
-     <button class="button" onclick="showText(Библиотеки8);">
+    <div class="button-folder" id="Python13" style="display:none;">
+     <button class="button" onclick="showText(Библиотеки9);">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотеки8" style="display:none;">
+     <div class="button-folder" id="Библиотеки9" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Библиотеки/io.md');">
        📄 io
       </button>
@@ -573,10 +581,10 @@ function downloadFile(text, filename) {
       <button class="button" onclick="GET('Языки/Python/Библиотеки/fractions.md');">
        📄 fractions
       </button>
-      <button class="button" onclick="showText(Django7);">
+      <button class="button" onclick="showText(Django8);">
        📂 Django
       </button>
-      <div class="button-folder" id="Django7" style="display:none;">
+      <div class="button-folder" id="Django8" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Django/Команды.md');">
         📄 Команды
        </button>
@@ -587,10 +595,10 @@ function downloadFile(text, filename) {
       <button class="button" onclick="GET('Языки/Python/Библиотеки/textwrap.md');">
        📄 textwrap
       </button>
-      <button class="button" onclick="showText(PIL8);">
+      <button class="button" onclick="showText(PIL9);">
        📂 PIL
       </button>
-      <div class="button-folder" id="PIL8" style="display:none;">
+      <div class="button-folder" id="PIL9" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/PIL/ImageDraw.Draw.md');">
         📄 ImageDraw.Draw
        </button>
@@ -599,10 +607,10 @@ function downloadFile(text, filename) {
        📄 datetime
       </button>
      </div>
-     <button class="button" onclick="showText(Методы9);">
+     <button class="button" onclick="showText(Методы10);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методы9" style="display:none;">
+     <div class="button-folder" id="Методы10" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/int.md');">
        📄 int
       </button>
@@ -619,10 +627,10 @@ function downloadFile(text, filename) {
        📄 set
       </button>
      </div>
-     <button class="button" onclick="showText(Магическиеметоды10);">
+     <button class="button" onclick="showText(Магическиеметоды11);">
       📂 Магические методы
      </button>
-     <div class="button-folder" id="Магическиеметоды10" style="display:none;">
+     <div class="button-folder" id="Магическиеметоды11" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Магические методы/Кратко о использовании.md');">
        📄 Кратко о использовании
       </button>
@@ -663,10 +671,10 @@ function downloadFile(text, filename) {
        📄 Ещё
       </button>
      </div>
-     <button class="button" onclick="showText(ДекораторыЗамыкания11);">
+     <button class="button" onclick="showText(ДекораторыЗамыкания12);">
       📂 Декораторы Замыкания
      </button>
-     <div class="button-folder" id="ДекораторыЗамыкания11" style="display:none;">
+     <div class="button-folder" id="ДекораторыЗамыкания12" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md');">
        📄 Декораторы Замыкания
       </button>
@@ -689,10 +697,10 @@ function downloadFile(text, filename) {
        📄 final
       </button>
      </div>
-     <button class="button" onclick="showText(pip12);">
+     <button class="button" onclick="showText(pip13);">
       📂 pip
      </button>
-     <div class="button-folder" id="pip12" style="display:none;">
+     <div class="button-folder" id="pip13" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/pip/pip.md');">
        📄 pip
       </button>
@@ -728,10 +736,10 @@ function downloadFile(text, filename) {
       📄 Аннотации типов
      </button>
     </div>
-    <button class="button" onclick="showText(SQL13);">
+    <button class="button" onclick="showText(SQL14);">
      📂 SQL
     </button>
-    <div class="button-folder" id="SQL13" style="display:none;">
+    <div class="button-folder" id="SQL14" style="display:none;">
      <button class="button" onclick="GET('Языки/SQL/Разное.md');">
       📄 Разное
      </button>
@@ -745,10 +753,10 @@ function downloadFile(text, filename) {
       📄 Функции
      </button>
     </div>
-    <button class="button" onclick="showText(RegExp14);">
+    <button class="button" onclick="showText(RegExp15);">
      📂 RegExp
     </button>
-    <div class="button-folder" id="RegExp14" style="display:none;">
+    <div class="button-folder" id="RegExp15" style="display:none;">
      <button class="button" onclick="GET('Языки/RegExp/RegExp.md');">
       📄 RegExp
      </button>
@@ -756,10 +764,10 @@ function downloadFile(text, filename) {
       📄 images
      </button>
     </div>
-    <button class="button" onclick="showText(Dockerfile15);">
+    <button class="button" onclick="showText(Dockerfile16);">
      📂 Dockerfile
     </button>
-    <div class="button-folder" id="Dockerfile15" style="display:none;">
+    <div class="button-folder" id="Dockerfile16" style="display:none;">
      <button class="button" onclick="GET('Языки/Dockerfile/Dockerfile.md');">
       📄 Dockerfile
      </button>
@@ -767,10 +775,10 @@ function downloadFile(text, filename) {
       📄 RUN mkdir -p
      </button>
     </div>
-    <button class="button" onclick="showText(JavaScript16);">
+    <button class="button" onclick="showText(JavaScript17);">
      📂 JavaScript
     </button>
-    <div class="button-folder" id="JavaScript16" style="display:none;">
+    <div class="button-folder" id="JavaScript17" style="display:none;">
      <button class="button" onclick="GET('Языки/JavaScript/Списки.md');">
       📄 Списки
      </button>
@@ -784,14 +792,14 @@ function downloadFile(text, filename) {
       📄 Переменные
      </button>
     </div>
-    <button class="button" onclick="showText(CSS18);">
+    <button class="button" onclick="showText(CSS19);">
      📂 CSS
     </button>
-    <div class="button-folder" id="CSS18" style="display:none;">
-     <button class="button" onclick="showText(csstext18);">
+    <div class="button-folder" id="CSS19" style="display:none;">
+     <button class="button" onclick="showText(csstext19);">
       📂 css-text
      </button>
-     <div class="button-folder" id="csstext18" style="display:none;">
+     <div class="button-folder" id="csstext19" style="display:none;">
       <button class="button" onclick="GET('Языки/CSS/css-text/Backgrounds.md');">
        📄 Backgrounds
       </button>
@@ -860,10 +868,10 @@ function downloadFile(text, filename) {
       📄 Единицы измерения
      </button>
     </div>
-    <button class="button" onclick="showText(HTML20);">
+    <button class="button" onclick="showText(HTML21);">
      📂 HTML
     </button>
-    <div class="button-folder" id="HTML20" style="display:none;">
+    <div class="button-folder" id="HTML21" style="display:none;">
      <button class="button" onclick="GET('Языки/HTML/Теги.md');">
       📄 Теги
      </button>
@@ -873,10 +881,10 @@ function downloadFile(text, filename) {
      <button class="button" onclick="GET('Языки/HTML/tag input.md');">
       📄 tag input
      </button>
-     <button class="button" onclick="showText(Xpath20);">
+     <button class="button" onclick="showText(Xpath21);">
       📂 Xpath
      </button>
-     <div class="button-folder" id="Xpath20" style="display:none;">
+     <div class="button-folder" id="Xpath21" style="display:none;">
       <button class="button" onclick="GET('Языки/HTML/Xpath/Link.md');">
        📄 Link
       </button>
@@ -900,10 +908,10 @@ function downloadFile(text, filename) {
       </button>
      </div>
     </div>
-    <button class="button" onclick="showText(Cpp21);">
+    <button class="button" onclick="showText(Cpp22);">
      📂 Cpp
     </button>
-    <div class="button-folder" id="Cpp21" style="display:none;">
+    <div class="button-folder" id="Cpp22" style="display:none;">
      <button class="button" onclick="GET('Языки/Cpp/Типы данных.md');">
       📄 Типы данных
      </button>
@@ -998,14 +1006,14 @@ function downloadFile(text, filename) {
       📄 Указатели2
      </button>
     </div>
-    <button class="button" onclick="showText(Java25);">
+    <button class="button" onclick="showText(Java26);">
      📂 Java
     </button>
-    <div class="button-folder" id="Java25" style="display:none;">
-     <button class="button" onclick="showText(Запуск23);">
+    <div class="button-folder" id="Java26" style="display:none;">
+     <button class="button" onclick="showText(Запуск24);">
       📂 Запуск
      </button>
-     <div class="button-folder" id="Запуск23" style="display:none;">
+     <div class="button-folder" id="Запуск24" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');">
        📄 Запуск
       </button>
@@ -1025,17 +1033,17 @@ function downloadFile(text, filename) {
      <button class="button" onclick="GET('Языки/Java/Циклы.md');">
       📄 Циклы
      </button>
-     <button class="button" onclick="showText(Классы25);">
+     <button class="button" onclick="showText(Классы26);">
       📂 Классы
      </button>
-     <div class="button-folder" id="Классы25" style="display:none;">
+     <div class="button-folder" id="Классы26" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');">
        📄 Объекты, конструкторы
       </button>
-      <button class="button" onclick="showText(Методы25);">
+      <button class="button" onclick="showText(Методы26);">
        📂 Методы
       </button>
-      <div class="button-folder" id="Методы25" style="display:none;">
+      <div class="button-folder" id="Методы26" style="display:none;">
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');">
         📄 Методы
        </button>
@@ -1060,10 +1068,10 @@ function downloadFile(text, filename) {
       📄 Исключения
      </button>
     </div>
-    <button class="button" onclick="showText(Bash26);">
+    <button class="button" onclick="showText(Bash27);">
      📂 Bash
     </button>
-    <div class="button-folder" id="Bash26" style="display:none;">
+    <div class="button-folder" id="Bash27" style="display:none;">
      <button class="button" onclick="GET('Языки/Bash/help.md');">
       📄 help
      </button>
@@ -1072,14 +1080,14 @@ function downloadFile(text, filename) {
      </button>
     </div>
    </div>
-   <button class="button" onclick="showText(Другое29);">
+   <button class="button" onclick="showText(Другое30);">
     📂 Другое
    </button>
-   <div class="button-folder" id="Другое29" style="display:none;">
-    <button class="button" onclick="showText(Форматыфайлов28);">
+   <div class="button-folder" id="Другое30" style="display:none;">
+    <button class="button" onclick="showText(Форматыфайлов29);">
      📂 Форматы файлов
     </button>
-    <div class="button-folder" id="Форматыфайлов28" style="display:none;">
+    <div class="button-folder" id="Форматыфайлов29" style="display:none;">
      <button class="button" onclick="GET('Другое/Форматы файлов/JSON.md');">
       📄 JSON
      </button>
@@ -1108,10 +1116,10 @@ function downloadFile(text, filename) {
       📄 Vedis db
      </button>
     </div>
-    <button class="button" onclick="showText(Примерырешений29);">
+    <button class="button" onclick="showText(Примерырешений30);">
      📂 Примеры решений
     </button>
-    <div class="button-folder" id="Примерырешений29" style="display:none;">
+    <div class="button-folder" id="Примерырешений30" style="display:none;">
      <button class="button" onclick="GET('Другое/Примеры решений/Пирамида граф.md');">
       📄 Пирамида граф
      </button>
@@ -1129,18 +1137,18 @@ function downloadFile(text, filename) {
    <button class="button" onclick="GET('test.md');">
     📄 test
    </button>
-   <button class="button" onclick="showText(Университет32);">
+   <button class="button" onclick="showText(Университет33);">
     📂 Университет
    </button>
-   <div class="button-folder" id="Университет32" style="display:none;">
-    <button class="button" onclick="showText(Высшаяматематика32);">
+   <div class="button-folder" id="Университет33" style="display:none;">
+    <button class="button" onclick="showText(Высшаяматематика33);">
      📂 Высшая математика
     </button>
-    <div class="button-folder" id="Высшаяматематика32" style="display:none;">
-     <button class="button" onclick="showText(Матрицы32);">
+    <div class="button-folder" id="Высшаяматематика33" style="display:none;">
+     <button class="button" onclick="showText(Матрицы33);">
       📂 Матрицы
      </button>
-     <div class="button-folder" id="Матрицы32" style="display:none;">
+     <div class="button-folder" id="Матрицы33" style="display:none;">
       <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Матрицы.md');">
        📄 Матрицы
       </button>
