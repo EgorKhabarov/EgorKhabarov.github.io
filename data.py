@@ -85,7 +85,7 @@ git commit -m "added new image"
 
 <img alt="GIT.png" src="Общее\GIT\GIT.png">
 """,
-            ".gitignore": """
+            "gitignore": """
 | Шаблон | Примеры соответствия | Пояснение |
 |--------|----------------------|-----------|
 | **/logs                              | logs/debug.log<br>logs/monday/foo.bar<br>build/logs/debug.log                              | Добавьте в начало шаблона две звездочки,<br>чтобы сопоставлять каталоги в любом месте репозитория. |
