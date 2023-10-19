@@ -2,7 +2,7 @@ import os
 
 from bs4 import BeautifulSoup
 
-from data import DICT
+from dev.data import DICT
 
 
 index = 0
@@ -37,8 +37,8 @@ def buttons(dictionary: dict, directory=""):
             )
     return text, directory
 
-with (open("cheatsheet/style.css", "r", encoding="utf-8") as style,
-      open("cheatsheet/script.js", "r", encoding="utf-8") as script):
+with (open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
+      open("../cheatsheet/script.js", "r", encoding="utf-8") as script):
     css_code = style.read().strip()
     js_code = script.read().strip()
 
@@ -93,5 +93,5 @@ result = f"""
 # with open("cheatsheet/index.html", "w", encoding="utf-8") as file:
 #     file.write(BeautifulSoup(result, "html.parser").prettify())
 
-with open("cheatsheet/index.html", "w", encoding="utf-8") as file:
+with open("../cheatsheet/index.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(result, "html.parser").prettify())

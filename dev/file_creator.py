@@ -6,7 +6,7 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
-from data import DICT
+from dev.data import DICT
 
 
 index = 0
@@ -110,4 +110,4 @@ def create_files_and_folders(dictionary, directory="."):
             with open(key_path, "w", encoding="utf-8") as f:
                 f.write(to_markup(value.strip()))
 
-create_files_and_folders(DICT, "cheatsheet")
+create_files_and_folders(DICT, "../cheatsheet")

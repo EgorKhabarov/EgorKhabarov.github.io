@@ -5036,7 +5036,10 @@ TAN                 возвращает тангенс угла в радиан
 | JSON_INSERT          (json_column, '$.key', 'value')     | Вставляет значение в JSON-структуру по указанному пути         |                             |
 | JSON_REMOVE          (json_column, '$.key')              | Удаляет элементы из JSON-структуры по указанному пути          |                             |
 | JSON_REPLACE         (json_column, '$.key', 'new_value') | Заменяет значение элемента в JSON-структуре по указанному пути |                             |
-"""
+""",
+            "Картинки": """
+<img alt="sql.png" src="Языки\SQL\sql.png">
+""",
         },
         "RegExp": {
             "RegExp": r"""

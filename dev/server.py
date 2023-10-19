@@ -6,19 +6,19 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return send_file("index.html")
+    return send_file("../index.html")
 
 @app.route("/cheatsheet")
 def cheatsheet():
-    return send_file("cheatsheet/index.html")
+    return send_file("../cheatsheet/index.html")
 
 @app.route("/<path:path>")
 def index_html_path(path: str):
     try:
         path = "/" + path.lstrip(r".\/").replace("..", "")
-        print(os.path.join(r"cheatsheet", *path.split("/")))
+        print(os.path.join(r"../cheatsheet", *path.split("/")))
 
-        return send_file(os.path.join(r"cheatsheet", *path.split("/")))
+        return send_file(os.path.join(r"../cheatsheet", *path.split("/")))
     except FileNotFoundError:
         return abort(404, "FileNotFoundError")
 
