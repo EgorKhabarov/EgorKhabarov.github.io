@@ -240,7 +240,18 @@ https://habr.com/ru/post/421625
     "Языки": {
         "Python": {
             "Библиотеки": {
-                "io": """
+                "Оглавление": """
+# Внимание! Все шпаргалки сгенерированы с помощью ChatGPT 3
+
+**Возможны ошибки и неточности**
+
+Система
+Информация
+Python
+Веб
+""",
+                "Система": {
+                    "io": """
 Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
 
 io.StringIO() - создание в памяти строкового потока.
@@ -406,7 +417,7 @@ with io.open("example.txt", "rb") as f:
     print(reader.read())  # b'Hello, Python!'
 ```
 """,
-                "os": """
+                    "os": """
 Получение информации о текущей директории:
 
 ```python
@@ -540,7 +551,7 @@ import os
 print([f.path for f in os.scandir("my_dir") if f.is_dir()])
 ```
 """,
-                "sys": r'''
+                    "sys": r'''
 sys.argv содержит список аргументов командной строки, переданных скрипту. 
 Первый элемент списка (sys.argv[0]) является именем скрипта:
 
@@ -776,257 +787,7 @@ def divide(x, y):
 divide(1, 0)
 ```
 ''',
-                "argparse": """
-Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов. 
-Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического 
-генерирования справочной информации и сообщений об ошибках.
-
-Вот несколько примеров использования библиотеки argparse в Python:
-Простой скрипт
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("echo", help="echo the string you use here")
-
-args = parser.parse_args()
-print(args.echo)
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py hello
-```
-
-Аргументы с флагами
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--verbosity", help="increase output verbosity", action="store_true")
-
-args = parser.parse_args()
-if args.verbosity:
-    print("verbosity turned on")
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py --verbosity
-```
-
-Опциональный аргумент
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--number", help="enter a number", type=int)
-
-args = parser.parse_args()
-if args.number:
-    print(args.number * 2)
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py --number 5
-```
-
-Обязательный аргумент
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("filename", help="the name of the file to read")
-
-args = parser.parse_args()
-print(args.filename)
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py filename.txt
-```
-
-Группировка аргументов
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-group = parser.add_mutually_exclusive_group()
-group.add_argument("--verbose", help="increase output verbosity", action="store_true")
-group.add_argument("--quiet", help="decrease output verbosity", action="store_true")
-
-args = parser.parse_args()
-if args.verbose:
-    print("verbosity turned on")
-elif args.quiet:
-    print("verbosity turned off")
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py --verbose или python script.py --quiet
-```
-
-
-
-
-Позиционные аргументы с выбором
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
-parser.add_argument("num1", help="first number", type=int)
-parser.add_argument("num2", help="second number", type=int)
-
-args = parser.parse_args()
-if args.operation == "add":
-    print(args.num1 + args.num2)
-elif args.operation == "sub":
-    print(args.num1 - args.num2)
-elif args.operation == "mul":
-    print(args.num1 * args.num2)
-else:
-    print(args.num1 / args.num2)
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py add 5 3
-```
-
-Описание программы и аргументов
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(description="A simple calculator program")
-parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
-parser.add_argument("num1", help="first number", type=int)
-parser.add_argument("num2", help="second number", type=int)
-
-args = parser.parse_args()
-if args.operation == "add":
-    print(args.num1 + args.num2)
-elif args.operation == "sub":
-    print(args.num1 - args.num2)
-elif args.operation == "mul":
-    print(args.num1 * args.num2)
-else:
-    print(args.num1 / args.num2)
-```
-
-Для запуска скрипта нужно использовать команду: 
-
-```
-python script.py --help
-```
-
-
-
-
-Парсинг аргументов из файла
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
-parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
-parser.add_argument("num1", help="first number", type=int)
-parser.add_argument("num2", help="second number", type=int)
-
-args = parser.parse_args(['@args.txt'])
-if args.operation == "add":
-    print(args.num1 + args.num2)
-elif args.operation == "sub":
-    print(args.num1 - args.num2)
-elif args.operation == "mul":
-    print(args.num1 * args.num2)
-else:
-    print(args.num1 / args.num2)
-```
-
-Для использования данного примера нужно создать файл "args.txt" со следующим содержимым
-
-```
-add 5 3
-```
-
-Затем, чтобы запустить скрипт, нужно использовать команду
-
-```
-python script.py @args.txt
-```
-
-Аргумент со значением по умолчанию
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--verbosity", help="increase output verbosity", action="store_true")
-parser.add_argument("--num", help="a number", type=int, default=5)
-
-args = parser.parse_args()
-if args.verbosity:
-    print("verbosity turned on")
-print(args.num * 2)
-```
-
-Для запуска скрипта нужно использовать команду
-
-```
-python script.py --verbosity --num 3
-```
-
-Поддержка субкоманд
-
-```python
-import argparse
-
-parser = argparse.ArgumentParser()
-subparsers = parser.add_subparsers(title='subcommands', dest='subcommand')
-
-parser_a = subparsers.add_parser('command_a', help='command a help')
-parser_a.add_argument('foo', type=int, help='foo help')
-
-parser_b = subparsers.add_parser('command_b', help='command b help')
-parser_b.add_argument('--bar', type=str, help='bar help')
-
-args = parser.parse_args()
-if args.subcommand == 'command_a':
-    print(args.foo)
-else:
-    print(args.bar)
-```
-
-Для запуска скрипта нужно использовать команду: 
-
-```
-python script.py command_a 5
-```
-
-или
-
-```
-python script.py command_b --bar test
-```
-""",
-                "subprocess": r"""
+                    "subprocess": r"""
 Библиотека subprocess в Python используется для запуска новых процессов, подключения к существующим процессам, 
 выполнения команд в командной строке и многого другого. 
 Вот несколько примеров использования этой библиотеки:
@@ -1139,7 +900,5379 @@ print(result.stdout)
 В этом примере мы использовали опцию cwd для выполнения команды ls в директории /tmp. 
 Результат выводится на экран.
 """,
-                "itertools": """Модуль itertools
+                },
+                "Информация": {
+                    "Типы данных": {
+                        "xml": r"""
+Библиотека "xml" в Python используется для работы с XML-данными.
+Она предоставляет функциональность для чтения, записи, и обработки XML-файлов.
+
+Методы модуля "xml" и его подмодулей:
+xml.etree.ElementTree: Позволяет работать с XML-деревом, включая чтение, запись, и обработку XML-элементов.
+xml.dom: Предоставляет интерфейсы для работы с DOM (Document Object Model) XML-документов.
+xml.sax: Предоставляет SAX (Simple API for XML) интерфейс для обработки XML-документов в потоковом режиме.
+
+Самые часто используемые методы:
+xml.etree.ElementTree.parse(file): Читает XML-файл и возвращает корневой элемент дерева.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+```
+
+xml.etree.ElementTree.Element.findall(tag): Возвращает список элементов с указанным тегом.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+
+elements = root.findall('tag')
+```
+
+xml.etree.ElementTree.Element.attrib: Возвращает атрибуты элемента в виде словаря.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+
+for element in root:
+    attributes = element.attrib
+    print(attributes)
+```
+
+Помните, что без доступа к конкретному XML-файлу, точные примеры кода могут быть недоступны.
+""",
+                        "pythoncom": r"""
+Библиотека "pythoncom" используется для взаимодействия с COM-объектами (Component Object Model) в Python.
+Она предоставляет функциональность для создания, вызова и управления COM-объектами,
+такими как приложения Windows, компоненты Office и другие COM-совместимые объекты.
+
+Вот таблица методов модуля "pythoncom" и его подмодулей:
+
+| Метод           | Описание                             |
+|-----------------|--------------------------------------|
+| CoInitialize    | Инициализирует библиотеку COM.        |
+| CoUninitialize  | Завершает работу с библиотекой COM.    |
+| CoCreateInstance| Создает экземпляр COM-объекта.        |
+| PyCom_RegisterUnknownHandler | Регистрирует обработчик для неизвестных COM-объектов. |
+| CLSIDToClassMap | Карта соответствия CLSID и классов COM. |
+| IIDToInterfaceMap | Карта соответствия IID и интерфейсов COM. |
+
+Некоторые из часто используемых методов библиотеки "pythoncom" включают:
+CoInitialize(): Инициализирует библиотеку COM, обычно вызывается в начале программы.
+CoCreateInstance(clsid, interface=None, context=None, flags=None):
+Создает экземпляр COM-объекта с помощью указанного идентификатора класса (CLSID).
+Возвращает интерфейс COM-объекта.
+CoUninitialize(): Завершает работу с библиотекой COM, обычно вызывается в конце программы.
+
+Пример кода демонстрирующий использование метода CoCreateInstance():
+
+```python
+import pythoncom
+
+# Идентификатор класса для Excel
+clsid = "{00024500-0000-0000-C000-000000000046}"
+
+# Создание экземпляра объекта Excel 
+excel = pythoncom.CoCreateInstance(clsid, None, None, pythoncom.CLSCTX_SERVER)
+
+# Вывод версии Excel
+print(excel.Version)
+```
+
+Обратите внимание, что код может варьироваться в зависимости от требуемых COM-объектов и их интерфейсов.
+""",
+                        "traitlets": r"""
+Библиотека "traitlets" в Python используется для определения и использования
+типизированных атрибутов (traits) и событий (events) в объектно-ориентированном программировании.
+Она обеспечивает механизмы проверки типов, установки значений по умолчанию,
+уведомлений об изменениях и другие функции, улучшающие модульность и гибкость кода.
+
+
+Модуль: traitlets
+
+Методы:
+HasTraits(): Базовый класс, предоставляющий инфраструктуру для определения типизированных атрибутов и событий.
+default(obj): Метод, возвращающий значение по умолчанию для указанного атрибута.
+validate(obj, value): Метод, проверяющий значение атрибута на соответствие заданным условиям или типу.
+observe(cls, handler, names=None): Метод класса, позволяющий связать обработчик события с указанными атрибутами.
+link(target, name, linkname=None): Метод объекта, позволяющий установить
+связь между атрибутами текущего объекта и атрибутами другого объекта.
+
+Подмодуль: traitlets.config
+
+Методы:
+Configurable(): Базовый класс, предоставляющий функциональность для работы с конфигурационными файлами и параметрами.
+load_config_file(filename): Метод, загружающий конфигурационный файл, указанный по имени.
+Application: Класс, представляющий приложение, которое может быть настроено с помощью конфигурационных файлов.
+Config: Класс, представляющий конфигурацию, содержащую набор параметров для настройки.
+
+
+Самые часто используемые методы:
+default(obj): Возвращает значение по умолчанию для указанного атрибута.
+
+```python
+value = default('attr_name')
+```
+
+validate(obj, value): Проверяет значение атрибута на соответствие заданным условиям или типу.
+
+```python
+is_valid = validate('attr_name', value)
+```
+
+observe(cls, handler, names=None): Связывает обработчик события с указанными атрибутами.
+
+```python
+observe('class_name', handler_func, ['attr_name1', 'attr_name2'])
+```
+
+link(target, name, linkname=None): Устанавливает связь между атрибутами
+текущего объекта и атрибутами другого объекта.
+
+```python
+link(other_object, 'attr_name', 'linked_attr_name')
+```
+""",
+                        "stat": r"""
+Библиотека "stat" в Python используется для работы с информацией о файловой системе,
+такой как атрибуты файла, права доступа и временные метки.
+
+Методы модуля "stat" и его подмодулей:
+
+stat.S_ISDIR(mode): Проверяет, является ли файл директорией.
+stat.S_ISREG(mode): Проверяет, является ли файл обычным файлом.
+stat.S_ISLNK(mode): Проверяет, является ли файл символической ссылкой.
+stat.S_ISSOCK(mode): Проверяет, является ли файл сокетом.
+stat.S_ISFIFO(mode): Проверяет, является ли файл каналом FIFO.
+stat.S_ISBLK(mode): Проверяет, является ли файл блочным устройством.
+stat.S_ISCHR(mode): Проверяет, является ли файл символьным устройством.
+stat.S_IMODE(mode): Возвращает режим доступа к файлу.
+stat.S_IFMT(mode): Возвращает тип файла и режим доступа.
+
+Самые часто используемые методы:
+
+stat.S_ISDIR(mode): Проверяет, является ли файл директорией.
+
+```python
+import os
+import stat
+
+file_path = 'path/to/file.txt'
+file_stat = os.stat(file_path)
+if stat.S_ISDIR(file_stat.st_mode):
+    print("File is a directory")
+else:
+    print("File is not a directory")
+```
+
+stat.S_ISREG(mode): Проверяет, является ли файл обычным файлом.
+
+
+```python
+import os
+import stat
+
+file_path = 'path/to/file.txt'
+file_stat = os.stat(file_path)
+if stat.S_ISREG(file_stat.st_mode):
+    print("File is a regular file")
+else:
+    print("File is not a regular file")
+```
+
+stat.S_IMODE(mode): Возвращает режим доступа к файлу.
+
+```python
+import os
+import stat
+
+file_path = 'path/to/file.txt'
+file_stat = os.stat(file_path)
+file_mode = stat.S_IMODE(file_stat.st_mode)
+print("File mode:", file_mode)
+```
+""",
+                        "heapq": r"""
+Библиотека "heapq" в Python используется для работы с heapq, имплементации алгоритма
+"heap queue" (очереди с приоритетами). Это набор функций для эффективной работы
+с "heap" (кучей) - структурой данных, которая обеспечивает быстрый доступ к наименьшему (или наибольшему) элементу.
+
+Вот некоторые методы и подмодули, доступные в библиотеке "heapq":
+`heapify(iterable)`: Перестраивает итерируемый объект в кучу.
+`heappush(heap, item)`: Добавляет элемент в кучу.
+`heappop(heap)`: Извлекает и возвращает наименьший элемент из кучи.
+`heappushpop(heap, item)`: Добавляет элемент в кучу и сразу возвращает наименьший элемент.
+`heapreplace(heap, item)`: Заменяет наименьший элемент и возвращает его.
+
+Наиболее часто используемые методы в "heapq" включают:
+`heappush`: Добавляет элемент в кучу. `heapq.heappush(heap, item)`.
+`heappop`: Извлекает и возвращает наименьший элемент из кучи. `smallest = heapq.heappop(heap)`.
+
+Обратите внимание, что описание методов и примеры кода предоставлены в соответствии с
+запросом, но использование библиотеки "heapq" может потребовать дополнительных деталей
+и контекста в вашем конкретном случае.
+""",
+                        "spwd": r"""
+Библиотека "spwd" в Python используется для доступа к информации о пользовательских учетных записях в системе UNIX.
+Она предоставляет функции для получения доступа к файлу `/etc/shadow`,
+который хранит зашифрованные пароли пользователей, а также другую информацию о пользователях.
+
+Таблица методов модуля "spwd":
+
+Метод                | Описание
+---------------------|-------------------------
+`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени в виде объекта `spwd.struct_spwd`.
+`spwd.getspall()`    | Возвращает список всех пользователей в системе, каждый в виде объекта `spwd.struct_spwd`.
+`spwd.struct_spwd`   | Объект, представляющий информацию о пользователе, содержащий следующие атрибуты:
+`sp_nam`(имя пользователя), `sp_pwd`(зашифрованный пароль),
+`sp_lstchg`(последнее изменение пароля), `sp_min`(минимальный срок действия пароля),
+`sp_max`(максимальный срок действия пароля), `sp_warn`(предупреждение о необходимости изменения пароля),
+`sp_inact`(срок неактивности до блокировки учетной записи),
+`sp_expire`(дата истечения срока действия пароля), `sp_flag`(флаги учетной записи).
+
+Список самых частых методов модуля "spwd" и их описания:
+
+Метод                | Описание                                          | Пример кода
+---------------------|---------------------------------------------------|------------------------
+`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени. | ``user_info = spwd.getspnam('john')``
+`spwd.getspall()`    | Возвращает список всех пользователей в системе.    | ``users = spwd.getspall()``
+
+Примечание: Примеры кода не могут быть предоставлены для данной библиотеки, поскольку требуется доступ к системным файлам.
+""",
+                        "enum": r"""
+Библиотека "enum" в Python используется для создания и использования перечислений,
+которые представляют собой набор именованных значений.
+Она облегчает работу с ограниченным набором значений, обеспечивая их типизацию и удобный доступ.
+
+Методы модуля "enum" и его подмодулей:
+
+Модуль "enum":
+Enum: Базовый класс для создания перечислений.
+auto: Декоратор, который автоматически присваивает значения перечисления.
+
+Подмодуль "Enum":
+name: Возвращает имя элемента перечисления.
+value: Возвращает значение элемента перечисления.
+
+Подмодуль "IntEnum":
+IntEnum: Базовый класс для создания перечислений с целочисленными значениями.
+
+Подмодуль "Flag":
+Flag: Базовый класс для создания перечислений с битовыми флагами.
+auto: Декоратор, который автоматически присваивает значения флагов.
+
+Некоторые из самых часто используемых методов "enum" и их описание:
+
+Enum.name: Возвращает имя элемента перечисления.
+```python
+from enum import Enum
+
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3
+
+print(Color.RED.name)  # Выводит "RED"
+```
+
+Enum.value: Возвращает значение элемента перечисления.
+```python
+from enum import Enum
+
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3
+
+print(Color.RED.value)  # Выводит 1
+```
+
+Flag: Базовый класс для создания перечислений с битовыми флагами.
+```python
+from enum import Flag, auto
+
+class Permissions(Flag):
+    READ = auto()
+    WRITE = auto()
+    EXECUTE = auto()
+
+user_permissions = Permissions.READ | Permissions.WRITE
+print(user_permissions)  # Выводит <Permissions.READ|WRITE: 3>
+```
+""",
+                        "pstats": r"""
+Библиотека "pstats" в Python используется для профилирования производительности программы.
+Она предоставляет возможность анализировать данные о времени выполнения и вызовах функций,
+что помогает оптимизировать код и улучшить его производительность.
+
+Методы и подмодули библиотеки "pstats" включают:
+
+"Stats" (статистика)
+    - "add" - добавляет данные о времени выполнения и вызовах функций в статистику.
+    - "print_stats" - выводит общую статистику по вызовам функций.
+    - "sort_stats" - сортирует статистику по различным критериям.
+    - "strip_dirs" - удаляет пути к файлам из статистики.
+    - "calc_callees" - вычисляет информацию о вызываемых функциях.
+    - "dump_stats" - сохраняет статистику в файл.
+
+"Profile" (профиль)
+"run" - запускает профилирование кода.
+"runcall" - профилирует отдельный вызов функции.
+"print_stats" - выводит статистику по профилированию.
+"dump_stats" - сохраняет статистику в файл.
+
+Некоторые из наиболее часто используемых методов "pstats" включают:
+
+"print_stats()": Выводит основную статистику профилирования, включая время выполнения и количество вызовов функций.
+
+Пример кода, демонстрирующего его использование:
+
+```python
+import pstats
+
+# Создаем объект статистики
+stats = pstats.Stats('profile_result')
+
+# Выводим статистику на экран
+stats.print_stats()
+```
+
+"sort_stats()": Сортирует статистику профилирования по выбранному критерию,
+такому как время выполнения или количество вызовов функций.
+
+Пример кода, демонстрирующего его использование:
+
+```python
+import pstats
+
+# Создаем объект статистики
+stats = pstats.Stats('profile_result')
+
+# Сортируем статистику по времени выполнения
+stats.sort_stats('time')
+
+# Выводим отсортированную статистику на экран
+stats.print_stats()
+
+```
+""",
+                        "marshal": r"""
+Библиотека "marshal" в Python используется для сериализации и десериализации объектов.
+Она предоставляет функциональность для сохранения объектов в бинарном формате и восстановления их позже.
+
+Методы модуля "marshal" и их краткое описание:
+`dump(obj, file)` - Сериализует объект `obj` и записывает его в файл `file`.
+`load(file)` - Читает сериализованные данные из файла `file` и восстанавливает объект.
+`dumps(obj)` - Возвращает сериализованное представление объекта `obj` в виде строки.
+`loads(bytes)` - Восстанавливает объект из сериализованного представления, передаваемого в виде строки `bytes`.
+`version` - Целое число, представляющее версию протокола сериализации.
+
+Наиболее распространенные методы "marshal" и их описание:
+
+`dump(obj, file)` - Сериализует объект `obj` и записывает его в файл `file`.
+```python
+import marshal
+
+data = {"name": "John", "age": 30}
+with open("data.bin", "wb") as file:
+    marshal.dump(data, file)
+```
+
+`load(file)` - Читает сериализованные данные из файла `file` и восстанавливает объект.
+```python
+import marshal
+
+with open("data.bin", "rb") as file:
+    data = marshal.load(file)
+    print(data)  # Вывод: {"name": "John", "age": 30}
+```
+
+`dumps(obj)` - Возвращает сериализованное представление объекта `obj` в виде строки.
+```python
+import marshal
+
+data = {"name": "John", "age": 30}
+serialized = marshal.dumps(data)
+print(serialized)
+```
+
+`loads(bytes)` - Восстанавливает объект из сериализованного представления, передаваемого в виде строки `bytes`.
+```python
+import marshal
+
+serialized = (
+    b'\x80\x04\x95\x0f\x00\x00\x00\x00\x00\x00\x8c\x08\x00\x00\x00Hello!'
+    b'\x94\x8c\x01\x00\x00\x00x\x94\x8c\x01\x00\x00\x00y\x94\x2e\x94\x94'
+    b'\x8c\x06\x00\x00\x00result\x94\x94\x8c\x05\x00\x00\x00float\x94\x93\x00\x00\x00\x00\x00\x00\x00.'
+)
+
+data = marshal.loads(serialized)
+print(data)  # Вывод: {'Hello!': {'x': 'y', 'result': None, 'float': 0.0}}
+```
+""",
+                        "linecache": r"""
+Библиотека "linecache" в Python используется для чтения линий из файлов с исходным кодом.
+Она предоставляет функции для извлечения строк из файла по их номеру.
+
+Методы модуля "linecache" включают:
+`getline(filename, lineno)`: Возвращает указанную строку из указанного файла.
+`getlines(filename)`: Возвращает все строки из указанного файла в виде списка.
+`clearcache()`: Очищает кэш, используемый для хранения строк файла.
+   
+   Примеры подмодулей отсутствуют.
+
+Некоторые из самых часто используемых методов "linecache" включают:
+Метод `getline(filename, lineno)` - возвращает указанную строку из указанного файла.
+
+```python
+import linecache
+
+line = linecache.getline('file.txt', 5)
+print(line)
+```
+
+Этот код выведет пятую строку из файла 'file.txt'.
+
+Метод `getlines(filename)` - возвращает все строки из указанного файла в виде списка.
+
+```python
+import linecache
+
+lines = linecache.getlines('file.txt')
+for line in lines:
+    print(line)
+```
+
+Этот код выведет все строки из файла 'file.txt' по одной строке на каждую итерацию цикла.
+
+Метод `clearcache()` - очищает кэш, используемый для хранения строк файла.
+Это может быть полезно, если файл изменился и требуется обновить строки в кэше.
+
+```python
+import linecache
+
+# Изменения в файле 'file.txt'
+
+linecache.clearcache()
+line = linecache.getline('file.txt', 5)
+print(line)
+```
+
+Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла 'file.txt'.
+
+Примечание: Убедитесь, что файл 'file.txt' существует и содержит нужные строки.
+""",
+                        "sched": r"""
+Библиотека "sched" в Python используется для планирования и управления задачами в программе.
+Она позволяет создавать расписания выполнения задач и контролировать их выполнение в определенные моменты времени.
+
+Методы модуля "sched" и его подмодулей:
+sched.timefunc: Устанавливает функцию, которая будет использоваться для получения времени.
+sched.delayfunc: Устанавливает функцию, вызываемую перед каждым циклом планировщика.
+sched.enter(delay, priority, action, argument): Планирует выполнение задачи с заданным задержкой, приоритетом, действием и аргументом.
+sched.enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом, действием и аргументом.
+sched.cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
+sched.run(): Запускает планировщик и начинает выполнение задач.
+
+Самые часто используемые методы библиотеки "sched" и их краткие описания:
+enter(delay, priority, action, argument): Планирует выполнение задачи с заданной задержкой и приоритетом.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+scheduler.enter(5, 1, print_message, ())
+scheduler.run()
+```
+
+enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+scheduler.enterabs(time.time() + 10, 1, print_message, ())
+scheduler.run()
+```
+
+cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+event = scheduler.enter(5, 1, print_message, ())
+scheduler.cancel(event)
+scheduler.run()
+```
+
+Пожалуйста, помните об обеспечении безопасности при использовании этой библиотеки и выполнении задач в программе.
+""",
+                        "nntplib": r"""
+Библиотека "nntplib" в Python используется для взаимодействия с серверами новостных групп (NNTP).
+Она предоставляет функции и методы для чтения, отправки и управления сообщениями в новостных группах.
+
+Вот таблица методов и их краткие описания для модуля "nntplib" и его подмодулей:
+
+Метод                  | Описание
+-----------------------|-------------------------------
+nntplib.NNTP           | Класс для установки соединения с сервером NNTP.
+NNTP.__init__()        | Инициализация объекта NNTP.
+NNTP.quit()            | Отключение от сервера NNTP.
+NNTP.group(group)      | Выбор новостной группы для чтения статей.
+NNTP.list()            | Получение списка доступных новостных групп.
+NNTP.article(num)      | Получение статьи по ее номеру.
+NNTP.body(num)         | Получение тела статьи по ее номеру.
+NNTP.head(num)         | Получение заголовка статьи по ее номеру.
+NNTP.post(message)     | Отправка сообщения на сервер NNTP.
+NNTP.search(criteria)  | Поиск статей, удовлетворяющих заданным критериям.
+
+Вот список самых часто используемых методов в "nntplib" и их краткие описания:
+
+NNTP.group(group): Выбирает новостную группу для чтения статей.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+conn.group('comp.lang.python')
+```
+
+NNTP.list(): Получает список доступных новостных групп.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+groups = conn.list()
+```
+
+NNTP.article(num): Получает статью по ее номеру.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+resp, article_lines, msg_id, info = conn.article('12345')
+```
+
+NNTP.post(message): Отправляет сообщение на сервер NNTP.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+resp = conn.post('<subject>', '<from>', '<body>')
+```
+""",
+                        "certifi": r"""
+Библиотека "certifi" в Python используется для работы с сертификатами в криптографии.
+Она предоставляет набор корневых сертификатов, которые могут быть использованы
+для проверки подлинности SSL-соединений при выполнении запросов HTTP.
+
+Методы и подмодули "certifi":
+Подмодуль "cacertifi": содержит корневые сертификаты, предназначенные для проверки SSL-соединений.
+Функция `where()`: возвращает путь к файлу с набором корневых сертификатов.
+Функция `contents()`: возвращает содержимое файла с корневыми сертификатами в виде строки.
+Функция `old_where()`: возвращает путь к предыдущей версии файла с корневыми сертификатами.
+Функция `old_contents()`: возвращает содержимое предыдущей версии файла с корневыми сертификатами.
+Функция `contents_bytes()`: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.
+
+Некоторые часто используемые методы "certifi":
+Функция `where()`: возвращает путь к файлу с набором корневых сертификатов.
+
+```python
+import certifi
+
+file_path = certifi.where()
+print(file_path)
+```
+
+Функция `contents()`: возвращает содержимое файла с корневыми сертификатами в виде строки.
+
+```python
+import certifi
+
+cert_contents = certifi.contents()
+print(cert_contents)
+```
+
+Функция `old_where()`: возвращает путь к предыдущей версии файла с корневыми сертификатами.
+
+```python
+import certifi
+
+old_file_path = certifi.old_where()
+print(old_file_path)
+```
+
+Функция `old_contents()`: возвращает содержимое предыдущей версии файла с корневыми сертификатами.
+
+```python
+import certifi
+
+old_cert_contents = certifi.old_contents()
+print(old_cert_contents)
+```
+
+Функция `contents_bytes()`: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.
+
+```python
+import certifi
+
+cert_bytes = certifi.contents_bytes()
+print(cert_bytes)
+```
+""",
+                        "rasutil": r"""
+Библиотека "rasutil" (raspberry utility) используется для упрощения
+разработки и взаимодействия с Raspberry Pi в языке программирования Python.
+
+Таблица методов для модуля "rasutil":
+Method 1: GPIOInit() - Инициализирует пины GPIO на Raspberry Pi.
+Method 2: GPIOSet(pin, value) - Устанавливает значение пина GPIO на Raspberry Pi.
+Method 3: GPIORead(pin) - Считывает значение с пина GPIO на Raspberry Pi.
+
+Методы модуля "rasutil" позволяют управлять GPIO пинами на Raspberry Pi,
+инициализировать их, устанавливать значения и считывать значения с этих пинов.
+
+Список самых частых методов и их описания:
+GPIOInit() - Инициализирует пины GPIO на Raspberry Pi.
+```python
+rasutil.GPIOInit()
+```
+Этот метод инициализирует пины GPIO на Raspberry Pi перед использованием.
+
+GPIOSet(pin, value) - Устанавливает значение пина GPIO на Raspberry Pi.
+```python
+rasutil.GPIOSet(18, 1)
+```
+Этот метод устанавливает значение 1 на пине GPIO 18 на Raspberry Pi.
+
+GPIORead(pin) - Считывает значение с пина GPIO на Raspberry Pi.
+```python
+value = rasutil.GPIORead(12)
+```
+Этот метод считывает значение с пина GPIO 12 на Raspberry Pi и сохраняет его в переменную "value".
+
+Методы "GPIOSet" и "GPIORead" позволяют управлять значениями пинов GPIO на Raspberry Pi,
+устанавливая значения и считывая их соответственно. Метод "GPIOInit" необходим для инициализации пинов GPIO перед их использованием.
+""",
+                        "grpc": r"""
+Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
+Это позволяет разработчикам создавать распределенные системы,
+где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
+
+Методы и подмодули библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи для клиентского подключения к серверу.
+grpc.secure_channel(): Создает безопасный канал связи (шифрованное соединение) для клиентского подключения к серверу.
+grpc.Channel: Класс, представляющий канал связи между клиентом и сервером.
+grpc.Server: Класс, представляющий сервер, который слушает входящие запросы и обрабатывает их с помощью определенных сервисов.
+grpc.stub: Подмодуль, содержащий классы и функции для создания клиентских и серверных стабов (stub), облегчающих взаимодействие по RPC.
+grpc.Service: Базовый класс для реализации пользовательских сервисов GRPC.
+grpc.rpc_error: Подмодуль, содержащий классы исключений, связанных с ошибками RPC.
+
+Некоторые часто используемые методы библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи с сервером. `channel = grpc.insecure_channel("localhost:50051")`
+grpc.stub: Подмодуль, который предоставляет классы для создания клиентских и серверных стабов (stub) для удобного взаимодействия по RPC.
+grpc.Server.add_insecure_port(): Определяет небезопасный порт, на котором сервер будет прослушивать входящие запросы. `server.add_insecure_port("[::]:50051")`
+grpc.Server.start(): Запускает сервер, ожидающий входящих запросов. `server.start()`
+grpc.Service: Базовый класс, который разработчики могут наследовать для создания пользовательских сервисов GRPC. `class MyService(grpc.Service):`
+""",
+                        "wheel": r"""
+Библиотека "wheel" в Python используется для упрощения установки пакетов и их распространения.
+Она представляет собой формат пакета, который содержит предварительно
+скомпилированные бинарные файлы, что позволяет ускорить процесс установки.
+
+### Методы модуля "wheel":
+`convert`: используется для преобразования исходных файлов пакета в формат wheel.
+`install`: позволяет установить пакет из wheel-файла.
+`unpack`: распаковывает содержимое wheel-файла.
+`pack`: упаковывает исходные файлы пакета в wheel-файл.
+   
+### Подмодули:
+`metadata`: содержит методы для работы с метаданными пакета, такими как версия, автор и описание.
+`tags`: предоставляет информацию о поддерживаемых платформах и интерпретаторах.
+`signatures`: позволяет работать с подписями wheel-файлов.
+`pep425tags`: предоставляет методы для работы с тегами PEP 425,
+которые описывают совместимость пакетов с определенными версиями Python и операционных систем.
+
+
+### convert
+Преобразует исходные файлы пакета в формат wheel.
+
+```python
+from wheel import convert
+
+convert.pack('path/to/source/package')
+```
+
+### install
+Устанавливает пакет из wheel-файла.
+
+```python
+from wheel import install
+
+install.install('path/to/wheel/file.whl')
+```
+
+### unpack
+Распаковывает содержимое wheel-файла.
+
+```python
+from wheel import unpack
+
+unpack.unpack('path/to/wheel/file.whl', 'path/to/destination')
+```
+
+### pack</h3>
+Упаковывает исходные файлы пакета в wheel-файл.
+
+```python
+from wheel import pack
+
+pack.pack('path/to/source/package', 'path/to/destination/file.whl')
+```
+""",
+                        "pyparsing": r"""
+Библиотека "pyparsing" используется для анализа и разбора текстовых данных в языке программирования Python.
+Она предоставляет возможность создавать грамматики и правила для разбора сложных структур данных.
+
+Методы модуля "pyparsing" и его подмодулей:
+
+parseString(string) - Разбирает строку в соответствии с определенной грамматикой и возвращает структурированные данные.
+Word(alphas) - Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.
+nums - Подмодуль, содержащий грамматические правила для разбора числовых значений.
+CaselessLiteral(string) - Определяет грамматическое правило для разбора нечувствительных к регистру строк.
+QuotedString(quoteChar) - Определяет грамматическое правило для разбора строки, заключенной в кавычки.
+
+Самые часто используемые методы "pyparsing" с их кратким описанием и примером кода:
+
+parseString(string): Разбирает строку в соответствии с грамматикой и возвращает структурированные данные.
+
+```python
+from pyparsing import Word, alphas, nums
+
+data = "Hello World"
+result = Word(alphas).parseString(data)
+print(result)  # ['Hello']
+```
+
+Word(alphas): Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.
+
+```python
+from pyparsing import Word, alphas
+
+data = "Hello123"
+result = Word(alphas).parseString(data)
+print(result)  # ['Hello']
+```
+
+QuotedString(quoteChar): Определяет грамматическое правило для разбора строки, заключенной в кавычки.
+
+```python
+from pyparsing import QuotedString
+
+data = '"Hello World"'
+result = QuotedString('"').parseString(data)
+print(result)  # ['Hello World']
+```
+""",
+                        "faulthandler": r"""
+Библиотека "faulthandler" используется для обнаружения и отладки ошибок, связанных с сбоями в программе на языке Python.
+
+Методы и подмодули библиотеки "faulthandler":
+
+faulthandler.enable(): Активирует обработчик сбоев для записи информации о сбое.
+faulthandler.disable(): Отключает обработчик сбоев.
+faulthandler.is_enabled(): Проверяет, активирован ли обработчик сбоев.
+faulthandler.dump_traceback(file=sys.stderr, all_threads=True): Записывает трассировку стека сбоя в указанный файл.
+faulthandler.register(signal=SIGUSR1, all_threads=True, chain=True): Регистрирует обработчик сбоев для указанного сигнала.
+faulthandler.cancel_dump_traceback(): Прекращает запись трассировки стека сбоя.
+faulthandler.cancel_register(): Отменяет регистрацию обработчика сбоев для указанного сигнала.
+
+Наиболее часто используемые методы "faulthandler":
+
+faulthandler.enable(): Активирует обработчик сбоев для записи информации о сбое.
+
+```python
+import faulthandler
+faulthandler.enable()
+```
+
+faulthandler.disable(): Отключает обработчик сбоев.
+
+```python
+import faulthandler
+faulthandler.disable()
+```
+
+faulthandler.dump_traceback(file=sys.stderr, all_threads=True): Записывает трассировку стека сбоя в указанный файл.
+
+```python
+import faulthandler
+faulthandler.dump_traceback(file=open('traceback.txt', 'w'), all_threads=True)
+```
+
+Эти методы помогут вам обнаружить и отладить ошибки связанные с сбоями в вашей программе
+на языке Python,путем получения информации о трассировке стека сбоя.
+""",
+                        "traceback": r"""
+Библиотека "traceback" используется в Python для отображения трассировки стека, то есть печати
+информации об исключении и последующих вызовах функций, которые привели к возникновению исключения.
+Она помогает в отладке и идентификации причин возникновения ошибок в программе.
+
+Методы и подмодули библиотеки "traceback" включают:
+`traceback.print_tb(tb, limit=None, file=None)` - выводит трассировку стека в заданный файл (по умолчанию в sys.stdout) в виде списка строк.
+`traceback.print_exception(etype, value, tb, limit=None, file=None)` - выводит полную информацию об исключении, включая тип и значение исключения, трассировку стека и подробности.
+`traceback.print_exc(limit=None, file=None, chain=True)` - выводит трассировку стека последнего возникшего исключения.
+`traceback.format_tb(tb, limit=None)` - возвращает трассировку стека в виде списка строк.
+`traceback.format_exception(etype, value, tb, limit=None)` - возвращает полную информацию об исключении в виде списка строк.
+`traceback.format_exc(limit=None, chain=True)` - возвращает трассировку стека последнего возникшего исключения в виде строки.
+
+Некоторые из наиболее часто используемых методов в библиотеке "traceback" включают:
+Метод `print_tb()` используется для вывода трассировки стека в стандартном выводе.
+
+```python
+import traceback
+
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    traceback.print_tb(sys.exc_info()[2])
+```
+
+Метод `print_exception()` используется для вывода полной информации об исключении, включая тип, значение и трассировку стека.
+
+```python
+import traceback
+
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    traceback.print_exception(*sys.exc_info())
+```
+
+Метод `format_exc()` используется для получения трассировки стека последнего возникшего исключения в виде строки.
+
+```python
+import traceback
+
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    error_traceback = traceback.format_exc()
+    print(error_traceback)
+```
+
+Помните, что без дополнительного контекста исключения и вашего кода, приведенные примеры могут не работать напрямую.
+Не забывайте адаптировать их под свои потребности и проверять документацию для более подробной информации о библиотеке "traceback".
+""",
+                        "runpy": r"""
+Библиотека "runpy" в Python используется для выполнения модулей как скриптов, а также для загрузки и выполнения кода из файлов или строк.
+Методы модуля "runpy" и его подмодулей:
+
+Метод | Описание
+----- | --------
+run_path(path, \[globals=None, locals=None\]) | Загружает и выполняет код из указанного файла по заданному пути.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
+
+Самые часто используемые методы:
+
+Метод | Описание | Пример кода
+----- | -------- | -----------
+run_path(path, \[globals=None, locals=None\]) | Загружает и выполняет код из указанного файла по заданному пути. | run_path('script.py')
+run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль. | run_module('module_name')
+""",
+                        "zlib": r"""
+Библиотека "zlib" используется в Python для сжатия и распаковки данных с использованием алгоритма сжатия Deflate.
+
+Методы модуля "zlib" и его подмодулей:
+
+Модуль "zlib":
+compress(data, level=-1): Сжимает данные с использованием алгоритма Deflate.
+decompress(data, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE): Распаковывает сжатые данные.
+crc32(data, value=0): Вычисляет контрольную сумму CRC-32 для данных.
+
+Подмодуль "zlib.compressobj":
+__init__(level=-1, method=DEFLATED, wbits=MAX_WBITS, memLevel=DEF_MEM_LEVEL, strategy=Z_DEFAULT_STRATEGY): Создает объект для сжатия данных.
+compress(data): Сжимает данные и возвращает сжатый буфер.
+flush(mode): Завершает сжатие и возвращает оставшийся сжатый буфер.
+
+Подмодуль "zlib.decompressobj":
+__init__(wbits=MAX_WBITS): Создает объект для распаковки данных.
+decompress(data, max_length=0): Распаковывает данные и возвращает распакованный буфер.
+flush(mode): Завершает распаковку и возвращает оставшийся распакованный буфер.
+
+Самые часто используемые методы:
+
+compress(data, level=-1): Сжимает данные с использованием алгоритма Deflate.
+
+```python
+import zlib
+compressed_data = zlib.compress(b"Hello, world!")
+```
+
+decompress(data, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE): Распаковывает сжатые данные.
+
+```python
+import zlib
+decompressed_data = zlib.decompress(compressed_data)
+```
+
+crc32(data, value=0): Вычисляет контрольную сумму CRC-32 для данных.
+```python
+import zlib
+checksum = zlib.crc32(b"Hello, world!")
+```
+
+Пожалуйста, обратите внимание, что код предоставлен только для демонстрации работы методов и может потребоваться
+дополнительная обработка данных в реальных сценариях использования.
+""",
+                        "packaging": r"""
+Библиотека "packaging" в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов.
+Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива.
+
+Методы модуля "packaging" и его подмодулей:
+
+Модуль packaging.version:
+parse(version_string): Парсит версию из строки и возвращает объект Version.
+Version: Класс для представления версии пакета.
+
+Модуль packaging.specifiers:
+Specifier: Класс для представления спецификации версии пакета.
+LegacySpecifier: Класс для представления устаревшей спецификации версии пакета.
+SpecifierSet: Класс для представления набора спецификаций версий пакета.
+
+Модуль packaging.requirements:
+Requirement: Класс для представления требования к пакету.
+
+Модуль packaging.markers:
+Marker: Класс для представления условий маркера.
+default_environment: Возвращает стандартное окружение.
+
+Модуль packaging.tags:
+Tag: Класс для представления метки платформы.
+sys_tags(): Возвращает метки платформы для текущей системы.
+
+Наиболее часто используемые методы в библиотеке "packaging":
+
+parse(version_string): Парсит версию из строки и возвращает объект Version.
+
+```python
+from packaging import version
+
+version_string = '1.2.3'
+parsed_version = version.parse(version_string)
+print(parsed_version)
+```
+
+SpecifierSet(specifier_string): Создает набор спецификаций версий на основе строки.
+
+```python
+from packaging.specifiers import SpecifierSet
+
+specifier_string = '>=1.0,<=2.0'
+specifier_set = SpecifierSet(specifier_string)
+print(specifier_set)
+```
+
+Requirement(requirement_string): Создает требование к пакету на основе строки.
+
+```python
+from packaging.requirements import Requirement
+
+requirement_string = 'numpy>=1.0'
+requirement = Requirement(requirement_string)
+print(requirement)
+```
+
+Убедитесь, что у вас установлена библиотека "packaging" перед использованием этих методов.
+""",
+                        "nis": r"""
+Библиотека "nis" в Python используется для работы с сервисом Network Information Service (NIS).
+NIS предоставляет распределенную базу данных, которая используется для хранения информации о пользователях,
+группах и других системных ресурсах в сети.
+
+Методы модуля "nis":
+nis.match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
+nis.cat(mapname): Возвращает все записи из указанной базы данных.
+nis.maps(): Возвращает список доступных баз данных.
+nis.getmapbyname(name): Возвращает содержимое базы данных с указанным именем.
+nis.getmapbynumber(number): Возвращает содержимое базы данных с указанным номером.
+
+Некоторые из самых часто используемых методов "nis" включают:
+match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
+
+```python
+import nis
+
+value = nis.match("passwd", "john")
+print(value)
+```
+
+cat(mapname): Возвращает все записи из указанной базы данных.
+
+```python
+import nis
+
+records = nis.cat("passwd")
+for record in records:
+    print(record)
+```
+
+maps(): Возвращает список доступных баз данных.
+
+```python
+import nis
+
+map_list = nis.maps()
+print(map_list)
+```
+
+Это лишь некоторые из методов, доступных в библиотеке "nis".
+""",
+                        "zipapp": r"""
+Библиотека "zipapp" в Python используется для упаковки и запуска приложений в формате ZIP.
+Это позволяет создавать самодостаточные исполняемые файлы, которые можно легко передавать и развертывать.
+
+Методы модуля "zipapp" и его подмодулей:
+
+zipapp.create_archive(target, interpreter=None, main=None, *additional_files):
+Создает ZIP-архив на основе указанных файлов и опционально добавляет интерпретатор и точку входа в приложение.
+
+zipapp.get_interpreter(path):
+Возвращает путь к интерпретатору Python, используемому для запуска приложения.
+
+zipapp.get_metadata(entry):
+Возвращает метаданные (метатеги) для указанной записи в ZIP-архиве.
+
+zipapp.get_asset_name(entry):
+Возвращает имя актива (файла) для указанной записи в ZIP-архиве.
+
+zipapp.get_zip_uri(archive_path):
+Возвращает URI для доступа к ZIP-архиву.
+
+Некоторые из самых часто используемых методов:
+
+create_archive: Создает ZIP-архив с указанными файлами.
+
+```python
+import zipapp
+
+zipapp.create_archive("myapp.zip", interpreter="/usr/bin/python3", main="main.py", "additional_file1.txt", "additional_file2.dat")
+```
+
+get_interpreter: Возвращает путь к интерпретатору Python, используемому для запуска приложения.
+
+```python
+import zipapp
+
+interpreter_path = zipapp.get_interpreter("myapp.zip")
+print(f"Интерпретатор: {interpreter_path}")
+```
+
+get_metadata: Возвращает метаданные (метатеги) для указанной записи в ZIP-архиве.
+
+```python
+import zipapp
+
+metadata = zipapp.get_metadata("myapp.zip/main.py")
+print(f"Метаданные: {metadata}")
+```
+
+get_asset_name: Возвращает имя актива (файла) для указанной записи в ZIP-архиве.
+
+```python
+import zipapp
+
+asset_name = zipapp.get_asset_name("myapp.zip/main.py")
+print(f"Имя актива: {asset_name}")
+```
+
+Пожалуйста, обратите внимание, что приведенные примеры являются общими и могут потребоваться дополнительные настройки
+в зависимости от вашего конкретного случая использования.
+""",
+                        "notebook": r"""
+Библиотека "notebook" используется для создания интерактивных блокнотов в среде Jupyter Notebook.
+Она предоставляет возможность комбинировать код, текст, графики и другие элементы в одном документе,
+что делает его удобным инструментом для исследования данных, прототипирования и обучения.
+
+Методы модуля "notebook" и его подмодулей:
+
+Модуль "notebook":
+`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
+`open_notebook(path)`: открывает блокнот по указанному пути.
+`create_notebook()`: создает новый блокнот.
+`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
+`export_notebook(path, format)`: экспортирует блокнот в указанный формат (например, HTML, PDF).
+
+Подмодуль "cells":
+`list_cells()`: возвращает список всех ячеек в текущем блокноте.
+`add_code_cell()`: добавляет новую ячейку с кодом.
+`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
+`delete_cell(index)`: удаляет ячейку по указанному индексу.
+
+Самые часто используемые методы:
+
+`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
+
+```python
+from notebook import list_notebooks
+
+notebooks = list_notebooks()
+print(notebooks)
+```
+
+`open_notebook(path)`: открывает блокнот по указанному пути.
+
+```python
+from notebook import open_notebook
+
+notebook = open_notebook('path/to/notebook.ipynb')
+print(notebook)
+```
+
+`create_notebook()`: создает новый блокнот.
+
+```python
+from notebook import create_notebook
+
+notebook = create_notebook()
+print(notebook)
+```
+
+`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
+
+```python
+from notebook import save_notebook
+
+save_notebook('path/to/save.ipynb')
+```
+
+`list_cells()`: возвращает список всех ячеек в текущем блокноте.
+
+```python
+from notebook.cells import list_cells
+
+cells = list_cells()
+print(cells)
+```
+
+`add_code_cell()`: добавляет новую ячейку с кодом.
+
+```python
+from notebook.cells import add_code_cell
+
+cell = add_code_cell()
+print(cell)
+```
+
+`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
+
+```python
+from notebook.cells import add_markdown_cell
+
+cell = add_markdown_cell()
+print(cell)
+```
+
+`delete_cell(index)`: удаляет ячейку по указанному индексу.
+
+```python
+from notebook.cells import delete_cell
+
+delete_cell(0)
+```
+""",
+                        "xdrlib": r"""
+Библиотека "xdrlib" в Python используется для работы с кодированием и декодированием данных в формате XDR (eXternal Data Representation).
+XDR является стандартом для представления данных, независимым от платформы, и часто используется для обмена данными между различными системами.
+
+Методы модуля "xdrlib" и его подмодулей:
+
+Модуль "xdrlib":
+pack_fstring(format_string, *args): Упаковывает аргументы в соответствии с заданным форматным строкой и возвращает упакованные данные в формате XDR.
+unpack_fstring(format_string, packed_data): Распаковывает данные в формате XDR, используя заданную форматную строку, и возвращает распакованные значения.
+
+Наиболее часто используемые методы:
+
+pack_uint(value): Упаковывает беззнаковое целое число (unsigned int) в формате XDR.
+
+```python
+import xdrlib
+
+packer = xdrlib.Packer()
+packed_data = packer.pack_uint(42)
+print(packed_data)
+```
+
+unpack_uint(packed_data): Распаковывает беззнаковое целое число (unsigned int) из данных в формате XDR и возвращает его значение.
+
+```python
+import xdrlib
+
+packed_data = b'\x00\x00\x00\x2a'
+unpacker = xdrlib.Unpacker(packed_data)
+unpacked_value = unpacker.unpack_uint()
+print(unpacked_value)
+```
+
+pack_string(value): Упаковывает строку в формате XDR.
+
+```python
+import xdrlib
+
+packer = xdrlib.Packer()
+packed_data = packer.pack_string("Hello, World!")
+print(packed_data)
+```
+
+unpack_string(packed_data): Распаковывает строку из данных в формате XDR и возвращает ее значение.
+
+```python
+import xdrlib
+
+packed_data = b'\x00\x00\x00\x0cHello, World!'
+unpacker = xdrlib.Unpacker(packed_data)
+unpacked_value = unpacker.unpack_string()
+print(unpacked_value)
+```
+
+Пожалуйста, обратите внимание, что это только некоторые примеры методов библиотеки "xdrlib".
+Для полного списка методов и их подробного описания рекомендуется обратиться к официальной документации Python.
+""",
+                        "string": r"""
+Библиотека "string" в Python предоставляет набор методов для работы со строками.
+Она обеспечивает функциональность для манипуляции и обработки текстовых данных.
+
+Название метода           | Описание
+   --------------------------|---------------------------------------------------------------
+   `string.ascii_letters`     | Содержит все буквы алфавита в верхнем и нижнем регистрах.
+   `string.ascii_lowercase`  | Содержит все буквы алфавита в нижнем регистре.
+   `string.ascii_uppercase`  | Содержит все буквы алфавита в верхнем регистре.
+   `string.digits`            | Содержит все цифры от 0 до 9.
+   `string.hexdigits`         | Содержит все шестнадцатеричные цифры (от 0 до 9 и от A до F).
+   `string.octdigits`         | Содержит все восьмеричные цифры (от 0 до 7).
+   `string.punctuation`       | Содержит символы пунктуации.
+   `string.printable`         | Содержит все печатные символы (буквы, цифры, символы пунктуации и пробельные символы).
+   `string.whitespace`        | Содержит пробельные символы (пробел, табуляция, новая строка и т.д.).
+ 
+
+`string.ascii_letters`: Возвращает все буквы алфавита в верхнем и нижнем регистрах.
+
+```python
+import string
+print(string.ascii_letters)
+```
+`string.digits`: Возвращает все цифры от 0 до 9.
+
+```python
+import string
+print(string.digits)
+```
+`string.punctuation`: Возвращает символы пунктуации.
+
+```python
+import string
+print(string.punctuation)
+```
+""",
+                        "multiprocessing": r"""
+Библиотека "multiprocessing" используется в Python для поддержки параллельного выполнения кода, основанного на процессах.
+Она предоставляет возможность создания и управления процессами, а также обмена данными между ними.
+
+Методы модуля "multiprocessing" и его подмодулей:
+
+`Process`: Класс для создания и управления процессов. Может быть использован для запуска функций или методов в отдельных процессах.
+`Pool`: Класс для параллельного выполнения функций на нескольких процессах. Позволяет создавать пул процессов, управлять ими и получать результаты выполнения.
+`Queue`: Класс для обмена данными между процессами. Поддерживает безопасную передачу объектов через очередь.
+`Lock`: Класс для создания и использования блокировок (locks) в многопроцессорных программах. Обеспечивает синхронизацию доступа к ресурсам между процессами.
+`Value` и `Array`: Классы для создания и использования разделяемых объектов синхронизации и обмена данными между процессами.
+`Manager`: Класс для создания сервера процесса и разделенных объектов, доступных для различных процессов.
+
+`Process()`: Создает объект процесса, принимает функцию или метод в качестве аргумента для выполнения в отдельном процессе.
+
+```python
+from multiprocessing import Process
+
+def my_function():
+    print("Hello from another process!")
+
+if __name__ == "__main__":
+    p = Process(target=my_function)
+    p.start()
+    p.join()
+```
+
+`Pool()`: Создает пул процессов и выполняет функцию для каждого элемента заданного массива аргументов.
+
+```python
+from multiprocessing import Pool
+
+def square(x):
+    return x ** 2
+
+if __name__ == "__main__":
+    with Pool(processes=3) as pool:
+        result = pool.map(square, [1, 2, 3, 4, 5])
+        print(result)
+```
+
+`Queue()`: Создает очередь для обмена данными между процессами. Позволяет безопасно добавлять и извлекать элементы.
+
+```python
+from multiprocessing import Process, Queue
+
+def worker(queue):
+    item = queue.get()
+    print("Processed:", item)
+
+if __name__ == "__main__":
+    q = Queue()
+    p = Process(target=worker, args=(q,))
+    p.start()
+    q.put("Data")
+    p.join()
+```
+
+Обратите внимание, что предоставленный код является кратким примером и может потребоваться дополнительная логика в реальных сценариях использования.
+""",
+                        "formatter": r"""
+Библиотека "formatter" в Python используется для форматирования и стилизации
+текста в различных вариантах вывода, таких как консоль, файлы, строки и другие.
+2.
+Методы модуля "formatter":
+format_text(): Форматирует указанный текст в соответствии с заданными параметрами.
+stylize_text(): Применяет стилизацию к тексту, используя заданные форматы и цвета.
+capitalize_text(): Преобразует первую букву каждого слова в тексте в верхний регистр.
+align_text(): Выравнивает текст по заданному формату выравнивания (левому, правому или по центру).
+truncate_text(): Обрезает текст до указанной длины и добавляет многоточие в конце, если текст был обрезан.
+
+Подмодули "formatter":
+html_format: Включает методы для форматирования текста в формате HTML.
+csv_format: Содержит методы для форматирования текста в формате CSV.
+json_format: Включает методы для форматирования текста в формате JSON.
+xml_format: Содержит методы для форматирования текста в формате XML.
+pdf_format: Включает методы для форматирования текста в формате PDF.
+
+Самые часто используемые методы:
+format_text(text, format): Форматирует указанный текст с использованием заданного формата.
+
+formatted_text = formatter.format_text("Привет, мир!", "жирный")
+print(formatted_text)  # Выводит текст "Привет, мир!" в жирном формате.
+
+stylize_text(text, style): Применяет заданный стиль к указанному тексту.
+
+stylized_text = formatter.stylize_text("Привет, мир!", "красный")
+print(stylized_text)  # Выводит текст "Привет, мир!" в красном цвете.
+
+align_text(text, alignment): Выравнивает указанный текст по заданному формату выравнивания.
+
+aligned_text = formatter.align_text("Привет, мир!", "правый")
+print(aligned_text)  # Выводит текст "Привет, мир!" справа выровненным.
+
+Обратите внимание, что код представлен в качестве примера и может потребоваться дополнительная настройка и параметры для достижения желаемого результата.
+""",
+                        "jsonschema": r"""
+Библиотека "jsonschema" используется для валидации данных в формате JSON по схеме.
+Она позволяет проверить, соответствуют ли данные определенным правилам и структуре, заданным в JSON-схеме.
+
+Таблица методов модуля "jsonschema" и их краткое описание:
+
+   Метод          | Описание
+   -------------- | --------------------------------------------
+   validate       | Проверяет, соответствуют ли данные схеме.
+   Draft4Validator | Класс, осуществляющий валидацию на основе JSON-схемы в соответствии с разделом 4 стандарта.
+   Draft6Validator | Класс, осуществляющий валидацию на основе JSON-схемы в соответствии с разделом 6 стандарта.
+   Draft7Validator | Класс, осуществляющий валидацию на основе JSON-схемы в соответствии с разделом 7 стандарта.
+   ValidationError | Класс исключения, возникающего при невалидных данных.
+   exceptions     | Подмодуль, содержащий различные классы исключений.
+
+Список самых часто используемых методов "jsonschema" и их краткое описание:
+
+`validate(schema, instance)` - Проверяет, соответствуют ли данные `instance` схеме `schema`.
+Возвращает `None`, если данные валидны. В противном случае, возникает исключение `ValidationError`.
+   
+```python
+from jsonschema import validate
+
+schema = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "age": {"type": "integer"}
+    }
+}
+
+data = {
+    "name": "John",
+    "age": 25
+}
+
+try:
+    validate(schema, data)
+    print("Data is valid.")
+except ValidationError as e:
+    print("Data is invalid:", e)
+```
+
+`Draft4Validator(schema)` - Создает экземпляр валидатора на основе JSON-схемы с использованием стандарта Draft 4.
+Используется для последующей валидации данных.
+
+```python
+from jsonschema import Draft4Validator
+
+schema = {
+    "type": "object",
+    "properties": {
+        "name": {"type": "string"},
+        "age": {"type": "integer"}
+    }
+}
+
+validator = Draft4Validator(schema)
+
+data = {
+    "name": "John",
+    "age": 25
+}
+
+for error in validator.iter_errors(data):
+    print("Validation error:", error.message)
+```
+""",
+                        "mailbox": r"""
+Библиотека "mailbox" в Python используется для работы с почтовыми ящиками.
+Она позволяет читать и записывать электронные письма в различных форматах, таких как mbox, MMDF, babyl и др.
+
+Таблица методов библиотеки "mailbox":
+
+| Метод               | Краткое описание                                      |
+|---------------------|-------------------------------------------------------|
+| mailbox.mbox        | Позволяет работать с форматом mbox.                    |
+| mailbox.Maildir     | Предоставляет доступ к Maildir-формату почтового ящика. |
+| mailbox.Babyl       | Обеспечивает работу с форматом babyl.                   |
+| mailbox.MMDF        | Позволяет чтение и запись писем в формате MMDF.         |
+| mailbox.Mailbox     | Предоставляет общий интерфейс для работы с почтовыми ящиками в разных форматах.  |
+| mailbox.MaildirMessage  | Представляет отдельное письмо в формате Maildir. |
+| mailbox.MH          | Работа с письмами в формате MH.                         |
+
+Самые часто используемые методы библиотеки "mailbox":
+
+`add` - добавляет письмо в почтовый ящик.
+
+```python
+with mailbox.mbox('sample.mbox') as mbox:
+    message = EmailMessage()
+    message['Subject'] = 'Hello'
+    message.set_content('This is a test email')
+    mbox.add(message)
+```
+
+`iterkeys` - возвращает итератор для ключей (идентификаторов) писем в почтовом ящике.
+
+
+```python
+with mailbox.mbox('sample.mbox') as mbox:
+    for key in mbox.iterkeys():
+        print(key)
+```
+
+`get_message` - возвращает письмо по ключу (идентификатору).
+
+```python
+with mailbox.mbox('sample.mbox') as mbox:
+    message = mbox.get_message('12345')
+    print(message['Subject'])
+```
+
+`remove` - удаляет письмо по ключу (идентификатору).
+
+```python
+with mailbox.mbox('sample.mbox') as mbox:
+    mbox.remove('12345')
+```
+""",
+                        "reprlib": r"""
+Библиотека "reprlib" используется для создания ограниченных представлений (сокращений) объектов в строковом виде.
+Она предоставляет функциональность для генерации усеченных строковых представлений сложных объектов, таких как контейнеры,
+чтобы они были более читаемыми и компактными.
+
+Методы модуля "reprlib" и его подмодулей:
+
+   Метод | Описание
+   ------------ | -------------
+   reprlib.repr() | Возвращает сокращенное строковое представление объекта с ограничением символов.
+   reprlib.aRepr() | Возвращает сокращенное представление объекта, указывая максимальное количество символов и добавляя многоточие в конце при необходимости.
+   reprlib.recursive_repr() | Декоратор функции, который позволяет модифицировать стандартный метод `__repr__` для обработки рекурсивных вызовов.
+   reprlib.dllist() | Класс-контейнер, предоставляющий сокращенное строковое представление для двусвязного списка.
+   reprlib.Repr() | Класс, используемый для изменения поведения библиотеки "reprlib" путем настройки различных параметров.
+
+Список самых часто используемых методов, их описание и
+
+   Метод | Описание | Пример кода
+   ------------ | ------------- | -------------
+   reprlib.repr() | Возвращает ограниченное строковое представление объекта | obj = [1, 2, 3, 4, 5]; print(reprlib.repr(obj))
+   reprlib.aRepr() | Возвращает сокращенное представление объекта с максимальным количеством символов и многоточием | obj = "This is a long string"; print(reprlib.aRepr(obj, 10))
+   reprlib.recursive_repr() | Декоратор для изменения поведения метода `__repr__` для обработки рекурсивных вызовов | @reprlib.recursive_repr(); def __repr__(self): return 'MyClass()'
+   reprlib.dllist() | Класс-контейнер для двусвязного списка с ограниченным строковым представлением | dll = reprlib.dllist([1, 2, 3]); print(dll)
+   reprlib.Repr() | Класс для настройки поведения библиотеки "reprlib" | r = reprlib.Repr(); r.maxstring = 20; obj = "This is a long string"; print(r.repr(obj))
+
+""",
+                        "getpass": r"""
+Библиотека "getpass" в Python используется для безопасного ввода паролей и других конфиденциальных
+данных пользователем в командной строке или интерактивной среде.
+
+Методы модуля "getpass" и его подмодулей:
+
+Метод | Описание
+----- | --------
+getpass.getpass(prompt='Password: ', stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки.
+getpass.getuser() | Возвращает имя текущего пользователя операционной системы.
+getpass.getpass(prompt='Password: ', stream=None, fg=None, bg=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить цвет текста и фона подсказки.
+getpass.getpass(prompt='Password: ', stream=None, echo=True, mask=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить отображение введенных символов (эхо) и символа-маскировки.
+
+Самые часто используемые методы:
+
+Метод | Описание | Пример кода
+----- | -------- | -----------
+getpass.getpass(prompt='Password: ', stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки. | ```<br>password = getpass.getpass(prompt='Enter your password: ')```
+getpass.getuser() | Возвращает имя текущего пользователя операционной системы. | ```<br>username = getpass.getuser()```
+""",
+                        "pymsgbox": r"""
+Библиотека "pymsgbox" используется для создания простых диалоговых окон с сообщениями, предупреждениями и запросами пользователю в Python.
+
+Таблица методов модуля "pymsgbox" и их краткое описание:
+`alert`: Отображает диалоговое окно с сообщением для пользователя.
+`confirm`: Отображает диалоговое окно с вопросом для пользователя с двумя вариантами ответа (Да/Нет).
+`prompt`: Отображает диалоговое окно с запросом пользователю на ввод текста.
+`password`: Отображает диалоговое окно с запросом пользователю на ввод пароля (текста, скрытого звездочками).
+`textbox`: Отображает диалоговое окно с возможностью ввода и редактирования текста пользователем.
+
+Список самых частых методов "pymsgbox", их краткое описание и примерный код для демонстрации:
+
+`alert(message, title=''):`
+Описание: Отображает диалоговое окно с сообщением для пользователя.
+
+```python
+import pymsgbox
+
+pymsgbox.alert('Привет, пользователь!', 'Информация')
+```
+
+`confirm(text, title='', buttons=['Да', 'Нет']):`
+Описание: Отображает диалоговое окно с вопросом для пользователя с двумя вариантами ответа.
+
+```python
+import pymsgbox
+
+response = pymsgbox.confirm('Вы уверены, что хотите продолжить?', 'Подтверждение')
+if response == 'Да':
+    # Действия при выборе "Да"
+    pass
+else:
+    # Действия при выборе "Нет"
+    pass
+```
+
+`prompt(text, title='', default=''):`
+Описание: Отображает диалоговое окно с запросом пользователю на ввод текста.
+
+```python
+import pymsgbox
+
+username = pymsgbox.prompt('Введите ваше имя:', 'Ввод данных')
+```
+
+`password(text, title=''):`
+Описание: Отображает диалоговое окно с запросом пользователю на ввод пароля (скрытого звездочками).
+
+```python
+import pymsgbox
+
+password = pymsgbox.password('Введите пароль:', 'Подтверждение')
+```
+
+`textbox(text='', title='', default='', multiline=False):`
+Описание: Отображает диалоговое окно с возможностью ввода и редактирования текста пользователем.
+
+```python
+import pymsgbox
+
+text = pymsgbox.textbox('Введите текст:', 'Редактирование текста')
+```
+""",
+                        "quopri": r"""
+Библиотека "quopri" в Python используется для кодирования и декодирования данных в формате Quoted-Printable.
+Quoted-Printable - это способ представления непечатных или специальных символов в текстовом формате,
+который используется в электронной почте и других приложениях.
+
+Методы и подмодули библиотеки "quopri":
+
+`quopri.encode(input, output, quotetabs=False)` - кодирует входные данные в формат Quoted-Printable и записывает результат в выходной поток.
+`quopri.decode(input, output, headers=False)` - декодирует входные данные из формата Quoted-Printable и записывает результат в выходной поток.
+`quopri.quote(data)` - возвращает строку, в которой данные закодированы в формате Quoted-Printable.
+`quopri.unquote(data)` - возвращает строку, в которой данные декодированы из формата Quoted-Printable.
+`quopri.encodestring(s)` - кодирует строку в формат Quoted-Printable и возвращает результат как строку.
+`quopri.decodestring(s)` - декодирует строку из формата Quoted-Printable и возвращает результат как строку.
+
+Самые часто используемые методы:
+
+`quopri.encode(input, output, quotetabs=False)` - метод для кодирования данных в формат Quoted-Printable.
+Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи.
+
+```python
+import quopri
+
+input_data = b"Hello, world!"
+encoded_data = quopri.encode(input_data)
+print(encoded_data)
+```
+   
+`quopri.decode(input, output, headers=False)` - метод для декодирования данных из формата Quoted-Printable.
+Полезно при работе с данными, полученными из электронной почты или других источников, где данные могут быть закодированы в этом формате.
+     
+```python
+import quopri
+
+encoded_data = b"Hello=2C=20world=21"
+decoded_data = quopri.decode(encoded_data)
+print(decoded_data)
+```
+""",
+                        "fnmatch": r"""
+Библиотека "fnmatch" используется в Python для сопоставления и фильтрации строк с использованием шаблонов, основанных на грамматике восходящих преобразований.
+Вот таблица методов модуля "fnmatch" и их краткие описания:
+
+Метод                     | Описание
+-------------------------|-------------------------------------
+fnmatch(name, pattern)   | Сопоставляет имя файла с заданным шаблоном.
+filter(names, pattern)   | Фильтрует список имен файлов, оставляя только те, которые соответствуют заданному шаблону.
+translate(pattern)       | Преобразует заданный шаблон во внутренний формат, используемый для сопоставления.
+
+Вот список наиболее часто используемых методов "fnmatch", их краткое описание и небольшой код, демонстрирующий их работу:
+
+Метод                       | Описание                             | Пример использования
+----------------------------|--------------------------------------|--------------------------------------
+fnmatch(name, pattern)      | Сопоставляет имя файла с шаблоном.    | fnmatch("example.txt", "*.txt") # True
+filter(names, pattern)      | Фильтрует список имен файлов.        | filter(['file1.txt', 'file2.py'], "*.txt") # ['file1.txt']
+translate(pattern)          | Преобразует шаблон во внутренний формат.| translate("*.txt") # '[A-Za-z0-9]+\.txt$'
+""",
+                        "rfc3986_validator": r"""
+Название библиотеки: "rfc3986_validator"
+
+Описание: Библиотека "rfc3986_validator" используется для проверки и валидации URL-адресов согласно стандарту RFC 3986.
+Она обеспечивает функционал для проверки правильности формата URL и его различных компонентов, таких как схема, хост, путь и другие.
+
+Методы модуля и их описание:
+
+Модуль: rfc3986_validator
+validate(url: str) -> bool: Проверяет, соответствует ли заданный URL формату RFC 3986. Возвращает True, если URL действительный, и False в противном случае.
+get_scheme(url: str) -> str: Извлекает и возвращает схему (протокол) из заданного URL.
+get_host(url: str) -> str: Извлекает и возвращает хост (доменное имя) из заданного URL.
+get_path(url: str) -> str: Извлекает и возвращает путь из заданного URL.
+get_query(url: str) -> str: Извлекает и возвращает параметры запроса из заданного URL.
+get_fragment(url: str) -> str: Извлекает и возвращает фрагмент из заданного URL.
+
+Список самых часто используемых методов, их описание и
+
+validate(url: str) -> bool:
+Описание: Проверяет, является ли заданный URL действительным согласно стандарту RFC 3986.
+
+```python
+from rfc3986_validator import validate
+
+url = "https://www.example.com"
+is_valid = validate(url)
+print(is_valid)  # Выводит True, если URL действителен
+```
+
+get_host(url: str) -> str:
+Описание: Извлекает и возвращает хост (доменное имя) из заданного URL.
+
+```python
+from rfc3986_validator import get_host
+
+url = "https://www.example.com/path"
+host = get_host(url)
+print(host)  # Выводит "www.example.com"
+```
+
+get_path(url: str) -> str:
+Описание: Извлекает и возвращает путь из заданного URL.
+
+```python
+from rfc3986_validator import get_path
+
+url = "https://www.example.com/path"
+path = get_path(url)
+print(path)  # Выводит "/path"
+```
+""",
+                        "mailcap": r"""
+Библиотека "mailcap" в Python используется для обработки типов файлов и ассоциированных программ.
+
+
+Модуль: mailcap
+findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
+getcaps: Возвращает все записи в файле mailcap.
+getparam: Возвращает значение параметра из записи mailcap.
+listmailcapfiles: Возвращает список файлов mailcap в системе.
+lookup: Находит запись mailcap для заданного типа файла.
+parse: Разбирает содержимое mailcap-файла и возвращает его в виде словаря.
+
+
+findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
+
+```python
+import mailcap
+
+filename = "example.txt"
+type = "text/plain"
+
+match = mailcap.findmatch(type, filename)
+if match:
+    command = match[0]
+    params = match[1]
+    # выполнение команды с использованием параметров
+```
+
+getcaps: Возвращает все записи в файле mailcap.
+
+```python
+import mailcap
+
+caps = mailcap.getcaps()
+for cap in caps:
+    print(cap)
+```
+
+lookup: Находит запись mailcap для заданного типа файла.
+
+```python
+import mailcap
+
+type = "text/plain"
+lookup = mailcap.lookup(type)
+if lookup:
+    print(lookup)
+```
+   
+Маленький код для демонстрации этих методов:
+```python
+import mailcap
+
+filename = "example.txt"
+type = "text/plain"
+
+match = mailcap.findmatch(type, filename)
+if match:
+    command = match[0]
+    params = match[1]
+    # выполнение команды с использованием параметров
+
+caps = mailcap.getcaps()
+for cap in caps:
+    print(cap)
+
+lookup = mailcap.lookup(type)
+if lookup:
+    print(lookup)
+```
+""",
+                        "filecmp": r"""
+Библиотека "filecmp" используется для сравнения файлов и директорий в Python.
+Она предоставляет функциональность для сравнения содержимого файлов, определения различий между файлами и обнаружения одинаковых файлов.
+
+Методы и подмодули модуля "filecmp" можно представить в следующей таблице:
+
+   Метод/Подмодуль          | Краткое Описание
+   ------------------------|-------------------
+   cmp(files1, files2)     | Сравнивает содержимое двух файлов и возвращает True, если они одинаковы, и False в противном случае.
+   cmpfiles(dir1, dir2)    | Сравнивает содержимое двух директорий и возвращает список различий и список одинаковых файлов.
+   clear_cache()           | Очищает кэш, используемый для сравнения файлов и директорий.
+   dircmp(dir1, dir2)      | Возвращает объект "dircmp", содержащий информацию о сравнении двух директорий, включая различия и одинаковые файлы.
+   cmp_fuzzy(file1, file2) | Сравнивает содержимое двух файлов с использованием нечеткого(размытого) алгоритма сравнения.
+   
+Некоторые из самых часто используемых методов библиотеки "filecmp" вместе с краткими описаниями и примерами кода:
+
+Метод cmp(files1, files2) Сравнивает содержимое двух файлов.
+
+```python
+import filecmp
+
+if filecmp.cmp("file1.txt", "file2.txt"):
+    print("Файлы одинаковы.")
+else:
+    print("Файлы различаются.")
+```
+
+Метод cmpfiles(dir1, dir2) Сравнивает содержимое двух директорий и возвращает списки различий и одинаковых файлов.
+
+```python
+import filecmp
+
+diff_files, common_files = filecmp.cmpfiles("dir1", "dir2")
+
+print("Различные файлы:")
+for file in diff_files:
+    print(file)
+
+print("Одинаковые файлы:")
+for file in common_files:
+    print(file)
+```
+""",
+                        "locale": r"""
+Библиотека "locale" в Python используется для обработки локализации и форматирования числовых,
+датовых и строковых значений в соответствии с настройками локали операционной системы.
+
+Таблица методов и их описания для модуля "locale" и его подмодулей:
+
+Модуль "locale":
+setlocale(category, locale=None): устанавливает текущую локаль для данной категории (категории определяют тип данных, например, числа, даты и др.).
+
+Подмодуль "localeconv":
+localeconv(): возвращает словарь с настройками форматирования чисел и валюты в текущей локали.
+
+Наиболее часто используемые методы и их описание:
+
+setlocale(category, locale=None): Этот метод позволяет установить локаль для определенной категории.
+Например, setlocale(locale.LC_NUMERIC, 'en_US') устанавливает локаль для чисел на английский (США). 
+
+
+```python
+import locale
+
+locale.setlocale(locale.LC_NUMERIC, 'en_US')
+formatted_number = locale.format_string("%.2f", 1234.5678)
+print(formatted_number)
+```
+Результат: "1,234.57"
+  
+Помните, что информация о локализации и форматировании может отличаться в зависимости от операционной системы и языка установки Python.
+""",
+                        "getopt": r"""
+Библиотека "getopt" в Python используется для разбора аргументов командной строки.
+Она позволяет программам легко определять и обрабатывать аргументы, передаваемые при запуске программы.
+
+Методы и подмодули библиотеки "getopt":
+getopt.getopt(args, shortopts, longopts=None): Парсит аргументы командной строки, возвращает пару (opts, args), где opts - список кортежей со значением и аргументом, args - список непарсированных аргументов.
+getopt.gnu_getopt(args, shortopts, longopts=None): Аналогичен методу getopt.getopt(), но поддерживает нестандартный формат аргументов, включая возможность использования дефисов в значении аргумента.
+getopt.GetoptError: Исключение, возникающее при ошибке разбора аргументов командной строки. Оно содержит информацию об ошибке и методы для доступа к ней.
+
+
+getopt.getopt(args, shortopts, longopts=None): Парсит аргументы командной строки и возвращает опции и аргументы.
+
+```python
+import getopt
+import sys
+
+args = sys.argv[1:]
+shortopts = "ho:v"   # Опции без аргументов: -h, -o, -v
+longopts = ["help", "output=", "verbose"]  # Опции с аргументами: --help, --output, --verbose
+
+try:
+    opts, args = getopt.getopt(args, shortopts, longopts)
+except getopt.GetoptError:
+    print("Ошибка в аргументах командной строки.")
+```
+
+getopt.gnu_getopt(args, shortopts, longopts=None): Парсит аргументы командной строки с нестандартным форматом и возвращает опции и аргументы.
+
+```python
+import getopt
+import sys
+
+args = sys.argv[1:]
+shortopts = "ho:v"   # Опции без аргументов: -h, -o, -v
+longopts = ["help", "output=", "verbose"]  # Опции с аргументами: --help, --output, --verbose
+
+try:
+    opts, args = getopt.gnu_getopt(args, shortopts, longopts)
+except getopt.GetoptError:
+    print("Ошибка в аргументах командной строки.")
+```
+""",
+                        "webcolors": r"""
+Библиотека "webcolors" используется для работы с цветами веб-страниц, конвертации цветовых кодов и определения названий цветов.
+ 
+Описание методов модуля "webcolors" и его подмодулей:
+
+Модуль "webcolors":
+`hex_to_rgb(hex_color)`: преобразует шестнадцатеричный код цвета в формат RGB.
+`rgb_to_hex(rgb_color)`: преобразует цвет в формате RGB в шестнадцатеричный код.
+`name_to_rgb(color_name)`: возвращает RGB-значение заданного названия цвета.
+`rgb_to_name(rgb_color)`: возвращает название цвета для заданного значения RGB.
+
+Список часто используемых методов, их краткое описание и
+
+Метод `hex_to_rgb(hex_color)`: преобразует шестнадцатеричный код цвета в формат RGB.
+
+```python
+from webcolors import hex_to_rgb
+
+hex_color = "#FF0000"
+rgb_color = hex_to_rgb(hex_color)
+print(rgb_color)  # Output: (255, 0, 0)
+```
+
+Метод `rgb_to_hex(rgb_color)`: преобразует цвет в формате RGB в шестнадцатеричный код.
+
+```python
+from webcolors import rgb_to_hex
+
+rgb_color = (255, 0, 0)
+hex_color = rgb_to_hex(rgb_color)
+print(hex_color)  # Output: "#FF0000"
+```
+
+Метод `name_to_rgb(color_name)`: возвращает RGB-значение заданного названия цвета.
+
+```python
+from webcolors import name_to_rgb
+
+color_name = "red"
+rgb_color = name_to_rgb(color_name)
+print(rgb_color)  # Output: (255, 0, 0)
+```
+
+Метод `rgb_to_name(rgb_color)`: возвращает название цвета для заданного значения RGB.
+
+```python
+from webcolors import rgb_to_name
+
+rgb_color = (255, 0, 0)
+color_name = rgb_to_name(rgb_color)
+print(color_name)  # Output: "red"
+```
+""",
+                        "hmac": r"""
+Библиотека "hmac" в Python используется для создания и проверки кодов аутентификации HMAC (Hash-based Message Authentication Code).
+HMAC обеспечивает целостность и аутентификацию сообщений, используя хеш-функции.
+
+Таблица методов модуля "hmac" и их краткого описания:
+
+   Метод                           | Описание
+   -------------------------------|--------------------------------
+   hmac.new(key, msg, digestmod)  | Создает новый объект HMAC с заданным ключом, сообщением и используемой хеш-функцией.
+   hmac.digest()                   | Возвращает HMAC в виде строки байтов.
+   hmac.hexdigest()                | Возвращает HMAC в виде шестнадцатеричной строки.
+   hmac.compare_digest(a, b)       | Сравнивает два HMAC без утечек информации о значениях.
+
+   (Подмодулей в модуле "hmac" нет)
+
+Список самых часто используемых методов, их краткое описание и
+
+   Метод                           | Описание                       | Пример кода
+   -------------------------------|--------------------------------|-----------------------------
+   hmac.new(key, msg, digestmod)  | Создает новый HMAC объект с заданным ключом, сообщением и используемой хеш-функцией. | `hmac_object = hmac.new(key, msg, hashlib.sha256)`
+   hmac.digest()                   | Возвращает HMAC в виде строки байтов. | `hmac_bytes = hmac_object.digest()`
+   hmac.hexdigest()                | Возвращает HMAC в виде шестнадцатеричной строки. | `hmac_string = hmac_object.hexdigest()`
+   hmac.compare_digest(a, b)       | Сравнивает два HMAC и возвращает True, если они совпадают, иначе возвращает False. | `result = hmac.compare_digest(hmac1, hmac2)`
+""",
+                        "bleach": r"""
+Библиотека "bleach" используется для безопасного удаления или экранирования HTML-тегов и атрибутов в тексте,
+чтобы предотвратить возможность внедрения вредоносного кода или XSS-атак.
+
+Метод              | Описание
+-------------------|-----------------------------------------------------------
+clean              | Удаляет или экранирует HTML-теги и атрибуты из текста
+linkify            | Преобразует URL-адреса в тексте в ссылки
+strip_tags         | Удаляет все HTML-теги из текста
+escape             | Экранирует HTML-сущности в тексте
+unescape           | Преобразует экранированные HTML-сущности в их исходное состояние
+
+Наиболее часто используемые методы "bleach" вместе с их кратким описанием и примером кода:
+
+Метод              | Описание                                   | Пример кода
+-------------------|--------------------------------------------|------------------------------
+clean              | Удаляет или экранирует HTML-теги и атрибуты | clean(text, tags=['p', 'a'])
+linkify            | Преобразует URL-адреса в тексте в ссылки   | linkify(text)
+strip_tags         | Удаляет все HTML-теги из текста             | strip_tags(text)
+escape             | Экранирует HTML-сущности в тексте           | escape(text)
+unescape           | Преобразует экранированные HTML-сущности     | unescape(text)
+""",
+                        "genericpath": r"""
+Библиотека "genericpath" в Python используется для работы с путями и файловой системой на разных платформах.
+Она предоставляет универсальные методы для обработки путей, создания новых путей, проверки наличия файлов и директорий,
+а также для работы с именами файлов.
+
+Таблица методов и их описания в модуле "genericpath":
+
+| Метод            | Описание                                                |
+|------------------|---------------------------------------------------------|
+| isdir(path)      | Проверяет, является ли указанный путь директорией.        |
+| isfile(path)     | Проверяет, является ли указанный путь файлом.            |
+| exists(path)     | Проверяет, существует ли указанный путь.                 |
+| lexists(path)    | Проверяет, существует ли указанный путь (обходя символические ссылки). |
+| split(path)      | Разделяет путь на директорию и базовое имя файла.        |
+| splitext(path)   | Разделяет путь на базовое имя файла и расширение.        |
+| basename(path)   | Возвращает последний компонент пути (имя файла или директории). |
+| dirname(path)    | Возвращает директорию из пути.                          |
+| join(path, *paths) | Объединяет пути в переносимый образ.                    |
+| normpath(path)   | Преобразует путь, удаляя избыточные разделители и ссылки "." и "..". |
+| abspath(path)    | Возвращает абсолютный путь.                             |
+
+
+isdir(path): Проверяет, является ли указанный путь директорией.
+
+```python
+import os.path
+
+path = '/path/to/directory'
+if os.path.isdir(path):
+    print(f"{path} is a directory.")
+```
+
+isfile(path): Проверяет, является ли указанный путь файлом.
+
+```python
+import os.path
+
+path = '/path/to/file.txt'
+if os.path.isfile(path):
+    print(f"{path} is a file.")
+```
+
+exists(path): Проверяет, существует ли указанный путь.
+
+```python
+import os.path
+
+path = '/path/to/file.txt'
+if os.path.exists(path):
+    print(f"{path} exists.")
+```
+
+splitext(path): Разделяет путь на базовое имя файла и расширение.
+
+```python
+import os.path
+
+path = '/path/to/file.txt'
+base_name, extension = os.path.splitext(path)
+print(f"Base name: {base_name}")
+print(f"Extension: {extension}")
+```
+""",
+                        "lzma": r"""
+Библиотека "lzma" в Python используется для сжатия и распаковки данных
+с использованием алгоритма сжатия LZMA (Lempel-Ziv-Markov chain Algorithm).
+
+Методы модуля "lzma" и его подмодулей:
+
+`lzma.compress(data, format=lzma.FORMAT_XZ, check=-1)`: Сжимает данные, используя алгоритм сжатия LZMA.
+`lzma.decompress(data, format=lzma.FORMAT_XZ, memlimit=None, filters=None)`: Распаковывает сжатые данные, сжатые с использованием алгоритма LZMA.
+`lzma.LZMACompressor(format=lzma.FORMAT_XZ, check=-1, preset=None, filters=None)`: Создает объект компрессора LZMA для сжатия данных.
+`lzma.LZMADecompressor(format=lzma.FORMAT_XZ, memlimit=None, filters=None)`: Создает объект декомпрессора LZMA для распаковки сжатых данных.
+`lzma.is_check_supported(check)`: Проверяет, поддерживается ли заданный тип проверки сжатия.
+`lzma.CHECK_NONE`: Константа, представляющая отсутствие проверки сжатия.
+`lzma.CHECK_CRC32`: Константа, представляющая проверку сжатия с использованием алгоритма CRC32.
+`lzma.CHECK_CRC64`: Константа, представляющая проверку сжатия с использованием алгоритма CRC64.
+`lzma.CHECK_SHA256`: Константа, представляющая проверку сжатия с использованием алгоритма SHA-256.
+
+`lzma.compress(data)`: Сжимает данные, используя алгоритм сжатия LZMA.
+
+```python
+import lzma
+
+data = b'Hello, World!'
+compressed_data = lzma.compress(data)
+```
+
+`lzma.decompress(data)`: Распаковывает сжатые данные, сжатые с использованием алгоритма LZMA.
+
+```python
+import lzma
+
+compressed_data = b'\xfd7zXZ\x00\x00\x04\xe6\xd6\xb4\x46\x02\x00!\x01\x16\x00\x00\x00t/\xe5\xfd\x01\x00\x00\x00\xff\xff'
+decompressed_data = lzma.decompress(compressed_data)
+```
+
+Обратите внимание, что эти примеры демонстрируют базовое использование методов
+и не учитывают параметры настройки, такие как формат сжатия и проверка сжатия.
+""",
+                        "gc": r"""
+Библиотека "gc" в Python используется для управления сборкой мусора.
+Она предоставляет функции и методы для контроля за автоматическим освобождением памяти, которая больше не используется программой.
+
+Методы модуля "gc" и его подмодулей:
+
+Метод                     | Описание
+-------------------------|---------------------------------------
+gc.disable()              | Отключает автоматическую сборку мусора.
+gc.enable()               | Включает автоматическую сборку мусора.
+gc.collect()              | Принудительно запускает сборку мусора.
+gc.get_threshold()        | Возвращает текущие пороги сборки мусора.
+gc.set_threshold(threshold) | Устанавливает пороги сборки мусора.
+gc.get_count()            | Возвращает количество сборок мусора, проведенных до сих пор.
+gc.get_objects()          | Возвращает список всех объектов, находящихся в памяти.
+
+Самые часто используемые методы в библиотеке "gc":
+
+Метод                       | Описание                        | Пример кода
+----------------------------|---------------------------------|-------------------
+gc.collect()                | Принудительно запускает сборку мусора. | gc.collect()
+gc.get_threshold()          | Возвращает текущие пороги сборки мусора. | threshold = gc.get_threshold()
+gc.set_threshold(threshold) | Устанавливает пороги сборки мусора. | gc.set_threshold(700, 10, 10)
+gc.get_count()              | Возвращает количество сборок мусора, проведенных до сих пор. | count = gc.get_count()
+
+Этот код показывает использование метода gc.collect(), который принудительно запускает сборку мусора:
+
+```python
+import gc
+
+# Создание объектов
+x = [1, 2, 3]
+y = [4, 5, 6]
+
+# Удаление ссылок на объекты
+del x
+del y
+
+# Принудительная сборка мусора
+gc.collect()
+```
+Надеюсь, это поможет вам понять и использовать библиотеку "gc" в Python.
+Если у вас возникнут дополнительные вопросы, не стесняйтесь задавать их.
+""",
+                        "zipimport": r"""
+Библиотека "zipimport" в Python используется для импорта модулей из zip-архивов.
+Она предоставляет возможность загружать и использовать код, хранящийся в сжатом формате,
+что может быть полезно для эффективного распространения и дистрибуции приложений.
+
+Вот таблица методов и подмодулей библиотеки "zipimport" и их краткое описание:
+
+Метод/Подмодуль    | Описание
+---------------------------------------
+zipimport.zipimporter   | Класс, который позволяет импортировать модули из zip-архивов.
+zipimport.zipimporter.get_code   | Возвращает объект кода модуля.
+zipimport.zipimporter.get_data   | Возвращает содержимое файла из zip-архива.
+zipimport.zipimporter.get_filename   | Возвращает имя файла из zip-архива, соответствующего модулю.
+zipimport.zipimporter.get_source   | Возвращает исходный код модуля в виде строки.
+
+Вот список самых часто используемых методов библиотеки "zipimport", их краткое описание и пример кода, демонстрирующего их работу:
+
+zipimport.zipimporter.get_code Возвращает объект кода модуля.
+
+```python
+import zipimport
+
+importer = zipimport.zipimporter("module.zip")
+code_object = importer.get_code("module")
+```
+
+zipimport.zipimporter.get_data Возвращает содержимое файла из zip-архива.
+
+```python
+import zipimport
+
+importer = zipimport.zipimporter("module.zip")
+data = importer.get_data("file.txt")
+```
+
+zipimport.zipimporter.get_filename Возвращает имя файла из zip-архива, соответствующего модулю.
+
+```python
+import zipimport
+
+importer = zipimport.zipimporter("module.zip")
+filename = importer.get_filename("module")
+```
+
+zipimport.zipimporter.get_source Возвращает исходный код модуля в виде строки.
+
+```python
+import zipimport
+
+importer = zipimport.zipimporter("module.zip")
+source_code = importer.get_source("module")
+```
+""",
+                        "trace": r"""
+Библиотека "trace" используется в Python для отладки и трассировки выполнения программы.
+Она предоставляет инструменты для отслеживания, как программа выполняется и какие функции вызываются.
+
+Методы модуля "trace" и его подмодулей:
+`traceback.print_exc(limit=None, file=None, chain=True)` - выводит трассировку текущего исключения в файл или stdout.
+`traceback.format_exc(limit=None, chain=True)` - возвращает трассировку текущего исключения в виде строки.
+`sys.settrace(tracefunc)` - устанавливает функцию трассировки для последующих вызовов.
+`sys.gettrace()` - возвращает текущую функцию трассировки.
+`sys.setprofile(profilefunc)` - устанавливает функцию профилирования для последующих вызовов.
+`sys.getprofile()` - возвращает текущую функцию профилирования.
+
+`traceback.print_exc()` - выводит трассировку текущего исключения в стандартный вывод.
+
+```python
+try:
+    # код, который может вызвать исключение
+except Exception:
+    traceback.print_exc()
+```
+
+`sys.settrace()` - устанавливает функцию трассировки для отслеживания вызовов функций.
+
+```python
+def trace_func(frame, event, arg):
+    print(f"Calling function {frame.f_code.co_name}")
+    return trace_func
+
+sys.settrace(trace_func)
+# код, вызывающий функции
+sys.settrace(None)  # отключение трассировки
+```
+
+`sys.setprofile()` - устанавливает функцию профилирования для измерения времени выполнения функций.
+
+```python
+import cProfile
+
+def profile_func(frame, event, arg):
+    profiler = cProfile.Profile()
+    profiler.enable()
+    return profiler
+
+sys.setprofile(profile_func)
+# код, вызывающий функции
+sys.setprofile(None)  # отключение профилирования
+```
+
+Существует более широкий набор функций и методов, которые могут быть полезны в разных ситуациях.
+""",
+                        "gtts": r"""
+Библиотека "gtts" (Google Text-to-Speech) используется для преобразования текста в речь.
+Она предоставляет возможность синтеза голоса на разных языках, используя голосовые данные от Google.
+
+Методы модуля "gtts":
+gTTS(text, lang): принимает текст и язык в качестве параметров и возвращает аудиофайл с синтезированным голосом.
+save(file): сохраняет аудиофайл на диск.
+get_urls(text): возвращает список URL-адресов, которые могут быть использованы для визуализации прогресса синтеза речи.
+lang_check(): проверяет доступные языки для синтеза речи.
+
+Методы подмодуля "gtts.lang":
+tld(): возвращает список языков и их TLD (top-level domain).
+tts_langs(): возвращает список языков, поддерживаемых gTTS.
+
+Самые часто используемые методы:
+gTTS(text, lang): Создает объект gTTS с указанным текстом и языком.
+save(file): Сохраняет аудиофайл на диск с использованием указанного имени файла и расширения (.mp3).
+get_urls(text): Возвращает список URL-адресов для отслеживания прогресса синтеза речи.
+   
+Пример кода для использования библиотеки "gtts":
+
+```python
+from gtts import gTTS
+
+text = "Привет, как дела?"
+language = "ru"
+
+# Создание объекта gTTS с текстом и языком
+tts = gTTS(text=text, lang=language)
+
+# Сохранение аудиофайла
+tts.save("output.mp3")
+
+# Получение списка URL-адресов для визуализации прогресса синтеза речи
+urls = tts.get_urls(text)
+```
+
+Эта библиотека полезна для создания аудиофайлов со сгенерированной речью на разных языках.
+""",
+                        "graphlib": r"""
+Библиотека "graphlib" в Python используется для работы с графами и решения различных задач на графах,
+таких как поиск кратчайшего пути, определение связности графа и других алгоритмических задач.
+
+Таблица методов модуля "graphlib" и его подмодулей:
+
+Метод                    | Описание                      
+------------------------ | -----------------------------
+graphlib.TopologicalSort | Реализует сортировку вершин графа в топологическом порядке.
+graphlib.Graph           | Представляет граф и предоставляет методы для добавления вершин и ребер, проверки наличия ребер и других операций.
+graphlib.DiGraph         | Представляет ориентированный граф и предоставляет методы для работы с ним, аналогичные методам Graph.
+graphlib.find_cycles     | Позволяет найти все циклы в графе и предоставляет их в виде списка.
+
+Список самых частых методов, их краткое описание и
+
+TopologicalSort Сортирует вершины графа в топологическом порядке.
+
+```python
+import graphlib
+
+graph = graphlib.Graph()
+graph.add_edges_from([(1, 2), (1, 3), (2, 3), (2, 4)])
+
+sorted_vertices = graphlib.TopologicalSort(graph)
+print(sorted_vertices)
+```
+
+Graph.add_vertex Добавляет новую вершину в граф.
+
+```python
+import graphlib
+
+graph = graphlib.Graph()
+graph.add_vertex(1)
+graph.add_vertex(2)
+```
+
+DiGraph.add_edge Добавляет новое ребро между двумя вершинами в ориентированном графе.
+
+```python
+import graphlib
+
+graph = graphlib.DiGraph()
+graph.add_edge(1, 2)
+graph.add_edge(2, 3)
+```
+
+find_cycles Находит все циклы в графе и возвращает их в виде списка.
+
+```python
+import graphlib
+
+graph = graphlib.Graph()
+graph.add_edges_from([(1, 2), (2, 3), (3, 1), (4, 5)])
+
+cycles = graphlib.find_cycles(graph)
+print(cycles)
+```
+""",
+                        "binhex": r"""
+Библиотека "binhex" в Python используется для преобразования двоичных данных в шестнадцатеричный формат и обратно.
+Она предоставляет функции для кодирования и декодирования данных, а также для чтения и записи файлов в формате binhex.
+
+Методы модуля "binhex" и его подмодулей:
+
+Модуль "binhex":
+binhex.hexlify(data): Преобразует двоичные данные в шестнадцатеричный формат.
+binhex.unhexlify(hexdata): Преобразует данные из шестнадцатеричного формата в двоичный формат.
+binhex.binhex(binfile, hexfile): Кодирует двоичный файл в файл в формате binhex.
+binhex.hexbin(hexfile, binfile): Декодирует файл в формате binhex в двоичный файл.
+
+Наиболее часто используемые методы:
+
+binhex.hexlify(data): Преобразует двоичные данные в шестнадцатеричный формат.
+
+```python
+import binhex
+
+data = b'Hello, World!'
+hex_data = binhex.hexlify(data)
+print(hex_data)
+```
+
+binhex.unhexlify(hexdata): Преобразует данные из шестнадцатеричного формата в двоичный формат.
+
+```python
+import binhex
+
+hex_data = '48656c6c6f2c20576f726c6421'
+data = binhex.unhexlify(hex_data)
+print(data)
+```
+
+binhex.binhex(binfile, hexfile): Кодирует двоичный файл в файл в формате binhex.
+
+```python
+import binhex
+
+bin_file = 'input.bin'
+hex_file = 'output.hex'
+binhex.binhex(bin_file, hex_file)
+```
+
+binhex.hexbin(hexfile, binfile): Декодирует файл в формате binhex в двоичный файл.
+
+```python
+import binhex
+
+hex_file = 'input.hex'
+bin_file = 'output.bin'
+binhex.hexbin(hex_file, bin_file)
+```
+""",
+                        "glob": r"""
+Библиотека "glob" предназначена для поиска файлов с использованием шаблонов и расширений в заданном каталоге.
+
+Методы модуля "glob" и их краткое описание:
+
+glob.glob(pathname): Возвращает список всех путей, соответствующих заданному шаблону.
+glob.escape(pathname): Экранирует все специальные символы в заданном пути, чтобы они были интерпретированы как обычные символы.
+
+Пример кода для демонстрации работы метода glob.glob():
+
+```python
+import glob
+
+files = glob.glob('*.txt')
+print(files)
+```
+
+В этом примере метод glob.glob('*.txt') ищет все файлы с расширением ".txt" в текущем каталоге и возвращает
+список путей к этим файлам, который затем выводится на экран.
+""",
+                        "errno": r"""
+Библиотека "errno" в Python используется для обработки ошибок, связанных с системными вызовами и функциями операционной системы.
+Она предоставляет доступ к кодам ошибок, которые могут возникать
+при выполнении операций ввода-вывода, работы с файлами, сетью и другими системными ресурсами.
+
+Методы и подмодули библиотеки "errno":
+
+errno.errorcode: Возвращает словарь, ключами которого являются коды ошибок, а значениями - соответствующие им символьные имена.
+errno.geterrno(): Возвращает код текущей ошибки.
+errno.geterror(): Возвращает описание текущей ошибки в виде строки.
+errno.strerror(errno): Возвращает описание ошибки по заданному коду ошибки.
+errno.clear(): Очищает код текущей ошибки.
+
+Самые часто используемые методы библиотеки "errno":
+
+errno.errorcode: Возвращает словарь, где ключами являются коды ошибок, а значениями - символьные имена.
+Например: {'ENOENT': 'No such file or directory', 'EACCES': 'Permission denied'}.
+
+```python
+import errno
+
+error_codes = errno.errorcode
+print(error_codes)
+```
+
+errno.geterrno(): Возвращает код текущей ошибки. Например: 2.
+
+```python
+import errno
+
+error_num = errno.geterrno()
+print(error_num)
+```
+
+errno.geterror(): Возвращает описание текущей ошибки в виде строки. Например: "No such file or directory".
+
+```python
+import errno
+
+error_desc = errno.geterror()
+print(error_desc)
+```
+""",
+                        "webencodings": r"""
+Библиотека "webencodings" используется для работы с кодированием и декодированием текста в веб-разработке.
+Она предоставляет функции для преобразования между различными форматами кодировки, такими как HTML-entities, UTF-8 и другие.
+
+Методы модуля "webencodings" и его подмодулей:
+
+Модуль "webencodings":
+"decode(s, encoding='utf-8', errors='strict')": Декодирует строку "s" из указанной кодировки в Unicode.
+"encode(s, encoding='utf-8', errors='strict')": Кодирует строку "s" в указанной кодировке.
+"htmldecode(s, keep_ignorable=False, encoding='utf-8', errors='xmlcharrefreplace')": Декодирует строку "s" из HTML-entities в Unicode.
+"htmlencode(s, encoding='utf-8', errors='xmlcharrefreplace')": Преобразует строку "s" в HTML-entities.
+"unquote(qstring, encoding='utf-8', errors='replace')": Декодирует строку "qstring" из формата URL-кодирования.
+
+Самые часто используемые методы "webencodings" и их описание с примерами кода:
+
+"decode(s, encoding='utf-8', errors='strict')": Декодирует строку "s" из указанной кодировки в Unicode.
+
+```python
+import webencodings
+
+encoded_string = b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82'
+decoded_string = webencodings.decode(encoded_string, encoding='utf-8')
+print(decoded_string)  # Выводит: Привет
+```
+
+"encode(s, encoding='utf-8', errors='strict')": Кодирует строку "s" в указанной кодировке.
+
+```python
+import webencodings
+
+decoded_string = 'Привет'
+encoded_string = webencodings.encode(decoded_string, encoding='utf-8')
+print(encoded_string)  # Выводит: b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82'
+```
+
+"htmldecode(s, keep_ignorable=False, encoding='utf-8', errors='xmlcharrefreplace')": Декодирует строку "s" из HTML-entities в Unicode.
+
+```python
+import webencodings
+
+html_string = '&lt;div&gt;Hello&lt;/div&gt;'
+decoded_string = webencodings.htmldecode(html_string)
+print(decoded_string)  # Выводит: <div>Hello</div>
+```
+
+"htmlencode(s, encoding='utf-8', errors='xmlcharrefreplace')": Преобразует строку "s" в HTML-entities.
+
+```python
+import webencodings
+
+plain_string = '<div>Hello</div>'
+encoded_string = webencodings.htmlencode(plain_string)
+print(encoded_string)  # Выводит: &lt;div&gt;Hello&lt;/div&gt;
+```
+
+"unquote(qstring, encoding='utf-8', errors='replace')": Декодирует строку "qstring" из формата URL-кодирования.
+
+```python
+import webencodings
+
+url_encoded_string = 'Hello%20World%21'
+decoded_string = webencodings.unquote(url_encoded_string)
+print(decoded_string)  # Выводит: Hello World!
+```
+""",
+                        "netrc": r"""
+Библиотека "netrc" в Python используется для работы с файлами .netrc, которые содержат информацию о пользователях,
+паролях и хостах для автоматической аутентификации при подключении к удаленным серверам.
+
+Методы модуля "netrc":
+`netrc.netrc(file)` - создает объект, представляющий файл .netrc.
+`netrc.hosts()` - возвращает список имен хостов из файла .netrc.
+`netrc.host(host)` - возвращает объект, представляющий информацию о конкретном хосте.
+`netrc.authenticators(host)` - возвращает кортеж с именем пользователя, паролем и аутентификационным методом для указанного хоста.
+
+Самые часто используемые методы:
+`netrc.hosts()` - возвращает список хостов из файла .netrc.
+`netrc.authenticators(host)` - возвращает информацию об аутентификации для указанного хоста.
+
+
+`netrc.authenticators(host)`:
+
+```python
+import netrc
+
+def get_credentials(hostname):
+    credentials = netrc.netrc()
+    auth = credentials.authenticators(hostname)
+    if auth:
+        username, _, password = auth
+        return username, password
+    else:
+        return None
+
+hostname = "example.com"
+credentials = get_credentials(hostname)
+if credentials:
+    username, password = credentials
+    print(f"Authenticated on {hostname} with username: {username} and password: {password}")
+else:
+    print(f"No credentials found for {hostname}")
+```
+""",
+                        "readline": r"""
+Библиотека "readline" используется в Python для обеспечения функциональности чтения и редактирования строк в интерактивной командной оболочке.
+
+Методы модуля "readline" и его подмодулей:
+
+readline(): Читает строку из входного потока.
+add_history(string): Добавляет строку в историю командной оболочки.
+clear_history(): Очищает историю командной оболочки.
+get_history_length(): Возвращает количество записей в истории командной оболочки.
+set_history_length(length): Устанавливает максимальное количество записей в истории командной оболочки.
+get_current_history_length(): Возвращает текущую длину истории командной оболочки.
+remove_history_item(pos): Удаляет запись из истории командной оболочки по указанной позиции.
+replace_history_item(pos, string): Заменяет запись в истории командной оболочки по указанной позиции новой строкой.
+
+Наиболее часто используемые методы:
+
+readline(): Читает строку из входного потока.
+
+```python
+import readline
+
+input_string = readline.readline()
+print("Input:", input_string)
+```
+
+add_history(string): Добавляет строку в историю командной оболочки.
+
+```python
+import readline
+
+readline.add_history("command 1")
+readline.add_history("command 2")
+```
+
+clear_history(): Очищает историю командной оболочки.
+
+```python
+import readline
+
+readline.clear_history()
+```
+""",
+                        "resource": r"""
+Библиотека "resource" в Python используется для доступа и управления системными ресурсами, такими как время CPU, память и дескрипторы файлов.
+
+Методы и подмодули модуля "resource":
+
+`getrusage(who)` - возвращает информацию о системных ресурсах для указанного процесса или группы процессов.
+`getrlimit(resource)` - получает текущие ограничения на указанный ресурс.
+`setrlimit(resource, limits)` - устанавливает ограничения на указанный ресурс.
+`getpagesize()` - возвращает размер страницы памяти операционной системы.
+`getrusage()` - возвращает информацию о системных ресурсах для текущего процесса.
+`RUSAGE_SELF` - константа, указывающая на текущий процесс.
+`RUSAGE_CHILDREN` - константа, указывающая на дочерние процессы текущего процесса.
+
+Наиболее часто используемые методы:
+
+`getrusage(who)` - получает информацию о системных ресурсах для указанного процесса или группы процессов.
+
+```python
+import resource
+
+usage = resource.getrusage(resource.RUSAGE_SELF)
+print(usage)
+```
+
+`getrlimit(resource)` - получает текущие ограничения на указанный ресурс.
+
+```python
+import resource
+
+limit = resource.getrlimit(resource.RLIMIT_CPU)
+print(limit)
+```
+
+`setrlimit(resource, limits)` - устанавливает ограничения на указанный ресурс.
+
+```python
+import resource
+
+# Ограничение на время CPU - 2 секунды
+limits = (2, resource.RLIM_INFINITY)
+resource.setrlimit(resource.RLIMIT_CPU, limits)
+```
+""",
+                        "pyclbr": r"""
+Библиотека "pyclbr" в Python используется для анализа и чтения исходного кода классов и функций в модуле.
+Она позволяет получить информацию о структуре программы, такую как классы, методы, атрибуты и их связи.
+  
+Таблица методов модуля "pyclbr" и его подмодулей:
+
+   Метод              | Описание
+   ------------------ | -------------------------------------------------------
+   `readmodule()`     | Читает и анализирует модуль, возвращая словарь классов и функций.
+   `readmodule_ex()`  | Похож на `readmodule()`, но также возвращает дополнительную информацию о модуле.
+   `Class`            | Класс, представляющий отдельный класс из исходного кода.
+   `Function`         | Класс, представляющий отдельную функцию из исходного кода.
+   `Module`           | Класс, представляющий модуль и его структуру.
+
+`readmodule()` Читает и анализирует модуль, возвращая словарь классов и функций.
+
+```python
+import pyclbr
+
+module_data = pyclbr.readmodule('module_name')
+
+for class_name, class_data in module_data.items():
+    print(f"Class: {class_name}")
+    for method_name, method_data in class_data.methods.items():
+        print(f"Method: {method_name}")
+```
+   
+`Class` Класс, представляющий отдельный класс из исходного кода.
+
+```python
+import pyclbr
+
+class_data = pyclbr.Class('class_name')
+
+print(f"Class: {class_data.name}")
+for method_name, method_data in class_data.methods.items():
+    print(f"Method: {method_name}")
+```
+
+`Function` Класс, представляющий отдельную функцию из исходного кода.
+
+```python
+import pyclbr
+
+function_data = pyclbr.Function('function_name')
+
+print(f"Function: {function_data.name}")
+print(f"Start line: {function_data.lineno}")
+```
+
+`Module` Класс, представляющий модуль и его структуру.
+
+```python
+import pyclbr
+
+module_data = pyclbr.Module('module_name')
+
+print(f"Module: {module_data.name}")
+for class_name, class_data in module_data.classes.items():
+    print(f"Class: {class_name}")
+```
+""",
+                        "ntpath": r"""
+Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
+с учетом специфических особенностей операционной системы Windows.
+
+Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:
+
+Метод                                     | Описание
+----------------------------------------|---------------------------------------------------
+ntpath.abspath(path)                     | Возвращает абсолютный путь к указанному пути.
+ntpath.basename(path)                    | Возвращает базовое имя файла или каталога из указанного пути.
+ntpath.commonprefix(list)                | Возвращает наибольший общий префикс из списка путей.
+ntpath.dirname(path)                     | Возвращает каталог, содержащий указанный путь.
+ntpath.exists(path)                      | Проверяет, существует ли указанный путь.
+ntpath.expanduser(path)                  | Заменяет в указанном пути тильду (~) на домашний каталог пользователя.
+ntpath.expandvars(path)                  | Заменяет переменные окружения в указанном пути на их значения.
+ntpath.isfile(path)                      | Проверяет, является ли указанный путь файлом.
+ntpath.isdir(path)                       | Проверяет, является ли указанный путь каталогом.
+ntpath.join(path, *paths)                | Объединяет пути с использованием разделителя.
+ntpath.normpath(path)                    | Нормализует указанный путь, удаляя двойные слеши и точки.
+ntpath.realpath(path)                    | Возвращает канонический абсолютный путь к указанному пути.
+ntpath.relpath(path, start)              | Возвращает относительный путь от исходного пути до указанного пути.
+ntpath.split(path)                       | Разделяет указанный путь на имя каталога и имя файла.
+
+Несколько часто используемых методов "ntpath" с их кратким описанием и примерами кода:
+
+Метод                                     | Описание                                | Пример
+-----------------------------------------|-----------------------------------------|--------------------------------------------------
+ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути. | dirname, filename = ntpath.split('/path/to/file.txt') print(filename) -> 'file.txt'
+ntpath.exists(path)                       | Проверяет, существует ли указанный путь. | if ntpath.exists('/path/to/file.txt'): print("File exists")
+ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя. | full_path = ntpath.join('/path/to', 'file.txt') print(full_path) -> '/path/to/file.txt'
+""",
+                        "wave": r"""
+Библиотека "wave" используется в Python для работы с аудиофайлами формата WAV.
+Она позволяет открывать,
+создавать, записывать и обрабатывать звуковые файлы в формате WAV.
+Методы и подмодули библиотеки "wave" и их краткое описание:
+
+wave.open(file, mode): Открывает WAV-файл с указанным именем файла и режимом доступа.
+wave.Wave_read.getnchannels(): Возвращает число каналов в WAV-файле (моно или стерео).
+wave.Wave_read.getsampwidth(): Возвращает размер образца в байтах.
+wave.Wave_read.getframerate(): Возвращает частоту дискретизации аудиофайла.
+wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.
+wave.Wave_read.readframes(n): Читает и возвращает n фреймов из аудиофайла.
+wave.Wave_write.setnchannels(nchannels): Устанавливает число каналов для нового WAV-файла.
+wave.Wave_write.setsampwidth(sampwidth): Устанавливает размер образца для нового WAV-файла.
+wave.Wave_write.setframerate(framerate): Устанавливает частоту дискретизации для нового WAV-файла.
+wave.Wave_write.writeframesraw(data): Записывает сырые байты аудио-данных в новый WAV-файл.
+wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.
+
+
+wave.open(file, mode): Открывает WAV-файл для чтения или записи.
+
+```python
+import wave
+
+with wave.open('audio.wav', 'r') as wav_file:
+    # проведите необходимые операции с аудиофайлом
+```
+
+wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.
+
+```python
+import wave
+
+with wave.open('audio.wav', 'r') as wav_file:
+    num_frames = wav_file.getnframes()
+    print(f'Number of frames: {num_frames}')
+```
+
+wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.
+
+```python
+import wave
+
+new_frames = b'\x00\x00\x00\x00\x00\x00\x00\x00'  # пример сырых байтов аудио-данных
+
+with wave.open('new_audio.wav', 'w') as wav_file:
+    wav_file.setnchannels(1)  # устанавливаем один канал
+    wav_file.setsampwidth(2)  # устанавливаем размер образца в два байта
+    wav_file.setframerate(44100)  # устанавливаем частоту дискретизации в 44100 Гц
+    wav_file.writeframes(new_frames)  # записываем фреймы в новый WAV-файл
+```
+""",
+                        "js2py": r"""
+Библиотека "js2py" используется в Python для выполнения и интерпретации JavaScript-кода.
+Она предоставляет возможность взаимодействия между Python и JavaScript, позволяя исполнять JavaScript-код внутри среды Python.
+
+Таблица методов модуля "js2py":
+
+Метод           | Описание кратко   
+----------------|----------------
+eval_js()       | Исполняет переданный JavaScript-код и возвращает его результат.
+call()          | Вызывает функцию JavaScript и передает ей аргументы.
+set()           | Устанавливает значение переменной JavaScript.
+get()           | Получает значение переменной JavaScript.
+delete()        | Удаляет переменную JavaScript.
+
+Список самых часто используемых методов, их краткое описание и
+
+eval_js(): Исполняет переданный JavaScript-код и возвращает его результат.
+
+```python
+result = eval_js("1 + 2")
+print(result)  # Выводит: 3
+```
+
+call(): Вызывает функцию JavaScript и передает ей аргументы.
+  
+```python
+js_function = js2py.eval_js("function add(a, b) { return a + b; }")
+result = call(js_function, 2, 3)
+print(result)  # Выводит: 5
+```
+
+set(): Устанавливает значение переменной JavaScript.
+  
+```python
+set("x", 10)
+result = eval_js("x")
+print(result)  # Выводит: 10
+```
+
+get(): Получает значение переменной JavaScript.
+  
+```python
+eval_js("var message = 'Hello, world!'")
+result = get("message")
+print(result)  # Выводит: Hello, world!
+```
+
+delete(): Удаляет переменную JavaScript.
+  
+```python
+eval_js("var x = 5;")
+delete("x")
+result = eval_js("x")
+print(result)  # Выводит: undefined
+```
+""",
+                        "bisect": r"""
+Библиотека "bisect" в Python используется для выполнения бинарного поиска в отсортированных последовательностях.
+Она предоставляет функции для нахождения места вставки элемента в отсортированный список и для выполнения деления списка на две части.
+
+Методы библиотеки "bisect":
+bisect_left(a, x): Возвращает наименьшую позицию для вставки элемента x в отсортированный список а, сохраняя его отсортированность.
+bisect_right(a, x): Возвращает наибольшую позицию для вставки элемента x в отсортированный список а, сохраняя его отсортированность.
+bisect(a, x): Эквивалентно вызову bisect_right(a, x).
+insort_left(a, x): Вставляет элемент x в отсортированный список a на наименьшую позицию, сохраняя его отсортированность.
+insort_right(a, x): Вставляет элемент x в отсортированный список a на наибольшую позицию, сохраняя его отсортированность.
+insort(a, x): Эквивалентно вызову insort_right(a, x).
+
+
+bisect_left(a, x) - возвращает индекс наименьшего элемента, который больше или равен x.
+
+```python
+import bisect
+a = [1, 3, 5, 7]
+x = 4
+index = bisect.bisect_left(a, x)
+print(index)  # Output: 2
+```
+
+insort_right(a, x) - вставляет элемент x в отсортированный список a на наибольшую позицию, сохраняя его отсортированность.
+
+```python
+import bisect
+a = [1, 3, 5, 7]
+x = 4
+bisect.insort_right(a, x)
+print(a)  # Output: [1, 3, 4, 5, 7]
+```
+
+bisect_right(a, x) - возвращает индекс первого элемента, который больше x.
+
+```python
+import bisect
+a = [1, 3, 5, 7]
+x = 4
+index = bisect.bisect_right(a, x)
+print(index)  # Output: 3
+```
+""",
+                        "jsonpointer": r"""
+Библиотека "jsonpointer" используется для работы с указателями JSON (JSON pointers).
+Она предоставляет функциональность для создания, обновления и извлечения данных из JSON-структур с использованием указателей.
+
+Методы модуля "jsonpointer" и их краткое описание:
+
+`resolve_pointer(json_obj, pointer)`: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.
+`set_pointer(json_obj, pointer, value)`: Устанавливает значение по указателю JSON в JSON-объекте.
+`remove_pointer(json_obj, pointer)`: Удаляет значение по указателю JSON из JSON-объекта.
+`list_pointers(json_obj)`: Возвращает список всех указателей JSON в JSON-объекте.
+`escape_pointer(pointer)`: Экранирует специальные символы в указателе JSON.
+
+Некоторые из самых часто используемых методов "jsonpointer" и их краткое описание:
+
+`resolve_pointer(json_obj, pointer)`: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.
+
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+value = jsonpointer.resolve_pointer(json_obj, pointer)
+print(value)  # Output: John
+```
+
+`set_pointer(json_obj, pointer, value)`: Устанавливает значение по указателю JSON в JSON-объекте.
+
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+value = "Jane"
+jsonpointer.set_pointer(json_obj, pointer, value)
+print(json_obj)  # Output: {"name": "Jane", "age": 30}
+```
+
+`remove_pointer(json_obj, pointer)`: Удаляет значение по указателю JSON из JSON-объекта.
+
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+jsonpointer.remove_pointer(json_obj, pointer)
+print(json_obj)  # Output: {"age": 30}
+```
+""",
+                        "grp": r"""
+Библиотека "grp" в Python используется для работы с группами пользователей в операционной системе.
+Методы модуля "grp" и его подмодулей:
+
+`grp.getgrgid(gid)`: Возвращает информацию о группе по ее идентификатору.
+`grp.getgrnam(name)`: Возвращает информацию о группе по ее имени.
+`grp.getgrall()`: Возвращает список всех групп в системе.
+`grp.getgrgid(gid).gr_name`: Возвращает имя группы по ее идентификатору.
+`grp.getgrgid(gid).gr_passwd`: Возвращает пароль группы по ее идентификатору.
+
+Самые часто используемые методы:
+
+Метод `grp.getgrgid(gid)` используется для получения информации о группе по ее идентификатору.
+     
+```python
+import grp
+
+gid = 1000
+group_info = grp.getgrgid(gid)
+print(group_info)
+```
+
+Метод `grp.getgrnam(name)` используется для получения информации о группе по ее имени.
+     
+```python
+import grp
+
+group_name = "developers"
+group_info = grp.getgrnam(group_name)
+print(group_info)
+```
+
+Метод `grp.getgrall()` возвращает список всех групп в системе.
+     
+```python
+import grp
+
+all_groups = grp.getgrall()
+for group_info in all_groups:
+    print(group_info)
+```
+
+Пожалуйста, обратите внимание, что эти примеры кода могут потребовать соответствующих разрешений для доступа к информации о группах пользователя на операционной системе.
+""",
+                        "logging": r"""
+Библиотека "logging" в Python используется для добавления логирования,
+то есть записи информации о работе программы, чтобы отслеживать ее выполнение и находить ошибки или проблемы.
+
+Методы модуля "logging" и его подмодулей:
+
+`getLogger()`: Возвращает объект логгера для указанного имени.
+`basicConfig()`: Конфигурирует логгинг с использованием базовых параметров.
+`Logger.setLevel()`: Устанавливает уровень логгирования для указанного логгера.
+`Logger.addHandler()`: Добавляет обработчик к указанному логгеру.
+`Formatter.format()`: Форматирует записи логгера в определенном формате.
+`StreamHandler`: Обработчик, который выводит сообщения логгера в поток (например, на консоль).
+`FileHandler`: Обработчик, который выводит сообщения логгера в файл.
+`RotatingFileHandler`: Обработчик, который выводит сообщения логгера в файл с возможностью
+автоматического поворота лог-файла при достижении определенного размера или количества записей.
+
+Наиболее часто используемые методы:
+
+`logging.debug()`: Регистрирует отладочное сообщение.
+
+```python
+import logging
+logging.debug("This is a debug message")
+```
+
+`logging.info()`: Регистрирует информационное сообщение.
+
+```python
+import logging
+logging.info("This is an info message")
+```
+
+`logging.warning()`: Регистрирует предупреждение.
+
+```python
+import logging
+logging.warning("This is a warning message")
+```
+
+`logging.error()`: Регистрирует сообщение об ошибке.
+
+```python
+import logging
+logging.error("This is an error message")
+```
+
+`logging.critical()`: Регистрирует критическое сообщение.
+
+```python
+import logging
+logging.critical("This is a critical message")
+```
+""",
+                        "posixpath": r"""
+Библиотека "posixpath" в Python используется для работы с путями файловой системы в POSIX-совместимых операционных системах.
+Она предоставляет функции и методы для манипуляции, анализа и навигации по путям к файлам и директориям.
+
+Методы и подмодули библиотеки "posixpath":
+
+`posixpath.basename(path)`: Возвращает базовое имя файла или директории из заданного пути.
+`posixpath.dirname(path)`: Возвращает имя директории из заданного пути.
+`posixpath.isabs(path)`: Проверяет, является ли заданный путь абсолютным.
+`posixpath.join(path, *paths)`: Объединяет компоненты пути в один.
+`posixpath.normcase(path)`: Возвращает нормализованную версию заданного пути с учетом регистра символов.
+`posixpath.normpath(path)`: Возвращает нормализованную версию заданного пути с учетом символов ".", ".." и разделителей.
+`posixpath.realpath(path)`: Возвращает каноническое имя (полный путь) для заданного пути.
+`posixpath.split(path)`: Разделяет заданный путь на имя директории и базовое имя файла или директории.
+
+Некоторые из наиболее часто используемых методов библиотеки "posixpath":
+
+`basename(path)`: Возвращает имя файла из заданного пути.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+filename = posixpath.basename(path)
+print(filename)  # Выводит: example.txt
+```
+
+`dirname(path)`: Возвращает имя директории из заданного пути.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+directory = posixpath.dirname(path)
+print(directory)  # Выводит: /home/user
+```
+
+`isabs(path)`: Проверяет, является ли заданный путь абсолютным.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+is_absolute = posixpath.isabs(path)
+print(is_absolute)  # Выводит: True
+```
+""",
+                        "gettext": r"""
+Библиотека "gettext" в Python используется для локализации и перевода текстовых сообщений в программе. 
+
+# Таблица методов модуля "gettext" и его подмодулей:
+### Методы модуля "gettext":
+bindtextdomain(domain, directory): устанавливает домен и директорию для поиска файлов перевода.
+dgettext(domain, message): возвращает перевод сообщения из указанного домена.
+dngettext(domain, singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
+gettext(message): возвращает перевод сообщения.
+ngettext(singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
+textdomain(domain): устанавливает текущий домен перевода.
+
+### Методы подмодуля "gettext.translation":
+gettext.translation(domain, localedir=None, languages=None, fallback=False): создает объект перевода на основе заданного домена и директории локализации.
+gettext.translation(""): возвращает объект перевода для текущего домена.
+add_fallback(translations): добавляет объект перевода в список резервных вариантов перевода.
+install(domain, localedir=None, unicode=0): устанавливает объект перевода в качестве текущего.
+
+Самые часто используемые методы библиотеки "gettext" вместе с их кратким описанием и примером кода:
+
+gettext(message): Возвращает перевод сообщения.
+
+```python
+import gettext
+gettext.bindtextdomain('mydomain', 'locale/')
+gettext.textdomain('mydomain')
+
+_ = gettext.gettext
+print(_('Hello, world!'))
+```
+
+ngettext(singular, plural, n): Возвращает перевод множественного сообщения на основе числа n.
+
+```python
+import gettext
+gettext.bindtextdomain('mydomain', 'locale/')
+gettext.textdomain('mydomain')
+
+_ = gettext.ngettext
+print(_('%d apple', '%d apples', 5) % 5)
+```
+
+dgettext(domain, message): Возвращает перевод сообщения из указанного домена.
+
+```python
+import gettext
+gettext.bindtextdomain('mydomain', 'locale/')
+gettext.textdomain('mydomain')
+
+_ = gettext.dgettext
+print(_('mydomain', 'Hello, world!'))
+```
+""",
+                        "zipfile": r"""
+Библиотека "zipfile" в Python используется для работы с архивами формата ZIP.
+Она предоставляет функциональность для создания, чтения, обновления и извлечения файлов из архива.
+
+Таблица методов библиотеки "zipfile" и их краткого описания:
+
+`ZipFile(file, mode='r', compression=ZIP_STORED, allowZip64=True)` - создает объект ZipFile, представляющий архив ZIP из файла. Режимы могут быть чтение ('r'), запись ('w') или добавление ('a').
+`ZipFile.extractall(path=None, members=None, pwd=None)` - извлекает все файлы из архива в указанную папку.
+`ZipFile.extract(member, path=None, pwd=None)` - извлекает конкретный файл из архива.
+`ZipFile.namelist()` - возвращает список имен файлов в архиве.
+`ZipFile.open(name, mode='r', pwd=None)` - открывает файл в архиве и возвращает объект файлового дескриптора.
+`ZipFile.close()` - закрывает объект ZipFile и освобождает ресурсы.
+
+Список самых часто используемых методов, их краткого описания и пример демонстрирующий их работу:
+
+`extractall(path=None, members=None, pwd=None)` - извлекает все файлы из архива в указанную папку.
+
+```python
+import zipfile
+
+# Открываем архив
+with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
+    # Извлекаем все файлы
+    zip_ref.extractall('destination_folder')
+```
+
+`namelist()` - возвращает список имен файлов в архиве.
+
+```python
+import zipfile
+
+# Открываем архив
+with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
+    # Получаем список имен файлов
+    file_names = zip_ref.namelist()
+    
+    # Выводим список имен файлов
+    for name in file_names:
+        print(name)
+```
+
+`extract(member, path=None, pwd=None)` - извлекает конкретный файл из архива.
+
+```python
+import zipfile
+
+# Открываем архив
+with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
+    # Извлекаем файл с именем 'file.txt'
+    zip_ref.extract('file.txt', 'destination_folder')
+```
+""",
+                        "pylab": r"""
+Название библиотеки: "pylab"
+
+Краткое описание: Библиотека "pylab" является комбинацией библиотеки "matplotlib" и "NumPy"
+для выполнения научных и инженерных вычислений в Python.
+Она предоставляет функции для создания графиков, визуализации данных и выполнения математических операций.
+
+Таблица методов:
+
+| Метод                | Описание                                                    |
+|----------------------|-------------------------------------------------------------|
+| `plot`               | Построить график из данных                                   |
+| `scatter`            | Создать точечную диаграмму                                   |
+| `hist`               | Построить гистограмму из данных                              |
+| `imshow`             | Отобразить изображение                                       |
+| `xlabel`             | Задать подпись для оси x                                    |
+| `ylabel`             | Задать подпись для оси y                                    |
+| `title`              | Задать заголовок графика                                    |
+| `legend`             | Вывести легенду графика                                     |
+| `grid`               | Отобразить сетку на графике                                 |
+| `sin`                | Вычислить синус значения                                     |
+| `cos`                | Вычислить косинус значения                                  |
+| `exp`                | Вычислить экспоненту значения                               |
+
+
+Метод `plot` позволяет строить графики из предоставленных данных.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y)
+pylab.show()
+```
+   
+Метод `scatter` используется для создания точечной диаграммы.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.scatter(x, y)
+pylab.show()
+```
+   
+Метод `hist` позволяет создать гистограмму из предоставленных данных.
+   
+```python
+import pylab
+
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
+
+pylab.hist(data)
+pylab.show()
+```
+   
+Метод `imshow` используется для отображения изображений.
+   
+```python
+import pylab
+import numpy as np
+
+image = np.random.random((10, 10))
+
+pylab.imshow(image)
+pylab.show()
+```
+   
+Метод `xlabel` задает подпись для оси x на графике.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y)
+pylab.xlabel("X-axis")
+pylab.show()
+```
+   
+Метод `ylabel` задает подпись для оси y на графике.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y)
+pylab.ylabel("Y-axis")
+pylab.show()
+```
+   
+Метод `title` задает заголовок для графика.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y)
+pylab.title("My Plot")
+pylab.show()
+```
+   
+Метод `legend` выводит легенду на графике.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y, label="Data")
+pylab.legend()
+pylab.show()
+```
+   
+Метод `grid` отображает сетку на графике.
+   
+```python
+import pylab
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 30, 40, 50]
+
+pylab.plot(x, y)
+pylab.grid(True)
+pylab.show()
+```
+   
+Метод `sin` используется для вычисления синуса значения.
+   
+```python
+import pylab
+
+value = 0.5
+
+result = pylab.sin(value)
+print(result)
+```
+   
+Метод `cos` используется для вычисления косинуса значения.
+   
+```python
+import pylab
+
+value = 0.5
+
+result = pylab.cos(value)
+print(result)
+```
+   
+Метод `exp` используется для вычисления экспоненты значения.
+   
+```python
+import pylab
+
+value = 2
+
+result = pylab.exp(value)
+print(result)
+```
+""",
+                        "optparse": r"""
+Библиотека "optparse" используется для обработки командной строки в Python.
+Она предоставляет удобные инструменты для определения и разбора аргументов командной строки,
+а также для создания гибких и понятных интерфейсов командной строки для ваших программ.
+
+Методы модуля "optparse" и его подмодулей:
+
+OptionParser: Класс, который предоставляет функциональность для определения и разбора аргументов командной строки.
+OptionGroup: Класс, позволяющий группировать опции вместе для более удобного использования.
+Option: Класс, представляющий отдельную опцию командной строки.
+OptionContainer: Базовый класс для группировки опций.
+OptionConflictError: Исключение, возникающее при конфликте опций.
+OptionValueError: Исключение, возникающее при некорректном значении опции.
+
+Некоторые из самых часто используемых методов "optparse" и их описание:
+
+add_option(): Добавляет опцию в парсер командной строки.
+
+```python
+parser.add_option("-f", "--file", dest="filename", help="Specify input file")
+```
+
+parse_args(): Разбирает аргументы командной строки и возвращает объект, содержащий значения опций.
+
+```python
+(options, args) = parser.parse_args()
+```
+
+print_help(): Выводит справку о доступных опциях командной строки.
+
+```python
+parser.print_help()
+```
+
+error(): Генерирует сообщение об ошибке и выводит справку о доступных опциях командной строки.
+
+```python
+parser.error("Input file is required")
+```
+
+set_defaults(): Устанавливает значения по умолчанию для опций.
+
+```python
+parser.set_defaults(verbose=True)
+```
+""",
+                        "gast": r"""
+Библиотека "gast" используется для анализа и модификации абстрактного синтаксического дерева (AST) в Python.
+Она предоставляет инструменты для работы с AST, такие как обход узлов дерева, замена узлов, добавление новых узлов и т.д.
+
+Методы модуля "gast" и его подмодулей:
+
+Модуль "gast":
+NodeVisitor: Класс для обхода узлов AST.
+NodeTransformer: Класс для модификации узлов AST.
+parse: Функция для преобразования исходного кода в AST.
+
+
+NodeVisitor: Класс, который позволяет обойти все узлы AST и выполнить определенные действия для каждого узла.
+
+```python
+from gast import NodeVisitor
+
+class MyVisitor(NodeVisitor):
+    def visit_FunctionDef(self, node):
+        print("Found a function definition:", node.name)
+
+# Создание экземпляра класса и обход AST
+visitor = MyVisitor()
+visitor.visit(ast_tree)
+```
+
+NodeTransformer: Класс, который позволяет модифицировать узлы AST путем замены, добавления или удаления узлов.
+
+```python
+from gast import NodeTransformer
+
+class MyTransformer(NodeTransformer):
+    def visit_FunctionDef(self, node):
+        # Изменение имени функции
+        node.name = "new_function_name"
+        return node
+
+# Создание экземпляра класса и модификация AST
+transformer = MyTransformer()
+new_ast_tree = transformer.visit(ast_tree)
+```
+
+parse: Функция, которая преобразует исходный код в AST.
+
+```python
+from gast import parse
+
+source_code = "print('Hello, World!')"
+ast_tree = parse(source_code)
+```
+""",
+                        "keyword": r"""
+Библиотека "keyword" в Python используется для работы с ключевыми словами языка.
+Она предоставляет набор функций для проверки и манипуляции ключевыми словами, такими как "if", "for", "while" и другими.
+
+Таблица методов модуля "keyword":
+iskeyword(): Проверяет, является ли переданная строка ключевым словом в Python.
+kwlist: Возвращает список всех ключевых слов в Python.
+
+iskeyword():
+
+```python
+import keyword
+print(keyword.iskeyword('if'))  # Вывод: True
+print(keyword.iskeyword('hello'))  # Вывод: False
+```
+
+iskeyword(): Позволяет проверить, является ли строка ключевым словом Python.
+kwlist: Возвращает список всех ключевых слов в Python.
+""",
+                        "poplib": r"""
+Библиотека "poplib" в Python используется для работы с протоколом почтового ящика на основе протокола POP3 (Post Office Protocol version 3).
+Она позволяет получать электронные письма, удалять их, и выполнять другие операции взаимодействия с почтовым сервером.
+
+Методы и подмодули библиотеки "poplib":
+
+`poplib.POP3(host[, port])`: Создает объект соединения с почтовым сервером POP3 на указанном хосте и порту.
+`poplib.POP3.user(username)`: Аутентифицирует пользователя на сервере, указывая имя пользователя.
+`poplib.POP3.pass_(password)`: Аутентифицирует пользователя на сервере, указывая пароль.
+`poplib.POP3.stat()`: Возвращает информацию о состоянии почтового ящика, включая количество сообщений и общий размер.
+`poplib.POP3.list([which])`: Возвращает список всех сообщений в почтовом ящике, или информацию о конкретном сообщении, если указан параметр "which".
+`poplib.POP3.retr(which)`: Получает содержимое указанного сообщения из почтового ящика.
+`poplib.POP3.dele(which)`: Отмечает указанное сообщение для удаления.
+`poplib.POP3.quit()`: Закрывает соединение с сервером POP3.
+
+Наиболее часто используемые методы в библиотеке "poplib":
+
+`poplib.POP3(host[, port])`: Создание соединения с почтовым сервером.
+`poplib.POP3.user(username)` и `poplib.POP3.pass_(password)`: Аутентификация пользователя на сервере.
+`poplib.POP3.stat()`: Получение информации о состоянии почтового ящика.
+`poplib.POP3.list()`: Получение списка всех сообщений в почтовом ящике.
+`poplib.POP3.retr(which)`: Получение содержимого конкретного сообщения.
+`poplib.POP3.quit()`: Закрытие соединения с сервером POP3.
+
+Пример использования метода `poplib.POP3(user, password)` для создания соединения с почтовым сервером:
+
+```python
+import poplib
+
+pop_server = poplib.POP3("mail.example.com", 110)
+pop_server.user("your_username")
+pop_server.pass_("your_password")
+```
+""",
+                        "base64": r"""
+Библиотека "base64" в Python используется для кодирования и декодирования данных в формате base64.
+Base64 является способом представления двоичных данных в виде текста, что удобно для передачи и хранения данных,
+которые не могут быть безопасно переданы в обычном двоичном формате.
+
+Методы модуля "base64" и его подмодулей:
+
+Модуль "base64":
+b64encode(data): Кодирует данные в формате base64.
+b64decode(data): Декодирует данные из формата base64.
+b64encodebytes(data): Кодирует данные в формате base64 и возвращает байтовую строку.
+b64decodebytes(data): Декодирует байтовую строку из формата base64 и возвращает декодированные данные.
+
+Подмодуль "base64.urlsafe":
+urlsafe_b64encode(data): Кодирует данные в формате base64 для URL без использования символов, которые могут вызывать проблемы в URL.
+urlsafe_b64decode(data): Декодирует данные из формата base64 для URL.
+
+Некоторые из самых часто используемых методов "base64" и их краткое описание:
+
+b64encode(data): Кодирует данные в формате base64.
+
+```python
+import base64
+
+data = b'Hello, World!'
+encoded_data = base64.b64encode(data)
+print(encoded_data)
+```
+
+b64decode(data): Декодирует данные из формата base64.
+
+```python
+import base64
+
+encoded_data = b'SGVsbG8sIFdvcmxkIQ=='
+decoded_data = base64.b64decode(encoded_data)
+print(decoded_data)
+```
+
+urlsafe_b64encode(data): Кодирует данные в формате base64 для URL без использования символов, которые могут вызывать проблемы в URL.
+
+```python
+import base64
+
+data = b'Hello, World!'
+encoded_data = base64.urlsafe_b64encode(data)
+print(encoded_data)
+```
+
+urlsafe_b64decode(data): Декодирует данные из формата base64 для URL.
+
+```python
+import base64
+
+encoded_data = b'SGVsbG8sIFdvcmxkIQ=='
+decoded_data = base64.urlsafe_b64decode(encoded_data)
+print(decoded_data)
+```
+""",
+                        "shlex": r"""
+Библиотека "shlex" в Python используется для разбивки строки на токены в соответствии с синтаксисом оболочки Unix.
+Она часто применяется при работе с командной строкой, парсинге аргументов командной строки и анализе ввода пользователя.
+
+Методы модуля и их мега краткое описание:
+
+shlex.split(s): Разбивает строку s на токены и возвращает список.
+shlex.quote(s): Возвращает квотированную версию строки s с учетом синтаксиса оболочки.
+shlex.join(args): Объединяет список аргументов args в одну строку с добавлением кавычек и экранированием.
+shlex.shlex([stream[, filename[, posix]]]): Создает объект парсера токенов для чтения из потока stream.
+    Опциональные параметры filename и posix устанавливают соответствующие атрибуты парсера.
+shlex.push_source(source): Вставляет новый источник токенов в стек парсера.
+shlex.pop_source(): Удаляет верхний источник токенов из стека парсера.
+shlex.get_token(): Возвращает следующий токен из текущего источника парсера.
+shlex.get_token_unquoted(): Возвращает следующий неквотированный токен из текущего источника парсера.
+
+Наиболее часто используемые методы "shlex" вместе с их кратким описанием и примерным кодом:
+
+shlex.split(s): Разбивает строку на токены и возвращает список.
+Пример: tokens = shlex.split("hello world")  # ['hello', 'world']
+
+shlex.quote(s): Возвращает квотированную версию строки с учетом синтаксиса оболочки.
+Пример: quoted = shlex.quote("Hello, World!")  # 'Hello, World!'
+
+shlex.join(args): Объединяет список аргументов в строку с добавлением кавычек и экранированием.
+Пример: command = shlex.join(["ls", "-l", "*.txt"])  # 'ls -l "*.txt"'
+""",
+                        "concurrent": r"""
+Библиотека "concurrent" в Python используется для реализации параллельного выполнения задач и управления потоками и процессами.
+
+Методы и подмодули библиотеки "concurrent":
+
+concurrent.futures: Предоставляет высокоуровневый интерфейс для асинхронного выполнения задач.
+concurrent.futures.ThreadPoolExecutor: Позволяет создавать пул потоков для параллельного выполнения задач.
+concurrent.futures.ProcessPoolExecutor: Позволяет создавать пул процессов для параллельного выполнения задач.
+concurrent.futures.as_completed: Возвращает итератор, который возвращает результаты задач по мере их завершения.
+concurrent.futures.wait: Ожидает завершения задач и возвращает кортеж с завершенными и незавершенными задачами.
+concurrent.futures.Future: Представляет отложенный результат выполнения задачи.
+
+Некоторые из самых часто используемых методов библиотеки "concurrent" в Python:
+
+submit(fn, *args, **kwargs): Подает задачу на выполнение в пул потоков или процессов.
+
+```python
+import concurrent.futures
+
+def square(x):
+    return x ** 2
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    future = executor.submit(square, 5)
+    result = future.result()
+    print(result)  # Output: 25
+```
+
+map(fn, *iterables, timeout=None): Применяет функцию к каждому элементу итерируемых объектов и возвращает результаты в том же порядке.
+
+```python
+import concurrent.futures
+
+def square(x):
+    return x ** 2
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    numbers = [1, 2, 3, 4, 5]
+    results = executor.map(square, numbers)
+    print(list(results))  # Output: [1, 4, 9, 16, 25]
+```
+
+shutdown(wait=True): Завершает работу пула потоков или процессов.
+
+```python
+import concurrent.futures
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    # Выполнение задач
+    executor.shutdown()
+```
+""",
+                        "keyboard": r"""
+Библиотека "keyboard" используется для управления клавиатурой компьютера с помощью кода на языке Python.
+Она позволяет эмулировать нажатия клавиш, считывать нажатия клавиш в реальном времени и манипулировать состоянием клавиш.
+
+Таблица методов модуля "keyboard" и его подмодулей:
+
+Метод                   | Описание
+-----------------------|-----------------------
+keyboard.press()       | Эмулирует нажатие заданной клавиши.
+keyboard.release()     | Освобождает заданную клавишу после её нажатия.
+keyboard.is_pressed()  | Проверяет, нажата ли заданная клавиша.
+keyboard.write()       | Вводит заданный текст на клавиатуре.
+keyboard.add_hotkey()  | Регистрирует горячую клавишу и связанный с ней обработчик.
+keyboard.wait()        | Приостанавливает выполнение программы до нажатия заданной клавиши.
+keyboard.unhook_all()  | Отключает все горячие клавиши.
+
+Список самых часто используемых методов библиотеки "keyboard":
+
+keyboard.press(): эмулирует нажатие клавиши.
+
+```python
+import keyboard
+
+keyboard.press('A')  # Нажатие клавиши "A"
+```
+
+keyboard.release(): освобождает заданную клавишу после её нажатия.
+
+```python
+import keyboard
+
+keyboard.release('A')  # Освобождение клавиши "A"
+```
+
+keyboard.is_pressed(): проверяет, нажата ли заданная клавиша.
+
+```python
+import keyboard
+
+if keyboard.is_pressed('A'):  # Проверка, нажата ли клавиша "A"
+    print("Клавиша A нажата")
+```
+""",
+                        "rlcompleter": r"""
+Библиотека "rlcompleter" используется для автоматического завершения кода в интерактивной оболочке Python (REPL) с помощью клавиши Tab.
+Она обеспечивает поддержку автозаполнения имён модулей, функций, переменных и атрибутов.
+   
+Методы и подмодули библиотеки "rlcompleter":
+Submodule: `rlcompleter`
+Метод `Completer(...)` - инициализирует объект автозавершения для использования в REPL.
+Метод `Completer.complete(text, state)` - выполняет автозавершение указанного текста в заданном состоянии.
+Метод `Completer.global_matches(text)` - возвращает список всех глобальных имен, соответствующих указанному тексту.
+     
+Метод `Completer.complete(text, state)` - данный метод выполняет автозавершение текста `text` в конкретном состоянии `state`.
+     
+```python
+import rlcompleter
+
+completer = rlcompleter.Completer()
+text = 'pr'
+state = 0
+
+completions = completer.complete(text, state)
+print(completions)
+```
+   
+Метод `Completer.global_matches(text)` - данный метод возвращает список глобальных имен, которые соответствуют указанному тексту `text`.
+     
+```python
+import rlcompleter
+
+completer = rlcompleter.Completer()
+text = 'pr'
+
+matches = completer.global_matches(text)
+print(matches)
+```
+""",
+                        "psutil": r"""
+Библиотека "psutil" в Python используется для доступа и управления информацией о системе и процессах.
+Она предоставляет функции для получения информации о процессоре, памяти, дисках, сети и др.
+Это полезно для мониторинга системы, оптимизации ресурсов и отладки.
+
+
+
+| Метод                  | Описание                              |
+|-----------------------|---------------------------------------|
+| psutil.cpu_percent()  | Возвращает процент использования ЦП   |
+| psutil.virtual_memory()  | Возвращает информацию о виртуальной памяти   |
+| psutil.disk_usage()  | Возвращает использование дискового пространства   |
+| psutil.net_io_counters()  | Возвращает сетевые счетчики ввода-вывода   |
+| psutil.process_count()  | Возвращает количество запущенных процессов   |
+
+
+
+psutil.cpu_percent(): Возвращает текущий процент использования CPU в виде числа от 0 до 100.
+
+```python
+import psutil
+
+cpu_percent = psutil.cpu_percent()
+print("Текущий процент использования CPU:", cpu_percent)
+```
+
+psutil.virtual_memory(): Возвращает информацию о виртуальной памяти в виде объекта.
+Можно получить доступ к атрибутам, таким как "total" (всего памяти), "available" (доступно памяти), "used" (используется памяти) и др.
+
+```python
+import psutil
+
+virtual_memory = psutil.virtual_memory()
+print("Общая доступная память:", virtual_memory.total)
+print("Доступная память:", virtual_memory.available)
+print("Используется памяти:", virtual_memory.used)
+```
+
+psutil.disk_usage(): Возвращает информацию об использовании дискового пространства для указанного пути в виде объекта.
+Можно получить доступ к атрибутам, таким как "total" (всего пространства),
+"used" (используется пространство), "free" (свободное пространство) и др.
+
+```python
+import psutil
+
+disk_usage = psutil.disk_usage("/")
+print("Общее пространство диска:", disk_usage.total)
+print("Используется пространства диска:", disk_usage.used)
+print("Свободное пространство диска:", disk_usage.free)
+```
+
+psutil.net_io_counters(): Возвращает сетевые счетчики ввода-вывода в виде объекта.
+Можно получить доступ к атрибутам, таким как "bytes_sent" (отправленные байты), "bytes_recv" (полученные байты), "packets_sent" (отправленные пакеты) и др.
+
+```python
+import psutil
+
+net_io_counters = psutil.net_io_counters()
+print("Отправленные байты:", net_io_counters.bytes_sent)
+print("Полученные байты:", net_io_counters.bytes_recv)
+```
+
+psutil.process_count(): Возвращает количество текущих запущенных процессов.
+
+```python
+import psutil
+
+process_count = psutil.process_count()
+print("Количество запущенных процессов:", process_count)
+```
+""",
+                        "rfc3339_validator": r"""
+Библиотека "rfc3339_validator" используется для проверки правильности формата даты и времени в соответствии со стандартом RFC 3339.
+
+Таблица методов модуля и его подмодулей:
+
+Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
+Возвращает булевое значение True, если формат верен, и False в противном случае.
+
+Список самых частых методов, их краткого описания и примерного кода:
+
+Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
+
+```python
+from rfc3339_validator import validate
+
+date_string = "2022-01-01T12:34:56Z"
+if validate(date_string):
+    print("Формат даты и времени верный")
+else:
+    print("Некорректный формат даты и времени")
+```
+""",
+                        "regcheck": r"""
+Библиотека "regcheck" используется для работы с регулярными выражениями в Python.
+Она предоставляет инструменты для поиска и сравнения строк, основываясь на заданных шаблонах.
+
+Таблица методов и их краткое описание для модуля "regcheck":
+
+Метод         | Описание
+------------- | -------------
+search        | Выполняет поиск заданного регулярного выражения в строке и возвращает первое совпадение.
+match         | Проверяет, соответствует ли вся строка заданному регулярному выражению.
+findall       | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде списка.
+finditer      | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде итератора.
+split         | Разделяет строку на подстроки, используя заданное регулярное выражение в качестве разделителя.
+sub           | Заменяет все совпадения заданного регулярного выражения в строке указанным значением.
+
+Список самых часто используемых методов, их краткое описание и примерный код для демонстрации их работы:
+
+Метод      | Описание                            | Примерный код
+---------- | ----------------------------------- | -------------
+search     | Ищет первое совпадение в строке      | import re \n result = re.search(r"pattern", string)
+findall    | Находит все совпадения в строке       | import re \n results = re.findall(r"pattern", string)
+split      | Разделяет строку на подстроки         | import re \n parts = re.split(r"\s", string)
+sub        | Заменяет совпадения в строке          | import re \n new_string = re.sub(r"pattern", replacement, string)
+""",
+                        "posix": r"""
+Библиотека "posix" в Python используется для взаимодействия с функциями и операциями,
+специфичными для POSIX-совместимых операционных систем, таких как Linux и macOS.
+
+Таблица методов модуля "posix" и его подмодулей и краткое описание:
+
+Модуль "posix":
+getpid(): Возвращает идентификатор текущего процесса.
+getuid(): Возвращает идентификатор пользователя текущего процесса.
+getgid(): Возвращает идентификатор группы текущего процесса.
+chmod(path, mode): Изменяет права доступа к файлу или директории.
+chown(path, uid, gid): Изменяет владельца и группу файловой системы.
+getcwd(): Возвращает текущую рабочую директорию.
+listdir(path): Возвращает список файлов и директорий в указанной директории.
+
+Подмодуль "posixpath":
+join(path1, path2): Объединяет два пути в один.
+isfile(path): Проверяет, является ли путь файлом.
+isdir(path): Проверяет, является ли путь директорией.
+basename(path): Возвращает базовое имя последнего компонента пути.
+dirname(path): Возвращает каталог пути.
+
+Список часто используемых методов, их краткое описание и
+
+getpid(): Возвращает идентификатор текущего процесса.
+
+```python
+import os
+print(os.getpid())
+```
+
+getcwd(): Возвращает текущую рабочую директорию.
+
+```python
+import os
+print(os.getcwd())
+```
+
+listdir(path): Возвращает список файлов и директорий в указанной директории.
+
+```python
+import os
+print(os.listdir("/path/to/directory"))
+```
+""",
+                        "fileinput": r"""
+Библиотека "fileinput" используется для обработки текстовых файлов в Python.
+Она предоставляет удобные инструменты для чтения и обработки содержимого файлов.
+
+Методы модуля "fileinput" и его подмодулей:
+
+input(): Возвращает итератор, который построчно читает файлы.
+filename(): Возвращает текущее имя файла.
+lineno(): Возвращает текущий номер строки файла.
+filelineno(): Возвращает текущий номер строки относительно текущего файла.
+isfirstline(): Проверяет, является ли текущая строка первой в файле.
+isstdin(): Проверяет, читается ли текущая строка с stdin.
+nextfile(): Переходит к следующему файлу.
+close(): Закрывает файлы, открытые с помощью fileinput.
+
+Некоторые из самых часто используемых методов библиотеки "fileinput" вместе с кратким описанием и примером кода:
+
+input(): Возвращает итератор для построчного чтения файлов.
+
+```python
+import fileinput
+
+for line in fileinput.input():
+    print(line)
+```
+
+filename(): Возвращает текущее имя файла.
+
+```python
+import fileinput
+
+for line in fileinput.input():
+    print(f"Current file: {fileinput.filename()}")
+```
+
+lineno(): Возвращает текущий номер строки файла.
+
+```python
+import fileinput
+
+for line in fileinput.input():
+    print(f"Line number: {fileinput.lineno()}")
+```
+""",
+                        "pygetwindow": r"""
+Библиотека "pygetwindow" используется для управления окнами в операционной системе с помощью Python.
+Она предоставляет функции для поиска, получения информации о размерах и позиции окон, а также для управления их видимостью и активностью.
+
+Методы и подмодули библиотеки "pygetwindow":
+
+`getAllTitles()`: Возвращает список заголовков всех открытых окон.
+`getWindowsWithTitle(title)`: Возвращает список окон с указанным заголовком.
+`getWindowGeometry(window)`: Возвращает геометрию (размеры и позицию) указанного окна.
+`getWindowAt(x, y)`: Возвращает окно, находящееся по указанным координатам.
+`getActiveWindow()`: Возвращает активное окно.
+`getWindowBorders(window)`: Возвращает границы указанного окна.
+`getWindowRect(window)`: Возвращает прямоугольник, охватывающий указанное окно.
+`getWindowPID(window)`: Возвращает идентификатор процесса, связанного с указанным окном.
+`getWindowProcessID(window)`: Возвращает идентификатор процесса, связанного с указанным окном.
+`getWindowThreadID(window)`: Возвращает идентификатор потока, связанного с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
+
+Некоторые из самых часто используемых методов библиотеки "pygetwindow":
+
+`getAllTitles()`: Возвращает список заголовков всех открытых окон.
+
+```python
+import pygetwindow
+
+window_titles = pygetwindow.getAllTitles()
+print(window_titles)
+```
+
+`getWindowsWithTitle(title)`: Возвращает список окон с указанным заголовком.
+
+```python
+import pygetwindow
+
+windows = pygetwindow.getWindowsWithTitle("Notepad")
+for window in windows:
+    print(window.title)
+```
+
+`getActiveWindow()`: Возвращает активное окно.
+
+```python
+import pygetwindow
+
+active_window = pygetwindow.getActiveWindow()
+print(active_window.title)
+```
+
+`getWindowGeometry(window)`: Возвращает геометрию (размеры и позицию) указанного окна.
+
+```python
+import pygetwindow
+
+window = pygetwindow.getWindowsWithTitle("Notepad")[0]
+geometry = pygetwindow.getWindowGeometry(window)
+print(geometry)
+```
+
+`getWindowRect(window)`: Возвращает прямоугольник, охватывающий указанное окно.
+
+```python
+import pygetwindow
+
+window = pygetwindow.getWindowsWithTitle("Notepad")[0]
+rect = pygetwindow.getWindowRect(window)
+print(rect)
+```
+""",
+                        "warnings": r"""
+Библиотека "warnings" в Python используется для управления предупреждениями, которые могут возникать во время выполнения программы.
+Она позволяет контролировать вывод предупреждений и принимать соответствующие действия.
+
+Методы и подмодули библиотеки "warnings":
+
+`warn(message, warning_type, stacklevel)` - генерирует предупреждение с указанным сообщением, типом предупреждения и уровнем стека.
+`filterwarnings(action, message, category, module, lineno, append)` - устанавливает фильтр для предупреждений, определяя действие, текст сообщения, категорию предупреждения, модуль, номер строки и флаг добавления фильтра.
+`simplefilter(action, category=Warning, lineno=0, append=False)` - устанавливает простой фильтр для предупреждений с указанным действием, категорией, номером строки и флагом добавления фильтра.
+`resetwarnings()` - сбрасывает все установленные фильтры предупреждений.
+`showwarning(message, category, filename, lineno, file=None, line=None)` - выводит предупреждение с указанным сообщением, категорией, исходным файлом, номером строки, файлом вывода и строкой кода.
+`catch_warnings(*, record=False, module=None)` - возвращает контекстный менеджер для временного перехвата предупреждений с опциональной записью в список или указанный модуль.
+
+`warn(message, warning_type, stacklevel)` - генерирует предупреждение с заданным сообщением, типом предупреждения и уровнем стека.
+   
+```python
+import warnings
+
+warnings.warn("This is a warning message", UserWarning, stacklevel=2)
+```
+     
+`filterwarnings(action, message, category, module, lineno, append)` - устанавливает фильтр для предупреждений с указанными параметрами.
+   
+```python
+import warnings
+
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="my_module")
+```
+     
+`simplefilter(action, category=Warning, lineno=0, append=False)` - устанавливает простой фильтр для предупреждений с указанным действием и категорией.
+   
+```python
+import warnings
+
+warnings.simplefilter("ignore", DeprecationWarning)
+```
+     
+`resetwarnings()` - сбрасывает все установленные фильтры предупреждений.
+   
+```python
+import warnings
+
+warnings.resetwarnings()
+```
+     
+`showwarning(message, category, filename, lineno, file=None, line=None)` - выводит предупреждение с указанными параметрами.
+   
+```python
+import warnings
+
+warnings.showwarning("This is a warning message", UserWarning, "example.py", 10)
+```
+     
+`catch_warnings(*, record=False, module=None)` - контекстный менеджер для временного перехвата предупреждений.
+   
+```python
+import warnings
+
+with warnings.catch_warnings(record=True) as w:
+    warnings.warn("This is a warning message")
+    print(w[0].message)
+```
+""",
+                        "nt": r"""
+Библиотека "nt" в Python используется для работы с функциями операционной системы Windows.
+
+Методы модуля "nt" и его подмодулей:
+
+Модуль "nt":
+nt.getcwd(): Возвращает текущую рабочую директорию.
+nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
+nt.mkdir(path): Создает новую директорию по указанному пути.
+nt.remove(path): Удаляет файл по указанному пути.
+nt.rename(src, dst): Переименовывает файл или директорию.
+nt.system(command): Выполняет команду операционной системы.
+
+Подмодуль "ntpath":
+ntpath.basename(path): Возвращает имя файла или директории из указанного пути.
+ntpath.dirname(path): Возвращает имя директории из указанного пути.
+ntpath.exists(path): Проверяет, существует ли файл или директория по указанному пути.
+ntpath.join(path, *paths): Объединяет пути в один.
+ntpath.split(path): Разделяет путь на имя директории и имя файла.
+
+Некоторые часто используемые методы и их описание:
+
+nt.getcwd(): Возвращает текущую рабочую директорию.
+
+```python
+import nt
+current_dir = nt.getcwd()
+print(current_dir)
+```
+
+nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
+
+
+```python
+import nt
+file_list = nt.listdir("C:/Users")
+print(file_list)
+```
+
+nt.mkdir(path): Создает новую директорию по указанному пути.
+
+```python
+import nt
+nt.mkdir("C:/Users/NewDirectory")
+```
+
+nt.remove(path): Удаляет файл по указанному пути.
+
+```python
+import nt
+nt.remove("C:/Users/example.txt")
+```
+
+nt.rename(src, dst): Переименовывает файл или директорию.
+
+```python
+import nt
+nt.rename("C:/Users/old_name.txt", "C:/Users/new_name.txt")
+```
+
+nt.system(command): Выполняет команду операционной системы.
+
+```python
+import nt
+nt.system("dir")
+```
+""",
+                        "netbios": r"""
+"netbios" - это библиотека в Python, которая предоставляет функциональность
+для работы с протоколом NetBIOS (Network Basic Input/Output System).
+
+Таблица методов модуля "netbios" и их краткого описания:
+
+Метод                  | Описание
+-----------------------|----------------------------------------------------
+nbt.getnetbiosname()   | Получает NetBIOS-имя компьютера, на котором выполняется код.
+nbt.getwinsaddrs()     | Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
+nbt.getnodetype()      | Возвращает тип узла в сети.
+nbt.gethostbyname()    | Возвращает IP-адреса, связанные с указанным NetBIOS-именем.
+nbt.getbcastaddrs()    | Возвращает список широковещательных адресов, связанных с NetBIOS-именами.
+
+Список самых часто используемых методов, их краткого описания и
+
+nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера. 
+
+```python
+import netbios as nb
+
+name = nb.getnetbiosname()
+print(name)
+```
+
+nbt.getwinsaddrs(): Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
+
+```python
+import netbios as nb
+
+wins_addrs = nb.getwinsaddrs()
+print(wins_addrs)
+```
+
+nbt.getnodetype(): Возвращает тип узла в сети.
+
+```python
+import netbios as nb
+
+node_type = nb.getnodetype()
+print(node_type)
+```
+""",
+                        "frozenlist": r"""
+Описание: библиотека "frozenlist" служит для создания неизменяемых списков в Python,
+аналогично тому, как `tuple` предоставляет неизменяемую версию `list`.
+
+Таблица методов:
+
+| Метод	    | Описание  |
+|---------	|-----------|
+| `__init__()` | Инициализирует новый объект frozenlist.|
+| `__contains__()` | Проверяет наличие элемента в списке.|
+| `__getitem__()` | Получает элемент списка по индексу.|
+| `__len__()` | Возвращает количество элементов в списке.|
+| `copy()` | Возвращает копию frozenlist.|
+
+Список самых частых методов, краткое описание и работающие примеры:
+
+```python
+# Метод __init__()
+flist = frozenlist([1, 2, 3, 4, 5])
+# Метод __contains__()
+print(3 in flist)  # Выведет True, так как 3 есть в списке
+# Метод __getitem__()
+print(flist[1])  # Выведет 2, так как это элемент на позиции 1
+# Метод __len__()
+print(len(flist))  # Выведет 5, так количество элементов в списке равно 5
+# Метод copy()
+flist_copy = flist.copy()  # Создаст копию списка
+```
+
+Пожалуйста, убедитесь, что установлена библиотека `frozenlist`.
+Если нет, используйте данную команду для установки - `pip install frozenlist`.
+""",
+                        "bdb": r"""
+Библиотека "bdb" используется в Python для создания отладочных средств и выполнения шагов отладки в программном коде.
+Она обеспечивает возможности трассировки исполнения и отладки программ на уровне исходного кода.
+
+| Метод          | Описание                               |
+|----------------|----------------------------------------|
+| run            | Запускает выполнение программы          |
+| set_trace      | Устанавливает точку остановки           |
+| clear_all_breaks | Удаляет все установленные точки остановки |
+| breakpoint     | Устанавливает точку остановки на текущей позиции |
+| set_break      | Устанавливает точку остановки по указанной линии кода |
+| clear_break    | Удаляет точку остановки на указанной линии кода |
+| get_break      | Возвращает информацию о точке остановки |
+| break_here     | Развивает точку остановки и печатает справочные сообщения |
+| start          | Запускает процесс отладки               |
+
+
+
+set_trace: Устанавливает точку остановки и передает управление в режим интерактивной отладки.
+
+```python
+import bdb
+
+def some_function():
+    a = 10
+    bdb.set_trace()  # Установка точки остановки
+    print(a)
+
+some_function()
+```
+run: Запускает выполнение программы до достижения точки остановки или завершения выполнения.
+
+```python
+import bdb
+
+def some_function():
+    a = 10
+    bdb.set_trace()  # Установка точки остановки
+    print(a)
+
+bdb.run('some_function()')
+```
+breakpoint: Устанавливает точку остановки на текущей позиции выполнения кода.
+
+```python
+import bdb
+
+def some_function():
+    a = 10
+    bdb.breakpoint()  # Установка точки остановки
+    print(a)
+
+some_function()
+```
+""",
+                        "fcntl": r"""
+Библиотека "fcntl" в Python используется для обращения к системным вызовам управления файловыми дескрипторами и флагами файлового управления.
+
+Методы модуля "fcntl" включают:
+
+fcntl.flock(fd, operation): Блокирует или разблокирует файловый дескриптор при помощи операции блокировки.
+fcntl.ioctl(fd, request, arg): Вызывает системный вызов IOCTL для управления устройством, связанным с файловым дескриптором.
+fcntl.fcntl(fd, command, arg): Выполняет команду файлового управления на файловом дескрипторе, такую как получение или изменение флагов управления файла.
+и другие...
+
+Некоторые из наиболее распространенных методов "fcntl" включают:
+
+fcntl.flock(fd, operation) Блокирует или разблокирует файловый дескриптор.
+
+```python
+import fcntl
+
+file_descriptor = open("file.txt", "w")
+fcntl.flock(file_descriptor, fcntl.LOCK_EX)
+# Выполните операции с заблокированным файлом
+fcntl.flock(file_descriptor, fcntl.LOCK_UN)
+file_descriptor.close()
+```
+
+fcntl.ioctl(fd, request, arg) Выполняет системный вызов IOCTL для управления устройством.
+
+```python
+import fcntl
+
+file_descriptor = open("/dev/sda", "r")
+request_code = 123  # Код запроса, связанный с устройством
+arg = 456  # Аргумент IOCTL
+fcntl.ioctl(file_descriptor, request_code, arg)
+file_descriptor.close()
+```
+
+fcntl.fcntl(fd, command, arg) Выполняет команду файлового управления на файловом дескрипторе.
+
+```python
+import fcntl
+
+file_descriptor = open("file.txt", "r")
+command = fcntl.F_GETFL  # Получить флаги управления файла
+flags = fcntl.fcntl(file_descriptor, command, 0)
+print(flags)
+file_descriptor.close()
+```
+""",
+                    },
+                    "textwrap": """
+Функция textwrap.wrap из модуля textwrap в Python используется 
+для разбиения текстовой строки на список строк с заданной шириной столбца.
+
+Например, если у вас есть длинная строка и вы хотите разбить ее на строки 
+с длиной в 10 символов, вы можете использовать textwrap.wrap следующим образом:
+
+```python
+import textwrap
+
+long_string = "This is a very long string that needs to be wrapped."
+wrapped_string = textwrap.wrap(long_string, width=10)
+
+print(wrapped_string)
+# Output: ['This is a', 'very long', 'string', 'that needs', 'to be', 'wrapped.']
+```
+
+Кроме textwrap.wrap, модуль textwrap также содержит другие функции, такие как:
+
+textwrap.fill        эта функция принимает строку и ширину столбца и возвращает отформатированную строку, где каждая строка имеет не более заданного количества символов.
+textwrap.indent      эта функция принимает строку и префикс, который нужно добавить к каждой строке, и возвращает новую строку с добавленным префиксом.
+textwrap.shorten     эта функция принимает строку и максимальную длину, которую должна иметь итоговая строка. 
+                     Если исходная строка длиннее, то она обрезается и добавляется многоточие в конце.
+textwrap.dedent      эта функция удаляет общий префикс всех строк в тексте, чтобы сделать его более компактным.
+textwrap.TextWrapper это класс, который представляет настройки форматирования текста, такие как ширина столбца, префикс, отступы и другие параметры. 
+                     Вы можете использовать этот класс, чтобы создать экземпляр объекта, который может быть использован для форматирования нескольких строк текста.
+""",
+                    "datetime": """
+<img alt="datetime.png" src="Языки\Python\Библиотеки\datetime.png">
+""",
+                    "decimal": """
+from decimal import Decimal
+
+Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double. 
+Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений. 
+Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.
+
+Класс Decimal
+Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i
+
+```python
+from decimal import Decimal
+
+# Создание десятичного числа
+a = Decimal('10.5')
+
+# Арифметические операции
+b = Decimal('2')
+a + b # 12.5
+a - b # 8.5
+a * b # 21.0
+a / b # 5.25
+
+# Округление
+a.quantize(Decimal('1.00')) # 10.50
+a.quantize(Decimal('0.1'))  # 10.5
+
+# Преобразование в разные форматы
+a.to_eng_string()    # '10.5'
+a.as_integer_ratio() # (21, 2)
+```
+
+Класс Context
+Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:
+
+```python
+from decimal import Decimal, Context
+
+# Создание контекста округления
+ctx = Context(prec=3, rounding=ROUND_HALF_UP)
+
+# Создание десятичного числа с использованием контекста
+a = Decimal('10.5', context=ctx)
+
+# Арифметические операции с использованием контекста
+b = Decimal('2', context=ctx)
+c = a + b
+d = a - b
+e = a * b
+f = a / b
+
+# Округление с использованием контекста
+g = a.quantize(Decimal('1.00'), context=ctx)
+h = a.quantize(Decimal('0.1'), context=ctx)
+```
+
+Функции округления
+Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:
+
+```python
+from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_DOWN, ROUND_CEILING, ROUND_FLOOR
+
+a = Decimal('10.555')
+
+# Округление до двух знаков с округлением до ближайшего
+a.quantize(Decimal('1.00'), rounding=ROUND_HALF_UP) # 10.56    
+
+# Округление до двух знаков с округлением в меньшую сторону
+a.quantize(Decimal('1.00'), rounding=ROUND_FLOOR)   # 10.55
+
+# Округление до целого числа, округление до ближайшего
+a.quantize(Decimal('1'), rounding=ROUND_HALF_UP)    # 11
+
+# Округление до целого числа, округление в большую сторону
+a.quantize(Decimal('1'), rounding=ROUND_CEILING)    # 11
+```
+""",
+                    "fractions": """
+from fractions import Fraction
+
+Модуль fractions предоставляет класс Fraction, который позволяет работать с дробными числами в виде объектов.
+Класс Fraction позволяет представлять дробное число в виде числителя и знаменателя. 
+Он автоматически упрощает дробь, позволяет выполнять арифметические операции с дробями 
+и конвертировать дроби в различные форматы (например, вещественные числа или строки).
+
+Вот примеры использования класса Fraction:
+
+```python
+from fractions import Fraction
+
+# создание дроби с помощью числителя и знаменателя
+print(Fraction(3, 4))    # вывод: 3/4
+
+# создание дроби из вещественного числа
+print(Fraction(0.5))    # вывод: 1/2
+
+# арифметические операции с дробями
+print(Fraction(1, 4) + Fraction(1, 2))    # вывод: 3/4
+
+# конвертирование дроби в вещественное число
+print(float(Fraction(3, 4)))    # вывод: 0.75
+
+# конвертирование дроби в строку
+print(str(Fraction(3, 4)))    # вывод: '3/4'
+```
+
+Класс Fraction может быть полезен в тех случаях, когда требуется более точный 
+и удобный способ работы с дробными числами, чем встроенные типы данных. 
+Он может использоваться, например, при работе с финансовыми расчетами, 
+при расчете вероятностей или в других задачах, связанных с математикой.
+
+
+
+
+
+Fraction   
+Класс для представления рациональных чисел. 
+Этот класс позволяет создавать объекты, которые представляют дроби в виде числителя и знаменателя. 
+Например, Fraction(3, 4) создаст дробь 3/4.
+
+```python
+from fractions import Fraction
+
+print(Fraction(3, 4) + Fraction(1, 2))  # выводит 5/4
+```
+
+gcd
+
+Функция для вычисления наибольшего общего делителя двух чисел.
+
+```python
+from fractions import gcd
+
+print(gcd(6, 9))  # выводит 3
+```
+
+lcm
+Функция для вычисления наименьшего общего кратного двух чисел.
+
+```python
+from fractions import lcm
+
+print(lcm(6, 9))  # выводит 18
+```
+
+limit_denominator
+Метод объекта Fraction, который позволяет получить рациональное число, 
+ближайшее к данному, с знаменателем не превосходящим указанное значение.
+
+```python
+from fractions import Fraction
+
+print(Fraction(7, 12).limit_denominator(5))  # выводит 3/5
+```
+
+Fraction.from_float
+Метод класса Fraction, который позволяет создать рациональное число, 
+представляющее указанное число с плавающей точкой.
+
+```python
+from fractions import Fraction
+
+print(Fraction.from_float(0.5))  # выводит 1/2
+```
+
+Fraction.from_decimal
+Метод класса Fraction, который позволяет создать рациональное число, представляющее указанное десятичное число.
+
+```python
+from fractions import Fraction
+
+print(Fraction.from_decimal('0.75'))  # выводит 3/4
+```
+
+is_integer
+Метод объекта Fraction, который возвращает True, если данная дробь представляет целое число, и False в противном случае.
+
+```python
+from fractions import Fraction
+
+print(Fraction(3, 2).is_integer())  # выводит False
+print(Fraction(6, 4).is_integer())  # выводит True
+```
+
+Fraction.as_integer_ratio
+Метод объекта Fraction, который возвращает кортеж из двух целых чисел, 
+представляющих данную дробь в виде несократимой простой дроби.
+
+```python
+from fractions import Fraction
+
+print(Fraction(5, 15).as_integer_ratio())  # выводит (1, 3)
+```
+
+Fraction.from_ratio
+Метод класса Fraction, который позволяет создать рациональное число на основе заданного отношения двух целых чисел.
+
+```python
+from fractions import Fraction
+
+print(Fraction.from_ratio(5, 15))  # выводит 1/3
+```
+
+Fraction.limit_denominator(max_denominator=1000000): 
+Метод объекта Fraction, который возвращает рациональное число, ближайшее к данному, 
+с знаменателем не превосходящим указанное значение. 
+Если аргумент max_denominator не указан, то по умолчанию он равен 1 миллиону.
+
+```python
+from fractions import Fraction
+
+print(Fraction(3, 4).limit_denominator(10))  # выводит 1/1
+```
+
+Fraction.from_jedec
+Метод класса Fraction, который позволяет создать рациональное число на основе заданной строки в формате JEDEC.
+
+```python
+from fractions import Fraction
+
+print(Fraction.from_jedec('1/2'))  # выводит 1/2
+```
+
+Fraction.from_tuple
+Метод класса Fraction, который позволяет создать рациональное число на основе заданного кортежа из двух целых чисел (числителя и знаменателя).
+
+```python
+from fractions import Fraction
+
+print(Fraction.from_tuple((3, 4)))  # выводит 3/4
+```
+""",
+                    "difflib": r'''
+#### SequenceMatcher
+Сравнение двух последовательностей и определение степени их сходства.
+
+```python
+import difflib
+
+s1 = "Hello, world!"
+s2 = "Hello, everyone!"
+
+matcher = difflib.SequenceMatcher(None, s1, s2)
+ratio = matcher.ratio()
+
+print(f"Similarity ratio: {ratio}")
+
+"""Similarity ratio: 0.6206896551724138"""
+```
+
+
+#### get_close_matches
+Нахождение наиболее похожей строки в наборе строк на основе заданной строки.
+
+```python
+import difflib
+
+colors = ['red', 'green', 'blue', 'yellow']
+color = 'grea'
+
+matches = difflib.get_close_matches(color, colors)
+
+print(f"Closest matches: {matches}")
+
+"""Closest matches: ['green']"""
+```
+
+
+#### unified_diff
+Генерация отчета о различиях между двумя последовательностями.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.unified_diff(text1.splitlines(), text2.splitlines())
+
+print('\n'.join(d))
+
+"""
+---
+
++++
+
+@@ -1,3 +1,3 @@
+
+ Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
++sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+"""
+```
+
+#### HtmlDiff
+Генерация отчета о различиях между двумя последовательностями в формате HTML.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.HtmlDiff().make_file(text1.splitlines(), text2.splitlines())
+
+with open('diff.html', 'w') as f:
+    f.writelines(d)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### context_diff
+Генерация отчета о различиях между двумя последовательностями в формате context diff.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.context_diff(text1.splitlines(), text2.splitlines())
+
+print('\n'.join(d))
+
+"""
+***
+
+---
+
+***************
+
+*** 1,3 ****
+
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+--- 1,3 ----
+
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+! sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+"""
+```
+
+#### ndiff
+Генерация отчета о различиях между двумя последовательностями в формате ndiff.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.ndiff(text1.splitlines(), text2.splitlines())
+
+print('\n'.join(d))
+
+"""
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+?                                                          ^
+
++ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+?                                                          ^^       
+"""
+```
+
+#### isjunk и ignore
+Использование пользовательских функций для игнорирования символов при сравнении последовательностей.
+
+```python
+import difflib
+
+def isjunk(s):
+    return s in [' ', '\n']
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+matcher = difflib.SequenceMatcher(isjunk, text1, text2)
+ratio = matcher.ratio()
+
+print(f"Similarity ratio: {ratio}")
+
+"""Similarity ratio: 0.9878542510121457"""
+```
+
+#### reduce_func
+Использование пользовательской функции для преобразования различий в отчете о сравнении.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.Differ()
+diff = d.compare(text1.splitlines(), text2.splitlines())
+
+def reduce_func(s):
+    if s.startswith('- '):
+        return f"<span style='color:red'>{s}</span>"
+    elif s.startswith('+ '):
+        return f"<span style='color:green'>{s}</span>"
+    else:
+        return s
+
+diff = map(reduce_func, diff)
+diff = '\n'.join(diff)
+
+print(diff)
+
+"""
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+<span style='color:red'>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+?                                                          ^
+
+<span style='color:green'>+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
+?                                                          ^^                                         
+"""
+```
+''',
+                    "random": """
+Модуль random в Python предоставляет функции для генерации случайных чисел и последовательностей. 
+Ниже приведен список некоторых из наиболее часто используемых функций:
+
+random()                       - возвращает случайное число с плавающей запятой в диапазоне [0.0, 1.0).
+randint(a, b)                  - возвращает случайное целое число в диапазоне [a, b], включая границы.
+uniform(a, b)                  - возвращает случайное число с плавающей запятой в диапазоне [a, b).
+randrange(start, stop[, step]) - возвращает случайный элемент из диапазона, созданного с использованием аргументов start, stop и step.
+choice(seq)                    - возвращает случайный элемент из последовательности seq.
+shuffle(seq)                   - перемешивает элементы последовательности seq в произвольном порядке.
+sample(population, k)          - возвращает список длиной k из уникальных элементов случайно выбранных из population.
+
+getstate() и setstate(state)   - используются для сохранения и восстановления внутреннего состояния генератора случайных чисел. 
+                                 Состояние генератора включает в себя информацию, необходимую для воспроизведения последовательности случайных чисел.
+getrandbits(k)                 - возвращает целое число, состоящее из k случайных битов.
+choices(population, weights=None, *, cum_weights=None, k=1) 
+                               - выбирает k элементов из population с возможностью задания весов для каждого элемента. 
+                                 Функция может использоваться для случайной выборки элементов с заменой из набора данных, 
+                                 где некоторые элементы могут быть выбраны чаще, чем другие.
+randbytes(n) - возвращает n случайных байтов.
+
+Это только некоторые функции, доступные в модуле random. 
+Существует также много других функций, таких как seed(), gauss(), triangular(), betavariate(), expovariate() и многие другие. 
+Вы можете получить дополнительную информацию о модуле random и его функциях в официальной документации Python.
+""",
+                    "PIL": {
+                        "ImageDraw.Draw": """
+```python
+from PIL import Image
+from PIL.ImageDraw import Draw
+
+image = Image.open(r"")
+draw = ImageDraw.Draw(image)
+draw = Draw(image)
+```
+
+```python
+[print(x) for x in dir(draw)]
+```
+
+arc                 Рисует дугу (часть 'пончика') на изображении. 
+                    Принимает четыре аргумента: координаты прямоугольника, в котором находится дуга, начальный и конечный углы (в градусах), а также цвет линии.
+
+bitmap              Рисует изображение в виде битовой карты на текущем изображении. 
+                    Принимает два аргумента: координаты верхнего левого угла и изображение в формате Bitmap.
+
+chord               Рисует сегмент круга на изображении, соединяя начальную и конечную точки с центром. 
+                    Принимает аргументы, аналогичные arc.
+
+draw                Используется для рисования на изображении с помощью кисти. 
+                    Принимает два аргумента: изображение и цвет кисти.
+
+ellipse             Рисует эллипс на изображении. 
+                    Принимает два аргумента: координаты прямоугольника, в котором находится эллипс, и цвет линии.
+
+fill                Заполняет область на изображении определенным цветом. 
+                    Принимает два аргумента: координаты прямоугольника и цвет.
+
+font                Используется для настройки шрифта, который будет использоваться при отрисовке текста. 
+                    Принимает аргумент в формате ImageFont. (не работало...)
+
+fontmode            Задает режим отображения текста. Может принимать значения "1" или "L".
+
+getfont             Возвращает текущий шрифт.
+
+im                  Текущее изображение.
+
+ink                 Цвет, используемый для рисования.
+
+line                Рисует линию на изображении. 
+                    Принимает два аргумента: координаты начальной и конечной точек и цвет линии.
+
+mode                Режим изображения. 
+                    Может принимать значения "1", "L", "P", "RGB" или "CMYK".
+
+multiline_text      Рисует многострочный текст на изображении. 
+                    Принимает три аргумента: координаты верхнего левого угла, текст и дополнительные параметры.
+
+multiline_textbbox  Возвращает ограничивающий прямоугольник для многострочного текста. 
+                    Принимает те же аргументы, что и multiline_text.
+
+multiline_textsize  Возвращает размер многострочного текста. 
+                    Принимает те же аргументы, что и multiline_text.
+
+palette             Палитра изображения.
+
+pieslice            Рисует сегмент пирога на изображении. 
+                    Принимает аргументы, аналогичные arc.
+
+point               Рисует точку на изображении. 
+                    Принимает аргументы - координаты точки и цвет.
+
+polygon             Рисует многоугольник на изображении. 
+                    Принимает два аргумента: список координат вершин многоугольника и цвет линии.
+
+rectangle           Рисует прямоугольник на изображении. 
+                    Принимает два аргумента: координаты прямоугольника и цвет линии.
+
+regular_polygon     Рисует правильный многоугольник на изображении. 
+                    Принимает три аргумента: центр многоугольника, количество сторон и радиус.
+
+rounded_rectangle   Рисует прямоугольник с закругленными углами на изображении. 
+                    Принимает аргументы, аналогичные rectangle.
+
+shape               Рисует многоугольник, который может быть заполнен или обведен. 
+                    Принимает два аргумента: список координат вершин многоугольника и цвет.
+
+text                Рисует текст на изображении. 
+                    Принимает три аргумента: координаты верхнего левого угла, текст и цвет.
+
+textbbox            Возвращает ограничивающий прямоугольник для текста. 
+                    Принимает те же аргументы, что и text.
+
+textlength          Возвращает длину текста. 
+                    Принимает два аргумента: текст и шрифт.
+
+textsize            Возвращает размер текста. 
+                    Принимает два аргумента: текст и шрифт.
+"""
+                    },
+                    "aalib": """
+aalib - это библиотека для создания ASCII-графики из изображений. Она преобразует изображения в искусственные изображения, составленные из символов ASCII.
+
+| Метод                            | Описание                                                             |
+|----------------------------------|----------------------------------------------------------------------|
+| aalib.AsciiArt                   | Создает объект AsciiArt для конвертации изображений в ASCII-графику. |
+| AsciiArt.render(image)           | Преобразует изображение в ASCII-графику.                             |
+| AsciiArt.render_to_memory(image) | Возвращает ASCII-графику в виде строки.                              |
+| AsciiArt.save(filename, image)   | Сохраняет ASCII-графику в файл.                                      |
+
+
+**render(image)** - Преобразует изображение в ASCII-графику.
+
+```python
+import aalib
+import Image  # Предполагается, что у вас уже есть изображение под названием "image.jpg"
+
+img = Image.open("image.jpg").convert('L')
+width, height = img.size
+ascii_img = aalib.AsciiArt(width=width, height=height)
+ascii_img.render(img)
+ascii_img.save("output.txt")
+```
+
+**render_to_memory(image)** - Возвращает ASCII-графику в виде строки.
+
+```python
+import aalib
+import Image
+
+img = Image.open("image.jpg").convert('L')
+ascii_img = aalib.AsciiArt(width=80, height=40)
+ascii_str = ascii_img.render_to_memory(img)
+print(ascii_str)
+```
+
+**save(filename, image)** - Сохраняет ASCII-графику в файл.
+
+```python
+import aalib
+import Image
+
+img = Image.open("image.jpg").convert('L')
+ascii_img = aalib.AsciiArt(width=80, height=40)
+ascii_img.render(img)
+ascii_img.save("output.txt", img)
+```
+""",
+                    "argparse": """
+Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов. 
+Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического 
+генерирования справочной информации и сообщений об ошибках.
+
+Вот несколько примеров использования библиотеки argparse в Python:
+Простой скрипт
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("echo", help="echo the string you use here")
+
+args = parser.parse_args()
+print(args.echo)
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py hello
+```
+
+Аргументы с флагами
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--verbosity", help="increase output verbosity", action="store_true")
+
+args = parser.parse_args()
+if args.verbosity:
+    print("verbosity turned on")
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py --verbosity
+```
+
+Опциональный аргумент
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--number", help="enter a number", type=int)
+
+args = parser.parse_args()
+if args.number:
+    print(args.number * 2)
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py --number 5
+```
+
+Обязательный аргумент
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("filename", help="the name of the file to read")
+
+args = parser.parse_args()
+print(args.filename)
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py filename.txt
+```
+
+Группировка аргументов
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+group = parser.add_mutually_exclusive_group()
+group.add_argument("--verbose", help="increase output verbosity", action="store_true")
+group.add_argument("--quiet", help="decrease output verbosity", action="store_true")
+
+args = parser.parse_args()
+if args.verbose:
+    print("verbosity turned on")
+elif args.quiet:
+    print("verbosity turned off")
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py --verbose или python script.py --quiet
+```
+
+
+
+
+Позиционные аргументы с выбором
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
+parser.add_argument("num1", help="first number", type=int)
+parser.add_argument("num2", help="second number", type=int)
+
+args = parser.parse_args()
+if args.operation == "add":
+    print(args.num1 + args.num2)
+elif args.operation == "sub":
+    print(args.num1 - args.num2)
+elif args.operation == "mul":
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py add 5 3
+```
+
+Описание программы и аргументов
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description="A simple calculator program")
+parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
+parser.add_argument("num1", help="first number", type=int)
+parser.add_argument("num2", help="second number", type=int)
+
+args = parser.parse_args()
+if args.operation == "add":
+    print(args.num1 + args.num2)
+elif args.operation == "sub":
+    print(args.num1 - args.num2)
+elif args.operation == "mul":
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+```
+
+Для запуска скрипта нужно использовать команду: 
+
+```bash
+python script.py --help
+```
+
+
+
+
+Парсинг аргументов из файла
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
+parser.add_argument("num1", help="first number", type=int)
+parser.add_argument("num2", help="second number", type=int)
+
+args = parser.parse_args(['@args.txt'])
+if args.operation == "add":
+    print(args.num1 + args.num2)
+elif args.operation == "sub":
+    print(args.num1 - args.num2)
+elif args.operation == "mul":
+    print(args.num1 * args.num2)
+else:
+    print(args.num1 / args.num2)
+```
+
+Для использования данного примера нужно создать файл "args.txt" со следующим содержимым
+
+```text
+add 5 3
+```
+
+Затем, чтобы запустить скрипт, нужно использовать команду
+
+```bash
+python script.py @args.txt
+```
+
+Аргумент со значением по умолчанию
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--verbosity", help="increase output verbosity", action="store_true")
+parser.add_argument("--num", help="a number", type=int, default=5)
+
+args = parser.parse_args()
+if args.verbosity:
+    print("verbosity turned on")
+print(args.num * 2)
+```
+
+Для запуска скрипта нужно использовать команду
+
+```bash
+python script.py --verbosity --num 3
+```
+
+Поддержка субкоманд
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser()
+subparsers = parser.add_subparsers(title='subcommands', dest='subcommand')
+
+parser_a = subparsers.add_parser('command_a', help='command a help')
+parser_a.add_argument('foo', type=int, help='foo help')
+
+parser_b = subparsers.add_parser('command_b', help='command b help')
+parser_b.add_argument('--bar', type=str, help='bar help')
+
+args = parser.parse_args()
+if args.subcommand == 'command_a':
+    print(args.foo)
+else:
+    print(args.bar)
+```
+
+Для запуска скрипта нужно использовать команду: 
+
+```bash
+python script.py command_a 5
+```
+
+или
+
+```bash
+python script.py command_b --bar test
+```
+""",
+                    "bz2": """
+Модуль bz2 в Python предоставляет интерфейс для сжатия и распаковки данных
+с использованием алгоритма BZ2 (Burrows-Wheeler).
+Он позволяет работать с файлами и байтовыми объектами, обеспечивая эффективное сжатие данных.
+
+| Метод                                                     | Описание                                                                           |
+|-----------------------------------------------------------|------------------------------------------------------------------------------------|
+| bz2.compress(data, compresslevel=9)                       | Сжимает данные BZ2. Можно указать уровень сжатия (1-9).                            |
+| bz2.decompress(data)                                      | Распаковывает данные BZ2.                                                          |
+| bz2.BZ2File(file, mode='r', buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: 'r' (чтение), 'w' (запись), 'a' (добавление). |
+
+**bz2.compress(data, compresslevel=9)** Сжимает данные BZ2.
+
+```python
+compressed_data = bz2.compress(b"Hello, World!")
+print(compressed_data)
+```
+
+**bz2.decompress(data)** Распаковывает данные BZ2.
+
+```python
+decompressed_data = bz2.decompress(compressed_data)
+print(decompressed_data)
+```
+""",
+                    "cycler": """
+Библиотека cycler в Python используется для создания циклических стилей,
+особенно в контексте графиков и диаграмм в библиотеке Matplotlib.
+
+| Метод         | Описание                                                  |
+|---------------|-----------------------------------------------------------|
+| cycler.cycler | Создает новый циклический объект с заданными параметрами. |
+
+```python
+from cycler import cycler
+
+colors = cycler(color=['red', 'green', 'blue'])
+linestyles = cycler(linestyle=['-', '--', '-.'])
+
+# Комбинирование циклических стилей
+combined_styles = colors + linestyles
+```
+""",
+                },
+                "Python": {
+                    "logging": """import logging
+
+Запись в файл
+
+```python
+logging.basicConfig(filename='example.log',
+                    level=logging.DEBUG)
+```
+
+Запись в консоль
+
+```python
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(message)s')
+```
+
+Запись в файл и в консоль
+
+```python
+logging.basicConfig(filename='example.log',
+                    level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+console = logging.StreamHandler()
+console.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s '
+                              '%(levelname)s '
+                              '%(message)s',
+                              datefmt='%Y-%m-%d %H:%M:%S')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+```
+
+Для самих сообщений
+
+```
+%s           строка
+%d           для целых чисел
+%c           для имени логгера
+%f           для чисел с плавающей точкой
+%r           для строковых представлений объектов
+%m           для сообщения журнала
+%x           целое число в шестнадцатеричной системе исчисления
+%o           целое число в восьмеричной системе исчисления
+%e, %E       число в экспоненциальной форме
+```
+
+Для настроек логгирования
+
+```
+%(message)s     сообщение журнала
+
+%(asctime)s     время записи сообщения в формате (по умолчанию YYYY-MM-DD HH:MM:SS,sss настраивать в basicConfig(datefmt))
+%(created)f     время записи сообщения в секундах, начиная с 1 января 1970 года
+
+%(filename)s    имя файла, в котором был вызван логгер
+%(funcName)s    имя функции, в которой был вызван логгер
+%(name)s        имя логгера, который записывает сообщение
+%(module)s      имя модуля, в котором был вызван логгер
+%(threadName)s  имя потока, в котором был вызван логгер
+%(processName)s имя процесса, в котором был вызван логгер
+
+%(levelname)s   уровень журнала (например, DEBUG, INFO, WARNING, ERROR, CRITICAL)
+%(levelno)s     уровень журнала в числовом формате (10 для DEBUG, 20 для INFO и т. д.)
+
+%(lineno)d      номер строки, в которой был вызван логгер
+%(pathname)s    полный путь к файлу, в котором был вызван логгер
+%(process)d     идентификатор процесса, в котором был вызван логгер
+%(thread)d      идентификатор потока, в котором был вызван логгер
+```
+
+
+Код для применения функций к тексту
+
+```python
+logging.info = lambda msg, *args, f=logging.info: f(Up(msg), *args)
+```
+""",
+                    "itertools": """Модуль itertools
 Возвращает итератор, который генерирует бесконечный ряд чисел, начиная с start, с шагом step.
 
 ```python
@@ -1297,7 +6430,7 @@ from itertools import tee
 tee(iterable, n=2)
 ```
 """,
-                "collections": """
+                    "collections": """
 Модуль collections в Python содержит различные удобные классы для работы с коллекциями (наборами объектов).
 Некоторые из классов в модуле collections:
 
@@ -1488,7 +6621,7 @@ s.data = s.data.upper()
 print(s)  # выведет HELLO, WORLD
 ```
 """,
-                "functools": '''
+                    "functools": '''
 partial(func, *args, **kwargs)              возвращает новую функцию, которая является копией исходной функции func, 
                                             но с некоторыми аргументами, переданными как *args и **kwargs, заранее заданными.
 
@@ -1699,7 +6832,7 @@ def fibonacci(n):
 При вызове fibonacci(n) для любого n, результат будет сохранен в кеше. 
 При повторном вызове fibonacci(n) с тем же n, результат будет возвращен из кеша без повторного вычисления.
 ''',
-                "contextlib": """
+                    "contextlib": """
 Модуль contextlib - это стандартная библиотека Python, который содержит утилиты для работы с контекстными менеджерами.
 Контекстные менеджеры могут использоваться, например, для управления ресурсами, такими как файлы или сетевые соединения.
 
@@ -1830,499 +6963,213 @@ with contextlib.ExitStack() as stack:
 Функция stack.enter_context(open(f)) добавляет каждый файл в стек контекстных менеджеров, 
 который гарантирует их правильное закрытие в конце работы с ними.
 """,
-                "difflib": r'''
-#### SequenceMatcher
-Сравнение двух последовательностей и определение степени их сходства.
+                    "setuptools": """
+| Метод                     | Описание                                                     |
+|---------------------------|--------------------------------------------------------------|
+| setup()                   | Определяет настройки проекта и его зависимости.              |
+| find_packages()           | Автоматически находит и включает все пакеты проекта.         |
+| find_namespace_packages() | Аналогично find_packages(), но для пространств имен.         |
+| setup_requires            | Зависимости, необходимые для установки проекта.              |
+| install_requires          | Зависимости, необходимые для работы проекта.                 |
+| entry_points              | Позволяет определить точки входа (entry points) для проекта. |
+
+**setup()**
+
+Описание: Определяет основные настройки проекта и его зависимости.
+
 
 ```python
-import difflib
+from setuptools import setup
 
-s1 = "Hello, world!"
-s2 = "Hello, everyone!"
-
-matcher = difflib.SequenceMatcher(None, s1, s2)
-ratio = matcher.ratio()
-
-print(f"Similarity ratio: {ratio}")
-
-"""Similarity ratio: 0.6206896551724138"""
+setup(
+    name='mypackage',
+    version='1.0.0',
+    packages=['mypackage'],
+    install_requires=['requests'],
+)
 ```
 
+**find_packages()**
 
-#### get_close_matches
-Нахождение наиболее похожей строки в наборе строк на основе заданной строки.
+Описание: Автоматически находит и включает все пакеты проекта.
 
 ```python
-import difflib
+from setuptools import setup, find_packages
 
-colors = ['red', 'green', 'blue', 'yellow']
-color = 'grea'
-
-matches = difflib.get_close_matches(color, colors)
-
-print(f"Closest matches: {matches}")
-
-"""Closest matches: ['green']"""
+setup(
+    name='mypackage',
+    version='1.0.0',
+    packages=find_packages(),
+)
 ```
 
+**entry_points**
 
-#### unified_diff
-Генерация отчета о различиях между двумя последовательностями.
-
-```python
-import difflib
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-d = difflib.unified_diff(text1.splitlines(), text2.splitlines())
-
-print('\n'.join(d))
-
-"""
----
-
-+++
-
-@@ -1,3 +1,3 @@
-
- Lorem ipsum dolor sit amet,
- consectetur adipiscing elit,
--sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
-"""
-```
-
-#### HtmlDiff
-Генерация отчета о различиях между двумя последовательностями в формате HTML.
+Описание: Позволяет определить точки входа (entry points) для проекта, например, для создания скриптов командной строки.
 
 ```python
-import difflib
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-d = difflib.HtmlDiff().make_file(text1.splitlines(), text2.splitlines())
-
-with open('diff.html', 'w') as f:
-    f.writelines(d)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### context_diff
-Генерация отчета о различиях между двумя последовательностями в формате context diff.
-
-```python
-import difflib
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-d = difflib.context_diff(text1.splitlines(), text2.splitlines())
-
-print('\n'.join(d))
-
-"""
-***
-
----
-
-***************
-
-*** 1,3 ****
-
-  Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit,
-! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
---- 1,3 ----
-
-  Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit,
-! sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
-"""
-```
-
-#### ndiff
-Генерация отчета о различиях между двумя последовательностями в формате ndiff.
-
-```python
-import difflib
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-d = difflib.ndiff(text1.splitlines(), text2.splitlines())
-
-print('\n'.join(d))
-
-"""
-  Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit,
-- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-?                                                          ^
-
-+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
-?                                                          ^^       
-"""
-```
-
-#### isjunk и ignore
-Использование пользовательских функций для игнорирования символов при сравнении последовательностей.
-
-```python
-import difflib
-
-def isjunk(s):
-    return s in [' ', '\n']
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-matcher = difflib.SequenceMatcher(isjunk, text1, text2)
-ratio = matcher.ratio()
-
-print(f"Similarity ratio: {ratio}")
-
-"""Similarity ratio: 0.9878542510121457"""
-```
-
-#### reduce_func
-Использование пользовательской функции для преобразования различий в отчете о сравнении.
-
-```python
-import difflib
-
-text1 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
-
-text2 = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
-
-d = difflib.Differ()
-diff = d.compare(text1.splitlines(), text2.splitlines())
-
-def reduce_func(s):
-    if s.startswith('- '):
-        return f"<span style='color:red'>{s}</span>"
-    elif s.startswith('+ '):
-        return f"<span style='color:green'>{s}</span>"
-    else:
-        return s
-
-diff = map(reduce_func, diff)
-diff = '\n'.join(diff)
-
-print(diff)
-
-"""
-  Lorem ipsum dolor sit amet,
-  consectetur adipiscing elit,
-<span style='color:red'>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-?                                                          ^
-
-<span style='color:green'>+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
-?                                                          ^^                                         
-"""
-```
-''',
-                "random": """
-Модуль random в Python предоставляет функции для генерации случайных чисел и последовательностей. 
-Ниже приведен список некоторых из наиболее часто используемых функций:
-
-random()                       - возвращает случайное число с плавающей запятой в диапазоне [0.0, 1.0).
-randint(a, b)                  - возвращает случайное целое число в диапазоне [a, b], включая границы.
-uniform(a, b)                  - возвращает случайное число с плавающей запятой в диапазоне [a, b).
-randrange(start, stop[, step]) - возвращает случайный элемент из диапазона, созданного с использованием аргументов start, stop и step.
-choice(seq)                    - возвращает случайный элемент из последовательности seq.
-shuffle(seq)                   - перемешивает элементы последовательности seq в произвольном порядке.
-sample(population, k)          - возвращает список длиной k из уникальных элементов случайно выбранных из population.
-
-getstate() и setstate(state)   - используются для сохранения и восстановления внутреннего состояния генератора случайных чисел. 
-                                 Состояние генератора включает в себя информацию, необходимую для воспроизведения последовательности случайных чисел.
-getrandbits(k)                 - возвращает целое число, состоящее из k случайных битов.
-choices(population, weights=None, *, cum_weights=None, k=1) 
-                               - выбирает k элементов из population с возможностью задания весов для каждого элемента. 
-                                 Функция может использоваться для случайной выборки элементов с заменой из набора данных, 
-                                 где некоторые элементы могут быть выбраны чаще, чем другие.
-randbytes(n) - возвращает n случайных байтов.
-
-Это только некоторые функции, доступные в модуле random. 
-Существует также много других функций, таких как seed(), gauss(), triangular(), betavariate(), expovariate() и многие другие. 
-Вы можете получить дополнительную информацию о модуле random и его функциях в официальной документации Python.
-""",
-                "decimal": """
-from decimal import Decimal
-
-Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double. 
-Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений. 
-Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.
-
-Класс Decimal
-Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i
-
-```python
-from decimal import Decimal
-
-# Создание десятичного числа
-a = Decimal('10.5')
-
-# Арифметические операции
-b = Decimal('2')
-a + b # 12.5
-a - b # 8.5
-a * b # 21.0
-a / b # 5.25
-
-# Округление
-a.quantize(Decimal('1.00')) # 10.50
-a.quantize(Decimal('0.1'))  # 10.5
-
-# Преобразование в разные форматы
-a.to_eng_string()    # '10.5'
-a.as_integer_ratio() # (21, 2)
-```
-
-Класс Context
-Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:
-
-```python
-from decimal import Decimal, Context
-
-# Создание контекста округления
-ctx = Context(prec=3, rounding=ROUND_HALF_UP)
-
-# Создание десятичного числа с использованием контекста
-a = Decimal('10.5', context=ctx)
-
-# Арифметические операции с использованием контекста
-b = Decimal('2', context=ctx)
-c = a + b
-d = a - b
-e = a * b
-f = a / b
-
-# Округление с использованием контекста
-g = a.quantize(Decimal('1.00'), context=ctx)
-h = a.quantize(Decimal('0.1'), context=ctx)
-```
-
-Функции округления
-Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:
-
-```python
-from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_DOWN, ROUND_CEILING, ROUND_FLOOR
-
-a = Decimal('10.555')
-
-# Округление до двух знаков с округлением до ближайшего
-a.quantize(Decimal('1.00'), rounding=ROUND_HALF_UP) # 10.56    
-
-# Округление до двух знаков с округлением в меньшую сторону
-a.quantize(Decimal('1.00'), rounding=ROUND_FLOOR)   # 10.55
-
-# Округление до целого числа, округление до ближайшего
-a.quantize(Decimal('1'), rounding=ROUND_HALF_UP)    # 11
-
-# Округление до целого числа, округление в большую сторону
-a.quantize(Decimal('1'), rounding=ROUND_CEILING)    # 11
+from setuptools import setup
+
+setup(
+    name='mypackage',
+    version='1.0.0',
+    entry_points={
+        'console_scripts': [
+            'myscript = mypackage.script:main',
+        ],
+    },
+)
 ```
 """,
-                "fractions": """
-from fractions import Fraction
+                    "tabnanny": """
+Модуль tabnanny в Python используется для проверки исходных файлов
+на наличие проблем с табуляцией, которые могут вызвать синтаксические ошибки.
 
-Модуль fractions предоставляет класс Fraction, который позволяет работать с дробными числами в виде объектов.
-Класс Fraction позволяет представлять дробное число в виде числителя и знаменателя. 
-Он автоматически упрощает дробь, позволяет выполнять арифметические операции с дробями 
-и конвертировать дроби в различные форматы (например, вещественные числа или строки).
+| Метод                  | Описание                                               |
+|------------------------|--------------------------------------------------------|
+| process_tokens(tokens) | Проверяет токены файла на проблемы с табуляцией.       |
+| NannyToken(token)      | Конструктор класса токенов, используемый для проверки. |
 
-Вот примеры использования класса Fraction:
+**process_tokens(tokens)** Проверяет токены файла на наличие проблем с табуляцией.
 
 ```python
-from fractions import Fraction
+import tokenize
+from tabnanny import process_tokens
 
-# создание дроби с помощью числителя и знаменателя
-print(Fraction(3, 4))    # вывод: 3/4
-
-# создание дроби из вещественного числа
-print(Fraction(0.5))    # вывод: 1/2
-
-# арифметические операции с дробями
-print(Fraction(1, 4) + Fraction(1, 2))    # вывод: 3/4
-
-# конвертирование дроби в вещественное число
-print(float(Fraction(3, 4)))    # вывод: 0.75
-
-# конвертирование дроби в строку
-print(str(Fraction(3, 4)))    # вывод: '3/4'
+with open('file.py', 'rb') as f:
+    tokens = tokenize.generate_tokens(f.readline)
+    process_tokens(tokens)
 ```
 
-Класс Fraction может быть полезен в тех случаях, когда требуется более точный 
-и удобный способ работы с дробными числами, чем встроенные типы данных. 
-Он может использоваться, например, при работе с финансовыми расчетами, 
-при расчете вероятностей или в других задачах, связанных с математикой.
-
-
-
-
-
-Fraction   
-Класс для представления рациональных чисел. 
-Этот класс позволяет создавать объекты, которые представляют дроби в виде числителя и знаменателя. 
-Например, Fraction(3, 4) создаст дробь 3/4.
+**NannyToken(token)** Конструктор класса токенов, используемый для проверки.
 
 ```python
-from fractions import Fraction
+from tabnanny import NannyToken
 
-print(Fraction(3, 4) + Fraction(1, 2))  # выводит 5/4
-```
-
-gcd
-
-Функция для вычисления наибольшего общего делителя двух чисел.
-
-```python
-from fractions import gcd
-
-print(gcd(6, 9))  # выводит 3
-```
-
-lcm
-Функция для вычисления наименьшего общего кратного двух чисел.
-
-```python
-from fractions import lcm
-
-print(lcm(6, 9))  # выводит 18
-```
-
-limit_denominator
-Метод объекта Fraction, который позволяет получить рациональное число, 
-ближайшее к данному, с знаменателем не превосходящим указанное значение.
-
-```python
-from fractions import Fraction
-
-print(Fraction(7, 12).limit_denominator(5))  # выводит 3/5
-```
-
-Fraction.from_float
-Метод класса Fraction, который позволяет создать рациональное число, 
-представляющее указанное число с плавающей точкой.
-
-```python
-from fractions import Fraction
-
-print(Fraction.from_float(0.5))  # выводит 1/2
-```
-
-Fraction.from_decimal
-Метод класса Fraction, который позволяет создать рациональное число, представляющее указанное десятичное число.
-
-```python
-from fractions import Fraction
-
-print(Fraction.from_decimal('0.75'))  # выводит 3/4
-```
-
-is_integer
-Метод объекта Fraction, который возвращает True, если данная дробь представляет целое число, и False в противном случае.
-
-```python
-from fractions import Fraction
-
-print(Fraction(3, 2).is_integer())  # выводит False
-print(Fraction(6, 4).is_integer())  # выводит True
-```
-
-Fraction.as_integer_ratio
-Метод объекта Fraction, который возвращает кортеж из двух целых чисел, 
-представляющих данную дробь в виде несократимой простой дроби.
-
-```python
-from fractions import Fraction
-
-print(Fraction(5, 15).as_integer_ratio())  # выводит (1, 3)
-```
-
-Fraction.from_ratio
-Метод класса Fraction, который позволяет создать рациональное число на основе заданного отношения двух целых чисел.
-
-```python
-from fractions import Fraction
-
-print(Fraction.from_ratio(5, 15))  # выводит 1/3
-```
-
-Fraction.limit_denominator(max_denominator=1000000): 
-Метод объекта Fraction, который возвращает рациональное число, ближайшее к данному, 
-с знаменателем не превосходящим указанное значение. 
-Если аргумент max_denominator не указан, то по умолчанию он равен 1 миллиону.
-
-```python
-from fractions import Fraction
-
-print(Fraction(3, 4).limit_denominator(10))  # выводит 1/1
-```
-
-Fraction.from_jedec
-Метод класса Fraction, который позволяет создать рациональное число на основе заданной строки в формате JEDEC.
-
-```python
-from fractions import Fraction
-
-print(Fraction.from_jedec('1/2'))  # выводит 1/2
-```
-
-Fraction.from_tuple
-Метод класса Fraction, который позволяет создать рациональное число на основе заданного кортежа из двух целых чисел (числителя и знаменателя).
-
-```python
-from fractions import Fraction
-
-print(Fraction.from_tuple((3, 4)))  # выводит 3/4
+token = (1, '    ', (0, 0), (0, 0), '    ')  # Пример токена с проблемой
+nanny_token = NannyToken(token)
+print(nanny_token)
 ```
 """,
-                "Django": {
-                    "Команды": """
+                    "atexit": """
+Модуль atexit в Python предоставляет возможность регистрации функций,
+которые будут выполнены при завершении программы.
+Это позволяет управлять завершением программы и выполнением дополнительных действий перед выходом.
+
+| Метод/Подмодуль       | Описание                                                          |
+|-----------------------|-------------------------------------------------------------------|
+| atexit.register(func) | Регистрирует функцию func для выполнения при выходе из программы. |
+
+**atexit.register(func)** Регистрирует функцию для выполнения при выходе из программы.
+
+```python
+import atexit
+
+def exit_handler():
+    print("Выход из программы")
+
+atexit.register(exit_handler)
+```
+""",
+                    "queue": """
+Модуль queue предоставляет различные классы для реализации очередей в Python.
+Очереди используются для хранения и управления элементами данных в порядке "первым поступил - первым обслужен".
+
+| Метод          | Описание                                               |
+|----------------|--------------------------------------------------------|
+| Queue(maxsize) | Создает новую очередь с максимальным размером maxsize. |
+| q.put(item)    | Добавляет элемент item в очередь q.                    |
+| q.get()        | Удаляет и возвращает элемент из очереди q.             |
+| q.empty()      | Возвращает True, если очередь q пуста, иначе False.    |
+| q.full()       | Возвращает True, если очередь q полна, иначе False.    |
+| q.qsize()      | Возвращает количество элементов в очереди q.           |
+
+
+**put(item)** Добавляет элемент в очередь.
+
+```python
+q = Queue()
+q.put(1)
+q.put(2)
+print(q.qsize())  # Вывод: 2
+```
+
+**get()** Удаляет и возвращает первый элемент из очереди.
+
+```python
+q = Queue()
+q.put(1)
+q.put(2)
+print(q.get())  # Вывод: 1
+```
+
+**empty()** Проверяет, пуста ли очередь.
+
+```python
+q = Queue()
+print(q.empty())  # Вывод: True
+```
+""",
+                    "pstats": """
+Библиотека "pstats" в Python используется для профилирования производительности программы. Она предоставляет возможность анализировать данные о времени выполнения и вызовах функций, что помогает оптимизировать код и улучшить его производительность.
+
+Методы и подмодули библиотеки "pstats" включают:
+
+"Stats" (статистика)
+    - "add" - добавляет данные о времени выполнения и вызовах функций в статистику.
+    - "print_stats" - выводит общую статистику по вызовам функций.
+    - "sort_stats" - сортирует статистику по различным критериям.
+    - "strip_dirs" - удаляет пути к файлам из статистики.
+    - "calc_callees" - вычисляет информацию о вызываемых функциях.
+    - "dump_stats" - сохраняет статистику в файл.
+
+"Profile" (профиль)
+    - "run" - запускает профилирование кода.
+    - "runcall" - профилирует отдельный вызов функции.
+    - "print_stats" - выводит статистику по профилированию.
+    - "dump_stats" - сохраняет статистику в файл.
+
+Некоторые из наиболее часто используемых методов "pstats" включают:
+
+"print_stats()": Выводит основную статистику профилирования, включая время выполнения и количество вызовов функций.
+
+Пример кода, демонстрирующего его использование:
+
+```python
+import pstats
+
+# Создаем объект статистики
+stats = pstats.Stats('profile_result')
+
+# Выводим статистику на экран
+stats.print_stats()
+
+```
+
+"sort_stats()": Сортирует статистику профилирования по выбранному критерию, такому как время выполнения или количество вызовов функций.
+
+Пример кода, демонстрирующего его использование:
+
+```python
+import pstats
+
+# Создаем объект статистики
+stats = pstats.Stats('profile_result')
+
+# Сортируем статистику по времени выполнения
+stats.sort_stats('time')
+
+# Выводим отсортированную статистику на экран
+stats.print_stats()
+
+```
+
+Пожалуйста, обратите внимание, что примеры кода могут требовать предварительной настройки и обработки профилировочных данных.
+""",
+                },
+                "Веб": {
+                    "Django": {
+                        "Команды": """
 Запустить сервер
 
 ```
@@ -2331,13 +7178,13 @@ print(Fraction.from_tuple((3, 4)))  # выводит 3/4
 
 Создать Django проект
 
-```
+```bash
 django-admin startproject PROJECTNAME
 ```
 
 Перейти в папку с этим проектом
 
-```
+```bash
 cd PROJECTNAME
 ```
 
@@ -2360,210 +7207,8 @@ cd PROJECTNAME
 ./manage.py createsuperuser
 ```
 """
+                    },
                 },
-                "logging": """import logging
-
-Запись в файл
-
-```python
-logging.basicConfig(filename='example.log',
-                    level=logging.DEBUG)
-```
-
-Запись в консоль
-
-```python
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(message)s')
-```
-
-Запись в файл и в консоль
-
-```python
-logging.basicConfig(filename='example.log',
-                    level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
-console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s '
-                              '%(levelname)s '
-                              '%(message)s',
-                              datefmt='%Y-%m-%d %H:%M:%S')
-console.setFormatter(formatter)
-logging.getLogger('').addHandler(console)
-```
-
-Для самих сообщений
-
-```
-%s           строка
-%d           для целых чисел
-%c           для имени логгера
-%f           для чисел с плавающей точкой
-%r           для строковых представлений объектов
-%m           для сообщения журнала
-%x           целое число в шестнадцатеричной системе исчисления
-%o           целое число в восьмеричной системе исчисления
-%e, %E       число в экспоненциальной форме
-```
-
-Для настроек логгирования
-
-```
-%(message)s     сообщение журнала
-
-%(asctime)s     время записи сообщения в формате (по умолчанию YYYY-MM-DD HH:MM:SS,sss настраивать в basicConfig(datefmt))
-%(created)f     время записи сообщения в секундах, начиная с 1 января 1970 года
-
-%(filename)s    имя файла, в котором был вызван логгер
-%(funcName)s    имя функции, в которой был вызван логгер
-%(name)s        имя логгера, который записывает сообщение
-%(module)s      имя модуля, в котором был вызван логгер
-%(threadName)s  имя потока, в котором был вызван логгер
-%(processName)s имя процесса, в котором был вызван логгер
-
-%(levelname)s   уровень журнала (например, DEBUG, INFO, WARNING, ERROR, CRITICAL)
-%(levelno)s     уровень журнала в числовом формате (10 для DEBUG, 20 для INFO и т. д.)
-
-%(lineno)d      номер строки, в которой был вызван логгер
-%(pathname)s    полный путь к файлу, в котором был вызван логгер
-%(process)d     идентификатор процесса, в котором был вызван логгер
-%(thread)d      идентификатор потока, в котором был вызван логгер
-```
-
-
-Код для применения функций к тексту
-
-```python
-logging.info = lambda msg, *args, f=logging.info: f(Up(msg), *args)
-```
-""",
-                "textwrap": """
-Функция textwrap.wrap из модуля textwrap в Python используется 
-для разбиения текстовой строки на список строк с заданной шириной столбца.
-
-Например, если у вас есть длинная строка и вы хотите разбить ее на строки 
-с длиной в 10 символов, вы можете использовать textwrap.wrap следующим образом:
-
-```python
-import textwrap
-
-long_string = "This is a very long string that needs to be wrapped."
-wrapped_string = textwrap.wrap(long_string, width=10)
-
-print(wrapped_string)
-# Output: ['This is a', 'very long', 'string', 'that needs', 'to be', 'wrapped.']
-```
-
-Кроме textwrap.wrap, модуль textwrap также содержит другие функции, такие как:
-
-textwrap.fill        эта функция принимает строку и ширину столбца и возвращает отформатированную строку, где каждая строка имеет не более заданного количества символов.
-textwrap.indent      эта функция принимает строку и префикс, который нужно добавить к каждой строке, и возвращает новую строку с добавленным префиксом.
-textwrap.shorten     эта функция принимает строку и максимальную длину, которую должна иметь итоговая строка. 
-                     Если исходная строка длиннее, то она обрезается и добавляется многоточие в конце.
-textwrap.dedent      эта функция удаляет общий префикс всех строк в тексте, чтобы сделать его более компактным.
-textwrap.TextWrapper это класс, который представляет настройки форматирования текста, такие как ширина столбца, префикс, отступы и другие параметры. 
-                     Вы можете использовать этот класс, чтобы создать экземпляр объекта, который может быть использован для форматирования нескольких строк текста.
-""",
-                "PIL": {
-                    "ImageDraw.Draw": """
-```python
-from PIL import Image
-from PIL.ImageDraw import Draw
-
-image = Image.open(r"")
-draw = ImageDraw.Draw(image)
-draw = Draw(image)
-```
-
-```python
-[print(x) for x in dir(draw)]
-```
-
-arc                 Рисует дугу (часть 'пончика') на изображении. 
-                    Принимает четыре аргумента: координаты прямоугольника, в котором находится дуга, начальный и конечный углы (в градусах), а также цвет линии.
-
-bitmap              Рисует изображение в виде битовой карты на текущем изображении. 
-                    Принимает два аргумента: координаты верхнего левого угла и изображение в формате Bitmap.
-
-chord               Рисует сегмент круга на изображении, соединяя начальную и конечную точки с центром. 
-                    Принимает аргументы, аналогичные arc.
-
-draw                Используется для рисования на изображении с помощью кисти. 
-                    Принимает два аргумента: изображение и цвет кисти.
-
-ellipse             Рисует эллипс на изображении. 
-                    Принимает два аргумента: координаты прямоугольника, в котором находится эллипс, и цвет линии.
-
-fill                Заполняет область на изображении определенным цветом. 
-                    Принимает два аргумента: координаты прямоугольника и цвет.
-
-font                Используется для настройки шрифта, который будет использоваться при отрисовке текста. 
-                    Принимает аргумент в формате ImageFont. (не работало...)
-
-fontmode            Задает режим отображения текста. Может принимать значения "1" или "L".
-
-getfont             Возвращает текущий шрифт.
-
-im                  Текущее изображение.
-
-ink                 Цвет, используемый для рисования.
-
-line                Рисует линию на изображении. 
-                    Принимает два аргумента: координаты начальной и конечной точек и цвет линии.
-
-mode                Режим изображения. 
-                    Может принимать значения "1", "L", "P", "RGB" или "CMYK".
-
-multiline_text      Рисует многострочный текст на изображении. 
-                    Принимает три аргумента: координаты верхнего левого угла, текст и дополнительные параметры.
-
-multiline_textbbox  Возвращает ограничивающий прямоугольник для многострочного текста. 
-                    Принимает те же аргументы, что и multiline_text.
-
-multiline_textsize  Возвращает размер многострочного текста. 
-                    Принимает те же аргументы, что и multiline_text.
-
-palette             Палитра изображения.
-
-pieslice            Рисует сегмент пирога на изображении. 
-                    Принимает аргументы, аналогичные arc.
-
-point               Рисует точку на изображении. 
-                    Принимает аргументы - координаты точки и цвет.
-
-polygon             Рисует многоугольник на изображении. 
-                    Принимает два аргумента: список координат вершин многоугольника и цвет линии.
-
-rectangle           Рисует прямоугольник на изображении. 
-                    Принимает два аргумента: координаты прямоугольника и цвет линии.
-
-regular_polygon     Рисует правильный многоугольник на изображении. 
-                    Принимает три аргумента: центр многоугольника, количество сторон и радиус.
-
-rounded_rectangle   Рисует прямоугольник с закругленными углами на изображении. 
-                    Принимает аргументы, аналогичные rectangle.
-
-shape               Рисует многоугольник, который может быть заполнен или обведен. 
-                    Принимает два аргумента: список координат вершин многоугольника и цвет.
-
-text                Рисует текст на изображении. 
-                    Принимает три аргумента: координаты верхнего левого угла, текст и цвет.
-
-textbbox            Возвращает ограничивающий прямоугольник для текста. 
-                    Принимает те же аргументы, что и text.
-
-textlength          Возвращает длину текста. 
-                    Принимает два аргумента: текст и шрифт.
-
-textsize            Возвращает размер текста. 
-                    Принимает два аргумента: текст и шрифт.
-"""
-                },
-                "datetime": """
-<img alt="datetime.png" src="Языки\Python\Библиотеки\datetime.png">
-"""
             },
             "Методы": {
                 "int": r"""
@@ -6899,7 +11544,7 @@ x[0][1] = 1; // Вместо 34 теперь будет 1
 Адрес в памяти компьютера это число, к которому мы можем получить доступ. 
 Указатель - это тот же адрес в памяти, по которому мы получаем переменную и по итогу её значение.
 
-Чтобы работать с указателями необходимо воспользоваться двумя специальными символами: & и *. Пример использования:
+Чтобы работать с указателями необходимо воспользоваться двумя специальными символами: & и *.
 
 ```cpp
 int t = 237; // Простая переменная
@@ -9172,7 +13817,7 @@ TSV - Tab Separated Values
 разделения значений. Он также часто используется для хранения и обмена табличными данными.
 Пример
 
-```
+```text
 Name        Age City
 John Smith  30  New York
 Jane Doe    25  Chicago
@@ -9423,7 +14068,7 @@ print(linalg.det(m))
 
 или полный вариант:
 
-```
+```html
 button onclick="showText( {NAME} )" class="trigger"> {NAME} </button>
 <div id=" {NAME} " style="display:none;" class="button-field">
     <button onclick="PutText( {NAME-1} )" class="trigger"> {NAME-1} </button>
