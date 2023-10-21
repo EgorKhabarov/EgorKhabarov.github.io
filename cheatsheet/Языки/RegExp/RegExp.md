@@ -187,6 +187,42 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>Регулярка</th>
+<th>Соответствие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(?=...)</td>
+<td>Позитивный просмотр вперёд</td>
+<td>Людовик(?=XVI)</td>
+<td>ЛюдовикXV, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVI, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
+</tr>
+<tr>
+<td>(?!...)</td>
+<td>Негативный просмотр вперёд (с отрицанием)</td>
+<td>Людовик(?!XVI)</td>
+<td><span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL</td>
+</tr>
+<tr>
+<td>(?&lt;=...)</td>
+<td>Позитивный просмотр назад</td>
+<td>(?&lt;=Сергей )Иванов</td>
+<td>Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов</td>
+</tr>
+<tr>
+<td>(?&lt;!...)</td>
+<td>Негативный просмотр назад (с отрицанием)</td>
+<td>(?&lt;!Сергей )Иванов</td>
+<td>Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span></td>
+</tr>
+</tbody>
+</table>
 <h1>Флаги</h1>
 <p><a href='https://docs.python.org/3/library/re.html#flags' target='_blank'>https://docs.python.org/3/library/re.html#flags</a></p>
 <table>
@@ -225,6 +261,11 @@
 </tr>
 </tbody>
 </table>
+<p>Группы-модификаторы можно объединять в одну группу: (?i-sm).
+Такая группа включает режим i и выключает режимы s и m.
+Если использование модификаторов требуется только в пределах группы, то нужный шаблон
+указывается внутри группы после модификаторов и после двоеточия.
+Например, <b>(?-i)(?i:tv)set</b> найдёт <b>TVset</b>, но не <b>TVSET</b>.</p>
 <h1>Команды</h1>
 <table>
 <thead>

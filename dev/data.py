@@ -9749,6 +9749,17 @@ TAN                 возвращает тангенс угла в радиан
 | (?<=...) | Соответствует каждой позиции, которой может ЗАКАНЧИВАТЬСЯ шаблон ...<br>Длина шаблона должна быть фиксированной, то есть abc и a|b — это ОК, а a* и a{2,3} — нет. |
 | (?<!...) | Соответствует каждой позиции, которой НЕ МОЖЕТ ЗАКАНЧИВАТЬСЯ шаблон ... |
 
+|        |        | Регулярка | Соответствие |
+|--------|--------|-----------|--------------|
+| (?=...) | Позитивный просмотр вперёд | Людовик(?=XVI) | ЛюдовикXV, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVI, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL |
+| (?!...) | Негативный просмотр вперёд (с отрицанием) | Людовик(?!XVI) | <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL |
+| (?<=...) | Позитивный просмотр назад | (?<=Сергей )Иванов | Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов |
+| (?<!...) | Негативный просмотр назад (с отрицанием) | (?<!Сергей )Иванов | Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span> |
+
+
+
+
+
 # Флаги
 https://docs.python.org/3/library/re.html#flags
 
@@ -9759,6 +9770,13 @@ https://docs.python.org/3/library/re.html#flags
 | re.MULTILINE  | (?m) | Специальные символы ^ и $ соответствуют началу и концу каждой строки |
 | re.DOTALL     | (?s) | По умолчанию символ \n конца строки не подходит под точку. С этим флагом точка — вообще любой символ |
 | re.VERBOSE    | (?x) | Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как &#42;?, (?:или (?P&lt;...>. Например, и не допускаются.<br><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre>a = re.compile(<span class="s1">r&#34;&#34;&#34;\d +  # the integral part<br>                   &#92;.    # the decimal point<br>                   \d *  # some fractional digits&#34;&#34;&#34;</span>, re.X)<br>b = re.compile(<span class="s1">r"\d+\.\d*"</span>)</pre></div></div> |
+
+Группы-модификаторы можно объединять в одну группу: (?i-sm).
+Такая группа включает режим i и выключает режимы s и m.
+Если использование модификаторов требуется только в пределах группы, то нужный шаблон
+указывается внутри группы после модификаторов и после двоеточия.
+Например, <b>(?-i)(?i:tv)set</b> найдёт <b>TVset</b>, но не <b>TVSET</b>.
+
 
 # Команды
 
@@ -13868,13 +13886,13 @@ https://vedis-python.readthedocs.io/en/latest/quickstart.html
 
 ```python
 from vedis import Vedis
-    db = Vedis(":mem:")  # Create an in-memory database.
-    db = Vedis("Dict.vedis")
-    with db.transaction():
-        db["key"] = "value"
-        db.rollback()  # Undo changes.
-        db.commit()
-    print(db["key"])
+db = Vedis(":mem:")  # Create an in-memory database.
+db = Vedis("Dict.vedis")
+with db.transaction():
+    db["key"] = "value"
+    db.rollback()  # Undo changes.
+    db.commit()
+print(db["key"])
 ```
 
 Пример использования в боте
