@@ -54,10 +54,10 @@ DICT = {
             "Команды": """
 https://git-scm.com/
 
-|                                                                  |
-|------------------------------------------------------------------|
-| git config --global user.name "EgorKhabarov"                     |
-| git config --global user.email "not.a.fan.of.broccoli@gmail.com" |
+|                                          |
+|------------------------------------------|
+| git config --global user.name "username" |
+| git config --global user.email "email"   |
 
 |                            |                                        |
 |----------------------------|----------------------------------------|
