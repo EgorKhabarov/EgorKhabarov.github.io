@@ -7,6 +7,7 @@ from dev.data import DICT
 
 index = 0
 
+
 def buttons(dictionary: dict, directory=""):
     text = ""
     for key, value in dictionary.items():
@@ -28,17 +29,21 @@ def buttons(dictionary: dict, directory=""):
                 name=f"{key}{index}",
                 title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
                 text=val,
-                url=title)
+                # url=title,
+            )
         else:
             # print(key_path)
             text += """<button onclick="GET('{name}');" class="button">{title}</button>\n""".format(
                 name=key_path.replace("\\", "&#x2f;") + ".md",
-                title="📄&nbsp;" + title.replace(" ", "&nbsp;")
+                title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
             )
     return text, directory
 
-with (open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
-      open("../cheatsheet/script.js", "r", encoding="utf-8") as script):
+
+with (
+    open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
+    open("../cheatsheet/script.js", "r", encoding="utf-8") as script,
+):
     css_code = style.read().strip()
     js_code = script.read().strip()
 
