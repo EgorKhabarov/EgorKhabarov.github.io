@@ -177,11 +177,18 @@ tr:hover td {background: #46494b;}
 
 /* Код */
 .code {
-  padding:1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   overflow-y:auto;
   white-space:pre-wrap!important;
   background-color: #1B1B1B;
   border-radius:.0rem .0rem .375rem .375rem;
+  background-color: #272727;
+}
+
+code {
+  padding: 0.1rem;
+  overflow-y:auto;
+  border-radius: 5px;
   background-color: #272727;
 }
 
