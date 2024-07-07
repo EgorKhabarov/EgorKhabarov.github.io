@@ -132,11 +132,11 @@
 <tbody>
 <tr>
 <td>^</td>
-<td>Начало всего текста или начало строчки текста, если flags=re.MULTILINE</td>
+<td>Начало всего текста или начало строчки текста, если <code>flags=re.MULTILINE</code></td>
 </tr>
 <tr>
 <td>$</td>
-<td>Конец всего текста или конец строчки текста, если flags=re.MULTILINE</td>
+<td>Конец всего текста или конец строчки текста, если <code>flags=re.MULTILINE</code></td>
 </tr>
 <tr>
 <td>\A</td>
@@ -156,41 +156,11 @@
 </tr>
 </tbody>
 </table>
-<h1>Выбор позиции</h1>
+<h1>Условные выражения</h1>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(?:...)</td>
-<td>Позволяют локализовать часть шаблона, внутри которого происходит перечисление</td>
-</tr>
-<tr>
-<td>(?=...)</td>
-<td>Соответствует каждой позиции, сразу после которой НАЧИНАЕТСЯ соответствие шаблону ...</td>
-</tr>
-<tr>
-<td>(?!...)</td>
-<td>Соответствует каждой позиции, сразу после которой НЕ МОЖЕТ НАЧИНАТЬСЯ шаблон ...</td>
-</tr>
-<tr>
-<td>(?&lt;=...)</td>
-<td>Соответствует каждой позиции, которой может ЗАКАНЧИВАТЬСЯ шаблон ...<br>Длина шаблона должна быть фиксированной, то есть abc и a</td>
-</tr>
-<tr>
-<td>(?&lt;!...)</td>
-<td>Соответствует каждой позиции, которой НЕ МОЖЕТ ЗАКАНЧИВАТЬСЯ шаблон ...</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th></th>
+<th>Условное выражение</th>
 <th></th>
 <th>Регулярка</th>
 <th>Соответствие</th>
@@ -205,21 +175,83 @@
 </tr>
 <tr>
 <td>(?!...)</td>
-<td>Негативный просмотр вперёд (с отрицанием)</td>
+<td>Негативный просмотр вперёд</td>
 <td>Людовик(?!XVI)</td>
 <td><span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL</td>
 </tr>
 <tr>
 <td>(?&lt;=...)</td>
-<td>Позитивный просмотр назад</td>
+<td>Позитивный просмотр назад<br>Длина шаблона должна быть фиксированной</td>
 <td>(?&lt;=Сергей )Иванов</td>
 <td>Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов</td>
 </tr>
 <tr>
 <td>(?&lt;!...)</td>
-<td>Негативный просмотр назад (с отрицанием)</td>
+<td>Негативный просмотр назад</td>
 <td>(?&lt;!Сергей )Иванов</td>
 <td>Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span></td>
+</tr>
+</tbody>
+</table>
+<h1>Группы захвата</h1>
+<table>
+<thead>
+<tr>
+<th>Группа захвата</th>
+<th>Название</th>
+<th>Регулярка</th>
+<th>Соответствие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(?:pattern)</td>
+<td>Незахватывающая группа</td>
+<td>(?:abc|def)</td>
+<td>123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456</td>
+</tr>
+<tr>
+<td>(?P&lt;name&gt;pattern)</td>
+<td>Именованная группа захвата</td>
+<td>My name is (?P&lt;name&gt;\w+)</td>
+<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><code>re.compile(r"My name is (?P&lt;name&gt;\w+)")</code><br><code>.match("My name is John")</code><br><code>.group("name")</code><br><code># John</code></td>
+</tr>
+<tr>
+<td>(?P=name)</td>
+<td>Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени</td>
+<td>(?P&lt;word&gt;\w+)\s+(?P=word)</td>
+<td><span style="background-color: #999999; color: #FFFFFF">hello hello</span></td>
+</tr>
+</tbody>
+</table>
+<h1>Другое</h1>
+<table>
+<thead>
+<tr>
+<th>Паттерн</th>
+<th>Название</th>
+<th>Регулярка</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(?&gt;pattern)</td>
+<td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала.</td>
+<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад.</td>
+<td><span style="background-color: #999999; color: #FFFFFF">1234</span></td>
+</tr>
+<tr>
+<td>(?R) или (?0)</td>
+<td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя.</td>
+<td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
+<td><span style="background-color: #999999; color: #FFFFFF">(a(b)c)</span></td>
+</tr>
+<tr>
+<td>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</td>
+<td>Условные выражения<br>с именованными группами</td>
+<td></td>
+<td><code>re.compile(</code><br><code>r"(?P&lt;name1&gt;pattern1|"</code><br><code>r"(?P&lt;name2&gt;pattern2))"</code><br><code>)</code><br><code>.match("pattern2")</code><br><code>.groupdict()</code><br>{<br>"name1": "pattern2",<br>"name2": "pattern2",<br>}</td>
 </tr>
 </tbody>
 </table>
@@ -362,4 +394,40 @@
 
 <p>Широта или долгота:</p>
 <div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" id="code572b" onclick="copyCode(code572, code572b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code572"><div class="highlight"><pre><span></span>-?\d{1,3}\.\d+
+</pre></div></div></div>
+
+<p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
+если текущий путь не приводит к успешному совпадению.
+Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
+<h2>Пример бэктрекинга</h2>
+<p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
+<ol>
+<li>Начало сопоставления с <code>a</code> — успех.</li>
+<li>Далее идет <code>(b|c)*</code>, которое может захватить любое количество <code>b</code> или <code>c</code>. Сначала регулярное выражение захватывает все <code>b</code>: <code>abbb</code>.</li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbb</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
+</ol>
+<p>Теперь возьмем строку <code>abbcd</code>:</p>
+<ol>
+<li>Начало сопоставления с <code>a</code> — успех.</li>
+<li>Далее идет <code>(b|c)*</code>, которое снова захватывает все <code>b</code>: <code>abb</code>.</li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abb</code>. Это неудача, потому что следующий символ <code>c</code>.</li>
+<li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code>.</li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
+</ol>
+<h3>Пример атомарной группы</h3>
+<p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
+<ol>
+<li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code>.</li>
+<li>После успешного совпадения с <code>a</code>, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.</li>
+<li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code>.</li>
+<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>. Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
+</ol>
+<h3>Пример кода</h3>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" id="code573b" onclick="copyCode(code573, code573b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code573"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atomic_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&gt;a|ab)c&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">simple_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Обычная группа</span>
+<span class="go">abc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
+<span class="go">None</span>
 </pre></div></div></div>
