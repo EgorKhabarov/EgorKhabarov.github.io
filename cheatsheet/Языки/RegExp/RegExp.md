@@ -333,6 +333,94 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Ищет совпадение в начале строки.</td>
+</tr>
+<tr>
+<td>re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Ищет первое совпадение в строке.</td>
+</tr>
+<tr>
+<td>re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
+<td>Возвращает список всех непересекающихся совпадений в строке.</td>
+</tr>
+<tr>
+<td>re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
+<td>Возвращает итератор по всем совпадениям в строке.</td>
+</tr>
+<tr>
+<td>re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
+<td>Заменяет совпадения в строке на указанный текст.</td>
+</tr>
+<tr>
+<td>re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
+<td>То же, что и <code>re.sub()</code>, но также возвращает количество замен.</td>
+</tr>
+<tr>
+<td>re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
+<td>Разбивает строку по шаблону и возвращает список строк.</td>
+</tr>
+<tr>
+<td>re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Проверяет, полностью ли строка соответствует шаблону.</td>
+</tr>
+<tr>
+<td>re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0       <br>                                                                                <br>) -&gt; Pattern[AnyStr]</td>
+<td>Компилирует регулярное выражение в объект регулярного выражения.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Ищет совпадение в начале строки.</td>
+</tr>
+<tr>
+<td>re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Ищет первое совпадение в строке.</td>
+</tr>
+<tr>
+<td>re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
+<td>Возвращает список всех непересекающихся совпадений в строке.</td>
+</tr>
+<tr>
+<td>re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
+<td>Возвращает итератор по всем совпадениям в строке.</td>
+</tr>
+<tr>
+<td>re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
+<td>Заменяет совпадения в строке на указанный текст.</td>
+</tr>
+<tr>
+<td>re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
+<td>То же, что и <code>re.compile(...).sub()</code>, но также возвращает количество замен.</td>
+</tr>
+<tr>
+<td>re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
+<td>Разбивает строку по шаблону и возвращает список строк.</td>
+</tr>
+<tr>
+<td>re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
+<td>Проверяет, полностью ли строка соответствует шаблону.</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code559b" onclick="copyCode(code559, code559b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code559"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span> 
 <span class="k">def</span> <span class="nf">repl</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> 

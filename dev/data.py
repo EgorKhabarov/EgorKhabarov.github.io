@@ -10612,14 +10612,29 @@ https://docs.python.org/3/library/re.html#flags
 
 # Команды
 
-|          |        |
-|----------|--------|
-| re.search(pattern, string) | Найти в строке string первую строчку, подходящую под шаблон pattern |
-| re.fullmatch(pattern, string) | Проверить, подходит ли строка string под шаблон pattern |
-| re.split(pattern, string, maxsplit=0) | Аналог str.split(), только разделение происходит по подстрокам, подходящим под шаблон pattern |
-| re.findall(pattern, string) | Найти в строке string все непересекающиеся шаблоны pattern |
-| re.finditer(pattern, string) | Итератор всем непересекающимся шаблонам pattern в строке string (выдаются match-объекты) |
-| re.sub(pattern, repl, string, count=0) | Заменить в строке string все непересекающиеся шаблоны pattern на repl |
+| Метод                                                                                                                                                                                                                                 | Описание                                                         |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет совпадение в начале строки.                                 |
+| re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет первое совпадение в строке.                                 |
+| re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                 | Возвращает список всех непересекающихся совпадений в строке.     |
+| re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator[Match[str]] | Возвращает итератор по всем совпадениям в строке.                |
+| re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                  | Заменяет совпадения в строке на указанный текст.                 |
+| re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple[str, int]      | То же, что и `re.sub()`, но также возвращает количество замен.   |
+| re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list[str]            | Разбивает строку по шаблону и возвращает список строк.           |
+| re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Проверяет, полностью ли строка соответствует шаблону.            |
+| re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0       <br>                                                                                <br>) -> Pattern[AnyStr]      | Компилирует регулярное выражение в объект регулярного выражения. |
+
+| Метод                                                                                                                                                                                                     | Описание                                                       |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет совпадение в начале строки.                               |
+| re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет первое совпадение в строке.                               |
+| re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                 | Возвращает список всех непересекающихся совпадений в строке.   |
+| re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator[Match[str]] | Возвращает итератор по всем совпадениям в строке.              |
+| re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                  | Заменяет совпадения в строке на указанный текст.               |
+| re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple[str, int]      | То же, что и `re.compile(...).sub()`, но также возвращает количество замен. |
+| re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list[str]            | Разбивает строку по шаблону и возвращает список строк.         |
+| re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Проверяет, полностью ли строка соответствует шаблону.          |
+
 
 <br>
 
