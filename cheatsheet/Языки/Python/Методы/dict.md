@@ -20,7 +20,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">dict.get()</td>
-<td style="text-align: left;">Возвращает значение ключа&lt;brprint({"model": "Mustang", "year": 1964}.get("model")) # Mustang</td>
+<td style="text-align: left;">Возвращает значение ключа<br>print({"model": "Mustang", "year": 1964}.get("model")) # Mustang</td>
 </tr>
 <tr>
 <td style="text-align: left;">dict.items()</td>

@@ -302,40 +302,6 @@
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>re.search(pattern, string)</td>
-<td>Найти в строке string первую строчку, подходящую под шаблон pattern</td>
-</tr>
-<tr>
-<td>re.fullmatch(pattern, string)</td>
-<td>Проверить, подходит ли строка string под шаблон pattern</td>
-</tr>
-<tr>
-<td>re.split(pattern, string, maxsplit=0)</td>
-<td>Аналог str.split(), только разделение происходит по подстрокам, подходящим под шаблон pattern</td>
-</tr>
-<tr>
-<td>re.findall(pattern, string)</td>
-<td>Найти в строке string все непересекающиеся шаблоны pattern</td>
-</tr>
-<tr>
-<td>re.finditer(pattern, string)</td>
-<td>Итератор всем непересекающимся шаблонам pattern в строке string (выдаются match-объекты)</td>
-</tr>
-<tr>
-<td>re.sub(pattern, repl, string, count=0)</td>
-<td>Заменить в строке string все непересекающиеся шаблоны pattern на repl</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
 <th>Метод</th>
 <th>Описание</th>
 </tr>
