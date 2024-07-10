@@ -1,16 +1,31 @@
 import os
+import hashlib
 
 from bs4 import BeautifulSoup
 
 from dev.data import DICT
 
 
-index = 0
+id_dict = []
+
+
+def get_id(data: str, noprint: bool = False):
+    h = hashlib.md5(data.encode()).hexdigest()
+    attempt = 0
+    while h in id_dict:
+        attempt += 1
+        data = f"{data}{attempt}"
+        h = hashlib.md5(data.encode()).hexdigest()
+    id_dict.append(h)
+    if attempt != 0 and not noprint:
+        print(attempt)
+    return h
 
 
 def buttons(dictionary: dict, directory=""):
     text = ""
     for key, value in dictionary.items():
+        print(f"{directory}\\{key}")
         title = key
         key_path = os.path.join(directory, key)
 
@@ -20,13 +35,10 @@ def buttons(dictionary: dict, directory=""):
         key = key.split(maxsplit=1)[0]
 
         if isinstance(value, dict):
-            global index
-            index += 1
-
             val = buttons(value, key_path)[0]
             text += """<button onclick="showText({name});" class="button">{title}</button>
 <div id="{name}" style="display:none;" class="button-folder">{text}</div>""".format(
-                name=f"{key}{index}",
+                name=f"{key}{get_id(key+val)}",
                 title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
                 text=val,
                 # url=title,
