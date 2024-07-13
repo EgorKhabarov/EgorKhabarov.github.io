@@ -1,5 +1,6 @@
-from flask import Flask, send_file, abort
 import os
+
+from flask import Flask, send_file, abort
 
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def cheatsheet():
 @app.route("/<path:path>")
 def index_html_path(path: str):
     try:
-        path = "/" + path.lstrip(r".\/").replace("..", "")
+        path = "/" + path.removeprefix("cheatsheet").lstrip(r".\/").replace("..", "")
         print(os.path.join(r"../cheatsheet", *path.split("/")))
 
         return send_file(os.path.join(r"../cheatsheet", *path.split("/")))

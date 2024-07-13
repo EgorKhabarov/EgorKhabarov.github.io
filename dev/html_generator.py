@@ -33,20 +33,25 @@ def buttons(dictionary: dict, directory=""):
             key = key.replace(i, "")
 
         key = key.split(maxsplit=1)[0]
+        directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict):
             val = buttons(value, key_path)[0]
-            text += """<button onclick="showText({name});" class="button">{title}</button>
+            kpath = f"{directory_e}/{title}".strip("/")
+            # print(f"directory={directory}\\{key} val={' '.join(val.splitlines())}")
+            text += """<button onclick="toggleDisplay({name});" class="button" kpath="{kpath}">{title}</button>
 <div id="{name}" style="display:none;" class="button-folder">{text}</div>""".format(
                 name=f"{key}{get_id(key+val)}",
+                kpath=kpath,
                 title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
                 text=val,
                 # url=title,
             )
         else:
             # print(key_path)
-            text += """<button onclick="GET('{name}');" class="button">{title}</button>\n""".format(
+            text += """<button onclick="GET('{name}');" class="button" vpath="{vpath}.md">{title}</button>\n""".format(
                 name=key_path.replace("\\", "&#x2f;") + ".md",
+                vpath=f"{directory_e}/{title}",
                 title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
             )
     return text, directory
@@ -81,12 +86,12 @@ result = f"""
     <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
 
     <div>
-        <button id="FontSizeSize" class="control-button" style="padding-left: 12px;">12px</button>
+        <button id="FontSizeSize" class="control-button" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">12px</button>
         <button onclick="changeFontSize(field, '+')" class="control-button" style="padding-left: 25px;">+</button>
         <button onclick="changeFontSize(field, '-')" class="control-button"  style="padding-left: 27px;">-</button>
-        <button onclick="changeFontSize(field, '=')" class="control-button">Default</button>
         <button id="COPY" onclick="copyTextFromDiv(field); changeColor(COPY)" class="control-button" style="padding-left: 12px;">Copy</button>
         <button id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" class="control-button" style="padding-left: 2px;">Copy selected</button>
+        <button id="removeargfromurl" onclick="removeArgumentFromUrl(); changeColor(removeargfromurl)" class="control-button" style="padding-left: 28px;">/</button>
         <!-- <button class="control-button" onclick="togglePopup()">
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;">
                 <g class="style-scope yt-icon">

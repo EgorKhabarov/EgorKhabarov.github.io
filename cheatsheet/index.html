@@ -249,11 +249,16 @@ code {
   </style>
   <script>
    /* Скрыть / показать папку */
-function showText(element) {
+function toggleDisplay(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     } else {
         element.style.display = "none";
+    }
+}
+function showText(element) {
+    if (element.style.display == "none") {
+        element.style.display = "block";
     }
 }
 
@@ -337,6 +342,7 @@ function getCheatSheat(url) {
 
 function GET(url) {
     console.log(url)
+    addArgumentToUrl(url)
     return PutHtmlText(getCheatSheat(url))
 }
 
@@ -450,14 +456,14 @@ function DownloadCode(element, button_element, filename) {
 
 */
 
-function togglePopup() {
-    var popup = document.getElementById("popupElement");
-    if (popup.style.display === "none") {
-        popup.style.display = "block";
-    } else {
-        popup.style.display = "none";
-    }
-}
+//function togglePopup() {
+//    var popup = document.getElementById("popupElement");
+//    if (popup.style.display === "none") {
+//        popup.style.display = "block";
+//    } else {
+//        popup.style.display = "none";
+//    }
+//}
 
 function handleSearch(event) {
     event.preventDefault(); // Предотвращает отправку формы при нажатии Enter
@@ -483,1051 +489,1105 @@ function downloadFile(text, filename) {
 
     document.body.removeChild(element);
 }
+
+function addArgumentToUrl(arg) {
+    const currentUrl = new URL(window.location.href);
+    currentUrl.search = arg;
+    window.history.pushState({}, '', currentUrl);
+}
+
+function getArgumentFromUrl() {
+    const currentUrl = new URL(window.location.href);
+    return currentUrl.search ? currentUrl.search.substring(1) : null;
+}
+
+function removeArgumentFromUrl() {
+    let url = new URL(window.location.href);
+    url.search = '';
+    window.history.replaceState(null, null, url.href);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Проверяем наличие аргумента при загрузке страницы
+    const arg = getArgumentFromUrl();
+    if (arg) {
+        console.log("Argument found:", decodeURIComponent(arg));
+        GET(arg);
+        console.log("getPathWithoutFilename", getPathWithoutFilename(arg));
+        toggleStyleDisplayByPath(getPathWithoutFilename(arg));
+
+        let vpath = decodeURIComponent(arg);
+        console.log("vpath", vpath);
+        let element = document.querySelector(`[vpath="${vpath}"]`);
+        element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.log("No argument found");
+    }
+});
+
+function getPathWithoutFilename(filePath) {
+    filePath = decodeURIComponent(filePath);
+    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(0, lastSlashIndex);
+    }
+   return '';
+}
+
+function toggleStyleDisplayByPath(kpath) {
+    let element = document.querySelector(`[kpath="${kpath}"]`);
+    element.click();
+    let parent = element.parentElement;
+    while (parent) {
+        showText(parent);
+        parent = parent.parentElement;
+    }
+}
   </script>
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" onclick="showText(Общее2189f54a3d3429fe1b537050f2ad41ea);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее0953498135517a1f6782adcd9b8ab349);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее2189f54a3d3429fe1b537050f2ad41ea" style="display:none;">
-    <button class="button" onclick="showText(GITe6619a082140acede37256fbc52146f5);">
+   <div class="button-folder" id="Общее0953498135517a1f6782adcd9b8ab349" style="display:none;">
+    <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
      📂 GIT
     </button>
-    <div class="button-folder" id="GITe6619a082140acede37256fbc52146f5" style="display:none;">
-     <button class="button" onclick="GET('Общее/GIT/Команды.md');">
+    <div class="button-folder" id="GITbc2ae0e614b3166349136e419732f2a0" style="display:none;">
+     <button class="button" onclick="GET('Общее/GIT/Команды.md');" vpath="Общее/GIT/Команды.md">
       📄 Команды
      </button>
-     <button class="button" onclick="GET('Общее/GIT/gitignore.md');">
+     <button class="button" onclick="GET('Общее/GIT/gitignore.md');" vpath="Общее/GIT/gitignore.md">
       📄 gitignore
      </button>
     </div>
-    <button class="button" onclick="showText(HTTPf7039d2b2dd2d77b2274623b1d96d3a3);">
+    <button class="button" kpath="Общее/HTTP" onclick="toggleDisplay(HTTP64a74433299cdd7de00a762948127a3d);">
      📂 HTTP
     </button>
-    <div class="button-folder" id="HTTPf7039d2b2dd2d77b2274623b1d96d3a3" style="display:none;">
-     <button class="button" onclick="GET('Общее/HTTP/HTTР.md');">
+    <div class="button-folder" id="HTTP64a74433299cdd7de00a762948127a3d" style="display:none;">
+     <button class="button" onclick="GET('Общее/HTTP/HTTР.md');" vpath="Общее/HTTP/HTTР.md">
       📄 HTTР
      </button>
-     <button class="button" onclick="GET('Общее/HTTP/Запросы.md');">
+     <button class="button" onclick="GET('Общее/HTTP/Запросы.md');" vpath="Общее/HTTP/Запросы.md">
       📄 Запросы
      </button>
-     <button class="button" onclick="GET('Общее/HTTP/Протоколы связи.md');">
+     <button class="button" onclick="GET('Общее/HTTP/Протоколы связи.md');" vpath="Общее/HTTP/Протоколы связи.md">
       📄 Протоколы связи
      </button>
     </div>
-    <button class="button" onclick="showText(Парадигмыd637f4171dd6b931017f70cd9e9efc40);">
+    <button class="button" kpath="Общее/Парадигмы" onclick="toggleDisplay(Парадигмы45647d86e052744271a55e2610fea496);">
      📂 Парадигмы
     </button>
-    <div class="button-folder" id="Парадигмыd637f4171dd6b931017f70cd9e9efc40" style="display:none;">
-     <button class="button" onclick="GET('Общее/Парадигмы/Императивная.md');">
+    <div class="button-folder" id="Парадигмы45647d86e052744271a55e2610fea496" style="display:none;">
+     <button class="button" onclick="GET('Общее/Парадигмы/Императивная.md');" vpath="Общее/Парадигмы/Императивная.md">
       📄 Императивная
      </button>
-     <button class="button" onclick="GET('Общее/Парадигмы/Декларативная.md');">
+     <button class="button" onclick="GET('Общее/Парадигмы/Декларативная.md');" vpath="Общее/Парадигмы/Декларативная.md">
       📄 Декларативная
      </button>
     </div>
-    <button class="button" onclick="GET('Общее/ООП.md');">
+    <button class="button" onclick="GET('Общее/ООП.md');" vpath="Общее/ООП.md">
      📄 ООП
     </button>
-    <button class="button" onclick="GET('Общее/Интерпретатор Компилятор.md');">
+    <button class="button" onclick="GET('Общее/Интерпретатор Компилятор.md');" vpath="Общее/Интерпретатор Компилятор.md">
      📄 Интерпретатор Компилятор
     </button>
-    <button class="button" onclick="GET('Общее/sync asyn.md');">
+    <button class="button" onclick="GET('Общее/sync asyn.md');" vpath="Общее/sync asyn.md">
      📄 sync asyn
     </button>
    </div>
-   <button class="button" onclick="showText(Языкиd5a16a2a9ff2cea32262599c3f9ca7ea);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиac719c0863d967025ef481139f241f56);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языкиd5a16a2a9ff2cea32262599c3f9ca7ea" style="display:none;">
-    <button class="button" onclick="showText(Python1cd3d928471641685df565a2437ffb6c);">
+   <div class="button-folder" id="Языкиac719c0863d967025ef481139f241f56" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1505cf16b55f31c204200a325da173a2);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python1cd3d928471641685df565a2437ffb6c" style="display:none;">
-     <button class="button" onclick="showText(Библиотеки6e6b30e22296bae1384594bf8bf939d1);">
+    <div class="button-folder" id="Python1505cf16b55f31c204200a325da173a2" style="display:none;">
+     <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки3d7ab96d31951e381aee5286582ac445);">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотеки6e6b30e22296bae1384594bf8bf939d1" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/Библиотеки/Оглавление.md');">
+     <div class="button-folder" id="Библиотеки3d7ab96d31951e381aee5286582ac445" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/Библиотеки/Оглавление.md');" vpath="Языки/Python/Библиотеки/Оглавление.md">
        📄 Оглавление
       </button>
-      <button class="button" onclick="showText(Системаaf7ca32b1594e6202fd0b9aaa37ff2d4);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Система" onclick="toggleDisplay(Системаa19e5ae3b3b14afcd06c321e9ba2b2a7);">
        📂 Система
       </button>
-      <div class="button-folder" id="Системаaf7ca32b1594e6202fd0b9aaa37ff2d4" style="display:none;">
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/io.md');">
+      <div class="button-folder" id="Системаa19e5ae3b3b14afcd06c321e9ba2b2a7" style="display:none;">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/io.md');" vpath="Языки/Python/Библиотеки/Система/io.md">
         📄 io
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/os.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/os.md');" vpath="Языки/Python/Библиотеки/Система/os.md">
         📄 os
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/sys.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/sys.md');" vpath="Языки/Python/Библиотеки/Система/sys.md">
         📄 sys
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/subprocess.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/subprocess.md');" vpath="Языки/Python/Библиотеки/Система/subprocess.md">
         📄 subprocess
        </button>
       </div>
-      <button class="button" onclick="showText(Информация00b870a5f0f115ccfe78b6582fe4fe4f);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Информация" onclick="toggleDisplay(Информация1571a6174f58394f6b73b628ce00207f);">
        📂 Информация
       </button>
-      <div class="button-folder" id="Информация00b870a5f0f115ccfe78b6582fe4fe4f" style="display:none;">
-       <button class="button" onclick="showText(Типыданныхa3d6ae303d7d5589c61d9c888a3c0fa8);">
+      <div class="button-folder" id="Информация1571a6174f58394f6b73b628ce00207f" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Информация/Типы данных" onclick="toggleDisplay(Типыданныхa12a7cd0ed84f7a8e68c0359251b33cc);">
         📂 Типы данных
        </button>
-       <div class="button-folder" id="Типыданныхa3d6ae303d7d5589c61d9c888a3c0fa8" style="display:none;">
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/xml.md');">
+       <div class="button-folder" id="Типыданныхa12a7cd0ed84f7a8e68c0359251b33cc" style="display:none;">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/xml.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/xml.md">
          📄 xml
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pythoncom.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pythoncom.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pythoncom.md">
          📄 pythoncom
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/traitlets.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/traitlets.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/traitlets.md">
          📄 traitlets
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/stat.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/stat.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/stat.md">
          📄 stat
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/heapq.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/heapq.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/heapq.md">
          📄 heapq
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/spwd.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/spwd.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/spwd.md">
          📄 spwd
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/enum.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/enum.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/enum.md">
          📄 enum
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pstats.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pstats.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pstats.md">
          📄 pstats
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/marshal.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/marshal.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/marshal.md">
          📄 marshal
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/linecache.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/linecache.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/linecache.md">
          📄 linecache
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/sched.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/sched.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/sched.md">
          📄 sched
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nntplib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nntplib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/nntplib.md">
          📄 nntplib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/certifi.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/certifi.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/certifi.md">
          📄 certifi
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rasutil.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rasutil.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/rasutil.md">
          📄 rasutil
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/grpc.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/grpc.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/grpc.md">
          📄 grpc
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/wheel.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/wheel.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/wheel.md">
          📄 wheel
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pyparsing.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pyparsing.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pyparsing.md">
          📄 pyparsing
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/faulthandler.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/faulthandler.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/faulthandler.md">
          📄 faulthandler
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/traceback.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/traceback.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/traceback.md">
          📄 traceback
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/runpy.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/runpy.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/runpy.md">
          📄 runpy
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zlib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zlib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/zlib.md">
          📄 zlib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/packaging.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/packaging.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/packaging.md">
          📄 packaging
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nis.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nis.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/nis.md">
          📄 nis
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipapp.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipapp.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/zipapp.md">
          📄 zipapp
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/notebook.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/notebook.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/notebook.md">
          📄 notebook
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/xdrlib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/xdrlib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/xdrlib.md">
          📄 xdrlib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/string.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/string.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/string.md">
          📄 string
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/multiprocessing.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/multiprocessing.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/multiprocessing.md">
          📄 multiprocessing
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/formatter.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/formatter.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/formatter.md">
          📄 formatter
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/jsonschema.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/jsonschema.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/jsonschema.md">
          📄 jsonschema
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/mailbox.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/mailbox.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/mailbox.md">
          📄 mailbox
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/reprlib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/reprlib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/reprlib.md">
          📄 reprlib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/getpass.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/getpass.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/getpass.md">
          📄 getpass
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pymsgbox.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pymsgbox.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pymsgbox.md">
          📄 pymsgbox
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/quopri.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/quopri.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/quopri.md">
          📄 quopri
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fnmatch.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fnmatch.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/fnmatch.md">
          📄 fnmatch
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rfc3986_validator.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rfc3986_validator.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/rfc3986_validator.md">
          📄 rfc3986_validator
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/mailcap.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/mailcap.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/mailcap.md">
          📄 mailcap
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/filecmp.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/filecmp.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/filecmp.md">
          📄 filecmp
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/locale.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/locale.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/locale.md">
          📄 locale
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/getopt.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/getopt.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/getopt.md">
          📄 getopt
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/webcolors.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/webcolors.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/webcolors.md">
          📄 webcolors
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/hmac.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/hmac.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/hmac.md">
          📄 hmac
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bleach.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bleach.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/bleach.md">
          📄 bleach
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/genericpath.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/genericpath.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/genericpath.md">
          📄 genericpath
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/lzma.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/lzma.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/lzma.md">
          📄 lzma
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gc.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gc.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/gc.md">
          📄 gc
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipimport.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipimport.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/zipimport.md">
          📄 zipimport
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/trace.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/trace.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/trace.md">
          📄 trace
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gtts.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gtts.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/gtts.md">
          📄 gtts
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/graphlib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/graphlib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/graphlib.md">
          📄 graphlib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/binhex.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/binhex.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/binhex.md">
          📄 binhex
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/glob.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/glob.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/glob.md">
          📄 glob
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/errno.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/errno.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/errno.md">
          📄 errno
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/webencodings.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/webencodings.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/webencodings.md">
          📄 webencodings
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/netrc.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/netrc.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/netrc.md">
          📄 netrc
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/readline.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/readline.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/readline.md">
          📄 readline
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/resource.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/resource.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/resource.md">
          📄 resource
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pyclbr.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pyclbr.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pyclbr.md">
          📄 pyclbr
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/ntpath.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/ntpath.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/ntpath.md">
          📄 ntpath
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/wave.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/wave.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/wave.md">
          📄 wave
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/js2py.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/js2py.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/js2py.md">
          📄 js2py
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bisect.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bisect.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/bisect.md">
          📄 bisect
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/jsonpointer.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/jsonpointer.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/jsonpointer.md">
          📄 jsonpointer
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/grp.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/grp.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/grp.md">
          📄 grp
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/logging.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/logging.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/logging.md">
          📄 logging
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/posixpath.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/posixpath.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/posixpath.md">
          📄 posixpath
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gettext.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gettext.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/gettext.md">
          📄 gettext
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipfile.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/zipfile.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/zipfile.md">
          📄 zipfile
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pylab.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pylab.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pylab.md">
          📄 pylab
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/optparse.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/optparse.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/optparse.md">
          📄 optparse
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gast.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/gast.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/gast.md">
          📄 gast
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/keyword.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/keyword.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/keyword.md">
          📄 keyword
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/poplib.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/poplib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/poplib.md">
          📄 poplib
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/base64.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/base64.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/base64.md">
          📄 base64
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/shlex.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/shlex.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/shlex.md">
          📄 shlex
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/concurrent.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/concurrent.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/concurrent.md">
          📄 concurrent
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/keyboard.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/keyboard.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/keyboard.md">
          📄 keyboard
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rlcompleter.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rlcompleter.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/rlcompleter.md">
          📄 rlcompleter
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/psutil.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/psutil.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/psutil.md">
          📄 psutil
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rfc3339_validator.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/rfc3339_validator.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/rfc3339_validator.md">
          📄 rfc3339_validator
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/regcheck.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/regcheck.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/regcheck.md">
          📄 regcheck
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/posix.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/posix.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/posix.md">
          📄 posix
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fileinput.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fileinput.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/fileinput.md">
          📄 fileinput
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pygetwindow.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pygetwindow.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pygetwindow.md">
          📄 pygetwindow
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/warnings.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/warnings.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/warnings.md">
          📄 warnings
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nt.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nt.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/nt.md">
          📄 nt
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/netbios.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/netbios.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/netbios.md">
          📄 netbios
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/frozenlist.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/frozenlist.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/frozenlist.md">
          📄 frozenlist
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bdb.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/bdb.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/bdb.md">
          📄 bdb
         </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fcntl.md');">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/fcntl.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/fcntl.md">
          📄 fcntl
         </button>
        </div>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/textwrap.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/textwrap.md');" vpath="Языки/Python/Библиотеки/Информация/textwrap.md">
         📄 textwrap
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/datetime.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/datetime.md');" vpath="Языки/Python/Библиотеки/Информация/datetime.md">
         📄 datetime
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/decimal.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/decimal.md');" vpath="Языки/Python/Библиотеки/Информация/decimal.md">
         📄 decimal
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/fractions.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/fractions.md');" vpath="Языки/Python/Библиотеки/Информация/fractions.md">
         📄 fractions
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/difflib.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/difflib.md');" vpath="Языки/Python/Библиотеки/Информация/difflib.md">
         📄 difflib
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/random.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/random.md');" vpath="Языки/Python/Библиотеки/Информация/random.md">
         📄 random
        </button>
-       <button class="button" onclick="showText(PILa4ad0f5a0fac47be2fdf3244873a5c30);">
+       <button class="button" kpath="Языки/Python/Библиотеки/Информация/PIL" onclick="toggleDisplay(PIL0a525e34202be0fc6fb897d46a00f103);">
         📂 PIL
        </button>
-       <div class="button-folder" id="PILa4ad0f5a0fac47be2fdf3244873a5c30" style="display:none;">
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/PIL/ImageDraw.Draw.md');">
+       <div class="button-folder" id="PIL0a525e34202be0fc6fb897d46a00f103" style="display:none;">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/PIL/ImageDraw.Draw.md');" vpath="Языки/Python/Библиотеки/Информация/PIL/ImageDraw.Draw.md">
          📄 ImageDraw.Draw
         </button>
        </div>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/aalib.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/aalib.md');" vpath="Языки/Python/Библиотеки/Информация/aalib.md">
         📄 aalib
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/argparse.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/argparse.md');" vpath="Языки/Python/Библиотеки/Информация/argparse.md">
         📄 argparse
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/bz2.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/bz2.md');" vpath="Языки/Python/Библиотеки/Информация/bz2.md">
         📄 bz2
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/cycler.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/cycler.md');" vpath="Языки/Python/Библиотеки/Информация/cycler.md">
         📄 cycler
        </button>
       </div>
-      <button class="button" onclick="showText(Python948a3c6bc82252fa4594957fd35fb764);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Python" onclick="toggleDisplay(Pythone90c206a1054c89d753f911cb36e7fa5);">
        📂 Python
       </button>
-      <div class="button-folder" id="Python948a3c6bc82252fa4594957fd35fb764" style="display:none;">
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/logging.md');">
+      <div class="button-folder" id="Pythone90c206a1054c89d753f911cb36e7fa5" style="display:none;">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/logging.md');" vpath="Языки/Python/Библиотеки/Python/logging.md">
         📄 logging
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/itertools.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/itertools.md');" vpath="Языки/Python/Библиотеки/Python/itertools.md">
         📄 itertools
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/collections.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/collections.md');" vpath="Языки/Python/Библиотеки/Python/collections.md">
         📄 collections
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/functools.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/functools.md');" vpath="Языки/Python/Библиотеки/Python/functools.md">
         📄 functools
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/contextlib.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/contextlib.md');" vpath="Языки/Python/Библиотеки/Python/contextlib.md">
         📄 contextlib
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/setuptools.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/setuptools.md');" vpath="Языки/Python/Библиотеки/Python/setuptools.md">
         📄 setuptools
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/tabnanny.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/tabnanny.md');" vpath="Языки/Python/Библиотеки/Python/tabnanny.md">
         📄 tabnanny
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/atexit.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/atexit.md');" vpath="Языки/Python/Библиотеки/Python/atexit.md">
         📄 atexit
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/queue.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/queue.md');" vpath="Языки/Python/Библиотеки/Python/queue.md">
         📄 queue
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/pstats.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/pstats.md');" vpath="Языки/Python/Библиотеки/Python/pstats.md">
         📄 pstats
        </button>
-       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/cachetools.md');">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/cachetools.md');" vpath="Языки/Python/Библиотеки/Python/cachetools.md">
         📄 cachetools
        </button>
       </div>
-      <button class="button" onclick="showText(Вебf8d815b860e0e9fdbd28c9972d606d22);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Веб" onclick="toggleDisplay(Веб30b813796952eef647ed7f562e0fab35);">
        📂 Веб
       </button>
-      <div class="button-folder" id="Вебf8d815b860e0e9fdbd28c9972d606d22" style="display:none;">
-       <button class="button" onclick="showText(Djangoda56718db81cd9f94b72f6ff413e52cf);">
+      <div class="button-folder" id="Веб30b813796952eef647ed7f562e0fab35" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Django" onclick="toggleDisplay(Django935d015cc19738c41ace5f54495a06a7);">
         📂 Django
        </button>
-       <div class="button-folder" id="Djangoda56718db81cd9f94b72f6ff413e52cf" style="display:none;">
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Django/Команды.md');">
+       <div class="button-folder" id="Django935d015cc19738c41ace5f54495a06a7" style="display:none;">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Django/Команды.md');" vpath="Языки/Python/Библиотеки/Веб/Django/Команды.md">
          📄 Команды
         </button>
        </div>
-       <button class="button" onclick="showText(Flaskd3ef96c71d8cd6111d5e54f91568890a);">
+       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Flask" onclick="toggleDisplay(Flaskc4a063158a39383f9188fab9a5e98fd0);">
         📂 Flask
        </button>
-       <div class="button-folder" id="Flaskd3ef96c71d8cd6111d5e54f91568890a" style="display:none;">
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Flask/Типы переменных.md');">
+       <div class="button-folder" id="Flaskc4a063158a39383f9188fab9a5e98fd0" style="display:none;">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Flask/Типы переменных.md');" vpath="Языки/Python/Библиотеки/Веб/Flask/Типы переменных.md">
          📄 Типы переменных
         </button>
        </div>
       </div>
      </div>
-     <button class="button" onclick="showText(Методы85f9fac896f345703334e78286079107);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методыc6b4146e3cada4fc57f65140498364c0);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методы85f9fac896f345703334e78286079107" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/Методы/int.md');">
+     <div class="button-folder" id="Методыc6b4146e3cada4fc57f65140498364c0" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/Методы/int.md');" vpath="Языки/Python/Методы/int.md">
        📄 int
       </button>
-      <button class="button" onclick="GET('Языки/Python/Методы/str.md');">
+      <button class="button" onclick="GET('Языки/Python/Методы/str.md');" vpath="Языки/Python/Методы/str.md">
        📄 str
       </button>
-      <button class="button" onclick="GET('Языки/Python/Методы/list.md');">
+      <button class="button" onclick="GET('Языки/Python/Методы/list.md');" vpath="Языки/Python/Методы/list.md">
        📄 list
       </button>
-      <button class="button" onclick="GET('Языки/Python/Методы/dict.md');">
+      <button class="button" onclick="GET('Языки/Python/Методы/dict.md');" vpath="Языки/Python/Методы/dict.md">
        📄 dict
       </button>
-      <button class="button" onclick="GET('Языки/Python/Методы/set.md');">
+      <button class="button" onclick="GET('Языки/Python/Методы/set.md');" vpath="Языки/Python/Методы/set.md">
        📄 set
       </button>
      </div>
-     <button class="button" onclick="showText(Магическиеметоды8aac45df4197a7a52eabdcd54ff10833);">
+     <button class="button" kpath="Языки/Python/Магические методы" onclick="toggleDisplay(Магическиеметоды4ca02e5dbe06d65ec8e5c469e8104fa1);">
       📂 Магические методы
      </button>
-     <div class="button-folder" id="Магическиеметоды8aac45df4197a7a52eabdcd54ff10833" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Table.md');">
+     <div class="button-folder" id="Магическиеметоды4ca02e5dbe06d65ec8e5c469e8104fa1" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Table.md');" vpath="Языки/Python/Магические методы/Table.md">
        📄 Table
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Кратко о использовании.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Кратко о использовании.md');" vpath="Языки/Python/Магические методы/Кратко о использовании.md">
        📄 Кратко о использовании
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Сlass.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Сlass.md');" vpath="Языки/Python/Магические методы/Сlass.md">
        📄 Сlass
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Сравнения.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Сравнения.md');" vpath="Языки/Python/Магические методы/Сравнения.md">
        📄 Сравнения
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Унарные операторы.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Унарные операторы.md');" vpath="Языки/Python/Магические методы/Унарные операторы.md">
        📄 Унарные операторы
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Преобразование типов.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Преобразование типов.md');" vpath="Языки/Python/Магические методы/Преобразование типов.md">
        📄 Преобразование типов
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Контроль доступа к атрибутам.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Контроль доступа к атрибутам.md');" vpath="Языки/Python/Магические методы/Контроль доступа к атрибутам.md">
        📄 Контроль доступа к атрибутам
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Магия контейнеров.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Магия контейнеров.md');" vpath="Языки/Python/Магические методы/Магия контейнеров.md">
        📄 Магия контейнеров
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/isinstance().md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/isinstance().md');" vpath="Языки/Python/Магические методы/isinstance().md">
        📄 isinstance()
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Вызываемые объекты.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Вызываемые объекты.md');" vpath="Языки/Python/Магические методы/Вызываемые объекты.md">
        📄 Вызываемые объекты
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Менеджеры контекста.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Менеджеры контекста.md');" vpath="Языки/Python/Магические методы/Менеджеры контекста.md">
        📄 Менеджеры контекста
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Построение дескрипторов.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Построение дескрипторов.md');" vpath="Языки/Python/Магические методы/Построение дескрипторов.md">
        📄 Построение дескрипторов
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Копирование.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Копирование.md');" vpath="Языки/Python/Магические методы/Копирование.md">
        📄 Копирование
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Ещё.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/Ещё.md');" vpath="Языки/Python/Магические методы/Ещё.md">
        📄 Ещё
       </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/tproger.ru.md');">
+      <button class="button" onclick="GET('Языки/Python/Магические методы/tproger.ru.md');" vpath="Языки/Python/Магические методы/tproger.ru.md">
        📄 tproger.ru
       </button>
      </div>
-     <button class="button" onclick="showText(ДекораторыЗамыкания862dfe20475da9faae1466cca84002b7);">
+     <button class="button" kpath="Языки/Python/Декораторы Замыкания" onclick="toggleDisplay(ДекораторыЗамыканияaeff69777d5092d636ff75edfeeb419b);">
       📂 Декораторы Замыкания
      </button>
-     <div class="button-folder" id="ДекораторыЗамыкания862dfe20475da9faae1466cca84002b7" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md');">
+     <div class="button-folder" id="ДекораторыЗамыканияaeff69777d5092d636ff75edfeeb419b" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md');" vpath="Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md">
        📄 Декораторы Замыкания
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Аргументы dataclass.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Аргументы dataclass.md');" vpath="Языки/Python/Декораторы Замыкания/Аргументы dataclass.md">
        📄 Аргументы dataclass
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/property.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/property.md');" vpath="Языки/Python/Декораторы Замыкания/property.md">
        📄 property
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/cached_property.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/cached_property.md');" vpath="Языки/Python/Декораторы Замыкания/cached_property.md">
        📄 cached_property
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/staticmethod.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/staticmethod.md');" vpath="Языки/Python/Декораторы Замыкания/staticmethod.md">
        📄 staticmethod
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/overload.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/overload.md');" vpath="Языки/Python/Декораторы Замыкания/overload.md">
        📄 overload
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/final.md');">
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/final.md');" vpath="Языки/Python/Декораторы Замыкания/final.md">
        📄 final
       </button>
      </div>
-     <button class="button" onclick="showText(pipf52ed3ed5a4266ece47c4e23039ed211);">
+     <button class="button" kpath="Языки/Python/pip" onclick="toggleDisplay(pip1cf953a1d9f6a0d17558122978783bdd);">
       📂 pip
      </button>
-     <div class="button-folder" id="pipf52ed3ed5a4266ece47c4e23039ed211" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/pip/pip.md');">
+     <div class="button-folder" id="pip1cf953a1d9f6a0d17558122978783bdd" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/pip/pip.md');" vpath="Языки/Python/pip/pip.md">
        📄 pip
       </button>
-      <button class="button" onclick="GET('Языки/Python/pip/requirements.txt.md');">
+      <button class="button" onclick="GET('Языки/Python/pip/requirements.txt.md');" vpath="Языки/Python/pip/requirements.txt.md">
        📄 requirements.txt
       </button>
      </div>
-     <button class="button" onclick="GET('Языки/Python/IPython.md');">
+     <button class="button" onclick="GET('Языки/Python/IPython.md');" vpath="Языки/Python/IPython.md">
       📄 IPython
      </button>
-     <button class="button" onclick="GET('Языки/Python/Флаги cmd.md');">
+     <button class="button" onclick="GET('Языки/Python/Флаги cmd.md');" vpath="Языки/Python/Флаги cmd.md">
       📄 Флаги cmd
      </button>
-     <button class="button" onclick="GET('Языки/Python/with as.md');">
+     <button class="button" onclick="GET('Языки/Python/with as.md');" vpath="Языки/Python/with as.md">
       📄 with as
      </button>
-     <button class="button" onclick="GET('Языки/Python/fstrings.md');">
+     <button class="button" onclick="GET('Языки/Python/fstrings.md');" vpath="Языки/Python/fstrings.md">
       📄 fstrings
      </button>
-     <button class="button" onclick="GET('Языки/Python/print(file=).md');">
+     <button class="button" onclick="GET('Языки/Python/print(file=).md');" vpath="Языки/Python/print(file=).md">
       📄 print(file=)
      </button>
-     <button class="button" onclick="GET('Языки/Python/for in list comprehension.md');">
+     <button class="button" onclick="GET('Языки/Python/for in list comprehension.md');" vpath="Языки/Python/for in list comprehension.md">
       📄 for in list comprehension
      </button>
-     <button class="button" onclick="GET('Языки/Python/Умножение списков.md');">
+     <button class="button" onclick="GET('Языки/Python/Умножение списков.md');" vpath="Языки/Python/Умножение списков.md">
       📄 Умножение списков
      </button>
-     <button class="button" onclick="GET('Языки/Python/yield from.md');">
+     <button class="button" onclick="GET('Языки/Python/yield from.md');" vpath="Языки/Python/yield from.md">
       📄 yield from
      </button>
-     <button class="button" onclick="GET('Языки/Python/import.md');">
+     <button class="button" onclick="GET('Языки/Python/import.md');" vpath="Языки/Python/import.md">
       📄 import
      </button>
-     <button class="button" onclick="GET('Языки/Python/Встроенные функции.md');">
+     <button class="button" onclick="GET('Языки/Python/Встроенные функции.md');" vpath="Языки/Python/Встроенные функции.md">
       📄 Встроенные функции
      </button>
-     <button class="button" onclick="GET('Языки/Python/Аннотации типов.md');">
+     <button class="button" onclick="GET('Языки/Python/Аннотации типов.md');" vpath="Языки/Python/Аннотации типов.md">
       📄 Аннотации типов
      </button>
     </div>
-    <button class="button" onclick="showText(SQL626955a4f5cf72f99e8ae2a9e0b6d667);">
+    <button class="button" kpath="Языки/SQL" onclick="toggleDisplay(SQL0aa3ea3c77da47bb8726937fce1799e4);">
      📂 SQL
     </button>
-    <div class="button-folder" id="SQL626955a4f5cf72f99e8ae2a9e0b6d667" style="display:none;">
-     <button class="button" onclick="GET('Языки/SQL/Разное.md');">
+    <div class="button-folder" id="SQL0aa3ea3c77da47bb8726937fce1799e4" style="display:none;">
+     <button class="button" onclick="GET('Языки/SQL/Разное.md');" vpath="Языки/SQL/Разное.md">
       📄 Разное
      </button>
-     <button class="button" onclick="GET('Языки/SQL/JOIN.md');">
+     <button class="button" onclick="GET('Языки/SQL/JOIN.md');" vpath="Языки/SQL/JOIN.md">
       📄 JOIN
      </button>
-     <button class="button" onclick="GET('Языки/SQL/Операторы.md');">
+     <button class="button" onclick="GET('Языки/SQL/Операторы.md');" vpath="Языки/SQL/Операторы.md">
       📄 Операторы
      </button>
-     <button class="button" onclick="GET('Языки/SQL/Функции.md');">
+     <button class="button" onclick="GET('Языки/SQL/Функции.md');" vpath="Языки/SQL/Функции.md">
       📄 Функции
      </button>
-     <button class="button" onclick="GET('Языки/SQL/Картинки.md');">
+     <button class="button" onclick="GET('Языки/SQL/Картинки.md');" vpath="Языки/SQL/Картинки.md">
       📄 Картинки
      </button>
-     <button class="button" onclick="GET('Языки/SQL/SQLite3 Date And Time Format.md');">
+     <button class="button" onclick="GET('Языки/SQL/SQLite3 Date And Time Format.md');" vpath="Языки/SQL/SQLite3 Date And Time Format.md">
       📄 SQLite3 Date And Time Format
      </button>
     </div>
-    <button class="button" onclick="showText(RegExp9e2451fbff6b1943c4c599a31cb19b59);">
+    <button class="button" kpath="Языки/RegExp" onclick="toggleDisplay(RegExp7f8c29237610effd82527fbad04a4adb);">
      📂 RegExp
     </button>
-    <div class="button-folder" id="RegExp9e2451fbff6b1943c4c599a31cb19b59" style="display:none;">
-     <button class="button" onclick="GET('Языки/RegExp/RegExp.md');">
+    <div class="button-folder" id="RegExp7f8c29237610effd82527fbad04a4adb" style="display:none;">
+     <button class="button" onclick="GET('Языки/RegExp/RegExp.md');" vpath="Языки/RegExp/RegExp.md">
       📄 RegExp
      </button>
-     <button class="button" onclick="GET('Языки/RegExp/images.md');">
+     <button class="button" onclick="GET('Языки/RegExp/images.md');" vpath="Языки/RegExp/images.md">
       📄 images
      </button>
     </div>
-    <button class="button" onclick="showText(Dockerfile6c02c1807f27359fd9dfcad3c0d874cc);">
+    <button class="button" kpath="Языки/Dockerfile" onclick="toggleDisplay(Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861);">
      📂 Dockerfile
     </button>
-    <div class="button-folder" id="Dockerfile6c02c1807f27359fd9dfcad3c0d874cc" style="display:none;">
-     <button class="button" onclick="GET('Языки/Dockerfile/Dockerfile.md');">
+    <div class="button-folder" id="Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861" style="display:none;">
+     <button class="button" onclick="GET('Языки/Dockerfile/Dockerfile.md');" vpath="Языки/Dockerfile/Dockerfile.md">
       📄 Dockerfile
      </button>
-     <button class="button" onclick="GET('Языки/Dockerfile/RUN mkdir -p.md');">
+     <button class="button" onclick="GET('Языки/Dockerfile/RUN mkdir -p.md');" vpath="Языки/Dockerfile/RUN mkdir -p.md">
       📄 RUN mkdir -p
      </button>
     </div>
-    <button class="button" onclick="showText(JavaScript89264fcf9fd13866717111c8bf86f8bc);">
+    <button class="button" kpath="Языки/JavaScript" onclick="toggleDisplay(JavaScriptbce5a53026db8b9651b6a15ff0279234);">
      📂 JavaScript
     </button>
-    <div class="button-folder" id="JavaScript89264fcf9fd13866717111c8bf86f8bc" style="display:none;">
-     <button class="button" onclick="GET('Языки/JavaScript/Списки.md');">
+    <div class="button-folder" id="JavaScriptbce5a53026db8b9651b6a15ff0279234" style="display:none;">
+     <button class="button" onclick="GET('Языки/JavaScript/Списки.md');" vpath="Языки/JavaScript/Списки.md">
       📄 Списки
      </button>
-     <button class="button" onclick="GET('Языки/JavaScript/for.md');">
+     <button class="button" onclick="GET('Языки/JavaScript/for.md');" vpath="Языки/JavaScript/for.md">
       📄 for
      </button>
-     <button class="button" onclick="GET('Языки/JavaScript/handlebar.md');">
+     <button class="button" onclick="GET('Языки/JavaScript/handlebar.md');" vpath="Языки/JavaScript/handlebar.md">
       📄 handlebar
      </button>
-     <button class="button" onclick="GET('Языки/JavaScript/Переменные.md');">
+     <button class="button" onclick="GET('Языки/JavaScript/Переменные.md');" vpath="Языки/JavaScript/Переменные.md">
       📄 Переменные
      </button>
     </div>
-    <button class="button" onclick="showText(CSSaa60ccee5215e503609abce701c3d0f8);">
+    <button class="button" kpath="Языки/CSS" onclick="toggleDisplay(CSS2a64628ef446eb7eb5f3c4f2d02d5e58);">
      📂 CSS
     </button>
-    <div class="button-folder" id="CSSaa60ccee5215e503609abce701c3d0f8" style="display:none;">
-     <button class="button" onclick="showText(csstext906f8bfe0cb390f8ed02cc8909d36b65);">
+    <div class="button-folder" id="CSS2a64628ef446eb7eb5f3c4f2d02d5e58" style="display:none;">
+     <button class="button" kpath="Языки/CSS/css-text" onclick="toggleDisplay(csstextcc8299a7e016041091baf07134e762d1);">
       📂 css-text
      </button>
-     <div class="button-folder" id="csstext906f8bfe0cb390f8ed02cc8909d36b65" style="display:none;">
-      <button class="button" onclick="GET('Языки/CSS/css-text/Backgrounds.md');">
+     <div class="button-folder" id="csstextcc8299a7e016041091baf07134e762d1" style="display:none;">
+      <button class="button" onclick="GET('Языки/CSS/css-text/Backgrounds.md');" vpath="Языки/CSS/css-text/Backgrounds.md">
        📄 Backgrounds
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/Border.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/Border.md');" vpath="Языки/CSS/css-text/Border.md">
        📄 Border
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/table.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/table.md');" vpath="Языки/CSS/css-text/table.md">
        📄 table
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/boxmodel.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/boxmodel.md');" vpath="Языки/CSS/css-text/boxmodel.md">
        📄 boxmodel
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/font.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/font.md');" vpath="Языки/CSS/css-text/font.md">
        📄 font
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/text.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/text.md');" vpath="Языки/CSS/css-text/text.md">
        📄 text
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/color_angles_time_frequency.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/color_angles_time_frequency.md');" vpath="Языки/CSS/css-text/color_angles_time_frequency.md">
        📄 color_angles_time_frequency
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/animations.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/animations.md');" vpath="Языки/CSS/css-text/animations.md">
        📄 animations
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/speech.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/speech.md');" vpath="Языки/CSS/css-text/speech.md">
        📄 speech
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/transitions.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/transitions.md');" vpath="Языки/CSS/css-text/transitions.md">
        📄 transitions
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/ui.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/ui.md');" vpath="Языки/CSS/css-text/ui.md">
        📄 ui
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/column.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/column.md');" vpath="Языки/CSS/css-text/column.md">
        📄 column
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/list and markers.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/list and markers.md');" vpath="Языки/CSS/css-text/list and markers.md">
        📄 list and markers
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/absolute measurement.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/absolute measurement.md');" vpath="Языки/CSS/css-text/absolute measurement.md">
        📄 absolute measurement
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/pseudo element.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/pseudo element.md');" vpath="Языки/CSS/css-text/pseudo element.md">
        📄 pseudo element
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/pseudo class.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/pseudo class.md');" vpath="Языки/CSS/css-text/pseudo class.md">
        📄 pseudo class
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/colors.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/colors.md');" vpath="Языки/CSS/css-text/colors.md">
        📄 colors
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/outlin.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/outlin.md');" vpath="Языки/CSS/css-text/outlin.md">
        📄 outlin
       </button>
-      <button class="button" onclick="GET('Языки/CSS/css-text/relative measurement.md');">
+      <button class="button" onclick="GET('Языки/CSS/css-text/relative measurement.md');" vpath="Языки/CSS/css-text/relative measurement.md">
        📄 relative measurement
       </button>
      </div>
-     <button class="button" onclick="GET('Языки/CSS/css-img.md');">
+     <button class="button" onclick="GET('Языки/CSS/css-img.md');" vpath="Языки/CSS/css-img.md">
       📄 css-img
      </button>
-     <button class="button" onclick="GET('Языки/CSS/Селекторы.md');">
+     <button class="button" onclick="GET('Языки/CSS/Селекторы.md');" vpath="Языки/CSS/Селекторы.md">
       📄 Селекторы
      </button>
-     <button class="button" onclick="GET('Языки/CSS/Единицы измерения.md');">
+     <button class="button" onclick="GET('Языки/CSS/Единицы измерения.md');" vpath="Языки/CSS/Единицы измерения.md">
       📄 Единицы измерения
      </button>
     </div>
-    <button class="button" onclick="showText(HTML75db7e73ef78412a78c3e837a89ec66d);">
+    <button class="button" kpath="Языки/HTML" onclick="toggleDisplay(HTMLf023e136dda7232a861985be99f47d7b);">
      📂 HTML
     </button>
-    <div class="button-folder" id="HTML75db7e73ef78412a78c3e837a89ec66d" style="display:none;">
-     <button class="button" onclick="GET('Языки/HTML/Теги.md');">
+    <div class="button-folder" id="HTMLf023e136dda7232a861985be99f47d7b" style="display:none;">
+     <button class="button" onclick="GET('Языки/HTML/Теги.md');" vpath="Языки/HTML/Теги.md">
       📄 Теги
      </button>
-     <button class="button" onclick="GET('Языки/HTML/Символы и экранирование.md');">
+     <button class="button" onclick="GET('Языки/HTML/Символы и экранирование.md');" vpath="Языки/HTML/Символы и экранирование.md">
       📄 Символы и экранирование
      </button>
-     <button class="button" onclick="GET('Языки/HTML/tag input.md');">
+     <button class="button" onclick="GET('Языки/HTML/tag input.md');" vpath="Языки/HTML/tag input.md">
       📄 tag input
      </button>
-     <button class="button" onclick="showText(Xpathfe3d888901793af359c1aa4d7f01aca3);">
+     <button class="button" kpath="Языки/HTML/Xpath" onclick="toggleDisplay(Xpath4cb7e330fd672d41bbb31b081297fc76);">
       📂 Xpath
      </button>
-     <div class="button-folder" id="Xpathfe3d888901793af359c1aa4d7f01aca3" style="display:none;">
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Link.md');">
+     <div class="button-folder" id="Xpath4cb7e330fd672d41bbb31b081297fc76" style="display:none;">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Link.md');" vpath="Языки/HTML/Xpath/Link.md">
        📄 Link
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Selectors.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Selectors.md');" vpath="Языки/HTML/Xpath/Selectors.md">
        📄 Selectors
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Expressions.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Expressions.md');" vpath="Языки/HTML/Xpath/Expressions.md">
        📄 Expressions
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Predicates.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Predicates.md');" vpath="Языки/HTML/Xpath/Predicates.md">
        📄 Predicates
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Functions.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Functions.md');" vpath="Языки/HTML/Xpath/Functions.md">
        📄 Functions
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/Axes.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/Axes.md');" vpath="Языки/HTML/Xpath/Axes.md">
        📄 Axes
       </button>
-      <button class="button" onclick="GET('Языки/HTML/Xpath/More examples.md');">
+      <button class="button" onclick="GET('Языки/HTML/Xpath/More examples.md');" vpath="Языки/HTML/Xpath/More examples.md">
        📄 More examples
       </button>
      </div>
     </div>
-    <button class="button" onclick="showText(Cpp9c76afe0926efc7efa1176463afd58e1);">
+    <button class="button" kpath="Языки/Cpp" onclick="toggleDisplay(Cpp5ae02da3a72644bc4e5e848cd84b2534);">
      📂 Cpp
     </button>
-    <div class="button-folder" id="Cpp9c76afe0926efc7efa1176463afd58e1" style="display:none;">
-     <button class="button" onclick="GET('Языки/Cpp/Типы данных.md');">
+    <div class="button-folder" id="Cpp5ae02da3a72644bc4e5e848cd84b2534" style="display:none;">
+     <button class="button" onclick="GET('Языки/Cpp/Типы данных.md');" vpath="Языки/Cpp/Типы данных.md">
       📄 Типы данных
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/if-else,switch-case.md');">
+     <button class="button" onclick="GET('Языки/Cpp/if-else,switch-case.md');" vpath="Языки/Cpp/if-else,switch-case.md">
       📄 if-else,switch-case
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/rand.md');">
+     <button class="button" onclick="GET('Языки/Cpp/rand.md');" vpath="Языки/Cpp/rand.md">
       📄 rand
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Циклы.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Циклы.md');" vpath="Языки/Cpp/Циклы.md">
       📄 Циклы
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/try-catch.md');">
+     <button class="button" onclick="GET('Языки/Cpp/try-catch.md');" vpath="Языки/Cpp/try-catch.md">
       📄 try-catch
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Массивы.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Массивы.md');" vpath="Языки/Cpp/Массивы.md">
       📄 Массивы
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Указатели.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Указатели.md');" vpath="Языки/Cpp/Указатели.md">
       📄 Указатели
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Динамические массивы.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Динамические массивы.md');" vpath="Языки/Cpp/Динамические массивы.md">
       📄 Динамические массивы
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Символы и строки.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Символы и строки.md');" vpath="Языки/Cpp/Символы и строки.md">
       📄 Символы и строки
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Структуры данных.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Структуры данных.md');" vpath="Языки/Cpp/Структуры данных.md">
       📄 Структуры данных
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Перечисления (Enum).md');">
+     <button class="button" onclick="GET('Языки/Cpp/Перечисления (Enum).md');" vpath="Языки/Cpp/Перечисления (Enum).md">
       📄 Перечисления (Enum)
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Работа с файлами.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Работа с файлами.md');" vpath="Языки/Cpp/Работа с файлами.md">
       📄 Работа с файлами
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Функции.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Функции.md');" vpath="Языки/Cpp/Функции.md">
       📄 Функции
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Перегрузка функций.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Перегрузка функций.md');" vpath="Языки/Cpp/Перегрузка функций.md">
       📄 Перегрузка функций
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Математические операции.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Математические операции.md');" vpath="Языки/Cpp/Математические операции.md">
       📄 Математические операции
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/(Введение в ООП) Классы и объекты.md');">
+     <button class="button" onclick="GET('Языки/Cpp/(Введение в ООП) Классы и объекты.md');" vpath="Языки/Cpp/(Введение в ООП) Классы и объекты.md">
       📄 (Введение в ООП) Классы и объекты
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Конструкторы и деструкторы.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Конструкторы и деструкторы.md');" vpath="Языки/Cpp/Конструкторы и деструкторы.md">
       📄 Конструкторы и деструкторы
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/20 Дружественные функции.md');">
+     <button class="button" onclick="GET('Языки/Cpp/20 Дружественные функции.md');" vpath="Языки/Cpp/20 Дружественные функции.md">
       📄 20 Дружественные функции
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Дружественные классы.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Дружественные классы.md');" vpath="Языки/Cpp/Дружественные классы.md">
       📄 Дружественные классы
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Указатель this.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Указатель this.md');" vpath="Языки/Cpp/Указатель this.md">
       📄 Указатель this
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Наследование классов (ООП).md');">
+     <button class="button" onclick="GET('Языки/Cpp/Наследование классов (ООП).md');" vpath="Языки/Cpp/Наследование классов (ООП).md">
       📄 Наследование классов (ООП)
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Шаблоны функций (template).md');">
+     <button class="button" onclick="GET('Языки/Cpp/Шаблоны функций (template).md');" vpath="Языки/Cpp/Шаблоны функций (template).md">
       📄 Шаблоны функций (template)
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Шаблоны классов.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Шаблоны классов.md');" vpath="Языки/Cpp/Шаблоны классов.md">
       📄 Шаблоны классов
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/end.md');">
+     <button class="button" onclick="GET('Языки/Cpp/end.md');" vpath="Языки/Cpp/end.md">
       📄 end
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/ChatGPT.md');">
+     <button class="button" onclick="GET('Языки/Cpp/ChatGPT.md');" vpath="Языки/Cpp/ChatGPT.md">
       📄 ChatGPT
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Разное.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Разное.md');" vpath="Языки/Cpp/Разное.md">
       📄 Разное
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Операции над числами.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Операции над числами.md');" vpath="Языки/Cpp/Операции над числами.md">
       📄 Операции над числами
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/for while.md');">
+     <button class="button" onclick="GET('Языки/Cpp/for while.md');" vpath="Языки/Cpp/for while.md">
       📄 for while
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Массив.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Массив.md');" vpath="Языки/Cpp/Массив.md">
       📄 Массив
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Строка.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Строка.md');" vpath="Языки/Cpp/Строка.md">
       📄 Строка
      </button>
-     <button class="button" onclick="GET('Языки/Cpp/Указатели2.md');">
+     <button class="button" onclick="GET('Языки/Cpp/Указатели2.md');" vpath="Языки/Cpp/Указатели2.md">
       📄 Указатели2
      </button>
     </div>
-    <button class="button" onclick="showText(Java5afd5c976f2c0fda9b766816998b5321);">
+    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Javab73f7d390a67bc62ced540d07fa7a53a);">
      📂 Java
     </button>
-    <div class="button-folder" id="Java5afd5c976f2c0fda9b766816998b5321" style="display:none;">
-     <button class="button" onclick="showText(Запускf90c8b0b73366f2762b4ad2b5659ed36);">
+    <div class="button-folder" id="Javab73f7d390a67bc62ced540d07fa7a53a" style="display:none;">
+     <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(Запуск657afb1d3dc98f0425bdf1f6d3dda45a);">
       📂 Запуск
      </button>
-     <div class="button-folder" id="Запускf90c8b0b73366f2762b4ad2b5659ed36" style="display:none;">
-      <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');">
+     <div class="button-folder" id="Запуск657afb1d3dc98f0425bdf1f6d3dda45a" style="display:none;">
+      <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');" vpath="Языки/Java/Запуск/Запуск.md">
        📄 Запуск
       </button>
-      <button class="button" onclick="GET('Языки/Java/Запуск/Аргументы.md');">
+      <button class="button" onclick="GET('Языки/Java/Запуск/Аргументы.md');" vpath="Языки/Java/Запуск/Аргументы.md">
        📄 Аргументы
       </button>
      </div>
-     <button class="button" onclick="GET('Языки/Java/Типы данных.md');">
+     <button class="button" onclick="GET('Языки/Java/Типы данных.md');" vpath="Языки/Java/Типы данных.md">
       📄 Типы данных
      </button>
-     <button class="button" onclick="GET('Языки/Java/Логические операторы.md');">
+     <button class="button" onclick="GET('Языки/Java/Логические операторы.md');" vpath="Языки/Java/Логические операторы.md">
       📄 Логические операторы
      </button>
-     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');">
+     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
       📄 Массив (Array)
      </button>
-     <button class="button" onclick="GET('Языки/Java/Циклы.md');">
+     <button class="button" onclick="GET('Языки/Java/Циклы.md');" vpath="Языки/Java/Циклы.md">
       📄 Циклы
      </button>
-     <button class="button" onclick="showText(Классы17e0c35533ed2ebf8556498e1c0d4712);">
+     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы9bf82a34881a101aab3b87b446c96ef0);">
       📂 Классы
      </button>
-     <div class="button-folder" id="Классы17e0c35533ed2ebf8556498e1c0d4712" style="display:none;">
-      <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');">
+     <div class="button-folder" id="Классы9bf82a34881a101aab3b87b446c96ef0" style="display:none;">
+      <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
        📄 Объекты, конструкторы
       </button>
-      <button class="button" onclick="showText(Методы2d5a77628a67284a642b72c53415d0da);">
+      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыa9569c9bde1b751628558ba28540514d);">
        📂 Методы
       </button>
-      <div class="button-folder" id="Методы2d5a77628a67284a642b72c53415d0da" style="display:none;">
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');">
+      <div class="button-folder" id="Методыa9569c9bde1b751628558ba28540514d" style="display:none;">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
         📄 Методы
        </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы 2.md');">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы 2.md');" vpath="Языки/Java/Классы/Методы/Методы 2.md">
         📄 Методы 2
        </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Не статические методы.md');">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Не статические методы.md');" vpath="Языки/Java/Классы/Методы/Не статические методы.md">
         📄 Не статические методы
        </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Перегруженные методы.md');">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Перегруженные методы.md');" vpath="Языки/Java/Классы/Методы/Перегруженные методы.md">
         📄 Перегруженные методы
        </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Переопределение методов.md');">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Переопределение методов.md');" vpath="Языки/Java/Классы/Методы/Переопределение методов.md">
         📄 Переопределение методов
        </button>
       </div>
-      <button class="button" onclick="GET('Языки/Java/Классы/Наследование.md');">
+      <button class="button" onclick="GET('Языки/Java/Классы/Наследование.md');" vpath="Языки/Java/Классы/Наследование.md">
        📄 Наследование
       </button>
      </div>
-     <button class="button" onclick="GET('Языки/Java/Исключения.md');">
+     <button class="button" onclick="GET('Языки/Java/Исключения.md');" vpath="Языки/Java/Исключения.md">
       📄 Исключения
      </button>
     </div>
-    <button class="button" onclick="showText(Bash3c3bcea37e940017c83ce44660aa4748);">
+    <button class="button" kpath="Языки/Bash" onclick="toggleDisplay(Bash97893f28eabb962cdc73fe862ae496c3);">
      📂 Bash
     </button>
-    <div class="button-folder" id="Bash3c3bcea37e940017c83ce44660aa4748" style="display:none;">
-     <button class="button" onclick="GET('Языки/Bash/help.md');">
+    <div class="button-folder" id="Bash97893f28eabb962cdc73fe862ae496c3" style="display:none;">
+     <button class="button" onclick="GET('Языки/Bash/help.md');" vpath="Языки/Bash/help.md">
       📄 help
      </button>
-     <button class="button" onclick="GET('Языки/Bash/Переменные окружения.md');">
+     <button class="button" onclick="GET('Языки/Bash/Переменные окружения.md');" vpath="Языки/Bash/Переменные окружения.md">
       📄 Переменные окружения
      </button>
     </div>
-    <button class="button" onclick="showText(LaTexcb57e90ca395f91af18db22b530cfc48);">
+    <button class="button" kpath="Языки/LaTex" onclick="toggleDisplay(LaTex4a3a5aa37c41f096933e17d1ddbdff23);">
      📂 LaTex
     </button>
-    <div class="button-folder" id="LaTexcb57e90ca395f91af18db22b530cfc48" style="display:none;">
-     <button class="button" onclick="GET('Языки/LaTex/Элементы.md');">
+    <div class="button-folder" id="LaTex4a3a5aa37c41f096933e17d1ddbdff23" style="display:none;">
+     <button class="button" onclick="GET('Языки/LaTex/Элементы.md');" vpath="Языки/LaTex/Элементы.md">
       📄 Элементы
      </button>
     </div>
    </div>
-   <button class="button" onclick="showText(Другое2cb08c3fd90ef96747e3742fb725e55a);">
+   <button class="button" kpath="Другое" onclick="toggleDisplay(Другое8992cb50df879f553838ca59a324fd7c);">
     📂 Другое
    </button>
-   <div class="button-folder" id="Другое2cb08c3fd90ef96747e3742fb725e55a" style="display:none;">
-    <button class="button" onclick="showText(Форматыфайловd6393b26790ae8dc520e1e6af3d0fc62);">
+   <div class="button-folder" id="Другое8992cb50df879f553838ca59a324fd7c" style="display:none;">
+    <button class="button" kpath="Другое/Форматы файлов" onclick="toggleDisplay(Форматыфайлов3a9825b6ba7a02b3e372e4fb7e25fca0);">
      📂 Форматы файлов
     </button>
-    <div class="button-folder" id="Форматыфайловd6393b26790ae8dc520e1e6af3d0fc62" style="display:none;">
-     <button class="button" onclick="GET('Другое/Форматы файлов/JSON.md');">
+    <div class="button-folder" id="Форматыфайлов3a9825b6ba7a02b3e372e4fb7e25fca0" style="display:none;">
+     <button class="button" onclick="GET('Другое/Форматы файлов/JSON.md');" vpath="Другое/Форматы файлов/JSON.md">
       📄 JSON
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/YAML.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/YAML.md');" vpath="Другое/Форматы файлов/YAML.md">
       📄 YAML
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/TOML.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/TOML.md');" vpath="Другое/Форматы файлов/TOML.md">
       📄 TOML
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/INI.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/INI.md');" vpath="Другое/Форматы файлов/INI.md">
       📄 INI
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/XML.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/XML.md');" vpath="Другое/Форматы файлов/XML.md">
       📄 XML
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/CSV.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/CSV.md');" vpath="Другое/Форматы файлов/CSV.md">
       📄 CSV
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/TSV и другие.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/TSV и другие.md');" vpath="Другое/Форматы файлов/TSV и другие.md">
       📄 TSV и другие
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/SQLite3 to CSV.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/SQLite3 to CSV.md');" vpath="Другое/Форматы файлов/SQLite3 to CSV.md">
       📄 SQLite3 to CSV
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/Vedis db.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/Vedis db.md');" vpath="Другое/Форматы файлов/Vedis db.md">
       📄 Vedis db
      </button>
-     <button class="button" onclick="GET('Другое/Форматы файлов/TinyDB.md');">
+     <button class="button" onclick="GET('Другое/Форматы файлов/TinyDB.md');" vpath="Другое/Форматы файлов/TinyDB.md">
       📄 TinyDB
      </button>
     </div>
-    <button class="button" onclick="showText(Примерырешений9ae583f6bb73ad25a7a4b4d83446492b);">
+    <button class="button" kpath="Другое/Примеры решений" onclick="toggleDisplay(Примерырешений70f507940c6c16c4c4df4d042b37dc30);">
      📂 Примеры решений
     </button>
-    <div class="button-folder" id="Примерырешений9ae583f6bb73ad25a7a4b4d83446492b" style="display:none;">
-     <button class="button" onclick="GET('Другое/Примеры решений/Пирамида граф.md');">
+    <div class="button-folder" id="Примерырешений70f507940c6c16c4c4df4d042b37dc30" style="display:none;">
+     <button class="button" onclick="GET('Другое/Примеры решений/Пирамида граф.md');" vpath="Другое/Примеры решений/Пирамида граф.md">
       📄 Пирамида граф
      </button>
-     <button class="button" onclick="GET('Другое/Примеры решений/Определитель матрицы.md');">
+     <button class="button" onclick="GET('Другое/Примеры решений/Определитель матрицы.md');" vpath="Другое/Примеры решений/Определитель матрицы.md">
       📄 Определитель матрицы
      </button>
-     <button class="button" onclick="GET('Другое/Примеры решений/Минимальное максимальное число матрицы cpp.md');">
+     <button class="button" onclick="GET('Другое/Примеры решений/Минимальное максимальное число матрицы cpp.md');" vpath="Другое/Примеры решений/Минимальное максимальное число матрицы cpp.md">
       📄 Минимальное максимальное число матрицы cpp
      </button>
     </div>
-    <button class="button" onclick="GET('Другое/Пример этой кнопки.md');">
+    <button class="button" onclick="GET('Другое/Пример этой кнопки.md');" vpath="Другое/Пример этой кнопки.md">
      📄 Пример этой кнопки
     </button>
    </div>
-   <button class="button" onclick="GET('Полезные ссылки.md');">
+   <button class="button" onclick="GET('Полезные ссылки.md');" vpath="/Полезные ссылки.md">
     📄 Полезные ссылки
    </button>
-   <button class="button" onclick="GET('test.md');">
+   <button class="button" onclick="GET('test.md');" vpath="/test.md">
     📄 test
    </button>
-   <button class="button" onclick="showText(Университетd88f644a36487f447e460866cae0bf51);">
+   <button class="button" kpath="Университет" onclick="toggleDisplay(Университет330ae5d841bad7672cd6c1489e4f6cb0);">
     📂 Университет
    </button>
-   <div class="button-folder" id="Университетd88f644a36487f447e460866cae0bf51" style="display:none;">
-    <button class="button" onclick="showText(Высшаяматематика140db2f04dd6ed40b632d1e592d5e9f6);">
+   <div class="button-folder" id="Университет330ae5d841bad7672cd6c1489e4f6cb0" style="display:none;">
+    <button class="button" kpath="Университет/Высшая математика" onclick="toggleDisplay(Высшаяматематикаb3ec2589cb57182415b2e90f75446a71);">
      📂 Высшая математика
     </button>
-    <div class="button-folder" id="Высшаяматематика140db2f04dd6ed40b632d1e592d5e9f6" style="display:none;">
-     <button class="button" onclick="showText(Матрицыfe48c87ec54ce9d36e7e6f8609ca3c41);">
+    <div class="button-folder" id="Высшаяматематикаb3ec2589cb57182415b2e90f75446a71" style="display:none;">
+     <button class="button" kpath="Университет/Высшая математика/Матрицы" onclick="toggleDisplay(Матрицыc48f9af562702c649c8f2bfcaef10012);">
       📂 Матрицы
      </button>
-     <div class="button-folder" id="Матрицыfe48c87ec54ce9d36e7e6f8609ca3c41" style="display:none;">
-      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Матрицы.md');">
+     <div class="button-folder" id="Матрицыc48f9af562702c649c8f2bfcaef10012" style="display:none;">
+      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Матрицы.md');" vpath="Университет/Высшая математика/Матрицы/Матрицы.md">
        📄 Матрицы
       </button>
-      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Определители.md');">
+      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Определители.md');" vpath="Университет/Высшая математика/Матрицы/Определители.md">
        📄 Определители
       </button>
      </div>
@@ -1536,7 +1596,7 @@ function downloadFile(text, filename) {
   </div>
   <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
   <div>
-   <button class="control-button" id="FontSizeSize" style="padding-left: 12px;">
+   <button class="control-button" id="FontSizeSize" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">
     12px
    </button>
    <button class="control-button" onclick="changeFontSize(field, '+')" style="padding-left: 25px;">
@@ -1545,14 +1605,14 @@ function downloadFile(text, filename) {
    <button class="control-button" onclick="changeFontSize(field, '-')" style="padding-left: 27px;">
     -
    </button>
-   <button class="control-button" onclick="changeFontSize(field, '=')">
-    Default
-   </button>
    <button class="control-button" id="COPY" onclick="copyTextFromDiv(field); changeColor(COPY)" style="padding-left: 12px;">
     Copy
    </button>
    <button class="control-button" id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" style="padding-left: 2px;">
     Copy selected
+   </button>
+   <button class="control-button" id="removeargfromurl" onclick="removeArgumentFromUrl(); changeColor(removeargfromurl)" style="padding-left: 28px;">
+    /
    </button>
    <!-- <button class="control-button" onclick="togglePopup()">
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;">

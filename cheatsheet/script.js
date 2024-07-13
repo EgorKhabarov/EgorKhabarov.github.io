@@ -1,10 +1,15 @@
 
 /* Скрыть / показать папку */
-function showText(element) {
+function toggleDisplay(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     } else {
         element.style.display = "none";
+    }
+}
+function showText(element) {
+    if (element.style.display == "none") {
+        element.style.display = "block";
     }
 }
 
@@ -88,6 +93,7 @@ function getCheatSheat(url) {
 
 function GET(url) {
     console.log(url)
+    addArgumentToUrl(url)
     return PutHtmlText(getCheatSheat(url))
 }
 
@@ -201,14 +207,14 @@ function DownloadCode(element, button_element, filename) {
 
 */
 
-function togglePopup() {
-    var popup = document.getElementById("popupElement");
-    if (popup.style.display === "none") {
-        popup.style.display = "block";
-    } else {
-        popup.style.display = "none";
-    }
-}
+//function togglePopup() {
+//    var popup = document.getElementById("popupElement");
+//    if (popup.style.display === "none") {
+//        popup.style.display = "block";
+//    } else {
+//        popup.style.display = "none";
+//    }
+//}
 
 function handleSearch(event) {
     event.preventDefault(); // Предотвращает отправку формы при нажатии Enter
@@ -233,4 +239,58 @@ function downloadFile(text, filename) {
     element.click();
 
     document.body.removeChild(element);
+}
+
+function addArgumentToUrl(arg) {
+    const currentUrl = new URL(window.location.href);
+    currentUrl.search = arg;
+    window.history.pushState({}, '', currentUrl);
+}
+
+function getArgumentFromUrl() {
+    const currentUrl = new URL(window.location.href);
+    return currentUrl.search ? currentUrl.search.substring(1) : null;
+}
+
+function removeArgumentFromUrl() {
+    let url = new URL(window.location.href);
+    url.search = '';
+    window.history.replaceState(null, null, url.href);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Проверяем наличие аргумента при загрузке страницы
+    const arg = getArgumentFromUrl();
+    if (arg) {
+        console.log("Argument found:", decodeURIComponent(arg));
+        GET(arg);
+        console.log("getPathWithoutFilename", getPathWithoutFilename(arg));
+        toggleStyleDisplayByPath(getPathWithoutFilename(arg));
+
+        let vpath = decodeURIComponent(arg);
+        console.log("vpath", vpath);
+        let element = document.querySelector(`[vpath="${vpath}"]`);
+        element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.log("No argument found");
+    }
+});
+
+function getPathWithoutFilename(filePath) {
+    filePath = decodeURIComponent(filePath);
+    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(0, lastSlashIndex);
+    }
+   return '';
+}
+
+function toggleStyleDisplayByPath(kpath) {
+    let element = document.querySelector(`[kpath="${kpath}"]`);
+    element.click();
+    let parent = element.parentElement;
+    while (parent) {
+        showText(parent);
+        parent = parent.parentElement;
+    }
 }
