@@ -91,7 +91,7 @@ result = f"""
         <button onclick="changeFontSize(field, '-')" class="control-button"  style="padding-left: 27px;">-</button>
         <button id="COPY" onclick="copyTextFromDiv(field); changeColor(COPY)" class="control-button" style="padding-left: 12px;">Copy</button>
         <button id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" class="control-button" style="padding-left: 2px;">Copy selected</button>
-        <button id="removeargfromurl" onclick="removeArgumentFromUrl(); changeColor(removeargfromurl)" class="control-button" style="padding-left: 28px;">/</button>
+        <button id="removeargfromurl" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)" class="control-button" style="padding-left: 28px;">/</button>
         <!-- <button class="control-button" onclick="togglePopup()">
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;">
                 <g class="style-scope yt-icon">

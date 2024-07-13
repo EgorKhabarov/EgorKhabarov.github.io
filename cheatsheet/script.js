@@ -7,7 +7,7 @@ function toggleDisplay(element) {
         element.style.display = "none";
     }
 }
-function showText(element) {
+function setDisplayBlock(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     }
@@ -290,7 +290,7 @@ function toggleStyleDisplayByPath(kpath) {
     element.click();
     let parent = element.parentElement;
     while (parent) {
-        showText(parent);
+        setDisplayBlock(parent);
         parent = parent.parentElement;
     }
 }

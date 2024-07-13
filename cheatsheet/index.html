@@ -256,7 +256,7 @@ function toggleDisplay(element) {
         element.style.display = "none";
     }
 }
-function showText(element) {
+function setDisplayBlock(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     }
@@ -539,7 +539,7 @@ function toggleStyleDisplayByPath(kpath) {
     element.click();
     let parent = element.parentElement;
     while (parent) {
-        showText(parent);
+        setDisplayBlock(parent);
         parent = parent.parentElement;
     }
 }
@@ -1611,7 +1611,7 @@ function toggleStyleDisplayByPath(kpath) {
    <button class="control-button" id="COPY2" onclick="copyTextFromDiv2(); changeColor(COPY2)" style="padding-left: 2px;">
     Copy selected
    </button>
-   <button class="control-button" id="removeargfromurl" onclick="removeArgumentFromUrl(); changeColor(removeargfromurl)" style="padding-left: 28px;">
+   <button class="control-button" id="removeargfromurl" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)" style="padding-left: 28px;">
     /
    </button>
    <!-- <button class="control-button" onclick="togglePopup()">
