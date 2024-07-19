@@ -4,7 +4,7 @@
 Он автоматически упрощает дробь, позволяет выполнять арифметические операции с дробями 
 и конвертировать дроби в различные форматы (например, вещественные числа или строки).</p>
 <p>Вот примеры использования класса Fraction:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codecf3c98adbe891812518b714d7522a709b" onclick="copyCode(codecf3c98adbe891812518b714d7522a709, codecf3c98adbe891812518b714d7522a709b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codecf3c98adbe891812518b714d7522a709"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code2482b53e1aeee3a438abfb8dfbb0b9a7b" onclick="copyCode(code2482b53e1aeee3a438abfb8dfbb0b9a7, code2482b53e1aeee3a438abfb8dfbb0b9a7b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code2482b53e1aeee3a438abfb8dfbb0b9a7"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
 <span class="c1"># создание дроби с помощью числителя и знаменателя</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>    <span class="c1"># вывод: 3/4</span>
@@ -19,7 +19,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>    <span class="c1"># вывод: 0.75</span>
 
 <span class="c1"># конвертирование дроби в строку</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>    <span class="c1"># вывод: &#39;3/4&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>    <span class="c1"># вывод: &quot;3/4&quot;</span>
 </pre></div></div></div>
 
 <p>Класс Fraction может быть полезен в тех случаях, когда требуется более точный 
@@ -67,9 +67,9 @@
 
 <p>Fraction.from_decimal
 Метод класса Fraction, который позволяет создать рациональное число, представляющее указанное десятичное число.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codefe27ea860441ae7885054c2c2381bc10b" onclick="copyCode(codefe27ea860441ae7885054c2c2381bc10, codefe27ea860441ae7885054c2c2381bc10b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codefe27ea860441ae7885054c2c2381bc10"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codec728680acb3aeffb486e4936868fe46bb" onclick="copyCode(codec728680acb3aeffb486e4936868fe46b, codec728680acb3aeffb486e4936868fe46bb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codec728680acb3aeffb486e4936868fe46b"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Fraction</span><span class="o">.</span><span class="n">from_decimal</span><span class="p">(</span><span class="s1">&#39;0.75&#39;</span><span class="p">))</span>  <span class="c1"># выводит 3/4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Fraction</span><span class="o">.</span><span class="n">from_decimal</span><span class="p">(</span><span class="s2">&quot;0.75&quot;</span><span class="p">))</span>  <span class="c1"># выводит 3/4</span>
 </pre></div></div></div>
 
 <p>is_integer
@@ -106,9 +106,9 @@
 
 <p>Fraction.from_jedec
 Метод класса Fraction, который позволяет создать рациональное число на основе заданной строки в формате JEDEC.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code89728470b5046ed4552f32dd3be27e6bb" onclick="copyCode(code89728470b5046ed4552f32dd3be27e6b, code89728470b5046ed4552f32dd3be27e6bb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code89728470b5046ed4552f32dd3be27e6b"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codee1a75631cb53de0da745de2e2500307eb" onclick="copyCode(codee1a75631cb53de0da745de2e2500307e, codee1a75631cb53de0da745de2e2500307eb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codee1a75631cb53de0da745de2e2500307e"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Fraction</span><span class="o">.</span><span class="n">from_jedec</span><span class="p">(</span><span class="s1">&#39;1/2&#39;</span><span class="p">))</span>  <span class="c1"># выводит 1/2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Fraction</span><span class="o">.</span><span class="n">from_jedec</span><span class="p">(</span><span class="s2">&quot;1/2&quot;</span><span class="p">))</span>  <span class="c1"># выводит 1/2</span>
 </pre></div></div></div>
 
 <p>Fraction.from_tuple

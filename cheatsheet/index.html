@@ -253,6 +253,14 @@ code {
   -webkit-user-select: none;
   user-select: none;
 }
+
+blockquote {
+  background-color: #525252;
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: auto;
+}
   </style>
   <script>
    /* Скрыть / показать папку */
@@ -604,14 +612,14 @@ function toggleStyleDisplayByPath(kpath) {
      📄 sync asyn
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки30f5a68f5021b6df4b9d4c2d3ed2d9e3);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки397176984df1a93ff003bccfc3c7bfbb);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки30f5a68f5021b6df4b9d4c2d3ed2d9e3" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1e487df8d61db5564dbc7095ac8e5e13);">
+   <div class="button-folder" id="Языки397176984df1a93ff003bccfc3c7bfbb" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1cb07ef7043951672684c26d6b6477ed);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python1e487df8d61db5564dbc7095ac8e5e13" style="display:none;">
+    <div class="button-folder" id="Python1cb07ef7043951672684c26d6b6477ed" style="display:none;">
      <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки4cf816a5f38c48c0c2733f7aea4265f9);">
       📂 Библиотеки
      </button>
@@ -1025,10 +1033,10 @@ function toggleStyleDisplayByPath(kpath) {
        </button>
       </div>
      </div>
-     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы9bb9378dcbc104a59c544e51604fc1e0);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы6426601aa2f0e9fd49177921ca389439);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методы9bb9378dcbc104a59c544e51604fc1e0" style="display:none;">
+     <div class="button-folder" id="Методы6426601aa2f0e9fd49177921ca389439" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/Магические методы.md');" vpath="Языки/Python/Методы/Магические методы.md">
        📄 Магические методы
       </button>
@@ -1037,6 +1045,9 @@ function toggleStyleDisplayByPath(kpath) {
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/str.md');" vpath="Языки/Python/Методы/str.md">
        📄 str
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Методы/fstrings.md');" vpath="Языки/Python/Методы/fstrings.md">
+       📄 fstrings
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/list.md');" vpath="Языки/Python/Методы/list.md">
        📄 list
@@ -1097,18 +1108,20 @@ function toggleStyleDisplayByPath(kpath) {
        📄 IPython
       </button>
      </div>
-     <button class="button" onclick="GET('Языки/Python/fstrings.md');" vpath="Языки/Python/fstrings.md">
-      📄 fstrings
+     <button class="button" kpath="Языки/Python/Генераторы и списки" onclick="toggleDisplay(Генераторыисписки2d9cc83ad7430f1a4bfc023c92820738);">
+      📂 Генераторы и списки
      </button>
-     <button class="button" onclick="GET('Языки/Python/for in list comprehension.md');" vpath="Языки/Python/for in list comprehension.md">
-      📄 for in list comprehension
-     </button>
-     <button class="button" onclick="GET('Языки/Python/Умножение списков.md');" vpath="Языки/Python/Умножение списков.md">
-      📄 Умножение списков
-     </button>
-     <button class="button" onclick="GET('Языки/Python/yield from.md');" vpath="Языки/Python/yield from.md">
-      📄 yield from
-     </button>
+     <div class="button-folder" id="Генераторыисписки2d9cc83ad7430f1a4bfc023c92820738" style="display:none;">
+      <button class="button" onclick="GET('Языки/Python/Генераторы и списки/for in list comprehension.md');" vpath="Языки/Python/Генераторы и списки/for in list comprehension.md">
+       📄 for in list comprehension
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Генераторы и списки/yield from.md');" vpath="Языки/Python/Генераторы и списки/yield from.md">
+       📄 yield from
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Генераторы и списки/Умножение списков.md');" vpath="Языки/Python/Генераторы и списки/Умножение списков.md">
+       📄 Умножение списков
+      </button>
+     </div>
      <button class="button" onclick="GET('Языки/Python/Аннотации типов.md');" vpath="Языки/Python/Аннотации типов.md">
       📄 Аннотации типов
      </button>

@@ -48,25 +48,25 @@ sys.stderr - стандартный поток ошибок.
 </pre></div></div></div>
 
 <p>sys.getsizeof() возвращает размер объекта в байтах:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code13017546e3af9a3a0753815c4448fd39b" onclick="copyCode(code13017546e3af9a3a0753815c4448fd39, code13017546e3af9a3a0753815c4448fd39b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code13017546e3af9a3a0753815c4448fd39"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code76c150ddbcc643f1497e2459efa16144b" onclick="copyCode(code76c150ddbcc643f1497e2459efa16144, code76c150ddbcc643f1497e2459efa16144b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code76c150ddbcc643f1497e2459efa16144"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># 88</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 88</span>
 </pre></div></div></div>
 
 <p>sys.path содержит список путей, в которых Python ищет модули:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codea40505a5e47b412c824fd65c2784f4f5b" onclick="copyCode(codea40505a5e47b412c824fd65c2784f4f5, codea40505a5e47b412c824fd65c2784f4f5b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codea40505a5e47b412c824fd65c2784f4f5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codee1b999acd1d306ddb1a4fe56c30895a3b" onclick="copyCode(codee1b999acd1d306ddb1a4fe56c30895a3, codee1b999acd1d306ddb1a4fe56c30895a3b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codee1b999acd1d306ddb1a4fe56c30895a3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">[</span>
-<span class="sd">    &#39;&#39;, </span>
-<span class="sd">    &#39;C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip&#39;, </span>
-<span class="sd">    &#39;C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\DLLs&#39;, </span>
-<span class="sd">    &#39;C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\Lib&#39;, </span>
-<span class="sd">    &#39;C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311&#39;, </span>
-<span class="sd">    &#39;C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages&#39;</span>
+<span class="sd">    &quot;&quot;, </span>
+<span class="sd">    &quot;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip&quot;, </span>
+<span class="sd">    &quot;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\DLLs&quot;, </span>
+<span class="sd">    &quot;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib&quot;, </span>
+<span class="sd">    &quot;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311&quot;, </span>
+<span class="sd">    &quot;C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages&quot;</span>
 <span class="sd">]</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div></div></div>
@@ -84,12 +84,12 @@ sys.stderr - стандартный поток ошибок.
 </pre></div></div></div>
 
 <p>sys.getwindowsversion() возвращает информацию о версии Windows, если программа запущена в Windows:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code0bba4601e39fe148bed233dff47387f3b" onclick="copyCode(code0bba4601e39fe148bed233dff47387f3, code0bba4601e39fe148bed233dff47387f3b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code0bba4601e39fe148bed233dff47387f3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codefe6c560cb61fdfe5f45c72f2b17e52c5b" onclick="copyCode(codefe6c560cb61fdfe5f45c72f2b17e52c5, codefe6c560cb61fdfe5f45c72f2b17e52c5b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codefe6c560cb61fdfe5f45c72f2b17e52c5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getwindowsversion</span><span class="p">())</span>
 
-<span class="sd">&quot;&quot;&quot;sys.getwindowsversion(major=10, minor=0, build=19044, platform=2, service_pack=&#39;&#39;)&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;sys.getwindowsversion(major=10, minor=0, build=19044, platform=2, service_pack=&quot;&quot;)&quot;&quot;&quot;</span>
 </pre></div></div></div>
 
 <p>sys.version содержит строку, которая содержит информацию о версии Python:</p>

@@ -55,7 +55,7 @@
 <tr>
 <td>reprlib.recursive_repr()</td>
 <td>Декоратор для изменения поведения метода <code>__repr__</code> для обработки рекурсивных вызовов</td>
-<td>@reprlib.recursive_repr(); def <strong>repr</strong>(self): return 'MyClass()'</td>
+<td>@reprlib.recursive_repr(); def <strong>repr</strong>(self): return "MyClass()"</td>
 </tr>
 <tr>
 <td>reprlib.dllist()</td>

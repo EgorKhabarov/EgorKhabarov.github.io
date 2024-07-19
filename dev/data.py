@@ -1,86 +1,7 @@
-import html
+from dev.utils import to_table_code_py, escape_markdown
 
-from pygments import highlight
-from pygments.formatters.html import HtmlFormatter
-from pygments.lexers import get_lexer_by_name
 
 n = "\n"
-
-
-def escape_markdown(content: str) -> str:
-    # parse = re.sub(r"([_*\[\]()~`>\#\+\-=|\.!])", r"\\\1", content)
-    # reparse = re.sub(r"\\\\([_*\[\]()~`>\#\+\-=|\.!])", r"\1", parse)
-    # return reparse
-    return content.replace("__", "&#95;&#95;")
-
-
-def to_string(text: str) -> str:
-    return rf"<span class=\"s1\">{html.escape(text)}</span>"
-
-
-def to_table_code(lang: str, code_block: str) -> str:
-    code_block = code_block  # html.escape(code_block).replace("\n", "<br>")
-    formatter = HtmlFormatter(style="default")
-    lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = (
-        highlight(code_block, lexer, formatter).strip().replace("\n", "<br>")
-    )
-
-    def set_unselectable(text: str):
-        if '<span class="o">&gt;&gt;&gt;</span>' in text:
-            print(f"(%%%%%%{text=}%%%%%%)")
-        l = []
-        for line in text.split("<br>"):
-            if line.startswith('<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> '):
-                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
-                    '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ')
-            elif line.startswith('<span class="o">&gt;&gt;&gt;</span> '):
-                line = '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
-                    '<span class="o">&gt;&gt;&gt;</span> ')
-            elif line.startswith('<div class="highlight"><pre><span></span><span class="o">...</span> '):
-                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
-                    '<div class="highlight"><pre><span></span><span class="o">...</span> ')
-            elif line.startswith('<span class="o">...</span> '):
-                line = '<span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
-                    '<span class="o">...</span> ')
-            else:
-                line = f'<span class="unselectable">{line}</span>'
-            l.append(line)
-        return "<br>".join(l)
-
-    if (
-        lang == "python"
-        and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
-    ):
-        highlighted_code = set_unselectable(highlighted_code)
-
-    result = rf"""
-<div class="code" style="border-radius:.375rem .375rem;">
-<div class="highlight">
-<pre>
-{highlighted_code}
-</pre>
-</div>
-</div>
-    """.strip().replace(
-        "\n", ""
-    )
-    return result
-
-
-def to_table_code_py(code_block: str) -> str:
-    return to_table_code("python", code_block)
-
-
-def tblcode(lang: str, code: str) -> str:
-    match lang:
-        case "sh":
-            lang = "shell"
-        case "py":
-            lang = "python"
-        case "bs":
-            lang = "bash"
-    return to_table_code(lang, code)
 
 
 DICT = {
@@ -357,7 +278,7 @@ import io
 stream = io.BytesIO()
 stream.write(b"Hello, world!")
 stream.seek(0)
-print(stream.read())  # b'Hello, world!'
+print(stream.read())  # b"Hello, world!"
 ```
 
 io.open() - открытие файла в нужном режиме.
@@ -397,7 +318,7 @@ with io.open("example.txt", "wb") as f:
     
 with io.open("example.txt", "rb") as f:
     reader = io.BufferedReader(f)
-    print(reader.read())  # b'Hello, world!'
+    print(reader.read())  # b"Hello, world!"
 ```
 
 io.BufferedReader() - буферизированный читающий поток.
@@ -410,7 +331,7 @@ with io.open("example.txt", "wb") as f:
     
 with io.open("example.txt", "rb") as f:
     reader = io.BufferedReader(f)
-    print(reader.read())  # b'Hello, world!'
+    print(reader.read())  # b"Hello, world!"
 ```
 
 io.FileIO() - создание потока для работы с файлом в бинарном режиме.
@@ -422,7 +343,7 @@ with io.FileIO("example.txt", "w") as f:
     f.write(b"Hello, world!")
     
 with io.FileIO("example.txt", "r") as f:
-    print(f.read())  # b'Hello, world!'
+    print(f.read())  # b"Hello, world!"
 ```
 
 io.TextIOBase() - базовый класс для всех текстовых потоков.
@@ -465,7 +386,7 @@ import io
 
 stream = io.BytesIO()
 stream.write(b"Hello, world!")
-print(stream.getvalue())  # b'Hello, world!'
+print(stream.getvalue())  # b"Hello, world!"
 ```
 
 io.TextIOWrapper.detach() - отсоединение потока от обертки.
@@ -498,7 +419,7 @@ with io.open("example.txt", "wb") as f:
     
 with io.open("example.txt", "rb") as f:
     reader = io.BufferedReader(f)
-    print(reader.read())  # b'Hello, Python!'
+    print(reader.read())  # b"Hello, Python!"
 ```
 """,
                     "os": """
@@ -699,7 +620,7 @@ sys.getsizeof() возвращает размер объекта в байтах
 import sys
 
 a = [1, 2, 3]
-print(sys.getsizeof(a)) # 88
+print(sys.getsizeof(a))  # 88
 ```
 
 
@@ -714,12 +635,12 @@ print(sys.path)
 
 """
 [
-    '', 
-    'C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip', 
-    'C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\DLLs', 
-    'C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\Lib', 
-    'C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311', 
-    'C:\\Users\\Egor\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages'
+    "", 
+    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip", 
+    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\DLLs", 
+    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib", 
+    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311", 
+    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages"
 ]
 """
 ```
@@ -748,7 +669,7 @@ import sys
 if sys.platform == "win32":
     print(sys.getwindowsversion())
 
-"""sys.getwindowsversion(major=10, minor=0, build=19044, platform=2, service_pack='')"""
+"""sys.getwindowsversion(major=10, minor=0, build=19044, platform=2, service_pack="")"""
 ```
 
 sys.version содержит строку, которая содержит информацию о версии Python:
@@ -881,7 +802,7 @@ divide(1, 0)
 ```python
 import subprocess
 
-result = subprocess.run(['ls', '-l'], capture_output=True, text=True)
+result = subprocess.run(["ls", "-l"], capture_output=True, text=True)
 print(result.stdout)
 ```
 
@@ -893,8 +814,8 @@ print(result.stdout)
 ```python
 import subprocess
 
-env = {'MYVAR': 'myvalue'}
-result = subprocess.run(['env'], env=env, capture_output=True, text=True)
+env = {"MYVAR": "myvalue"}
+result = subprocess.run(["env"], env=env, capture_output=True, text=True)
 print(result.stdout)
 В этом примере мы использовали опцию env для установки переменной окружения MYVAR 
 со значением myvalue и выполнения команды env, которая отображает все переменные окружения.
@@ -905,7 +826,7 @@ print(result.stdout)
 ```python
 import subprocess
 
-subprocess.Popen(['python', 'myscript.py'])
+subprocess.Popen(["python", "myscript.py"])
 ```
 
 Этот пример запускает скрипт myscript.py в фоновом режиме.
@@ -915,9 +836,9 @@ subprocess.Popen(['python', 'myscript.py'])
 ```python
 import subprocess
 
-process = subprocess.Popen(['ssh', 'user@remotehost'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+process = subprocess.Popen(["ssh", "user@remotehost"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-stdin_data = 'ls\n'
+stdin_data = "ls\n"
 process.stdin.write(stdin_data.encode())
 
 stdout_data = process.stdout.readline()
@@ -936,8 +857,8 @@ print(stdout_data)
 ```python
 import subprocess
 
-filename = 'example.txt'
-result = subprocess.run(['wc', '-l', filename], capture_output=True, text=True)
+filename = "example.txt"
+result = subprocess.run(["wc", "-l", filename], capture_output=True, text=True)
 print(result.stdout)
 ```
 
@@ -950,7 +871,7 @@ print(result.stdout)
 ```python
 import subprocess
 
-result = subprocess.run(['ls', 'nonexistent'], capture_output=True, text=True)
+result = subprocess.run(["ls", "nonexistent"], capture_output=True, text=True)
 print(result.returncode)
 ```
 
@@ -977,7 +898,7 @@ print(result.stdout)
 ```python
 import subprocess
 
-result = subprocess.run(['ls'], cwd='/tmp', capture_output=True, text=True)
+result = subprocess.run(["ls"], cwd="/tmp", capture_output=True, text=True)
 print(result.stdout)
 ```
 
@@ -1017,26 +938,26 @@ Config: Класс, представляющий конфигурацию, со�
 default(obj): Возвращает значение по умолчанию для указанного атрибута.
 
 ```python
-value = default('attr_name')
+value = default("attr_name")
 ```
 
 validate(obj, value): Проверяет значение атрибута на соответствие заданным условиям или типу.
 
 ```python
-is_valid = validate('attr_name', value)
+is_valid = validate("attr_name", value)
 ```
 
 observe(cls, handler, names=None): Связывает обработчик события с указанными атрибутами.
 
 ```python
-observe('class_name', handler_func, ['attr_name1', 'attr_name2'])
+observe("class_name", handler_func, ["attr_name1", "attr_name2"])
 ```
 
 link(target, name, linkname=None): Устанавливает связь между атрибутами
 текущего объекта и атрибутами другого объекта.
 
 ```python
-link(other_object, 'attr_name', 'linked_attr_name')
+link(other_object, "attr_name", "linked_attr_name")
 ```
 """,
                         "stat": r"""
@@ -1063,7 +984,7 @@ stat.S_ISDIR(mode): Проверяет, является ли файл дире�
 import os
 import stat
 
-file_path = 'path/to/file.txt'
+file_path = "path/to/file.txt"
 file_stat = os.stat(file_path)
 if stat.S_ISDIR(file_stat.st_mode):
     print("File is a directory")
@@ -1078,7 +999,7 @@ stat.S_ISREG(mode): Проверяет, является ли файл обыч�
 import os
 import stat
 
-file_path = 'path/to/file.txt'
+file_path = "path/to/file.txt"
 file_stat = os.stat(file_path)
 if stat.S_ISREG(file_stat.st_mode):
     print("File is a regular file")
@@ -1092,7 +1013,7 @@ stat.S_IMODE(mode): Возвращает режим доступа к файлу
 import os
 import stat
 
-file_path = 'path/to/file.txt'
+file_path = "path/to/file.txt"
 file_stat = os.stat(file_path)
 file_mode = stat.S_IMODE(file_stat.st_mode)
 print("File mode:", file_mode)
@@ -1138,10 +1059,10 @@ print("File mode:", file_mode)
 
 Список самых частых методов модуля "spwd" и их описания:
 
-Метод                | Описание                                          | Пример кода
----------------------|---------------------------------------------------|------------------------
-`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени. | ``user_info = spwd.getspnam('john')``
-`spwd.getspall()`    | Возвращает список всех пользователей в системе.    | ``users = spwd.getspall()``
+Метод                | Описание                                           | Пример кода
+---------------------|----------------------------------------------------|------------------------
+`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени. | `user_info = spwd.getspnam("john")`
+`spwd.getspall()`    | Возвращает список всех пользователей в системе.    | `users = spwd.getspall()`
 
 Примечание: Примеры кода не могут быть предоставлены для данной библиотеки, поскольку требуется доступ к системным файлам.
 """,
@@ -1237,7 +1158,7 @@ print(user_permissions)  # Выводит <Permissions.READ|WRITE: 3>
 import pstats
 
 # Создаем объект статистики
-stats = pstats.Stats('profile_result')
+stats = pstats.Stats("profile_result")
 
 # Выводим статистику на экран
 stats.print_stats()
@@ -1252,10 +1173,10 @@ stats.print_stats()
 import pstats
 
 # Создаем объект статистики
-stats = pstats.Stats('profile_result')
+stats = pstats.Stats("profile_result")
 
 # Сортируем статистику по времени выполнения
-stats.sort_stats('time')
+stats.sort_stats("time")
 
 # Выводим отсортированную статистику на экран
 stats.print_stats()
@@ -1307,13 +1228,13 @@ print(serialized)
 import marshal
 
 serialized = (
-    b'\x80\x04\x95\x0f\x00\x00\x00\x00\x00\x00\x8c\x08\x00\x00\x00Hello!'
-    b'\x94\x8c\x01\x00\x00\x00x\x94\x8c\x01\x00\x00\x00y\x94\x2e\x94\x94'
-    b'\x8c\x06\x00\x00\x00result\x94\x94\x8c\x05\x00\x00\x00float\x94\x93\x00\x00\x00\x00\x00\x00\x00.'
+    b"\x80\x04\x95\x0f\x00\x00\x00\x00\x00\x00\x8c\x08\x00\x00\x00Hello!"
+    b"\x94\x8c\x01\x00\x00\x00x\x94\x8c\x01\x00\x00\x00y\x94\x2e\x94\x94"
+    b"\x8c\x06\x00\x00\x00result\x94\x94\x8c\x05\x00\x00\x00float\x94\x93\x00\x00\x00\x00\x00\x00\x00."
 )
 
 data = marshal.loads(serialized)
-print(data)  # Вывод: {'Hello!': {'x': 'y', 'result': None, 'float': 0.0}}
+print(data)  # Вывод: {"Hello!": {"x": "y", "result": None, "float": 0.0}}
 ```
 """,
                         "linecache": r"""
@@ -1333,23 +1254,23 @@ print(data)  # Вывод: {'Hello!': {'x': 'y', 'result': None, 'float': 0.0}}
 ```python
 import linecache
 
-line = linecache.getline('file.txt', 5)
+line = linecache.getline("file.txt", 5)
 print(line)
 ```
 
-Этот код выведет пятую строку из файла 'file.txt'.
+Этот код выведет пятую строку из файла "file.txt".
 
 Метод `getlines(filename)` - возвращает все строки из указанного файла в виде списка.
 
 ```python
 import linecache
 
-lines = linecache.getlines('file.txt')
+lines = linecache.getlines("file.txt")
 for line in lines:
     print(line)
 ```
 
-Этот код выведет все строки из файла 'file.txt' по одной строке на каждую итерацию цикла.
+Этот код выведет все строки из файла "file.txt" по одной строке на каждую итерацию цикла.
 
 Метод `clearcache()` - очищает кэш, используемый для хранения строк файла.
 Это может быть полезно, если файл изменился и требуется обновить строки в кэше.
@@ -1357,16 +1278,16 @@ for line in lines:
 ```python
 import linecache
 
-# Изменения в файле 'file.txt'
+# Изменения в файле "file.txt"
 
 linecache.clearcache()
-line = linecache.getline('file.txt', 5)
+line = linecache.getline("file.txt", 5)
 print(line)
 ```
 
-Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла 'file.txt'.
+Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла "file.txt".
 
-Примечание: Убедитесь, что файл 'file.txt' существует и содержит нужные строки.
+Примечание: Убедитесь, что файл "file.txt" существует и содержит нужные строки.
 """,
                         "sched": r"""
 Библиотека "sched" в Python используется для планирования и управления задачами в программе.
@@ -1565,7 +1486,7 @@ grpc.Service: Базовый класс, который разработчики
 ```python
 from wheel import convert
 
-convert.pack('path/to/source/package')
+convert.pack("path/to/source/package")
 ```
 
 ### install
@@ -1574,7 +1495,7 @@ convert.pack('path/to/source/package')
 ```python
 from wheel import install
 
-install.install('path/to/wheel/file.whl')
+install.install("path/to/wheel/file.whl")
 ```
 
 ### unpack
@@ -1583,7 +1504,7 @@ install.install('path/to/wheel/file.whl')
 ```python
 from wheel import unpack
 
-unpack.unpack('path/to/wheel/file.whl', 'path/to/destination')
+unpack.unpack("path/to/wheel/file.whl", "path/to/destination")
 ```
 
 ### pack</h3>
@@ -1592,7 +1513,7 @@ unpack.unpack('path/to/wheel/file.whl', 'path/to/destination')
 ```python
 from wheel import pack
 
-pack.pack('path/to/source/package', 'path/to/destination/file.whl')
+pack.pack("path/to/source/package", "path/to/destination/file.whl")
 ```
 """,
                         "pyparsing": r"""
@@ -1616,7 +1537,7 @@ from pyparsing import Word, alphas, nums
 
 data = "Hello World"
 result = Word(alphas).parseString(data)
-print(result)  # ['Hello']
+print(result)  # ["Hello"]
 ```
 
 Word(alphas): Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.
@@ -1626,7 +1547,7 @@ from pyparsing import Word, alphas
 
 data = "Hello123"
 result = Word(alphas).parseString(data)
-print(result)  # ['Hello']
+print(result)  # ["Hello"]
 ```
 
 QuotedString(quoteChar): Определяет грамматическое правило для разбора строки, заключенной в кавычки.
@@ -1636,7 +1557,7 @@ from pyparsing import QuotedString
 
 data = '"Hello World"'
 result = QuotedString('"').parseString(data)
-print(result)  # ['Hello World']
+print(result)  # ["Hello World"]
 ```
 """,
                         "faulthandler": r"""
@@ -1672,7 +1593,7 @@ faulthandler.dump_traceback(file=sys.stderr, all_threads=True): Записыва
 
 ```python
 import faulthandler
-faulthandler.dump_traceback(file=open('traceback.txt', 'w'), all_threads=True)
+faulthandler.dump_traceback(file=open("traceback.txt", "w"), all_threads=True)
 ```
 
 Эти методы помогут вам обнаружить и отладить ошибки связанные с сбоями в вашей программе
@@ -1820,7 +1741,7 @@ parse(version_string): Парсит версию из строки и возвр
 ```python
 from packaging import version
 
-version_string = '1.2.3'
+version_string = "1.2.3"
 parsed_version = version.parse(version_string)
 print(parsed_version)
 ```
@@ -1830,7 +1751,7 @@ SpecifierSet(specifier_string): Создает набор спецификаци
 ```python
 from packaging.specifiers import SpecifierSet
 
-specifier_string = '>=1.0,<=2.0'
+specifier_string = ">=1.0,<=2.0"
 specifier_set = SpecifierSet(specifier_string)
 print(specifier_set)
 ```
@@ -1840,7 +1761,7 @@ Requirement(requirement_string): Создает требование к паке
 ```python
 from packaging.requirements import Requirement
 
-requirement_string = 'numpy>=1.0'
+requirement_string = "numpy>=1.0"
 requirement = Requirement(requirement_string)
 print(requirement)
 ```
@@ -1987,7 +1908,7 @@ print(notebooks)
 ```python
 from notebook import open_notebook
 
-notebook = open_notebook('path/to/notebook.ipynb')
+notebook = open_notebook("path/to/notebook.ipynb")
 print(notebook)
 ```
 
@@ -2005,7 +1926,7 @@ print(notebook)
 ```python
 from notebook import save_notebook
 
-save_notebook('path/to/save.ipynb')
+save_notebook("path/to/save.ipynb")
 ```
 
 `list_cells()`: возвращает список всех ячеек в текущем блокноте.
@@ -2070,7 +1991,7 @@ unpack_uint(packed_data): Распаковывает беззнаковое це
 ```python
 import xdrlib
 
-packed_data = b'\x00\x00\x00\x2a'
+packed_data = b"\x00\x00\x00\x2a"
 unpacker = xdrlib.Unpacker(packed_data)
 unpacked_value = unpacker.unpack_uint()
 print(unpacked_value)
@@ -2091,7 +2012,7 @@ unpack_string(packed_data): Распаковывает строку из дан�
 ```python
 import xdrlib
 
-packed_data = b'\x00\x00\x00\x0cHello, World!'
+packed_data = b"\x00\x00\x00\x0cHello, World!"
 unpacker = xdrlib.Unpacker(packed_data)
 unpacked_value = unpacker.unpack_string()
 print(unpacked_value)
@@ -2321,10 +2242,10 @@ for error in validator.iter_errors(data):
 `add` - добавляет письмо в почтовый ящик.
 
 ```python
-with mailbox.mbox('sample.mbox') as mbox:
+with mailbox.mbox("sample.mbox") as mbox:
     message = EmailMessage()
-    message['Subject'] = 'Hello'
-    message.set_content('This is a test email')
+    message["Subject"] = "Hello"
+    message.set_content("This is a test email")
     mbox.add(message)
 ```
 
@@ -2332,7 +2253,7 @@ with mailbox.mbox('sample.mbox') as mbox:
 
 
 ```python
-with mailbox.mbox('sample.mbox') as mbox:
+with mailbox.mbox("sample.mbox") as mbox:
     for key in mbox.iterkeys():
         print(key)
 ```
@@ -2340,16 +2261,16 @@ with mailbox.mbox('sample.mbox') as mbox:
 `get_message` - возвращает письмо по ключу (идентификатору).
 
 ```python
-with mailbox.mbox('sample.mbox') as mbox:
-    message = mbox.get_message('12345')
-    print(message['Subject'])
+with mailbox.mbox("sample.mbox") as mbox:
+    message = mbox.get_message("12345")
+    print(message["Subject"])
 ```
 
 `remove` - удаляет письмо по ключу (идентификатору).
 
 ```python
-with mailbox.mbox('sample.mbox') as mbox:
-    mbox.remove('12345')
+with mailbox.mbox("sample.mbox") as mbox:
+    mbox.remove("12345")
 ```
 """,
                         "reprlib": r"""
@@ -2373,7 +2294,7 @@ with mailbox.mbox('sample.mbox') as mbox:
    ------------ | ------------- | -------------
    reprlib.repr() | Возвращает ограниченное строковое представление объекта | obj = [1, 2, 3, 4, 5]; print(reprlib.repr(obj))
    reprlib.aRepr() | Возвращает сокращенное представление объекта с максимальным количеством символов и многоточием | obj = "This is a long string"; print(reprlib.aRepr(obj, 10))
-   reprlib.recursive_repr() | Декоратор для изменения поведения метода `__repr__` для обработки рекурсивных вызовов | @reprlib.recursive_repr(); def __repr__(self): return 'MyClass()'
+   reprlib.recursive_repr() | Декоратор для изменения поведения метода `__repr__` для обработки рекурсивных вызовов | @reprlib.recursive_repr(); def __repr__(self): return "MyClass()"
    reprlib.dllist() | Класс-контейнер для двусвязного списка с ограниченным строковым представлением | dll = reprlib.dllist([1, 2, 3]); print(dll)
    reprlib.Repr() | Класс для настройки поведения библиотеки "reprlib" | r = reprlib.Repr(); r.maxstring = 20; obj = "This is a long string"; print(r.repr(obj))
 
@@ -2386,16 +2307,16 @@ with mailbox.mbox('sample.mbox') as mbox:
 
 Метод | Описание
 ----- | --------
-getpass.getpass(prompt='Password: ', stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки.
+getpass.getpass(prompt="Password: ", stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки.
 getpass.getuser() | Возвращает имя текущего пользователя операционной системы.
-getpass.getpass(prompt='Password: ', stream=None, fg=None, bg=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить цвет текста и фона подсказки.
-getpass.getpass(prompt='Password: ', stream=None, echo=True, mask=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить отображение введенных символов (эхо) и символа-маскировки.
+getpass.getpass(prompt="Password: ", stream=None, fg=None, bg=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить цвет текста и фона подсказки.
+getpass.getpass(prompt="Password: ", stream=None, echo=True, mask=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Можно настроить отображение введенных символов (эхо) и символа-маскировки.
 
 Самые часто используемые методы:
 
 Метод | Описание | Пример кода
 ----- | -------- | -----------
-getpass.getpass(prompt='Password: ', stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки. | ```<br>password = getpass.getpass(prompt='Enter your password: ')```
+getpass.getpass(prompt="Password: ", stream=None) | Запрашивает у пользователя ввод пароля с подсказкой "Password: ". Возвращает введенный пароль в виде строки. | ```<br>password = getpass.getpass(prompt="Enter your password: ")```
 getpass.getuser() | Возвращает имя текущего пользователя операционной системы. | ```<br>username = getpass.getuser()```
 """,
                         "pymsgbox": r"""
@@ -2410,23 +2331,23 @@ getpass.getuser() | Возвращает имя текущего пользов�
 
 Список самых частых методов "pymsgbox", их краткое описание и примерный код для демонстрации:
 
-`alert(message, title=''):`
+`alert(message, title=""):`
 Описание: Отображает диалоговое окно с сообщением для пользователя.
 
 ```python
 import pymsgbox
 
-pymsgbox.alert('Привет, пользователь!', 'Информация')
+pymsgbox.alert("Привет, пользователь!", "Информация")
 ```
 
-`confirm(text, title='', buttons=['Да', 'Нет']):`
+`confirm(text, title="", buttons=["Да", "Нет"]):`
 Описание: Отображает диалоговое окно с вопросом для пользователя с двумя вариантами ответа.
 
 ```python
 import pymsgbox
 
-response = pymsgbox.confirm('Вы уверены, что хотите продолжить?', 'Подтверждение')
-if response == 'Да':
+response = pymsgbox.confirm("Вы уверены, что хотите продолжить?", "Подтверждение")
+if response == "Да":
     # Действия при выборе "Да"
     pass
 else:
@@ -2434,31 +2355,31 @@ else:
     pass
 ```
 
-`prompt(text, title='', default=''):`
+`prompt(text, title="", default=""):`
 Описание: Отображает диалоговое окно с запросом пользователю на ввод текста.
 
 ```python
 import pymsgbox
 
-username = pymsgbox.prompt('Введите ваше имя:', 'Ввод данных')
+username = pymsgbox.prompt("Введите ваше имя:", "Ввод данных")
 ```
 
-`password(text, title=''):`
+`password(text, title=""):`
 Описание: Отображает диалоговое окно с запросом пользователю на ввод пароля (скрытого звездочками).
 
 ```python
 import pymsgbox
 
-password = pymsgbox.password('Введите пароль:', 'Подтверждение')
+password = pymsgbox.password("Введите пароль:", "Подтверждение")
 ```
 
-`textbox(text='', title='', default='', multiline=False):`
+`textbox(text="", title="", default="", multiline=False):`
 Описание: Отображает диалоговое окно с возможностью ввода и редактирования текста пользователем.
 
 ```python
 import pymsgbox
 
-text = pymsgbox.textbox('Введите текст:', 'Редактирование текста')
+text = pymsgbox.textbox("Введите текст:", "Редактирование текста")
 ```
 """,
                         "quopri": r"""
@@ -2511,11 +2432,11 @@ translate(pattern)       | Преобразует заданный шаблон 
 
 Вот список наиболее часто используемых методов "fnmatch", их краткое описание и небольшой код, демонстрирующий их работу:
 
-Метод                       | Описание                             | Пример использования
-----------------------------|--------------------------------------|--------------------------------------
-fnmatch(name, pattern)      | Сопоставляет имя файла с шаблоном.    | fnmatch("example.txt", "*.txt") # True
-filter(names, pattern)      | Фильтрует список имен файлов.        | filter(['file1.txt', 'file2.py'], "*.txt") # ['file1.txt']
-translate(pattern)          | Преобразует шаблон во внутренний формат.| translate("*.txt") # '[A-Za-z0-9]+\.txt$'
+Метод                  | Описание                                | Пример использования
+-----------------------|-----------------------------------------|--------------------------------------
+fnmatch(name, pattern) | Сопоставляет имя файла с шаблоном.      | fnmatch("example.txt", "*.txt")  # True
+filter(names, pattern) | Фильтрует список имен файлов.           | filter(["file1.txt", "file2.py"], "*.txt")  # ["file1.txt"]
+translate(pattern)     | Преобразует шаблон во внутренний формат.| translate("*.txt")  # "[A-Za-z0-9]+\.txt$"
 """,
                         "rfc3986_validator": r"""
 Название библиотеки: "rfc3986_validator"
@@ -2697,13 +2618,13 @@ localeconv(): возвращает словарь с настройками фо
 Наиболее часто используемые методы и их описание:
 
 setlocale(category, locale=None): Этот метод позволяет установить локаль для определенной категории.
-Например, setlocale(locale.LC_NUMERIC, 'en_US') устанавливает локаль для чисел на английский (США). 
+Например, setlocale(locale.LC_NUMERIC, "en_US") устанавливает локаль для чисел на английский (США). 
 
 
 ```python
 import locale
 
-locale.setlocale(locale.LC_NUMERIC, 'en_US')
+locale.setlocale(locale.LC_NUMERIC, "en_US")
 formatted_number = locale.format_string("%.2f", 1234.5678)
 print(formatted_number)
 ```
@@ -2846,7 +2767,7 @@ unescape           | Преобразует экранированные HTML-с
 
 Метод              | Описание                                   | Пример кода
 -------------------|--------------------------------------------|------------------------------
-clean              | Удаляет или экранирует HTML-теги и атрибуты | clean(text, tags=['p', 'a'])
+clean              | Удаляет или экранирует HTML-теги и атрибуты | clean(text, tags=["p", "a"])
 linkify            | Преобразует URL-адреса в тексте в ссылки   | linkify(text)
 strip_tags         | Удаляет все HTML-теги из текста             | strip_tags(text)
 escape             | Экранирует HTML-сущности в тексте           | escape(text)
@@ -2879,7 +2800,7 @@ isdir(path): Проверяет, является ли указанный пут
 ```python
 import os.path
 
-path = '/path/to/directory'
+path = "/path/to/directory"
 if os.path.isdir(path):
     print(f"{path} is a directory.")
 ```
@@ -2889,7 +2810,7 @@ isfile(path): Проверяет, является ли указанный пу�
 ```python
 import os.path
 
-path = '/path/to/file.txt'
+path = "/path/to/file.txt"
 if os.path.isfile(path):
     print(f"{path} is a file.")
 ```
@@ -2899,7 +2820,7 @@ exists(path): Проверяет, существует ли указанный �
 ```python
 import os.path
 
-path = '/path/to/file.txt'
+path = "/path/to/file.txt"
 if os.path.exists(path):
     print(f"{path} exists.")
 ```
@@ -2909,7 +2830,7 @@ splitext(path): Разделяет путь на базовое имя файл�
 ```python
 import os.path
 
-path = '/path/to/file.txt'
+path = "/path/to/file.txt"
 base_name, extension = os.path.splitext(path)
 print(f"Base name: {base_name}")
 print(f"Extension: {extension}")
@@ -2936,7 +2857,7 @@ print(f"Extension: {extension}")
 ```python
 import lzma
 
-data = b'Hello, World!'
+data = b"Hello, World!"
 compressed_data = lzma.compress(data)
 ```
 
@@ -2945,7 +2866,7 @@ compressed_data = lzma.compress(data)
 ```python
 import lzma
 
-compressed_data = b'\xfd7zXZ\x00\x00\x04\xe6\xd6\xb4\x46\x02\x00!\x01\x16\x00\x00\x00t/\xe5\xfd\x01\x00\x00\x00\xff\xff'
+compressed_data = b"\xfd7zXZ\x00\x00\x04\xe6\xd6\xb4\x46\x02\x00!\x01\x16\x00\x00\x00t/\xe5\xfd\x01\x00\x00\x00\xff\xff"
 decompressed_data = lzma.decompress(compressed_data)
 ```
 
@@ -3216,7 +3137,7 @@ binhex.hexlify(data): Преобразует двоичные данные в ш
 ```python
 import binhex
 
-data = b'Hello, World!'
+data = b"Hello, World!"
 hex_data = binhex.hexlify(data)
 print(hex_data)
 ```
@@ -3226,7 +3147,7 @@ binhex.unhexlify(hexdata): Преобразует данные из шестна
 ```python
 import binhex
 
-hex_data = '48656c6c6f2c20576f726c6421'
+hex_data = "48656c6c6f2c20576f726c6421"
 data = binhex.unhexlify(hex_data)
 print(data)
 ```
@@ -3236,8 +3157,8 @@ binhex.binhex(binfile, hexfile): Кодирует двоичный файл в �
 ```python
 import binhex
 
-bin_file = 'input.bin'
-hex_file = 'output.hex'
+bin_file = "input.bin"
+hex_file = "output.hex"
 binhex.binhex(bin_file, hex_file)
 ```
 
@@ -3246,8 +3167,8 @@ binhex.hexbin(hexfile, binfile): Декодирует файл в формате
 ```python
 import binhex
 
-hex_file = 'input.hex'
-bin_file = 'output.bin'
+hex_file = "input.hex"
+bin_file = "output.bin"
 binhex.hexbin(hex_file, bin_file)
 ```
 """,
@@ -3264,11 +3185,11 @@ glob.escape(pathname): Экранирует все специальные сим
 ```python
 import glob
 
-files = glob.glob('*.txt')
+files = glob.glob("*.txt")
 print(files)
 ```
 
-В этом примере метод glob.glob('*.txt') ищет все файлы с расширением ".txt" в текущем каталоге и возвращает
+В этом примере метод glob.glob("*.txt") ищет все файлы с расширением ".txt" в текущем каталоге и возвращает
 список путей к этим файлам, который затем выводится на экран.
 """,
                         "errno": r"""
@@ -3287,7 +3208,7 @@ errno.clear(): Очищает код текущей ошибки.
 Самые часто используемые методы библиотеки "errno":
 
 errno.errorcode: Возвращает словарь, где ключами являются коды ошибок, а значениями - символьные имена.
-Например: {'ENOENT': 'No such file or directory', 'EACCES': 'Permission denied'}.
+Например: {"ENOENT": "No such file or directory", "EACCES": "Permission denied"}.
 
 ```python
 import errno
@@ -3321,60 +3242,60 @@ print(error_desc)
 Методы модуля "webencodings" и его подмодулей:
 
 Модуль "webencodings":
-"decode(s, encoding='utf-8', errors='strict')": Декодирует строку "s" из указанной кодировки в Unicode.
-"encode(s, encoding='utf-8', errors='strict')": Кодирует строку "s" в указанной кодировке.
-"htmldecode(s, keep_ignorable=False, encoding='utf-8', errors='xmlcharrefreplace')": Декодирует строку "s" из HTML-entities в Unicode.
-"htmlencode(s, encoding='utf-8', errors='xmlcharrefreplace')": Преобразует строку "s" в HTML-entities.
-"unquote(qstring, encoding='utf-8', errors='replace')": Декодирует строку "qstring" из формата URL-кодирования.
+decode(s, encoding="utf-8", errors="strict"): Декодирует строку "s" из указанной кодировки в Unicode.
+encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.
+htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace"): Декодирует строку "s" из HTML-entities в Unicode.
+htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace"): Преобразует строку "s" в HTML-entities.
+unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.
 
 Самые часто используемые методы "webencodings" и их описание с примерами кода:
 
-"decode(s, encoding='utf-8', errors='strict')": Декодирует строку "s" из указанной кодировки в Unicode.
+decode(s, encoding="utf-8", errors="strict"): Декодирует строку "s" из указанной кодировки в Unicode.
 
 ```python
 import webencodings
 
-encoded_string = b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82'
-decoded_string = webencodings.decode(encoded_string, encoding='utf-8')
+encoded_string = b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
+decoded_string = webencodings.decode(encoded_string, encoding="utf-8")
 print(decoded_string)  # Выводит: Привет
 ```
 
-"encode(s, encoding='utf-8', errors='strict')": Кодирует строку "s" в указанной кодировке.
+encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.
 
 ```python
 import webencodings
 
-decoded_string = 'Привет'
-encoded_string = webencodings.encode(decoded_string, encoding='utf-8')
-print(encoded_string)  # Выводит: b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82'
+decoded_string = "Привет"
+encoded_string = webencodings.encode(decoded_string, encoding="utf-8")
+print(encoded_string)  # Выводит: b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
 ```
 
-"htmldecode(s, keep_ignorable=False, encoding='utf-8', errors='xmlcharrefreplace')": Декодирует строку "s" из HTML-entities в Unicode.
+"htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace")": Декодирует строку "s" из HTML-entities в Unicode.
 
 ```python
 import webencodings
 
-html_string = '&lt;div&gt;Hello&lt;/div&gt;'
+html_string = "&lt;div&gt;Hello&lt;/div&gt;"
 decoded_string = webencodings.htmldecode(html_string)
 print(decoded_string)  # Выводит: <div>Hello</div>
 ```
 
-"htmlencode(s, encoding='utf-8', errors='xmlcharrefreplace')": Преобразует строку "s" в HTML-entities.
+"htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace")": Преобразует строку "s" в HTML-entities.
 
 ```python
 import webencodings
 
-plain_string = '<div>Hello</div>'
+plain_string = "<div>Hello</div>"
 encoded_string = webencodings.htmlencode(plain_string)
 print(encoded_string)  # Выводит: &lt;div&gt;Hello&lt;/div&gt;
 ```
 
-"unquote(qstring, encoding='utf-8', errors='replace')": Декодирует строку "qstring" из формата URL-кодирования.
+unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.
 
 ```python
 import webencodings
 
-url_encoded_string = 'Hello%20World%21'
+url_encoded_string = "Hello%20World%21"
 decoded_string = webencodings.unquote(url_encoded_string)
 print(decoded_string)  # Выводит: Hello World!
 ```
@@ -3521,7 +3442,7 @@ resource.setrlimit(resource.RLIMIT_CPU, limits)
 ```python
 import pyclbr
 
-module_data = pyclbr.readmodule('module_name')
+module_data = pyclbr.readmodule("module_name")
 
 for class_name, class_data in module_data.items():
     print(f"Class: {class_name}")
@@ -3534,7 +3455,7 @@ for class_name, class_data in module_data.items():
 ```python
 import pyclbr
 
-class_data = pyclbr.Class('class_name')
+class_data = pyclbr.Class("class_name")
 
 print(f"Class: {class_data.name}")
 for method_name, method_data in class_data.methods.items():
@@ -3546,7 +3467,7 @@ for method_name, method_data in class_data.methods.items():
 ```python
 import pyclbr
 
-function_data = pyclbr.Function('function_name')
+function_data = pyclbr.Function("function_name")
 
 print(f"Function: {function_data.name}")
 print(f"Start line: {function_data.lineno}")
@@ -3557,7 +3478,7 @@ print(f"Start line: {function_data.lineno}")
 ```python
 import pyclbr
 
-module_data = pyclbr.Module('module_name')
+module_data = pyclbr.Module("module_name")
 
 print(f"Module: {module_data.name}")
 for class_name, class_data in module_data.classes.items():
@@ -3591,9 +3512,9 @@ ntpath.split(path)                       | Разделяет указанный
 
 Метод                                     | Описание                                | Пример
 -----------------------------------------|-----------------------------------------|--------------------------------------------------
-ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути. | dirname, filename = ntpath.split('/path/to/file.txt') print(filename) -> 'file.txt'
-ntpath.exists(path)                       | Проверяет, существует ли указанный путь. | if ntpath.exists('/path/to/file.txt'): print("File exists")
-ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя. | full_path = ntpath.join('/path/to', 'file.txt') print(full_path) -> '/path/to/file.txt'
+ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути. | dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -> "file.txt"
+ntpath.exists(path)                       | Проверяет, существует ли указанный путь. | if ntpath.exists("/path/to/file.txt"): print("File exists")
+ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя. | full_path = ntpath.join("/path/to", "file.txt") print(full_path) -> "/path/to/file.txt"
 """,
                         "wave": r"""
 Библиотека "wave" используется в Python для работы с аудиофайлами формата WAV.
@@ -3619,7 +3540,7 @@ wave.open(file, mode): Открывает WAV-файл для чтения ил�
 ```python
 import wave
 
-with wave.open('audio.wav', 'r') as wav_file:
+with wave.open("audio.wav", "r") as wav_file:
     # проведите необходимые операции с аудиофайлом
 ```
 
@@ -3628,9 +3549,9 @@ wave.Wave_read.getnframes(): Возвращает количество фрей�
 ```python
 import wave
 
-with wave.open('audio.wav', 'r') as wav_file:
+with wave.open("audio.wav", "r") as wav_file:
     num_frames = wav_file.getnframes()
-    print(f'Number of frames: {num_frames}')
+    print(f"Number of frames: {num_frames}")
 ```
 
 wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.
@@ -3638,9 +3559,9 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
 ```python
 import wave
 
-new_frames = b'\x00\x00\x00\x00\x00\x00\x00\x00'  # пример сырых байтов аудио-данных
+new_frames = b"\x00\x00\x00\x00\x00\x00\x00\x00"  # пример сырых байтов аудио-данных
 
-with wave.open('new_audio.wav', 'w') as wav_file:
+with wave.open("new_audio.wav", "w") as wav_file:
     wav_file.setnchannels(1)  # устанавливаем один канал
     wav_file.setsampwidth(2)  # устанавливаем размер образца в два байта
     wav_file.setframerate(44100)  # устанавливаем частоту дискретизации в 44100 Гц
@@ -3962,33 +3883,33 @@ gettext(message): Возвращает перевод сообщения.
 
 ```python
 import gettext
-gettext.bindtextdomain('mydomain', 'locale/')
-gettext.textdomain('mydomain')
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
 
 _ = gettext.gettext
-print(_('Hello, world!'))
+print(_("Hello, world!"))
 ```
 
 ngettext(singular, plural, n): Возвращает перевод множественного сообщения на основе числа n.
 
 ```python
 import gettext
-gettext.bindtextdomain('mydomain', 'locale/')
-gettext.textdomain('mydomain')
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
 
 _ = gettext.ngettext
-print(_('%d apple', '%d apples', 5) % 5)
+print(_("%d apple", "%d apples", 5) % 5)
 ```
 
 dgettext(domain, message): Возвращает перевод сообщения из указанного домена.
 
 ```python
 import gettext
-gettext.bindtextdomain('mydomain', 'locale/')
-gettext.textdomain('mydomain')
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
 
 _ = gettext.dgettext
-print(_('mydomain', 'Hello, world!'))
+print(_("mydomain", "Hello, world!"))
 ```
 """,
                         "zipfile": r"""
@@ -3997,11 +3918,11 @@ print(_('mydomain', 'Hello, world!'))
 
 Таблица методов библиотеки "zipfile" и их краткого описания:
 
-`ZipFile(file, mode='r', compression=ZIP_STORED, allowZip64=True)` - создает объект ZipFile, представляющий архив ZIP из файла. Режимы могут быть чтение ('r'), запись ('w') или добавление ('a').
+`ZipFile(file, mode="r", compression=ZIP_STORED, allowZip64=True)` - создает объект ZipFile, представляющий архив ZIP из файла. Режимы могут быть чтение ("r"), запись ("w") или добавление ("a").
 `ZipFile.extractall(path=None, members=None, pwd=None)` - извлекает все файлы из архива в указанную папку.
 `ZipFile.extract(member, path=None, pwd=None)` - извлекает конкретный файл из архива.
 `ZipFile.namelist()` - возвращает список имен файлов в архиве.
-`ZipFile.open(name, mode='r', pwd=None)` - открывает файл в архиве и возвращает объект файлового дескриптора.
+`ZipFile.open(name, mode="r", pwd=None)` - открывает файл в архиве и возвращает объект файлового дескриптора.
 `ZipFile.close()` - закрывает объект ZipFile и освобождает ресурсы.
 
 Список самых часто используемых методов, их краткого описания и пример демонстрирующий их работу:
@@ -4012,9 +3933,9 @@ print(_('mydomain', 'Hello, world!'))
 import zipfile
 
 # Открываем архив
-with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
+with zipfile.ZipFile("archive.zip", "r") as zip_ref:
     # Извлекаем все файлы
-    zip_ref.extractall('destination_folder')
+    zip_ref.extractall("destination_folder")
 ```
 
 `namelist()` - возвращает список имен файлов в архиве.
@@ -4023,7 +3944,7 @@ with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
 import zipfile
 
 # Открываем архив
-with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
+with zipfile.ZipFile("archive.zip", "r") as zip_ref:
     # Получаем список имен файлов
     file_names = zip_ref.namelist()
     
@@ -4038,9 +3959,9 @@ with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
 import zipfile
 
 # Открываем архив
-with zipfile.ZipFile('archive.zip', 'r') as zip_ref:
-    # Извлекаем файл с именем 'file.txt'
-    zip_ref.extract('file.txt', 'destination_folder')
+with zipfile.ZipFile("archive.zip", "r") as zip_ref:
+    # Извлекаем файл с именем "file.txt"
+    zip_ref.extract("file.txt", "destination_folder")
 ```
 """,
                         "pylab": r"""
@@ -4322,8 +4243,8 @@ iskeyword():
 
 ```python
 import keyword
-print(keyword.iskeyword('if'))  # Вывод: True
-print(keyword.iskeyword('hello'))  # Вывод: False
+print(keyword.iskeyword("if"))  # Вывод: True
+print(keyword.iskeyword("hello"))  # Вывод: False
 ```
 
 iskeyword(): Позволяет проверить, является ли строка ключевым словом Python.
@@ -4387,7 +4308,7 @@ b64encode(data): Кодирует данные в формате base64.
 ```python
 import base64
 
-data = b'Hello, World!'
+data = b"Hello, World!"
 encoded_data = base64.b64encode(data)
 print(encoded_data)
 ```
@@ -4397,7 +4318,7 @@ b64decode(data): Декодирует данные из формата base64.
 ```python
 import base64
 
-encoded_data = b'SGVsbG8sIFdvcmxkIQ=='
+encoded_data = b"SGVsbG8sIFdvcmxkIQ=="
 decoded_data = base64.b64decode(encoded_data)
 print(decoded_data)
 ```
@@ -4407,7 +4328,7 @@ urlsafe_b64encode(data): Кодирует данные в формате base64 
 ```python
 import base64
 
-data = b'Hello, World!'
+data = b"Hello, World!"
 encoded_data = base64.urlsafe_b64encode(data)
 print(encoded_data)
 ```
@@ -4417,7 +4338,7 @@ urlsafe_b64decode(data): Декодирует данные из формата b
 ```python
 import base64
 
-encoded_data = b'SGVsbG8sIFdvcmxkIQ=='
+encoded_data = b"SGVsbG8sIFdvcmxkIQ=="
 decoded_data = base64.urlsafe_b64decode(encoded_data)
 print(decoded_data)
 ```
@@ -4441,10 +4362,10 @@ shlex.get_token_unquoted(): Возвращает следующий неквот
 Наиболее часто используемые методы "shlex" вместе с их кратким описанием и примерным кодом:
 
 shlex.split(s): Разбивает строку на токены и возвращает список.
-Пример: tokens = shlex.split("hello world")  # ['hello', 'world']
+Пример: tokens = shlex.split("hello world")  # ["hello", "world"]
 
 shlex.quote(s): Возвращает квотированную версию строки с учетом синтаксиса оболочки.
-Пример: quoted = shlex.quote("Hello, World!")  # 'Hello, World!'
+Пример: quoted = shlex.quote("Hello, World!")  # "Hello, World!"
 
 shlex.join(args): Объединяет список аргументов в строку с добавлением кавычек и экранированием.
 Пример: command = shlex.join(["ls", "-l", "*.txt"])  # 'ls -l "*.txt"'
@@ -4524,7 +4445,7 @@ keyboard.press(): эмулирует нажатие клавиши.
 ```python
 import keyboard
 
-keyboard.press('A')  # Нажатие клавиши "A"
+keyboard.press("A")  # Нажатие клавиши "A"
 ```
 
 keyboard.release(): освобождает заданную клавишу после её нажатия.
@@ -4532,7 +4453,7 @@ keyboard.release(): освобождает заданную клавишу по�
 ```python
 import keyboard
 
-keyboard.release('A')  # Освобождение клавиши "A"
+keyboard.release("A")  # Освобождение клавиши "A"
 ```
 
 keyboard.is_pressed(): проверяет, нажата ли заданная клавиша.
@@ -4540,7 +4461,7 @@ keyboard.is_pressed(): проверяет, нажата ли заданная к
 ```python
 import keyboard
 
-if keyboard.is_pressed('A'):  # Проверка, нажата ли клавиша "A"
+if keyboard.is_pressed("A"):  # Проверка, нажата ли клавиша "A"
     print("Клавиша A нажата")
 ```
 """,
@@ -4560,7 +4481,7 @@ Submodule: `rlcompleter`
 import rlcompleter
 
 completer = rlcompleter.Completer()
-text = 'pr'
+text = "pr"
 state = 0
 
 completions = completer.complete(text, state)
@@ -4573,7 +4494,7 @@ print(completions)
 import rlcompleter
 
 completer = rlcompleter.Completer()
-text = 'pr'
+text = "pr"
 
 matches = completer.global_matches(text)
 print(matches)
@@ -5103,7 +5024,7 @@ def some_function():
     bdb.set_trace()  # Установка точки остановки
     print(a)
 
-bdb.run('some_function()')
+bdb.run("some_function()")
 ```
 breakpoint: Устанавливает точку остановки на текущей позиции выполнения кода.
 
@@ -5182,7 +5103,7 @@ xml.etree.ElementTree.parse(file): Читает XML-файл и возвраща
 ```python
 import xml.etree.ElementTree as ET
 
-tree = ET.parse('file.xml')
+tree = ET.parse("file.xml")
 root = tree.getroot()
 ```
 
@@ -5191,10 +5112,10 @@ xml.etree.ElementTree.Element.findall(tag): Возвращает список э
 ```python
 import xml.etree.ElementTree as ET
 
-tree = ET.parse('file.xml')
+tree = ET.parse("file.xml")
 root = tree.getroot()
 
-elements = root.findall('tag')
+elements = root.findall("tag")
 ```
 
 xml.etree.ElementTree.Element.attrib: Возвращает атрибуты элемента в виде словаря.
@@ -5202,7 +5123,7 @@ xml.etree.ElementTree.Element.attrib: Возвращает атрибуты эл
 ```python
 import xml.etree.ElementTree as ET
 
-tree = ET.parse('file.xml')
+tree = ET.parse("file.xml")
 root = tree.getroot()
 
 for element in root:
@@ -5226,7 +5147,7 @@ long_string = "This is a very long string that needs to be wrapped."
 wrapped_string = textwrap.wrap(long_string, width=10)
 
 print(wrapped_string)
-# ['This is a', 'very long', 'string', 'that needs', 'to be', 'wrapped.']
+# ["This is a", "very long", "string", "that needs", "to be", "wrapped."]
 ```
 
 Кроме textwrap.wrap, модуль textwrap также содержит другие функции, такие как:
@@ -5256,22 +5177,22 @@ from decimal import Decimal
 from decimal import Decimal
 
 # Создание десятичного числа
-a = Decimal('10.5')
+a = Decimal("10.5")
 
 # Арифметические операции
-b = Decimal('2')
-a + b # 12.5
-a - b # 8.5
-a * b # 21.0
-a / b # 5.25
+b = Decimal("2")
+a + b  # 12.5
+a - b  # 8.5
+a * b  # 21.0
+a / b  # 5.25
 
 # Округление
-a.quantize(Decimal('1.00')) # 10.50
-a.quantize(Decimal('0.1'))  # 10.5
+a.quantize(Decimal("1.00"))  # 10.50
+a.quantize(Decimal("0.1"))   # 10.5
 
 # Преобразование в разные форматы
-a.to_eng_string()    # '10.5'
-a.as_integer_ratio() # (21, 2)
+a.to_eng_string()     # "10.5"
+a.as_integer_ratio()  # (21, 2)
 ```
 
 Класс Context
@@ -5284,18 +5205,18 @@ from decimal import Decimal, Context
 ctx = Context(prec=3, rounding=ROUND_HALF_UP)
 
 # Создание десятичного числа с использованием контекста
-a = Decimal('10.5', context=ctx)
+a = Decimal("10.5", context=ctx)
 
 # Арифметические операции с использованием контекста
-b = Decimal('2', context=ctx)
+b = Decimal("2", context=ctx)
 c = a + b
 d = a - b
 e = a * b
 f = a / b
 
 # Округление с использованием контекста
-g = a.quantize(Decimal('1.00'), context=ctx)
-h = a.quantize(Decimal('0.1'), context=ctx)
+g = a.quantize(Decimal("1.00"), context=ctx)
+h = a.quantize(Decimal("0.1"), context=ctx)
 ```
 
 Функции округления
@@ -5304,19 +5225,19 @@ h = a.quantize(Decimal('0.1'), context=ctx)
 ```python
 from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_DOWN, ROUND_CEILING, ROUND_FLOOR
 
-a = Decimal('10.555')
+a = Decimal("10.555")
 
 # Округление до двух знаков с округлением до ближайшего
-a.quantize(Decimal('1.00'), rounding=ROUND_HALF_UP) # 10.56    
+a.quantize(Decimal("1.00"), rounding=ROUND_HALF_UP)  # 10.56    
 
 # Округление до двух знаков с округлением в меньшую сторону
-a.quantize(Decimal('1.00'), rounding=ROUND_FLOOR)   # 10.55
+a.quantize(Decimal("1.00"), rounding=ROUND_FLOOR)  # 10.55
 
 # Округление до целого числа, округление до ближайшего
-a.quantize(Decimal('1'), rounding=ROUND_HALF_UP)    # 11
+a.quantize(Decimal("1"), rounding=ROUND_HALF_UP)  # 11
 
 # Округление до целого числа, округление в большую сторону
-a.quantize(Decimal('1'), rounding=ROUND_CEILING)    # 11
+a.quantize(Decimal("1"), rounding=ROUND_CEILING)  # 11
 ```
 """,
                     "fractions": """
@@ -5345,7 +5266,7 @@ print(Fraction(1, 4) + Fraction(1, 2))    # вывод: 3/4
 print(float(Fraction(3, 4)))    # вывод: 0.75
 
 # конвертирование дроби в строку
-print(str(Fraction(3, 4)))    # вывод: '3/4'
+print(str(Fraction(3, 4)))    # вывод: "3/4"
 ```
 
 Класс Fraction может быть полезен в тех случаях, когда требуется более точный 
@@ -5413,7 +5334,7 @@ Fraction.from_decimal
 ```python
 from fractions import Fraction
 
-print(Fraction.from_decimal('0.75'))  # выводит 3/4
+print(Fraction.from_decimal("0.75"))  # выводит 3/4
 ```
 
 is_integer
@@ -5462,7 +5383,7 @@ Fraction.from_jedec
 ```python
 from fractions import Fraction
 
-print(Fraction.from_jedec('1/2'))  # выводит 1/2
+print(Fraction.from_jedec("1/2"))  # выводит 1/2
 ```
 
 Fraction.from_tuple
@@ -5499,14 +5420,14 @@ print(f"Similarity ratio: {ratio}")
 ```python
 import difflib
 
-colors = ['red', 'green', 'blue', 'yellow']
-color = 'grea'
+colors = ["red", "green", "blue", "yellow"]
+color = "grea"
 
 matches = difflib.get_close_matches(color, colors)
 
 print(f"Closest matches: {matches}")
 
-"""Closest matches: ['green']"""
+"""Closest matches: ["green"]"""
 ```
 
 
@@ -5526,7 +5447,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
 d = difflib.unified_diff(text1.splitlines(), text2.splitlines())
 
-print('\n'.join(d))
+print("\n".join(d))
 
 """
 ---
@@ -5558,7 +5479,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
 d = difflib.HtmlDiff().make_file(text1.splitlines(), text2.splitlines())
 
-with open('diff.html', 'w') as f:
+with open("diff.html", "w") as f:
     f.writelines(d)
 ```
 
@@ -5591,7 +5512,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
 d = difflib.context_diff(text1.splitlines(), text2.splitlines())
 
-print('\n'.join(d))
+print("\n".join(d))
 
 """
 ***
@@ -5629,7 +5550,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
 d = difflib.ndiff(text1.splitlines(), text2.splitlines())
 
-print('\n'.join(d))
+print("\n".join(d))
 
 """
   Lorem ipsum dolor sit amet,
@@ -5649,7 +5570,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 import difflib
 
 def isjunk(s):
-    return s in [' ', '\n']
+    return s in [" ", "\n"]
 
 text1 = """Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
@@ -5685,25 +5606,25 @@ d = difflib.Differ()
 diff = d.compare(text1.splitlines(), text2.splitlines())
 
 def reduce_func(s):
-    if s.startswith('- '):
-        return f"<span style='color:red'>{s}</span>"
-    elif s.startswith('+ '):
-        return f"<span style='color:green'>{s}</span>"
+    if s.startswith("- "):
+        return f"<span style="color:red">{s}</span>"
+    elif s.startswith("+ "):
+        return f"<span style="color:green">{s}</span>"
     else:
         return s
 
 diff = map(reduce_func, diff)
-diff = '\n'.join(diff)
+diff = "\n".join(diff)
 
 print(diff)
 
 """
   Lorem ipsum dolor sit amet,
   consectetur adipiscing elit,
-<span style='color:red'>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+<span style="color:red">- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 ?                                                          ^
 
-<span style='color:green'>+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
+<span style="color:green">+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
 ?                                                          ^^                                         
 """
 ```
@@ -5748,7 +5669,7 @@ draw = Draw(image)
 [print(x) for x in dir(draw)]
 ```
 
-arc                 Рисует дугу (часть 'пончика') на изображении. 
+arc                 Рисует дугу (часть "пончика") на изображении. 
                     Принимает четыре аргумента: координаты прямоугольника, в котором находится дуга, начальный и конечный углы (в градусах), а также цвет линии.
 
 bitmap              Рисует изображение в виде битовой карты на текущем изображении. 
@@ -5845,7 +5766,7 @@ aalib - это библиотека для создания ASCII-графики
 import aalib
 import Image  # Предполагается, что у вас уже есть изображение под названием "image.jpg"
 
-img = Image.open("image.jpg").convert('L')
+img = Image.open("image.jpg").convert("L")
 width, height = img.size
 ascii_img = aalib.AsciiArt(width=width, height=height)
 ascii_img.render(img)
@@ -5858,7 +5779,7 @@ ascii_img.save("output.txt")
 import aalib
 import Image
 
-img = Image.open("image.jpg").convert('L')
+img = Image.open("image.jpg").convert("L")
 ascii_img = aalib.AsciiArt(width=80, height=40)
 ascii_str = ascii_img.render_to_memory(img)
 print(ascii_str)
@@ -5870,7 +5791,7 @@ print(ascii_str)
 import aalib
 import Image
 
-img = Image.open("image.jpg").convert('L')
+img = Image.open("image.jpg").convert("L")
 ascii_img = aalib.AsciiArt(width=80, height=40)
 ascii_img.render(img)
 ascii_img.save("output.txt", img)
@@ -6044,12 +5965,12 @@ python script.py --help
 ```python
 import argparse
 
-parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
+parser = argparse.ArgumentParser(fromfile_prefix_chars="@")
 parser.add_argument("operation", help="operation to perform", choices=["add", "sub", "mul", "div"])
 parser.add_argument("num1", help="first number", type=int)
 parser.add_argument("num2", help="second number", type=int)
 
-args = parser.parse_args(['@args.txt'])
+args = parser.parse_args(["@args.txt"])
 if args.operation == "add":
     print(args.num1 + args.num2)
 elif args.operation == "sub":
@@ -6099,16 +6020,16 @@ python script.py --verbosity --num 3
 import argparse
 
 parser = argparse.ArgumentParser()
-subparsers = parser.add_subparsers(title='subcommands', dest='subcommand')
+subparsers = parser.add_subparsers(title="subcommands", dest="subcommand")
 
-parser_a = subparsers.add_parser('command_a', help='command a help')
-parser_a.add_argument('foo', type=int, help='foo help')
+parser_a = subparsers.add_parser("command_a", help="command a help")
+parser_a.add_argument("foo", type=int, help="foo help")
 
-parser_b = subparsers.add_parser('command_b', help='command b help')
-parser_b.add_argument('--bar', type=str, help='bar help')
+parser_b = subparsers.add_parser("command_b", help="command b help")
+parser_b.add_argument("--bar", type=str, help="bar help")
 
 args = parser.parse_args()
-if args.subcommand == 'command_a':
+if args.subcommand == "command_a":
     print(args.foo)
 else:
     print(args.bar)
@@ -6135,7 +6056,7 @@ python script.py command_b --bar test
 |-----------------------------------------------------------|------------------------------------------------------------------------------------|
 | bz2.compress(data, compresslevel=9)                       | Сжимает данные BZ2. Можно указать уровень сжатия (1-9).                            |
 | bz2.decompress(data)                                      | Распаковывает данные BZ2.                                                          |
-| bz2.BZ2File(file, mode='r', buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: 'r' (чтение), 'w' (запись), 'a' (добавление). |
+| bz2.BZ2File(file, mode="r", buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: "r" (чтение), "w" (запись), "a" (добавление). |
 
 **bz2.compress(data, compresslevel=9)** Сжимает данные BZ2.
 
@@ -6162,8 +6083,8 @@ print(decompressed_data)
 ```python
 from cycler import cycler
 
-colors = cycler(color=['red', 'green', 'blue'])
-linestyles = cycler(linestyle=['-', '--', '-.'])
+colors = cycler(color=["red", "green", "blue"])
+linestyles = cycler(linestyle=["-", "--", "-."])
 
 # Комбинирование циклических стилей
 combined_styles = colors + linestyles
@@ -6215,7 +6136,7 @@ except ImportError:
 Запись в файл
 
 ```python
-logging.basicConfig(filename='example.log',
+logging.basicConfig(filename="example.log",
                     level=logging.DEBUG)
 ```
 
@@ -6223,24 +6144,24 @@ logging.basicConfig(filename='example.log',
 
 ```python
 logging.basicConfig(level=logging.DEBUG,
-                    format='%(message)s')
+                    format="%(message)s")
 ```
 
 Запись в файл и в консоль
 
 ```python
-logging.basicConfig(filename='example.log',
+logging.basicConfig(filename="example.log",
                     level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
+                    format="%(asctime)s %(levelname)s %(message)s",
+                    datefmt="%Y-%m-%d %H:%M:%S")
 console = logging.StreamHandler()
 console.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s '
-                              '%(levelname)s '
-                              '%(message)s',
-                              datefmt='%Y-%m-%d %H:%M:%S')
+formatter = logging.Formatter("%(asctime)s "
+                              "%(levelname)s "
+                              "%(message)s",
+                              datefmt="%Y-%m-%d %H:%M:%S")
 console.setFormatter(formatter)
-logging.getLogger('').addHandler(console)
+logging.getLogger("").addHandler(console)
 ```
 
 Для самих сообщений
@@ -6480,7 +6401,7 @@ namedtuple:
 from collections import namedtuple
 
 # создаем именованный кортеж Point
-Point = namedtuple('Point', ['x', 'y'])
+Point = namedtuple("Point", ["x", "y"])
 
 # создаем экземпляр кортежа
 p = Point(1, 2)
@@ -6517,13 +6438,13 @@ Counter:
 from collections import Counter
 
 # создаем счетчик
-c = Counter('hello, world')
+c = Counter("hello, world")
 
 # выводим количество вхождений каждого символа
-print(c)  # выведет Counter({'l': 3, 'o': 2, 'e': 1, 'h': 1, ',': 1, ' ': 1, 'w': 1, 'r': 1, 'd': 1})
+print(c)  # выведет Counter({"l": 3, "o": 2, "e": 1, "h": 1, ",": 1, " ": 1, "w": 1, "r": 1, "d": 1})
 
 # выводим наиболее часто встречающиеся символы
-print(c.most_common(2))  # выведет [('l', 3), ('o', 2)]
+print(c.most_common(2))  # выведет [("l", 3), ("o", 2)]
 ```
 
 OrderedDict:
@@ -6535,9 +6456,9 @@ from collections import OrderedDict
 d = OrderedDict()
 
 # добавляем элементы в словарь
-d['a'] = 1
-d['b'] = 2
-d['c'] = 3
+d["a"] = 1
+d["b"] = 2
+d["c"] = 3
 
 # выводим элементы в порядке их добавления
 for k, v in d.items():
@@ -6557,12 +6478,12 @@ from collections import defaultdict
 d = defaultdict(int)
 
 # добавляем элементы в словарь
-d['a'] += 1
-d['b'] += 2
-d['c'] += 3
+d["a"] += 1
+d["b"] += 2
+d["c"] += 3
 
 # выводим словарь
-print(d)  # выведет defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 3})
+print(d)  # выведет defaultdict(<class "int">, {"a": 1, "b": 2, "c": 3})
 ```
 
 ChainMap:
@@ -6571,24 +6492,24 @@ ChainMap:
 from collections import ChainMap
 
 # создаем два словаря
-d1 = {'a': 1, 'b': 2}
-d2 = {'b': 3, 'c': 4}
+d1 = {"a": 1, "b": 2}
+d2 = {"b": 3, "c": 4}
 
 # объединяем словари в цепочку
 d = ChainMap(d1, d2)
 
 # выводим элементы словаря
-print(d['a'])  # выведет 1
-print(d['b'])  # выведет 2 (из d1, так как b в d1 появился раньше, чем в d2)
-print(d['c'])  # выведет 4 (из d2)
+print(d["a"])  # выведет 1
+print(d["b"])  # выведет 2 (из d1, так как b в d1 появился раньше, чем в d2)
+print(d["c"])  # выведет 4 (из d2)
 
 # создаем новый словарь и добавляем его в цепочку
-d3 = {'c': 5, 'd': 6}
+d3 = {"c": 5, "d": 6}
 d = d.new_child(d3)
 
 # выводим элементы словаря
-print(d['c'])  # выведет 5 (из d3, так как он добавлен в цепочку позже, чем d2)
-print(d['d'])  # выведет 6 (из d3)
+print(d["c"])  # выведет 5 (из d3, так как он добавлен в цепочку позже, чем d2)
+print(d["d"])  # выведет 6 (из d3)
 ```
 
 
@@ -6598,13 +6519,13 @@ UserDict:
 from collections import UserDict
 
 # создаем пользовательский словарь
-d = UserDict({'a': 1, 'b': 2})
+d = UserDict({"a": 1, "b": 2})
 
 # добавляем элементы в словарь
-d['c'] = 3
+d["c"] = 3
 
 # выводим элементы словаря
-print(d)  # выведет {'a': 1, 'b': 2, 'c': 3}
+print(d)  # выведет {"a": 1, "b": 2, "c": 3}
 ```
 
 UserList:
@@ -6628,7 +6549,7 @@ UserString:
 from collections import UserString
 
 # создаем пользовательскую строку
-s = UserString('hello, world')
+s = UserString("hello, world")
 
 # изменяем строку
 s.data = s.data.upper()
@@ -6748,7 +6669,7 @@ print(my_function.__doc__)   # This is my function.
 >>> foo
 <function dec.<locals>.w at 0x00000182FB1982C0>
 >>> foo.__name__
-'w'
+"w"
 >>> from functools import wraps
 >>> def dec(f):
 ...     @wraps(f)
@@ -6764,7 +6685,7 @@ print(my_function.__doc__)   # This is my function.
 >>> foo
 <function foo at 0x00000182FB198400>
 >>> foo.__name__
-'foo'
+"foo"
 >>>
 ```
 
@@ -6884,7 +6805,7 @@ with my_context():
 import contextlib
 
 with contextlib.suppress(FileNotFoundError):
-    with open('non_existent_file.txt', 'r') as f:
+    with open("non_existent_file.txt", "r") as f:
         print(f.read())
 ```
 
@@ -6933,12 +6854,12 @@ print(contents)
 import contextlib
 from urllib.request import urlopen
 
-with contextlib.closing(urlopen('https:&sol;&sol;www.example.com/')) as page:
+with contextlib.closing(urlopen("https:&sol;&sol;www.example.com/")) as page:
     for line in page:
-        print(line.decode('utf-8'))
+        print(line.decode("utf-8"))
 ```
 
-В этом примере urlopen('https:&sol;&sol;www.example.com/') возвращает объект с методом close(), 
+В этом примере urlopen("https:&sol;&sol;www.example.com/") возвращает объект с методом close(), 
 который используется внутри контекстного менеджера closing.
 
 
@@ -6970,7 +6891,7 @@ with contextlib.nullcontext():
 import contextlib
 
 with contextlib.ExitStack() as stack:
-    files = [stack.enter_context(open(f)) for f in ['file1.txt', 'file2.txt', 'file3.txt']]
+    files = [stack.enter_context(open(f)) for f in ["file1.txt", "file2.txt", "file3.txt"]]
     for file in files:
         print(file.readline())
 ```
@@ -6998,10 +6919,10 @@ with contextlib.ExitStack() as stack:
 from setuptools import setup
 
 setup(
-    name='mypackage',
-    version='1.0.0',
-    packages=['mypackage'],
-    install_requires=['requests'],
+    name="mypackage",
+    version="1.0.0",
+    packages=["mypackage"],
+    install_requires=["requests"],
 )
 ```
 
@@ -7013,8 +6934,8 @@ setup(
 from setuptools import setup, find_packages
 
 setup(
-    name='mypackage',
-    version='1.0.0',
+    name="mypackage",
+    version="1.0.0",
     packages=find_packages(),
 )
 ```
@@ -7027,11 +6948,11 @@ setup(
 from setuptools import setup
 
 setup(
-    name='mypackage',
-    version='1.0.0',
+    name="mypackage",
+    version="1.0.0",
     entry_points={
-        'console_scripts': [
-            'myscript = mypackage.script:main',
+        "console_scripts": [
+            "myscript = mypackage.script:main",
         ],
     },
 )
@@ -7144,7 +7065,7 @@ print(q.empty())  # Вывод: True
 import pstats
 
 # Создаем объект статистики
-stats = pstats.Stats('profile_result')
+stats = pstats.Stats("profile_result")
 
 # Выводим статистику на экран
 stats.print_stats()
@@ -7159,10 +7080,10 @@ stats.print_stats()
 import pstats
 
 # Создаем объект статистики
-stats = pstats.Stats('profile_result')
+stats = pstats.Stats("profile_result")
 
 # Сортируем статистику по времени выполнения
-stats.sort_stats('time')
+stats.sort_stats("time")
 
 # Выводим отсортированную статистику на экран
 stats.print_stats()
@@ -7269,7 +7190,7 @@ cd PROJECTNAME
 | uuid                  | принимает строки UUID                                |
 
 ```python
-@app.route('/<type:name>')
+@app.route("/<type:name>")
 def func(name: type):
     pass
 ```
@@ -7343,15 +7264,15 @@ NNTP.group(group): Выбирает новостную группу для чт�
 ```python
 from nntplib import NNTP
 
-conn = NNTP('news.example.com')
-conn.group('comp.lang.python')
+conn = NNTP("news.example.com")
+conn.group("comp.lang.python")
 ```
 
 NNTP.list(): Получает список доступных новостных групп.
 ```python
 from nntplib import NNTP
 
-conn = NNTP('news.example.com')
+conn = NNTP("news.example.com")
 groups = conn.list()
 ```
 
@@ -7359,16 +7280,16 @@ NNTP.article(num): Получает статью по ее номеру.
 ```python
 from nntplib import NNTP
 
-conn = NNTP('news.example.com')
-resp, article_lines, msg_id, info = conn.article('12345')
+conn = NNTP("news.example.com")
+resp, article_lines, msg_id, info = conn.article("12345")
 ```
 
 NNTP.post(message): Отправляет сообщение на сервер NNTP.
 ```python
 from nntplib import NNTP
 
-conn = NNTP('news.example.com')
-resp = conn.post('<subject>', '<from>', '<body>')
+conn = NNTP("news.example.com")
+resp = conn.post("<subject>", "<from>", "<body>")
 ```
 """,
 
@@ -7376,162 +7297,168 @@ resp = conn.post('<subject>', '<from>', '<body>')
             },
             "Методы": {
                 "Магические методы": escape_markdown(
-                    rf"""
+                    r"""
 # Арифметические операции
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __eq__(self, other) -> bool:               | self == other                                      | Равенство                                                                        |
-| def __ge__(self, other) -> bool:               | self >= other                                      | Больше или равен                                                                 |
-| def __gt__(self, other) -> bool:               | self > other                                       | Больше                                                                           |
-| def __le__(self, other) -> bool:               | self <= other                                      | Mеньше или равен                                                                 |
-| def __lt__(self, other) -> bool:               | self < other                                       | Меньше                                                                           |
-| def __ne__(self, other) -> bool:               | self != other                                      | Не равен                                                                         |
-| def __or__(self, other):                       | self \| other                                      | Побитовое ИЛИ                                                                    |
-| def __add__(self, other):                      | self + other                                       | Сложение                                                                         |
-| def __and__(self, other):                      | self & other                                       | Побитовое И                                                                      |
-| def __ior__(self, other):                      | self \|= other                                     | Побитовое ИЛИ с присваиванием                                                    |
-| def __mod__(self, other):                      | self % other                                       | Остаток от деления                                                               |
-| def __mul__(self, other):                      | self * other                                       | Умножение                                                                        |
-| def __ror__(self, other):                      | self \| other                                      | Побитовое ИЛИ с обратным присваиванием                                           |
-| def __sub__(self, other):                      | self - other                                       | Вычитание                                                                        |
-| def __xor__(self, other):                      | self ^ other                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ                                                        |
-| def __iadd__(self, other):                     | self += other                                      | Сложение с присваиванием                                                         |
-| def __iand__(self, other):                     | self &= other                                      | Побитовое И с присваиванием                                                      |
-| def __idiv__(self, other):                     | self /= other                                      | Деление с присваиванием                                                          |
-| def __imod__(self, other):                     | self %= other                                      | Взятие остатка от деления с присваиванием                                        |
-| def __imul__(self, other):                     | self *= other                                      | Умножение с присваиванием                                                        |
-| def __ipow__(self, other):                     | self **= other                                     | Возведение в степень с присваиванием                                             |
-| def __isub__(self, other):                     | self -= other                                      | Вычитание с присваиванием                                                        |
-| def __ixor__(self, other):                     | self ^= other                                      | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ с присваиванием                                        |
-| def __radd__(self, other):                     | other + self                                       | Сложение справа                                                                  |
-| def __rand__(self, other):                     | other & self                                       | Выполняет побитовое И справа                                                     |
-| def __rdiv__(self, other):                     | other / self                                       | Деление справа                                                                   |
-| def __divmod__(self, other):                   | divmod(self, other)                                | Деление с остатком                                                               |
-| def __rdivmod__(self, other):                  | divmod(other, self)                                | Деление с остатком справа                                                        |
-| def __rmod__(self, other):                     | other % self                                       | Взятие остатка от деления справа                                                 |
-| def __rmul__(self, other):                     | other * self                                       | Умножение справа                                                                 |
-| def __rpow__(self, other):                     | other ** self                                      | Возведение в степень справа                                                      |
-| def __rsub__(self, other):                     | other - self                                       | Вычитание справа                                                                 |
-| def __rxor__(self, other):                     | other ^ self                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ справа                                                 |
-| def __floordiv__(self, other):                 | self // other                                      | Целочисленное деление                                                            |
-| def __ilshift__(self, other):                  | self <<= other                                     | Побитовый сдвиг влево с присваиванием                                            |
-| def __imatmul__(self, other):                  | self @= other                                      | Матричное умножение с присваиванием                                              |
-| def __irshift__(self, other):                  | self >>= other                                     | Побитовый сдвиг вправо с присваиванием                                           |
-| def __itruediv__(self, other):                 | self /= other                                      | Деление с присваиванием                                                          |
-| def __rlshift__(self, other):                  | other << self                                      | Побитовый сдвиг влево справа                                                     |
-| def __rmatmul__(self, other):                  | other @ self                                       | Матричное умножение справа                                                       |
-| def __matmul__(self, other):                   | self @ other                                       | Матричное умножение                                                              |
-| def __rrshift__(self, other):                  | other >> self                                      | Побитовый сдвиг вправо справа                                                    |
-| def __rtruediv__(self, other):                 | other / self                                       | Деление справа                                                                   |
-| def __truediv__(self, other):                  | self / other                                       | Деление                                                                          |
-| def __lshift__(self, other):                   | self << other                                      | Побитовый сдвиг влево                                                            |
-| def __rshift__(self, other):                   | self >> other                                      | Побитовый сдвиг вправо                                                           |
-| def __ifloordiv__(self, other):                | self //= other                                     | Целочисленное деление с присваиванием                                            |
-| def __rfloordiv__(self, other):                | other // self                                      | Целочисленное деление справа                                                     |
-| def __pos__(self):                             | +self                                              | Положительное значение объекта                                                   |
-| def __neg__(self):                             | -self                                              | Отрицательное значение объекта                                                   |
-| def __invert__(self):                          | ~self                                              | Инвертированное значение объекта                                                 |
+
+| Функция                          | Пример              | Описание                                  |
+|----------------------------------|---------------------|-------------------------------------------|
+| def __eq__(self, other) -> bool: | self == other       | Равенство                                 |
+| def __ge__(self, other) -> bool: | self >= other       | Больше или равен                          |
+| def __gt__(self, other) -> bool: | self > other        | Больше                                    |
+| def __le__(self, other) -> bool: | self <= other       | Mеньше или равен                          |
+| def __lt__(self, other) -> bool: | self < other        | Меньше                                    |
+| def __ne__(self, other) -> bool: | self != other       | Не равен                                  |
+| def __or__(self, other):         | self \| other       | Побитовое ИЛИ                             |
+| def __add__(self, other):        | self + other        | Сложение                                  |
+| def __and__(self, other):        | self & other        | Побитовое И                               |
+| def __ior__(self, other):        | self \|= other      | Побитовое ИЛИ с присваиванием             |
+| def __mod__(self, other):        | self % other        | Остаток от деления                        |
+| def __mul__(self, other):        | self * other        | Умножение                                 |
+| def __ror__(self, other):        | self \| other       | Побитовое ИЛИ с обратным присваиванием    |
+| def __sub__(self, other):        | self - other        | Вычитание                                 |
+| def __xor__(self, other):        | self ^ other        | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ                 |
+| def __iadd__(self, other):       | self += other       | Сложение с присваиванием                  |
+| def __iand__(self, other):       | self &= other       | Побитовое И с присваиванием               |
+| def __idiv__(self, other):       | self /= other       | Деление с присваиванием                   |
+| def __imod__(self, other):       | self %= other       | Взятие остатка от деления с присваиванием |
+| def __imul__(self, other):       | self *= other       | Умножение с присваиванием                 |
+| def __ipow__(self, other):       | self **= other      | Возведение в степень с присваиванием      |
+| def __isub__(self, other):       | self -= other       | Вычитание с присваиванием                 |
+| def __ixor__(self, other):       | self ^= other       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ с присваиванием |
+| def __radd__(self, other):       | other + self        | Сложение справа                           |
+| def __rand__(self, other):       | other & self        | Выполняет побитовое И справа              |
+| def __rdiv__(self, other):       | other / self        | Деление справа                            |
+| def __divmod__(self, other):     | divmod(self, other) | Деление с остатком                        |
+| def __rdivmod__(self, other):    | divmod(other, self) | Деление с остатком справа                 |
+| def __rmod__(self, other):       | other % self        | Взятие остатка от деления справа          |
+| def __rmul__(self, other):       | other * self        | Умножение справа                          |
+| def __rpow__(self, other):       | other ** self       | Возведение в степень справа               |
+| def __rsub__(self, other):       | other - self        | Вычитание справа                          |
+| def __rxor__(self, other):       | other ^ self        | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ справа          |
+| def __floordiv__(self, other):   | self // other       | Целочисленное деление                     |
+| def __ilshift__(self, other):    | self <<= other      | Побитовый сдвиг влево с присваиванием     |
+| def __imatmul__(self, other):    | self @= other       | Матричное умножение с присваиванием       |
+| def __irshift__(self, other):    | self >>= other      | Побитовый сдвиг вправо с присваиванием    |
+| def __itruediv__(self, other):   | self /= other       | Деление с присваиванием                   |
+| def __rlshift__(self, other):    | other << self       | Побитовый сдвиг влево справа              |
+| def __rmatmul__(self, other):    | other @ self        | Матричное умножение справа                |
+| def __matmul__(self, other):     | self @ other        | Матричное умножение                       |
+| def __rrshift__(self, other):    | other >> self       | Побитовый сдвиг вправо справа             |
+| def __rtruediv__(self, other):   | other / self        | Деление справа                            |
+| def __truediv__(self, other):    | self / other        | Деление                                   |
+| def __lshift__(self, other):     | self << other       | Побитовый сдвиг влево                     |
+| def __rshift__(self, other):     | self >> other       | Побитовый сдвиг вправо                    |
+| def __ifloordiv__(self, other):  | self //= other      | Целочисленное деление с присваиванием     |
+| def __rfloordiv__(self, other):  | other // self       | Целочисленное деление справа              |
+| def __pos__(self):               | +self               | Положительное значение объекта            |
+| def __neg__(self):               | -self               | Отрицательное значение объекта            |
+| def __invert__(self):            | ~self               | Инвертированное значение объекта          |
 
 # func call
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __pow__(self, power, modulo=None):         | pow(self, power, modulo)                           | Возведение в степень                                                             |
-| def __abs__(self):                             | abs(self)                                          | Абсолютное значение объекта                                                      |
-| def __hex__(self):                             | hex(self)                                          | Строковое представление объекта в<br>шестнадцатеричной системе счисления         |
-| def __float__(self):                           | float(self)                                        | Представление объекта в виде числа с плавающей запятой                           |
-| def __bytes__(self):                           | bytes(self)                                        | Байтовое представление объекта                                                   |
-| def __long__(self):                            | int(self)                                          | Длинное целочисленное представление объекта                                      |
-| def __int__(self):                             | int(self)                                          | Целочисленное представление объекта                                              |
-| def __bool__(self) -> bool:                    | bool(self)                                         | Булево значение                                                                  |
-| def __oct__(self):                             | oct(self)                                          | Строковое представление объекта в<br>восьмеричной системе счисления              |
-| def __len__(self):                             | len(self)                                          | Возвращает длину объекта                                                         |
-| def __str__(self):                             | str(self)                                          | Строковое представление объекта                                                  |
-| def __hash__(self):                            | hash(self)                                         | Хеш-значение объекта                                                             |
-| def __iter__(self):                            | iter(self)                                         | Итератор объекта                                                                 |
-| def __next__(self):                            | next(self)                                         | Следующий элемент в итерации                                                     |
-| def __round__(self, n=None):                   | round(self, n)                                     | Округленное значение                                                             |
-| def __complex__(self):                         | complex(self)                                      | Комплексное представление                                                        |
-| def __reversed__(self):                        | reversed(self)                                     | Возвращает обратный итератор объекта                                             |
-| def __unicode__(self):                         | unicode(self)                                      | Строковое представление объекта (Python 2)                                       |
-| def __instancecheck__(self, instance) -> bool: | isinstance(obj, cls)                               | Проверяет, является ли объект экземпляром класса                                 |
-| def __subclasscheck__(self, subclass) -> bool: | issubclass(subclass, cls)                          | Является ли класс подклассом другого класса                                      |
-| def __call__(self, *args, **kwargs):           | self(*args, **kwargs)                              | Вызывает объект как функцию                                                      |
-| def __repr__(self):                            | repr(self)                                         | Строковое представление объекта                                                  |
-| def __subclasshook__(cls, __subclass):         | issubclass(Subclass, MyClass)                      | Проверяет, является ли класс подклассом другого класса                           |
-| def __dir__(self):                             | dir(self)                                          | Список атрибутов и методов объекта                                               |
-| def __format__(self, format_spec):             | {to_table_code_py('"{0:{format_spec}}".format(self)')} | Форматированную строку объекта                                        |
-| def __cmp__(self, other) -> int:               | cmp(self, other)                                   | Сравнивает объекты и возвращает -1, 0 или 1                                      |
-| def __aiter__(self):                           | awaitable.__aiter__()                              | Асинхронный итератор объекта                                                     |
-| def __anext__(self):                           | awaitable.__anext__()                              | Возвращает следующий элемент в асинхронной итерации                              |
-| def __coerce__(self, other):                   | coerce(self, other)                                | Преобразует объект к общему типу с другим объектом                               |
-| def __index__(self):                           | operator.index(self)                               | Целочисленное представление объекта<br>для использования в индексации            |
-| def __floor__(self):                           | math.floor(self)                                   | Наибольшее целое число, меньшее или равное объекту                               |
-| def __trunc__(self):                           | math.trunc(self)                                   | Усеченное значение объекта                                                       |
-| def __ceil__(self):                            | math.ceil(self)                                    | Наименьшее целое число, большее или равное объекту                               |
-| def __copy__(self):                            | copy.copy(self)                                    | Создает поверхностную копию объекта                                              |
-| def __deepcopy__(self, memodict={{}}):         | copy.deepcopy(self)                                | Создает глубокую копию объекта                                                   |
-| def __sizeof__(self):                          | sys.getsizeof(self)                                | Возвращает размер объекта в байтах                                               |
-| def __fspath__(self):                          | os.fspath(self)                                    | Возвращает строковое представление<br>объекта для использования в функции fspath |
 
+| Функция                                        | Пример                        | Описание                                                                         |
+|------------------------------------------------|-------------------------------|----------------------------------------------------------------------------------|
+| def __pow__(self, power, modulo=None):         | pow(self, power, modulo)      | Возведение в степень                                                             |
+| def __abs__(self):                             | abs(self)                     | Абсолютное значение объекта                                                      |
+| def __hex__(self):                             | hex(self)                     | Строковое представление объекта в<br>шестнадцатеричной системе счисления         |
+| def __float__(self):                           | float(self)                   | Представление объекта в виде числа с плавающей запятой                           |
+| def __bytes__(self):                           | bytes(self)                   | Байтовое представление объекта                                                   |
+| def __long__(self):                            | int(self)                     | Длинное целочисленное представление объекта                                      |
+| def __int__(self):                             | int(self)                     | Целочисленное представление объекта                                              |
+| def __bool__(self) -> bool:                    | bool(self)                    | Булево значение                                                                  |
+| def __oct__(self):                             | oct(self)                     | Строковое представление объекта в<br>восьмеричной системе счисления              |
+| def __len__(self):                             | len(self)                     | Возвращает длину объекта                                                         |
+| def __str__(self):                             | str(self)                     | Строковое представление объекта                                                  |
+| def __hash__(self):                            | hash(self)                    | Хеш-значение объекта                                                             |
+| def __iter__(self):                            | iter(self)                    | Итератор объекта                                                                 |
+| def __next__(self):                            | next(self)                    | Следующий элемент в итерации                                                     |
+| def __round__(self, n=None):                   | round(self, n)                | Округленное значение                                                             |
+| def __complex__(self):                         | complex(self)                 | Комплексное представление                                                        |
+| def __reversed__(self):                        | reversed(self)                | Возвращает обратный итератор объекта                                             |
+| def __unicode__(self):                         | unicode(self)                 | Строковое представление объекта (Python 2)                                       |
+| def __instancecheck__(self, instance) -> bool: | isinstance(obj, cls)          | Проверяет, является ли объект экземпляром класса                                 |
+| def __subclasscheck__(self, subclass) -> bool: | issubclass(subclass, cls)     | Является ли класс подклассом другого класса                                      |
+| def __call__(self, *args, **kwargs):           | self(*args, **kwargs)         | Вызывает объект как функцию                                                      |
+| def __repr__(self):                            | repr(self)                    | Строковое представление объекта                                                  |
+| def __subclasshook__(cls, __subclass):         | issubclass(Subclass, MyClass) | Проверяет, является ли класс подклассом другого класса                           |
+| def __dir__(self):                             | dir(self)                     | Список атрибутов и методов объекта                                               |
+| def __format__(self, format_spec):             | {__format__}                  | Форматированную строку объекта                                                   |
+| def __cmp__(self, other) -> int:               | cmp(self, other)              | Сравнивает объекты и возвращает -1, 0 или 1                                      |
+| def __aiter__(self):                           | awaitable.__aiter__()         | Асинхронный итератор объекта                                                     |
+| def __anext__(self):                           | awaitable.__anext__()         | Возвращает следующий элемент в асинхронной итерации                              |
+| def __coerce__(self, other):                   | coerce(self, other)           | Преобразует объект к общему типу с другим объектом                               |
+| def __index__(self):                           | operator.index(self)          | Целочисленное представление объекта<br>для использования в индексации            |
+| def __floor__(self):                           | math.floor(self)              | Наибольшее целое число, меньшее или равное объекту                               |
+| def __trunc__(self):                           | math.trunc(self)              | Усеченное значение объекта                                                       |
+| def __ceil__(self):                            | math.ceil(self)               | Наименьшее целое число, большее или равное объекту                               |
+| def __copy__(self):                            | copy.copy(self)               | Создает поверхностную копию объекта                                              |
+| def __deepcopy__(self, memodict={{}}):         | copy.deepcopy(self)           | Создает глубокую копию объекта                                                   |
+| def __sizeof__(self):                          | sys.getsizeof(self)           | Возвращает размер объекта в байтах                                               |
+| def __fspath__(self):                          | os.fspath(self)               | Возвращает строковое представление<br>объекта для использования в функции fspath |
 
 # Контейнеры
 
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __getitem__(self, item):                   | self[item]                                         | Элемент по индексу или ключу                                                     |
-| def __missing__(self, key):                    | self[key]                                          | Вызывается при отсутствии ключа в объекте                                        |
-| def __contains__(self, item) -> bool:          | item in self                                       | Содержится ли элемент в объекте                                                  |
-| def __setslice__(self, i, j, sequence):        | self[i:j] = sequence                               | Заменяет срез объекта указанной последовательностью                              |
-| def __delattr__(self, item):                   | del self.item                                      | Удаляет атрибут объекта                                                          |
-| def __delitem__(self, key):                    | del self[key]                                      | Удаляет элемент по ключу                                                         |
-| def __delslice__(self, i, j):                  | del self[i:j]                                      | Удаляет срез из объекта                                                          |
-| def __get__(self, instance, owner):            | value = self.__get__(instance, owner)              | Возвращает значение атрибута объекта в классе-дескрипторе                        |
-
+| Функция                                 | Пример                                | Описание                                                  |
+|-----------------------------------------|---------------------------------------|-----------------------------------------------------------|
+| def __getitem__(self, item):            | self[item]                            | Элемент по индексу или ключу                              |
+| def __missing__(self, key):             | self[key]                             | Вызывается при отсутствии ключа в объекте                 |
+| def __contains__(self, item) -> bool:   | item in self                          | Содержится ли элемент в объекте                           |
+| def __setslice__(self, i, j, sequence): | self[i:j] = sequence                  | Заменяет срез объекта указанной последовательностью       |
+| def __delattr__(self, item):            | del self.item                         | Удаляет атрибут объекта                                   |
+| def __delitem__(self, key):             | del self[key]                         | Удаляет элемент по ключу                                  |
+| def __delslice__(self, i, j):           | del self[i:j]                         | Удаляет срез из объекта                                   |
+| def __get__(self, instance, owner):     | value = self.__get__(instance, owner) | Возвращает значение атрибута объекта в классе-дескрипторе |
 
 # Классы
 
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __new__(cls, *args, **kwargs):             | instance = MyClass(args)                           | Создает новый обьект                                                             |
-| def __init__(self):                            | instance = MyClass(args)                           | При инициализации нового экземпляра объекта                                      |
-| def __class__(self):                           | obj_class = obj.__class__()                        | Возвращает класс объекта                                                         |
-| def __del__(self):                             | del self                                           | При удалении объекта                                                             |
-| {to_table_code_py(f"@classmethod{n}def __prepare__(metacls, name, bases):")} | metacls.__prepare__(name, bases) | Словарь для использования в качестве<br>пространства имен класса |
-| def __delete__(self, instance):                | del instance.self                                  | Удаляет атрибут объекта                                                          |
-| def __init_subclass__(cls, **kwargs):          | {to_table_code_py(f"class Subclass(Parent):{n}    pass{n}Subclass.__init_subclass__()")}                          | Вызывается при создании подкласса                                 |
-| def __mro_entries__(self, bases):              | {to_table_code_py(f"class MyClass(Base1, Base2, metaclass=MyMeta):{n}    pass{n}MyClass.__mro_entries__(bases)")} | Возвращает кортеж для обновления MRO<br>(Method Resolution Order) |
-| def __getinitargs__(self):                     | args = self.__getinitargs__()                      | Кортеж аргументов для использования при создании объекта                         |
-| def __set_name__(self, owner, name):           | {to_table_code_py(f"class MyClass:{n}    attr = MyDescriptor(){n}MyClass.attr.__set_name__(MyClass, 'attr')")}    | Вызывается при установке имени атрибута в классе  |
-| def __getnewargs__(self):                      | args = self.__getnewargs__()                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
-| def __getattribute__(self, item):              | value = self.__getattribute__('attr')              | Возвращает значение атрибута объекта                                             |
-| def __getattr__(self, item):                   | value = self.__getattr__('attr')                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
-| def __await__(self):                           | await awaitable                                    | Возвращает объект, поддерживающий асинхронное ожидание                           |
-| def __set__(self, instance, value):            | instance.attr = value                              | Устанавливает значение атрибута в экземпляре класса                              |
-| def __class_getitem__(cls, item):              | item_type = MyGenericClass.__class_getitem__(Item) | Обобщенный тип объекта                                                           |
-| def __setattr__(self, key, value):             | self.key = value                                   | Устанавливает значение атрибута объекта                                          |
-| def __setitem__(self, key, value):             | self[key] = value                                  | Устанавливает значение элемента по ключу в объекте                               |
-
+| Функция                               | Пример                                             | Описание                                                                         |
+|---------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __new__(cls, *args, **kwargs):    | instance = MyClass(args)                           | Создает новый обьект                                                             |
+| def __init__(self):                   | instance = MyClass(args)                           | При инициализации нового экземпляра объекта                                      |
+| def __class__(self):                  | obj_class = obj.__class__()                        | Возвращает класс объекта                                                         |
+| def __del__(self):                    | del self                                           | При удалении объекта                                                             |
+| {__prepare__}                         | metacls.__prepare__(name, bases)                   | Словарь для использования в качестве<br>пространства имен класса                 |
+| def __delete__(self, instance):       | del instance.self                                  | Удаляет атрибут объекта                                                          |
+| def __init_subclass__(cls, **kwargs): | {__init_subclass__}                                | Вызывается при создании подкласса                                                |
+| def __mro_entries__(self, bases):     | {__mro_entries__}                                  | Возвращает кортеж для обновления MRO<br>(Method Resolution Order)                |
+| def __getinitargs__(self):            | args = self.__getinitargs__()                      | Кортеж аргументов для использования при создании объекта                         |
+| def __set_name__(self, owner, name):  | {__set_name__}                                     | Вызывается при установке имени атрибута в классе                                 |
+| def __getnewargs__(self):             | args = self.__getnewargs__()                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
+| def __getattribute__(self, item):     | value = self.__getattribute__("attr")              | Возвращает значение атрибута объекта                                             |
+| def __getattr__(self, item):          | value = self.__getattr__("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
+| def __await__(self):                  | await awaitable                                    | Возвращает объект, поддерживающий асинхронное ожидание                           |
+| def __set__(self, instance, value):   | instance.attr = value                              | Устанавливает значение атрибута в экземпляре класса                              |
+| def __class_getitem__(cls, item):     | item_type = MyGenericClass.__class_getitem__(Item) | Обобщенный тип объекта                                                           |
+| def __setattr__(self, key, value):    | self.key = value                                   | Устанавливает значение атрибута объекта                                          |
+| def __setitem__(self, key, value):    | self[key] = value                                  | Устанавливает значение элемента по ключу в объекте                               |
 
 # with as
 
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __enter__(self):                            | with self as x:                                    | Выполняет код при входе в блок with                                              |
-| def __aenter__(self):                           | async with self as x:                              | Вызывается при входе в асинхронный<br>контекстный блок                           |
-| def __aexit__(self, exc_type, exc_val, exc_tb): | {to_table_code_py(f"async with self as x:{n}    pass{n}await self.__aexit__(exc_type, exc_val, exc_tb)")}        | Вызывается при выходе из асинхронного контекстного блока                            | 
-| def __exit__(self, exc_type, exc_val, exc_tb):  | {to_table_code_py(f"with self as x:{n}    pass{n}self.__exit__(exc_type, exc_val, exc_tb)")}   | Вызывается при выходе из контекстного блока                                         |
-
+| Функция                                         | Пример                | Описание                                                 |
+|-------------------------------------------------|-----------------------|----------------------------------------------------------|
+| def __enter__(self):                            | with self as x:       | Выполняет код при входе в блок with                      |
+| def __aenter__(self):                           | async with self as x: | Вызывается при входе в асинхронный<br>контекстный блок   |
+| def __aexit__(self, exc_type, exc_val, exc_tb): | {__aexit__}           | Вызывается при выходе из асинхронного контекстного блока | 
+| def __exit__(self, exc_type, exc_val, exc_tb):  | {__exit__}            | Вызывается при выходе из контекстного блока              |
 
 # Pickle
 
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __setstate__(self, state):                 | obj.__setstate__(state)                            | Восстанавливает состояние объекта                                                |
-| def __reduce_ex__(self, protocol):             | pickle.loads(pickle.dumps(self, protocol))         | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
-| def __getstate__(self):                        | pickle.loads(pickle.dumps(self).__getstate__())    | Возвращает состояние объекта для использования<br>в процессе сериализации        |
-| def __reduce__(self):                          | pickle.loads(pickle.dumps(self))                   | Возвращает данные для использования<br>в процессе сериализации объекта           |
+| Функция                            | Пример                                          | Описание                                                                            |
+|------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------|
+| def __setstate__(self, state):     | obj.__setstate__(state)                         | Восстанавливает состояние объекта                                                   |
+| def __reduce_ex__(self, protocol): | pickle.loads(pickle.dumps(self, protocol))      | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
+| def __getstate__(self):            | pickle.loads(pickle.dumps(self).__getstate__()) | Возвращает состояние объекта для использования<br>в процессе сериализации           |
+| def __reduce__(self):              | pickle.loads(pickle.dumps(self))                | Возвращает данные для использования<br>в процессе сериализации объекта              |
 
-                    """
+                    """.format(
+                        __format__=to_table_code_py('"{0:{format_spec}}".format(self)'),
+                        __prepare__=to_table_code_py("@classmethod\ndef __prepare__(metacls, name, bases):"),
+                        __init_subclass__=to_table_code_py("class Subclass(Parent):\n    pass\nSubclass.__init_subclass__()"),
+                        __mro_entries__=to_table_code_py("class MyClass(Base1, Base2, metaclass=MyMeta):\n    pass\nMyClass.__mro_entries__(bases)"),
+                        __set_name__=to_table_code_py('class MyClass:\n    attr = MyDescriptor()\nMyClass.attr.__set_name__(MyClass, "attr")'),
+                        __aexit__=to_table_code_py("async with self as x:\n    pass\nawait self.__aexit__(exc_type, exc_val, exc_tb)"),
+                        __exit__=to_table_code_py("with self as x:\n    pass\nself.__exit__(exc_type, exc_val, exc_tb)"),
+                    )
                 ),
                 "int": r"""
 | Метод                  | Описание                                                                                          | Пример вызова                                                                                                                                                                                                                                                                                                                        |
@@ -7548,91 +7475,489 @@ resp = conn.post('<subject>', '<from>', '<body>')
 | int.to_bytes()         | Преобразует целое число в байтовую последовательность, используя указанный порядок байтов и знак. | <div class="code">num = <span class="m">1024</span><br><span class="nb">print</span>(num.to_bytes(<span class="na">length</span>=<span class="m">2</span>, <span class="na">byteorder</span>=<span class="s">'big'</span>, <span class="na">signed</span>=<span class="k">False</span>)) <span class="c1"># b'\x04\x00'</span></div> |
 
 """,
-                "str": r"""
-| Метод                                  | Описание                                                                                                        |
-|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------|
-| str.capitalize()                       | Переводит первую букву в верхний, а остальные в нижний регистр.                                                 |
-| str.casefold()                         | Переводит все символы в нижний регистр                                                                          |
-| str.center(width[, fillvalue])         | Обрамляет значениями `fillvalue` строку, пока длина не станет `width`                                           |
-| str.count(str[, start][, end]          | Считает количество подстрок `str` в выбранном промежутке строки                                                 |
-| str.encode(encoding, errors)           | Меняет кодировку строки                                                                                         |
-| str.endswith(suffix[, start][, end])   | Возвращает `True` если строка заканчивается на `suffix`, иначе `False`                                          |
-| str.expandtabs(tabsize=8)              | Увеличивает размер символов табуляции до `tabsize` пробелов                                                     |
-| str.find(str[, start][, end])          | Возвращает индекс начала первой подстроки `str` в выбранном промежутке или `-1`, если она не найдена            |
-| str.format(args, *kwargs)              | Последовательно заменяет `{}` в строке на свои аргументы                                                        |
-| str.format_map(dict)                   | Заменяет `{<val>}` в строке на `dict[<val>]`                                                                    |
-| str.index(str[, start][, end])         | Возвращает индекс начала первой подстроки str в выбранном промежутке или `ValueError`, если она не найдена      |
-| str.isalnum()                          | Возвращает `True`, если строка состоит только из букв и цифр, иначе `False`                                     |
-| str.isalpha()                          | Возвращает `True`, если строка состоит только из букв, иначе `False`                                            |
-| str.isdecimal()                        | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
-| str.isdigit()                          | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
-| str.isidentifier()                     | Возвращает `True`, если строка является идентификатором (`if`, `class`, `assert`), иначе `False`                |
-| str.islower()                          | Возвращает `True`, если вся строка в нижнем регистре, иначе `False`                                             |
-| str.isnumeric()                        | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
-| str.isprintable()                      | Возвращает `True`, если все символы строки отображаются, иначе `False` (например, `\n`, `\t`)                   |
-| str.isspace()                          | Возвращает `True`, если строка состоит из пробелов, иначе `False`                                               |
-| str.istitle()                          | Возвращает `True`, если строка начинается с заглавной буквы, а остальные — строчные, иначе `False`              |
-| str.isupper()                          | Возвращает `True`, если строка в верхнем регистре, иначе `False`                                                |
-| str.join(iter)                         | Склеивает элементы последовательности `iter` в одну строку с разделителем s                                     |
-| str.ljust(width, fillchar=' ')         | Добавляет в конец строки символ `fillchar`, пока длина не станет `width`                                        |
-| str.lower()                            | Переводит символы строки в нижний регистр                                                                       |
-| str.lstrip([chars])                    | Возвращает строку без пробельных символов или chars в начале                                                    |
-| str.maketrans(*args)                   | Возвращает таблицу перевода для `s.translate`                                                                   |
-| str.partition(sep)                     | Разделяет строку на три части по первому разделителю `sep`: [начало, sep, конец]                                |
-| str.replace(old, new)                  | Заменяет все подстроки `old` на `new`                                                                           |
-| str.rfind(str[, start][, end])         | Возвращает индекс начала последней подстроки `str` в выбранном промежутке или `-1`, если она не найдена         |
-| str.rindex(str[, start][, end])        | Возвращает индекс начала последней подстроки `str` в выбранном промежутке или `ValueError`, если она не найдена |
-| str.rjust(width, fillchar=' ')         | Добавляет в начало строки символ `fillchar`, пока длина не станет `width`                                       |
-| str.rpartition()                       | Разделяет строку на три части по последнему разделителю `sep`: [начало, sep, конец]                             |
-| str.rsplit(sep=' ', maxsplit=-1)       | Возвращает список подстрок, разделенных по sep до `maxsplit` раз (с конца)                                      |
-| str.rstrip([chars])                    | Возвращает строку без пробельных символов или `chars` в конце                                                   |
-| str.split((sep=' ', maxsplit=-1))      | Возвращает список подстрок, разделенных по sep до `maxsplit` раз                                                |
-| str.splitlines(keepends=False)         | Разделяет строку по `\n`. Не удаляет разделители, если `keepends=True`.                                         |
-| str.startswith(prefix[, start][, end]) | Возвращает `True` если строка начинается с `prefix`, иначе `False`                                              |
-| str.strip([chars])                     | Возвращает строку без пробельных символов или `chars` в начале и конце                                          |
-| str.swapcase()                         | Меняет регистр всех символов на противоположный                                                                 |
-| str.title()                            | Возвращает строку, где все слова начинаются с заглавной буквы, а продолжаются строчными                         |
-| str.translate(table)                   | Заменяет все символы строки согласно таблице перевода                                                           |
-| str.upper()                            | Возвращает копию строки в верхнем регистре                                                                      |
-| str.zfill(width)                       | Заполняет строку указанным числом нулей в начале                                                                |
+                "str": """
+| Метод                                  | Описание                                                                                                           |                |
+|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------|----------------|
+| str.capitalize()                       | Переводит первую букву в верхний, а остальные в нижний регистр.                                                    | {capitalize}   |
+| str.casefold()                         | Переводит все символы в нижний регистр                                                                             | {casefold}     |
+| str.lower()                            | Переводит символы строки в нижний регистр                                                                          | {lower}        |
+| str.upper()                            | Возвращает копию строки в верхнем регистре                                                                         | {upper}        |
+| str.swapcase()                         | Меняет регистр всех символов на противоположный                                                                    | {swapcase}     |
+| str.title()                            | Возвращает строку, где все слова начинаются с заглавной буквы,<br>а продолжаются строчными                         | {title}        |
+| str.isupper()                          | `True`, если строка в верхнем регистре                                                                             | {isupper}      |
+| str.islower()                          | `True`, если вся строка в нижнем регистре                                                                          | {islower}      |
+| str.center(width[, fillvalue])         | Обрамляет значениями `fillvalue` строку,<br>пока длина не станет `width`                                           | {center}       |
+| str.ljust(width, fillchar=" ")         | Добавляет в конец строки символ `fillchar`,<br>пока длина не станет `width`                                        | {ljust}        |
+| str.rjust(width, fillchar=" ")         | Добавляет в начало строки символ `fillchar`,<br>пока длина не станет `width`                                       | {rjust}        |
+| str.count(str[, start][, end]          | Считает количество подстрок `str` в выбранном промежутке строки                                                    | {count}        |
+| str.encode(encoding, errors)           | Меняет кодировку строки                                                                                            | {encode}       |
+| str.startswith(prefix[, start][, end]) | `True` если строка начинается с `prefix`                                                                           | {startswith}   |
+| str.endswith(suffix[, start][, end])   | `True` если строка заканчивается на `suffix`                                                                       | {endswith}     |
+| str.expandtabs(tabsize=8)              | Увеличивает размер символов табуляции до `tabsize` пробелов                                                        | {expandtabs}   |
+| str.index(str[, start][, end])         | Возвращает индекс начала первой подстроки str<br>в выбранном промежутке или `ValueError`, если она не найдена      | {index}        |
+| str.rindex(str[, start][, end])        | Возвращает индекс начала последней подстроки `str`<br>в выбранном промежутке или `ValueError`, если она не найдена | {rindex}       |
+| str.find(str[, start][, end])          | Возвращает индекс начала первой подстроки `str`<br>в выбранном промежутке или `-1`, если она не найдена            | {find}         |
+| str.rfind(str[, start][, end])         | Возвращает индекс начала последней подстроки `str`<br>в выбранном промежутке или `-1`, если она не найдена         | {rfind}        |
+| str.format(args, *kwargs)              | Последовательно заменяет `{{}}` в строке на свои аргументы                                                         | {format}       |
+| str.format_map(dict)                   | Заменяет `{{<val>}}` в строке на `dict[<val>]`                                                                     | {format_map}   |
+| str.join(iter)                         | Склеивает элементы последовательности `iter`<br>в одну строку с разделителем `str`                                 | {join}         |
+| str.strip([chars])                     | Возвращает строку без пробельных символов<br>или `chars` в начале и конце                                          | {strip}        |
+| str.lstrip([chars])                    | Возвращает строку без пробельных символов или chars в начале                                                       | {lstrip}       |
+| str.rstrip([chars])                    | Возвращает строку без пробельных символов или `chars` в конце                                                      | {rstrip}       |
+| str.replace(old, new)                  | Заменяет все подстроки `old` на `new`                                                                              | {replace}      |
+| str.split((sep=" ", maxsplit=-1))      | Возвращает список подстрок,<br>разделенных по `sep` до `maxsplit` раз                                              | {split}        |
+| str.splitlines(keepends=False)         | Разделяет строку по `\\n`.<br>Не удаляет разделители, если `keepends=True`.                                        | {splitlines}   |
+| str.rsplit(sep=" ", maxsplit=-1)       | Возвращает список подстрок,<br>разделенных по sep до `maxsplit` раз (с конца)                                      | {rsplit}       |
+| str.zfill(width)                       | Заполняет строку указанным числом нулей в начале                                                                   | {zfill}        |
+| str.maketrans(*args)                   | Возвращает таблицу перевода для `s.translate`                                                                      | {maketrans}    |
+| str.translate(table)                   | Заменяет все символы строки согласно таблице перевода                                                              | {translate}    |
+| str.partition(sep)                     | Разделяет строку на три части по первому разделителю `sep`:<br>[начало, sep, конец]                                | {partition}    |
+| str.rpartition()                       | Разделяет строку на три части по последнему разделителю `sep`:<br>[начало, sep, конец]                             | {rpartition}   |
+| str.isalnum()                          | `True`, если строка состоит только из букв и цифр                                                                  | {isalnum}      |
+| str.isalpha()                          | `True`, если строка состоит только из букв                                                                         | {isalpha}      |
+| str.isdecimal()                        | `True`, если строка состоит только из цифр                                                                         | {isdecimal}    |
+| str.isdigit()                          | `True`, если строка состоит только из цифр                                                                         | {isdigit}      |
+| str.isidentifier()                     | `True`, если строка является идентификатором<br>(`if`, `class`, `assert`)                                          | {isidentifier} |
+| str.isnumeric()                        | `True`, если строка состоит только из цифр                                                                         | {isnumeric}    |
+| str.isprintable()                      | `True`, если все символы строки отображаются<br>(например, `\\n`, `\\t`)                                           | {isprintable}  |
+| str.isspace()                          | `True`, если строка состоит из пробелов                                                                            | {isspace}      |
+| str.istitle()                          | `True`, если строка начинается с заглавной буквы,<br>а остальные — строчные                                        | {istitle}      |
 
 **Символы**
 
-| Символ | Назначение                    | Пример            | Результат |
-|:-------|:------------------------------|:------------------|:----------|
-| \n     | Перевод строки                | 'ab\ncd'          | ab        |
-|        |                               |                   | cd        |
-| \      | Экранирование                 | 'ab\\ncd'         | ab\ncd    |
-| \a     | Звонок                        | 'a\aa'            | a[BEL]a   |
-| \b     | Забой                         | 'ab\ba'           | ac        |
-| \f     | Перевод страницы              | 'a\fa'            | a[FF]a    |
-| \r     | Возврат каретки               | 'ab\rcd'          | cd        |
-| \t     | Горизонтальная табуляция      | 'a\ta'            | a a       |
-| \v     | Вертикальная табуляция        | 'a\va'            | a[VT]a    |
-| \N{id} | Символ Юникода по id          | '\N{Degree Sign}' | °         |
-| \uhhhh | 16-ричный символ Юникода      | '\u2030'          | ‰         |
-| \Uhhhh | 32-ичный символ Юникода       | '\U00000394'      | Δ         |
-| \xhh   | 16-ричное значение символа    | '\x2A'            | *         |
-| \ooo   | восьмеричное значение символа | '/275'            | ½         |
-| \0     | символ Null                   | '\0'              |           |
-| \u00A0 | символ неразнывного пробела   |                   |           |
-""",
-                "list": f"""
-| Метод             |                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------|
-| list.append(4)    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.append(4){n}>>> print(l){n}[1, 2, 3, 4]")}                      |
-| list.clear()      | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.clear(){n}>>> print(l){n}[]")}                                  |
-| list.сору()       | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l1 = l.copy(){n}>>> print(l){n}[1, 2, 3]{n}>>> l is l1{n}False")} |
-| list.count(1)     | {to_table_code_py(f">>> [1, 1, 2].count(1){n}2")}                                                             |
-| list.extend([4])  | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.extend([4, 5]){n}>>> print(l){n}[1, 2, 3, 4, 5]")}              |
-| list.index(2)     | {to_table_code_py(f">>> [1, 2, 3].index(2){n}1")}                                                             |
-| list.insert(3, 4) | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.insert(3, 4){n}>>> print(l){n}[1, 2, 3, 4]")}                   |
-| list.pop(2)       | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.pop(2){n}3{n}>>> print(l){n}[1, 2]")}                           |
-| list.remove(2)    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.remove(2){n}>>> print(l){n}[1, 3]")}                            |
-| list.reverse()    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.reverse(){n}>>> print(l){n}[3, 2, 1]")}                         |
-| list.sort()       | {to_table_code_py(f">>> l = [4, 3, 5]{n}>>> l.sort(){n}>>> print(l){n}[3, 4, 5]")}                            |
+| Символ    | Назначение                    | Пример               | Результат |
+|:----------|:------------------------------|:---------------------|:----------|
+| \\n       | Перевод строки                | "ab\\ncd"            | ab        |
+|           |                               |                      | cd        |
+| \\        | Экранирование                 | "ab\\ncd"            | ab\\ncd   |
+| \\a       | Звонок                        | "a\\aa"              | a[BEL]a   |
+| \\b       | Забой                         | "ab\\ba"             | ac        |
+| \\f       | Перевод страницы              | "a\\fa"              | a[FF]a    |
+| \\r       | Возврат каретки               | "ab\\rcd"            | cd        |
+| \\t       | Горизонтальная табуляция      | "a\\ta"              | a a       |
+| \\v       | Вертикальная табуляция        | "a\\va"              | a[VT]a    |
+| \\N{{id}} | Символ Юникода по id          | "\\N{{Degree Sign}}" | °         |
+| \\uhhhh   | 16-ричный символ Юникода      | "\\u2030"            | ‰         |
+| \\Uhhhh   | 32-ичный символ Юникода       | "\\U00000394"        | Δ         |
+| \\xhh     | 16-ричное значение символа    | "\\x2A"              | *         |
+| \\ooo     | восьмеричное значение символа | "\\275"               | ½         |
+| \\0       | символ Null                   | "\\0"                |           |
+| \\u00A0   | символ неразнывного пробела   |                      |           |
+""".format(
+                    capitalize=to_table_code_py('>>> "capitalize".capitalize()\nCapitalize'),
+                    casefold=to_table_code_py('>>> "CaSeFoLd".casefold()\ncasefold'),
+                    lower=to_table_code_py('>>> "lOwEr".lower()\nlower'),
+                    upper=to_table_code_py('>>> "upper".upper()\n"UPPER"'),
+                    swapcase=to_table_code_py('>>> "sWaPcAsE".swapcase()\n"SwApCaSe"'),
+                    title=to_table_code_py('>>> "title title".title()\n"Title Title"'),
+                    isupper=to_table_code_py('>>> "A".isupper()\nTrue\n>>> "a".isupper()\nFalse'),
+                    islower=to_table_code_py('>>> "a".islower()\nTrue\n"A".islower()\nFalse'),
+                    center=to_table_code_py('>>> "0".center(5, "_")\n"\_\_0\_\_"'),
+                    ljust=to_table_code_py('>>> "1".ljust(5, "_")\n"1____"'),
+                    rjust=to_table_code_py('>>> "1".rjust(5, "_")\n"____1"'),
+                    count=to_table_code_py('>>> "12123412".count("12")\n3'),
+                    encode=to_table_code_py('>>> "qwerty123".encode()\nb"qwerty123"'),
+                    startswith=to_table_code_py(
+                        '>>> "1234".startswith("34")\nFalse\n'
+                        '>>> "1234".startswith("12")\nTrue\n'
+                        '>>> "1234".startswith(("12", "89"))\nTrue'
+                    ),
+                    endswith=to_table_code_py(
+                        '>>> "1234".endswith("12")\nFalse\n'
+                        '>>> "1234".endswith("34")\nTrue\n'
+                        '>>> "1234".endswith(("34", "56"))\nTrue'
+                    ),
+                    expandtabs=to_table_code_py('>>> "\t".expandtabs(8)\n"        "'),
+                    index=to_table_code_py('>>> "1234".index("2")\n1'),
+                    rindex=to_table_code_py('>>> "123427".rindex("2")\n4'),
+                    find=to_table_code_py('>>> "1234".find("2")\n1'),
+                    rfind=to_table_code_py('>>> "123427".rfind("2")\n4'),
+                    format=to_table_code_py('>>> "{}".format("1")\n"1"\n>>> "{a}".format(a="1")\n"1"'),
+                    format_map=to_table_code_py('>>> "{x} {y}".format_map({"x": 4, "y": -5})\n"4 -5"'),
+                    join=to_table_code_py('>>> " ".join(("1", "2"))\n"1 2"'),
+                    strip=to_table_code_py('>>> "   1 3\t".strip()\n"1 3"'),
+                    lstrip=to_table_code_py('>>> "   1 3\t".lstrip()\n"1 3\t"'),
+                    rstrip=to_table_code_py('>>> "   1 3\t".rstrip()\n"   1 3"'),
+                    replace=to_table_code_py('>>> "1231".replace("1", "_")\n"\_23\_"'),
+                    split=to_table_code_py('>>> "1 3".split()\n["1", "3"]'),
+                    splitlines=to_table_code_py('>>> "1 3\\n4".splitlines()\n["1 3", "4"]'),
+                    rsplit=to_table_code_py('>>> "1 3".split()\n["1", "3"]'),
+                    zfill=to_table_code_py('>>> "1".zfill(5)\n"00001"'),
+                    maketrans="",
+                    translate="",
+                    partition="",
+                    rpartition="",
+                    isalnum="",  # to_table_code_py('>>> "".'),
+                    isalpha="",
+                    isdecimal="",
+                    isdigit="",
+                    isidentifier="",
+                    isnumeric="",
+                    isprintable="",
+                    isspace="",
+                    istitle="",
+                ),
+                "fstrings": """
+F-строки - это новый способ форматирования строк в Python 3.6 и выше. 
+Они позволяют встраивать выражения Python внутри строк посредством указания их в {} внутри строки, заключенной в f.
 
+
+
+replacement_field ::=  "{" [field_name] ["!" преобразование] [":" спецификация формата] "}"
+field_name        ::=  arg_name ("." attribute_name | "[" element_index "]")*
+arg_name          ::=  [identifier | digit+]
+attribute_name    ::=  identifier
+element_index     ::=  digit+ | index_string
+index_string      ::=  <любой исходный символ, кроме "]"> +
+conversion        ::=  "r" | "s" | "a"
+format_spec       ::=  <описано в следующем разделе>
+
+За field_name может следовать поле преобразования , которому предшествует восклицательный знак "!", 
+и format_spec , которому предшествует двоеточие ":". 
+Они определяют нестандартный формат для замещающего значения.
+
+В настоящее время поддерживаются три флага преобразования: "!s" который вызывает str() значение, "!r" который вызывает repr() и "!a" который вызывает ascii().
+
+Некоторые примеры:
+
+```python
+"Harold's a clever {0!s}"        # Calls str() on the argument first
+"Bring out the holy {name!r}"    # Calls repr() on the argument first
+"More {!a}"                      # Calls ascii() on the argument first
+```
+
+
+format_spec     ::= [[ fill] align][ sign][z][#][0][ width][ grouping_option][. precision][ type]
+заполнить       ::= <любой символ>
+выровнять       ::= "<" | ">" | "=" | "^"
+знак            ::= "+" | "-" | " "
+ширина          ::= digit+
+grouping_option ::= "_" | ","
+точность        ::= digit+
+тип             ::= "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
+
+Вариант Значение
+"`<`"     Принудительно выравнивает поле по левому краю в доступном пространстве 
+        (это значение по умолчанию для большинства объектов).
+"`>`"     Принудительно выравнивает поле по правому краю в доступном пространстве (это значение по умолчанию для чисел).
+"`=`"     Принудительно размещает заполнение после знака (если есть), но перед цифрами. 
+        Это используется для печати полей в форме «+000000120». 
+        Этот параметр выравнивания действителен только для числовых типов. 
+        Он становится значением по умолчанию для чисел, когда «0» непосредственно предшествует ширине поля.
+"`^`"     Центрирует поле в доступном пространстве.
+Параметр знака действителен только для числовых типов и может быть одним из следующих:
+
+Вариант Значение
+
+"`+`"     указывает, что знак должен использоваться как для положительных, так и для отрицательных чисел.
+"`-`"     указывает, что знак следует использовать только для отрицательных чисел (это поведение по умолчанию).
+spase   указывает, что перед положительными числами следует использовать начальный пробел, а перед отрицательными — знак минус.
+
+Параметр "`z`" приводит отрицательные нулевые значения с плавающей запятой к положительным нулям после округления до точности формата. 
+Этот параметр действителен только для типов представления с плавающей запятой.
+
+
+Опция "`#`" приводит к использованию «альтернативной формы» для преобразования. 
+          Альтернативная форма определяется по-разному для разных типов. 
+          Этот параметр действителен только для целых, плавающих и сложных типов. 
+          Для целых чисел, когда используется двоичный, восьмеричный или шестнадцатеричный вывод, 
+          эта опция добавляет соответствующий префикс "`0b`", "`0o`", "`0x`" или "`0X`" к выходному значению. 
+          Для чисел с плавающей запятой и сложных альтернативная форма приводит к тому, что результат 
+          преобразования всегда содержит символ десятичной точки, даже если за ним не следуют цифры. 
+          Обычно символ десятичной точки появляется в результате этих преобразований только в том случае, 
+          если за ним следует цифра. Кроме того, для преобразований "`g`" и "`G`" конечные нули не удаляются из результата.
+Опция "`,`" сигнализирует об использовании запятой для разделителя тысяч. 
+         Для разделителя, учитывающего локаль, "`n`" вместо этого используйте целочисленный тип представления.
+Опция "`_`" сигнализирует об использовании подчеркивания для разделителя тысяч для типов представления с плавающей 
+         запятой и для целочисленного типа представления "`d`". 
+         Для целочисленных типов представления "`b`", "`o`", "`x`"и "`X`" символы подчеркивания будут вставлены 
+         через каждые 4 цифры. Для других типов презентаций указание этой опции является ошибкой.
+ширина — десятичное целое число, определяющее минимальную общую ширину поля, включая все префиксы, 
+         разделители и другие символы форматирования. Если не указано, то ширина поля будет определяться содержимым.
+Если явное выравнивание не задано, перед полем ширины "`0`" ставится нулевой символ ( ), 
+         что позволяет использовать заполнение нулями с учетом знака для числовых типов. 
+         Это эквивалентно символу заполнения "`0`" с типом выравнивания "`=`" .
+установка перед полем ширины "`0`" больше не влияет на выравнивание строк по умолчанию.
+
+Точность представляет собой десятичное целое число , указывающее, сколько цифр должно отображаться после десятичной 
+точки для типов представления "`f`" и "`F`", или до и после десятичной точки для типов представления "`g`" или "`G`". 
+Для типов строкового представления поле указывает максимальный размер поля, другими словами, сколько символов 
+будет использовано из содержимого поля. Точность не допускается для целочисленных типов представления .
+
+
+Доступные типы представления строк:
+
+Тип    Значение
+"`s`"    Формат строки. Это тип по умолчанию для строк, и его можно опустить.
+None   То же, что "`s`".
+
+Доступные типы целочисленного представления:
+
+Тип   Значение
+"`b`"   Двоичный формат. Выводит число по основанию `2`.
+"`c`"   Характер. Преобразует целое число в соответствующий символ Юникода перед печатью.
+"`d`"   Десятичное целое. Выводит число в базе `10`.
+"`o`"   Восьмеричный формат. Выводит число по основанию `8`.
+"`x`"   Шестнадцатеричный формат. Выводит число по основанию `16`, используя строчные буквы для цифр выше `9`.
+"`X`"   Шестнадцатеричный формат. Выводит число по основанию `16`, используя прописные буквы для цифр выше `9`. Если "#" указано, префикс "`0x`" также будет прописным "`0X`".
+"`n`"   Число. Это то же самое "`d`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
+None  То же, что ' 
+
+Доступные типы представления для `float` и `Decimal` значений:
+
+Тип    Значение
+"`e`"    Научная нотация. Для заданной точности `p` форматирует число в экспоненте с буквой «`e`», отделяющей коэффициент от показателя степени. 
+       Коэффициент имеет одну цифру до и `p` цифры после запятой, всего значащих цифр. 
+       Без заданной точности использует точность цифр после запятой для и показывает все цифры коэффициента для. 
+       Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не используется этот параметр. p + 16 float Decimal
+"`E`"    Научная нотация. То же, что и "`e`" за исключением того, что в качестве символа-разделителя используется заглавная буква «E».
+"`f`"    Обозначение с фиксированной точкой. Для заданной точности `p` форматирует число как десятичное число, 
+       в котором `p` после запятой следуют только цифры. 
+       Без заданной точности использует точность 6цифр после запятой для `float` и использует точность, 
+       достаточную для отображения всех цифр коэффициента для `Decimal`. 
+       Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не используется этот параметр.
+"`F`"    Обозначение с фиксированной точкой. То же , что и "`f`", но преобразуется `nan` в `NAN` и `inf` в `INF`.
+"`g`"    Общий формат. Для заданной точности это округляет число до значащих цифр, а затем форматирует результат 
+       либо в формате с фиксированной запятой, либо в экспоненциальном представлении, в зависимости от его величины. 
+       Точность рассматривается как эквивалентная точности .p >= 1p01
+Точные правила таковы: предположим, что результат, отформатированный с типом представления "`e`" и точностью p-1, 
+будет иметь показатель степени exp. Затем, если , где -4 для чисел с плавающей запятой и -6 для , число форматируется с типом представления и точностью. 
+В противном случае число форматируется с типом представления и точностью . В обоих случаях из мантиссы удаляются незначащие конечные нули, а также 
+удаляется десятичная точка, если за ней не следуют оставшиеся цифры, если не используется опция.m <= exp < pmDecimals "`f`" p-1-exp "e" p-1 "#"
+Без заданной точности использует точность 6 значащих цифр для float. При Decimal коэффициент результата формируется из цифр коэффициента значения; 
+научное обозначение используется для значений, меньших 1e-6абсолютного значения, и значений, 
+в которых разрядное значение младшей значащей цифры больше 1, а в противном случае используется обозначение с фиксированной запятой.
+Положительная и отрицательная бесконечность, положительные и отрицательные нули и нан с форматируются и `inf` соответственно `-inf`, 0независимо от точности. -0 nan
+"`G`"    Общий формат. То же, что и "`g`" за исключением переключения, "`E`" если число становится слишком большим. Представления бесконечности и NaN также в верхнем регистре.
+"`n`"    Число. Это то же самое "`g`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
+"`%`"    Процент. Умножает число на 100 и отображает в фиксированном ("`f`") формате, за которым следует знак процента.
+Никто  Поскольку float это то же самое "`g`", что и , за исключением того, что когда для форматирования результата используется запись с 
+фиксированной точкой, он всегда включает по крайней мере одну цифру после десятичной точки. Используемая точность настолько велика, насколько это необходимо для точного представления заданного значения.
+Для Decimal это то же самое, что "`g`" или "`G`" в зависимости от значения `context.capitals` для текущего десятичного контекста. 
+Общий эффект заключается в том, чтобы соответствовать выходным данным `str()` , измененным другими модификаторами формата.
+
+
+
+Доступ к аргументам по позиции:
+
+```python
+"{0}, {1}, {2}".format("a", "b", "c")
+"a, b, c"
+"{}, {}, {}".format("a", "b", "c")  # 3.1+ only
+"a, b, c"
+"{2}, {1}, {0}".format("a", "b", "c")
+"c, b, a"
+"{2}, {1}, {0}".format(*"abc")      # unpacking argument sequence
+"c, b, a"
+"{0}{1}{0}".format("abra", "cad")   # arguments indices can be repeated
+"abracadabra"
+```
+
+Доступ к аргументам по имени:
+
+```python
+"Coordinates: {latitude}, {longitude}".format(latitude="37.24N", longitude="-115.81W")
+"Coordinates: 37.24N, -115.81W"
+coord = {"latitude": "37.24N", "longitude": "-115.81W"}
+"Coordinates: {latitude}, {longitude}".format(**coord)
+"Coordinates: 37.24N, -115.81W"
+```
+
+Доступ к атрибутам аргументов:
+
+```python
+c = 3-5j
+("The complex number {0} is formed from the real part {0.real} "
+ "and the imaginary part {0.imag}.").format(c)
+"The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0."
+class Point:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __str__(self):
+        return "Point({self.x}, {self.y})".format(self=self)
+
+str(Point(4, 2))
+"Point(4, 2)"
+```
+
+Доступ к элементам аргументов:
+
+```python
+coord = (3, 5)
+"X: {0[0]};  Y: {0[1]}".format(coord)
+"X: 3;  Y: 5"
+
+Замена `%s` и `%r`:
+"repr() shows quotes: {!r}; str() doesn't: {!s}".format("test1", "test2")
+"repr() shows quotes: 'test1'; str() doesn't: test2"
+```
+
+Выравнивание текста и указание ширины:
+
+```python
+"{:<30}".format("left aligned")
+"left aligned                  "
+"{:>30}".format("right aligned")
+"                 right aligned"
+"{:^30}".format("centered")
+"           centered           "
+"{:*^30}".format("centered")  # use "*" as a fill char
+"***********centered***********"
+```
+
+Замена %+f, %-f, и и указание знака:% f
+
+```python
+"{:+f}; {:+f}".format(3.14, -3.14)  # show it always
+"+3.140000; -3.140000"
+"{: f}; {: f}".format(3.14, -3.14)  # show a space for positive numbers
+" 3.140000; -3.140000"
+"{:-f}; {:-f}".format(3.14, -3.14)  # show only the minus -- same as "{:f}; {:f}"
+"3.140000; -3.140000"
+```
+
+Замена `%x` и `%o` преобразование значения в разные базы:
+
+```python
+# format also supports binary numbers
+"int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42)
+"int: 42;  hex: 2a;  oct: 52;  bin: 101010"
+# with 0x, 0o, or 0b as prefix:
+"int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42)
+"int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010"
+```
+
+Использование запятой в качестве разделителя тысяч:
+
+```python
+"{:,}".format(1234567890)
+"1,234,567,890"
+```
+
+Выражение процента:
+
+```python
+points = 19
+total = 22
+"Correct answers: {:.2%}".format(points/total)
+"Correct answers: 86.36%"
+```
+
+Использование форматирования для конкретного типа:
+
+```python
+import datetime
+d = datetime.datetime(2010, 7, 4, 12, 15, 58)
+"{:%Y-%m-%d %H:%M:%S}".format(d)
+"2010-07-04 12:15:58"
+```
+
+Вложенные аргументы и более сложные примеры:
+
+```python
+for align, text in zip("<^>", ["left", "center", "right"]):
+    "{0:{fill}{align}16}".format(text, fill=align, align=align)
+
+"left<<<<<<<<<<<<"
+"^^^^^center^^^^^"
+">>>>>>>>>>>right"
+octets = [192, 168, 0, 1]
+"{:02X}{:02X}{:02X}{:02X}".format(*octets)
+"C0A80001"
+int(_, 16)
+3232235521
+width = 5
+for num in range(5,12): 
+    for base in "dXob":
+        print("{0:{width}{base}}".format(num, base=base, width=width), end=" ")
+    print()
+
+#    5     5     5   101
+#    6     6     6   110
+#    7     7     7   111
+#    8     8    10  1000
+#    9     9    11  1001
+#   10     A    12  1010
+#   11     B    13  1011
+```
+
+
+Форматирование чисел:
+Для вывода количества знаков после запятой можно использовать флаг f:
+
+```python
+print(f"pi {22 / 7:.2f}")
+```
+
+Форматирование строк:
+
+```python
+print(f"{name.upper():<10}")  # выравнивается в лево на 10 символов
+print(f"{name.upper():>10}")  # выравнивается в право на 10 символов
+print(f"{name.upper():^10}")  # выравнивается по центру шириной 10 символов
+print(f"{22/7:>10.2f}")       # выравнивает в право на 10 и оставляет два знака после точки
+```
+
+Форматирование строк может быть улучшено с помощью флагов:
+
+```python
+print(f"{name.upper():=^10}")  # CENTERED WITH 10 CHARACTERS WIDTH AND FILLED WITH "="
+```
+
+```python
+class Person:
+    def __format__(self, format_spec):
+        return "Person Object"
+
+p = Person()
+print(f"{p}")  # Person Object
+```
 """,
+                "list": """
+| Метод             |           |
+|:------------------|:----------|
+| list.append(4)    | {append}  |
+| list.clear()      | {clear}   |
+| list.сору()       | {сору}    |
+| list.count(1)     | {count}   |
+| list.extend([4])  | {extend}  |
+| list.index(2)     | {index}   |
+| list.insert(3, 4) | {insert}  |
+| list.pop(2)       | {pop}     |
+| list.remove(2)    | {remove}  |
+| list.reverse()    | {reverse} |
+| list.sort()       | {sort}    |
+
+""".format(
+                    append=to_table_code_py(
+                        f">>> l = [1, 2, 3]\n"
+                        f">>> l.append(4)\n"
+                        f">>> print(l)\n[1, 2, 3, 4]"
+                    ),
+                    clear=to_table_code_py(
+                        f">>> l = [1, 2, 3]\n"
+                        f">>> l.clear()\n"
+                        f">>> print(l)\n[]"
+                    ),
+                    сору=to_table_code_py(
+                        f">>> l = [1, 2, 3]\n"
+                        f">>> l1 = l.copy()\n"
+                        f">>> print(l)\n[1, 2, 3]\n"
+                        f">>> l is l1\nFalse"
+                    ),
+                    count=to_table_code_py(f">>> [1, 1, 2].count(1)\n2"),
+                    extend=to_table_code_py(
+                        f">>> l = [1, 2, 3]\n"
+                        f">>> l.extend([4, 5])\n"
+                        f">>> print(l)\n[1, 2, 3, 4, 5]"
+                    ),
+                    index=to_table_code_py(f">>> [1, 2, 3].index(2)\n1"),
+                    insert=to_table_code_py(f">>> l = [1, 2, 3]\n>>> l.insert(3, 4)\n>>> print(l)\n[1, 2, 3, 4]"),
+                    pop=to_table_code_py(f">>> l = [1, 2, 3]\n>>> l.pop(2)\n3\n>>> print(l)\n[1, 2]"),
+                    remove=to_table_code_py(f">>> l = [1, 2, 3]\n>>> l.remove(2)\n>>> print(l)\n[1, 3]"),
+                    reverse=to_table_code_py(f">>> l = [1, 2, 3]\n>>> l.reverse()\n>>> print(l)\n[3, 2, 1]"),
+                    sort=to_table_code_py(f">>> l = [4, 3, 5]\n>>> l.sort()\n>>> print(l)\n[3, 4, 5]"),
+                ),
                 "tuple": """
 
 | Метод                          | Описание                                                                                                                                                      |
@@ -7641,21 +7966,64 @@ resp = conn.post('<subject>', '<from>', '<body>')
 | tuple.index(x[, start[, end]]) | Возвращает индекс первого вхождения элемента `x` в кортеже.<br>Вызывает ошибку, если элемент не найден.<br>Можно указать диапазон поиска с помощью `start` и `end`. |
 
 """,
-                "dict": f"""
-| Метод             | Описание                                                                                                                                                                                               |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dict.clear()      | Удаляет все элементы<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.clear(){n}>>> print(d){n}{{}}')}                                                                                                                                                                                   |
-| dict.copy()       | Возвращает поверхностную копию словаря<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.copy(){n}>>> print(d){n}{{1: 2, 3: 4}}')}                                                                                                                                                                 |
-| dict.fromkeys()   | Создает словарь из заданной последовательности<br>{to_table_code_py(f'>>> print(dict.fromkeys(("key1", "key2", "key3"), 0)){n}{{"key1": 0, "key2": 0, "key3": 0}}')}                                   |
-| dict.get()        | Возвращает значение ключа<br>{to_table_code_py(f'>>> print({{"model": "Mustang", "year": 1964}}.get("model")){n}Mustang{n}>>> print({{"model": "Mustang", "year": 1964}}.get("color", "red")){n}red')} |
-| dict.pop()        | Удаляет и возвращает элемент с заданным ключом<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.pop(3)){n}4{n}>>> print(d){n}{{1: 2}}')}                                                    |
-| dict.popitem()    | Возвращает и удаляет последний элемент из словаря<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.popitem()){n}(3, 4){n}>>> print(d){n}{{1: 2}}')}                                         |
-| dict.setdefault() | Возвращает значение по ключу. Если ключ отсутствует он вставляет ключ<br>{to_table_code_py(f'>>> d = {{}}{n}>>> d.setdefault("k", "d"){n}"d"{n}>>> d{n}{{"k": "d"}}')}                                 |
-| dict.update()     | Обновляет словарь указанными парами ключ-значение.<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.update({{3: 5, 6: 7}}){n}>>> print(d){n}{{1: 2, 3: 5, 6: 7}}')}                               |
-| dict.items()      | Возвращает вид пары словаря (ключ, значение)<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.items()){n}dict_items([(1, 2), (3, 4)])')}                                                    |
-| dict.keys()       | Возвращает объект просмотра всех ключей<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.keys()){n}dict_keys([1, 3])')}                                                                |
-| dict.values()     | Возвращает список всех значений в словаре<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.values()){n}dict_values([2, 4])')}                                                               |
-""",
+                "dict": """
+| Метод             | Описание                                                                              |
+|:------------------|:--------------------------------------------------------------------------------------|
+| dict.clear()      | Удаляет все элементы<br>{clear}                                                       |
+| dict.copy()       | Возвращает поверхностную копию словаря<br>{copy}                                      |
+| dict.fromkeys()   | Создает словарь из заданной последовательности<br>{fromkeys}                          |
+| dict.get()        | Возвращает значение ключа<br>{get}                                                    |
+| dict.pop()        | Удаляет и возвращает элемент с заданным ключом<br>{pop}                               |
+| dict.popitem()    | Возвращает и удаляет последний элемент из словаря<br>{popitem}                        |
+| dict.setdefault() | Возвращает значение по ключу. Если ключ отсутствует он вставляет ключ<br>{setdefault} |
+| dict.update()     | Обновляет словарь указанными парами ключ-значение.<br>{update}                        |
+| dict.items()      | Возвращает вид пары словаря (ключ, значение)<br>{items}                               |
+| dict.keys()       | Возвращает объект просмотра всех ключей<br>{keys}                                     |
+| dict.values()     | Возвращает список всех значений в словаре<br>{values}                                 |
+""".format(
+                    clear=to_table_code_py(">>> d = {1: 2, 3: 4}\n>>> d.clear()\n>>> print(d)\n{}"),
+                    copy=to_table_code_py(">>> d = {1: 2, 3: 4}\n>>> d.copy()\n>>> print(d)\n{1: 2, 3: 4}"),
+                    fromkeys=to_table_code_py(
+                        f'>>> print(dict.fromkeys(("key1", "key2", "key3"), 0))\n'
+                        f'{{"key1": 0, "key2": 0, "key3": 0}}'
+                    ),
+                    get=to_table_code_py(
+                        '>>> print({"model": "Mustang", "year": 1964}.get("model"))\nMustang\n'
+                        '>>> print({"model": "Mustang", "year": 1964}.get("color", "red"))\nred'
+                    ),
+                    pop=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> print(d.pop(3))\n4\n"
+                        ">>> print(d)\n{1: 2}"
+                    ),
+                    popitem=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> print(d.popitem())\n(3, 4)\n"
+                        ">>> print(d)\n{1: 2}"
+                    ),
+                    setdefault=to_table_code_py(
+                        '>>> d = {}\n'
+                        '>>> d.setdefault("k", "d")\n"d"\n'
+                        '>>> d\n{"k": "d"}'
+                    ),
+                    update=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> d.update({3: 5, 6: 7})\n"
+                        ">>> print(d)\n{1: 2, 3: 5, 6: 7}"
+                    ),
+                    items=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> print(d.items())\ndict_items([(1, 2), (3, 4)])"
+                    ),
+                    keys=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> print(d.keys())\ndict_keys([1, 3])"
+                    ),
+                    values=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n"
+                        ">>> print(d.values())\ndict_values([2, 4])"
+                    ),
+                ),
                 "set": """
 | Метод                                 | Описание                                                                                                        |
 |:--------------------------------------|:----------------------------------------------------------------------------------------------------------------|
@@ -7809,13 +8177,13 @@ class Student:
             raise ValueError
 
 user1 = Student()
-print(user1.score) # 0
+print(user1.score)  # 0
 user1.score = 1
-print(user1.score) # 1
+print(user1.score)  # 1
 user1._score = 999
-print(user1.score) # 999
+print(user1.score)  # 999
 user1.score = 999
-print(user1.score) # ValueError
+print(user1.score)  # ValueError
 ```
 """,
                 "cached_property": """
@@ -7851,7 +8219,7 @@ class MyClass:
         return arg1 + arg2
 
 result = MyClass.my_static_method(1, 2)
-print(result) # 3
+print(result)  # 3
 ```
 
 В этом примере мы определили класс MyClass и внутри него определили статический метод my_static_method. 
@@ -7902,10 +8270,10 @@ class MyClass:
 
 obj = MyClass()
 result1 = obj.my_method(2)
-print(result1) # 4
+print(result1)  # 4
 
 result2 = obj.my_method("hello")
-print(result2) # HELLO
+print(result2)  # HELLO
 ```
 """,
                 "final": """
@@ -8177,323 +8545,8 @@ pip freeze --local > requirements.txt
 
 """,
             },
-            "fstrings": """
-F-строки - это новый способ форматирования строк в Python 3.6 и выше. 
-Они позволяют встраивать выражения Python внутри строк посредством указания их в {} внутри строки, заключенной в f.
-
-
-
-replacement_field ::=  "{" [field_name] ["!" преобразование] [":" спецификация формата] "}"
-field_name        ::=  arg_name ("." attribute_name | "[" element_index "]")*
-arg_name          ::=  [identifier | digit+]
-attribute_name    ::=  identifier
-element_index     ::=  digit+ | index_string
-index_string      ::=  <любой исходный символ, кроме "]"> +
-conversion        ::=  "r" | "s" | "a"
-format_spec       ::=  <описано в следующем разделе>
-
-За field_name может следовать поле преобразования , которому предшествует восклицательный знак "!", 
-и format_spec , которому предшествует двоеточие ":". 
-Они определяют нестандартный формат для замещающего значения.
-
-В настоящее время поддерживаются три флага преобразования: "!s" который вызывает str() значение, "!r" который вызывает repr() и "!a" который вызывает ascii().
-
-Некоторые примеры:
-
-```python
-"Harold's a clever {0!s}"        # Calls str() on the argument first
-"Bring out the holy {name!r}"    # Calls repr() on the argument first
-"More {!a}"                      # Calls ascii() on the argument first
-```
-
-
-format_spec     ::= [[ fill] align][ sign][z][#][0][ width][ grouping_option][. precision][ type]
-заполнить       ::= <любой символ>
-выровнять       ::= "<" | ">" | "=" | "^"
-знак            ::= "+" | "-" | " "
-ширина          ::= digit+
-grouping_option ::= "_" | ","
-точность        ::= digit+
-тип             ::= "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
-
-Вариант Значение
-"`<`"     Принудительно выравнивает поле по левому краю в доступном пространстве 
-        (это значение по умолчанию для большинства объектов).
-"`>`"     Принудительно выравнивает поле по правому краю в доступном пространстве (это значение по умолчанию для чисел).
-"`=`"     Принудительно размещает заполнение после знака (если есть), но перед цифрами. 
-        Это используется для печати полей в форме «+000000120». 
-        Этот параметр выравнивания действителен только для числовых типов. 
-        Он становится значением по умолчанию для чисел, когда «0» непосредственно предшествует ширине поля.
-"`^`"     Центрирует поле в доступном пространстве.
-Параметр знака действителен только для числовых типов и может быть одним из следующих:
-
-Вариант Значение
-
-"`+`"     указывает, что знак должен использоваться как для положительных, так и для отрицательных чисел.
-"`-`"     указывает, что знак следует использовать только для отрицательных чисел (это поведение по умолчанию).
-spase   указывает, что перед положительными числами следует использовать начальный пробел, а перед отрицательными — знак минус.
-
-Параметр "`z`" приводит отрицательные нулевые значения с плавающей запятой к положительным нулям после округления до точности формата. 
-Этот параметр действителен только для типов представления с плавающей запятой.
-
-
-Опция "`#`" приводит к использованию «альтернативной формы» для преобразования. 
-          Альтернативная форма определяется по-разному для разных типов. 
-          Этот параметр действителен только для целых, плавающих и сложных типов. 
-          Для целых чисел, когда используется двоичный, восьмеричный или шестнадцатеричный вывод, 
-          эта опция добавляет соответствующий префикс "`0b`", "`0o`", "`0x`" или "`0X`" к выходному значению. 
-          Для чисел с плавающей запятой и сложных альтернативная форма приводит к тому, что результат 
-          преобразования всегда содержит символ десятичной точки, даже если за ним не следуют цифры. 
-          Обычно символ десятичной точки появляется в результате этих преобразований только в том случае, 
-          если за ним следует цифра. Кроме того, для преобразований "`g`" и "`G`" конечные нули не удаляются из результата.
-Опция "`,`" сигнализирует об использовании запятой для разделителя тысяч. 
-         Для разделителя, учитывающего локаль, "`n`" вместо этого используйте целочисленный тип представления.
-Опция "`_`" сигнализирует об использовании подчеркивания для разделителя тысяч для типов представления с плавающей 
-         запятой и для целочисленного типа представления "`d`". 
-         Для целочисленных типов представления "`b`", "`o`", "`x`"и "`X`" символы подчеркивания будут вставлены 
-         через каждые 4 цифры. Для других типов презентаций указание этой опции является ошибкой.
-ширина — десятичное целое число, определяющее минимальную общую ширину поля, включая все префиксы, 
-         разделители и другие символы форматирования. Если не указано, то ширина поля будет определяться содержимым.
-Если явное выравнивание не задано, перед полем ширины "`0`" ставится нулевой символ ( ), 
-         что позволяет использовать заполнение нулями с учетом знака для числовых типов. 
-         Это эквивалентно символу заполнения "`0`" с типом выравнивания "`=`" .
-установка перед полем ширины "`0`" больше не влияет на выравнивание строк по умолчанию.
-
-Точность представляет собой десятичное целое число , указывающее, сколько цифр должно отображаться после десятичной 
-точки для типов представления "`f`" и "`F`", или до и после десятичной точки для типов представления "`g`" или "`G`". 
-Для типов строкового представления поле указывает максимальный размер поля, другими словами, сколько символов 
-будет использовано из содержимого поля. Точность не допускается для целочисленных типов представления .
-
-
-Доступные типы представления строк:
-
-Тип    Значение
-"`s`"    Формат строки. Это тип по умолчанию для строк, и его можно опустить.
-None   То же, что "`s`".
-
-Доступные типы целочисленного представления:
-
-Тип   Значение
-"`b`"   Двоичный формат. Выводит число по основанию 2.
-"`c`"   Характер. Преобразует целое число в соответствующий символ Юникода перед печатью.
-"`d`"   Десятичное целое. Выводит число в базе 10.
-"`o`"   Восьмеричный формат. Выводит число по основанию 8.
-"`x`"   Шестнадцатеричный формат. Выводит число по основанию 16, используя строчные буквы для цифр выше 9.
-"`X`"   Шестнадцатеричный формат. Выводит число по основанию 16, используя прописные буквы для цифр выше 9. Если "#" указано, префикс "0x" также будет прописным "0X".
-"`n`"   Число. Это то же самое "`d`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
-None  То же, что ' 
-
-Доступные типы представления для floatи Decimalзначений:
-
-Тип    Значение
-"`e`"    Научная нотация. Для заданной точности pформатирует число в экспоненте с буквой «e», отделяющей коэффициент от показателя степени. 
-       Коэффициент имеет одну цифру до и pцифры после запятой, всего значащих цифр. 
-       Без заданной точности использует точность цифр после запятой для и показывает все цифры коэффициента для. 
-       Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не используется этот параметр.p + 16floatDecimal#
-"`E`"    Научная нотация. То же, что и "`e`" за исключением того, что в качестве символа-разделителя используется заглавная буква «E».
-"`f`"    Обозначение с фиксированной точкой. Для заданной точности pформатирует число как десятичное число, 
-       в котором pпосле запятой следуют только цифры. 
-       Без заданной точности использует точность 6цифр после запятой для floatи использует точность, 
-       достаточную для отображения всех цифр коэффициента для Decimal. 
-       Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не #используется этот параметр.
-"`F`"    Обозначение с фиксированной точкой. То же , что и "`f`", но преобразуется nanв NANи infв INF.
-"`g`"    Общий формат. Для заданной точности это округляет число до значащих цифр, а затем форматирует результат 
-       либо в формате с фиксированной запятой, либо в экспоненциальном представлении, в зависимости от его величины. 
-       Точность рассматривается как эквивалентная точности .p >= 1p01
-Точные правила таковы: предположим, что результат, отформатированный с типом представления "`e`" и точностью p-1, 
-будет иметь показатель степени exp. Затем, если , где -4 для чисел с плавающей запятой и -6 для , число форматируется с типом представления и точностью . 
-В противном случае число форматируется с типом представления и точностью . В обоих случаях из мантиссы удаляются незначащие конечные нули, а также 
-удаляется десятичная точка, если за ней не следуют оставшиеся цифры, если не используется опция.m <= exp < pmDecimals "f" p-1-exp "e" p-1 "#"
-Без заданной точности использует точность 6 значащих цифр для float. При Decimalкоэффициент результата формируется из цифр коэффициента значения; 
-научное обозначение используется для значений, меньших 1e-6абсолютного значения, и значений, 
-в которых разрядное значение младшей значащей цифры больше 1, а в противном случае используется обозначение с фиксированной запятой.
-Положительная и отрицательная бесконечность, положительные и отрицательные нули и нанс форматируются как , , и infсоответственно -inf, 0независимо от точности.-0nan
-"`G`"    Общий формат. То же, что и "`g`" за исключением переключения, "`E`" если число становится слишком большим. Представления бесконечности и NaN также в верхнем регистре.
-"`n`"    Число. Это то же самое "`g`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
-"`%`"    Процент. Умножает число на 100 и отображает в фиксированном ("`f`") формате, за которым следует знак процента.
-Никто  Поскольку floatэто то же самое "`g`", что и , за исключением того, что когда для форматирования результата используется запись с 
-фиксированной точкой, он всегда включает по крайней мере одну цифру после десятичной точки. Используемая точность настолько велика, насколько это необходимо для точного представления заданного значения.
-Для Decimalэто то же самое, что "`g`" или "`G`" в зависимости от значения context.capitalsдля текущего десятичного контекста. 
-Общий эффект заключается в том, чтобы соответствовать выходным данным str() , измененным другими модификаторами формата.
-
-
-
-Доступ к аргументам по позиции:
-
-```python
-"{0}, {1}, {2}".format("a", "b", "c")
-"a, b, c"
-"{}, {}, {}".format("a", "b", "c")  # 3.1+ only
-"a, b, c"
-"{2}, {1}, {0}".format("a", "b", "c")
-"c, b, a"
-"{2}, {1}, {0}".format(*"abc")      # unpacking argument sequence
-"c, b, a"
-"{0}{1}{0}".format("abra", "cad")   # arguments indices can be repeated
-"abracadabra"
-```
-
-Доступ к аргументам по имени:
-
-```python
-"Coordinates: {latitude}, {longitude}".format(latitude="37.24N", longitude="-115.81W")
-"Coordinates: 37.24N, -115.81W"
-coord = {"latitude": "37.24N", "longitude": "-115.81W"}
-"Coordinates: {latitude}, {longitude}".format(**coord)
-"Coordinates: 37.24N, -115.81W"
-```
-
-Доступ к атрибутам аргументов:
-
-```python
-c = 3-5j
-("The complex number {0} is formed from the real part {0.real} "
- "and the imaginary part {0.imag}.").format(c)
-"The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0."
-class Point:
-    def __init__(self, x, y):
-        self.x, self.y = x, y
-    def __str__(self):
-        return "Point({self.x}, {self.y})".format(self=self)
-
-str(Point(4, 2))
-"Point(4, 2)"
-```
-
-Доступ к элементам аргументов:
-
-```python
-coord = (3, 5)
-"X: {0[0]};  Y: {0[1]}".format(coord)
-"X: 3;  Y: 5"
-
-Замена `%s` и `%r`:
-"repr() shows quotes: {!r}; str() doesn't: {!s}".format("test1", "test2")
-"repr() shows quotes: 'test1'; str() doesn't: test2"
-```
-
-Выравнивание текста и указание ширины:
-
-```python
-"{:<30}".format("left aligned")
-"left aligned                  "
-"{:>30}".format("right aligned")
-"                 right aligned"
-"{:^30}".format("centered")
-"           centered           "
-"{:*^30}".format("centered")  # use "*" as a fill char
-"***********centered***********"
-```
-
-Замена %+f, %-f, и и указание знака:% f
-
-```python
-"{:+f}; {:+f}".format(3.14, -3.14)  # show it always
-"+3.140000; -3.140000"
-"{: f}; {: f}".format(3.14, -3.14)  # show a space for positive numbers
-" 3.140000; -3.140000"
-"{:-f}; {:-f}".format(3.14, -3.14)  # show only the minus -- same as "{:f}; {:f}"
-"3.140000; -3.140000"
-```
-
-Замена %xи %oпреобразование значения в разные базы:
-
-```python
-# format also supports binary numbers
-"int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42)
-"int: 42;  hex: 2a;  oct: 52;  bin: 101010"
-# with 0x, 0o, or 0b as prefix:
-"int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42)
-"int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010"
-```
-
-Использование запятой в качестве разделителя тысяч:
-
-```python
-"{:,}".format(1234567890)
-"1,234,567,890"
-```
-
-Выражение процента:
-
-```python
-points = 19
-total = 22
-"Correct answers: {:.2%}".format(points/total)
-"Correct answers: 86.36%"
-```
-
-Использование форматирования для конкретного типа:
-
-```python
-import datetime
-d = datetime.datetime(2010, 7, 4, 12, 15, 58)
-"{:%Y-%m-%d %H:%M:%S}".format(d)
-"2010-07-04 12:15:58"
-```
-
-Вложенные аргументы и более сложные примеры:
-
-```python
-for align, text in zip("<^>", ["left", "center", "right"]):
-    "{0:{fill}{align}16}".format(text, fill=align, align=align)
-
-"left<<<<<<<<<<<<"
-"^^^^^center^^^^^"
-">>>>>>>>>>>right"
-octets = [192, 168, 0, 1]
-"{:02X}{:02X}{:02X}{:02X}".format(*octets)
-"C0A80001"
-int(_, 16)
-3232235521
-width = 5
-for num in range(5,12): 
-    for base in "dXob":
-        print("{0:{width}{base}}".format(num, base=base, width=width), end=" ")
-    print()
-
-#    5     5     5   101
-#    6     6     6   110
-#    7     7     7   111
-#    8     8    10  1000
-#    9     9    11  1001
-#   10     A    12  1010
-#   11     B    13  1011
-```
-
-
-Форматирование чисел:
-Для вывода количества знаков после запятой можно использовать флаг f:
-
-```python
-print(f"pi {22 / 7:.2f}")
-```
-
-Форматирование строк:
-
-```python
-print(f"{name.upper():<10}") # выравнивается в лево на 10 символов
-print(f"{name.upper():>10}") # выравнивается в право на 10 символов
-print(f"{name.upper():^10}") # выравнивается по центру шириной 10 символов
-print(f"{22/7:>10.2f}")      # выравнивает в право на 10 и оставляет два знака после точки
-```
-
-Форматирование строк может быть улучшено с помощью флагов:
-
-```python
-print(f"{name.upper():=^10}") # CENTERED WITH 10 CHARACTERS WIDTH AND FILLED WITH "="
-```
-
-```python
-class Person:
-    def __format__(self, format_spec):
-        return "Person Object"
-
-p = Person()
-print(f"{p}") # Person Object
-```
-""",
-            "for in list comprehension": """
+            "Генераторы и списки": {
+                "for in list comprehension": """
 ```python
 list_of_tuples = [(1, 2), (3, 4), (5, 6)]
 result_list = [
@@ -8516,7 +8569,44 @@ for tpl in list_of_tuples:
 print(result_list)  # [1, 2, 3, 4, 5, 6]
 ```
 """,
-            "Умножение списков": """
+                "yield from": """
+# yield from
+
+Это выражение, которое позволяет делегировать выполнение
+генератора другому генератору, который называется **подгенератором**. 
+Это означает, что когда генератор встречает выражение `yield from` с указанием **подгенератора**,
+он передает управление этому **подгенератору**, 
+который затем возвращает значения генерируемых им элементов непосредственно в генератор-делегат.
+
+Кроме того, `yield from` позволяет пропустить передачу через промежуточный уровень вложенности. 
+Это означает, что когда подгенератор завершает свою работу, управление передается автоматически обратно генератору-делегату. 
+Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе,
+чтобы создать новый генератор, который генерирует элементы из каждого из них.
+
+Вот пример, который демонстрирует использование yield from:
+
+```python
+def generator1():
+    yield "A"
+    yield "B"
+    yield "C"
+
+def generator2():
+    yield "D"
+    yield from generator1()
+    yield "E"
+    yield "F"
+
+[letter for letter in generator2()]
+# ["D", "A", "B", "C", "E", "F"]
+```
+
+Здесь `generator2` создает новый генератор, используя `yield from` 
+для вызова генератора `generator1` и объединения его с другими элементами, которые генерирует `generator2`. 
+Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
+который продолжает генерировать свои элементы.
+""",
+                "Умножение списков": """
 ```python-console
 >>> a = [[]]*3
 >>> for x in a:
@@ -8558,60 +8648,27 @@ print(result_list)  # [1, 2, 3, 4, 5, 6]
 3276075830656
 ```
 """,
-            "yield from": """
-`yield from` - это выражение, которое позволяет делегировать выполнение
-генератора другому генератору, который называется **подгенератором**. 
-Это означает, что когда генератор встречает выражение `yield from` с указанием **подгенератора**,
-он передает управление этому **подгенератору**, 
-который затем возвращает значения генерируемых им элементов непосредственно в генератор-делегат.
-
-Кроме того, `yield from` позволяет пропустить передачу через промежуточный уровень вложенности. 
-Это означает, что когда подгенератор завершает свою работу, управление передается автоматически обратно генератору-делегату. 
-Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе,
-чтобы создать новый генератор, который генерирует элементы из каждого из них.
-
-Вот пример, который демонстрирует использование yield from:
-
-```python
-def generator1():
-    yield "A"
-    yield "B"
-    yield "C"
-
-def generator2():
-    yield "D"
-    yield from generator1()
-    yield "E"
-    yield "F"
-
-[letter for letter in generator2()] # ["D", "A", "B", "C", "E", "F"]
-```
-
-Здесь `generator2` создает новый генератор, используя `yield from` 
-для вызова генератора `generator1` и объединения его с другими элементами, которые генерирует `generator2`. 
-Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
-который продолжает генерировать свои элементы.
-""",
+            },
             "Аннотации типов": """
 ```python
-from typing import Any # Любой тип
+from typing import Any  # Любой тип
 ```
 
 ```python
-from typing import Literal # Один из вариантов
+from typing import Literal  # Один из вариантов
 direction: Literal["ASC", "DESC"] = "DESC"
 ```
 
 ```python
 from typing import Union
-val: Union[int, float] = 20.8 # or 20
+val: Union[int, float] = 20.8  # or 20
 ```
 
 ```python
 from typing import Final
 
 val: Final = 2
-val += 1 # Ошибки не произойдёт, но IDE подсветит как ошибку.
+val += 1  # Ошибки не произойдёт, но IDE подсветит как ошибку.
 ```
 
 # Использование статической проверки типов в Python
@@ -9480,35 +9537,35 @@ TAN                 возвращает тангенс угла в радиан
 
 https://www.sqlite.org/json1.html#jex
 
-| Функция / Оператор                    | Описание                                                                                                                        | Пример использования                                                                 |
-|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| JSON(json)                            | Преобразует строку в формат JSON.                                                                                               | JSON('{"name": "John", "age": 30}')<br>{"name":"John","age":30}                      |
-| JSONB(json)                           | `JSON`, но в бинарном формате<br>для более эффективного доступа.                                  | JSONB('{"name": "John", "age": 30}')                                                 |
-| JSON_ARRAY(value1, value2, ...)       | Создает JSON массив из переданных аргументов.                                                                                   | JSON_ARRAY('apple', 'banana', 'cherry')<br>["apple","banana","cherry"]               |
-| JSONB_ARRAY(value1, value2, ...)      | `JSON_ARRAY`, но в бинарном формате.                                                              | JSONB_ARRAY('apple', 'banana', 'cherry')                                             |
-| JSON_ARRAY_LENGTH(json, [path])       | Возвращает количество элементов<br>в массиве.                                                                    | JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]')<br>3<br>JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]', '$')<br>3<br>JSON_ARRAY_LENGTH('{"fruits": ["apple", "banana", "cherry"]}', '$.fruits')<br>3      |
-| JSON_ERROR_POSITION(json)             | Возвращает позицию ошибки в JSON строке,<br>если JSON недействителен.                                                           | JSON_ERROR_POSITION('{"name": "John", "age": 30,}')                                  |
-| JSON_EXTRACT(json, path, ...)         | Извлекает значение по заданному пути.                                                                         | JSON_EXTRACT('{"name": "John", "age": 30}', '$.name')<br>John                        |
-| JSONB_EXTRACT(json, path, ...)        | `JSON_EXTRACT`, но работает с бинарными JSON данными.                                                           | JSONB_EXTRACT('{"name": "John", "age": 30}', '$.name')                               |
-| json -> path                          | Извлекает значение по заданному пути<br>`JSON_EXTRACT`.                              | '{"name": "John", "age": 30}' -> '$.name'<br>John                                    |
-| json ->> path                         | Извлекает значение по заданному пути<br>и преобразует его в текст<br>`JSON_EXTRACT`. | '{"name": "John", "age": 30}' ->> '$.name'<br>John                                   |
-| JSON_INSERT(json, path, value, ...)   | Вставляет новое значение по заданному пути.                                        | JSON_INSERT('{"name": "John"}', '$.age', 30)<br>{"name":"John","age":30}             |
-| JSONB_INSERT(json, path, value, ...)  | `JSON_INSERT`, но с бинарными JSON данными.                                                            | JSONB_INSERT('{"name": "John"}', '$.age', 30)                                        |
-| JSON_OBJECT(label1, value1, ...)      | Создает JSON объект из пар "ключ-значение".                                                                                     | JSON_OBJECT('name', 'John', 'age', 30)<br>{"name":"John","age":30}                   |
-| JSONB_OBJECT(label1, value1, ...)     | `JSON_OBJECT`, но в бинарном формате.                                                             | JSONB_OBJECT('name', 'John', 'age', 30)                                              |
-| JSON_PATCH(json1, json2)              | Объединяет два JSON<br>значения из второго документа<br>перезаписывают значения из первого.                    | JSON_PATCH('{"name": "John"}', '{"age": 30}')<br>{"name":"John","age":30}            |
-| JSONB_PATCH(json1, json2)             | `JSON_PATCH`, но с бинарными JSON данными.                                                             | JSONB_PATCH('{"name": "John"}', '{"age": 30}')                                       |
-| JSON_PRETTY(json)                     | Форматирует JSON для более удобного чтения.                                                                            | JSON_PRETTY('{"name": "John", "age": 30}')                                           |
-| JSON_REMOVE(json, path, ...)          | Удаляет значение по заданному пути.                                                                           | JSON_REMOVE('{"name": "John", "age": 30}', '$.age')<br>{"name":"John"}               |
-| JSONB_REMOVE(json, path, ...)         | `JSON_REMOVE`, но с бинарными JSON данными.                                                            | JSONB_REMOVE('{"name": "John", "age": 30}', '$.age')                                 |
-| JSON_REPLACE(json, path, value, ...)  | Заменяет значение в JSON документе<br>по заданному пути (если путь существует).                                                 | JSON_REPLACE('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31} |
-| JSONB_REPLACE(json, path, value ,...) | `JSON_REPLACE`, но с бинарными JSON данными.                                                           | JSONB_REPLACE('{"name": "John", "age": 30}', '$.age', 31)                            |
-| JSON_SET(json, path, value, ...)      | Устанавливает значение по заданному пути.                                                                      | JSON_SET('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31}     |
-| JSONB_SET(json, path, value, ...)     | `JSON_SET`, но с бинарными JSON данными.                                                                  | JSONB_SET('{"name": "John", "age": 30}', '$.age', 31)                                |
-| JSON_TYPE(json, [path])               | Возвращает тип значения<br>по заданному пути в JSON документе.                                                                     | JSON_TYPE('{"name": "John", "age": 30}')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$.name')<br>text                           |
-| JSON_VALID(json)                      | Проверяет, является ли строка<br>допустимым JSON документом.                                                                       | JSON_VALID('{"name": "John", "age": 30}')<br>1                                       |
-| JSON_VALID(json, flags)               | `JSON_VALID`, но с флагами для проверки.                                                   | JSON_VALID('{"name": "John", "age": 30}', 0)                                         |
-| JSON_QUOTE(value)                     | Кавычит значение для включения в JSON документ.                                                                                 | JSON_QUOTE('John')<br>"John"                                                         |
+| Функция / Оператор                    | Описание                                                                                    | Пример использования                                                                 |
+|---------------------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| JSON(json)                            | Преобразует строку в формат JSON.                                                           | JSON('{"name": "John", "age": 30}')<br>{"name":"John","age":30}                      |
+| JSONB(json)                           | `JSON`, но в бинарном формате<br>для более эффективного доступа.                            | JSONB('{"name": "John", "age": 30}')                                                 |
+| JSON_ARRAY(value1, value2, ...)       | Создает JSON массив из переданных аргументов.                                               | JSON_ARRAY('apple', 'banana', 'cherry')<br>["apple","banana","cherry"]               |
+| JSONB_ARRAY(value1, value2, ...)      | `JSON_ARRAY`, но в бинарном формате.                                                        | JSONB_ARRAY('apple', 'banana', 'cherry')                                             |
+| JSON_ARRAY_LENGTH(json, [path])       | Возвращает количество элементов<br>в массиве.                                               | JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]')<br>3<br>JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]', '$')<br>3<br>JSON_ARRAY_LENGTH('{"fruits": ["apple", "banana", "cherry"]}', '$.fruits')<br>3      |
+| JSON_ERROR_POSITION(json)             | Возвращает позицию ошибки в JSON строке,<br>если JSON недействителен.                       | JSON_ERROR_POSITION('{"name": "John", "age": 30,}')                                  |
+| JSON_EXTRACT(json, path, ...)         | Извлекает значение по заданному пути.                                                       | JSON_EXTRACT('{"name": "John", "age": 30}', '$.name')<br>John                        |
+| JSONB_EXTRACT(json, path, ...)        | `JSON_EXTRACT`, но работает с бинарными JSON данными.                                       | JSONB_EXTRACT('{"name": "John", "age": 30}', '$.name')                               |
+| json -> path                          | Извлекает значение по заданному пути<br>`JSON_EXTRACT`.                                     | '{"name": "John", "age": 30}' -> '$.name'<br>John                                    |
+| json ->> path                         | Извлекает значение по заданному пути<br>и преобразует его в текст<br>`JSON_EXTRACT`.        | '{"name": "John", "age": 30}' ->> '$.name'<br>John                                   |
+| JSON_INSERT(json, path, value, ...)   | Вставляет новое значение по заданному пути.                                                 | JSON_INSERT('{"name": "John"}', '$.age', 30)<br>{"name":"John","age":30}             |
+| JSONB_INSERT(json, path, value, ...)  | `JSON_INSERT`, но с бинарными JSON данными.                                                 | JSONB_INSERT('{"name": "John"}', '$.age', 30)                                        |
+| JSON_OBJECT(label1, value1, ...)      | Создает JSON объект из пар "ключ-значение".                                                 | JSON_OBJECT('name', 'John', 'age', 30)<br>{"name":"John","age":30}                   |
+| JSONB_OBJECT(label1, value1, ...)     | `JSON_OBJECT`, но в бинарном формате.                                                       | JSONB_OBJECT('name', 'John', 'age', 30)                                              |
+| JSON_PATCH(json1, json2)              | Объединяет два JSON<br>значения из второго документа<br>перезаписывают значения из первого. | JSON_PATCH('{"name": "John"}', '{"age": 30}')<br>{"name":"John","age":30}            |
+| JSONB_PATCH(json1, json2)             | `JSON_PATCH`, но с бинарными JSON данными.                                                  | JSONB_PATCH('{"name": "John"}', '{"age": 30}')                                       |
+| JSON_PRETTY(json)                     | Форматирует JSON для более удобного чтения.                                                 | JSON_PRETTY('{"name": "John", "age": 30}')                                           |
+| JSON_REMOVE(json, path, ...)          | Удаляет значение по заданному пути.                                                         | JSON_REMOVE('{"name": "John", "age": 30}', '$.age')<br>{"name":"John"}               |
+| JSONB_REMOVE(json, path, ...)         | `JSON_REMOVE`, но с бинарными JSON данными.                                                 | JSONB_REMOVE('{"name": "John", "age": 30}', '$.age')                                 |
+| JSON_REPLACE(json, path, value, ...)  | Заменяет значение в JSON документе<br>по заданному пути (если путь существует).             | JSON_REPLACE('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31} |
+| JSONB_REPLACE(json, path, value ,...) | `JSON_REPLACE`, но с бинарными JSON данными.                                                | JSONB_REPLACE('{"name": "John", "age": 30}', '$.age', 31)                            |
+| JSON_SET(json, path, value, ...)      | Устанавливает значение по заданному пути.                                                   | JSON_SET('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31}     |
+| JSONB_SET(json, path, value, ...)     | `JSON_SET`, но с бинарными JSON данными.                                                    | JSONB_SET('{"name": "John", "age": 30}', '$.age', 31)                                |
+| JSON_TYPE(json, [path])               | Возвращает тип значения<br>по заданному пути в JSON документе.                              | JSON_TYPE('{"name": "John", "age": 30}')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$.name')<br>text                           |
+| JSON_VALID(json)                      | Проверяет, является ли строка<br>допустимым JSON документом.                                | JSON_VALID('{"name": "John", "age": 30}')<br>1                                       |
+| JSON_VALID(json, flags)               | `JSON_VALID`, но с флагами для проверки.                                                    | JSON_VALID('{"name": "John", "age": 30}', 0)                                         |
+| JSON_QUOTE(value)                     | Кавычит значение для включения в JSON документ.                                             | JSON_QUOTE('John')<br>"John"                                                         |
 
 """,
             "Картинки": r"""
@@ -12342,7 +12399,7 @@ python
 x = "2"
 y = "4"
 z = int(x + y + y)
-print(z+6) # 250
+print(z+6)  # 250
 ```
 
 C++
@@ -12371,7 +12428,7 @@ python
 x = 2
 y = 4
 z = str(x + y + y)
-print(f"f({z})") # f(10)
+print(f"f({z})")  # f(10)
 ```
 
 С++
@@ -13148,25 +13205,32 @@ newObject.setElement(2.6);
 За курс вы изучите язык C++, научитесь работать с библиотекой STL, 
 базами данных, многопоточностью и научитесь строить приложения при помощи WinForms и QT.
 """,
-            "ChatGPT": """можешь переписать этот код на C++?
-a = [0, 1, 'привет', 'мир']
+            "ChatGPT": """
+Me:
+> Можешь переписать этот код на C++?
+> 
+> ```python
+a = [0, 1, "привет", "мир"]
 print(a[2], a[3])
+```
 ----------------------------------------------------------------
-Да, я могу переписать этот код на C++:
 
-```cpp
+ChatGPT:
+> Да, я могу переписать этот код на C++:
+> 
+> ```cpp
 #include <iostream>
 #include <vector>
-
+ 
 int main() {
     std::vector<std::string> a = { "0", "1", "привет", "мир" };
     std::cout << a[2] << " " << a[3] << std::endl;
     return 0;
 }
 ```
-
-Здесь я использовал std::vector, чтобы создать массив строк, 
-поскольку C++ не поддерживает нетипизированные массивы.
+> 
+> Здесь я использовал std::vector, чтобы создать массив строк, 
+> поскольку C++ не поддерживает нетипизированные массивы.
 """,
             "Разное": r"""https://metanit.com/cpp/tutorial/
 
@@ -13670,9 +13734,9 @@ Tекстовый формат обмена данными, который ос�
 ```python
 import json
 config = {"BOT": {"bot_name": "", "token": ""}}
-with open("config.json", 'w', encoding='UTF-8') as file:
+with open("config.json", "w", encoding="UTF-8") as file:
     file.write(json.dumps(config, indent=4, ensure_ascii=False))
-with open("config.json", 'r', encoding='UTF-8') as file:
+with open("config.json", "r", encoding="UTF-8") as file:
     config = json.load(file)
 print(config)
 ```
@@ -13692,9 +13756,9 @@ import json
 config = [{"name": "Alice Jones", "age": 25, "city": "Los Angeles"},
           {"name": "John Smith", "age": 30, "city": "New York"},
           {"name": "Bob Johnson", "age": 40, "city": "Chicago"}]
-with open("test.jsonl", 'a', encoding='UTF-8') as file:
+with open("test.jsonl", "a", encoding="UTF-8") as file:
     file.writelines([str(line)+"\n" for line in config])
-with open("config.jsonl", 'r', encoding='UTF-8') as file:
+with open("config.jsonl", "r", encoding="UTF-8") as file:
     for line in file:
         data = json.loads(line)
         print(data)
@@ -13716,7 +13780,7 @@ city: New York
 ```
 
 ```python
-import yaml # pip install yaml
+import yaml  # pip install yaml
 config = {"BOT": {"bot_name": "", "token": ""}}
 with open("config.yaml", "w", encoding="utf-8") as file:
     file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
@@ -13742,11 +13806,11 @@ authors = ["John Doe <john@example.com>"]
 ```
 
 ```python
-import toml # pip install toml
+import toml  # pip install toml
 config = {"BOT": {"bot_name": "", "token": ""}}
-with open("config.toml", "w", encoding='UTF-8') as file:
+with open("config.toml", "w", encoding="UTF-8") as file:
     file.write(toml.dumps(config))
-with open("config.toml", "r", encoding='UTF-8') as file:
+with open("config.toml", "r", encoding="UTF-8") as file:
     config = toml.load(file)
 print(config)
 ```
@@ -13778,7 +13842,7 @@ config = {"BOT": {"bot_name": "", "token": ""}}
 config_ini = configparser.ConfigParser()
 for key, value in config.items():
     config_ini[key] = value
-with open("config.ini", 'w') as file:
+with open("config.ini", "w") as file:
     config_ini.write(file)
 
 config_ini = configparser.ConfigParser()
@@ -13816,7 +13880,7 @@ import xml.etree.ElementTree as xml
 
 def dict_to_xml(dct, root_node=None):
     if root_node is None:
-        root_node = xml.Element('root')
+        root_node = xml.Element("root")
     for key, value in dct.items():
         node = xml.SubElement(root_node, key)
         if isinstance(value, dict):
@@ -13836,12 +13900,12 @@ def xml_to_dict(root):
                 dd[k].append(v)
         dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
     if root.attrib:
-        dct[root.tag].update(('@' + k, v) for k, v in root.attrib.items())
+        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
     if root.text:
         text = root.text.strip()
         if children or root.attrib:
             if text:
-                dct[root.tag]['#text'] = text
+                dct[root.tag]["#text"] = text
         else:
             dct[root.tag] = text
     return dct
@@ -13849,9 +13913,9 @@ def xml_to_dict(root):
 config = {"BOT": {"bot_name": "", "token": ""}}
 config = dict_to_xml(config)
 tree = xml.ElementTree(config)
-with open("config.xml", 'wb') as file:
-    tree.write(file, encoding='utf-8', xml_declaration=True)
-with open("config.xml", 'r') as file:
+with open("config.xml", "wb") as file:
+    tree.write(file, encoding="utf-8", xml_declaration=True)
+with open("config.xml", "r") as file:
     tree = xml.parse(file)
 root = tree.getroot()
 config = xml_to_dict(root)
@@ -13873,10 +13937,10 @@ Jane Doe,25,Chicago
 
 ```python
 import csv
-data = [['Name', 'Age'], ['Alice', 25], ['Bob', 30], ['Charlie', 35]]
-with open("data.csv", 'w', newline='', encoding='UTF-8') as file:
+data = [["Name", "Age"], ["Alice", 25], ["Bob", 30], ["Charlie", 35]]
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
     csv.writer(file).writerows(data)
-with open("data.csv", 'r', encoding='UTF-8') as file:
+with open("data.csv", "r", encoding="UTF-8") as file:
     [print(row) for row in csv.reader(file)]
 ```
 """,
@@ -13920,12 +13984,12 @@ def SQL(Query, params=(), commit: bool = False):
 
 data = SQL("SELECT * FROM root;")
 
-with open("data.csv", 'w', newline='', encoding='UTF-8') as file:
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
     writer = csv.writer(file)
-    writer.writerow(['column 1', 'column 2', ...])
+    writer.writerow(["column 1", "column 2", ...])
     writer.writerows(data)
 
-with open('data.csv', 'r', encoding='UTF-8') as file:
+with open("data.csv", "r", encoding="UTF-8") as file:
     reader = csv.reader(file)
     headers = next(reader)
     SQL(f"""CREATE TABLE root ({', '.join([f"{column} TEXT" for column in headers])});""", commit=True)
@@ -13970,10 +14034,10 @@ user_query = Query()
 john_data = users_table.search(user_query.name == "John")
 
 # Изменение данных в записи по условию (например, по имени)
-users_table.update({'age': 26}, user_query.name == 'John')
+users_table.update({"age": 26}, user_query.name == "John")
 
 # Удаление записи по условию (например, по имени)
-users_table.remove(user_query.name == 'John')
+users_table.remove(user_query.name == "John")
 ```
 """,
         },
@@ -14175,7 +14239,7 @@ int main()
         for (int j = 0; j < cols; ++j) {
             int number = 1 + rand() % 999;
             matrix[i][j] = number;
-            cout << " " << setw(3) << setfill(' ') << number << " |";
+            cout << " " << setw(3) << setfill(" ") << number << " |";
         }
         cout << "\n";
     }
@@ -14277,7 +14341,3 @@ button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
 
 """,
 }
-
-# if __name__ == "__main__":
-#     import os
-#     os.system('python "builder.py"')

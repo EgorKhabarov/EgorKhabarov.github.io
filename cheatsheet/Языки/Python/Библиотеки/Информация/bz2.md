@@ -18,8 +18,8 @@
 <td>Распаковывает данные BZ2.</td>
 </tr>
 <tr>
-<td>bz2.BZ2File(file, mode='r', buffering=0, compresslevel=9)</td>
-<td>Создает файловый объект BZ2. Режимы: 'r' (чтение), 'w' (запись), 'a' (добавление).</td>
+<td>bz2.BZ2File(file, mode="r", buffering=0, compresslevel=9)</td>
+<td>Создает файловый объект BZ2. Режимы: "r" (чтение), "w" (запись), "a" (добавление).</td>
 </tr>
 </tbody>
 </table>

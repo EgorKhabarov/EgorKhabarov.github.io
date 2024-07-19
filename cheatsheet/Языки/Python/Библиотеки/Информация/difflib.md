@@ -15,21 +15,21 @@
 
 <h4>get_close_matches</h4>
 <p>Нахождение наиболее похожей строки в наборе строк на основе заданной строки.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code4c883eebe9b2231e6264f5328fd86eabb" onclick="copyCode(code4c883eebe9b2231e6264f5328fd86eab, code4c883eebe9b2231e6264f5328fd86eabb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code4c883eebe9b2231e6264f5328fd86eab"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code9fe7c72060ff72e9210d1e028ebe5aaeb" onclick="copyCode(code9fe7c72060ff72e9210d1e028ebe5aae, code9fe7c72060ff72e9210d1e028ebe5aaeb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code9fe7c72060ff72e9210d1e028ebe5aae"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
-<span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grea&#39;</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;grea&quot;</span>
 
 <span class="n">matches</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">get_close_matches</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Closest matches: </span><span class="si">{</span><span class="n">matches</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="sd">&quot;&quot;&quot;Closest matches: [&#39;green&#39;]&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Closest matches: [&quot;green&quot;]&quot;&quot;&quot;</span>
 </pre></div></div></div>
 
 <h4>unified_diff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code32de1a0d650186a285722bd81108cf69b" onclick="copyCode(code32de1a0d650186a285722bd81108cf69, code32de1a0d650186a285722bd81108cf69b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code32de1a0d650186a285722bd81108cf69"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code41c6c26bcd2572ce2d43dc68c80d5ba4b" onclick="copyCode(code41c6c26bcd2572ce2d43dc68c80d5ba4, code41c6c26bcd2572ce2d43dc68c80d5ba4b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code41c6c26bcd2572ce2d43dc68c80d5ba4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -41,7 +41,7 @@
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">---</span>
@@ -59,7 +59,7 @@
 
 <h4>HtmlDiff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате HTML.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code4387e36c611f22da455f098dd1aa27a2b" onclick="copyCode(code4387e36c611f22da455f098dd1aa27a2, code4387e36c611f22da455f098dd1aa27a2b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code4387e36c611f22da455f098dd1aa27a2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codeee85d6f415fa1c9b82d22ac56c9b66e2b" onclick="copyCode(codeee85d6f415fa1c9b82d22ac56c9b66e2, codeee85d6f415fa1c9b82d22ac56c9b66e2b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codeee85d6f415fa1c9b82d22ac56c9b66e2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -71,13 +71,13 @@
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">HtmlDiff</span><span class="p">()</span><span class="o">.</span><span class="n">make_file</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;diff.html&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;diff.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h4>context_diff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате context diff.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code8faa1422bcc88fb69ddbeeb67a160b95b" onclick="copyCode(code8faa1422bcc88fb69ddbeeb67a160b95, code8faa1422bcc88fb69ddbeeb67a160b95b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code8faa1422bcc88fb69ddbeeb67a160b95"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code2c303da7d5110a224897b499c95a3e75b" onclick="copyCode(code2c303da7d5110a224897b499c95a3e75, code2c303da7d5110a224897b499c95a3e75b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code2c303da7d5110a224897b499c95a3e75"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -89,7 +89,7 @@
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">context_diff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">***</span>
@@ -113,7 +113,7 @@
 
 <h4>ndiff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате ndiff.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codefeb88eeab01f2445ed0532ce7b7d5501b" onclick="copyCode(codefeb88eeab01f2445ed0532ce7b7d5501, codefeb88eeab01f2445ed0532ce7b7d5501b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codefeb88eeab01f2445ed0532ce7b7d5501"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code6aaca3ae3992d2e5979df9e75fd822cab" onclick="copyCode(code6aaca3ae3992d2e5979df9e75fd822ca, code6aaca3ae3992d2e5979df9e75fd822cab)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code6aaca3ae3992d2e5979df9e75fd822ca"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -125,7 +125,7 @@
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">ndiff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Lorem ipsum dolor sit amet,</span>
@@ -140,10 +140,10 @@
 
 <h4>isjunk и ignore</h4>
 <p>Использование пользовательских функций для игнорирования символов при сравнении последовательностей.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codeda63cd4cda48d2a15303e53ad954d288b" onclick="copyCode(codeda63cd4cda48d2a15303e53ad954d288, codeda63cd4cda48d2a15303e53ad954d288b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codeda63cd4cda48d2a15303e53ad954d288"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code7f00e63c114fdfcc24303f9ffc1c0b89b" onclick="copyCode(code7f00e63c114fdfcc24303f9ffc1c0b89, code7f00e63c114fdfcc24303f9ffc1c0b89b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code7f00e63c114fdfcc24303f9ffc1c0b89"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="k">def</span> <span class="nf">isjunk</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -163,7 +163,7 @@
 
 <h4>reduce_func</h4>
 <p>Использование пользовательской функции для преобразования различий в отчете о сравнении.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codea80a53cb3050ecb8ed397b1196c82bb6b" onclick="copyCode(codea80a53cb3050ecb8ed397b1196c82bb6, codea80a53cb3050ecb8ed397b1196c82bb6b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codea80a53cb3050ecb8ed397b1196c82bb6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codef7e25af871ffa37cc3a0feaa7739bf1fb" onclick="copyCode(codef7e25af871ffa37cc3a0feaa7739bf1f, codef7e25af871ffa37cc3a0feaa7739bf1fb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codef7e25af871ffa37cc3a0feaa7739bf1f"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
 <span class="s2">consectetur adipiscing elit,</span>
@@ -177,25 +177,25 @@
 <span class="n">diff</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
 <span class="k">def</span> <span class="nf">reduce_func</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&#39;color:red&#39;&gt;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&lt;/span&gt;&quot;</span>
-    <span class="k">elif</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;+ &#39;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&#39;color:green&#39;&gt;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&lt;/span&gt;&quot;</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;- &quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&quot;</span><span class="n">color</span><span class="p">:</span><span class="n">red</span><span class="s2">&quot;&gt;</span><span class="si">{s}</span><span class="s2">&lt;/span&gt;&quot;</span>
+    <span class="k">elif</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;+ &quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&quot;</span><span class="n">color</span><span class="p">:</span><span class="n">green</span><span class="s2">&quot;&gt;</span><span class="si">{s}</span><span class="s2">&lt;/span&gt;&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">s</span>
 
 <span class="n">diff</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">reduce_func</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
-<span class="n">diff</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Lorem ipsum dolor sit amet,</span>
 <span class="sd">  consectetur adipiscing elit,</span>
-<span class="sd">&lt;span style=&#39;color:red&#39;&gt;- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/span&gt;</span>
+<span class="sd">&lt;span style=&quot;color:red&quot;&gt;- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/span&gt;</span>
 <span class="sd">?                                                          ^</span>
 
-<span class="sd">&lt;span style=&#39;color:green&#39;&gt;+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&lt;/span&gt;</span>
+<span class="sd">&lt;span style=&quot;color:green&quot;&gt;+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&lt;/span&gt;</span>
 <span class="sd">?                                                          ^^                                         </span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div></div></div>

@@ -244,3 +244,11 @@ code {
   -webkit-user-select: none;
   user-select: none;
 }
+
+blockquote {
+  background-color: #525252;
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: auto;
+}

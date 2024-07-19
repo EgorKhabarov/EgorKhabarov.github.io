@@ -35,17 +35,17 @@
 <tr>
 <td>fnmatch(name, pattern)</td>
 <td>Сопоставляет имя файла с шаблоном.</td>
-<td>fnmatch("example.txt", "*.txt") # True</td>
+<td>fnmatch("example.txt", "*.txt")  # True</td>
 </tr>
 <tr>
 <td>filter(names, pattern)</td>
 <td>Фильтрует список имен файлов.</td>
-<td>filter(['file1.txt', 'file2.py'], "*.txt") # ['file1.txt']</td>
+<td>filter(["file1.txt", "file2.py"], "*.txt")  # ["file1.txt"]</td>
 </tr>
 <tr>
 <td>translate(pattern)</td>
 <td>Преобразует шаблон во внутренний формат.</td>
-<td>translate("*.txt") # '[A-Za-z0-9]+.txt$'</td>
+<td>translate("*.txt")  # "[A-Za-z0-9]+.txt$"</td>
 </tr>
 </tbody>
 </table>

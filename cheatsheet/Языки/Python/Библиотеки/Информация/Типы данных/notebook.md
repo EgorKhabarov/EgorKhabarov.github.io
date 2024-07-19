@@ -22,9 +22,9 @@
 </pre></div></div></div>
 
 <p><code>open_notebook(path)</code>: открывает блокнот по указанному пути.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code6978a54b9ec661c0b3f23689fc4cf11cb" onclick="copyCode(code6978a54b9ec661c0b3f23689fc4cf11c, code6978a54b9ec661c0b3f23689fc4cf11cb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code6978a54b9ec661c0b3f23689fc4cf11c"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">open_notebook</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code3dbaf62a33f9940f7ca170eea0b2feacb" onclick="copyCode(code3dbaf62a33f9940f7ca170eea0b2feac, code3dbaf62a33f9940f7ca170eea0b2feacb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code3dbaf62a33f9940f7ca170eea0b2feac"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">open_notebook</span>
 
-<span class="n">notebook</span> <span class="o">=</span> <span class="n">open_notebook</span><span class="p">(</span><span class="s1">&#39;path/to/notebook.ipynb&#39;</span><span class="p">)</span>
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">open_notebook</span><span class="p">(</span><span class="s2">&quot;path/to/notebook.ipynb&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span>
 </pre></div></div></div>
 
@@ -36,9 +36,9 @@
 </pre></div></div></div>
 
 <p><code>save_notebook(path)</code>: сохраняет текущий блокнот по указанному пути.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code54b8ddfa87cc72bb8749d5de840d69e6b" onclick="copyCode(code54b8ddfa87cc72bb8749d5de840d69e6, code54b8ddfa87cc72bb8749d5de840d69e6b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code54b8ddfa87cc72bb8749d5de840d69e6"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">save_notebook</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code62fdecd80632fccc1bf038e066cf95b7b" onclick="copyCode(code62fdecd80632fccc1bf038e066cf95b7, code62fdecd80632fccc1bf038e066cf95b7b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code62fdecd80632fccc1bf038e066cf95b7"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">save_notebook</span>
 
-<span class="n">save_notebook</span><span class="p">(</span><span class="s1">&#39;path/to/save.ipynb&#39;</span><span class="p">)</span>
+<span class="n">save_notebook</span><span class="p">(</span><span class="s2">&quot;path/to/save.ipynb&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
 <p><code>list_cells()</code>: возвращает список всех ячеек в текущем блокноте.</p>

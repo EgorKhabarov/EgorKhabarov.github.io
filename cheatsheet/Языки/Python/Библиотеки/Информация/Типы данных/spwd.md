@@ -57,7 +57,7 @@
 <tr>
 <td><code>spwd.getspnam(name)</code></td>
 <td>Возвращает информацию о пользователе по его имени.</td>
-<td><code>user_info = spwd.getspnam('john')</code></td>
+<td><code>user_info = spwd.getspnam("john")</code></td>
 </tr>
 <tr>
 <td><code>spwd.getspall()</code></td>

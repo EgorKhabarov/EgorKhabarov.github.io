@@ -80,17 +80,17 @@
 <tr>
 <td>ntpath.basename(path)</td>
 <td>Возвращает базовое имя файла или каталога из указанного пути.</td>
-<td>dirname, filename = ntpath.split('/path/to/file.txt') print(filename) -&gt; 'file.txt'</td>
+<td>dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -&gt; "file.txt"</td>
 </tr>
 <tr>
 <td>ntpath.exists(path)</td>
 <td>Проверяет, существует ли указанный путь.</td>
-<td>if ntpath.exists('/path/to/file.txt'): print("File exists")</td>
+<td>if ntpath.exists("/path/to/file.txt"): print("File exists")</td>
 </tr>
 <tr>
 <td>ntpath.join(path, *paths)</td>
 <td>Объединяет пути с использованием разделителя.</td>
-<td>full_path = ntpath.join('/path/to', 'file.txt') print(full_path) -&gt; '/path/to/file.txt'</td>
+<td>full_path = ntpath.join("/path/to", "file.txt") print(full_path) -&gt; "/path/to/file.txt"</td>
 </tr>
 </tbody>
 </table>

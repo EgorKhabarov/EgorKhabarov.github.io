@@ -43,7 +43,7 @@
 <tr>
 <td>clean</td>
 <td>Удаляет или экранирует HTML-теги и атрибуты</td>
-<td>clean(text, tags=['p', 'a'])</td>
+<td>clean(text, tags=["p", "a"])</td>
 </tr>
 <tr>
 <td>linkify</td>
