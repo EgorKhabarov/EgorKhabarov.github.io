@@ -6142,6 +6142,45 @@ combined_styles = colors + linestyles
 """,
                 },
                 "Python": {
+                    "import": """
+```python-console
+>>> def im():
+...     import math
+...
+>>> math
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'math' is not defined
+>>> im()
+>>> math
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'math' is not defined
+```
+
+```python
+import importlib
+
+importlib.reload(my_module)
+```
+
+```python
+import subprocess
+import importlib
+
+library_name = input("Введите название библиотеки, которую вы хотите установить: ")
+
+# проверяем, установлена ли библиотека
+try:
+    importlib.import_module(library_name)
+    print(f"Библиотека {library_name} уже установлена.")
+except ImportError:
+    # устанавливаем библиотеку
+    subprocess.call(["pip", "install", library_name])
+    print(f"Библиотека {library_name} установлена успешно.")
+
+```
+""",
                     "logging": """import logging
 
 Запись в файл
@@ -7307,6 +7346,164 @@ resp = conn.post('<subject>', '<from>', '<body>')
                 },
             },
             "Методы": {
+                "Магические методы": escape_markdown(
+                    rf"""
+# Арифметические операции
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __eq__(self, other) -> bool:               | self == other                                      | Равенство                                                                        |
+| def __ge__(self, other) -> bool:               | self >= other                                      | Больше или равен                                                                 |
+| def __gt__(self, other) -> bool:               | self > other                                       | Больше                                                                           |
+| def __le__(self, other) -> bool:               | self <= other                                      | Mеньше или равен                                                                 |
+| def __lt__(self, other) -> bool:               | self < other                                       | Меньше                                                                           |
+| def __ne__(self, other) -> bool:               | self != other                                      | Не равен                                                                         |
+| def __or__(self, other):                       | self \| other                                      | Побитовое ИЛИ                                                                    |
+| def __add__(self, other):                      | self + other                                       | Сложение                                                                         |
+| def __and__(self, other):                      | self & other                                       | Побитовое И                                                                      |
+| def __ior__(self, other):                      | self \|= other                                     | Побитовое ИЛИ с присваиванием                                                    |
+| def __mod__(self, other):                      | self % other                                       | Остаток от деления                                                               |
+| def __mul__(self, other):                      | self * other                                       | Умножение                                                                        |
+| def __ror__(self, other):                      | self \| other                                      | Побитовое ИЛИ с обратным присваиванием                                           |
+| def __sub__(self, other):                      | self - other                                       | Вычитание                                                                        |
+| def __xor__(self, other):                      | self ^ other                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ                                                        |
+| def __iadd__(self, other):                     | self += other                                      | Сложение с присваиванием                                                         |
+| def __iand__(self, other):                     | self &= other                                      | Побитовое И с присваиванием                                                      |
+| def __idiv__(self, other):                     | self /= other                                      | Деление с присваиванием                                                          |
+| def __imod__(self, other):                     | self %= other                                      | Взятие остатка от деления с присваиванием                                        |
+| def __imul__(self, other):                     | self *= other                                      | Умножение с присваиванием                                                        |
+| def __ipow__(self, other):                     | self **= other                                     | Возведение в степень с присваиванием                                             |
+| def __isub__(self, other):                     | self -= other                                      | Вычитание с присваиванием                                                        |
+| def __ixor__(self, other):                     | self ^= other                                      | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ с присваиванием                                        |
+| def __radd__(self, other):                     | other + self                                       | Сложение справа                                                                  |
+| def __rand__(self, other):                     | other & self                                       | Выполняет побитовое И справа                                                     |
+| def __rdiv__(self, other):                     | other / self                                       | Деление справа                                                                   |
+| def __divmod__(self, other):                   | divmod(self, other)                                | Деление с остатком                                                               |
+| def __rdivmod__(self, other):                  | divmod(other, self)                                | Деление с остатком справа                                                        |
+| def __rmod__(self, other):                     | other % self                                       | Взятие остатка от деления справа                                                 |
+| def __rmul__(self, other):                     | other * self                                       | Умножение справа                                                                 |
+| def __rpow__(self, other):                     | other ** self                                      | Возведение в степень справа                                                      |
+| def __rsub__(self, other):                     | other - self                                       | Вычитание справа                                                                 |
+| def __rxor__(self, other):                     | other ^ self                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ справа                                                 |
+| def __floordiv__(self, other):                 | self // other                                      | Целочисленное деление                                                            |
+| def __ilshift__(self, other):                  | self <<= other                                     | Побитовый сдвиг влево с присваиванием                                            |
+| def __imatmul__(self, other):                  | self @= other                                      | Матричное умножение с присваиванием                                              |
+| def __irshift__(self, other):                  | self >>= other                                     | Побитовый сдвиг вправо с присваиванием                                           |
+| def __itruediv__(self, other):                 | self /= other                                      | Деление с присваиванием                                                          |
+| def __rlshift__(self, other):                  | other << self                                      | Побитовый сдвиг влево справа                                                     |
+| def __rmatmul__(self, other):                  | other @ self                                       | Матричное умножение справа                                                       |
+| def __matmul__(self, other):                   | self @ other                                       | Матричное умножение                                                              |
+| def __rrshift__(self, other):                  | other >> self                                      | Побитовый сдвиг вправо справа                                                    |
+| def __rtruediv__(self, other):                 | other / self                                       | Деление справа                                                                   |
+| def __truediv__(self, other):                  | self / other                                       | Деление                                                                          |
+| def __lshift__(self, other):                   | self << other                                      | Побитовый сдвиг влево                                                            |
+| def __rshift__(self, other):                   | self >> other                                      | Побитовый сдвиг вправо                                                           |
+| def __ifloordiv__(self, other):                | self //= other                                     | Целочисленное деление с присваиванием                                            |
+| def __rfloordiv__(self, other):                | other // self                                      | Целочисленное деление справа                                                     |
+| def __pos__(self):                             | +self                                              | Положительное значение объекта                                                   |
+| def __neg__(self):                             | -self                                              | Отрицательное значение объекта                                                   |
+| def __invert__(self):                          | ~self                                              | Инвертированное значение объекта                                                 |
+
+# func call
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __pow__(self, power, modulo=None):         | pow(self, power, modulo)                           | Возведение в степень                                                             |
+| def __abs__(self):                             | abs(self)                                          | Абсолютное значение объекта                                                      |
+| def __hex__(self):                             | hex(self)                                          | Строковое представление объекта в<br>шестнадцатеричной системе счисления         |
+| def __float__(self):                           | float(self)                                        | Представление объекта в виде числа с плавающей запятой                           |
+| def __bytes__(self):                           | bytes(self)                                        | Байтовое представление объекта                                                   |
+| def __long__(self):                            | int(self)                                          | Длинное целочисленное представление объекта                                      |
+| def __int__(self):                             | int(self)                                          | Целочисленное представление объекта                                              |
+| def __bool__(self) -> bool:                    | bool(self)                                         | Булево значение                                                                  |
+| def __oct__(self):                             | oct(self)                                          | Строковое представление объекта в<br>восьмеричной системе счисления              |
+| def __len__(self):                             | len(self)                                          | Возвращает длину объекта                                                         |
+| def __str__(self):                             | str(self)                                          | Строковое представление объекта                                                  |
+| def __hash__(self):                            | hash(self)                                         | Хеш-значение объекта                                                             |
+| def __iter__(self):                            | iter(self)                                         | Итератор объекта                                                                 |
+| def __next__(self):                            | next(self)                                         | Следующий элемент в итерации                                                     |
+| def __round__(self, n=None):                   | round(self, n)                                     | Округленное значение                                                             |
+| def __complex__(self):                         | complex(self)                                      | Комплексное представление                                                        |
+| def __reversed__(self):                        | reversed(self)                                     | Возвращает обратный итератор объекта                                             |
+| def __unicode__(self):                         | unicode(self)                                      | Строковое представление объекта (Python 2)                                       |
+| def __instancecheck__(self, instance) -> bool: | isinstance(obj, cls)                               | Проверяет, является ли объект экземпляром класса                                 |
+| def __subclasscheck__(self, subclass) -> bool: | issubclass(subclass, cls)                          | Является ли класс подклассом другого класса                                      |
+| def __call__(self, *args, **kwargs):           | self(*args, **kwargs)                              | Вызывает объект как функцию                                                      |
+| def __repr__(self):                            | repr(self)                                         | Строковое представление объекта                                                  |
+| def __subclasshook__(cls, __subclass):         | issubclass(Subclass, MyClass)                      | Проверяет, является ли класс подклассом другого класса                           |
+| def __dir__(self):                             | dir(self)                                          | Список атрибутов и методов объекта                                               |
+| def __format__(self, format_spec):             | {to_table_code_py('"{0:{format_spec}}".format(self)')} | Форматированную строку объекта                                        |
+| def __cmp__(self, other) -> int:               | cmp(self, other)                                   | Сравнивает объекты и возвращает -1, 0 или 1                                      |
+| def __aiter__(self):                           | awaitable.__aiter__()                              | Асинхронный итератор объекта                                                     |
+| def __anext__(self):                           | awaitable.__anext__()                              | Возвращает следующий элемент в асинхронной итерации                              |
+| def __coerce__(self, other):                   | coerce(self, other)                                | Преобразует объект к общему типу с другим объектом                               |
+| def __index__(self):                           | operator.index(self)                               | Целочисленное представление объекта<br>для использования в индексации            |
+| def __floor__(self):                           | math.floor(self)                                   | Наибольшее целое число, меньшее или равное объекту                               |
+| def __trunc__(self):                           | math.trunc(self)                                   | Усеченное значение объекта                                                       |
+| def __ceil__(self):                            | math.ceil(self)                                    | Наименьшее целое число, большее или равное объекту                               |
+| def __copy__(self):                            | copy.copy(self)                                    | Создает поверхностную копию объекта                                              |
+| def __deepcopy__(self, memodict={{}}):         | copy.deepcopy(self)                                | Создает глубокую копию объекта                                                   |
+| def __sizeof__(self):                          | sys.getsizeof(self)                                | Возвращает размер объекта в байтах                                               |
+| def __fspath__(self):                          | os.fspath(self)                                    | Возвращает строковое представление<br>объекта для использования в функции fspath |
+
+
+# Контейнеры
+
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __getitem__(self, item):                   | self[item]                                         | Элемент по индексу или ключу                                                     |
+| def __missing__(self, key):                    | self[key]                                          | Вызывается при отсутствии ключа в объекте                                        |
+| def __contains__(self, item) -> bool:          | item in self                                       | Содержится ли элемент в объекте                                                  |
+| def __setslice__(self, i, j, sequence):        | self[i:j] = sequence                               | Заменяет срез объекта указанной последовательностью                              |
+| def __delattr__(self, item):                   | del self.item                                      | Удаляет атрибут объекта                                                          |
+| def __delitem__(self, key):                    | del self[key]                                      | Удаляет элемент по ключу                                                         |
+| def __delslice__(self, i, j):                  | del self[i:j]                                      | Удаляет срез из объекта                                                          |
+| def __get__(self, instance, owner):            | value = self.__get__(instance, owner)              | Возвращает значение атрибута объекта в классе-дескрипторе                        |
+
+
+# Классы
+
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __new__(cls, *args, **kwargs):             | instance = MyClass(args)                           | Создает новый обьект                                                             |
+| def __init__(self):                            | instance = MyClass(args)                           | При инициализации нового экземпляра объекта                                      |
+| def __class__(self):                           | obj_class = obj.__class__()                        | Возвращает класс объекта                                                         |
+| def __del__(self):                             | del self                                           | При удалении объекта                                                             |
+| {to_table_code_py(f"@classmethod{n}def __prepare__(metacls, name, bases):")} | metacls.__prepare__(name, bases) | Словарь для использования в качестве<br>пространства имен класса |
+| def __delete__(self, instance):                | del instance.self                                  | Удаляет атрибут объекта                                                          |
+| def __init_subclass__(cls, **kwargs):          | {to_table_code_py(f"class Subclass(Parent):{n}    pass{n}Subclass.__init_subclass__()")}                          | Вызывается при создании подкласса                                 |
+| def __mro_entries__(self, bases):              | {to_table_code_py(f"class MyClass(Base1, Base2, metaclass=MyMeta):{n}    pass{n}MyClass.__mro_entries__(bases)")} | Возвращает кортеж для обновления MRO<br>(Method Resolution Order) |
+| def __getinitargs__(self):                     | args = self.__getinitargs__()                      | Кортеж аргументов для использования при создании объекта                         |
+| def __set_name__(self, owner, name):           | {to_table_code_py(f"class MyClass:{n}    attr = MyDescriptor(){n}MyClass.attr.__set_name__(MyClass, 'attr')")}    | Вызывается при установке имени атрибута в классе  |
+| def __getnewargs__(self):                      | args = self.__getnewargs__()                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
+| def __getattribute__(self, item):              | value = self.__getattribute__('attr')              | Возвращает значение атрибута объекта                                             |
+| def __getattr__(self, item):                   | value = self.__getattr__('attr')                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
+| def __await__(self):                           | await awaitable                                    | Возвращает объект, поддерживающий асинхронное ожидание                           |
+| def __set__(self, instance, value):            | instance.attr = value                              | Устанавливает значение атрибута в экземпляре класса                              |
+| def __class_getitem__(cls, item):              | item_type = MyGenericClass.__class_getitem__(Item) | Обобщенный тип объекта                                                           |
+| def __setattr__(self, key, value):             | self.key = value                                   | Устанавливает значение атрибута объекта                                          |
+| def __setitem__(self, key, value):             | self[key] = value                                  | Устанавливает значение элемента по ключу в объекте                               |
+
+
+# with as
+
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __enter__(self):                            | with self as x:                                    | Выполняет код при входе в блок with                                              |
+| def __aenter__(self):                           | async with self as x:                              | Вызывается при входе в асинхронный<br>контекстный блок                           |
+| def __aexit__(self, exc_type, exc_val, exc_tb): | {to_table_code_py(f"async with self as x:{n}    pass{n}await self.__aexit__(exc_type, exc_val, exc_tb)")}        | Вызывается при выходе из асинхронного контекстного блока                            | 
+| def __exit__(self, exc_type, exc_val, exc_tb):  | {to_table_code_py(f"with self as x:{n}    pass{n}self.__exit__(exc_type, exc_val, exc_tb)")}   | Вызывается при выходе из контекстного блока                                         |
+
+
+# Pickle
+
+| Функция                                        | Пример                                             | Описание                                                                         |
+|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
+| def __setstate__(self, state):                 | obj.__setstate__(state)                            | Восстанавливает состояние объекта                                                |
+| def __reduce_ex__(self, protocol):             | pickle.loads(pickle.dumps(self, protocol))         | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
+| def __getstate__(self):                        | pickle.loads(pickle.dumps(self).__getstate__())    | Возвращает состояние объекта для использования<br>в процессе сериализации        |
+| def __reduce__(self):                          | pickle.loads(pickle.dumps(self))                   | Возвращает данные для использования<br>в процессе сериализации объекта           |
+
+                    """
+                ),
                 "int": r"""
 | Метод                  | Описание                                                                                          |
 |:-----------------------|:--------------------------------------------------------------------------------------------------|
@@ -7476,164 +7673,6 @@ frozenset({1, 2, 3})
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 """,
-                "Магические методы": escape_markdown(
-                    rf"""
-# Арифметические операции
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __eq__(self, other) -> bool:               | self == other                                      | Равенство                                                                        |
-| def __ge__(self, other) -> bool:               | self >= other                                      | Больше или равен                                                                 |
-| def __gt__(self, other) -> bool:               | self > other                                       | Больше                                                                           |
-| def __le__(self, other) -> bool:               | self <= other                                      | Mеньше или равен                                                                 |
-| def __lt__(self, other) -> bool:               | self < other                                       | Меньше                                                                           |
-| def __ne__(self, other) -> bool:               | self != other                                      | Не равен                                                                         |
-| def __or__(self, other):                       | self \| other                                      | Побитовое ИЛИ                                                                    |
-| def __add__(self, other):                      | self + other                                       | Сложение                                                                         |
-| def __and__(self, other):                      | self & other                                       | Побитовое И                                                                      |
-| def __ior__(self, other):                      | self \|= other                                     | Побитовое ИЛИ с присваиванием                                                    |
-| def __mod__(self, other):                      | self % other                                       | Остаток от деления                                                               |
-| def __mul__(self, other):                      | self * other                                       | Умножение                                                                        |
-| def __ror__(self, other):                      | self \| other                                      | Побитовое ИЛИ с обратным присваиванием                                           |
-| def __sub__(self, other):                      | self - other                                       | Вычитание                                                                        |
-| def __xor__(self, other):                      | self ^ other                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ                                                        |
-| def __iadd__(self, other):                     | self += other                                      | Сложение с присваиванием                                                         |
-| def __iand__(self, other):                     | self &= other                                      | Побитовое И с присваиванием                                                      |
-| def __idiv__(self, other):                     | self /= other                                      | Деление с присваиванием                                                          |
-| def __imod__(self, other):                     | self %= other                                      | Взятие остатка от деления с присваиванием                                        |
-| def __imul__(self, other):                     | self *= other                                      | Умножение с присваиванием                                                        |
-| def __ipow__(self, other):                     | self **= other                                     | Возведение в степень с присваиванием                                             |
-| def __isub__(self, other):                     | self -= other                                      | Вычитание с присваиванием                                                        |
-| def __ixor__(self, other):                     | self ^= other                                      | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ с присваиванием                                        |
-| def __radd__(self, other):                     | other + self                                       | Сложение справа                                                                  |
-| def __rand__(self, other):                     | other & self                                       | Выполняет побитовое И справа                                                     |
-| def __rdiv__(self, other):                     | other / self                                       | Деление справа                                                                   |
-| def __divmod__(self, other):                   | divmod(self, other)                                | Деление с остатком                                                               |
-| def __rdivmod__(self, other):                  | divmod(other, self)                                | Деление с остатком справа                                                        |
-| def __rmod__(self, other):                     | other % self                                       | Взятие остатка от деления справа                                                 |
-| def __rmul__(self, other):                     | other * self                                       | Умножение справа                                                                 |
-| def __rpow__(self, other):                     | other ** self                                      | Возведение в степень справа                                                      |
-| def __rsub__(self, other):                     | other - self                                       | Вычитание справа                                                                 |
-| def __rxor__(self, other):                     | other ^ self                                       | Побитовое ИСКЛЮЧАЮЩЕЕ ИЛИ справа                                                 |
-| def __floordiv__(self, other):                 | self // other                                      | Целочисленное деление                                                            |
-| def __ilshift__(self, other):                  | self <<= other                                     | Побитовый сдвиг влево с присваиванием                                            |
-| def __imatmul__(self, other):                  | self @= other                                      | Матричное умножение с присваиванием                                              |
-| def __irshift__(self, other):                  | self >>= other                                     | Побитовый сдвиг вправо с присваиванием                                           |
-| def __itruediv__(self, other):                 | self /= other                                      | Деление с присваиванием                                                          |
-| def __rlshift__(self, other):                  | other << self                                      | Побитовый сдвиг влево справа                                                     |
-| def __rmatmul__(self, other):                  | other @ self                                       | Матричное умножение справа                                                       |
-| def __matmul__(self, other):                   | self @ other                                       | Матричное умножение                                                              |
-| def __rrshift__(self, other):                  | other >> self                                      | Побитовый сдвиг вправо справа                                                    |
-| def __rtruediv__(self, other):                 | other / self                                       | Деление справа                                                                   |
-| def __truediv__(self, other):                  | self / other                                       | Деление                                                                          |
-| def __lshift__(self, other):                   | self << other                                      | Побитовый сдвиг влево                                                            |
-| def __rshift__(self, other):                   | self >> other                                      | Побитовый сдвиг вправо                                                           |
-| def __ifloordiv__(self, other):                | self //= other                                     | Целочисленное деление с присваиванием                                            |
-| def __rfloordiv__(self, other):                | other // self                                      | Целочисленное деление справа                                                     |
-| def __pos__(self):                             | +self                                              | Положительное значение объекта                                                   |
-| def __neg__(self):                             | -self                                              | Отрицательное значение объекта                                                   |
-| def __invert__(self):                          | ~self                                              | Инвертированное значение объекта                                                 |
-
-# func call
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __pow__(self, power, modulo=None):         | pow(self, power, modulo)                           | Возведение в степень                                                             |
-| def __abs__(self):                             | abs(self)                                          | Абсолютное значение объекта                                                      |
-| def __hex__(self):                             | hex(self)                                          | Строковое представление объекта в<br>шестнадцатеричной системе счисления         |
-| def __float__(self):                           | float(self)                                        | Представление объекта в виде числа с плавающей запятой                           |
-| def __bytes__(self):                           | bytes(self)                                        | Байтовое представление объекта                                                   |
-| def __long__(self):                            | int(self)                                          | Длинное целочисленное представление объекта                                      |
-| def __int__(self):                             | int(self)                                          | Целочисленное представление объекта                                              |
-| def __bool__(self) -> bool:                    | bool(self)                                         | Булево значение                                                                  |
-| def __oct__(self):                             | oct(self)                                          | Строковое представление объекта в<br>восьмеричной системе счисления              |
-| def __len__(self):                             | len(self)                                          | Возвращает длину объекта                                                         |
-| def __str__(self):                             | str(self)                                          | Строковое представление объекта                                                  |
-| def __hash__(self):                            | hash(self)                                         | Хеш-значение объекта                                                             |
-| def __iter__(self):                            | iter(self)                                         | Итератор объекта                                                                 |
-| def __next__(self):                            | next(self)                                         | Следующий элемент в итерации                                                     |
-| def __round__(self, n=None):                   | round(self, n)                                     | Округленное значение                                                             |
-| def __complex__(self):                         | complex(self)                                      | Комплексное представление                                                        |
-| def __reversed__(self):                        | reversed(self)                                     | Возвращает обратный итератор объекта                                             |
-| def __unicode__(self):                         | unicode(self)                                      | Строковое представление объекта (Python 2)                                       |
-| def __instancecheck__(self, instance) -> bool: | isinstance(obj, cls)                               | Проверяет, является ли объект экземпляром класса                                 |
-| def __subclasscheck__(self, subclass) -> bool: | issubclass(subclass, cls)                          | Является ли класс подклассом другого класса                                      |
-| def __call__(self, *args, **kwargs):           | self(*args, **kwargs)                              | Вызывает объект как функцию                                                      |
-| def __repr__(self):                            | repr(self)                                         | Строковое представление объекта                                                  |
-| def __subclasshook__(cls, __subclass):         | issubclass(Subclass, MyClass)                      | Проверяет, является ли класс подклассом другого класса                           |
-| def __dir__(self):                             | dir(self)                                          | Список атрибутов и методов объекта                                               |
-| def __format__(self, format_spec):             | {to_table_code_py('"{0:{format_spec}}".format(self)')} | Форматированную строку объекта                                        |
-| def __cmp__(self, other) -> int:               | cmp(self, other)                                   | Сравнивает объекты и возвращает -1, 0 или 1                                      |
-| def __aiter__(self):                           | awaitable.__aiter__()                              | Асинхронный итератор объекта                                                     |
-| def __anext__(self):                           | awaitable.__anext__()                              | Возвращает следующий элемент в асинхронной итерации                              |
-| def __coerce__(self, other):                   | coerce(self, other)                                | Преобразует объект к общему типу с другим объектом                               |
-| def __index__(self):                           | operator.index(self)                               | Целочисленное представление объекта<br>для использования в индексации            |
-| def __floor__(self):                           | math.floor(self)                                   | Наибольшее целое число, меньшее или равное объекту                               |
-| def __trunc__(self):                           | math.trunc(self)                                   | Усеченное значение объекта                                                       |
-| def __ceil__(self):                            | math.ceil(self)                                    | Наименьшее целое число, большее или равное объекту                               |
-| def __copy__(self):                            | copy.copy(self)                                    | Создает поверхностную копию объекта                                              |
-| def __deepcopy__(self, memodict={{}}):         | copy.deepcopy(self)                                | Создает глубокую копию объекта                                                   |
-| def __sizeof__(self):                          | sys.getsizeof(self)                                | Возвращает размер объекта в байтах                                               |
-| def __fspath__(self):                          | os.fspath(self)                                    | Возвращает строковое представление<br>объекта для использования в функции fspath |
-
-
-# Контейнеры
-
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __getitem__(self, item):                   | self[item]                                         | Элемент по индексу или ключу                                                     |
-| def __missing__(self, key):                    | self[key]                                          | Вызывается при отсутствии ключа в объекте                                        |
-| def __contains__(self, item) -> bool:          | item in self                                       | Содержится ли элемент в объекте                                                  |
-| def __setslice__(self, i, j, sequence):        | self[i:j] = sequence                               | Заменяет срез объекта указанной последовательностью                              |
-| def __delattr__(self, item):                   | del self.item                                      | Удаляет атрибут объекта                                                          |
-| def __delitem__(self, key):                    | del self[key]                                      | Удаляет элемент по ключу                                                         |
-| def __delslice__(self, i, j):                  | del self[i:j]                                      | Удаляет срез из объекта                                                          |
-| def __get__(self, instance, owner):            | value = self.__get__(instance, owner)              | Возвращает значение атрибута объекта в классе-дескрипторе                        |
-
-
-# Классы
-
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __new__(cls, *args, **kwargs):             | instance = MyClass(args)                           | Создает новый обьект                                                             |
-| def __init__(self):                            | instance = MyClass(args)                           | При инициализации нового экземпляра объекта                                      |
-| def __class__(self):                           | obj_class = obj.__class__()                        | Возвращает класс объекта                                                         |
-| def __del__(self):                             | del self                                           | При удалении объекта                                                             |
-| {to_table_code_py(f"@classmethod{n}def __prepare__(metacls, name, bases):")} | metacls.__prepare__(name, bases) | Словарь для использования в качестве<br>пространства имен класса |
-| def __delete__(self, instance):                | del instance.self                                  | Удаляет атрибут объекта                                                          |
-| def __init_subclass__(cls, **kwargs):          | {to_table_code_py(f"class Subclass(Parent):{n}    pass{n}Subclass.__init_subclass__()")}                          | Вызывается при создании подкласса                                 |
-| def __mro_entries__(self, bases):              | {to_table_code_py(f"class MyClass(Base1, Base2, metaclass=MyMeta):{n}    pass{n}MyClass.__mro_entries__(bases)")} | Возвращает кортеж для обновления MRO<br>(Method Resolution Order) |
-| def __getinitargs__(self):                     | args = self.__getinitargs__()                      | Кортеж аргументов для использования при создании объекта                         |
-| def __set_name__(self, owner, name):           | {to_table_code_py(f"class MyClass:{n}    attr = MyDescriptor(){n}MyClass.attr.__set_name__(MyClass, 'attr')")}    | Вызывается при установке имени атрибута в классе  |
-| def __getnewargs__(self):                      | args = self.__getnewargs__()                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
-| def __getattribute__(self, item):              | value = self.__getattribute__('attr')              | Возвращает значение атрибута объекта                                             |
-| def __getattr__(self, item):                   | value = self.__getattr__('attr')                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
-| def __await__(self):                           | await awaitable                                    | Возвращает объект, поддерживающий асинхронное ожидание                           |
-| def __set__(self, instance, value):            | instance.attr = value                              | Устанавливает значение атрибута в экземпляре класса                              |
-| def __class_getitem__(cls, item):              | item_type = MyGenericClass.__class_getitem__(Item) | Обобщенный тип объекта                                                           |
-| def __setattr__(self, key, value):             | self.key = value                                   | Устанавливает значение атрибута объекта                                          |
-| def __setitem__(self, key, value):             | self[key] = value                                  | Устанавливает значение элемента по ключу в объекте                               |
-
-
-# with as
-
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __enter__(self):                            | with self as x:                                    | Выполняет код при входе в блок with                                              |
-| def __aenter__(self):                           | async with self as x:                              | Вызывается при входе в асинхронный<br>контекстный блок                           |
-| def __aexit__(self, exc_type, exc_val, exc_tb): | {to_table_code_py(f"async with self as x:{n}    pass{n}await self.__aexit__(exc_type, exc_val, exc_tb)")}        | Вызывается при выходе из асинхронного контекстного блока                            | 
-| def __exit__(self, exc_type, exc_val, exc_tb):  | {to_table_code_py(f"with self as x:{n}    pass{n}self.__exit__(exc_type, exc_val, exc_tb)")}   | Вызывается при выходе из контекстного блока                                         |
-
-
-# Pickle
-
-| Функция                                        | Пример                                             | Описание                                                                         |
-|------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __setstate__(self, state):                 | obj.__setstate__(state)                            | Восстанавливает состояние объекта                                                |
-| def __reduce_ex__(self, protocol):             | pickle.loads(pickle.dumps(self, protocol))         | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
-| def __getstate__(self):                        | pickle.loads(pickle.dumps(self).__getstate__())    | Возвращает состояние объекта для использования<br>в процессе сериализации        |
-| def __reduce__(self):                          | pickle.loads(pickle.dumps(self))                   | Возвращает данные для использования<br>в процессе сериализации объекта           |
-
-                    """
-                ),
             },
             "Декораторы Замыкания": {
                 "Декораторы Замыкания": """
@@ -7873,8 +7912,67 @@ class DerivedClass(BaseClass):
 Если в производном классе попытаться переопределить метод some_method, то возникнет ошибка.
 """,
             },
-            "pip": {
-                "pip": """
+            "bash": {
+                "Флаги cmd Python": """
+| Флаг                          | Пример запуска            | Описание |
+|-------------------------------|---------------------------|----------|
+| -c                            | python -c <код>           | Позволяет выполнить однострочный Python-код из командной строки. |
+| -m                            | python -m                 | Позволяет запустить указанный Python-модуль как скрипт. |
+| -i (или —interactive)         | python -i                 | Флаг -i запускает интерпретатор Python в интерактивном режиме после выполнения скрипта. |
+| -O (или —optimize)            | python -O                 | Включает режим оптимизации, который удаляет отладочную информацию и выполняет оптимизации в байт-коде.<br>Это может уменьшить размер файлов .pyc и улучшить производительность, но осложнить отладку. |
+| -B (или —dont-write-bytecode) | python -B                 | Предотвращает запись байт-кода (.pyc файлов) на диск. |
+| -v (или —verbose)             | python -v                 | Выводит подробные сообщения о том, какие модули импортируются<br>и какие файлы открываются в процессе выполнения программы. |
+| -q (или —quiet)               | python -q                 | Уменьшает уровень вывода, игнорируя сообщения о запуске и прочие информационные сообщения. |
+| -E (или —ignore-environment)  | python -E                 | Игнорировать переменные окружения,<br>которые обычно влияют на поведение Python, такие как PYTHONPATH. |
+| -u (или —unbuffered)          | python -u                 | Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных. |
+| -h (или —help)                | python -h<br>python —help | Выведет список всех доступных флагов и их описания. |
+
+```
+>python -h
+usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options (and corresponding environment variables):
+-b     : issue warnings about str(bytes_instance), str(bytearray_instance)
+         and comparing bytes/bytearray with str. (-bb: issue errors)
+-B     : do not write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x
+-c cmd : program passed in as string (terminates option list)
+-d     : turn on parser debugging output (for experts only, only works on
+         debug builds); also PYTHONDEBUG=x
+-E     : ignore PYTHON* environment variables (such as PYTHONPATH)
+-h     : print this help message and exit (also -? or --help)
+-i     : inspect interactively after running script; forces a prompt even
+         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
+-I     : isolate Python from the users environment (implies -E and -s)
+-m mod : run library module as a script (terminates option list)
+-O     : remove assert and __debug__-dependent statements; add .opt-1 before
+         .pyc extension; also PYTHONOPTIMIZE=x
+-OO    : do -O changes and also discard docstrings; add .opt-2 before
+         .pyc extension
+-P     : do not prepend a potentially unsafe path to sys.path; also PYTHONSAFEPATH
+-q     : do not print version and copyright messages on interactive startup
+-s     : do not add user site directory to sys.path; also PYTHONNOUSERSITE
+-S     : do not imply "import site" on initialization
+-u     : force the stdout and stderr streams to be unbuffered;
+         this option has no effect on stdin; also PYTHONUNBUFFERED=x
+-v     : verbose (trace import statements); also PYTHONVERBOSE=x
+         can be supplied multiple times to increase verbosity
+-V     : print the Python version number and exit (also --version)
+         when given twice, print more information about the build
+-W arg : warning control; arg is action:message:category:module:lineno
+         also PYTHONWARNINGS=arg
+-x     : skip first line of source, allowing use of non-Unix forms of #!cmd
+-X opt : set implementation-specific option
+--check-hash-based-pycs always|default|never:
+         control how Python invalidates hash-based .pyc files
+--help-env      : print help about Python environment variables and exit
+--help-xoptions : print help about implementation-specific -X options and exit
+--help-all      : print complete help information and exit
+Arguments:
+file   : program read from script file
+-      : program read from stdin (default; interactive mode if a tty)
+arg ...: arguments passed to program in sys.argv[1:]
+```
+""",
+                "Флаги cmd pip": """
 Утилита pip в Python имеет множество флагов, которые можно использовать при установке пакетов. 
 Ниже перечислены некоторые из наиболее часто используемых флагов:
 
@@ -7926,8 +8024,7 @@ pip install -r requirements.txt
 pip freeze --local > requirements.txt
 ```
 """,
-            },
-            "IPython": r"""
+                "IPython": r"""
 **Одиночный символ `%`**: Применяется для магических команд, которые действуют на одну строку в текущей ячейке.
 **Двойной символ `%%`**: Применяется для ячеек с кодом, которые содержат блоки скриптов на различных языках (например, Python, Bash, Ruby).
 
@@ -8057,65 +8154,7 @@ pip freeze --local > requirements.txt
 | `%%svg`            | Размечает содержимое ячейки как SVG (Scalable Vector Graphics).                           | `%%svg`<br>`<svg height="100" width="100"> ... </svg>`                                            |
 
 """,
-            "Флаги cmd": """
-| Флаг                          | Пример запуска            | Описание |
-|-------------------------------|---------------------------|----------|
-| -c                            | python -c <код>           | Позволяет выполнить однострочный Python-код из командной строки. |
-| -m                            | python -m                 | Позволяет запустить указанный Python-модуль как скрипт. |
-| -i (или —interactive)         | python -i                 | Флаг -i запускает интерпретатор Python в интерактивном режиме после выполнения скрипта. |
-| -O (или —optimize)            | python -O                 | Включает режим оптимизации, который удаляет отладочную информацию и выполняет оптимизации в байт-коде.<br>Это может уменьшить размер файлов .pyc и улучшить производительность, но осложнить отладку. |
-| -B (или —dont-write-bytecode) | python -B                 | Предотвращает запись байт-кода (.pyc файлов) на диск. |
-| -v (или —verbose)             | python -v                 | Выводит подробные сообщения о том, какие модули импортируются<br>и какие файлы открываются в процессе выполнения программы. |
-| -q (или —quiet)               | python -q                 | Уменьшает уровень вывода, игнорируя сообщения о запуске и прочие информационные сообщения. |
-| -E (или —ignore-environment)  | python -E                 | Игнорировать переменные окружения,<br>которые обычно влияют на поведение Python, такие как PYTHONPATH. |
-| -u (или —unbuffered)          | python -u                 | Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных. |
-| -h (или —help)                | python -h<br>python —help | Выведет список всех доступных флагов и их описания. |
-
-```
->python -h
-usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
-Options (and corresponding environment variables):
--b     : issue warnings about str(bytes_instance), str(bytearray_instance)
-         and comparing bytes/bytearray with str. (-bb: issue errors)
--B     : do not write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x
--c cmd : program passed in as string (terminates option list)
--d     : turn on parser debugging output (for experts only, only works on
-         debug builds); also PYTHONDEBUG=x
--E     : ignore PYTHON* environment variables (such as PYTHONPATH)
--h     : print this help message and exit (also -? or --help)
--i     : inspect interactively after running script; forces a prompt even
-         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
--I     : isolate Python from the users environment (implies -E and -s)
--m mod : run library module as a script (terminates option list)
--O     : remove assert and __debug__-dependent statements; add .opt-1 before
-         .pyc extension; also PYTHONOPTIMIZE=x
--OO    : do -O changes and also discard docstrings; add .opt-2 before
-         .pyc extension
--P     : do not prepend a potentially unsafe path to sys.path; also PYTHONSAFEPATH
--q     : do not print version and copyright messages on interactive startup
--s     : do not add user site directory to sys.path; also PYTHONNOUSERSITE
--S     : do not imply "import site" on initialization
--u     : force the stdout and stderr streams to be unbuffered;
-         this option has no effect on stdin; also PYTHONUNBUFFERED=x
--v     : verbose (trace import statements); also PYTHONVERBOSE=x
-         can be supplied multiple times to increase verbosity
--V     : print the Python version number and exit (also --version)
-         when given twice, print more information about the build
--W arg : warning control; arg is action:message:category:module:lineno
-         also PYTHONWARNINGS=arg
--x     : skip first line of source, allowing use of non-Unix forms of #!cmd
--X opt : set implementation-specific option
---check-hash-based-pycs always|default|never:
-         control how Python invalidates hash-based .pyc files
---help-env      : print help about Python environment variables and exit
---help-xoptions : print help about implementation-specific -X options and exit
---help-all      : print complete help information and exit
-Arguments:
-file   : program read from script file
--      : program read from stdin (default; interactive mode if a tty)
-arg ...: arguments passed to program in sys.argv[1:]
-```
-""",
+            },
             "fstrings": """
 F-строки - это новый способ форматирования строк в Python 3.6 и выше. 
 Они позволяют встраивать выражения Python внутри строк посредством указания их в {} внутри строки, заключенной в f.
@@ -8531,43 +8570,176 @@ def generator2():
 Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
 который продолжает генерировать свои элементы.
 """,
-            "import": """
-```python-console
->>> def im():
-...     import math
-...
->>> math
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'math' is not defined
->>> im()
->>> math
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'math' is not defined
+            "Аннотации типов": """
+```python
+from typing import Any # Любой тип
 ```
 
 ```python
-import importlib
-
-importlib.reload(my_module)
+from typing import Literal # Один из вариантов
+direction: Literal["ASC", "DESC"] = "DESC"
 ```
 
 ```python
-import subprocess
-import importlib
+from typing import Union
+val: Union[int, float] = 20.8 # or 20
+```
 
-library_name = input("Введите название библиотеки, которую вы хотите установить: ")
+```python
+from typing import Final
 
-# проверяем, установлена ли библиотека
-try:
-    importlib.import_module(library_name)
-    print(f"Библиотека {library_name} уже установлена.")
-except ImportError:
-    # устанавливаем библиотеку
-    subprocess.call(["pip", "install", library_name])
-    print(f"Библиотека {library_name} установлена успешно.")
+val: Final = 2
+val += 1 # Ошибки не произойдёт, но IDE подсветит как ошибку.
+```
 
+# Использование статической проверки типов в Python
+Интерпретатор Python по умолчанию не осуществляет проверку типов.
+Однако была создана версия интерпретатора Python – `mypy`,
+которая обеспечивает проверку типов на уровне интерпретатора.
+
+```python
+from typing import NoReturn
+# NoReturn сообщает что функция не завершается нормально.
+# Например она возбуждает исключение.
+
+def forever() -> NoReturn:
+    while True:
+        pass
+```
+
+Если это генераторная функция, то есть её тело содержит оператор `yield`, 
+для возвращаемого можно воспользоваться аннотацией `Iterable[T]`, либо `Generator[YT, ST, RT]`:
+
+```python
+def generate_two() -> Iterable[int]:
+    yield 1
+    yield "2"  # Incompatible types in "yield" (actual type "str", expected type "int")
+```
+
+```python
+from typing import Optional
+
+amount: int
+amount = None  # Incompatible types in assignment (expression has type "None", variable has type "int")
+
+price: Optional[int]
+price = None
+
+# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
+```
+
+# Предварительное объявление
+
+Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
+
+```python
+class LinkedList:
+    data: Any
+    next: LinkedList  # NameError: name 'LinkedList' is not defined
+```
+
+Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.
+
+```python
+class LinkedList:
+    data: Any
+    next: 'LinkedList'
+```
+
+Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
+
+```python
+some_variable: 'somemodule.SomeClass'
+```
+
+или
+
+```python
+from __future__ import annotations
+
+class LinkedList:
+    data: int
+    next: LinkedList
+```
+
+# Generic-типы
+
+Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
+Например, если вы пишете контейнер, который хранит однотипные данные.
+Или функцию, которая возвращает данные того же типа, что и один из аргументов.
+
+Такие типы как `List` или `Callable`, которые, мы видели раньше как раз используют механизм дженериков.
+Но кроме стандартных типов, вы можете создать свои дженерик-типы.
+Для этого надо, во-первых, завести `TypeVar` переменную,
+которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
+
+```python
+T = TypeVar("T")
+
+class LinkedList(Generic[T]):
+    data: T
+    next: "LinkedList[T]"
+
+    def __init__(self, data: T):
+        self.data = data
+
+head_int: LinkedList[int] = LinkedList(1)
+head_int.next = LinkedList(2)
+head_int.next = 2  # error: Incompatible types in assignment (expression has type "int", variable has type "LinkedList[int]")
+head_int.data += 1
+head_int.data.replace("0", "1")  # error: "int" has no attribute "replace"
+
+head_str: LinkedList[str] = LinkedList("1")
+head_str.data.replace("0", "1")
+
+head_str = LinkedList[str](1)  # error: Argument 1 to "LinkedList" has incompatible type "int"; expected "str"
+```
+
+Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
+Если требуется, дженерик может иметь любое количеством параметров: `Generic[T1, T2, T3]`.
+Также, при определении `TypeVar` вы можете ограничить допустимые типы:
+
+```python
+T2 = TypeVar("T2", int, float)
+
+class SomethingNumeric(Generic[T2]):
+    pass
+
+x = SomethingNumeric[str]()  # error: Value of type variable "T2" of "SomethingNumeric" cannot be "str"
+```
+
+# Cast
+
+Иногда анализатор статический анализатор не может корректно определить тип переменной,
+в этом случае можно использовать функцию `cast`.
+Её единственная задача — показать анализатору, что выражение имеет определённый тип.
+
+```python
+from typing import List, cast
+
+def find_first_str(a: List[object]) -> str:
+    index = next(i for i, x in enumerate(a) if isinstance(x, str))
+    return cast(str, a[index])
+```
+
+Также это может быть полезно для декораторов:
+
+```python
+MyCallable = TypeVar("MyCallable", bound=Callable)
+
+def logged(func: MyCallable) -> MyCallable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(func.__name__, args, kwargs)
+        return func(*args, **kwargs)
+
+    return cast(MyCallable, wrapper)
+
+@logged
+def mysum(a: int, b: int) -> int:
+    return a + b
+
+mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
 ```
 """,
             "Встроенные функции": r"""
@@ -8866,178 +9038,6 @@ def my_func():
     print(my_var)
 
 my_func()  # 43
-```
-""",
-            "Аннотации типов": """
-```python
-from typing import Any # Любой тип
-```
-
-```python
-from typing import Literal # Один из вариантов
-direction: Literal["ASC", "DESC"] = "DESC"
-```
-
-```python
-from typing import Union
-val: Union[int, float] = 20.8 # or 20
-```
-
-```python
-from typing import Final
-
-val: Final = 2
-val += 1 # Ошибки не произойдёт, но IDE подсветит как ошибку.
-```
-
-# Использование статической проверки типов в Python
-Интерпретатор Python по умолчанию не осуществляет проверку типов.
-Однако была создана версия интерпретатора Python – `mypy`,
-которая обеспечивает проверку типов на уровне интерпретатора.
-
-```python
-from typing import NoReturn
-# NoReturn сообщает что функция не завершается нормально.
-# Например она возбуждает исключение.
-
-def forever() -> NoReturn:
-    while True:
-        pass
-```
-
-Если это генераторная функция, то есть её тело содержит оператор `yield`, 
-для возвращаемого можно воспользоваться аннотацией `Iterable[T]`, либо `Generator[YT, ST, RT]`:
-
-```python
-def generate_two() -> Iterable[int]:
-    yield 1
-    yield "2"  # Incompatible types in "yield" (actual type "str", expected type "int")
-```
-
-```python
-from typing import Optional
-
-amount: int
-amount = None  # Incompatible types in assignment (expression has type "None", variable has type "int")
-
-price: Optional[int]
-price = None
-
-# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
-```
-
-# Предварительное объявление
-
-Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
-
-```python
-class LinkedList:
-    data: Any
-    next: LinkedList  # NameError: name 'LinkedList' is not defined
-```
-
-Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.
-
-```python
-class LinkedList:
-    data: Any
-    next: 'LinkedList'
-```
-
-Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
-
-```python
-some_variable: 'somemodule.SomeClass'
-```
-
-или
-
-```python
-from __future__ import annotations
-
-class LinkedList:
-    data: int
-    next: LinkedList
-```
-
-# Generic-типы
-
-Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
-Например, если вы пишете контейнер, который хранит однотипные данные.
-Или функцию, которая возвращает данные того же типа, что и один из аргументов.
-
-Такие типы как `List` или `Callable`, которые, мы видели раньше как раз используют механизм дженериков.
-Но кроме стандартных типов, вы можете создать свои дженерик-типы.
-Для этого надо, во-первых, завести `TypeVar` переменную,
-которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
-
-```python
-T = TypeVar("T")
-
-class LinkedList(Generic[T]):
-    data: T
-    next: "LinkedList[T]"
-
-    def __init__(self, data: T):
-        self.data = data
-
-head_int: LinkedList[int] = LinkedList(1)
-head_int.next = LinkedList(2)
-head_int.next = 2  # error: Incompatible types in assignment (expression has type "int", variable has type "LinkedList[int]")
-head_int.data += 1
-head_int.data.replace("0", "1")  # error: "int" has no attribute "replace"
-
-head_str: LinkedList[str] = LinkedList("1")
-head_str.data.replace("0", "1")
-
-head_str = LinkedList[str](1)  # error: Argument 1 to "LinkedList" has incompatible type "int"; expected "str"
-```
-
-Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
-Если требуется, дженерик может иметь любое количеством параметров: `Generic[T1, T2, T3]`.
-Также, при определении `TypeVar` вы можете ограничить допустимые типы:
-
-```python
-T2 = TypeVar("T2", int, float)
-
-class SomethingNumeric(Generic[T2]):
-    pass
-
-x = SomethingNumeric[str]()  # error: Value of type variable "T2" of "SomethingNumeric" cannot be "str"
-```
-
-# Cast
-
-Иногда анализатор статический анализатор не может корректно определить тип переменной,
-в этом случае можно использовать функцию `cast`.
-Её единственная задача — показать анализатору, что выражение имеет определённый тип.
-
-```python
-from typing import List, cast
-
-def find_first_str(a: List[object]) -> str:
-    index = next(i for i, x in enumerate(a) if isinstance(x, str))
-    return cast(str, a[index])
-```
-
-Также это может быть полезно для декораторов:
-
-```python
-MyCallable = TypeVar("MyCallable", bound=Callable)
-
-def logged(func: MyCallable) -> MyCallable:
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        print(func.__name__, args, kwargs)
-        return func(*args, **kwargs)
-
-    return cast(MyCallable, wrapper)
-
-@logged
-def mysum(a: int, b: int) -> int:
-    return a + b
-
-mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
 ```
 """,
         },
