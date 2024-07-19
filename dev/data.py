@@ -25,6 +25,35 @@ def to_table_code(lang: str, code_block: str) -> str:
     highlighted_code = (
         highlight(code_block, lexer, formatter).strip().replace("\n", "<br>")
     )
+
+    def set_unselectable(text: str):
+        if '<span class="o">&gt;&gt;&gt;</span>' in text:
+            print(f"(%%%%%%{text=}%%%%%%)")
+        l = []
+        for line in text.split("<br>"):
+            if line.startswith('<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> '):
+                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
+                    '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ')
+            elif line.startswith('<span class="o">&gt;&gt;&gt;</span> '):
+                line = '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
+                    '<span class="o">&gt;&gt;&gt;</span> ')
+            elif line.startswith('<div class="highlight"><pre><span></span><span class="o">...</span> '):
+                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
+                    '<div class="highlight"><pre><span></span><span class="o">...</span> ')
+            elif line.startswith('<span class="o">...</span> '):
+                line = '<span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
+                    '<span class="o">...</span> ')
+            else:
+                line = f'<span class="unselectable">{line}</span>'
+            l.append(line)
+        return "<br>".join(l)
+
+    if (
+        lang == "python"
+        and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
+    ):
+        highlighted_code = set_unselectable(highlighted_code)
+
     result = rf"""
 <div class="code" style="border-radius:.375rem .375rem;">
 <div class="highlight">
@@ -7505,79 +7534,67 @@ resp = conn.post('<subject>', '<from>', '<body>')
                     """
                 ),
                 "int": r"""
-| Метод                  | Описание                                                                                          |
-|:-----------------------|:--------------------------------------------------------------------------------------------------|
-| int.as_integer_ratio() | Возвращает кортеж, представляющий рациональное число, близкое к данному целому числу.             |
-| int.bit_count()        | Возвращает количество установленных битов (битов со значением 1) в двоичном представлении числа.  |
-| int.bit_length()       | Возвращает количество битов, необходимых для представления числа в двоичном виде.                 |
-| int.conjugate()        | Возвращает сопряженное комплексное число.                                                         |
-| int.denominator        | Возвращает знаменатель числа в виде рациональной дроби.                                           |
-| int.from_bytes()       | Преобразует байтовую последовательность в целое число, используя указанный порядок байтов и знак. |
-| int.imag               | Возвращает мнимую часть комплексного числа.                                                       |
-| int.numerator          | Возвращает числитель числа в виде рациональной дроби.                                             |
-| int.real               | Возвращает действительную часть комплексного числа.                                               |
-| int.to_bytes()         | Преобразует целое число в байтовую последовательность, используя указанный порядок байтов и знак. |
+| Метод                  | Описание                                                                                          | Пример вызова                                                                                                                                                                                                                                                                                                                        |
+|:-----------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| int.as_integer_ratio() | Возвращает кортеж, представляющий рациональное число, близкое к данному целому числу.             | <div class="code">x = <span class="m">10</span><br><span class="nb">print</span>(x.as_integer_ratio()) <span class="c1"># (10, 1)</span></div>                                                                                                                                                                                       |
+| int.bit_count()        | Возвращает количество установленных битов (битов со значением 1) в двоичном представлении числа.  | <div class="code">x = <span class="m">123</span><br><span class="nb">print</span>(x.bit_count()) <span class="c1"># 6</span></div>                                                                                                                                                                                                   |
+| int.bit_length()       | Возвращает количество битов, необходимых для представления числа в двоичном виде.                 | <div class="code">x = <span class="m">256</span><br><span class="nb">print</span>(x.bit_length()) <span class="c1"># 9</span></div>                                                                                                                                                                                                  |
+| int.conjugate()        | Возвращает сопряженное комплексное число.                                                         | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.conjugate()) <span class="c1"># (3-4j)</span></div>                                                                                                                                                                    |
+| int.denominator        | Возвращает знаменатель числа в виде рациональной дроби.                                           | <div class="code">x = <span class="m">3.5</span><br><span class="nb">print</span>(x.denominator) <span class="c1"># ???</span></div>                                                                                                                                                                                                 |
+| int.from_bytes()       | Преобразует байтовую последовательность в целое число, используя указанный порядок байтов и знак. | <div class="code">bytes = <span class="s">b'\x00\x10'</span><br><span class="nb">print</span>(int.from_bytes(bytes, <span class="na">byteorder</span>=<span class="s">'big'</span>, <span class="na">signed</span>=<span class="k">False</span>)) <span class="c1"># 16</span></div>                                                 |
+| int.imag               | Возвращает мнимую часть комплексного числа.                                                       | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.imag) <span class="c1"># 4.0</span></div>                                                                                                                                                                              |
+| int.numerator          | Возвращает числитель числа в виде рациональной дроби.                                             | <div class="code">x = <span class="m">3.5</span><br><span class="nb">print</span>(x.numerator) <span class="c1"># ???</span></div>                                                                                                                                                                                                   |
+| int.real               | Возвращает действительную часть комплексного числа.                                               | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.real) <span class="c1"># 3.0</span></div>                                                                                                                                                                              |
+| int.to_bytes()         | Преобразует целое число в байтовую последовательность, используя указанный порядок байтов и знак. | <div class="code">num = <span class="m">1024</span><br><span class="nb">print</span>(num.to_bytes(<span class="na">length</span>=<span class="m">2</span>, <span class="na">byteorder</span>=<span class="s">'big'</span>, <span class="na">signed</span>=<span class="k">False</span>)) <span class="c1"># b'\x04\x00'</span></div> |
 
-| Метод                  | Пример вызова                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| int.as_integer_ratio() | <div class="code">x = <span class="m">10</span><br><span class="nb">print</span>(x.as_integer_ratio()) <span class="c1"># (10, 1)</span></div>                                                                                                                                                                                       |
-| int.bit_count()        | <div class="code">x = <span class="m">123</span><br><span class="nb">print</span>(x.bit_count()) <span class="c1"># 6</span></div>                                                                                                                                                                                                   |
-| int.bit_length()       | <div class="code">x = <span class="m">256</span><br><span class="nb">print</span>(x.bit_length()) <span class="c1"># 9</span></div>                                                                                                                                                                                                  |
-| int.conjugate()        | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.conjugate()) <span class="c1"># (3-4j)</span></div>                                                                                                                                                                    |
-| int.denominator        | <div class="code">x = <span class="m">3.5</span><br><span class="nb">print</span>(x.denominator) <span class="c1"># ???</span></div>                                                                                                                                                                                                 |
-| int.from_bytes()       | <div class="code">bytes = <span class="s">b'\x00\x10'</span><br><span class="nb">print</span>(int.from_bytes(bytes, <span class="na">byteorder</span>=<span class="s">'big'</span>, <span class="na">signed</span>=<span class="k">False</span>)) <span class="c1"># 16</span></div>                                                 |
-| int.imag               | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.imag) <span class="c1"># 4.0</span></div>                                                                                                                                                                              |
-| int.numerator          | <div class="code">x = <span class="m">3.5</span><br><span class="nb">print</span>(x.numerator) <span class="c1"># ???</span></div>                                                                                                                                                                                                   |
-| int.real               | <div class="code">x = <span class="m">3</span> + <span class="m">4j</span><br><span class="nb">print</span>(x.real) <span class="c1"># 3.0</span></div>                                                                                                                                                                              |
-| int.to_bytes()         | <div class="code">num = <span class="m">1024</span><br><span class="nb">print</span>(num.to_bytes(<span class="na">length</span>=<span class="m">2</span>, <span class="na">byteorder</span>=<span class="s">'big'</span>, <span class="na">signed</span>=<span class="k">False</span>)) <span class="c1"># b'\x04\x00'</span></div> |
 """,
                 "str": r"""
-| Метод                                  | Описание                                                                                                    |
-|:---------------------------------------|:------------------------------------------------------------------------------------------------------------|
-| str.capitalize()                       | Переводит первую букву в верхний, а остальные в нижний регистр.                                             |
-| str.casefold()                         | Переводит все символы в нижний регистр                                                                      |
-| str.center(width[, fillvalue])         | Обрамляет значениями fillvalue строку, пока длина не станет width                                           |
-| str.count(str[, start][, end]          | Считает количество подстрок str в выбранном промежутке строки                                               |
-| str.encode(encoding, errors)           | Меняет кодировку строки                                                                                     |
-| str.endswith(suffix[, start][, end])   | Возвращает True если строка заканчивается на suffix, иначе False                                            |
-| str.expandtabs(tabsize=8)              | Увеличивает размер символов табуляции до tabsize пробелов                                                   |
-| str.find(str[, start][, end])          | Возвращает индекс начала первой подстроки str в выбранном промежутке или -1, если она не найдена            |
-| str.format(args, *kwargs)              | Последовательно заменяет {} в строке на свои аргументы                                                      |
-| str.format_map(dict)                   | Заменяет {<val>} в строке на dict[<val>]                                                                    |
-| str.index(str[, start][, end])         | Возвращает индекс начала первой подстроки str в выбранном промежутке или ValueError, если она не найдена    |
-| str.isalnum()                          | Возвращает True, если строка состоит только из букв и цифр, иначе False                                     |
-| str.isalpha()                          | Возвращает True, если строка состоит только из букв, иначе False                                            |
-| str.isdecimal()                        | Возвращает True, если строка состоит только из цифр, иначе False [1]                                        |
-| str.isdigit()                          | Возвращает True, если строка состоит только из цифр, иначе False [1]                                        |
-| str.isidentifier()                     | Возвращает True, если строка является идентификатором (if, class, assert), иначе False                      |
-| str.islower()                          | Возвращает True, если вся строка в нижнем регистре, иначе False                                             |
-| str.isnumeric()                        | Возвращает True, если строка состоит только из цифр, иначе False [1]                                        |
-| str.isprintable()                      | Возвращает True, если все символы строки отображаются, иначе False (например, \n, \t)                       |
-| str.isspace()                          | Возвращает True, если строка состоит из пробелов, иначе False                                               |
-| str.istitle()                          | Возвращает True, если строка начинается с заглавной буквы, а остальные — строчные, иначе False              |
-| str.isupper()                          | Возвращает True, если строка в верхнем регистре, иначе False                                                |
-| str.join(iter)                         | Склеивает элементы последовательности iter в одну строку с разделителем s                                   |
-| str.ljust(width, fillchar=' ')         | Добавляет в конец строки символ fillchar, пока длина не станет width                                        |
-| str.lower()                            | Переводит символы строки в нижний регистр                                                                   |
-| str.lstrip([chars])                    | Возвращает строку без пробельных символов или chars в начале                                                |
-| str.maketrans(*args)                   | Возвращает таблицу перевода для s.translate                                                                 |
-| str.partition(sep)                     | Разделяет строку на три части по первому разделителю sep: [начало, sep, конец]                              |
-| str.replace(old, new)                  | Заменяет все подстроки old на new                                                                           |
-| str.rfind(str[, start][, end])         | Возвращает индекс начала последней подстроки str в выбранном промежутке или -1, если она не найдена         |
-| str.rindex(str[, start][, end])        | Возвращает индекс начала последней подстроки str в выбранном промежутке или ValueError, если она не найдена |
-| str.rjust(width, fillchar=' ')         | Добавляет в начало строки символ fillchar, пока длина не станет width                                       |
-| str.rpartition()                       | Разделяет строку на три части по последнему разделителю sep: [начало, sep, конец]                           |
-| str.rsplit(sep=' ', maxsplit=-1)       | Возвращает список подстрок, разделенных по sep до maxsplit раз (с конца)                                    |
-| str.rstrip([chars])                    | Возвращает строку без пробельных символов или chars в конце                                                 |
-| str.split((sep=' ', maxsplit=-1))      | Возвращает список подстрок, разделенных по sep до maxsplit раз                                              |
-| str.splitlines(keepends=False)         | Разделяет строку по \n. Не удаляет разделители, если keepends=True.                                         |
-| str.startswith(prefix[, start][, end]) | Возвращает True если строка начинается с prefix, иначе False                                                |
-| str.strip([chars])                     | Возвращает строку без пробельных символов или chars в начале и конце                                        |
-| str.swapcase()                         | Меняет регистр всех символов на противоположный                                                             |
-| str.title()                            | Возвращает строку, где все слова начинаются с заглавной буквы, а продолжаются строчными                     |
-| str.translate(table)                   | Заменяет все символы строки согласно таблице перевода                                                       |
-| str.upper()                            | Возвращает копию строки в верхнем регистре                                                                  |
-| str.zfill(width)                       | Заполняет строку указанным числом нулей в начале                                                            |
+| Метод                                  | Описание                                                                                                        |
+|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------|
+| str.capitalize()                       | Переводит первую букву в верхний, а остальные в нижний регистр.                                                 |
+| str.casefold()                         | Переводит все символы в нижний регистр                                                                          |
+| str.center(width[, fillvalue])         | Обрамляет значениями `fillvalue` строку, пока длина не станет `width`                                           |
+| str.count(str[, start][, end]          | Считает количество подстрок `str` в выбранном промежутке строки                                                 |
+| str.encode(encoding, errors)           | Меняет кодировку строки                                                                                         |
+| str.endswith(suffix[, start][, end])   | Возвращает `True` если строка заканчивается на `suffix`, иначе `False`                                          |
+| str.expandtabs(tabsize=8)              | Увеличивает размер символов табуляции до `tabsize` пробелов                                                     |
+| str.find(str[, start][, end])          | Возвращает индекс начала первой подстроки `str` в выбранном промежутке или `-1`, если она не найдена            |
+| str.format(args, *kwargs)              | Последовательно заменяет `{}` в строке на свои аргументы                                                        |
+| str.format_map(dict)                   | Заменяет `{<val>}` в строке на `dict[<val>]`                                                                    |
+| str.index(str[, start][, end])         | Возвращает индекс начала первой подстроки str в выбранном промежутке или `ValueError`, если она не найдена      |
+| str.isalnum()                          | Возвращает `True`, если строка состоит только из букв и цифр, иначе `False`                                     |
+| str.isalpha()                          | Возвращает `True`, если строка состоит только из букв, иначе `False`                                            |
+| str.isdecimal()                        | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
+| str.isdigit()                          | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
+| str.isidentifier()                     | Возвращает `True`, если строка является идентификатором (`if`, `class`, `assert`), иначе `False`                |
+| str.islower()                          | Возвращает `True`, если вся строка в нижнем регистре, иначе `False`                                             |
+| str.isnumeric()                        | Возвращает `True`, если строка состоит только из цифр, иначе `False` [1]                                        |
+| str.isprintable()                      | Возвращает `True`, если все символы строки отображаются, иначе `False` (например, `\n`, `\t`)                   |
+| str.isspace()                          | Возвращает `True`, если строка состоит из пробелов, иначе `False`                                               |
+| str.istitle()                          | Возвращает `True`, если строка начинается с заглавной буквы, а остальные — строчные, иначе `False`              |
+| str.isupper()                          | Возвращает `True`, если строка в верхнем регистре, иначе `False`                                                |
+| str.join(iter)                         | Склеивает элементы последовательности `iter` в одну строку с разделителем s                                     |
+| str.ljust(width, fillchar=' ')         | Добавляет в конец строки символ `fillchar`, пока длина не станет `width`                                        |
+| str.lower()                            | Переводит символы строки в нижний регистр                                                                       |
+| str.lstrip([chars])                    | Возвращает строку без пробельных символов или chars в начале                                                    |
+| str.maketrans(*args)                   | Возвращает таблицу перевода для `s.translate`                                                                   |
+| str.partition(sep)                     | Разделяет строку на три части по первому разделителю `sep`: [начало, sep, конец]                                |
+| str.replace(old, new)                  | Заменяет все подстроки `old` на `new`                                                                           |
+| str.rfind(str[, start][, end])         | Возвращает индекс начала последней подстроки `str` в выбранном промежутке или `-1`, если она не найдена         |
+| str.rindex(str[, start][, end])        | Возвращает индекс начала последней подстроки `str` в выбранном промежутке или `ValueError`, если она не найдена |
+| str.rjust(width, fillchar=' ')         | Добавляет в начало строки символ `fillchar`, пока длина не станет `width`                                       |
+| str.rpartition()                       | Разделяет строку на три части по последнему разделителю `sep`: [начало, sep, конец]                             |
+| str.rsplit(sep=' ', maxsplit=-1)       | Возвращает список подстрок, разделенных по sep до `maxsplit` раз (с конца)                                      |
+| str.rstrip([chars])                    | Возвращает строку без пробельных символов или `chars` в конце                                                   |
+| str.split((sep=' ', maxsplit=-1))      | Возвращает список подстрок, разделенных по sep до `maxsplit` раз                                                |
+| str.splitlines(keepends=False)         | Разделяет строку по `\n`. Не удаляет разделители, если `keepends=True`.                                         |
+| str.startswith(prefix[, start][, end]) | Возвращает `True` если строка начинается с `prefix`, иначе `False`                                              |
+| str.strip([chars])                     | Возвращает строку без пробельных символов или `chars` в начале и конце                                          |
+| str.swapcase()                         | Меняет регистр всех символов на противоположный                                                                 |
+| str.title()                            | Возвращает строку, где все слова начинаются с заглавной буквы, а продолжаются строчными                         |
+| str.translate(table)                   | Заменяет все символы строки согласно таблице перевода                                                           |
+| str.upper()                            | Возвращает копию строки в верхнем регистре                                                                      |
+| str.zfill(width)                       | Заполняет строку указанным числом нулей в начале                                                                |
 
 **Символы**
 
@@ -7600,65 +7617,70 @@ resp = conn.post('<subject>', '<from>', '<body>')
 | \0     | символ Null                   | '\0'              |           |
 | \u00A0 | символ неразнывного пробела   |                   |           |
 """,
-                "list": """
-| Метод             |   INPUT   |  OUTPUT      |
-|:------------------|:----------|:-------------|
-| list.sort()       | [4, 3, 5] | [3, 4, 5]    |
-| list.clear()      | [1, 2, 3] | []           |
-| list.append(4)    | [1, 2, 3] | [1, 2, 3, 4] |
-| list.count(1)     | [1, 1, 2] |  2           |
-| list.extend([4])  | [1, 2, 3] | [1, 2, 3, 4] |
-| list.insert(3, 4) | [1, 2, 3] | [1, 2, 3, 4] |
-| list.index(2)     | [1, 2, 3] |  1           |
-| list.remove(2)    | [1, 2, 3] | [1, 3]       |
-| list.pop(2)       | [1, 2, 3] | [1, 2]       |
-| list.reverse()    | [1, 2, 3] | [3, 2, 1]    |
-| list.сору()       | [1, 2, 3] | [1, 2, 3]    |
-| list.len()        | [1, 2, 3] |  3           |
-| list.min()        | [1, 2, 3] |  3           |
-| list.max()        | [1, 2, 3] |  3           |
+                "list": f"""
+| Метод             |                                                                                                               |
+|:------------------|:--------------------------------------------------------------------------------------------------------------|
+| list.append(4)    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.append(4){n}>>> print(l){n}[1, 2, 3, 4]")}                      |
+| list.clear()      | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.clear(){n}>>> print(l){n}[]")}                                  |
+| list.сору()       | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l1 = l.copy(){n}>>> print(l){n}[1, 2, 3]{n}>>> l is l1{n}False")} |
+| list.count(1)     | {to_table_code_py(f">>> [1, 1, 2].count(1){n}2")}                                                             |
+| list.extend([4])  | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.extend([4, 5]){n}>>> print(l){n}[1, 2, 3, 4, 5]")}              |
+| list.index(2)     | {to_table_code_py(f">>> [1, 2, 3].index(2){n}1")}                                                             |
+| list.insert(3, 4) | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.insert(3, 4){n}>>> print(l){n}[1, 2, 3, 4]")}                   |
+| list.pop(2)       | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.pop(2){n}3{n}>>> print(l){n}[1, 2]")}                           |
+| list.remove(2)    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.remove(2){n}>>> print(l){n}[1, 3]")}                            |
+| list.reverse()    | {to_table_code_py(f">>> l = [1, 2, 3]{n}>>> l.reverse(){n}>>> print(l){n}[3, 2, 1]")}                         |
+| list.sort()       | {to_table_code_py(f">>> l = [4, 3, 5]{n}>>> l.sort(){n}>>> print(l){n}[3, 4, 5]")}                            |
+
 """,
-                "dict": """
-|                   |                                                                                                                                                                                      |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dict.clear()      | Удаляет все элементы                                                                                                                                                                 |
-| dict.copy()       | Возвращает поверхностную копию словаря                                                                                                                                               |
-| dict.fromkeys()   | Создает словарь из заданной последовательности<br>print(dict.fromkeys(('key1', 'key2', 'key3'), 0)) # {'key1': 0, 'key2': 0, 'key3': 0}                                              |
-| dict.get()        | Возвращает значение ключа<br>print({"model": "Mustang", "year": 1964}.get("model")) # Mustang                                                                                         |
-| dict.items()      | Возвращает вид пары словаря (ключ, значение)                                                                                                                                         |
-| dict.keys()       | Возвращает объект просмотра всех ключей                                                                                                                                              |
-| dict.pop()        | Удаляет и возвращает элемент с заданным ключом                                                                                                                                       |
-| dict.popitem()    | Возвращает и удаляет последний элемент из словаря                                                                                                                                    |
-| dict.setdefault() | Returns the value of the specified key. If the key does not exist: insert the key, with the specified value<br>Возвращает значение по ключу. Если ключ отсутствует он вставляет ключ |
-| dict.update()     | Updates the dictionary with the specified key-value pairs                                                                                                                            |
-| dict.values()     | Возвращает список всех значений в словаре                                                                                                                                            |
+                "tuple": """
+
+| Метод                          | Описание                                                                                                                                                      |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| tuple.count(x)                 | Возвращает количество элементов в кортеже, равных `x`.                                                                                                        |
+| tuple.index(x[, start[, end]]) | Возвращает индекс первого вхождения элемента `x` в кортеже.<br>Вызывает ошибку, если элемент не найден.<br>Можно указать диапазон поиска с помощью `start` и `end`. |
+
+""",
+                "dict": f"""
+| Метод             | Описание                                                                                                                                                                                               |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dict.clear()      | Удаляет все элементы<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.clear(){n}>>> print(d){n}{{}}')}                                                                                                                                                                                   |
+| dict.copy()       | Возвращает поверхностную копию словаря<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.copy(){n}>>> print(d){n}{{1: 2, 3: 4}}')}                                                                                                                                                                 |
+| dict.fromkeys()   | Создает словарь из заданной последовательности<br>{to_table_code_py(f'>>> print(dict.fromkeys(("key1", "key2", "key3"), 0)){n}{{"key1": 0, "key2": 0, "key3": 0}}')}                                   |
+| dict.get()        | Возвращает значение ключа<br>{to_table_code_py(f'>>> print({{"model": "Mustang", "year": 1964}}.get("model")){n}Mustang{n}>>> print({{"model": "Mustang", "year": 1964}}.get("color", "red")){n}red')} |
+| dict.pop()        | Удаляет и возвращает элемент с заданным ключом<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.pop(3)){n}4{n}>>> print(d){n}{{1: 2}}')}                                                    |
+| dict.popitem()    | Возвращает и удаляет последний элемент из словаря<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.popitem()){n}(3, 4){n}>>> print(d){n}{{1: 2}}')}                                         |
+| dict.setdefault() | Возвращает значение по ключу. Если ключ отсутствует он вставляет ключ<br>{to_table_code_py(f'>>> d = {{}}{n}>>> d.setdefault("k", "d"){n}"d"{n}>>> d{n}{{"k": "d"}}')}                                 |
+| dict.update()     | Обновляет словарь указанными парами ключ-значение.<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> d.update({{3: 5, 6: 7}}){n}>>> print(d){n}{{1: 2, 3: 5, 6: 7}}')}                               |
+| dict.items()      | Возвращает вид пары словаря (ключ, значение)<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.items()){n}dict_items([(1, 2), (3, 4)])')}                                                    |
+| dict.keys()       | Возвращает объект просмотра всех ключей<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.keys()){n}dict_keys([1, 3])')}                                                                |
+| dict.values()     | Возвращает список всех значений в словаре<br>{to_table_code_py(f'>>> d = {{1: 2, 3: 4}}{n}>>> print(d.values()){n}dict_values([2, 4])')}                                                               |
 """,
                 "set": """
-| Название метода                       | Что он делает                                                                                                 |
-|:--------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| set.add(element)                      | Добавляет элемент element во множество. Если элемент уже присутствует, ничего не происходит.                  |
-| set.pop()                             | Удаляет и возвращает произвольный элемент из множества. Если множество пустое, возникает исключение KeyError. |
-| set.difference_update(set2)           | Обновляет множество, удаляя элементы из set, которые присутствуют в set2.                                     |
-| set.remove(element)                   | Удаляет элемент element из множества. Если элемент не найден, возникает исключение KeyError.                  |
-| set.copy()                            | Возвращает копию множества.                                                                                   |
-| set.union(set2)                       | Возвращает новое множество, содержащее все элементы из set и set2.                                            |
-| set.isdisjoint(set2)                  | Проверяет, есть ли общие элементы между set и set2. Возвращает True, если нет, иначе False.                   |
-| set.clear()                           | Удаляет все элементы из множества, делая его пустым.                                                          |
-| set.discard(element)                  | Удаляет элемент element из множества. Если элемент не найден, ничего не происходит.                           |
-| set.update(set2)                      | Обновляет множество, добавляя элементы из set2.                                                               |
-| set.difference(set2)                  | Возвращает новое множество, содержащее элементы из set, которые отсутствуют в set2.                           |
-| set.intersection(set2)                | Возвращает новое множество, содержащее только элементы, присутствующие одновременно в set и set2.             |
-| set.intersection_update(set2)         | Обновляет множество, оставляя только элементы, присутствующие одновременно в set и set2.                      |
-| set.issubset(set2)                    | Проверяет, является ли set подмножеством set2. Возвращает True, если так, иначе False.                        |
-| set.issuperset(set2)                  | Проверяет, является ли set надмножеством set2. Возвращает True, если так, иначе False.                        |
-| set.symmetric_difference(set2)        | Возвращает новое множество, содержащее элементы, присутствующие только в одном из set и set2.                 |
-| set.symmetric_difference_update(set2) | Обновляет множество, оставляя только элементы, присутствующие только в одном из set и set2.                   |
+| Метод                                 | Описание                                                                                                        |
+|:--------------------------------------|:----------------------------------------------------------------------------------------------------------------|
+| set.add(element)                      | Добавляет элемент `element` во множество. Если элемент уже присутствует, ничего не происходит.                  |
+| set.pop()                             | Удаляет и возвращает произвольный элемент из множества. Если множество пустое, возникает исключение `KeyError`. |
+| set.difference_update(set2)           | Обновляет множество, удаляя элементы из `set`, которые присутствуют в `set2`.                                   |
+| set.remove(element)                   | Удаляет элемент element из множества. Если элемент не найден, возникает исключение `KeyError`.                  |
+| set.copy()                            | Возвращает копию множества.                                                                                     |
+| set.union(set2)                       | Возвращает новое множество, содержащее все элементы из `set` и `set2`.                                          |
+| set.isdisjoint(set2)                  | Проверяет, есть ли общие элементы между `set` и `set2`. Возвращает `True`, если нет, иначе `False`.             |
+| set.clear()                           | Удаляет все элементы из множества, делая его пустым.                                                            |
+| set.discard(element)                  | Удаляет элемент `element` из множества. Если элемент не найден, ничего не происходит.                           |
+| set.update(set2)                      | Обновляет множество, добавляя элементы из `set2`.                                                               |
+| set.difference(set2)                  | Возвращает новое множество, содержащее элементы из `set`, которые отсутствуют в `set2`.                         |
+| set.intersection(set2)                | Возвращает новое множество, содержащее только элементы, присутствующие одновременно в `set` и `set2`.           |
+| set.intersection_update(set2)         | Обновляет множество, оставляя только элементы, присутствующие одновременно в `set` и `set2`.                    |
+| set.issubset(set2)                    | Проверяет, является ли `set` подмножеством `set2`. Возвращает `True`, если так, иначе `False`.                  |
+| set.issuperset(set2)                  | Проверяет, является ли `set` надмножеством `set2`. Возвращает `True`, если так, иначе `False`.                  |
+| set.symmetric_difference(set2)        | Возвращает новое множество, содержащее элементы, присутствующие только в одном из `set` и `set2`.               |
+| set.symmetric_difference_update(set2) | Обновляет множество, оставляя только элементы, присутствующие только в одном из `set` и `set2`.                 |
 
 
+В Python «замороженный» означает, что объект не может быть изменен. Например, рассмотрим `set` и `frozenset`:
 
-В Python «замороженный» означает, что объект не может быть изменен. Например, рассмотрим setи frozenset:
-
-```python
+```python-console
 >>> s = set((1, 2, 3))
 >>> s
 {1, 2, 3}
@@ -8748,7 +8770,7 @@ mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
 - memoryview
 - hasattr
 - reversed
-- __import__
+- &#95;&#95;import&#95;&#95;
 - staticmethod
 - setattr
 - property
@@ -9864,6 +9886,689 @@ None
 <img alt="to template.png" src="Языки\RegExp\to template.png">
 <img alt="lookaround.png" src="Языки\RegExp\lookaround.png">
 """,
+        },
+        "Java": {
+            "Запуск": {
+                "Запуск": """
+Независимо от того, какую операционную систему вы используете, Linux, Mac или Windows,
+если на вашем компьютере установлен JDK (Java Development Kit),
+вы можете в консоли набрать следующие команды чтобы скомпилировать и запустить программу:
+
+javac (или  javac.exe)
+java (или  java.exe)
+
+В первом случае будет вызван компилятор javac.exe,
+а во втором случае – запускалка java.exe, которая стартует нашу программу.
+Эти файлы лежат в папке bin  вашего JDK.
+
+Рассмотрим на примере. Cоздадим файл с названием Main.java.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+Для того, чтобы скомпилировать его нужно набрать в консоли команду javac и в качестве параметра передать имя нашего файла:
+
+```bash
+javac Main.java
+```
+
+Эта команда вызовет компилятор, который создаст файл Main.class, содержащий скомпилированный код нашей java программы.
+
+Чтобы запустить ее, нужно ввести команду java с именем класса (не файла!) в качестве параметра:
+
+```bash
+java Main // так правильно
+
+java Main.class // так неправильно
+```
+""",
+                "Аргументы": """
+# Аргументы
+
+В главном классе нашей программы есть метод public static void main(...), который в качестве аргумента принимает массив String[] args.
+Массив строк в качестве аргумента можно передать в программу при запуске из командной строки.
+Любой массив в Java имеет переменную длину, это число элементов в этом массиве.
+Добавим такой код в класс Main.java:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        for (int i = 0; i < args.length; i++) {
+            System.out.println(args[i]);
+        }
+    }
+}
+```
+
+И чтобы скомпилировать и запустить программу с аргументами, пишем в консоль:
+
+```bash
+javac Main.java
+java Main arg0 arg1 arg2
+
+```
+""",
+            },
+            "Типы данных": """
+|         |                                                                     |                                      |
+|---------|---------------------------------------------------------------------|--------------------------------------|
+| byte    | Число                                                               | 1 байт                               |
+| short   | Число                                                               | 2 байта                              |
+| int     | Число                                                               | 4 байта                              |
+| long    | Число                                                               | 8 байтов                             |
+| float   | Число с плавающей точкой                                            | 4 байта                              |
+| double  | Число с плавающей точкой                                            | 8 байтов                             |
+| char    | Символ                                                              | 2 байта                              |
+| boolean | Значение (<br>    true (истина)<br>    или<br>    false (ложь)<br>) | 1 байт                               |
+
+```java
+int myNumber;
+myNumber = 5;
+
+// or
+
+int myNumber = 5;
+```
+
+```java
+//Чтобы объявить число с плавающей точкой, используйте следующий синтаксис:
+
+double d = 4.5;
+d = 3.0;
+// Если вы хотите использовать float, то:
+
+float f = (float) 4.5;
+// Или:
+
+float f = 4.5f
+(f – более короткий способ объявить float)
+```
+
+```java
+char c = 'g';
+
+// String – не примитив. Это реальный тип. Вот несколько способов использования строки:
+
+// Создание строки с помощью конструктора
+
+String s1 = new String("Who let the dogs out?");
+// С помощью двойных кавычек (” “).
+
+String s2 = "Who who who who!";
+// В Java присутсвует конкатенация (объединение) строк при помощи оператора +.
+
+String s3 = s1 + s2;
+// В Java нет перегрузки операторов!
+// Оператор + определен только для строк,
+// вы никогда не увидите его с другими объектами, только с примитивами.
+
+int num = 5;
+String s = "I have " + num + " cookies";
+// Заметьте, что кавычки с примитивами не используются.
+```
+
+
+```java
+boolean b = false;
+b = true;
+
+boolean toBe = false;
+b = toBe || !toBe;
+if (b) {
+    System.out.println(toBe);
+}
+// Оператор || это логическое “или”.
+
+// А например, такой код не будет работать по причине несовместимости типов:
+
+int children = 0;
+b = children;  // Не будет работать, требуется boolean, а найден int
+if (children) {  // Не будет работать, требуется boolean, а найден int
+    // Не будет работать, требуется boolean, а найден int
+}
+```
+""",
+            "Логические операторы": """
+# Логические операторы
+Есть не так много операторов, которые можно использовать в условиях. Вот они:
+
+```java
+int a = 4;
+int b = 5;
+boolean result;
+result = a < b;  // истина result = a > b;  // ложь
+result = a <= 4; // меньше или равно - истина result = b >= 6;  // больше или равно - ложь
+result = a == b;  // равно - ложь
+result = a != b;  // неравно - истина
+result = a > b || a < b;  // логическое ИЛИ - истина
+result = 3 < a && a < 6;  // логическое И - истина
+result = !result;  // Логическое НЕ - ложь
+```
+
+# Оператор ? :
+
+Есть еще один способ записать if – else в одну строку – с помощью оператора ? :
+
+```java
+
+int a = 4;
+int result = a == 4 ? 1 : 8;
+// result будет равен 1
+// Или обычная форма записи:
+int result;
+if (a == 4) {
+    result = 1;
+} else {
+    result = 8;
+}
+```
+
+# Операторы == и equals
+Оператор == работает немного по-другому на объектах, нежели на примитивах.
+Когда вы используем объекты и хотите проверить, равны ли они,
+оператор == скажет что они равны, только если объекты одинаковы,
+но если вы хотите проверить их на логическое соответствие, используйте метод equals.
+
+```java
+String a = new String("Wow");
+String b = new String("Wow");
+String sameA = a;
+
+boolean r1 = a == b;      // Ложь, так как a и b не один и тот же объект
+boolean r2 = a.equals(b); // Истина, так как a и b логически равны
+boolean r3 = a == sameA;  // Истина, так как a и sameA действительно один и тот же объект
+```
+""",
+            "Массив (Array)": """
+```java
+int[] arr; // Обратите внимание, размер не указан, так что мы еще не создали массив.
+
+arr = new int[10]; // Новый массив размером 10.
+
+// Или с указанием значений в одну строку:
+
+int[] arr = {1, 2, 3, 4, 5};
+
+
+// Мы можем проверить размер массива, выведя на экран его длину:
+
+System.out.println(arr.length);
+
+// Так же мы можем получить доступ к массиву и установить значения:
+
+arr[0] = 4;
+arr[1] = arr[0] + 5;
+```
+
+# Вывод значений
+
+Для вывода всех значений массива используйте метод `Arrays.toString()`, преобразующий массив в строку.
+
+```java
+System.out.println(Arrays.toString(arr));
+```
+
+Или напишите цикл, выводящий последовательно элементы массива.
+
+```java
+for(int i=0; i<arr.length; i++) {
+    System.out.println(arr[i]);
+}
+```
+""",
+            "Циклы": """
+# for
+
+Цикл for состоит из трех секций:
+
+```java
+for (int i = 0; i < 3; i++) {}
+```
+
+Первая секция выполняется один раз, когда мы входим в цикл.
+    Задается начальное значение переменной i.
+
+Вторая секция проверяет логическое условие,
+    если true,
+        выполняются операторы в цикле,
+    если false,
+        выход из цикла.
+      
+    В первый раз запускается сразу после первой секции,
+    и выполняется каждый раз, пока условие верно, вызывая третью секцию.
+
+Третья секция выполняется каждый раз при выполнении цикла.
+В нашем примере это инкремент, который при каждом выполнении
+    увеличивает значение переменной на единицу.
+
+Таким образом, цикл будет работать 3 раза.
+
+Мы можем опустить первую и третью секции цикла (как бы странно это ни выглядело), и цикл все еще будет работать:
+
+```java
+for (;i < 5;) {}
+```
+
+# while 
+
+```java
+while (condition) {}
+
+// Если мы хотим, чтобы цикл всегда выполнял по крайней мере одно действие, мы можем использовать do-while:
+
+do {
+
+} while(condition);
+```
+
+
+
+# foreach
+Другая версия for, это foreach.
+Но в Java решили не добавлять новое ключевое слово each.
+Ключевое слово, которое мы используем, все еще for,
+но когда мы хотим выполнить действия над элементами массива, делаем так:
+
+```java
+int[] arr = {2, 0, 1, 3};
+
+for (int el : arr) {
+    System.out.println(el);
+}
+```
+
+Это была короткая версия, эквивалентная следующей записи:
+
+```java
+int[] arr = {1, 9, 9, 5};
+for (int i = 0; i < arr.length; i++) {
+    int el = arr[i];
+    System.out.println(el);
+}
+```
+
+Заметьте, что, если вы хотите использовать индекс элемента в цикле,
+Вы должны использовать более длинную версию и не можете использовать foreach.
+
+# break and continue
+
+<b>break</b> останавливает цикл и переходит к оператору, следующему за ним.
+<b>continue</b> остановит текущую итерацию и переместится в следующую.
+""",
+            "Классы": {
+                "Объекты, конструкторы": """
+Давайте начнем с примера:
+
+```java
+class Point {
+    int x;
+    int y;
+}
+```
+
+Этот класс определяет точку с координатами X и Y.
+
+Для того, чтобы создать экземпляр этого класса, мы должны использовать ключевое слово new.
+
+```java
+Point p = new Point();
+```
+
+При этом используется так называемый конструктор по умолчанию (или конструктор без параметров)
+— это специальный метод класса, мы его не определяли явно, но даже если его не определить, он создаётся автоматически,
+выполняется при создании каждого нового объекта
+и присваивает первоначальные значения его свойствам (инициализирует их).
+
+От методов в java конструктор отличается тем, что имеет то же самое имя, что и класс, в котором он определен,
+а также не имеет типа возвращаемого значения.
+Конструктор в java возвращает новый объект – экземпляр родительского класса).
+
+
+
+Мы можем определить наш собственный конструктор.
+Поскольку методы можно перегружать, а конструктор является методом, то с помощью перегрузки
+можно создать дополнительные варианты конструкторов.
+Например, удобно иметь конструктор, который позволит при создании объекта Point явно указывать его координаты:
+
+```java
+class Point {
+    int x;
+    int y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+Это означает, что мы не можем больше использовать конструктор по умолчанию new Point().
+Теперь мы можем пользоваться только перегруженным конструктором  с указанием начальных значений new Point(4, 1).
+
+Мы можете определить более чем один конструктор, так что объект класса Point может быть создан несколькими способами.
+Давайте создадим еще один перегруженный конструктор:
+
+```java
+class Point {
+    int x;
+    int y;
+
+    Point() {
+        this(0, 0);
+    }
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+Обратите внимание на ключевое слово this.
+Мы можем использовать его внутри конструктора для вызова другого конструктора (для того, чтобы избежать дублирования кода).
+
+Мы также используем ключевое слово this в качестве ссылки на текущий объект.
+
+После того, как мы определили объект р мы можем получить доступ к X и Y.
+
+```java
+p.x = 3;
+p.y = 6;
+```
+""",
+                "Методы": {
+                    "Методы": """
+Методы определяются всегда внутри классов:
+
+```java
+public class Main {
+    public static void foo() {
+        // Тело метода
+    }
+}
+```
+
+foo -  это метод, который мы определили в классе Main, давайте его рассмотрим.
+
+# тип доступа
+
+|           |                                          |
+|-----------|------------------------------------------|
+| public    | метод может вызываться из другого класса |
+| private   | метод доступен только внутри класса      |
+| protected | ...                                      |
+
+|        |                                                                         |
+|--------|-------------------------------------------------------------------------|
+| static | метод принадлежит классу Main, а не конкретному экземпляру класса Main. |
+
+Мы можем вызвать этот метод из другого класса так:
+```java
+Main.foo().
+```
+
+<b>void</b> значит, что этот метод не возвращает значение.
+Методы могут возвращать значение в Java и оно должно быть определено при объявлении метода.
+Однако, вы можете использовать <b>return</b> просто для выхода из метода.
+
+# return выражение;
+
+Этот оператор возвращает результат вычисления выражения в точку вызова метода.
+Тип выражения должен совпадать с типом возвращаемого значения.
+Если тип возвращаемого значения – void, возврат из метода выполняется
+либо после выполнения последнего оператора тела метода,либо в результате выполнения оператора
+
+```java
+return;
+```
+
+(таких операторов в теле метода может быть несколько).
+
+Пример объявления метода, возвращающего значение типа int – сумму двух своих параметров типа int:
+
+```java
+int sum(int a, int b){
+      int x;
+      x = a + b;
+      return x;
+}
+```
+
+При вызове метода, например, sum(5, 3), параметры 5 и 3 передаются в метод, как значения соответственно a и b,
+и оператор вызова метода sum(5, 3) – заменяется значением, возвращаемым методом (8).
+
+В отличие от языка C, в котором тип параметра, задаваемого при вызове, приводится к типу параметра в объявлении функции,
+тип задаваемого параметра в Java должен строго соответствовать типу параметра в объявлении метода,
+поэтому вызов метода sum(1.5, 8) приведет к ошибке при компиляции программы.
+""",
+                    "Методы 2": """
+```java
+class Point {
+    ... // Наш код ранее
+    void printPoint() {
+        System.out.println("(" + x + "," + y + ")");
+    }
+
+    Point center(Point other) {
+        // Возвращает центр между этой и другой точками
+        // Заметьте, мы используем целое число, поэтому не получим точное значение
+        return new Point((x + other.x) / 2, (y + other.y) / 2);
+    }
+}
+```
+""",
+                    "Не статические методы": """
+# Не статические методы
+
+Не статические методы в Java используются чаще, чем статические методы.
+Эти методы могут принадлежать любому объекту, экземпляру класса, а не всему классу.
+
+Не статические методы могут получать доступ и изменять поля объекта.
+
+```java
+public class Student {
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+
+Вызов методов требует экземпляра класса Student.
+
+```java
+Student s = new Student();
+s.setName("Danielle");
+String name = s.getName();
+
+Student.setName("Bob"); // Не будет работать!
+Student.getName(); // Не будет работать!
+```
+""",
+                    "Перегруженные методы": """
+# Перегруженные методы
+
+В языке Java в пределах одного класса можно определить два или более методов,
+которые совместно используют одно и то же имя, но имеют разное количество параметров.
+Когда это имеет место, методы называют перегруженными,
+а о процессе говорят как о перегрузке метода (method overloading).
+
+Когда метод вызывается, то по количеству параметров и/или их типам среда выполнения Java определяет,
+какую именно версию перегруженного метода надо вызывать
+(тип возвращаемого значения во внимание не принимается, хотя, в принципе,
+он тоже может отличаться у разных версий перегруженных методов).
+
+Например метод
+
+```java
+double sum(double a, double b) {
+     double x;
+     x = a + b;
+     return x;
+}
+```
+
+вместе с объявленным ранее методом int sum(int a, int b)
+составляют пару перегруженных методов и при вызове sum(5, 8) будет вызван первый метод,
+а при вызове sum(5.0, 8.0) будет вызван второй метод.
+
+По умолчанию метод, как и переменная, доступен только классам в том же пакете (наборе классов), что и исходный класс.
+Если перед возвращаемым типом задан модификатор доступа public, то метод является глобальным и доступен любым объектам,
+а модификатор private означает, что метод доступен в том классе, в котором он был объявлен,
+т.е. метод инкапсулирован в данном классе.
+""",
+                    "Переопределение методов": """
+# Переопределение методов
+
+Кроме перегрузки существует также замещение, или переопределение методов (англ. overriding).
+Замещение происходит, когда класс потомок (подкласс) определяет некоторый метод,
+который уже есть в родительском классе(суперклассе), таким образом новый метод заменяет метод суперкласса.
+У нового метода подкласса должны быть те же параметры или сигнатура, тип возвращаемого результата,
+что и у метода родительского класса.
+
+```java
+public class Thought {
+    public void message() {
+        System.out.println("Я себя чувствую как стрекоза, попавшая в параллельную вселенную.");
+    }
+}
+
+public class Advice extends Thought {
+    @Override  // Аннотация @Override с Java 5 является необязательной, но весьма полезной
+    public void message() {
+        System.out.println("Внимание: Даты в календаре ближе, чем кажутся.");
+    }
+}
+```
+
+Класс Thought представляет собой суперкласс и обеспечивает вызов метода message().
+Подкласс, называемый Advice, наследует каждый метод класса Thought.
+Однако, класс Advice переопределяет метод message(), замещая функционал, описанный в классе Thought.
+
+В Java, когда подкласс содержит метод, переопределяющий метод суперкласса,
+то он может помимо своего метода вызывать и метод суперкласса при помощи ключевого слова super.
+
+Например, нижеследующий вариант выводит оба сообщения при вызове метода подкласса:
+
+```java
+public class Advice extends Thought {
+    @Override
+    public void message() {
+        System.out.println("Внимание: Даты в календаре ближе, чем кажутся.");
+        super.message(); // Вызов версии метода родительского класса
+    }
+}
+```
+
+Существуют методы, которые подкласс не может переопределять.
+Например, в Java метод, объявленный с ключевым словом final, не может быть переопределён.
+Методы, объявленные как private или static не могут быть переопределены,
+поскольку это соответствует неявному использованию final.
+""",
+                },
+                "Наследование": """
+Наследование в Java позволяет повторно использовать код одного класса в другом классе,
+то есть вы можете унаследовать новый класс от уже существующего класса.
+
+Главный наследуемый класс в Java называют родительским классам, или суперклассом.
+Наследующий класс называют дочерним классом, или подклассом.
+Подкласс наследует все поля и свойства суперкласса,
+а также может иметь свои поля и свойства, отсутствующие в классе-родителе.
+
+Пример наследования
+Рассмотрим класс под названием Shape (Форма).
+Shape является базовым классом, от которого наследуются другие формы, таких как прямоугольник, квадрат, круг и т.д.
+
+```java
+public class Shape {
+    public double area ()
+    {
+        return 0;   
+    }
+}
+```
+
+Поскольку это просто общая «форма», метод  вычисления площади area() будет возвращать ноль.
+Чтобы узнать площадь конкретной фигуры, нужно создать подкласс, унаследованный от класса Shape, и в нем переопределить метод area().
+
+От класса Shape  наследуется класс Circle, который тоже представляет собой форму.
+
+```java
+class Circle extends Shape { // ключевое слово "extends" означает наследование
+
+    private static final double PI = Math.PI; // константа
+    private double diameter; // любое число, представляющее диаметр этого круга
+
+    public Circle(double diameter) { // конструктор
+        this.diameter = diameter;
+    }
+
+    public double area() {
+        double radius = diameter / 2.0;
+        return PI * radius * radius;
+    }
+}
+```
+
+Метод area() базового класса наследуется классом Circle и становится доступен в нем, но нам нужно переопределить метод area()
+в классе Circle, таким образом, чтобы он вычислял площадь круга.
+
+Преимущество использования наследования в том, что вы можете написать код,
+который можно применить к ряду классов, расширяющих более общий класс.
+
+Создадим  класс Main, и в нем напишем метод, который вычисляет большую площадь двух фигур:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Shape s1 = new Circle (5.0);
+        Shape s2 = new Rectangle (5.0, 4.0);
+        Shape larger = getLargerShape(s1,s2);
+
+        System.out.println("The area of the larger shape is: "+larger.area());
+    }
+
+    public static Shape getLargerShape(Shape s1, Shape s2) {
+        if(s1.area() > s2.area())
+            return s1;
+        else
+            return s2;
+    }
+}
+```
+
+Как вы можете видеть, метод getLargerShape() не требует указания определенного типа фигуры для его двух параметров.
+В качестве параметров для этого метода можно использовать экземпляр любого класса, который наследует тип Shape.
+Можно использовать экземпляр класса круг, прямоугольник, треугольник, трапеция, и т.д. – до тех пор, как они наследуют класс формы.
+""",
+            },
+            "Исключения": """
+В языке Java все исключения являются объектами и могут быть вызваны не только системой, но и создаваться самим разработчиком.
+Исключения делятся на несколько классов, которые имеют общего предка — класс Throwable.
+Его потомками являются подклассы Exception и Error.
+Исключения (Exceptions) являются результатом проблем в программе, которые в принципе решаемы и предсказуемы.
+Например, произошло деление на ноль в целых числах.
+
+Ошибки (Errors) представляют собой более серьёзные проблемы, которые, согласно спецификации Java,
+не следует пытаться обрабатывать в собственной программе, поскольку они связаны с проблемами уровня JVM.
+Например, исключения такого рода возникают, если закончилась память, доступная виртуальной машине.
+
+В Java все исключения делятся на три типа: контролируемые исключения (checked) и неконтролируемые исключения (unchecked),
+к которым относятся ошибки (Errors) и исключения времени выполнения (RuntimeExceptions, потомок класса Exception).
+
+Контролируемые исключения представляют собой ошибки, которые можно и нужно обрабатывать в программе,
+к этому типу относятся все потомки класса Exception (кроме RuntimeException).
+""",
+            # "": """""",
+            # "": """""",
         },
         "Dockerfile": {
             "Dockerfile": """Dockerfile
@@ -12744,689 +13449,6 @@ q = *m;
 Операция* может быть запомнена как «по адресу».
 В данном случае оператор можно прочитать как «q получает значение по адресу m».
 """,
-        },
-        "Java": {
-            "Запуск": {
-                "Запуск": """
-Независимо от того, какую операционную систему вы используете, Linux, Mac или Windows,
-если на вашем компьютере установлен JDK (Java Development Kit),
-вы можете в консоли набрать следующие команды чтобы скомпилировать и запустить программу:
-
-javac (или  javac.exe)
-java (или  java.exe)
-
-В первом случае будет вызван компилятор javac.exe,
-а во втором случае – запускалка java.exe, которая стартует нашу программу.
-Эти файлы лежат в папке bin  вашего JDK.
-
-Рассмотрим на примере. Cоздадим файл с названием Main.java.
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-
-Для того, чтобы скомпилировать его нужно набрать в консоли команду javac и в качестве параметра передать имя нашего файла:
-
-```bash
-javac Main.java
-```
-
-Эта команда вызовет компилятор, который создаст файл Main.class, содержащий скомпилированный код нашей java программы.
-
-Чтобы запустить ее, нужно ввести команду java с именем класса (не файла!) в качестве параметра:
-
-```bash
-java Main // так правильно
-
-java Main.class // так неправильно
-```
-""",
-                "Аргументы": """
-# Аргументы
-
-В главном классе нашей программы есть метод public static void main(...), который в качестве аргумента принимает массив String[] args.
-Массив строк в качестве аргумента можно передать в программу при запуске из командной строки.
-Любой массив в Java имеет переменную длину, это число элементов в этом массиве.
-Добавим такой код в класс Main.java:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        for (int i = 0; i < args.length; i++) {
-            System.out.println(args[i]);
-        }
-    }
-}
-```
-
-И чтобы скомпилировать и запустить программу с аргументами, пишем в консоль:
-
-```bash
-javac Main.java
-java Main arg0 arg1 arg2
-
-```
-""",
-            },
-            "Типы данных": """
-|         |                                                                     |                                      |
-|---------|---------------------------------------------------------------------|--------------------------------------|
-| byte    | Число                                                               | 1 байт                               |
-| short   | Число                                                               | 2 байта                              |
-| int     | Число                                                               | 4 байта                              |
-| long    | Число                                                               | 8 байтов                             |
-| float   | Число с плавающей точкой                                            | 4 байта                              |
-| double  | Число с плавающей точкой                                            | 8 байтов                             |
-| char    | Символ                                                              | 2 байта                              |
-| boolean | Значение (<br>    true (истина)<br>    или<br>    false (ложь)<br>) | 1 байт                               |
-
-```java
-int myNumber;
-myNumber = 5;
-
-// or
-
-int myNumber = 5;
-```
-
-```java
-//Чтобы объявить число с плавающей точкой, используйте следующий синтаксис:
-
-double d = 4.5;
-d = 3.0;
-// Если вы хотите использовать float, то:
-
-float f = (float) 4.5;
-// Или:
-
-float f = 4.5f
-(f – более короткий способ объявить float)
-```
-
-```java
-char c = 'g';
-
-// String – не примитив. Это реальный тип. Вот несколько способов использования строки:
-
-// Создание строки с помощью конструктора
-
-String s1 = new String("Who let the dogs out?");
-// С помощью двойных кавычек (” “).
-
-String s2 = "Who who who who!";
-// В Java присутсвует конкатенация (объединение) строк при помощи оператора +.
-
-String s3 = s1 + s2;
-// В Java нет перегрузки операторов!
-// Оператор + определен только для строк,
-// вы никогда не увидите его с другими объектами, только с примитивами.
-
-int num = 5;
-String s = "I have " + num + " cookies";
-// Заметьте, что кавычки с примитивами не используются.
-```
-
-
-```java
-boolean b = false;
-b = true;
-
-boolean toBe = false;
-b = toBe || !toBe;
-if (b) {
-    System.out.println(toBe);
-}
-// Оператор || это логическое “или”.
-
-// А например, такой код не будет работать по причине несовместимости типов:
-
-int children = 0;
-b = children;  // Не будет работать, требуется boolean, а найден int
-if (children) {  // Не будет работать, требуется boolean, а найден int
-    // Не будет работать, требуется boolean, а найден int
-}
-```
-""",
-            "Логические операторы": """
-# Логические операторы
-Есть не так много операторов, которые можно использовать в условиях. Вот они:
-
-```java
-int a = 4;
-int b = 5;
-boolean result;
-result = a < b;  // истина result = a > b;  // ложь
-result = a <= 4; // меньше или равно - истина result = b >= 6;  // больше или равно - ложь
-result = a == b;  // равно - ложь
-result = a != b;  // неравно - истина
-result = a > b || a < b;  // логическое ИЛИ - истина
-result = 3 < a && a < 6;  // логическое И - истина
-result = !result;  // Логическое НЕ - ложь
-```
-
-# Оператор ? :
-
-Есть еще один способ записать if – else в одну строку – с помощью оператора ? :
-
-```java
-
-int a = 4;
-int result = a == 4 ? 1 : 8;
-// result будет равен 1
-// Или обычная форма записи:
-int result;
-if (a == 4) {
-    result = 1;
-} else {
-    result = 8;
-}
-```
-
-# Операторы == и equals
-Оператор == работает немного по-другому на объектах, нежели на примитивах.
-Когда вы используем объекты и хотите проверить, равны ли они,
-оператор == скажет что они равны, только если объекты одинаковы,
-но если вы хотите проверить их на логическое соответствие, используйте метод equals.
-
-```java
-String a = new String("Wow");
-String b = new String("Wow");
-String sameA = a;
-
-boolean r1 = a == b;      // Ложь, так как a и b не один и тот же объект
-boolean r2 = a.equals(b); // Истина, так как a и b логически равны
-boolean r3 = a == sameA;  // Истина, так как a и sameA действительно один и тот же объект
-```
-""",
-            "Массив (Array)": """
-```java
-int[] arr; // Обратите внимание, размер не указан, так что мы еще не создали массив.
-
-arr = new int[10]; // Новый массив размером 10.
-
-// Или с указанием значений в одну строку:
-
-int[] arr = {1, 2, 3, 4, 5};
-
-
-// Мы можем проверить размер массива, выведя на экран его длину:
-
-System.out.println(arr.length);
-
-// Так же мы можем получить доступ к массиву и установить значения:
-
-arr[0] = 4;
-arr[1] = arr[0] + 5;
-```
-
-# Вывод значений
-
-Для вывода всех значений массива используйте метод `Arrays.toString()`, преобразующий массив в строку.
-
-```java
-System.out.println(Arrays.toString(arr));
-```
-
-Или напишите цикл, выводящий последовательно элементы массива.
-
-```java
-for(int i=0; i<arr.length; i++) {
-    System.out.println(arr[i]);
-}
-```
-""",
-            "Циклы": """
-# for
-
-Цикл for состоит из трех секций:
-
-```java
-for (int i = 0; i < 3; i++) {}
-```
-
-Первая секция выполняется один раз, когда мы входим в цикл.
-    Задается начальное значение переменной i.
-
-Вторая секция проверяет логическое условие,
-    если true,
-        выполняются операторы в цикле,
-    если false,
-        выход из цикла.
-      
-    В первый раз запускается сразу после первой секции,
-    и выполняется каждый раз, пока условие верно, вызывая третью секцию.
-
-Третья секция выполняется каждый раз при выполнении цикла.
-В нашем примере это инкремент, который при каждом выполнении
-    увеличивает значение переменной на единицу.
-
-Таким образом, цикл будет работать 3 раза.
-
-Мы можем опустить первую и третью секции цикла (как бы странно это ни выглядело), и цикл все еще будет работать:
-
-```java
-for (;i < 5;) {}
-```
-
-# while 
-
-```java
-while (condition) {}
-
-// Если мы хотим, чтобы цикл всегда выполнял по крайней мере одно действие, мы можем использовать do-while:
-
-do {
-
-} while(condition);
-```
-
-
-
-# foreach
-Другая версия for, это foreach.
-Но в Java решили не добавлять новое ключевое слово each.
-Ключевое слово, которое мы используем, все еще for,
-но когда мы хотим выполнить действия над элементами массива, делаем так:
-
-```java
-int[] arr = {2, 0, 1, 3};
-
-for (int el : arr) {
-    System.out.println(el);
-}
-```
-
-Это была короткая версия, эквивалентная следующей записи:
-
-```java
-int[] arr = {1, 9, 9, 5};
-for (int i = 0; i < arr.length; i++) {
-    int el = arr[i];
-    System.out.println(el);
-}
-```
-
-Заметьте, что, если вы хотите использовать индекс элемента в цикле,
-Вы должны использовать более длинную версию и не можете использовать foreach.
-
-# break and continue
-
-<b>break</b> останавливает цикл и переходит к оператору, следующему за ним.
-<b>continue</b> остановит текущую итерацию и переместится в следующую.
-""",
-            "Классы": {
-                "Объекты, конструкторы": """
-Давайте начнем с примера:
-
-```java
-class Point {
-    int x;
-    int y;
-}
-```
-
-Этот класс определяет точку с координатами X и Y.
-
-Для того, чтобы создать экземпляр этого класса, мы должны использовать ключевое слово new.
-
-```java
-Point p = new Point();
-```
-
-При этом используется так называемый конструктор по умолчанию (или конструктор без параметров)
-— это специальный метод класса, мы его не определяли явно, но даже если его не определить, он создаётся автоматически,
-выполняется при создании каждого нового объекта
-и присваивает первоначальные значения его свойствам (инициализирует их).
-
-От методов в java конструктор отличается тем, что имеет то же самое имя, что и класс, в котором он определен,
-а также не имеет типа возвращаемого значения.
-Конструктор в java возвращает новый объект – экземпляр родительского класса).
-
-
-
-Мы можем определить наш собственный конструктор.
-Поскольку методы можно перегружать, а конструктор является методом, то с помощью перегрузки
-можно создать дополнительные варианты конструкторов.
-Например, удобно иметь конструктор, который позволит при создании объекта Point явно указывать его координаты:
-
-```java
-class Point {
-    int x;
-    int y;
-
-    Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-```
-
-Это означает, что мы не можем больше использовать конструктор по умолчанию new Point().
-Теперь мы можем пользоваться только перегруженным конструктором  с указанием начальных значений new Point(4, 1).
-
-Мы можете определить более чем один конструктор, так что объект класса Point может быть создан несколькими способами.
-Давайте создадим еще один перегруженный конструктор:
-
-```java
-class Point {
-    int x;
-    int y;
-
-    Point() {
-        this(0, 0);
-    }
-
-    Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-```
-
-Обратите внимание на ключевое слово this.
-Мы можем использовать его внутри конструктора для вызова другого конструктора (для того, чтобы избежать дублирования кода).
-
-Мы также используем ключевое слово this в качестве ссылки на текущий объект.
-
-После того, как мы определили объект р мы можем получить доступ к X и Y.
-
-```java
-p.x = 3;
-p.y = 6;
-```
-""",
-                "Методы": {
-                    "Методы": """
-Методы определяются всегда внутри классов:
-
-```java
-public class Main {
-    public static void foo() {
-        // Тело метода
-    }
-}
-```
-
-foo -  это метод, который мы определили в классе Main, давайте его рассмотрим.
-
-# тип доступа
-
-|           |                                          |
-|-----------|------------------------------------------|
-| public    | метод может вызываться из другого класса |
-| private   | метод доступен только внутри класса      |
-| protected | ...                                      |
-
-|        |                                                                         |
-|--------|-------------------------------------------------------------------------|
-| static | метод принадлежит классу Main, а не конкретному экземпляру класса Main. |
-
-Мы можем вызвать этот метод из другого класса так:
-```java
-Main.foo().
-```
-
-<b>void</b> значит, что этот метод не возвращает значение.
-Методы могут возвращать значение в Java и оно должно быть определено при объявлении метода.
-Однако, вы можете использовать <b>return</b> просто для выхода из метода.
-
-# return выражение;
-
-Этот оператор возвращает результат вычисления выражения в точку вызова метода.
-Тип выражения должен совпадать с типом возвращаемого значения.
-Если тип возвращаемого значения – void, возврат из метода выполняется
-либо после выполнения последнего оператора тела метода,либо в результате выполнения оператора
-
-```java
-return;
-```
-
-(таких операторов в теле метода может быть несколько).
-
-Пример объявления метода, возвращающего значение типа int – сумму двух своих параметров типа int:
-
-```java
-int sum(int a, int b){
-      int x;
-      x = a + b;
-      return x;
-}
-```
-
-При вызове метода, например, sum(5, 3), параметры 5 и 3 передаются в метод, как значения соответственно a и b,
-и оператор вызова метода sum(5, 3) – заменяется значением, возвращаемым методом (8).
-
-В отличие от языка C, в котором тип параметра, задаваемого при вызове, приводится к типу параметра в объявлении функции,
-тип задаваемого параметра в Java должен строго соответствовать типу параметра в объявлении метода,
-поэтому вызов метода sum(1.5, 8) приведет к ошибке при компиляции программы.
-""",
-                    "Методы 2": """
-```java
-class Point {
-    ... // Наш код ранее
-    void printPoint() {
-        System.out.println("(" + x + "," + y + ")");
-    }
-
-    Point center(Point other) {
-        // Возвращает центр между этой и другой точками
-        // Заметьте, мы используем целое число, поэтому не получим точное значение
-        return new Point((x + other.x) / 2, (y + other.y) / 2);
-    }
-}
-```
-""",
-                    "Не статические методы": """
-# Не статические методы
-
-Не статические методы в Java используются чаще, чем статические методы.
-Эти методы могут принадлежать любому объекту, экземпляру класса, а не всему классу.
-
-Не статические методы могут получать доступ и изменять поля объекта.
-
-```java
-public class Student {
-    private String name;
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-}
-```
-
-Вызов методов требует экземпляра класса Student.
-
-```java
-Student s = new Student();
-s.setName("Danielle");
-String name = s.getName();
-
-Student.setName("Bob"); // Не будет работать!
-Student.getName(); // Не будет работать!
-```
-""",
-                    "Перегруженные методы": """
-# Перегруженные методы
-
-В языке Java в пределах одного класса можно определить два или более методов,
-которые совместно используют одно и то же имя, но имеют разное количество параметров.
-Когда это имеет место, методы называют перегруженными,
-а о процессе говорят как о перегрузке метода (method overloading).
-
-Когда метод вызывается, то по количеству параметров и/или их типам среда выполнения Java определяет,
-какую именно версию перегруженного метода надо вызывать
-(тип возвращаемого значения во внимание не принимается, хотя, в принципе,
-он тоже может отличаться у разных версий перегруженных методов).
-
-Например метод
-
-```java
-double sum(double a, double b) {
-     double x;
-     x = a + b;
-     return x;
-}
-```
-
-вместе с объявленным ранее методом int sum(int a, int b)
-составляют пару перегруженных методов и при вызове sum(5, 8) будет вызван первый метод,
-а при вызове sum(5.0, 8.0) будет вызван второй метод.
-
-По умолчанию метод, как и переменная, доступен только классам в том же пакете (наборе классов), что и исходный класс.
-Если перед возвращаемым типом задан модификатор доступа public, то метод является глобальным и доступен любым объектам,
-а модификатор private означает, что метод доступен в том классе, в котором он был объявлен,
-т.е. метод инкапсулирован в данном классе.
-""",
-                    "Переопределение методов": """
-# Переопределение методов
-
-Кроме перегрузки существует также замещение, или переопределение методов (англ. overriding).
-Замещение происходит, когда класс потомок (подкласс) определяет некоторый метод,
-который уже есть в родительском классе(суперклассе), таким образом новый метод заменяет метод суперкласса.
-У нового метода подкласса должны быть те же параметры или сигнатура, тип возвращаемого результата,
-что и у метода родительского класса.
-
-```java
-public class Thought {
-    public void message() {
-        System.out.println("Я себя чувствую как стрекоза, попавшая в параллельную вселенную.");
-    }
-}
-
-public class Advice extends Thought {
-    @Override  // Аннотация @Override с Java 5 является необязательной, но весьма полезной
-    public void message() {
-        System.out.println("Внимание: Даты в календаре ближе, чем кажутся.");
-    }
-}
-```
-
-Класс Thought представляет собой суперкласс и обеспечивает вызов метода message().
-Подкласс, называемый Advice, наследует каждый метод класса Thought.
-Однако, класс Advice переопределяет метод message(), замещая функционал, описанный в классе Thought.
-
-В Java, когда подкласс содержит метод, переопределяющий метод суперкласса,
-то он может помимо своего метода вызывать и метод суперкласса при помощи ключевого слова super.
-
-Например, нижеследующий вариант выводит оба сообщения при вызове метода подкласса:
-
-```java
-public class Advice extends Thought {
-    @Override
-    public void message() {
-        System.out.println("Внимание: Даты в календаре ближе, чем кажутся.");
-        super.message(); // Вызов версии метода родительского класса
-    }
-}
-```
-
-Существуют методы, которые подкласс не может переопределять.
-Например, в Java метод, объявленный с ключевым словом final, не может быть переопределён.
-Методы, объявленные как private или static не могут быть переопределены,
-поскольку это соответствует неявному использованию final.
-""",
-                },
-                "Наследование": """
-Наследование в Java позволяет повторно использовать код одного класса в другом классе,
-то есть вы можете унаследовать новый класс от уже существующего класса.
-
-Главный наследуемый класс в Java называют родительским классам, или суперклассом.
-Наследующий класс называют дочерним классом, или подклассом.
-Подкласс наследует все поля и свойства суперкласса,
-а также может иметь свои поля и свойства, отсутствующие в классе-родителе.
-
-Пример наследования
-Рассмотрим класс под названием Shape (Форма).
-Shape является базовым классом, от которого наследуются другие формы, таких как прямоугольник, квадрат, круг и т.д.
-
-```java
-public class Shape {
-    public double area ()
-    {
-        return 0;   
-    }
-}
-```
-
-Поскольку это просто общая «форма», метод  вычисления площади area() будет возвращать ноль.
-Чтобы узнать площадь конкретной фигуры, нужно создать подкласс, унаследованный от класса Shape, и в нем переопределить метод area().
-
-От класса Shape  наследуется класс Circle, который тоже представляет собой форму.
-
-```java
-class Circle extends Shape { // ключевое слово "extends" означает наследование
-
-    private static final double PI = Math.PI; // константа
-    private double diameter; // любое число, представляющее диаметр этого круга
-
-    public Circle(double diameter) { // конструктор
-        this.diameter = diameter;
-    }
-
-    public double area() {
-        double radius = diameter / 2.0;
-        return PI * radius * radius;
-    }
-}
-```
-
-Метод area() базового класса наследуется классом Circle и становится доступен в нем, но нам нужно переопределить метод area()
-в классе Circle, таким образом, чтобы он вычислял площадь круга.
-
-Преимущество использования наследования в том, что вы можете написать код,
-который можно применить к ряду классов, расширяющих более общий класс.
-
-Создадим  класс Main, и в нем напишем метод, который вычисляет большую площадь двух фигур:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Shape s1 = new Circle (5.0);
-        Shape s2 = new Rectangle (5.0, 4.0);
-        Shape larger = getLargerShape(s1,s2);
-
-        System.out.println("The area of the larger shape is: "+larger.area());
-    }
-
-    public static Shape getLargerShape(Shape s1, Shape s2) {
-        if(s1.area() > s2.area())
-            return s1;
-        else
-            return s2;
-    }
-}
-```
-
-Как вы можете видеть, метод getLargerShape() не требует указания определенного типа фигуры для его двух параметров.
-В качестве параметров для этого метода можно использовать экземпляр любого класса, который наследует тип Shape.
-Можно использовать экземпляр класса круг, прямоугольник, треугольник, трапеция, и т.д. – до тех пор, как они наследуют класс формы.
-""",
-            },
-            "Исключения": """
-В языке Java все исключения являются объектами и могут быть вызваны не только системой, но и создаваться самим разработчиком.
-Исключения делятся на несколько классов, которые имеют общего предка — класс Throwable.
-Его потомками являются подклассы Exception и Error.
-Исключения (Exceptions) являются результатом проблем в программе, которые в принципе решаемы и предсказуемы.
-Например, произошло деление на ноль в целых числах.
-
-Ошибки (Errors) представляют собой более серьёзные проблемы, которые, согласно спецификации Java,
-не следует пытаться обрабатывать в собственной программе, поскольку они связаны с проблемами уровня JVM.
-Например, исключения такого рода возникают, если закончилась память, доступная виртуальной машине.
-
-В Java все исключения делятся на три типа: контролируемые исключения (checked) и неконтролируемые исключения (unchecked),
-к которым относятся ошибки (Errors) и исключения времени выполнения (RuntimeExceptions, потомок класса Exception).
-
-Контролируемые исключения представляют собой ошибки, которые можно и нужно обрабатывать в программе,
-к этому типу относятся все потомки класса Exception (кроме RuntimeException).
-""",
-            # "": """""",
-            # "": """""",
         },
         "Bash": {
             "help": """

@@ -38,6 +38,34 @@ def code_block_callback(match):
 
     highlighted_code = highlight(code_block, lexer, formatter).strip()
 
+    def set_unselectable(text: str):
+        if '<span class="o">&gt;&gt;&gt;</span>' in text:
+            print(f"(%%%%%%{text=}%%%%%%)")
+        l = []
+        for line in text.split("\n"):
+            if line.startswith('<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> '):
+                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
+                    '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ')
+            elif line.startswith('<span class="o">&gt;&gt;&gt;</span> '):
+                line = '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
+                    '<span class="o">&gt;&gt;&gt;</span> ')
+            elif line.startswith('<div class="highlight"><pre><span></span><span class="o">...</span> '):
+                line = '<div class="highlight"><pre><span></span><span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
+                    '<div class="highlight"><pre><span></span><span class="o">...</span> ')
+            elif line.startswith('<span class="o">...</span> '):
+                line = '<span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
+                    '<span class="o">...</span> ')
+            else:
+                line = f'<span class="unselectable">{line}</span>'
+            l.append(line)
+        return "\n".join(l)
+
+    if (
+        _language == "python"
+        and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
+    ):
+        highlighted_code = set_unselectable(highlighted_code)
+
     code_id = get_id(language+highlighted_code, True)
     btn = (
         f"""<button class="copy-button-2" id="code{code_id}_2b" onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{code_block.strip().splitlines()[0].removeprefix("#file ")}')">

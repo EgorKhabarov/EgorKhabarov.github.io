@@ -246,6 +246,13 @@ code {
 Контейнер список для поиска
 Контейнер поискового результата
 */
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
   </style>
   <script>
    /* Скрыть / показать папку */
@@ -597,14 +604,14 @@ function toggleStyleDisplayByPath(kpath) {
      📄 sync asyn
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиbb458ee8f835109d226d83ce653bc27e);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки30f5a68f5021b6df4b9d4c2d3ed2d9e3);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языкиbb458ee8f835109d226d83ce653bc27e" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Pythondb17b3f369db31ba78e8f72c9625efff);">
+   <div class="button-folder" id="Языки30f5a68f5021b6df4b9d4c2d3ed2d9e3" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1e487df8d61db5564dbc7095ac8e5e13);">
      📂 Python
     </button>
-    <div class="button-folder" id="Pythondb17b3f369db31ba78e8f72c9625efff" style="display:none;">
+    <div class="button-folder" id="Python1e487df8d61db5564dbc7095ac8e5e13" style="display:none;">
      <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки4cf816a5f38c48c0c2733f7aea4265f9);">
       📂 Библиотеки
      </button>
@@ -1018,10 +1025,10 @@ function toggleStyleDisplayByPath(kpath) {
        </button>
       </div>
      </div>
-     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методыc9aac849c8a2c47970236e58d4f99d69);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы9bb9378dcbc104a59c544e51604fc1e0);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методыc9aac849c8a2c47970236e58d4f99d69" style="display:none;">
+     <div class="button-folder" id="Методы9bb9378dcbc104a59c544e51604fc1e0" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/Магические методы.md');" vpath="Языки/Python/Методы/Магические методы.md">
        📄 Магические методы
       </button>
@@ -1033,6 +1040,9 @@ function toggleStyleDisplayByPath(kpath) {
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/list.md');" vpath="Языки/Python/Методы/list.md">
        📄 list
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Методы/tuple.md');" vpath="Языки/Python/Методы/tuple.md">
+       📄 tuple
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/dict.md');" vpath="Языки/Python/Методы/dict.md">
        📄 dict
@@ -1138,6 +1148,68 @@ function toggleStyleDisplayByPath(kpath) {
      </button>
      <button class="button" onclick="GET('Языки/RegExp/images.md');" vpath="Языки/RegExp/images.md">
       📄 images
+     </button>
+    </div>
+    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Javab73f7d390a67bc62ced540d07fa7a53a);">
+     📂 Java
+    </button>
+    <div class="button-folder" id="Javab73f7d390a67bc62ced540d07fa7a53a" style="display:none;">
+     <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(Запуск657afb1d3dc98f0425bdf1f6d3dda45a);">
+      📂 Запуск
+     </button>
+     <div class="button-folder" id="Запуск657afb1d3dc98f0425bdf1f6d3dda45a" style="display:none;">
+      <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');" vpath="Языки/Java/Запуск/Запуск.md">
+       📄 Запуск
+      </button>
+      <button class="button" onclick="GET('Языки/Java/Запуск/Аргументы.md');" vpath="Языки/Java/Запуск/Аргументы.md">
+       📄 Аргументы
+      </button>
+     </div>
+     <button class="button" onclick="GET('Языки/Java/Типы данных.md');" vpath="Языки/Java/Типы данных.md">
+      📄 Типы данных
+     </button>
+     <button class="button" onclick="GET('Языки/Java/Логические операторы.md');" vpath="Языки/Java/Логические операторы.md">
+      📄 Логические операторы
+     </button>
+     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
+      📄 Массив (Array)
+     </button>
+     <button class="button" onclick="GET('Языки/Java/Циклы.md');" vpath="Языки/Java/Циклы.md">
+      📄 Циклы
+     </button>
+     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы9bf82a34881a101aab3b87b446c96ef0);">
+      📂 Классы
+     </button>
+     <div class="button-folder" id="Классы9bf82a34881a101aab3b87b446c96ef0" style="display:none;">
+      <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
+       📄 Объекты, конструкторы
+      </button>
+      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыa9569c9bde1b751628558ba28540514d);">
+       📂 Методы
+      </button>
+      <div class="button-folder" id="Методыa9569c9bde1b751628558ba28540514d" style="display:none;">
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
+        📄 Методы
+       </button>
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы 2.md');" vpath="Языки/Java/Классы/Методы/Методы 2.md">
+        📄 Методы 2
+       </button>
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Не статические методы.md');" vpath="Языки/Java/Классы/Методы/Не статические методы.md">
+        📄 Не статические методы
+       </button>
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Перегруженные методы.md');" vpath="Языки/Java/Классы/Методы/Перегруженные методы.md">
+        📄 Перегруженные методы
+       </button>
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Переопределение методов.md');" vpath="Языки/Java/Классы/Методы/Переопределение методов.md">
+        📄 Переопределение методов
+       </button>
+      </div>
+      <button class="button" onclick="GET('Языки/Java/Классы/Наследование.md');" vpath="Языки/Java/Классы/Наследование.md">
+       📄 Наследование
+      </button>
+     </div>
+     <button class="button" onclick="GET('Языки/Java/Исключения.md');" vpath="Языки/Java/Исключения.md">
+      📄 Исключения
      </button>
     </div>
     <button class="button" kpath="Языки/Dockerfile" onclick="toggleDisplay(Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861);">
@@ -1380,68 +1452,6 @@ function toggleStyleDisplayByPath(kpath) {
      </button>
      <button class="button" onclick="GET('Языки/Cpp/Указатели2.md');" vpath="Языки/Cpp/Указатели2.md">
       📄 Указатели2
-     </button>
-    </div>
-    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Javab73f7d390a67bc62ced540d07fa7a53a);">
-     📂 Java
-    </button>
-    <div class="button-folder" id="Javab73f7d390a67bc62ced540d07fa7a53a" style="display:none;">
-     <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(Запуск657afb1d3dc98f0425bdf1f6d3dda45a);">
-      📂 Запуск
-     </button>
-     <div class="button-folder" id="Запуск657afb1d3dc98f0425bdf1f6d3dda45a" style="display:none;">
-      <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');" vpath="Языки/Java/Запуск/Запуск.md">
-       📄 Запуск
-      </button>
-      <button class="button" onclick="GET('Языки/Java/Запуск/Аргументы.md');" vpath="Языки/Java/Запуск/Аргументы.md">
-       📄 Аргументы
-      </button>
-     </div>
-     <button class="button" onclick="GET('Языки/Java/Типы данных.md');" vpath="Языки/Java/Типы данных.md">
-      📄 Типы данных
-     </button>
-     <button class="button" onclick="GET('Языки/Java/Логические операторы.md');" vpath="Языки/Java/Логические операторы.md">
-      📄 Логические операторы
-     </button>
-     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
-      📄 Массив (Array)
-     </button>
-     <button class="button" onclick="GET('Языки/Java/Циклы.md');" vpath="Языки/Java/Циклы.md">
-      📄 Циклы
-     </button>
-     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы9bf82a34881a101aab3b87b446c96ef0);">
-      📂 Классы
-     </button>
-     <div class="button-folder" id="Классы9bf82a34881a101aab3b87b446c96ef0" style="display:none;">
-      <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
-       📄 Объекты, конструкторы
-      </button>
-      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыa9569c9bde1b751628558ba28540514d);">
-       📂 Методы
-      </button>
-      <div class="button-folder" id="Методыa9569c9bde1b751628558ba28540514d" style="display:none;">
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
-        📄 Методы
-       </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы 2.md');" vpath="Языки/Java/Классы/Методы/Методы 2.md">
-        📄 Методы 2
-       </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Не статические методы.md');" vpath="Языки/Java/Классы/Методы/Не статические методы.md">
-        📄 Не статические методы
-       </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Перегруженные методы.md');" vpath="Языки/Java/Классы/Методы/Перегруженные методы.md">
-        📄 Перегруженные методы
-       </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Переопределение методов.md');" vpath="Языки/Java/Классы/Методы/Переопределение методов.md">
-        📄 Переопределение методов
-       </button>
-      </div>
-      <button class="button" onclick="GET('Языки/Java/Классы/Наследование.md');" vpath="Языки/Java/Классы/Наследование.md">
-       📄 Наследование
-      </button>
-     </div>
-     <button class="button" onclick="GET('Языки/Java/Исключения.md');" vpath="Языки/Java/Исключения.md">
-      📄 Исключения
      </button>
     </div>
     <button class="button" kpath="Языки/Bash" onclick="toggleDisplay(Bash97893f28eabb962cdc73fe862ae496c3);">

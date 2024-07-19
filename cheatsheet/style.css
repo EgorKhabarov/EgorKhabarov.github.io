@@ -237,3 +237,10 @@ code {
 Контейнер список для поиска
 Контейнер поискового результата
 */
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
