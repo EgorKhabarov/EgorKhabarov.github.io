@@ -132,7 +132,7 @@
 <tr>
 <td><code>%alias_magic</code></td>
 <td>Создаёт псевдоним для существующей магической команды IPython.</td>
-<td><code>%alias_magic t timeit</code><br><code># Теперь можно использовать 't' вместо 'timeit'</code><br><code>t my_function()</code></td>
+<td><code>%alias_magic t timeit</code><br><code># Теперь можно использовать "t" вместо "timeit"</code><br><code>t my_function()</code></td>
 </tr>
 <tr>
 <td><code>%dhist</code></td>

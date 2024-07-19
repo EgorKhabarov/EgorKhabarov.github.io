@@ -1,2 +1,0 @@
-<p>&#95;&#95;instancecheck&#95;&#95;(self, instance) Проверяет, является ли экземлпяр членом вашего класса (isinstance(instance, class)
-&#95;&#95;subclasscheck&#95;&#95;(self, subclass) Проверяет, является наследуется ли класс от вашего класса (issubclass(subclass, class))</p>

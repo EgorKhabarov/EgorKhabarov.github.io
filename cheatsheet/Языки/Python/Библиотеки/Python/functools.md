@@ -16,7 +16,7 @@
 <p>partial(func, <em>args, </em><em>kwargs)<br />
 Возвращает новую функцию, которая является копией исходной функции func, 
 но с некоторыми аргументами, переданными как </em>args и **kwargs, заранее заданными.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codeff981fc439a42bf5694c250123fccca9b" onclick="copyCode(codeff981fc439a42bf5694c250123fccca9, codeff981fc439a42bf5694c250123fccca9b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codeff981fc439a42bf5694c250123fccca9"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codea442684887be550527d3d838cf29e61bb" onclick="copyCode(codea442684887be550527d3d838cf29e61b, codea442684887be550527d3d838cf29e61bb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codea442684887be550527d3d838cf29e61b"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
 <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
@@ -25,26 +25,26 @@
 <span class="n">square</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">exponent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Вызываем функции</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Output: 4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># Output: 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 9</span>
 </pre></div></div></div>
 
 <p>reduce(func, iterable[, initializer]) 
 Применяет функцию func к первым двум элементам последовательности iterable, затем применяет func к результату и следующему элементу, 
 и так далее, пока не будет обработан весь список. Если указан initializer, он используется как первый элемент в последовательности.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code4bc6c5ae72a8bfb9e3ad8ecc35fc0cbab" onclick="copyCode(code4bc6c5ae72a8bfb9e3ad8ecc35fc0cba, code4bc6c5ae72a8bfb9e3ad8ecc35fc0cbab)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code4bc6c5ae72a8bfb9e3ad8ecc35fc0cba"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codec98929e1ee7dd37078a9a4f9926eed9fb" onclick="copyCode(codec98929e1ee7dd37078a9a4f9926eed9f, codec98929e1ee7dd37078a9a4f9926eed9fb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codec98929e1ee7dd37078a9a4f9926eed9f"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
 <span class="c1"># Найдем произведение всех чисел в списке</span>
 <span class="n">product</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>  <span class="c1"># Output: 120</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>  <span class="c1"># 120</span>
 </pre></div></div></div>
 
 <p>cache(func): 
 Декоратор, который кэширует результаты вызовов функции func с одинаковыми аргументами, чтобы избежать повторных вычислений.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code2904951e04ff2adeb290c62d8dabff20b" onclick="copyCode(code2904951e04ff2adeb290c62d8dabff20, code2904951e04ff2adeb290c62d8dabff20b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code2904951e04ff2adeb290c62d8dabff20"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="codec884722e357145ff85af8472b3a77177b" onclick="copyCode(codec884722e357145ff85af8472b3a77177, codec884722e357145ff85af8472b3a77177b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codec884722e357145ff85af8472b3a77177"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cache</span>
 
 <span class="nd">@cache</span>
 <span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -53,14 +53,14 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 120</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># 120</span>
 </pre></div></div></div>
 
 <p>wraps(wrapped[, assigned[, updated]]) 
 Декоратор, который копирует информацию об исходной функции wrapped в декорированную функцию. 
 Это позволяет сохранить метаданные, такие как имя функции, документацию и атрибуты.
 | сохраняет имя и документацию функции так как обычный декоратор заменяет собой функцию</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code4888e5ec41a2310a458542398348fe62b" onclick="copyCode(code4888e5ec41a2310a458542398348fe62, code4888e5ec41a2310a458542398348fe62b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code4888e5ec41a2310a458542398348fe62"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code568a794f9a6ea95574515e493bd220dab" onclick="copyCode(code568a794f9a6ea95574515e493bd220da, code568a794f9a6ea95574515e493bd220dab)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code568a794f9a6ea95574515e493bd220da"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 
 <span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
@@ -74,8 +74,8 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This is my function.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># Output: my_function</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>   <span class="c1"># Output: This is my function.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># my_function</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>   <span class="c1"># This is my function.</span>
 </pre></div></div></div>
 
 <div class="code-element"><div class="lang-line"><text>python-console</text><button class="copy-button" id="code4c0f70a2f70b9180194416dcf24a0869b" onclick="copyCode(code4c0f70a2f70b9180194416dcf24a0869, code4c0f70a2f70b9180194416dcf24a0869b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code4c0f70a2f70b9180194416dcf24a0869"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
@@ -114,7 +114,7 @@
 <p>total_ordering(cls) 
 Декоратор, который автоматически генерирует методы сравнения объектов 
 для класса cls на основе определения методов <strong>eq</strong>() и <strong>lt</strong>().</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code6ebd9e2ee43160c9201799aedbec5331b" onclick="copyCode(code6ebd9e2ee43160c9201799aedbec5331, code6ebd9e2ee43160c9201799aedbec5331b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code6ebd9e2ee43160c9201799aedbec5331"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code22db9c06702f2ad078bcc7842eb96e66b" onclick="copyCode(code22db9c06702f2ad078bcc7842eb96e66, code22db9c06702f2ad078bcc7842eb96e66b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code22db9c06702f2ad078bcc7842eb96e66"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
 
 <span class="nd">@total_ordering</span>
 <span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -129,16 +129,16 @@
 <span class="n">person1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 <span class="n">person2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">==</span> <span class="n">person2</span><span class="p">)</span>  <span class="c1"># Output: False</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">!=</span> <span class="n">person2</span><span class="p">)</span>  <span class="c1"># Output: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">&lt;</span> <span class="n">person2</span><span class="p">)</span>   <span class="c1"># Output: True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">&gt;</span> <span class="n">person2</span><span class="p">)</span>   <span class="c1"># Output: False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">==</span> <span class="n">person2</span><span class="p">)</span>  <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">!=</span> <span class="n">person2</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">&lt;</span> <span class="n">person2</span><span class="p">)</span>   <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person1</span> <span class="o">&gt;</span> <span class="n">person2</span><span class="p">)</span>   <span class="c1"># False</span>
 </pre></div></div></div>
 
 <p>cmp_to_key(cmp) 
 Преобразует функцию сравнения cmp в ключ-функцию, которая может быть использована для сортировки объектов. 
 Эта функция полезна, когда необходимо отсортировать список объектов с использованием пользовательской функции сравнения.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code7a2f806ba96a4209ac1c70a451c55658b" onclick="copyCode(code7a2f806ba96a4209ac1c70a451c55658, code7a2f806ba96a4209ac1c70a451c55658b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code7a2f806ba96a4209ac1c70a451c55658"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cmp_to_key</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" id="code3f6c4ac8a9e9cad22d323226ab21020fb" onclick="copyCode(code3f6c4ac8a9e9cad22d323226ab21020f, code3f6c4ac8a9e9cad22d323226ab21020fb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code3f6c4ac8a9e9cad22d323226ab21020f"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cmp_to_key</span>
 
 <span class="k">def</span> <span class="nf">my_cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
@@ -152,7 +152,7 @@
 
 <span class="n">sorted_numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cmp_to_key</span><span class="p">(</span><span class="n">my_cmp</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">sorted_numbers</span><span class="p">)</span>  <span class="c1"># Output: [1, 2, 3, 4, 7]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_numbers</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 7]</span>
 </pre></div></div></div>
 
 <p>lru_cache — это декоратор в модуле functools в Python, который реализует 

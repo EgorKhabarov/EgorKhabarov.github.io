@@ -597,18 +597,18 @@ function toggleStyleDisplayByPath(kpath) {
      📄 sync asyn
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиac719c0863d967025ef481139f241f56);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиbd9f08969f03a7a5803eb0c9efb875a7);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языкиac719c0863d967025ef481139f241f56" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1505cf16b55f31c204200a325da173a2);">
+   <div class="button-folder" id="Языкиbd9f08969f03a7a5803eb0c9efb875a7" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python2f57769b3621f3d5ff0769e658a9cdc0);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python1505cf16b55f31c204200a325da173a2" style="display:none;">
-     <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки3d7ab96d31951e381aee5286582ac445);">
+    <div class="button-folder" id="Python2f57769b3621f3d5ff0769e658a9cdc0" style="display:none;">
+     <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки526f4d3c6343e7e7598ea63d9929c2af);">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотеки3d7ab96d31951e381aee5286582ac445" style="display:none;">
+     <div class="button-folder" id="Библиотеки526f4d3c6343e7e7598ea63d9929c2af" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Библиотеки/Оглавление.md');" vpath="Языки/Python/Библиотеки/Оглавление.md">
        📄 Оглавление
       </button>
@@ -629,20 +629,14 @@ function toggleStyleDisplayByPath(kpath) {
         📄 subprocess
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Информация" onclick="toggleDisplay(Информация1571a6174f58394f6b73b628ce00207f);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Информация" onclick="toggleDisplay(Информацияb38fe5d3b99d7570b4de7a33ee964d18);">
        📂 Информация
       </button>
-      <div class="button-folder" id="Информация1571a6174f58394f6b73b628ce00207f" style="display:none;">
-       <button class="button" kpath="Языки/Python/Библиотеки/Информация/Типы данных" onclick="toggleDisplay(Типыданныхa12a7cd0ed84f7a8e68c0359251b33cc);">
+      <div class="button-folder" id="Информацияb38fe5d3b99d7570b4de7a33ee964d18" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Информация/Типы данных" onclick="toggleDisplay(Типыданныхcf99bf2fdef3c381029944b66bbc68d4);">
         📂 Типы данных
        </button>
-       <div class="button-folder" id="Типыданныхa12a7cd0ed84f7a8e68c0359251b33cc" style="display:none;">
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/xml.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/xml.md">
-         📄 xml
-        </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/pythoncom.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/pythoncom.md">
-         📄 pythoncom
-        </button>
+       <div class="button-folder" id="Типыданныхcf99bf2fdef3c381029944b66bbc68d4" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/traitlets.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/traitlets.md">
          📄 traitlets
         </button>
@@ -669,9 +663,6 @@ function toggleStyleDisplayByPath(kpath) {
         </button>
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/sched.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/sched.md">
          📄 sched
-        </button>
-        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/nntplib.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/nntplib.md">
-         📄 nntplib
         </button>
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/Типы данных/certifi.md');" vpath="Языки/Python/Библиотеки/Информация/Типы данных/certifi.md">
          📄 certifi
@@ -911,6 +902,9 @@ function toggleStyleDisplayByPath(kpath) {
          📄 fcntl
         </button>
        </div>
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/xml.md');" vpath="Языки/Python/Библиотеки/Информация/xml.md">
+        📄 xml
+       </button>
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/textwrap.md');" vpath="Языки/Python/Библиотеки/Информация/textwrap.md">
         📄 textwrap
        </button>
@@ -1009,11 +1003,22 @@ function toggleStyleDisplayByPath(kpath) {
         </button>
        </div>
       </div>
+      <button class="button" kpath="Языки/Python/Библиотеки/Other" onclick="toggleDisplay(Other3a3d6e82a6fbaf128c57e2dade28dfd2);">
+       📂 Other
+      </button>
+      <div class="button-folder" id="Other3a3d6e82a6fbaf128c57e2dade28dfd2" style="display:none;">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Other/pythoncom.md');" vpath="Языки/Python/Библиотеки/Other/pythoncom.md">
+        📄 pythoncom
+       </button>
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Other/nntplib.md');" vpath="Языки/Python/Библиотеки/Other/nntplib.md">
+        📄 nntplib
+       </button>
+      </div>
      </div>
-     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методыc6b4146e3cada4fc57f65140498364c0);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы96379040b7ad6d56971f8db8dbf3b69e);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методыc6b4146e3cada4fc57f65140498364c0" style="display:none;">
+     <div class="button-folder" id="Методы96379040b7ad6d56971f8db8dbf3b69e" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/int.md');" vpath="Языки/Python/Методы/int.md">
        📄 int
       </button>
@@ -1029,66 +1034,19 @@ function toggleStyleDisplayByPath(kpath) {
       <button class="button" onclick="GET('Языки/Python/Методы/set.md');" vpath="Языки/Python/Методы/set.md">
        📄 set
       </button>
-     </div>
-     <button class="button" kpath="Языки/Python/Магические методы" onclick="toggleDisplay(Магическиеметоды4ca02e5dbe06d65ec8e5c469e8104fa1);">
-      📂 Магические методы
-     </button>
-     <div class="button-folder" id="Магическиеметоды4ca02e5dbe06d65ec8e5c469e8104fa1" style="display:none;">
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Table.md');" vpath="Языки/Python/Магические методы/Table.md">
-       📄 Table
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Кратко о использовании.md');" vpath="Языки/Python/Магические методы/Кратко о использовании.md">
-       📄 Кратко о использовании
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Сlass.md');" vpath="Языки/Python/Магические методы/Сlass.md">
-       📄 Сlass
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Сравнения.md');" vpath="Языки/Python/Магические методы/Сравнения.md">
-       📄 Сравнения
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Унарные операторы.md');" vpath="Языки/Python/Магические методы/Унарные операторы.md">
-       📄 Унарные операторы
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Преобразование типов.md');" vpath="Языки/Python/Магические методы/Преобразование типов.md">
-       📄 Преобразование типов
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Контроль доступа к атрибутам.md');" vpath="Языки/Python/Магические методы/Контроль доступа к атрибутам.md">
-       📄 Контроль доступа к атрибутам
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Магия контейнеров.md');" vpath="Языки/Python/Магические методы/Магия контейнеров.md">
-       📄 Магия контейнеров
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/isinstance().md');" vpath="Языки/Python/Магические методы/isinstance().md">
-       📄 isinstance()
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Вызываемые объекты.md');" vpath="Языки/Python/Магические методы/Вызываемые объекты.md">
-       📄 Вызываемые объекты
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Менеджеры контекста.md');" vpath="Языки/Python/Магические методы/Менеджеры контекста.md">
-       📄 Менеджеры контекста
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Построение дескрипторов.md');" vpath="Языки/Python/Магические методы/Построение дескрипторов.md">
-       📄 Построение дескрипторов
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Копирование.md');" vpath="Языки/Python/Магические методы/Копирование.md">
-       📄 Копирование
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/Ещё.md');" vpath="Языки/Python/Магические методы/Ещё.md">
-       📄 Ещё
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Магические методы/tproger.ru.md');" vpath="Языки/Python/Магические методы/tproger.ru.md">
-       📄 tproger.ru
+      <button class="button" onclick="GET('Языки/Python/Методы/Магические методы.md');" vpath="Языки/Python/Методы/Магические методы.md">
+       📄 Магические методы
       </button>
      </div>
-     <button class="button" kpath="Языки/Python/Декораторы Замыкания" onclick="toggleDisplay(ДекораторыЗамыканияaeff69777d5092d636ff75edfeeb419b);">
+     <button class="button" kpath="Языки/Python/Декораторы Замыкания" onclick="toggleDisplay(ДекораторыЗамыканияeb4883bce98cd41d68d2e20d688f5b4d);">
       📂 Декораторы Замыкания
      </button>
-     <div class="button-folder" id="ДекораторыЗамыканияaeff69777d5092d636ff75edfeeb419b" style="display:none;">
+     <div class="button-folder" id="ДекораторыЗамыканияeb4883bce98cd41d68d2e20d688f5b4d" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md');" vpath="Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md">
        📄 Декораторы Замыкания
       </button>
-      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Аргументы dataclass.md');" vpath="Языки/Python/Декораторы Замыкания/Аргументы dataclass.md">
-       📄 Аргументы dataclass
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/dataclass.md');" vpath="Языки/Python/Декораторы Замыкания/dataclass.md">
+       📄 dataclass
       </button>
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/property.md');" vpath="Языки/Python/Декораторы Замыкания/property.md">
        📄 property
@@ -1098,6 +1056,9 @@ function toggleStyleDisplayByPath(kpath) {
       </button>
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/staticmethod.md');" vpath="Языки/Python/Декораторы Замыкания/staticmethod.md">
        📄 staticmethod
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/classmethod.md');" vpath="Языки/Python/Декораторы Замыкания/classmethod.md">
+       📄 classmethod
       </button>
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/overload.md');" vpath="Языки/Python/Декораторы Замыкания/overload.md">
        📄 overload
@@ -1123,14 +1084,8 @@ function toggleStyleDisplayByPath(kpath) {
      <button class="button" onclick="GET('Языки/Python/Флаги cmd.md');" vpath="Языки/Python/Флаги cmd.md">
       📄 Флаги cmd
      </button>
-     <button class="button" onclick="GET('Языки/Python/with as.md');" vpath="Языки/Python/with as.md">
-      📄 with as
-     </button>
      <button class="button" onclick="GET('Языки/Python/fstrings.md');" vpath="Языки/Python/fstrings.md">
       📄 fstrings
-     </button>
-     <button class="button" onclick="GET('Языки/Python/print(file=).md');" vpath="Языки/Python/print(file=).md">
-      📄 print(file=)
      </button>
      <button class="button" onclick="GET('Языки/Python/for in list comprehension.md');" vpath="Языки/Python/for in list comprehension.md">
       📄 for in list comprehension
@@ -1569,30 +1524,6 @@ function toggleStyleDisplayByPath(kpath) {
    <button class="button" onclick="GET('Полезные ссылки.md');" vpath="/Полезные ссылки.md">
     📄 Полезные ссылки
    </button>
-   <button class="button" onclick="GET('test.md');" vpath="/test.md">
-    📄 test
-   </button>
-   <button class="button" kpath="Университет" onclick="toggleDisplay(Университет330ae5d841bad7672cd6c1489e4f6cb0);">
-    📂 Университет
-   </button>
-   <div class="button-folder" id="Университет330ae5d841bad7672cd6c1489e4f6cb0" style="display:none;">
-    <button class="button" kpath="Университет/Высшая математика" onclick="toggleDisplay(Высшаяматематикаb3ec2589cb57182415b2e90f75446a71);">
-     📂 Высшая математика
-    </button>
-    <div class="button-folder" id="Высшаяматематикаb3ec2589cb57182415b2e90f75446a71" style="display:none;">
-     <button class="button" kpath="Университет/Высшая математика/Матрицы" onclick="toggleDisplay(Матрицыc48f9af562702c649c8f2bfcaef10012);">
-      📂 Матрицы
-     </button>
-     <div class="button-folder" id="Матрицыc48f9af562702c649c8f2bfcaef10012" style="display:none;">
-      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Матрицы.md');" vpath="Университет/Высшая математика/Матрицы/Матрицы.md">
-       📄 Матрицы
-      </button>
-      <button class="button" onclick="GET('Университет/Высшая математика/Матрицы/Определители.md');" vpath="Университет/Высшая математика/Матрицы/Определители.md">
-       📄 Определители
-      </button>
-     </div>
-    </div>
-   </div>
   </div>
   <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
   <div>

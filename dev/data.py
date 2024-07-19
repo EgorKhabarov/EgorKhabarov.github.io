@@ -258,18 +258,17 @@ SELECT num FROM N WHERE num > 3 AND num < 100;
         "ООП": """
 |              |                                                                                                                          |
 |--------------|--------------------------------------------------------------------------------------------------------------------------|
-| инкапсуляция | предназначена для изоляции контрактных обязательств абстракции<br>(протокол/интерфейс) от их реализации (public/private) |
-| наследование | это когда тип данных может наследовать данные и<br>функциональность некоторого существующего типа                        |
-| полиморфизм  | способность функции обрабатывать данные разных типов                                                                     |
-| абстракция   | это процесс упрощения или скрытия сложной реальности,<br>чтобы сосредоточиться на наиболее важных аспектах.              |
+| Инкапсуляция | предназначена для изоляции контрактных обязательств абстракции<br>(протокол/интерфейс) от их реализации (public/private) |
+| Наследование | это когда тип данных может наследовать данные и<br>функциональность некоторого существующего типа                        |
+| Полиморфизм  | способность функции обрабатывать данные разных типов                                                                     |
+| Абстракция   | это процесс упрощения или скрытия сложной реальности,<br>чтобы сосредоточиться на наиболее важных аспектах.              |
 
 В программировании, абстракция означает создание общей концепции, которая скрывает детали реализации, 
 но предоставляет только необходимый набор функций и методов для взаимодействия с объектом. 
 В итоге, абстракция помогает создавать более понятный, гибкий и расширяемый код.
 
 
-Абстракция
-Это процесс создания абстрактных классов и интерфейсов для представления концептуальных объектов и их взаимодействия в программе. 
+Абстракция - это процесс создания абстрактных классов и интерфейсов для представления концептуальных объектов и их взаимодействия в программе. 
 Абстракция позволяет скрыть реализацию объектов и предоставить только необходимый набор свойств и методов для их использования. 
 Это упрощает процесс разработки и поддержки программы, улучшает ее читаемость и расширяемость.
 
@@ -959,91 +958,6 @@ print(result.stdout)
                 },
                 "Информация": {
                     "Типы данных": {
-                        "xml": r"""
-Библиотека "xml" в Python используется для работы с XML-данными.
-Она предоставляет функциональность для чтения, записи, и обработки XML-файлов.
-
-Методы модуля "xml" и его подмодулей:
-xml.etree.ElementTree: Позволяет работать с XML-деревом, включая чтение, запись, и обработку XML-элементов.
-xml.dom: Предоставляет интерфейсы для работы с DOM (Document Object Model) XML-документов.
-xml.sax: Предоставляет SAX (Simple API for XML) интерфейс для обработки XML-документов в потоковом режиме.
-
-Самые часто используемые методы:
-xml.etree.ElementTree.parse(file): Читает XML-файл и возвращает корневой элемент дерева.
-
-```python
-import xml.etree.ElementTree as ET
-
-tree = ET.parse('file.xml')
-root = tree.getroot()
-```
-
-xml.etree.ElementTree.Element.findall(tag): Возвращает список элементов с указанным тегом.
-
-```python
-import xml.etree.ElementTree as ET
-
-tree = ET.parse('file.xml')
-root = tree.getroot()
-
-elements = root.findall('tag')
-```
-
-xml.etree.ElementTree.Element.attrib: Возвращает атрибуты элемента в виде словаря.
-
-```python
-import xml.etree.ElementTree as ET
-
-tree = ET.parse('file.xml')
-root = tree.getroot()
-
-for element in root:
-    attributes = element.attrib
-    print(attributes)
-```
-
-Помните, что без доступа к конкретному XML-файлу, точные примеры кода могут быть недоступны.
-""",
-                        "pythoncom": r"""
-Библиотека "pythoncom" используется для взаимодействия с COM-объектами (Component Object Model) в Python.
-Она предоставляет функциональность для создания, вызова и управления COM-объектами,
-такими как приложения Windows, компоненты Office и другие COM-совместимые объекты.
-
-Вот таблица методов модуля "pythoncom" и его подмодулей:
-
-| Метод           | Описание                             |
-|-----------------|--------------------------------------|
-| CoInitialize    | Инициализирует библиотеку COM.        |
-| CoUninitialize  | Завершает работу с библиотекой COM.    |
-| CoCreateInstance| Создает экземпляр COM-объекта.        |
-| PyCom_RegisterUnknownHandler | Регистрирует обработчик для неизвестных COM-объектов. |
-| CLSIDToClassMap | Карта соответствия CLSID и классов COM. |
-| IIDToInterfaceMap | Карта соответствия IID и интерфейсов COM. |
-
-Некоторые из часто используемых методов библиотеки "pythoncom" включают:
-CoInitialize(): Инициализирует библиотеку COM, обычно вызывается в начале программы.
-CoCreateInstance(clsid, interface=None, context=None, flags=None):
-Создает экземпляр COM-объекта с помощью указанного идентификатора класса (CLSID).
-Возвращает интерфейс COM-объекта.
-CoUninitialize(): Завершает работу с библиотекой COM, обычно вызывается в конце программы.
-
-Пример кода демонстрирующий использование метода CoCreateInstance():
-
-```python
-import pythoncom
-
-# Идентификатор класса для Excel
-clsid = "{00024500-0000-0000-C000-000000000046}"
-
-# Создание экземпляра объекта Excel 
-excel = pythoncom.CoCreateInstance(clsid, None, None, pythoncom.CLSCTX_SERVER)
-
-# Вывод версии Excel
-print(excel.Version)
-```
-
-Обратите внимание, что код может варьироваться в зависимости от требуемых COM-объектов и их интерфейсов.
-""",
                         "traitlets": r"""
 Библиотека "traitlets" в Python используется для определения и использования
 типизированных атрибутов (traits) и событий (events) в объектно-ориентированном программировании.
@@ -1483,59 +1397,6 @@ scheduler.run()
 
 Пожалуйста, помните об обеспечении безопасности при использовании этой библиотеки и выполнении задач в программе.
 """,
-                        "nntplib": r"""
-Библиотека "nntplib" в Python используется для взаимодействия с серверами новостных групп (NNTP).
-Она предоставляет функции и методы для чтения, отправки и управления сообщениями в новостных группах.
-
-Вот таблица методов и их краткие описания для модуля "nntplib" и его подмодулей:
-
-Метод                  | Описание
------------------------|-------------------------------
-nntplib.NNTP           | Класс для установки соединения с сервером NNTP.
-NNTP.__init__()        | Инициализация объекта NNTP.
-NNTP.quit()            | Отключение от сервера NNTP.
-NNTP.group(group)      | Выбор новостной группы для чтения статей.
-NNTP.list()            | Получение списка доступных новостных групп.
-NNTP.article(num)      | Получение статьи по ее номеру.
-NNTP.body(num)         | Получение тела статьи по ее номеру.
-NNTP.head(num)         | Получение заголовка статьи по ее номеру.
-NNTP.post(message)     | Отправка сообщения на сервер NNTP.
-NNTP.search(criteria)  | Поиск статей, удовлетворяющих заданным критериям.
-
-Вот список самых часто используемых методов в "nntplib" и их краткие описания:
-
-NNTP.group(group): Выбирает новостную группу для чтения статей.
-```python
-from nntplib import NNTP
-
-conn = NNTP('news.example.com')
-conn.group('comp.lang.python')
-```
-
-NNTP.list(): Получает список доступных новостных групп.
-```python
-from nntplib import NNTP
-
-conn = NNTP('news.example.com')
-groups = conn.list()
-```
-
-NNTP.article(num): Получает статью по ее номеру.
-```python
-from nntplib import NNTP
-
-conn = NNTP('news.example.com')
-resp, article_lines, msg_id, info = conn.article('12345')
-```
-
-NNTP.post(message): Отправляет сообщение на сервер NNTP.
-```python
-from nntplib import NNTP
-
-conn = NNTP('news.example.com')
-resp = conn.post('<subject>', '<from>', '<body>')
-```
-""",
                         "certifi": r"""
 Библиотека "certifi" в Python используется для работы с сертификатами в криптографии.
 Она предоставляет набор корневых сертификатов, которые могут быть использованы
@@ -1850,21 +1711,7 @@ except:
 ----- | --------
 run_path(path, \[globals=None, locals=None\]) | Загружает и выполняет код из указанного файла по заданному пути.
 run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль.
 
-Самые часто используемые методы:
-
-Метод | Описание | Пример кода
------ | -------- | -----------
-run_path(path, \[globals=None, locals=None\]) | Загружает и выполняет код из указанного файла по заданному пути. | run_path('script.py')
-run_module(mod_name, \[init_globals=None, run_name=None, alter_sys=False\]) | Загружает и выполняет указанный модуль. | run_module('module_name')
 """,
                         "zlib": r"""
 Библиотека "zlib" используется в Python для сжатия и распаковки данных с использованием алгоритма сжатия Deflate.
@@ -2897,7 +2744,7 @@ from webcolors import hex_to_rgb
 
 hex_color = "#FF0000"
 rgb_color = hex_to_rgb(hex_color)
-print(rgb_color)  # Output: (255, 0, 0)
+print(rgb_color)  # (255, 0, 0)
 ```
 
 Метод `rgb_to_hex(rgb_color)`: преобразует цвет в формате RGB в шестнадцатеричный код.
@@ -2907,7 +2754,7 @@ from webcolors import rgb_to_hex
 
 rgb_color = (255, 0, 0)
 hex_color = rgb_to_hex(rgb_color)
-print(hex_color)  # Output: "#FF0000"
+print(hex_color)  # "#FF0000"
 ```
 
 Метод `name_to_rgb(color_name)`: возвращает RGB-значение заданного названия цвета.
@@ -2917,7 +2764,7 @@ from webcolors import name_to_rgb
 
 color_name = "red"
 rgb_color = name_to_rgb(color_name)
-print(rgb_color)  # Output: (255, 0, 0)
+print(rgb_color)  # (255, 0, 0)
 ```
 
 Метод `rgb_to_name(rgb_color)`: возвращает название цвета для заданного значения RGB.
@@ -2927,7 +2774,7 @@ from webcolors import rgb_to_name
 
 rgb_color = (255, 0, 0)
 color_name = rgb_to_name(rgb_color)
-print(color_name)  # Output: "red"
+print(color_name)  # "red"
 ```
 """,
                         "hmac": r"""
@@ -3847,7 +3694,7 @@ import bisect
 a = [1, 3, 5, 7]
 x = 4
 index = bisect.bisect_left(a, x)
-print(index)  # Output: 2
+print(index)  # 2
 ```
 
 insort_right(a, x) - вставляет элемент x в отсортированный список a на наибольшую позицию, сохраняя его отсортированность.
@@ -3857,7 +3704,7 @@ import bisect
 a = [1, 3, 5, 7]
 x = 4
 bisect.insort_right(a, x)
-print(a)  # Output: [1, 3, 4, 5, 7]
+print(a)  # [1, 3, 4, 5, 7]
 ```
 
 bisect_right(a, x) - возвращает индекс первого элемента, который больше x.
@@ -3867,7 +3714,7 @@ import bisect
 a = [1, 3, 5, 7]
 x = 4
 index = bisect.bisect_right(a, x)
-print(index)  # Output: 3
+print(index)  # 3
 ```
 """,
                         "jsonpointer": r"""
@@ -3892,7 +3739,7 @@ import jsonpointer
 json_obj = {"name": "John", "age": 30}
 pointer = "/name"
 value = jsonpointer.resolve_pointer(json_obj, pointer)
-print(value)  # Output: John
+print(value)  # John
 ```
 
 `set_pointer(json_obj, pointer, value)`: Устанавливает значение по указателю JSON в JSON-объекте.
@@ -3904,7 +3751,7 @@ json_obj = {"name": "John", "age": 30}
 pointer = "/name"
 value = "Jane"
 jsonpointer.set_pointer(json_obj, pointer, value)
-print(json_obj)  # Output: {"name": "Jane", "age": 30}
+print(json_obj)  # {"name": "Jane", "age": 30}
 ```
 
 `remove_pointer(json_obj, pointer)`: Удаляет значение по указателю JSON из JSON-объекта.
@@ -3915,7 +3762,7 @@ import jsonpointer
 json_obj = {"name": "John", "age": 30}
 pointer = "/name"
 jsonpointer.remove_pointer(json_obj, pointer)
-print(json_obj)  # Output: {"age": 30}
+print(json_obj)  # {"age": 30}
 ```
 """,
                         "grp": r"""
@@ -4598,7 +4445,7 @@ def square(x):
 with concurrent.futures.ThreadPoolExecutor() as executor:
     future = executor.submit(square, 5)
     result = future.result()
-    print(result)  # Output: 25
+    print(result)  # 25
 ```
 
 map(fn, *iterables, timeout=None): Применяет функцию к каждому элементу итерируемых объектов и возвращает результаты в том же порядке.
@@ -4612,7 +4459,7 @@ def square(x):
 with concurrent.futures.ThreadPoolExecutor() as executor:
     numbers = [1, 2, 3, 4, 5]
     results = executor.map(square, numbers)
-    print(list(results))  # Output: [1, 4, 9, 16, 25]
+    print(list(results))  # [1, 4, 9, 16, 25]
 ```
 
 shutdown(wait=True): Завершает работу пула потоков или процессов.
@@ -5291,6 +5138,51 @@ file_descriptor.close()
 ```
 """,
                     },
+                    "xml": r"""
+Библиотека "xml" в Python используется для работы с XML-данными.
+Она предоставляет функциональность для чтения, записи, и обработки XML-файлов.
+
+Методы модуля "xml" и его подмодулей:
+xml.etree.ElementTree: Позволяет работать с XML-деревом, включая чтение, запись, и обработку XML-элементов.
+xml.dom: Предоставляет интерфейсы для работы с DOM (Document Object Model) XML-документов.
+xml.sax: Предоставляет SAX (Simple API for XML) интерфейс для обработки XML-документов в потоковом режиме.
+
+Самые часто используемые методы:
+xml.etree.ElementTree.parse(file): Читает XML-файл и возвращает корневой элемент дерева.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+```
+
+xml.etree.ElementTree.Element.findall(tag): Возвращает список элементов с указанным тегом.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+
+elements = root.findall('tag')
+```
+
+xml.etree.ElementTree.Element.attrib: Возвращает атрибуты элемента в виде словаря.
+
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('file.xml')
+root = tree.getroot()
+
+for element in root:
+    attributes = element.attrib
+    print(attributes)
+```
+
+Помните, что без доступа к конкретному XML-файлу, точные примеры кода могут быть недоступны.
+""",
                     "textwrap": """
 Функция textwrap.wrap из модуля textwrap в Python используется 
 для разбиения текстовой строки на список строк с заданной шириной столбца.
@@ -5305,7 +5197,7 @@ long_string = "This is a very long string that needs to be wrapped."
 wrapped_string = textwrap.wrap(long_string, width=10)
 
 print(wrapped_string)
-# Output: ['This is a', 'very long', 'string', 'that needs', 'to be', 'wrapped.']
+# ['This is a', 'very long', 'string', 'that needs', 'to be', 'wrapped.']
 ```
 
 Кроме textwrap.wrap, модуль textwrap также содержит другие функции, такие как:
@@ -6715,8 +6607,8 @@ def power(base, exponent)
 square = partial(power, exponent=2)
 
 # Вызываем функции
-print(square(2))  # Output: 4
-print(square(3))  # Output: 9
+print(square(2))  # 4
+print(square(3))  # 9
 ```
 
 reduce(func, iterable[, initializer]) 
@@ -6731,7 +6623,7 @@ numbers = [1, 2, 3, 4, 5]
 # Найдем произведение всех чисел в списке
 product = reduce(lambda x, y: x*y, numbers)
 
-print(product)  # Output: 120
+print(product)  # 120
 ```
 
 cache(func): 
@@ -6747,7 +6639,7 @@ def factorial(n):
     else:
         return n * factorial(n-1)
 
-print(factorial(5))  # Output: 120
+print(factorial(5))  # 120
 ```
 
 wraps(wrapped[, assigned[, updated]]) 
@@ -6770,8 +6662,8 @@ def my_function():
     """This is my function."""
     print("Hello, World!")
 
-print(my_function.__name__)  # Output: my_function
-print(my_function.__doc__)   # Output: This is my function.
+print(my_function.__name__)  # my_function
+print(my_function.__doc__)   # This is my function.
 ```
 
 ```python-console
@@ -6828,10 +6720,10 @@ class Person:
 person1 = Person("Alice", 25)
 person2 = Person("Bob", 30)
 
-print(person1 == person2)  # Output: False
-print(person1 != person2)  # Output: True
-print(person1 < person2)   # Output: True
-print(person1 > person2)   # Output: False
+print(person1 == person2)  # False
+print(person1 != person2)  # True
+print(person1 < person2)   # True
+print(person1 > person2)   # False
 ```
 
 cmp_to_key(cmp) 
@@ -6853,7 +6745,7 @@ numbers = [4, 2, 7, 1, 3]
 
 sorted_numbers = sorted(numbers, key=cmp_to_key(my_cmp))
 
-print(sorted_numbers)  # Output: [1, 2, 3, 4, 7]
+print(sorted_numbers)  # [1, 2, 3, 4, 7]
 ```
 
 
@@ -7092,19 +6984,8 @@ setup(
 import tokenize
 from tabnanny import process_tokens
 
-with open('file.py', 'rb') as f:
-    tokens = tokenize.generate_tokens(f.readline)
-    process_tokens(tokens)
-```
-
-**NannyToken(token)** Конструктор класса токенов, используемый для проверки.
-
-```python
-from tabnanny import NannyToken
-
-token = (1, '    ', (0, 0), (0, 0), '    ')  # Пример токена с проблемой
-nanny_token = NannyToken(token)
-print(nanny_token)
+with open("file.py", "rb") as f:
+    process_tokens(tokenize.generate_tokens(f.readline))
 ```
 """,
                     "atexit": """
@@ -7264,7 +7145,7 @@ cache.set("key", "value")
 # Получаем значение из кеша
 cached_value = cache.get("key")
 
-print(cached_value)  # Output: "value"
+print(cached_value)  # "value"
 ```
 """,
                 },
@@ -7327,6 +7208,102 @@ def func(name: type):
 
 """,
                     },
+                },
+                "Other": {
+                    "pythoncom": r"""
+Библиотека "pythoncom" используется для взаимодействия с COM-объектами (Component Object Model) в Python.
+Она предоставляет функциональность для создания, вызова и управления COM-объектами,
+такими как приложения Windows, компоненты Office и другие COM-совместимые объекты.
+
+Вот таблица методов модуля "pythoncom" и его подмодулей:
+
+| Метод           | Описание                             |
+|-----------------|--------------------------------------|
+| CoInitialize    | Инициализирует библиотеку COM.        |
+| CoUninitialize  | Завершает работу с библиотекой COM.    |
+| CoCreateInstance| Создает экземпляр COM-объекта.        |
+| PyCom_RegisterUnknownHandler | Регистрирует обработчик для неизвестных COM-объектов. |
+| CLSIDToClassMap | Карта соответствия CLSID и классов COM. |
+| IIDToInterfaceMap | Карта соответствия IID и интерфейсов COM. |
+
+Некоторые из часто используемых методов библиотеки "pythoncom" включают:
+CoInitialize(): Инициализирует библиотеку COM, обычно вызывается в начале программы.
+CoCreateInstance(clsid, interface=None, context=None, flags=None):
+Создает экземпляр COM-объекта с помощью указанного идентификатора класса (CLSID).
+Возвращает интерфейс COM-объекта.
+CoUninitialize(): Завершает работу с библиотекой COM, обычно вызывается в конце программы.
+
+Пример кода демонстрирующий использование метода CoCreateInstance():
+
+```python
+import pythoncom
+
+# Идентификатор класса для Excel
+clsid = "{00024500-0000-0000-C000-000000000046}"
+
+# Создание экземпляра объекта Excel 
+excel = pythoncom.CoCreateInstance(clsid, None, None, pythoncom.CLSCTX_SERVER)
+
+# Вывод версии Excel
+print(excel.Version)
+```
+
+Обратите внимание, что код может варьироваться в зависимости от требуемых COM-объектов и их интерфейсов.
+""",
+                    "nntplib": r"""
+Библиотека "nntplib" в Python используется для взаимодействия с серверами новостных групп (NNTP).
+Она предоставляет функции и методы для чтения, отправки и управления сообщениями в новостных группах.
+
+Вот таблица методов и их краткие описания для модуля "nntplib" и его подмодулей:
+
+Метод                  | Описание
+-----------------------|-------------------------------
+nntplib.NNTP           | Класс для установки соединения с сервером NNTP.
+NNTP.__init__()        | Инициализация объекта NNTP.
+NNTP.quit()            | Отключение от сервера NNTP.
+NNTP.group(group)      | Выбор новостной группы для чтения статей.
+NNTP.list()            | Получение списка доступных новостных групп.
+NNTP.article(num)      | Получение статьи по ее номеру.
+NNTP.body(num)         | Получение тела статьи по ее номеру.
+NNTP.head(num)         | Получение заголовка статьи по ее номеру.
+NNTP.post(message)     | Отправка сообщения на сервер NNTP.
+NNTP.search(criteria)  | Поиск статей, удовлетворяющих заданным критериям.
+
+Вот список самых часто используемых методов в "nntplib" и их краткие описания:
+
+NNTP.group(group): Выбирает новостную группу для чтения статей.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+conn.group('comp.lang.python')
+```
+
+NNTP.list(): Получает список доступных новостных групп.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+groups = conn.list()
+```
+
+NNTP.article(num): Получает статью по ее номеру.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+resp, article_lines, msg_id, info = conn.article('12345')
+```
+
+NNTP.post(message): Отправляет сообщение на сервер NNTP.
+```python
+from nntplib import NNTP
+
+conn = NNTP('news.example.com')
+resp = conn.post('<subject>', '<from>', '<body>')
+```
+""",
+
                 },
             },
             "Методы": {
@@ -7499,9 +7476,7 @@ frozenset({1, 2, 3})
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 """,
-            },
-            "Магические методы": {
-                "Table": escape_markdown(
+                "Магические методы": escape_markdown(
                     rf"""
 # Арифметические операции
 | Функция                                        | Пример                                             | Описание                                                                         |
@@ -7659,969 +7634,11 @@ AttributeError: 'frozenset' object has no attribute 'add'
 
                     """
                 ),
-                "Кратко о использовании": """                   
-| Магический метод                | Когда он вызывается (пример)     | Объяснение                                           |
-|---------------------------------|----------------------------------|------------------------------------------------------|
-| &#95;&#95;new&#95;&#95;(cls [,...])             | instance = MyClass(arg1, arg2)   | &#95;&#95;new&#95;&#95; вызывается при создании экземпляра           |
-| &#95;&#95;init&#95;&#95;(self [,...])           | instance = MyClass(arg1, arg2)   | &#95;&#95;init&#95;&#95; вызывается при создании экземпляра          |
-| &#95;&#95;pos&#95;&#95;(self)                   | +self                            | Унарный знак плюса                                   |
-| &#95;&#95;neg&#95;&#95;(self)                   | -self                            | Унарный знак минуса                                  |
-| &#95;&#95;invert&#95;&#95;(self)                | ~self                            | Побитовая инверсия                                   |
-| &#95;&#95;index&#95;&#95;(self)                 | x[self]                          | Преобразование, когда объект используется как индекс |
-| &#95;&#95;nonzero&#95;&#95;(self)               | bool(self), if self:             | Булевое значение объекта                             |
-| &#95;&#95;getattr&#95;&#95;(self, name)         | self.name # name не определено   | Пытаются получить несуществующий атрибут             |
-| &#95;&#95;setattr&#95;&#95;(self, name, val)    | self.name = val                  | Присвоение любому атрибуту                           |
-| &#95;&#95;delattr&#95;&#95;(self, name)         | del self.name                    | Удаление атрибута                                    |
-| &#95;&#95;getattribute&#95;&#95;(self, name)    | self.name                        | Получить любой атрибут                               |
-| &#95;&#95;getitem&#95;&#95;(self, key)          | self[key]                        | Получение элемента через индекс                      |
-| &#95;&#95;setitem&#95;&#95;(self, key, val)     | self[key] = val                  | Присвоение элементу через индекс                     |
-| &#95;&#95;delitem&#95;&#95;(self, key)          | del self[key]                    | Удаление элемента через индекс                       |
-| &#95;&#95;iter&#95;&#95;(self)                  | for x in self                    | Итерация                                             |
-| &#95;&#95;contains&#95;&#95;(self, value)       | value in self, value not in self | Проверка принадлежности с помощью in                 |
-| &#95;&#95;call&#95;&#95;(self [,...])           | self(args)                       | «Вызов» экземпляра                                   |
-| &#95;&#95;enter&#95;&#95;(self)                 | with self as x:                  | with оператор менеджеров контекста                   |
-| &#95;&#95;exit&#95;&#95;(self, exc, val, trace) | with self as x:                  | with оператор менеджеров контекста                   |
-| &#95;&#95;getstate&#95;&#95;(self)              | pickle.dump(pkl_file, self)      | Сериализация                                         |
-| &#95;&#95;setstate&#95;&#95;(self)              | data = pickle.load(pkl_file)     | Сериализация                                         |
-""",
-                "Сlass": """
-&#95;&#95;_new&#95;&#95;(cls, [...)
-    Это первый метод, который будет вызван при инициализации объекта. 
-    Он принимает в качестве параметров класс и потом любые другие аргументы, 
-    которые будут переданы в &#95;&#95;init&#95;&#95;.&#95;&#95;_new&#95;&#95; используется весьма редко, но иногда бывает полезен, 
-    в частности, когда класс наследуется от неизменяемого (immutable) типа, такого как 
-    кортеж (tuple) или строка.
-
-&#95;&#95;init&#95;&#95;(self, [...)
-    Инициализатор класса. Ему передаётся всё, с чем был вызван первоначальный конструктор 
-    (если мы вызываем x = SomeClass(10, 'foo'), &#95;&#95;init&#95;&#95; получит 10 и 'foo' в качестве аргументов. 
-    __init__ почти повсеместно используется при определении классов.
-
-&#95;&#95;_del&#95;&#95;(self)
-    Если&#95;&#95;_new&#95;&#95; и &#95;&#95;init&#95;&#95; образуют конструктор объекта,&#95;&#95;_del&#95;&#95; это его деструктор. 
-    Он не определяет поведение для выражения del x (поэтому этот код не эквивалентен x&#95;&#95;_del&#95;&#95;()). 
-    Скорее, он определяет поведение объекта в то время, когда объект попадает в сборщик мусора. 
-    Это может быть довольно удобно для объектов, которые могут требовать дополнительных чисток 
-    во время удаления, таких как сокеты или файловые объекты.
-
-```python
-class Class:
-    def __init__(self, arg):
-        self.arg = arg
-
-    def __del__(self):
-        del self.arg
-```
-""",
-                "Сравнения": """
-&#95;&#95;eq&#95;&#95;(self, other) - ==
-&#95;&#95;ne&#95;&#95;(self, other) - !=
-&#95;&#95;lt&#95;&#95;(self, other) - <
-&#95;&#95;gt&#95;&#95;(self, other) - >
-&#95;&#95;le&#95;&#95;(self, other) - <=
-&#95;&#95;ge&#95;&#95;(self, other) - >=
-
-```python
-class Word(str):
-    '''Класс для слов, определяющий сравнение по длине слов.'''
-    def __new__(cls, word):
-        # Мы должны использовать __new__, так как тип str неизменяемый
-        # и мы должны инициализировать его раньше (при создании)
-        if ' ' in word:
-            print "Value contains spaces. Truncating to first space."
-            word = word[:word.index(' ')] 
-            # Теперь Word это все символы до первого пробела
-        return str.__new__(cls, word)
-
-    def __gt__(self, other):
-        return len(self) > len(other)
-    def __lt__(self, other):
-        return len(self) < len(other)
-    def __ge__(self, other):
-        return len(self) >= len(other)
-    def __le__(self, other):
-        return len(self) <= len(other)
-```
-
-Теперь мы можем создать два Word (при помощи Word('foo') и Word('bar')) и сравнить их по длине. 
-Заметьте, что мы не определяли &#95;&#95;eq&#95;&#95; и &#95;&#95;ne&#95;&#95;, так как это приведёт к странному поведению 
-(например, Word('foo') == Word('bar') будет расцениваться как истина)
-
-Стандартная библиотека предоставляет нам класс-декторатор в модуле functools, 
-который и определит все сравнивающие методы, от вас достаточно 
-определить только &#95;&#95;eq&#95;&#95; и ещё один (&#95;&#95;gt&#95;&#95;, &#95;&#95;lt&#95;&#95; и т.п.) 
-Для того, чтобы задействовать её, поместите @total_ordering над вашим определением класса.
-""",
-                "Унарные операторы": """
-Обычные арифметические операторы
-
-|                                                          |                                                                                     |
-|----------------------------------------------------------|-------------------------------------------------------------------------------------|
-| &#95;&#95;add&#95;&#95;(self, other)                     | +         Сложение                                                                  |
-| &#95;&#95;pos&#95;&#95;(self)                            | +self     Унарный плюс                                                              |
-| &#95;&#95;sub&#95;&#95;(self, other)                     | -         Вычитание                                                                 |
-| &#95;&#95;neg&#95;&#95;(self)                            | -self     Отрицание                                                                 |
-| &#95;&#95;mul&#95;&#95;(self, other)                     | *         Умножение                                                                 |
-| &#95;&#95;floordiv&#95;&#95;(self, other)                | //        Целочисленное деление                                                     |
-| Нету в python 3 ??? &#95;&#95;div&#95;&#95;(self, other) | /         Деление                                                                   |
-| &#95;&#95;truediv&#95;&#95;(self, other)                 |           Правильное деление. Нужно from &#95;&#95;future&#95;&#95; import division |
-| &#95;&#95;mod&#95;&#95;(self, other)                     | %         Остаток от деления                                                        |
-| &#95;&#95;divmod&#95;&#95;(self, other)                  |           Определяет поведение для встроенной функции divmod()                      |
-| &#95;&#95;pow&#95;&#95;                                  | **        Возведение в степень                                                      |
-| &#95;&#95;lshift&#95;&#95;(self, other)                  | &lt;&lt;  Двоичный сдвиг влево                                                      |
-| &#95;&#95;rshift&#95;&#95;(self, other)                  | &gt;      Двоичный сдвиг вправо                                                     |
-| &#95;&#95;and&#95;&#95;(self, other)                     | &         Двоичное И                                                                |
-| &#95;&#95;or&#95;&#95;(self, other)                      | &vert;    Двоичное ИЛИ                                                              |
-| &#95;&#95;xor&#95;&#95;(self, other)                     | ^         Двоичный xor                                                              |
-
-Каждый из этих методов должен возвращать значение, которое будет присвоено 
-переменной слева (например, для a += b, &#95;&#95;iadd&#95;&#95; должен вернуть a + b, что будет присвоено a). 
-
-|                                            |           |                                                                               |
-|--------------------------------------------|-----------|-------------------------------------------------------------------------------|
-| &#95;&#95;iadd&#95;&#95;(self, other)      | +=        | Сложение с присваиванием                                                      |
-| &#95;&#95;isub&#95;&#95;(self, other)      | -=        | Вычитание с присваиванием                                                     |
-| &#95;&#95;imul&#95;&#95;(self, other)      | *=        | Умножение с присваиванием                                                     |
-| &#95;&#95;imatmul&#95;&#95;(self, other)   | @=        | Умножение матриц с присваиванием                                              |
-| &#95;&#95;ifloordiv&#95;&#95;(self, other) | //=       | Целочисленное деление с присваиванием                                         |
-| &#95;&#95;idiv&#95;&#95;(self, other)      | /=        | Деление с присваиванием                                                       |
-| &#95;&#95;itruediv&#95;&#95;(self, other)  |           | Правильное деление с присваиванием.<br>Нужно from &#95;&#95;future&#95;&#95; import division. |
-| &#95;&#95;imo&#95;&#95;(self, other)       | %=        | Остаток от деления с присваиванием                                            |
-| &#95;&#95;ipow&#95;&#95;                   | **=       | Возведение в степень с присваиванием                                          |
-| &#95;&#95;ilshift&#95;&#95;(self, other)   | &lt;&lt;= | Двоичный сдвиг влево с присваиванием                                          |
-| &#95;&#95;irshift&#95;&#95;(self, other)   | &gt;&gt;= | Двоичный сдвиг вправо с присваиванием                                         |
-| &#95;&#95;iand&#95;&#95;(self, other)      | &=        | Двоичное И с присваиванием                                                    |
-| &#95;&#95;ior&#95;&#95;(self, other)       | &vert;=   | Двоичное ИЛИ с присваиванием                                                  |
-| &#95;&#95;ixor&#95;&#95;(self, other)      | ^=        | Двоичный xor с присваиванием                                                  |
-
-|                                            |                             |                                                          |
-|--------------------------------------------|-----------------------------|----------------------------------------------------------|
-| &#95;&#95;abs&#95;&#95;(self)              | встроенная функции abs().   |                                                          |
-| &#95;&#95;invert&#95;&#95;(self)           | ~                           | инвертирования оператором.                               |
-| &#95;&#95;round&#95;&#95;(self)            | встроенная функции round(). | n это число знаков после запятой, до которого округлить. |
-| &#95;&#95;floor&#95;&#95;(self)            | math.floor()                | округления до ближайшего меньшего целого.                |
-| &#95;&#95;ceil&#95;&#95;(self)             | math.ceil()                 | округления до ближайшего большего целого.                |
-| &#95;&#95;trunc&#95;&#95;(self)            | math.trunc()                | обрезания до целого.                                     |
-
-Отражённая арифметика
-some_object + other
-Это «обычное» сложение. Единственное, чем отличается эквивалентное отражённое выражение, это порядок слагаемых:
-other + some_object
-В большинстве случаев, результат отражённой операции такой же, как её обычный эквивалент, 
-поэтому при определении __radd__ вы можете ограничиться вызовом &#95;&#95;add&#95;&#95; да и всё. 
-Заметьте, что объект слева от оператора (other в примере) 
-не должен иметь обычной неотражённой версии этого метода.
-
-|                                            |        |                                                                                            |
-|--------------------------------------------|--------|--------------------------------------------------------------------------------------------|
-| &#95;&#95;radd&#95;&#95;(self, other)      | +      | Отражённое сложение                                                                        |
-| &#95;&#95;rsub&#95;&#95;(self, other)      | -      | Отражённое вычитание                                                                       |
-| &#95;&#95;rmul&#95;&#95;(self, other)      | *      | Отражённое умножение                                                                       |
-| &#95;&#95;rfloordiv&#95;&#95;(self, other) | //     | Отражённое целочисленное деление                                                           |
-| &#95;&#95;rdiv&#95;&#95;(self, other)      | /      | Отражённое деление                                                                         |
-| &#95;&#95;rtruediv&#95;&#95;(self, other)  |        | Отражённое правильное деление. Нужно from __future__ import division                       |
-| &#95;&#95;rmod&#95;&#95;(self, other)      | %      | Отражённый остаток от деления                                                              |
-| &#95;&#95;rdivmod&#95;&#95;(self, other)   |        | Определяет поведение для встроенной функции divmod(), когда вызывается divmod(other, self) |
-| &#95;&#95;rpow&#95;&#95;                   | **     | Отражённое возведение в степень                                                            |
-| &#95;&#95;rlshift&#95;&#95;(self, other)   | <<     | Отражённый двоичный сдвиг влево                                                            |
-| &#95;&#95;rrshift&#95;&#95;(self, other)   | >>     | Отражённый двоичный сдвиг вправо                                                           |
-| &#95;&#95;rand&#95;&#95;(self, other)      | &      | Отражённое двоичное И                                                                      |
-| &#95;&#95;ror&#95;&#95;(self, other)       | &vert; | Отражённое двоичное ИЛИ                                                                    |
-| &#95;&#95;rxor&#95;&#95;(self, other)      | ^      | Отражённый двоичный xor                                                                    |
-""",
-                "Преобразование типов": """
-&#95;&#95;int&#95;&#95;(self)           в int.
-&#95;&#95;long&#95;&#95;(self)          в long.
-&#95;&#95;float&#95;&#95;(self)         в float.
-&#95;&#95;complex&#95;&#95;(self)       в комплексное число.
-&#95;&#95;oct&#95;&#95;(self)           в восьмеричное число.
-&#95;&#95;hex&#95;&#95;(self)           в шестнадцатиричное число.
-&#95;&#95;index&#95;&#95;(self)         Преобразование типа к int, когда объект используется в срезах (выражения вида [start:stop:step]). 
-                        Если вы определяете свой числовый тип, который может использоваться как индекс списка, вы должны определить __index__.
-&#95;&#95;trunc&#95;&#95;(self)         Вызывается при math.trunc(self). 
-                        Должен вернуть своё значение, обрезанное до целочисленного типа (обычно long).
-&#95;&#95;str&#95;&#95;(self)           Определяет поведение функции str(), вызванной для экземпляра вашего класса.
-&#95;&#95;repr&#95;&#95;(self)          Определяет поведение функции repr(), вызыванной для экземпляра вашего класса. 
-                        Главное отличие от str() в целевой аудитории. 
-                        repr() больше предназначен для машинно-ориентированного вывода 
-                        (более того, это часто должен быть валидный код на Питоне), а str() предназначен для чтения людьми.
-&#95;&#95;bytes&#95;&#95;(self)         ведёт себя так же как &#95;str&#95;&#95;
-&#95;&#95;format&#95;&#95;(self, formatstr)
-                        Определяет поведение, когда экземпляр вашего класса используется в форматировании строк нового стиля. 
-                        Например, "Hello, {0:abc}!".format(a) приведёт к вызову a.&#95;format&#95;("abc"). 
-                        Это может быть полезно для определения ваших собственных числовых или строковых типов, 
-                        которым вы можете захотеть предоставить какие-нибудь специальные опции форматирования.
-&#95;&#95;hash&#95;&#95;(self)          Определяет поведение функции hash(), вызыванной для экземпляра вашего класса. 
-                        Метод должен возвращать целочисленное значение, которое будет использоваться 
-                        для быстрого сравнения ключей в словарях. 
-                        Заметьте, что в таком случае обычно нужно определять и &#95;&#95;eq&#95;&#95; тоже. 
-                        Руководствуйтесь следующим правилом: a == b подразумевает hash(a) == hash(b).
-&#95;&#95;bool&#95;&#95;(self)          Определяет поведение функции bool(), вызванной для экземпляра вашего класса. 
-                        Должна вернуть True или False, в зависимости от того, 
-                        когда вы считаете экземпляр соответствующим True или False.
-&#95;&#95;dir&#95;&#95;(self)           Определяет поведение функции dir(), вызванной на экземпляре вашего класса. 
-                        Этот метод должен возвращать пользователю список атрибутов. 
-                        Обычно, определение &#95;dir&#95;&#95; не требуется, но может быть жизненно важно для интерактивного 
-                        использования вашего класса, если вы переопределили &#95;getattr&#95;&#95; или &#95;getattribute&#95;&#95; 
-                        (с которыми вы встретитесь в следующей части), 
-                        или каким-либо другим образом динамически создаёте атрибуты.
-&#95;&#95;sizeof&#95;&#95;(self)        Определяет поведение функции sys.getsizeof(), вызыванной на экземпляре вашего класса. 
-                        Метод должен вернуть размер вашего объекта в байтах. 
-                        Он главным образом полезен для классов, определённых в 
-                        расширениях на C, но всё-равно полезно о нём знать.
-""",
-                "Контроль доступа к атрибутам": """
-&#95;&#95;getattr&#95;&#95;(self, name)              Вы можете определить поведение для случая, когда пользователь пытается обратиться 
-                                     к атрибуту, который не существует (совсем или пока ещё). 
-                                     Это может быть полезным для перехвата и перенаправления частых опечаток, 
-                                     предупреждения об использовании устаревших атрибутов 
-                                     (вы можете всё-равно вычислить и вернуть этот атрибут, если хотите), 
-                                     или хитро возвращать AttributeError, когда это вам нужно. 
-                                     Правда, этот метод вызывается только когда пытаются получить 
-                                     доступ к несуществующему атрибуту, поэтому это не очень хорошее решение для инкапсуляции.
-&#95;&#95;setattr&#95;&#95;(self, name, value)       В отличии от &#95;&#95;getattr&#95;&#95;, &#95;&#95;setattr&#95;&#95; решение для инкапсуляции. 
-                                     Этот метод позволяет вам определить поведение для присвоения значения атрибуту, 
-                                     независимо от того существует атрибут или нет. 
-                                     То есть, вы можете определить любые правила для любых изменений значения атрибутов. 
-                                     Впрочем, вы должны быть осторожны с тем, как использовать &#95;&#95;setattr&#95;&#95;, 
-                                     смотрите пример нехорошего случая в конце этого списка.
-&#95;&#95;delattr&#95;&#95;                          Это то же, что и &#95;&#95;setattr&#95;&#95;, но для удаления атрибутов, вместо установки значений. 
-                                     Здесь требуются те же меры предосторожности, что и в __setattr__ чтобы избежать 
-                                     бесконечной рекурсии (вызов del self.name в определении __delattr__ вызовет бесконечную рекурсию)
-&#95;&#95;getattribute&#95;&#95;(self, name)         Выглядит к месту среди своих коллег &#95;&#95;setattr&#95;&#95; и &#95;&#95;delattr&#95;&#95;, 
-                                     но я бы не рекомендовал вам его использовать. &#95;&#95;getattribute&#95;&#95; может использоваться 
-                                     только с классами нового типа (в новых версиях Питона все классы нового типа, а в старых версиях 
-                                     вы можете получить такой класс унаследовавшись от object). 
-                                     Этот метод позволяет вам определить поведение для каждого случая доступа к атрибутам 
-                                     (а не только к несуществующим, как &#95;&#95;getattr&#95;&#95;(self, name)). 
-                                     Он страдает от таких же проблем с бесконечной рекурсией, как и его коллеги 
-                                     (на этот раз вы можете вызывать &#95;&#95;getattribute&#95;&#95; у базового класса, чтобы их предотвратить). 
-                                     Он, так же, главным образом устраняет необходимость в &#95;&#95;getattr&#95;&#95;, 
-                                     который в случае реализации &#95;&#95;getattribute&#95;&#95; может быть вызван только явным образом 
-                                     или в случае генерации исключения AttributeError. 
-                                     Вы конечно можете использовать этот метод (в конце концов, это ваш выбор), 
-                                     но я бы не рекомендовал, потому что случаев, когда он действительно полезен очень мало 
-                                     (намного реже нужно переопределять поведение при получении, а не при установке значения) 
-                                     и реализовать его без возможных ошибок очень сложно.
-
-Вы можете запросто получить проблему при определении любого метода, управляющего доступом к атрибутам. Рассмотрим пример:
-
-```python
-def __setattr__(self, name, value):
-    self.name = value
-    # это рекурсия, так как всякий раз, когда любому атрибуту присваивается значение,
-    # вызывается  __setattr__().
-    # тоесть, на самом деле это равнозначно self.__setattr__('name', value). 
-    # Так как метод вызывает сам себя, рекурсия продолжится бесконечно, пока всё не упадёт
-
-def __setattr__(self, name, value):
-    self.__dict__[name] = value # присваивание в словарь переменных класса
-    # дальше определение произвольного поведения
-```
-
-Ещё раз, мощь магических методов в Питоне невероятна, а с большой силой 
-приходит и большая ответственность. 
-Важно знать, как правильно использовать магические методы, ничего не ломая.
-
-Вот пример использования методов контроля доступа 
-(заметьте, что мы используем super, так как не все классы имеют атрибут &#95;&#95;dict&#95;&#95;):
-
-```python
-class AccessCounter(object):
-    '''Класс, содержащий атрибут value и реализующий счётчик доступа к нему.
-    Счётчик увеличивается каждый раз, когда меняется value.'''
-
-    def __init__(self, val):
-        super(AccessCounter, self).__setattr__('counter', 0)
-        super(AccessCounter, self).__setattr__('value', val)
-
-    def __setattr__(self, name, value):
-        if name == 'value':
-            super(AccessCounter, self).__setattr__('counter', self.counter + 1)
-        # Не будем делать здесь никаких условий.
-        # Если вы хотите предотвратить изменение других атрибутов,
-        # выбросьте исключение AttributeError(name)
-        super(AccessCounter, self).__setattr__(name, value)
-
-    def __delattr__(self, name):
-        if name == 'value':
-            super(AccessCounter, self).__setattr__('counter', self.counter + 1)
-        super(AccessCounter, self).__delattr__(name)]
-```
-""",
-                "Магия контейнеров": """
-В Питоне существует множество способов заставить ваши классы вести себя как встроенные последовательности 
-(словари, кортежи, списки, строки и так далее). 
-Это, безусловно, мои любимые магические методы, из-за до абсурда высокой степени контроля, 
-которую они дают и той магии, от которой с экземплярами ваших классов вдруг начинает прекрасно 
-работать целое множество глобальных функций. 
-Но, до того как мы перейдём ко всяким хорошим вещам, мы должны знать о протоколах.
-Протоколы немного похожи на интерфейсы в других языках тем, что они предоставляют 
-набор методов, которые вы должны реализовать. 
-Однако, в Питоне протоколы абсолютно ни к чему не обязывают и не требуют 
-обязательно реализовать какое-либо объявление. 
-Наверное, они больше похожи на руководящие указания.
-
-Протокол для определения неизменяемых контейнеров: чтобы создать неизменяемый контейнер, вы должны только определить &#95;&#95;len&#95;&#95; и &#95;&#95;getitem&#95;&#95;
-
-Протокол изменяемого контейнера требует того же, что и неизменяемого контейнера, плюс &#95;&#95;setitem&#95;&#95; и &#95;&#95;delitem&#95;&#95;
-
-Если вы хотите, чтобы ваши объекты можно было перебирать итерацией, вы должны определить &#95;&#95;iter&#95;&#95;, который возвращает итератор. 
-Этот итератор должен соответствовать протоколу итератора, который требует методов &#95;&#95;iter&#95;&#95;(возвращает самого себя) и &#95;&#95;next&#95;&#95;.
-
-
-&#95;&#95;len&#95;&#95;(self)                  Кколичество элементов в контейнере. Часть протоколов для изменяемого и неизменяемого контейнеров.
-&#95;&#95;getitem&#95;&#95;(self, key)         Поведение при доступе к элементу, используя синтаксис self[key]. 
-                               Тоже относится и к протоколу изменяемых и к протоколу неизменяемых контейнеров. 
-                               Должен выбрасывать соответствующие исключения: 
-                               TypeError если неправильный тип ключа и KeyError если ключу не соответствует никакого значения.
-&#95;&#95;setitem&#95;&#95;(self, key, value)  Определяет поведение при присваивании значения элементу, 
-                               используя синтаксис self[nkey] = value. 
-                               Часть протокола изменяемого контейнера. 
-                               Опять же, вы должны выбрасывать KeyError и TypeError в соответсвующий случаях.
-&#95;&#95;delitem&#95;&#95;(self, key)         Определяет поведение при удалении элемента (то есть del self[key]). 
-                               Это часть только протокола для изменяемого контейнера. 
-                               Вы должны выбрасывать соответствующее исключение, если ключ некорректен.
-&#95;&#95;iter&#95;&#95;(self)                 Должен вернуть итератор для контейнера. 
-                               Итераторы возвращаются в множестве ситуаций, главным образом для встроенной функции iter() 
-                               и в случае перебора элементов контейнера выражением for x in container:. 
-                               Итераторы сами по себе объекты и они тоже должны определять метод &#95;&#95;iter&#95;&#95;, который возвращает self.
-&#95;&#95;reversed&#95;&#95;(self)             Вызывается чтобы определить поведения для встроенной функции reversed(). 
-                               Должен вернуть обратную версию последовательности. 
-                               Реализуйте метод только если класс упорядоченный, как список или кортеж.
-&#95;&#95;contains&#95;&#95;(self, item)       Предназначен для проверки принадлежности элемента с помощью in и not in. 
-                               Вы спросите, почему же это не часть протокола последовательности? 
-                               Потому что когда &#95;&#95;contains&#95;&#95; не определён, Питон просто перебирает всю последовательность 
-                               элемент за элементом и возвращает True если находит нужный.
-&#95;&#95;missing&#95;&#95;(self, key)         Используется при наследовании от dict. 
-                               Определяет поведение для для каждого случая, когда пытаются получить элемент по 
-                               несуществующему ключу (так, например, если у меня есть словарь d и я пишу d["george"] 
-                               когда "george" не является ключом в словаре, вызывается d.&#95;&#95;missing&#95;&#95;("george")).
-Пример
-
-```python
-class FunctionalList:
-    '''Класс-обёртка над списком с добавлением некоторой функциональной магии: head,
-    tail, init, last, drop, take.'''
-
-    def __init__(self, values=None):
-        if values is None:
-            self.values = []
-        else:
-            self.values = values
-
-    def __len__(self):
-        return len(self.values)
-
-    def __getitem__(self, key):
-        # если значение или тип ключа некорректны, list выбросит исключение
-        return self.values[key]
-
-    def __setitem__(self, key, value):
-        self.values[key] = value
-
-    def __delitem__(self, key):
-        del self.values[key]
-
-    def __iter__(self):
-        return iter(self.values)
-
-    def __reversed__(self):
-        return FunctionalList(reversed(self.values))
-
-    def append(self, value):
-        self.values.append(value)
-    def head(self):
-        # получить первый элемент
-        return self.values[0]
-    def tail(self):
-        # получить все элементы после первого
-        return self.values[1:]
-    def init(self):
-        # получить все элементы кроме последнего
-        return self.values[:-1]
-    def last(self):
-        # получить последний элемент
-        return self.values[-1]
-    def drop(self, n):
-        # все элементы кроме первых n
-        return self.values[n:]
-    def take(self, n):
-        # первые n элементов
-        return self.values[:n]
-```
-
-Теперь у вас есть полезный (относительно) пример реализации своей собственной последовательности. 
-Существуют, конечно, и куда более практичные реализации произвольных последовательностей, 
-но большое их число уже реализовано в стандартной библиотеке, такие как Counter, OrderedDict, NamedTuple
-""",
-                "isinstance()": """
-&#95;&#95;instancecheck&#95;&#95;(self, instance) Проверяет, является ли экземлпяр членом вашего класса (isinstance(instance, class)
-&#95;&#95;subclasscheck&#95;&#95;(self, subclass) Проверяет, является наследуется ли класс от вашего класса (issubclass(subclass, class))
-""",
-                "Вызываемые объекты": """
-&#95;&#95;call&#95;&#95;(self, [args...])            Позволяет любому экземпляру вашего класса быть вызванным как-будто он функция. 
-                                     Главным образом это означает, что x() означает то же, что и x.&#95;&#95;call&#95;&#95;(). 
-                                     Заметьте, &#95;&#95;call&#95;&#95; принимает произвольное число аргументов; 
-                                     то есть, вы можете определить &#95;&#95;call&#95;&#95; так же как любую другую функцию, 
-                                     принимающую столько аргументов, сколько вам нужно.
-
-&#95;&#95;call&#95;&#95;, в частности, может быть полезен в классах, чьи экземпляры часто изменяют своё состояние. 
-«Вызвать» экземпляр может быть интуитивно понятным и элегантным способом изменить состояние объекта. 
-Примером может быть класс, представляющий положение некоторого объекта на плоскости:
-
-```python
-class Entity:
-    '''Класс, описывающий объект на плоскости. "Вызываемый", чтобы обновить позицию объекта.'''
-
-    def __init__(self, size, x, y):
-        self.x, self.y = x, y
-        self.size = size
-
-    def __call__(self, x, y):
-        '''Изменить положение объекта.'''
-        self.x, self.y = x, y
-
-    # чик...
-```
-""",
-                "Менеджеры контекста": """
-&#95;&#95;enter&#95;&#95;(self)                      Определяет, что должен сделать менеджер контекста в начале блока, созданного оператором with. 
-                                     Заметьте, что возвращаемое &#95;&#95;enter&#95;&#95; значение и есть то значение, с которым производится работа внутри with.
-&#95;&#95;exit&#95;&#95;(self, exception_type, 
-         exception_value, traceback) Определяет действия менеджера контекста после того, как блок будет выполнен (или прерван во время работы). 
-                                     Может использоваться для контролирования исключений, чистки, любых действий которые должны быть 
-                                     выполнены незамедлительно после блока внутри with. 
-                                     Если блок выполнен успешно, exception_type, exception_value, и traceback будут установлены в None. 
-                                     В другом случае вы сами выбираете, перехватывать ли исключение или предоставить это пользователю; 
-                                     если вы решили перехватить исключение, убедитесь, что &#95;&#95;exit&#95;&#95; возвращает True после того 
-                                     как всё сказано и сделано. 
-                                     Если вы не хотите, чтобы исключение было перехвачено менеджером контекста, просто позвольте ему случиться.
-
-&#95;&#95;enter&#95;&#95; и &#95;&#95;exit&#95;&#95; могут быть полезны для специфичных классов с хорошо описанным и 
-распространённым поведением для их настройки и очистки ресурсов. 
-Вы можете использовать эти методы и для создания общих менеджеров контекста для разных объектов. 
-
-Вот пример:
-
-```python
-class Closer:
-    '''Менеджер контекста для автоматического закрытия объекта вызовом метода close 
-    в with-выражении.'''
-
-    def __init__(self, obj):
-        self.obj = obj
-
-    def __enter__(self):
-        return self.obj # привязка к активному объекту with-блока
-
-    def __exit__(self, exception_type, exception_val, trace):
-        try:
-            self.obj.close()
-        except AttributeError: # у объекта нет метода close
-            print 'Not closable.'
-            return True # исключение перехвачено
-```
-
-&#95;&#95;aenter&#95;&#95;(self) — аналогично &#95;&#95;enter&#95;&#95;, только функция возвращает корутину (результат которой можно получить с помощью await)
-
-&#95;&#95;aexit&#95;&#95;(self, exc_type, exc_value, traceback) — аналогично &#95;&#95;exit&#95;&#95;, только функция возвращает корутину (результат которой можно получить с помощью await)
-
-```python
-class AsyncContextManager:
-    async def __aenter__(self):
-        await log("entering context")
-
-    async def __aexit__(self, exc_type, exc_value, traceback):
-        await log("exiting context")
-
-async with AsyncContextManager():
-    print("in context manager")
-
-'entering context'
-'in context manager'
-'exiting context'
-```
-""",
-                "Построение дескрипторов": '''
-Дескрипторы это такие классы, с помощью которых можно добавить свою логику к событиям доступа 
-(получение, изменение, удаление) к атрибутам других объектов. 
-Дескрипторы не подразумевается использовать сами по себе; скорее, предполагается, 
-что ими будут владеть какие-нибудь связанные с ними классы. 
-Дескрипторы могут быть полезны для построения объектно-ориентированных баз данных или классов, 
-чьи атрибуты зависят друг от друга. В частности, дескрипторы полезны при представлении атрибутов 
-в нескольких системах исчисления или каких-либо вычисляемых атрибутов 
-(как расстояние от начальной точки до представленной атрибутом точки на сетке).
-
-Чтобы класс стал дескриптором, он должен реализовать по крайней мере один метод из 
-&#95;&#95;get&#95;&#95;, &#95;&#95;set&#95;&#95; или &#95;&#95;delete&#95;&#95;. 
-
-&#95;&#95;get&#95;&#95;(self, instance, instance_class) Определяет поведение при возвращении значения из дескриптора. 
-                                        instance это объект, для чьего атрибута-дескриптора вызывается метод. 
-                                        owner это тип (класс) объекта.
-&#95;&#95;set&#95;&#95;(self, instance, value)          Определяет поведение при изменении значения из дескриптора. 
-                                        instance это объект, для чьего атрибута-дескриптора вызывается метод. 
-                                        value это значение для установки в дескриптор.
-&#95;&#95;delete&#95;&#95;(self, instance)              Определяет поведение для удаления значения из дескриптора. 
-                                        instance это объект, владеющий дескриптором.
-
-Теперь пример полезного использования дескрипторов: преобразование единиц измерения.
-
-```python
-class Meter(object):
-    """Дескриптор для метра."""
-
-    def __init__(self, value=0.0):
-        self.value = float(value)
-    def __get__(self, instance, owner):
-        return self.value
-    def __set__(self, instance, value):
-        self.value = float(value)
-
-class Foot(object):
-    """Дескриптор для фута."""
-
-    def __get__(self, instance, owner):
-        return instance.meter * 3.2808
-    def __set__(self, instance, value):
-        instance.meter = float(value) / 3.2808
-
-class Distance(object):
-    """Класс, описывающий расстояние, содержит два дескриптора для футов и
-    метров."""
-    meter = Meter()
-    foot = Foot()
-```
-''',
-                "Копирование": """
-В Питоне оператор присваивания не копирует объекты, а только добавляет ещё одну ссылку. 
-Но для коллекций, содержащих изменяемые элементы, иногда необходимо полноценное копирование, 
-чтобы можно было менять элементы одной последовательности, не затрагивая другую. 
-Здесь в игру и вступает copy. Мы должны сказать Питону как правильно копировать.
-
-&#95;&#95;copy&#95;&#95;(self)                       Определяет поведение copy.copy() для экземпляра вашего класса. 
-                                     copy.copy() возвращает поверхностную копию вашего объекта — это означает, 
-                                     что хоть сам объект и создан заново, все его данные ссылаются на данные оригинального объекта. 
-                                     И при изменении данных нового объекта, изменения будут происходить и в оригинальном.
-&#95;&#95;deepcopy&#95;&#95;(self, memodict={})      Определяет поведение copy.deepcopy() для экземпляров вашего класса. 
-                                     copy.deepcopy() возвращает глубокую копию вашего объекта — копируются и объект и его данные. 
-                                     memodict это кэш предыдущих скопированных объектов, он предназначен для оптимизации 
-                                     копирования и предотвращения бесконечной рекурсии, когда копируются рекурсивные структуры данных. 
-                                     Когда вы хотите полностью скопировать какой-нибудь конкретный атрибут, 
-                                     вызовите на нём copy.deepcopy() с первым параметром memodict
-""",
-                "Ещё": """
-&#95;&#95;init_subclass&#95;&#95;(cls) — позволяет переопределить создание подклассов объекта. Например, добавлять дополнительные атрибуты:
-
-```python
->>> class Test:
->>>     def __init_subclass__(cls, /, test_param, **kwargs):
->>>         super().__init_subclass__(**kwargs)
->>>         cls.test_param = test_param
->>>
->>> class AnotherTest(Test, test_param="Hello World"):
->>>     pass
-```
-
-repr() это встроенная функция Python, которая возвращает строковое представление объекта
-Доступ к атрибутам объекта
-Доступ ко всем свойствам объекта также контролируются отдельными методами:
-
-&#95;&#95;getattr&#95;&#95;(self, name) — вызывается методом getattr(...) или при обращении к атрибуту объекта через x.y, где x — объект, а y — атрибут.
-
-&#95;&#95;setattr&#95;&#95;(self, name, value) — вызывается методом setattr(...)или при обращении к атрибуту объекта с последующим определением значения переданного атрибута. 
-Например: x.y = 1, где x — объект, y — атрибут, а 1 — значение атрибута.
-
-&#95;&#95;delattr&#95;&#95;(self, name) — вызывается методом delattr(...)или при ручном удалении атрибута у объекта с помощью del x.y, где  x — объект, а y — атрибут.
-
-&#95;&#95;dir&#95;&#95;(self) — вызывается методом dir(...) и выводит список доступных атрибутов объекта.
-
-
-
-Создание последовательностей
-Любой объект может реализовать методы встроенных последовательностей (словари, кортежи, списки, строки и так далее). 
-Доступ к значениям последовательности переопределяется следующими методами:
-
-&#95;&#95;len&#95;&#95;(self) — вызывается методом len(...) и возвращает количество элементов в последовательности.
-
-&#95;&#95;getitem&#95;&#95;(self, key) — вызывается при обращении к элементу в последовательности по его ключу (индексу). 
-Метод должен выбрасывать исключение TypeError, если используется некорректный тип ключа, KeyError, 
-если данному ключу не соответствует ни один элемент в последовательности. Например:
-
-```python
->>> list_object = [1, 2, 3, 4, 5]
->>> print(list_object[0])
-... 1
->>>
->>> string_object = "hello world"
->>> print(string_object[0:5])
-... 'hello'
->>>
->>> dict_object = {"key0": True, "key1": False}
->>> print(dict_object["key0"])
-... True
-```
-
-&#95;&#95;setitem&#95;&#95;(self, key, value) — вызывается при присваивании какого-либо значения элементу в последовательности. 
-Также может выбрасывать исключения TypeError и KeyError. Например:
-
-```python
->>> list_object = [1, 2, 3, 4, 5]
->>> list_object[0] = 78
->>> print(list_object)
-... [78, 2, 3, 4, 5]
->>>
->>> dict_object = {"key0": True, "key1": False}
->>> dict_object["key0"] = False
->>> print(dict_object)
-... {"key0": False, "key1": False}
-```
-
-&#95;&#95;delitem&#95;&#95;(self, key) — вызывается при удалении значения в последовательности по его индексу (ключу) с помощью синтаксиса ключевого слова del.
-
-&#95;&#95;missing&#95;&#95;(self, key) — вызывается в случаях, когда значения в последовательности не существует.
-
-&#95;&#95;iter&#95;&#95;(self) — вызывается методом iter(...) и возвращает итератор последовательности, например, для использования объекта в цикле:
-
-```python
->>> class Test:
->>>     def __iter__(self):
->>>         return (1, 2, 3)
->>>
->>> for value in Test():
->>>     print(value)
-... 1
-... 2
-... 3
-```
-
-&#95;&#95;reversed&#95;&#95;(self) — вызывается методом reversed(...) и аналогично методу &#95;&#95;iter&#95;&#95; возвращает тот же итератор, только в обратном порядке.
-
-&#95;&#95;contains&#95;&#95;(self, item) — вызывается при проверке принадлежности элемента к последовательности с помощью in или not in.
-
-
-&#95;&#95;imatmul&#95;&#95;(self, other) — умножение матриц с присваиванием, оператор @=
-""",
-                "tproger.ru": """
-Взято из https://tproger.ru/articles/gajd-po-magicheskim-metodam-v-python
-
-Магические методы в Python — подробный гайд
-
-Создание и удаление объектовЛюбое описание объекта в объектно-ориентированном
-программировании начинается с создания объекта и его удаления.
-Давайте подробнее остановимся на каждом из них:
-&#95;&#95;new&#95;&#95;(cls[, ...]) — метод создания типа класса.
-Он принимает первым аргументом тип класса, в котором он вызывается, и, как правило, возвращает этот же тип.
-В основном используется, чтобы настраивать создание экземпляра класса тех объектов,
-которые наследуются от неизменяемых типов (например, int, str, или tuple).
-&#95;&#95;init&#95;&#95;(self[, ...]) — конструктор класса. Используется при определении объектов.
-&#95;&#95;init_subclass&#95;&#95;(cls) — позволяет переопределить создание подклассов объекта.
-Например, добавлять дополнительные атрибуты:
-```python
->>> class Test:
->>>     def __init_subclass__(cls, /, test_param, **kwargs):
->>>         super().__init_subclass__(**kwargs)
->>>         cls.test_param = test_param
->>>
->>> class AnotherTest(Test, test_param="Hello World"):
->>>     pass
-```
-
-&#95;&#95;del&#95;&#95;(self) — деструктор класса. Вызывается автоматически сборщиком мусора, практически никогда не используется, за исключением, когда пользователя необходимо предупредить о незакрытых дескрипторах.
-
-Общие свойства объектов Любой объект может содержать дополнительную информацию, полезную при отладке или приведении типов. Например:
-&#95;&#95;repr&#95;&#95;(self) — информационная строка об объекте. Выводится при вызове функции repr(...) или в момент отладки. Для последнего этот метод и предназначен.
-
-Например:
-```python
->>> class Test:
->>>     def __repr__(self):
->>>         return ""
->>>
->>> Test()
-... ''
-```
-
-&#95;&#95;str&#95;&#95;(self) — вызывается при вызове функции str(...), возвращает строковый объект.
-
-Например:
-```python
->>> class Test:
->>>     def __str__(self):
->>>         return "Hello World"
->>>
->>> test = Test()
->>> str(test)
-... 'Hello World'
-```
-
-&#95;&#95;bytes&#95;&#95;(self) — аналогично &#95;&#95;str&#95;&#95;(self), только возвращается набор байт.
-&#95;&#95;format&#95;&#95;(self, format_spec) — вызывается при вызове функции format(...) и используется для форматировании строки с использованием строковых литералов.
-
-Методы сравнения объектов между собой
-&#95;&#95;lt&#95;&#95;(self, other) — определяет поведение оператора сравнения «меньше», <.
-&#95;&#95;le&#95;&#95;(self, other) — определяет поведение оператора сравнения «меньше или равно», <=.
-&#95;&#95;eq&#95;&#95;(self, other) — определяет поведение оператора «равенства», ==.
-&#95;&#95;ne&#95;&#95;(self, other) — определяет поведение оператора «неравенства», !=.
-&#95;&#95;gt&#95;&#95;(self, other) — определяет поведение оператора сравнения «больше», >.
-&#95;&#95;ge&#95;&#95;(self, other) — определяет поведение оператора сравнения «больше или равно», >=.
-&#95;&#95;hash&#95;&#95;(self) — вызывается функцией hash(...) и используется для определения контрольной суммы объекта, чтобы доказать его уникальность. Например, чтобы добавить объект в set, frozenset, или использовать в качестве ключа в словаре dict.
-&#95;&#95;bool&#95;&#95;(self) — вызывается функцией bool(...) и возвращает True или False в соответствии с реализацией. Если данный метод не реализован в объекте, и объект является какой-либо последовательностью (списком, кортежем и т.д.), вместо него вызывается метод &#95;&#95;len&#95;&#95;. Используется, в основном, в условиях if, например:
-```python
->>> class Test:
->>>     def __bool__(self):
->>>         return True
->>>
->>> test = Test()
->>>
->>> if test:
->>>    print("Hello World")
->>>
-... 'Hello World'
-```
-
-Доступ к атрибутам объекта
-Доступ ко всем свойствам объекта также контролируются отдельными методами:
-&#95;&#95;getattr&#95;&#95;(self, name) — вызывается методом getattr(...) или при обращении к атрибуту объекта через x.y, где x — объект, а y — атрибут.
-&#95;&#95;setattr&#95;&#95;(self, name, value) — вызывается методом setattr(...) или при обращении к атрибуту объекта с последующим определением значения переданного атрибута. Например: x.y = 1, где x — объект, y — атрибут, а 1 — значение атрибута.
-&#95;&#95;delattr&#95;&#95;(self, name) — вызывается методом delattr(...)или при ручном удалении атрибута у объекта с помощью del x.y, где  x — объект, а y — атрибут.
-&#95;&#95;dir&#95;&#95;(self) — вызывается методом dir(...) и выводит список доступных атрибутов объекта.
-
-Создание последовательностей
-Любой объект может реализовать методы встроенных последовательностей (словари, кортежи, списки, строки и так далее). Доступ к значениям последовательности переопределяется следующими методами:
-&#95;&#95;len&#95;&#95;(self) — вызывается методом len(...) и возвращает количество элементов в последовательности.
-&#95;&#95;getitem&#95;&#95;(self, key) — вызывается при обращении к элементу в последовательности по его ключу (индексу). Метод должен выбрасывать исключение TypeError, если используется некорректный тип ключа, KeyError, если данному ключу не соответствует ни один элемент в последовательности.
-
-Например:
-```python
->>> list_object = [1, 2, 3, 4, 5]
->>> print(list_object[0])
-... 1
->>>
->>> string_object = "hello world"
->>> print(string_object[0:5])
-... 'hello'
->>>
->>> dict_object = {"key0": True, "key1": False}
->>> print(dict_object["key0"])
-... True
-```
-
-&#95;&#95;setitem&#95;&#95;(self, key, value) — вызывается при присваивании какого-либо значения элементу в последовательности. Также может выбрасывать исключения TypeError и KeyError.
-
-Например:
-```python
->>> list_object = [1, 2, 3, 4, 5]
->>> list_object[0] = 78
->>> print(list_object)
-... [78, 2, 3, 4, 5]
->>>
->>> dict_object = {"key0": True, "key1": False}
->>> dict_object["key0"] = False
->>> print(dict_object)
-... {"key0": False, "key1": False}
-```
-
-&#95;&#95;delitem&#95;&#95;(self, key) — вызывается при удалении значения в последовательности по его индексу (ключу) с помощью синтаксиса ключевого слова del.
-&#95;&#95;missing&#95;&#95;(self, key) — вызывается в случаях, когда значения в последовательности не существует.
-&#95;&#95;iter&#95;&#95;(self) — вызывается методом iter(...) и возвращает итератор последовательности, например, для использования объекта в цикле:
-```python
->>> class Test:
->>>     def __iter__(self):
->>>         return (1, 2, 3)
->>>
->>> for value in Test():
->>>     print(value)
-... 1
-... 2
-... 3
-```
-
-&#95;&#95;reversed&#95;&#95;(self) — вызывается методом reversed(...) и аналогично методу &#95;&#95;iter&#95;&#95; возвращает тот же итератор, только в обратном порядке.
-&#95;&#95;contains&#95;&#95;(self, item) — вызывается при проверке принадлежности элемента к последовательности с помощью in или not in.
-
-Числовые магические методы
-Данные методы делятся на несколько групп: унарные операторы, обычные арифметические, отражённые арифметические операторы, составные присваивания и преобразования типов.
-
-Унарные операторы
-&#95;&#95;neg&#95;&#95;(self) — определяет поведение для отрицания (-a)
-&#95;&#95;pos&#95;&#95;(self) — определяет поведение для унарного плюса (+a)
-&#95;&#95;abs&#95;&#95;(self) — определяет поведение для встроенной функции abs(...)
-&#95;&#95;invert&#95;&#95;(self) — определяет поведение для инвертирования оператором ~
-
-Обычные арифметические операторы
-&#95;&#95;add&#95;&#95;(self, other) — сложение, оператор +
-&#95;&#95;sub&#95;&#95;(self, other) — вычитание, оператор -
-&#95;&#95;mul&#95;&#95;(self, other) — умножение, оператор *
-&#95;&#95;matmul&#95;&#95;(self, other) — умножение матриц, оператор @
-&#95;&#95;truediv&#95;&#95;(self, other) — деление, оператор /
-&#95;&#95;floordiv&#95;&#95;(self, other) — целочисленное деление, оператор //
-&#95;&#95;mod&#95;&#95;(self, other) — остаток от деления, оператор %
-&#95;&#95;divmod&#95;&#95;(self, other) — деление с остатком, определяет поведение для встроенной функции divmod(...)
-&#95;&#95;pow&#95;&#95;(self, other[, modulo]) — возведение в степень, оператор **
-&#95;&#95;lshift&#95;&#95;(self, other) — двоичный сдвиг влево, оператор <<
-&#95;&#95;rshift&#95;&#95;(self, other) — двоичный сдвиг вправо, оператор >>
-&#95;&#95;and&#95;&#95;(self, other) — двоичное И, оператор &
-&#95;&#95;xor&#95;&#95;(self, other) — исключающее ИЛИ, оператор ^
-&#95;&#95;or&#95;&#95;(self, other) — двоичное ИЛИ, оператор |
-
-Отражённые арифметические операторы
-Если в обычной арифметике между объектами a и b, объектом, который мы изменяем, является a, и объектом, с которым мы работаем, является b, то в отражённой арифметике наоборот — b является изменяемым, a — объектом, с которым мы работаем, и который передается в качестве аргумента.
-
-Например:
-```python
-# Сложение, используется обычная арифметика и метод __add__ в объекте left:
->>> left + right
-# Сложение, используется отражённая арифметика и метод __radd__ в объекте left:
->>> right + left
-```
-
-Список методов похож на тот, что используется в обычной арифметике, за исключением того, что добавляется префикс «r» ко всем методам:
-&#95;&#95;radd&#95;&#95;(self, other) — сложение, оператор +
-&#95;&#95;rsub&#95;&#95;(self, other) — вычитание, оператор -
-&#95;&#95;rmul&#95;&#95;(self, other) — умножение, оператор *
-&#95;&#95;rmatmul&#95;&#95;(self, other) — умножение матриц, оператор @
-&#95;&#95;rtruediv&#95;&#95;(self, other) — деление, оператор /
-&#95;&#95;rfloordiv&#95;&#95;(self, other) — целочисленное деление, оператор //
-&#95;&#95;rmod&#95;&#95;(self, other) — остаток от деления, оператор %
-&#95;&#95;rdivmod&#95;&#95;(self, other) — деление с остатком
-&#95;&#95;rpow&#95;&#95;(self, other[, modulo]) — возведение в степень, оператор **
-&#95;&#95;rlshift&#95;&#95;(self, other) — двоичный сдвиг влево, оператор <<
-&#95;&#95;rrshift&#95;&#95;(self, other) — двоичный сдвиг вправо, оператор >>
-&#95;&#95;rand&#95;&#95;(self, other) — двоичное И, оператор &
-&#95;&#95;rxor&#95;&#95;(self, other) — исключающее ИЛИ, оператор ^
-&#95;&#95;ror&#95;&#95;(self, other) — двоичное ИЛИ, оператор |
-
-Составное присваивание
-Эти методы — комбинация «обычного» оператора и присваивания. Возвращают тот же тип объекта, который будет присвоен переменной слева. Например:
-x = 3
-x += 2 # другими словами x = x + 2
-
-&#95;&#95;iadd&#95;&#95;(self, other) — сложение с присваиванием, оператор +=
-&#95;&#95;isub&#95;&#95;(self, other) — вычитание с присваиванием, оператор -=
-&#95;&#95;imul&#95;&#95;(self, other) — умножение с присваиванием, оператор *=
-&#95;&#95;imatmul&#95;&#95;(self, other) — умножение матриц с присваиванием, оператор @=
-&#95;&#95;itruediv&#95;&#95;(self, other) — деление с присваиванием, оператор /=
-&#95;&#95;ifloordiv&#95;&#95;(self, other) — целочисленное деление с присваиванием, оператор //=
-&#95;&#95;imod&#95;&#95;(self, other) — остаток от деления с присваиванием, оператор %=
-&#95;&#95;ipow&#95;&#95;(self, other[, modulo]) — возведение в степень с присваиванием, оператор **=
-&#95;&#95;ilshift&#95;&#95;(self, other) — двоичный сдвиг влево с присваиванием, оператор <<=
-&#95;&#95;irshift&#95;&#95;(self, other) — двоичный сдвиг вправо с присваиванием, оператор >>=
-&#95;&#95;iand&#95;&#95;(self, other) — двоичное И с присваиванием, оператор &=
-&#95;&#95;ixor&#95;&#95;(self, other) — исключающее ИЛИ с присваиванием, оператор ^=
-&#95;&#95;ior&#95;&#95;(self, other) — двоичное ИЛИ с присваиванием, оператор |=
-
-Преобразования типов
-Помимо всего прочего, в Python множество методов, которые позволяют переопределять поведение встроенных функций преобразования типов, таких как int(...), float(...) и т.д. Например:
-&#95;&#95;complex&#95;&#95;(self) — преобразование типа в комплексное число
-&#95;&#95;int&#95;&#95;(self) — преобразование типа к int
-&#95;&#95;float&#95;&#95;(self) — преобразование типа к float
-&#95;&#95;index&#95;&#95;(self) — преобразование типа к int, когда объект используется в срезах (выражения вида [start:stop:step])
-&#95;&#95;round&#95;&#95;(self[, ndigits]) — округление числа с помощью функции round(...)
-&#95;&#95;trunc&#95;&#95;(self) — вызывается методом math.trunc(...)
-&#95;&#95;floor&#95;&#95;(self) — вызывается методом math.floor(...)
-&#95;&#95;ceil&#95;&#95;(self) — вызывается методом math.ceil(...)
-
-Вызываемые объекты
-&#95;&#95;call&#95;&#95;(self[, args...]) — позволяет любому экземпляру класса вести себя как обычная функция.
-
-Например:
-
-```python
->>> class Test:
->>>     def __call__(self, message):
->>>         print(message)
->>>         return True
->>>
->>> test = Test()
->>> test("Hello World")
-... 'Hello World'
-... True
-```
-
-&#95;&#95;await&#95;&#95;(self) — возвращает итератор, превращая класс в корутину, результат выполнения которой можно получить с помощью await. Подробнее об этом можно узнать в PEP 492.
-
-Контекстные менеджеры
-Любой объект может быть представлен как контекстный менеджер, который вызывается с помощью with или async with. Данная конструкция позволяет выполнить какие-либо действия по настройке объекта и при выходе из контекстного менеджера, произвести какие-либо действия по очистке, не смотря на то, было ли вызвано исключение в блоке контекстного менеджера.
-&#95;&#95;enter&#95;&#95;(self) — определяет начало блока контекстного менеджера, вызванного с помощью with
-&#95;&#95;exit&#95;&#95;(self, exc_type, exc_value, traceback) — определяет конец блока контекстного менеджера. Может использоваться для контролирования исключений, очистки, или любых действий, которые должны быть выполнены после блока внутри with. Если блок выполнился успешно, то все три аргумента (exc_type, exc_value и traceback) будут установлены в значение None.
-
-Например:
-```python
->>> class ContextManager:
->>>     def __enter__(self):
->>>         log("entering context")
->>>
->>>     def __exit__(self, exc_type, exc_value, traceback):
->>>         log("exiting context")
->>>
->>> with ContextManager():
-...     print("in context manager")
-...
-... 'entering context'
-... 'in context manager'
-... 'exiting context'
-```
-
-&#95;&#95;aenter&#95;&#95;(self) — аналогично &#95;&#95;enter&#95;&#95;, только функция возвращает корутину (результат которой можно получить с помощью await)
-&#95;&#95;aexit&#95;&#95;(self, exc_type, exc_value, traceback) — аналогично &#95;&#95;exit&#95;&#95;, только функция возвращает корутину (результат которой можно получить с помощью await)
-
-Например:
-```python
->>> class AsyncContextManager:
->>>     async def __aenter__(self):
->>>         await log("entering context")
->>>
->>>     async def __aexit__(self, exc_type, exc_value, traceback):
->>>         await log("exiting context")
->>>
->>> async with AsyncContextManager():
-...     print("in context manager")
-...
-... 'entering context'
-... 'in context manager'
-... 'exiting context'
-```
-
-Неиспользуемые методы
-Некоторые методы, после полного перехода с Python 2 на Python 3 стали устаревшими и больше не используются.
-&#95;&#95;unicode&#95;&#95; — полностью исчез в версии Python 3, вместо него используются отдельные методы &#95;&#95;str_&#95;&#95; &#95;&#95;bytes&#95;&#95;
-&#95;&#95;div&#95;&#95; — так как в Python 3 теперь по умолчанию «правильное деление», данного метода не существует
-&#95;&#95;cmp&#95;&#95; — более не существует, вместо него используются &#95;&#95;lt&#95;&#95;, &#95;&#95;le&#95;&#95;, &#95;&#95;eq&#95;&#95;, &#95;&#95;ne&#95;&#95;, &#95;&#95;gt_&#95;&#95; &#95;&#95;ge&#95;&#95;
-&#95;&#95;nonzero&#95;&#95; — переименован в &#95;&#95;bool&#95;&#95;
-
-Упрощение работы с магическими методами
-Большая часть из вышеописанных методов реализуется библиотеками, они позволяют использовать так называемые «обрёртки» над классами, в которых будут реализованы необходимые магические методы.
-
-Пример таких библиотек:
-dataclasses
-attrs
-
-Принципы и идеология этих (и других библиотек) схожи в одном – они позволяют реализовать всю необходимую логику работы с объектом, не дублируя код для каждого отдельного объекта.
-
-Например:
-```python
->>> from dataclasses import dataclass
->>>
->>> @dataclass(init=True, repr=True, eq=True, order=True, unsafe_hash=True)
->>> class Person:
->>>     first_name: str
->>>     last_name: str
->>>     age: int
-```
-
-Данный объект будет иметь в себе:
-Три атрибута first_name, last_name и age, которые также будут передаваться в конструктор класса;
-Будет реализован метод &#95;&#95;repr&#95;&#95; для вывода информации для отладки;
-Будут реализованы все магические методы сравнения (такие как &#95;&#95;lt&#95;&#95;, &#95;&#95;eq&#95;&#95; и так далее), а также метод &#95;&#95;hash&#95;&#95;.
-
-Чаще всего вы будете пользоваться уже готовыми решениями, как пример выше, но для того чтобы понять, как работает язык Python изнутри, необходимо знать, как работают магические методы, за что они отвечают, что будет, если вызвать ту или иную функцию на объект, и что с этим объектом произойдёт.
-
-
-""",
             },
             "Декораторы Замыкания": {
-                "Декораторы Замыкания": """Декораторы (decorators) в Python
+                "Декораторы Замыкания": """
+
+## Декораторы
 
 Специальные функции, которые позволяют модифицировать поведение
 других функций. Они часто используются для добавления нового функционала
@@ -8649,7 +7666,7 @@ print(expensive_function(3))  # 9
 print(expensive_function(3))  # 9 (значение берется из кеша)
 ```
 
-Python - closure (Замыкания)
+## closure (Замыкания)
 
 Функции, которые ссылаются на переменные, определенные вне этой функции.
 Они позволяют сохранять состояние переменных между вызовами функции.
@@ -8672,32 +7689,45 @@ print(plus_3(10))  # 13
 print(plus_5(10))  # 15
 ```
 """,
-                "Аргументы dataclass": """
+                "dataclass": """
 ```python
 from dataclasses import dataclass
 ```
 
 ```python
-dataclass(*,
-          init: bool = ...,
-          repr: bool = ...,
-          eq: bool = ...,
-          order: bool = ...,
-          unsafe_hash: bool = ...,
-          frozen: bool = ...)
+@dataclass(
+    *,
+    init: bool = ...,
+    repr: bool = ...,
+    eq: bool = ...,
+    order: bool = ...,
+    unsafe_hash: bool = ...,
+    frozen: bool = ...,
+)
 ```
 
-init         Нужно ли автоматически генерировать метод &#95;&#95;init&#95;&#95; для инициализации атрибутов класса.
-repr         Нужно ли автоматически генерировать метод &#95;&#95;repr&#95;&#95; для вывода строкового представления объектов класса.
-eq           Нужно ли автоматически генерировать метод &#95;&#95;eq&#95;&#95; для сравнения объектов класса.
-order        Нужно ли автоматически генерировать методы &#95;&#95;lt&#95;&#95;, &#95;&#95;le&#95;&#95;, &#95;&#95;gt&#95;&#95;, &#95;&#95;ge&#95;&#95; для сравнения объектов класса.
-unsafe_hash  Нужно ли автоматически генерировать метод &#95;&#95;hash&#95;&#95; для объектов класса.
-             Обычно этот аргумент следует использовать только для классов, объекты которых неизменяемы (frozen),
-             так как изменяемые объекты могут привести к неожиданным результатам.
-frozen       Нужно ли сделать объекты класса неизменяемыми (immutable).
+|             |                                                                                                          |
+|-------------|----------------------------------------------------------------------------------------------------------|
+| init        | Нужно ли автоматически генерировать метод `__init__` для инициализации атрибутов класса.                   |
+| repr        | Нужно ли автоматически генерировать метод `__repr__` для вывода строкового представления объектов класса.  |
+| eq          | Нужно ли автоматически генерировать метод `__eq__` для сравнения объектов класса.                          |
+| order       | Нужно ли автоматически генерировать методы `__lt__`, `__le__`, `__gt__`, `__ge__` для сравнения объектов класса. |
+| unsafe_hash | Нужно ли автоматически генерировать метод `__hash__` для объектов класса.<br>Обычно этот аргумент следует использовать только для классов, объекты которых неизменяемы (frozen),<br>так как изменяемые объекты могут привести к неожиданным результатам. |
+| frozen      | Нужно ли сделать объекты класса неизменяемыми (immutable).                                               |
 
-Все эти аргументы являются необязательными, и если их не указывать,
-то будут использованы значения по умолчанию (True для init, repr, eq, order, unsafe_hash и False для frozen).
+Ззначения по умолчанию
+
+```python
+@dataclass(
+    *,
+    init: bool = True,
+    repr: bool = True,
+    eq: bool = True,
+    order: bool = True,
+    unsafe_hash: bool = True,
+    frozen: bool = False,
+)
+```
 
 """,
                 "property": """
@@ -8749,11 +7779,9 @@ print(circle.area)
 ```
 """,
                 "staticmethod": """
-@staticmethod - это декоратор в Python, который используется для определения статического метода внутри класса. 
+`@staticmethod` - это декоратор в Python, который используется для определения статического метода внутри класса. 
 Статический метод - это метод, который может быть вызван на классе, а не на экземпляре класса. 
 Он не имеет доступа к экземпляру класса и не может изменять его состояние.
-
-Пример использования @staticmethod:
 
 ```python
 class MyClass:
@@ -8769,12 +7797,29 @@ print(result) # 3
 Этот метод принимает два аргумента arg1 и arg2 и возвращает их сумму. 
 Затем мы вызвали этот метод на классе MyClass, а не на экземпляре класса.
 """,
+                "classmethod": """
+Декоратор `@classmethod` используется для определения методов класса,
+которые принимают первый аргумент в виде самого класса (обычно называемый cls),
+а не экземпляра класса (как в случае с методами экземпляра, где первый аргумент называется self).
+
+`@classmethod` позволяет вызывать метод как на экземпляре класса, так и на самом классе.
+
+```python
+class MyClass:
+    @classmethod
+    def foo(cls, arg):
+        print(arg)
+
+MyClass.foo(5)
+MyClass().foo(6)
+```
+5
+6
+""",
                 "overload": """
-@overload - это декоратор в Python, который используется для определения перегрузки метода внутри класса. 
+`@overload` - это декоратор в Python, который используется для определения перегрузки метода внутри класса. 
 Перегрузка метода - это механизм, позволяющий определить несколько версий метода с разными параметрами. 
 При вызове метода, интерпретатор Python выберет версию метода, которая соответствует переданным аргументам.
-
-Пример использования @overload:
 
 ```python
 from typing import overload
@@ -8801,20 +7846,16 @@ print(result1) # 4
 result2 = obj.my_method("hello")
 print(result2) # HELLO
 ```
-
-В этом примере мы определили класс MyClass и внутри него определили метод my_method с помощью декоратора @overload. 
-Мы определили две версии метода: одна принимает целое число и возвращает его удвоенное значение, а другая принимает строку и возвращает ее в верхнем регистре. 
-Наконец, мы определили основную версию метода, которая выбирает нужную версию метода в зависимости от типа переданного аргумента.
 """,
                 "final": """
-@final - это аннотация (декоратор) в Python, которая указывает, 
+`@final` - это аннотация (декоратор) в Python, которая указывает, 
 что метод или свойство класса не должны переопределяться в подклассах.
 
-Когда метод или свойство класса помечаются аннотацией @final, это предупреждает программистов, 
+Когда метод или свойство класса помечаются аннотацией `@final`, это предупреждает программистов, 
 что эти элементы класса являются частью публичного интерфейса класса, который не должен изменяться в подклассах. 
 Это позволяет сделать класс более простым и предсказуемым в использовании, так как гарантируется, 
 что поведение не будет изменено в производных классах.
-Пример использования аннотации @final:
+Пример использования аннотации `@final`:
 
 ```python
 class BaseClass:
@@ -8916,7 +7957,7 @@ pip freeze --local > requirements.txt
 | `%%perl`           | Выполняет код Perl в ячейке.                                                              | `%%perl`<br>`print "Hello from Perl\n";`                                                          |
 | `%recall`          | Повторяет предыдущую команду или извлекает её по индексу из истории.                      | `%recall 42`                                                                                      |
 | `%%system`         | Выполняет команды оболочки в ячейке.                                                      | `%%system`<br>`ls -l`                                                                             |
-| `%alias_magic`     | Создаёт псевдоним для существующей магической команды IPython.                            | `%alias_magic t timeit`<br>`# Теперь можно использовать 't' вместо 'timeit'`<br>`t my_function()` |
+| `%alias_magic`     | Создаёт псевдоним для существующей магической команды IPython.                            | `%alias_magic t timeit`<br>`# Теперь можно использовать "t" вместо "timeit"`<br>`t my_function()` |
 | `%dhist`           | Показывает историю директорий, в которых вы работали.                                     | `%dhist`                                                                                          |
 | `%logon`           | Включает журналирование.                                                                  | `%logon`                                                                                          |
 | `%pfile`           | Открывает и показывает содержимое файла с кодом.                                          | `%pfile my_script.py`                                                                             |
@@ -9030,7 +8071,7 @@ pip freeze --local > requirements.txt
 | -u (или —unbuffered)          | python -u                 | Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных. |
 | -h (или —help)                | python -h<br>python —help | Выведет список всех доступных флагов и их описания. |
 
-```shell
+```
 >python -h
 usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options (and corresponding environment variables):
@@ -9053,7 +8094,7 @@ Options (and corresponding environment variables):
 -P     : do not prepend a potentially unsafe path to sys.path; also PYTHONSAFEPATH
 -q     : do not print version and copyright messages on interactive startup
 -s     : do not add user site directory to sys.path; also PYTHONNOUSERSITE
--S     : do not imply 'import site' on initialization
+-S     : do not imply "import site" on initialization
 -u     : force the stdout and stderr streams to be unbuffered;
          this option has no effect on stdin; also PYTHONUNBUFFERED=x
 -v     : verbose (trace import statements); also PYTHONVERBOSE=x
@@ -9075,35 +8116,6 @@ file   : program read from script file
 arg ...: arguments passed to program in sys.argv[1:]
 ```
 """,
-            "with as": """with
-В начале блока кода with вызывает метод &#95;&#95;enter&#95;&#95; у объекта,
-  который используется для подготовки контекста.
-После того как код внутри блока завершился, вызывается метод &#95;&#95;exit&#95;&#95;,
-  который используется для освобождения ресурсов.
-Контекстный менеджер with удобен для использования,
-  так как он автоматически освобождает ресурсы в конце блока кода, что избавляет
-  от необходимости ручного закрытия файла или освобождения других ресурсов.
-Контекстный менеджер with может быть использован не только с файлами,
-  но и с другими объектами, которые поддерживают методы &#95;&#95;enter&#95;&#95; и &#95;&#95;exit&#95;&#95;.
-Например, он может быть использован для управления блокировками,
-  сетевыми соединениями и т.д.
-
-```python
-class Writer(object):
-    def __init__(self, path):
-        self.path = path
-
-    def __enter__(self):
-        self.file = open(self.path, 'w', encoding='UTF-8')
-        return self.file
-
-    def __exit__(self, *args):
-        self.file.close()
-
-with Writer('my_file.txt') as file:
-    file.write('hello world')
-```
-""",
             "fstrings": """
 F-строки - это новый способ форматирования строк в Python 3.6 и выше. 
 Они позволяют встраивать выражения Python внутри строк посредством указания их в {} внутри строки, заключенной в f.
@@ -9119,11 +8131,11 @@ index_string      ::=  <любой исходный символ, кроме "]"
 conversion        ::=  "r" | "s" | "a"
 format_spec       ::=  <описано в следующем разделе>
 
-За field_name может следовать поле преобразования , которому предшествует восклицательный знак '!', 
-и format_spec , которому предшествует двоеточие ':'. 
+За field_name может следовать поле преобразования , которому предшествует восклицательный знак "!", 
+и format_spec , которому предшествует двоеточие ":". 
 Они определяют нестандартный формат для замещающего значения.
 
-В настоящее время поддерживаются три флага преобразования: '!s'который вызывает str() значение, '!r'который вызывает repr() и '!a'который вызывает ascii().
+В настоящее время поддерживаются три флага преобразования: "!s" который вызывает str() значение, "!r" который вызывает repr() и "!a" который вызывает ascii().
 
 Некоторые примеры:
 
@@ -9144,50 +8156,50 @@ grouping_option ::= "_" | ","
 тип             ::= "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
 
 Вариант Значение
-'`<`'     Принудительно выравнивает поле по левому краю в доступном пространстве 
+"`<`"     Принудительно выравнивает поле по левому краю в доступном пространстве 
         (это значение по умолчанию для большинства объектов).
-'`>`'     Принудительно выравнивает поле по правому краю в доступном пространстве (это значение по умолчанию для чисел).
-'`=`'     Принудительно размещает заполнение после знака (если есть), но перед цифрами. 
+"`>`"     Принудительно выравнивает поле по правому краю в доступном пространстве (это значение по умолчанию для чисел).
+"`=`"     Принудительно размещает заполнение после знака (если есть), но перед цифрами. 
         Это используется для печати полей в форме «+000000120». 
         Этот параметр выравнивания действителен только для числовых типов. 
         Он становится значением по умолчанию для чисел, когда «0» непосредственно предшествует ширине поля.
-'`^`'     Центрирует поле в доступном пространстве.
+"`^`"     Центрирует поле в доступном пространстве.
 Параметр знака действителен только для числовых типов и может быть одним из следующих:
 
 Вариант Значение
 
-'`+`'     указывает, что знак должен использоваться как для положительных, так и для отрицательных чисел.
-'`-`'     указывает, что знак следует использовать только для отрицательных чисел (это поведение по умолчанию).
+"`+`"     указывает, что знак должен использоваться как для положительных, так и для отрицательных чисел.
+"`-`"     указывает, что знак следует использовать только для отрицательных чисел (это поведение по умолчанию).
 spase   указывает, что перед положительными числами следует использовать начальный пробел, а перед отрицательными — знак минус.
 
-Параметр '`z`' приводит отрицательные нулевые значения с плавающей запятой к положительным нулям после округления до точности формата. 
+Параметр "`z`" приводит отрицательные нулевые значения с плавающей запятой к положительным нулям после округления до точности формата. 
 Этот параметр действителен только для типов представления с плавающей запятой.
 
 
-Опция '`#`' приводит к использованию «альтернативной формы» для преобразования. 
+Опция "`#`" приводит к использованию «альтернативной формы» для преобразования. 
           Альтернативная форма определяется по-разному для разных типов. 
           Этот параметр действителен только для целых, плавающих и сложных типов. 
           Для целых чисел, когда используется двоичный, восьмеричный или шестнадцатеричный вывод, 
-          эта опция добавляет соответствующий префикс '`0b`', '`0o`', '`0x`'или '`0X`'к выходному значению. 
+          эта опция добавляет соответствующий префикс "`0b`", "`0o`", "`0x`" или "`0X`" к выходному значению. 
           Для чисел с плавающей запятой и сложных альтернативная форма приводит к тому, что результат 
           преобразования всегда содержит символ десятичной точки, даже если за ним не следуют цифры. 
           Обычно символ десятичной точки появляется в результате этих преобразований только в том случае, 
-          если за ним следует цифра. Кроме того, для преобразований '`g`'и '`G`' конечные нули не удаляются из результата.
-Опция '`,`'сигнализирует об использовании запятой для разделителя тысяч. 
-         Для разделителя, учитывающего локаль, '`n`' вместо этого используйте целочисленный тип представления.
-Опция '`_`'сигнализирует об использовании подчеркивания для разделителя тысяч для типов представления с плавающей 
-         запятой и для целочисленного типа представления '`d`'. 
-         Для целочисленных типов представления '`b`', '`o`', '`x`'и '`X`'символы подчеркивания будут вставлены 
+          если за ним следует цифра. Кроме того, для преобразований "`g`" и "`G`" конечные нули не удаляются из результата.
+Опция "`,`" сигнализирует об использовании запятой для разделителя тысяч. 
+         Для разделителя, учитывающего локаль, "`n`" вместо этого используйте целочисленный тип представления.
+Опция "`_`" сигнализирует об использовании подчеркивания для разделителя тысяч для типов представления с плавающей 
+         запятой и для целочисленного типа представления "`d`". 
+         Для целочисленных типов представления "`b`", "`o`", "`x`"и "`X`" символы подчеркивания будут вставлены 
          через каждые 4 цифры. Для других типов презентаций указание этой опции является ошибкой.
 ширина — десятичное целое число, определяющее минимальную общую ширину поля, включая все префиксы, 
          разделители и другие символы форматирования. Если не указано, то ширина поля будет определяться содержимым.
-Если явное выравнивание не задано, перед полем ширины'`0`' ставится нулевой символ ( ), 
+Если явное выравнивание не задано, перед полем ширины "`0`" ставится нулевой символ ( ), 
          что позволяет использовать заполнение нулями с учетом знака для числовых типов. 
-         Это эквивалентно символу заполнения'`0`' с типом выравнивания'`=`' .
-установка перед полем ширины '`0`' больше не влияет на выравнивание строк по умолчанию.
+         Это эквивалентно символу заполнения "`0`" с типом выравнивания "`=`" .
+установка перед полем ширины "`0`" больше не влияет на выравнивание строк по умолчанию.
 
 Точность представляет собой десятичное целое число , указывающее, сколько цифр должно отображаться после десятичной 
-точки для типов представления '`f`'и '`F`', или до и после десятичной точки для типов представления '`g`'или '`G`'. 
+точки для типов представления "`f`" и "`F`", или до и после десятичной точки для типов представления "`g`" или "`G`". 
 Для типов строкового представления поле указывает максимальный размер поля, другими словами, сколько символов 
 будет использовано из содержимого поля. Точность не допускается для целочисленных типов представления .
 
@@ -9195,52 +8207,52 @@ spase   указывает, что перед положительными чи�
 Доступные типы представления строк:
 
 Тип    Значение
-'`s`'    Формат строки. Это тип по умолчанию для строк, и его можно опустить.
-None   То же, что '`s`'.
+"`s`"    Формат строки. Это тип по умолчанию для строк, и его можно опустить.
+None   То же, что "`s`".
 
 Доступные типы целочисленного представления:
 
 Тип   Значение
-'`b`'   Двоичный формат. Выводит число по основанию 2.
-'`c`'   Характер. Преобразует целое число в соответствующий символ Юникода перед печатью.
-'`d`'   Десятичное целое. Выводит число в базе 10.
-'`o`'   Восьмеричный формат. Выводит число по основанию 8.
-'`x`'   Шестнадцатеричный формат. Выводит число по основанию 16, используя строчные буквы для цифр выше 9.
-'`X`'   Шестнадцатеричный формат. Выводит число по основанию 16, используя прописные буквы для цифр выше 9. Если '#' указано, префикс '0x' также будет прописным '0X'.
-'`n`'   Число. Это то же самое '`d`', что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
+"`b`"   Двоичный формат. Выводит число по основанию 2.
+"`c`"   Характер. Преобразует целое число в соответствующий символ Юникода перед печатью.
+"`d`"   Десятичное целое. Выводит число в базе 10.
+"`o`"   Восьмеричный формат. Выводит число по основанию 8.
+"`x`"   Шестнадцатеричный формат. Выводит число по основанию 16, используя строчные буквы для цифр выше 9.
+"`X`"   Шестнадцатеричный формат. Выводит число по основанию 16, используя прописные буквы для цифр выше 9. Если "#" указано, префикс "0x" также будет прописным "0X".
+"`n`"   Число. Это то же самое "`d`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
 None  То же, что ' 
 
 Доступные типы представления для floatи Decimalзначений:
 
 Тип    Значение
-'`e`'    Научная нотация. Для заданной точности pформатирует число в экспоненте с буквой «e», отделяющей коэффициент от показателя степени. 
+"`e`"    Научная нотация. Для заданной точности pформатирует число в экспоненте с буквой «e», отделяющей коэффициент от показателя степени. 
        Коэффициент имеет одну цифру до и pцифры после запятой, всего значащих цифр. 
        Без заданной точности использует точность цифр после запятой для и показывает все цифры коэффициента для. 
        Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не используется этот параметр.p + 16floatDecimal#
-'`E`'    Научная нотация. То же, что и '`e`' за исключением того, что в качестве символа-разделителя используется заглавная буква «E».
-'`f`'    Обозначение с фиксированной точкой. Для заданной точности pформатирует число как десятичное число, 
+"`E`"    Научная нотация. То же, что и "`e`" за исключением того, что в качестве символа-разделителя используется заглавная буква «E».
+"`f`"    Обозначение с фиксированной точкой. Для заданной точности pформатирует число как десятичное число, 
        в котором pпосле запятой следуют только цифры. 
        Без заданной точности использует точность 6цифр после запятой для floatи использует точность, 
        достаточную для отображения всех цифр коэффициента для Decimal. 
        Если за десятичной точкой не следуют цифры, десятичная точка также удаляется, если не #используется этот параметр.
-'`F`'    Обозначение с фиксированной точкой. То же , что и '`f`', но преобразуется nanв NANи infв INF.
-'`g`'    Общий формат. Для заданной точности это округляет число до значащих цифр, а затем форматирует результат 
+"`F`"    Обозначение с фиксированной точкой. То же , что и "`f`", но преобразуется nanв NANи infв INF.
+"`g`"    Общий формат. Для заданной точности это округляет число до значащих цифр, а затем форматирует результат 
        либо в формате с фиксированной запятой, либо в экспоненциальном представлении, в зависимости от его величины. 
        Точность рассматривается как эквивалентная точности .p >= 1p01
-Точные правила таковы: предположим, что результат, отформатированный с типом представления '`e`' и точностью p-1, 
+Точные правила таковы: предположим, что результат, отформатированный с типом представления "`e`" и точностью p-1, 
 будет иметь показатель степени exp. Затем, если , где -4 для чисел с плавающей запятой и -6 для , число форматируется с типом представления и точностью . 
 В противном случае число форматируется с типом представления и точностью . В обоих случаях из мантиссы удаляются незначащие конечные нули, а также 
-удаляется десятичная точка, если за ней не следуют оставшиеся цифры, если не используется опция.m <= exp < pmDecimals 'f' p-1-exp 'e' p-1 '#'
+удаляется десятичная точка, если за ней не следуют оставшиеся цифры, если не используется опция.m <= exp < pmDecimals "f" p-1-exp "e" p-1 "#"
 Без заданной точности использует точность 6 значащих цифр для float. При Decimalкоэффициент результата формируется из цифр коэффициента значения; 
 научное обозначение используется для значений, меньших 1e-6абсолютного значения, и значений, 
 в которых разрядное значение младшей значащей цифры больше 1, а в противном случае используется обозначение с фиксированной запятой.
 Положительная и отрицательная бесконечность, положительные и отрицательные нули и нанс форматируются как , , и infсоответственно -inf, 0независимо от точности.-0nan
-'`G`'    Общий формат. То же, что и '`g`' за исключением переключения, '`E`' если число становится слишком большим. Представления бесконечности и NaN также в верхнем регистре.
-'`n`'    Число. Это то же самое '`g`', что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
-'`%`'    Процент. Умножает число на 100 и отображает в фиксированном ('`f`') формате, за которым следует знак процента.
-Никто  Поскольку floatэто то же самое '`g`', что и , за исключением того, что когда для форматирования результата используется запись с 
+"`G`"    Общий формат. То же, что и "`g`" за исключением переключения, "`E`" если число становится слишком большим. Представления бесконечности и NaN также в верхнем регистре.
+"`n`"    Число. Это то же самое "`g`", что и , за исключением того, что он использует текущую настройку локали для вставки соответствующих символов-разделителей чисел.
+"`%`"    Процент. Умножает число на 100 и отображает в фиксированном ("`f`") формате, за которым следует знак процента.
+Никто  Поскольку floatэто то же самое "`g`", что и , за исключением того, что когда для форматирования результата используется запись с 
 фиксированной точкой, он всегда включает по крайней мере одну цифру после десятичной точки. Используемая точность настолько велика, насколько это необходимо для точного представления заданного значения.
-Для Decimalэто то же самое, что '`g`' или '`G`' в зависимости от значения context.capitalsдля текущего десятичного контекста. 
+Для Decimalэто то же самое, что "`g`" или "`G`" в зависимости от значения context.capitalsдля текущего десятичного контекста. 
 Общий эффект заключается в том, чтобы соответствовать выходным данным str() , измененным другими модификаторами формата.
 
 
@@ -9248,79 +8260,79 @@ None  То же, что '
 Доступ к аргументам по позиции:
 
 ```python
-'{0}, {1}, {2}'.format('a', 'b', 'c')
-'a, b, c'
-'{}, {}, {}'.format('a', 'b', 'c')  # 3.1+ only
-'a, b, c'
-'{2}, {1}, {0}'.format('a', 'b', 'c')
-'c, b, a'
-'{2}, {1}, {0}'.format(*'abc')      # unpacking argument sequence
-'c, b, a'
-'{0}{1}{0}'.format('abra', 'cad')   # arguments' indices can be repeated
-'abracadabra'
+"{0}, {1}, {2}".format("a", "b", "c")
+"a, b, c"
+"{}, {}, {}".format("a", "b", "c")  # 3.1+ only
+"a, b, c"
+"{2}, {1}, {0}".format("a", "b", "c")
+"c, b, a"
+"{2}, {1}, {0}".format(*"abc")      # unpacking argument sequence
+"c, b, a"
+"{0}{1}{0}".format("abra", "cad")   # arguments indices can be repeated
+"abracadabra"
 ```
 
 Доступ к аргументам по имени:
 
 ```python
-'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
-'Coordinates: 37.24N, -115.81W'
-coord = {'latitude': '37.24N', 'longitude': '-115.81W'}
-'Coordinates: {latitude}, {longitude}'.format(**coord)
-'Coordinates: 37.24N, -115.81W'
+"Coordinates: {latitude}, {longitude}".format(latitude="37.24N", longitude="-115.81W")
+"Coordinates: 37.24N, -115.81W"
+coord = {"latitude": "37.24N", "longitude": "-115.81W"}
+"Coordinates: {latitude}, {longitude}".format(**coord)
+"Coordinates: 37.24N, -115.81W"
 ```
 
 Доступ к атрибутам аргументов:
 
 ```python
 c = 3-5j
-('The complex number {0} is formed from the real part {0.real} '
- 'and the imaginary part {0.imag}.').format(c)
-'The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0.'
+("The complex number {0} is formed from the real part {0.real} "
+ "and the imaginary part {0.imag}.").format(c)
+"The complex number (3-5j) is formed from the real part 3.0 and the imaginary part -5.0."
 class Point:
     def __init__(self, x, y):
         self.x, self.y = x, y
     def __str__(self):
-        return 'Point({self.x}, {self.y})'.format(self=self)
+        return "Point({self.x}, {self.y})".format(self=self)
 
 str(Point(4, 2))
-'Point(4, 2)'
+"Point(4, 2)"
 ```
 
 Доступ к элементам аргументов:
 
 ```python
 coord = (3, 5)
-'X: {0[0]};  Y: {0[1]}'.format(coord)
-'X: 3;  Y: 5'
+"X: {0[0]};  Y: {0[1]}".format(coord)
+"X: 3;  Y: 5"
 
-Замена %sи %r:
-"repr() shows quotes: {!r}; str() doesn't: {!s}".format('test1', 'test2')
+Замена `%s` и `%r`:
+"repr() shows quotes: {!r}; str() doesn't: {!s}".format("test1", "test2")
 "repr() shows quotes: 'test1'; str() doesn't: test2"
 ```
 
 Выравнивание текста и указание ширины:
 
 ```python
-'{:<30}'.format('left aligned')
-'left aligned                  '
-'{:>30}'.format('right aligned')
-'                 right aligned'
-'{:^30}'.format('centered')
-'           centered           '
-'{:*^30}'.format('centered')  # use '*' as a fill char
-'***********centered***********'
+"{:<30}".format("left aligned")
+"left aligned                  "
+"{:>30}".format("right aligned")
+"                 right aligned"
+"{:^30}".format("centered")
+"           centered           "
+"{:*^30}".format("centered")  # use "*" as a fill char
+"***********centered***********"
 ```
 
 Замена %+f, %-f, и и указание знака:% f
 
 ```python
-'{:+f}; {:+f}'.format(3.14, -3.14)  # show it always
-'+3.140000; -3.140000'
-'{: f}; {: f}'.format(3.14, -3.14)  # show a space for positive numbers
-' 3.140000; -3.140000'
-'{:-f}; {:-f}'.format(3.14, -3.14)  # show only the minus -- same as '{:f}; {:f}'
-'3.140000; -3.140000'
+"{:+f}; {:+f}".format(3.14, -3.14)  # show it always
+"+3.140000; -3.140000"
+"{: f}; {: f}".format(3.14, -3.14)  # show a space for positive numbers
+" 3.140000; -3.140000"
+"{:-f}; {:-f}".format(3.14, -3.14)  # show only the minus -- same as "{:f}; {:f}"
+"3.140000; -3.140000"
 ```
 
 Замена %xи %oпреобразование значения в разные базы:
@@ -9328,17 +8340,17 @@ coord = (3, 5)
 ```python
 # format also supports binary numbers
 "int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42)
-'int: 42;  hex: 2a;  oct: 52;  bin: 101010'
+"int: 42;  hex: 2a;  oct: 52;  bin: 101010"
 # with 0x, 0o, or 0b as prefix:
 "int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42)
-'int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010'
+"int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010"
 ```
 
 Использование запятой в качестве разделителя тысяч:
 
 ```python
-'{:,}'.format(1234567890)
-'1,234,567,890'
+"{:,}".format(1234567890)
+"1,234,567,890"
 ```
 
 Выражение процента:
@@ -9346,8 +8358,8 @@ coord = (3, 5)
 ```python
 points = 19
 total = 22
-'Correct answers: {:.2%}'.format(points/total)
-'Correct answers: 86.36%'
+"Correct answers: {:.2%}".format(points/total)
+"Correct answers: 86.36%"
 ```
 
 Использование форматирования для конкретного типа:
@@ -9355,28 +8367,28 @@ total = 22
 ```python
 import datetime
 d = datetime.datetime(2010, 7, 4, 12, 15, 58)
-'{:%Y-%m-%d %H:%M:%S}'.format(d)
-'2010-07-04 12:15:58'
+"{:%Y-%m-%d %H:%M:%S}".format(d)
+"2010-07-04 12:15:58"
 ```
 
 Вложенные аргументы и более сложные примеры:
 
 ```python
-for align, text in zip('<^>', ['left', 'center', 'right']):
-    '{0:{fill}{align}16}'.format(text, fill=align, align=align)
+for align, text in zip("<^>", ["left", "center", "right"]):
+    "{0:{fill}{align}16}".format(text, fill=align, align=align)
 
-'left<<<<<<<<<<<<'
-'^^^^^center^^^^^'
-'>>>>>>>>>>>right'
+"left<<<<<<<<<<<<"
+"^^^^^center^^^^^"
+">>>>>>>>>>>right"
 octets = [192, 168, 0, 1]
-'{:02X}{:02X}{:02X}{:02X}'.format(*octets)
-'C0A80001'
+"{:02X}{:02X}{:02X}{:02X}".format(*octets)
+"C0A80001"
 int(_, 16)
 3232235521
 width = 5
 for num in range(5,12): 
-    for base in 'dXob':
-        print('{0:{width}{base}}'.format(num, base=base, width=width), end=' ')
+    for base in "dXob":
+        print("{0:{width}{base}}".format(num, base=base, width=width), end=" ")
     print()
 
 #    5     5     5   101
@@ -9420,19 +8432,15 @@ p = Person()
 print(f"{p}") # Person Object
 ```
 """,
-            "print(file=)": """
-```python
-with open('output.txt', 'w') as f:
-    print('Hello, world!', file=f)
-```
-""",
             "for in list comprehension": """
 ```python
 list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-
-result_list = [item for tpl in list_of_tuples for item in tpl]
-
-print(result_list) # [1, 2, 3, 4, 5, 6]
+result_list = [
+    item
+    for tpl in list_of_tuples
+    for item in tpl
+]
+print(result_list)  # [1, 2, 3, 4, 5, 6]
 ```
 
 ==
@@ -9444,67 +8452,89 @@ for tpl in list_of_tuples:
     for item in tpl:
         result_list.append(item)
         
-print(result_list) # [1, 2, 3, 4, 5, 6]
+print(result_list)  # [1, 2, 3, 4, 5, 6]
 ```
 """,
             "Умножение списков": """
 ```python-console
 >>> a = [[]]*3
->>> [print(id(x)) for x in a]
- 2725519109056
- 2725519109056
- 2725519109056
+>>> for x in a:
+...     print(id(x))
+...
+3276075832448
+3276075832448
+3276075832448
 >>> a[1].append(1)
 >>> a
 [[1], [1], [1]]
 >>>
 >>> b = [[] for _ in range(3)]
->>> [print(id(x)) for x in b]
- 2725519148736
- 2725519105984
- 2725519108352
+>>> for x in b:
+...     print(id(x))
+...
+3276075828928
+3276075828992
+3276075828864
+>>> b[1].append(1)
+>>> b
+[[], [1], []]
 >>>
 >>> c = [[]]
 >>> print(id(c[0]))
-2014139788672
->>> [id(x) for x in (c + c)]
-[2014139788672, 2014139788672]
+3276075894784
+>>> for x in (c + c):
+...     print(id(x))
+...
+3276075894784
+3276075894784
 >>>
+>>> d = ((),)*3
+>>> for x in d:
+...     print(id(d))
+...
+3276075830656
+3276075830656
+3276075830656
 ```
 """,
             "yield from": """
-yield from - это выражение, которое позволяет делегировать выполнение генератора другому генератору, который называется подгенератором. 
-Это означает, что когда генератор встречает выражение yield from с указанием подгенератора, он передает управление этому подгенератору, 
+`yield from` - это выражение, которое позволяет делегировать выполнение
+генератора другому генератору, который называется **подгенератором**. 
+Это означает, что когда генератор встречает выражение `yield from` с указанием **подгенератора**,
+он передает управление этому **подгенератору**, 
 который затем возвращает значения генерируемых им элементов непосредственно в генератор-делегат.
 
-Кроме того, yield from позволяет пропустить передачу через промежуточный уровень вложенности. 
+Кроме того, `yield from` позволяет пропустить передачу через промежуточный уровень вложенности. 
 Это означает, что когда подгенератор завершает свою работу, управление передается автоматически обратно генератору-делегату. 
-Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе, чтобы создать новый генератор, который генерирует элементы из каждого из них.
+Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе,
+чтобы создать новый генератор, который генерирует элементы из каждого из них.
 
 Вот пример, который демонстрирует использование yield from:
 
 ```python
 def generator1():
-    yield 'A'
-    yield 'B'
-    yield 'C'
+    yield "A"
+    yield "B"
+    yield "C"
 
 def generator2():
-    yield 'D'
+    yield "D"
     yield from generator1()
-    yield 'E'
-    yield 'F'
+    yield "E"
+    yield "F"
 
-[letter for letter in generator2()] # ['D', 'A', 'B', 'C', 'E', 'F']
+[letter for letter in generator2()] # ["D", "A", "B", "C", "E", "F"]
 ```
 
-Здесь generator2 создает новый генератор, используя yield from 
-для вызова генератора generator1 и объединения его с другими элементами, которые генерирует generator2. 
-Когда generator1 завершает свою работу, управление автоматически возвращается обратно в generator2, который продолжает генерировать свои элементы.
+Здесь `generator2` создает новый генератор, используя `yield from` 
+для вызова генератора `generator1` и объединения его с другими элементами, которые генерирует `generator2`. 
+Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
+который продолжает генерировать свои элементы.
 """,
             "import": """
 ```python-console
->>> def im(): import math
+>>> def im():
+...     import math
 ...
 >>> math
 Traceback (most recent call last):
@@ -9535,41 +8565,66 @@ try:
     print(f"Библиотека {library_name} уже установлена.")
 except ImportError:
     # устанавливаем библиотеку
-    subprocess.call(['pip', 'install', library_name])
+    subprocess.call(["pip", "install", library_name])
     print(f"Библиотека {library_name} установлена успешно.")
 
 ```
 """,
             "Встроенные функции": r"""
-slice frozenset memoryview, hasattr, reversed, __import__, staticmethod, setattr, property, object, 
-locals, globals, getattr, complex, compile, bytearray, abs, bin, bytes, callable, chr, classmethod, 
-delattr, dir, divmod, filter, oct, nonlocal
+- slice
+- frozenset
+- memoryview
+- hasattr
+- reversed
+- __import__
+- staticmethod
+- setattr
+- property
+- object, 
+- locals
+- globals
+- getattr
+- complex
+- compile
+- bytearray
+- abs
+- bin
+- bytes
+- callable
+- chr
+- classmethod
+- delattr
+- dir
+- divmod
+- filter
+- oct
+- nonlocal
 
 
-slice - используется для создания срезов (slice) из последовательности (sequence), таких как строки, списки, кортежи и т.д. Пример:
+## slice
 
 ```python
-my_list = [1, 2, 3, 4, 5]
-slice_obj = slice(1, 4)
-print(my_list[slice_obj])  # Output: [2, 3, 4]
+print([1, 2, 3, 4, 5][1:4])  # [2, 3, 4]
+print([1, 2, 3, 4, 5][slice(1, 4)])  # [2, 3, 4]
 ```
 
-frozenset - это неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов. Пример:
+## frozenset
+Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.
 
 ```python
-my_set = frozenset([1, 2, 2, 3, 4])
-print(my_set)  # Output: frozenset({1, 2, 3, 4})
+print(frozenset([1, 2, 2, 3, 4]))  # frozenset({1, 2, 3, 4})
 ```
 
-memoryview - используется для доступа к буферу памяти объекта без копирования его данных. Пример:
+## memoryview
+Доступ к буферу памяти объекта без копирования его данных.
 
 ```python
 my_bytes = bytes([1, 2, 3, 4, 5])
-my_memory_view = memoryview(my_bytes)
-print(my_memory_view[1])  # Output: 2
+print(memoryview(my_bytes)[1])  # 2
 ```
 
-hasattr - используется для проверки наличия атрибута (метода или свойства) у объекта. Пример:
+## hasattr
+Для проверки наличия атрибута (метода или свойства) у объекта.
 
 ```python
 class MyClass:
@@ -9577,37 +8632,41 @@ class MyClass:
         self.my_attr = 42
 
 my_obj = MyClass()
-print(hasattr(my_obj, 'my_attr'))  # Output: True
-print(hasattr(my_obj, 'non_existent_attr'))  # Output: False
+print(hasattr(my_obj, "my_attr"))  # True
+print(hasattr(my_obj, "non_existent_attr"))  # False
 ```
 
-reversed - используется для переворачивания последовательности (sequence). Пример:
+## reversed
+Для переворачивания последовательности (sequence).
 
 ```python
 my_list = [1, 2, 3, 4, 5]
 reversed_list = reversed(my_list)
-print(list(reversed_list))  # Output: [5, 4, 3, 2, 1]
+print(list(reversed_list))  # [5, 4, 3, 2, 1]
 ```
 
-__import__ - используется для импорта модуля во время выполнения программы. Пример:
+## __import__
+Для импорта модуля во время выполнения программы.
 
 ```python
-my_module = __import__('math')
-print(my_module.pi)  # Output: 3.141592653589793
+math = __import__("math")
+print(math.pi)  # 3.141592653589793
 ```
 
-staticmethod - используется для создания метода класса, который не принимает первый аргумент self (или cls для методов класса). Пример:
+## staticmethod
+Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).
 
 ```python
 class MyClass:
     @staticmethod
     def my_static_method():
-        print('This is a static method')
+        print("This is a static method")
 
-MyClass.my_static_method()  # Output: This is a static method
+MyClass.my_static_method()  # This is a static method
 ```
 
-setattr - используется для установки значения атрибута объекта. Пример:
+## setattr
+Для установки значения атрибута объекта.
 
 ```python
 class MyClass:
@@ -9615,11 +8674,12 @@ class MyClass:
         self.my_attr = 42
 
 my_obj = MyClass()
-setattr(my_obj, 'my_attr', 43)
-print(my_obj.my_attr)  # Output: 43
+setattr(my_obj, "my_attr", 43)
+print(my_obj.my_attr)  # 43
 ```
 
-property - используется для создания свойства объекта, которое можно читать и записывать, как обычный атрибут. Пример:
+## property
+Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.
 
 ```python
 class MyClass:
@@ -9635,14 +8695,16 @@ class MyClass:
         self._my_attr
 ```
 
-object - это базовый класс, от которого наследуются все остальные классы в Python. Пример:
+## object
+Базовый класс, от которого наследуются все остальные классы в Python.
 
 ```python
 class MyClass(object):
     pass
 ```
 
-locals - используется для получения словаря с локальными переменными в текущем контексте выполнения. Пример:
+## locals
+Для получения словаря с локальными переменными в текущем контексте выполнения.
 
 ```python
 def my_func():
@@ -9650,71 +8712,72 @@ def my_func():
     b = 2
     print(locals())
 
-my_func()  # Output: {'a': 1, 'b': 2}
+my_func()  # {"a": 1, "b": 2}
 ```
 
-globals - используется для получения словаря с глобальными переменными в текущем модуле. Пример:
+## globals
+Для получения словаря с глобальными переменными в текущем модуле.
 
 ```python
 my_var = 42
-print(globals())  # Output: {'__name__': '__main__', '__doc__': None, '__package__': None, 'my_var': 42, ...}
+print(globals())  # {"__name__": "__main__", "__doc__": None, "__package__": None, "my_var": 42, ...}
 ```
 
-getattr - используется для получения значения атрибута объекта по его имени. Пример:
+## getattr
+Для получения значения атрибута объекта по его имени.
 
 ```python
 class MyClass:
     def __init__(self):
         self.my_attr = 42
 
-my_obj = MyClass()
-print(getattr(my_obj, 'my_attr'))  # Output: 42
+print(getattr(MyClass(), "my_attr"))  # 42
 ```
 
-complex - используется для создания комплексного числа. Пример:
+## complex
+Для создания комплексного числа.
 
 ```python
-my_complex = complex(1, 2)
-print(my_complex)  # Output: (1+2j)
+print(complex(1, 2))  # (1+2j)
 ```
 
-compile - используется для компиляции строки с кодом Python в объект-код. Пример:
+## compile
+Для компиляции строки с кодом Python в объект-код.
 
 ```python
-my_code = 'print("Hello, world!")'
-my_compiled_code = compile(my_code, '<string>', 'exec')
-exec(my_compiled_code)  # Output: Hello, world!
+exec(compile('print("Hello, world!")', "<string>", "exec"))  # Hello, world!
 ```
 
-bytearray - это изменяемый тип данных, представляющий собой массив байтов. Пример:
+## bytearray
+Изменяемый тип данных, представляющий собой массив байтов.
 
 ```python
-my_bytearray = bytearray([1, 2, 3, 4, 5])
-print(my_bytearray)  # Output: bytearray(b'\x01\x02\x03\x04\x05')
+print(bytearray([1, 2, 3, 4, 5]))  # bytearray(b"\x01\x02\x03\x04\x05")
 ```
 
-abs - используется для получения абсолютного значения числа. Пример:
+## abs
+Получения абсолютного значения числа.
 
 ```python
-my_num = -42
-print(abs(my_num))  # Output: 42
+print(abs(-42))  # 42
 ```
 
-bin - используется для получения двоичного представления числа. Пример:
+## bin
+Получения двоичного представления числа.
 
 ```python
-my_num = 42
-print(bin(my_num))  # Output: 0b101010
+print(bin(42))  # 0b101010
 ```
 
-bytes - это неизменяемый тип данных, представляющий собой массив байтов. Пример:
+## bytes
+Неизменяемый тип данных, представляющий собой массив байтов.
 
 ```python
-my_bytes = bytes([1, 2, 3, 4, 5])
-print(my_bytes)  # Output: b'\x01\x02\x03\x04\x05'
+print(bytes([1, 2, 3, 4, 5]))  # b"\x01\x02\x03\x04\x05"
 ```
 
-callable - используется для проверки, является ли объект вызываемым (т.е. функцией или методом). Пример:
+## callable
+Является ли объект вызываемым (т.е. функцией или методом).
 
 ```python
 def my_func():
@@ -9724,19 +8787,20 @@ class MyClass:
     def my_method(self):
         pass
 
-print(callable(my_func))  # Output: True
-print(callable(MyClass().my_method))  # Output: True
-print(callable(42))  # Output: False
+print(callable(my_func))  # True
+print(callable(MyClass().my_method))  # True
+print(callable(42))  # False
 ```
 
-chr - используется для получения символа Unicode по его коду. Пример:
+## chr
+Получение символа Unicode по его коду.
 
 ```python
-my_char = chr(97)
-print(my_char)  # Output: 'a'
+print(chr(97))  # "a"
 ```
 
-classmethod - используется для создания метода класса. Этот метод может быть вызван без создания экземпляра класса. Пример:
+## classmethod
+Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.
 
 ```python
 class MyClass:
@@ -9746,50 +8810,51 @@ class MyClass:
     def my_class_method(cls):
         print(cls.my_class_attr)
 
-MyClass.my_class_method()  # Output: 42
+MyClass.my_class_method()  # 42
 ```
 
-delattr - используется для удаления атрибута объекта. Пример:
+## delattr
+Удаление атрибута объекта.
 
 ```python
 class MyClass:
     my_attr = 42
 
 my_obj = MyClass()
-delattr(my_obj, 'my_attr')
-print(hasattr(my_obj, 'my_attr'))  # Output: False
+delattr(my_obj, "my_attr")
+print(hasattr(my_obj, "my_attr"))  # False
 ```
 
-dir - используется для получения списка всех атрибутов объекта. Пример:
+## dir
+Получение списка всех атрибутов объекта.
 
 ```python
-my_list = [1, 2, 3]
-print(dir(my_list))  # Output: ['__add__', '__class__', '__contains__', ...]
+print(dir([1, 2, 3]))  # ["__add__", "__class__", "__contains__", ...]
 ```
 
-divmod - используется для получения частного и остатка от деления двух чисел. Пример:
+## divmod
+Получения частного и остатка от деления двух чисел.
 
 ```python
-my_divmod = divmod(42, 5)
-print(my_divmod)  # Output: (8, 2)
+print(divmod(42, 5))  # (8, 2)
 ```
 
-filter - используется для фильтрации элементов последовательности с помощью функции. Пример:
+## filter
+Фильтрация элементов последовательности с помощью функции.
 
 ```python
-my_list = [1, 2, 3, 4, 5]
-my_filtered_list = list(filter(lambda x: x % 2 == 0, my_list))
-print(my_filtered_list)  # Output: [2, 4]
+print(list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5])))  # [2, 4]
 ```
 
-oct - используется для получения восьмеричного представления числа. Пример:
+## oct
+Получение восьмеричного представления числа.
 
 ```python
-my_num = 42
-print(oct(my_num))  # Output: 0o52
+print(oct(42))  # 0o52
 ```
 
-nonlocal - используется для объявления переменной из внешней области видимости внутри функции. Пример:
+## nonlocal
+Объявление переменной из внешней области видимости внутри функции.
 
 ```python
 def my_func():
@@ -9800,7 +8865,7 @@ def my_func():
     inner_func()
     print(my_var)
 
-my_func()  # Output: 43
+my_func()  # 43
 ```
 """,
             "Аннотации типов": """
@@ -9822,12 +8887,12 @@ val: Union[int, float] = 20.8 # or 20
 from typing import Final
 
 val: Final = 2
-val += 1 # Ошибки не произойдёт, но idle подсветит как ошибку.
+val += 1 # Ошибки не произойдёт, но IDE подсветит как ошибку.
 ```
 
 # Использование статической проверки типов в Python
 Интерпретатор Python по умолчанию не осуществляет проверку типов.
-Однако была создана версия интерпретатора Python – mypy,
+Однако была создана версия интерпретатора Python – `mypy`,
 которая обеспечивает проверку типов на уровне интерпретатора.
 
 ```python
@@ -9840,7 +8905,7 @@ def forever() -> NoReturn:
         pass
 ```
 
-Если это генераторная функция, то есть её тело содержит оператор yield, 
+Если это генераторная функция, то есть её тело содержит оператор `yield`, 
 для возвращаемого можно воспользоваться аннотацией `Iterable[T]`, либо `Generator[YT, ST, RT]`:
 
 ```python
@@ -9861,7 +8926,7 @@ price = None
 # Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
 ```
 
-Предварительное объявление
+# Предварительное объявление
 
 Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
 
@@ -9901,9 +8966,9 @@ class LinkedList:
 Например, если вы пишете контейнер, который хранит однотипные данные.
 Или функцию, которая возвращает данные того же типа, что и один из аргументов.
 
-Такие типы как List или Callable, которые, мы видели раньше как раз используют механизм дженериков.
+Такие типы как `List` или `Callable`, которые, мы видели раньше как раз используют механизм дженериков.
 Но кроме стандартных типов, вы можете создать свои дженерик-типы.
-Для этого надо, во-первых, завести TypeVar переменную,
+Для этого надо, во-первых, завести `TypeVar` переменную,
 которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
 
 ```python
@@ -9929,8 +8994,8 @@ head_str = LinkedList[str](1)  # error: Argument 1 to "LinkedList" has incompati
 ```
 
 Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
-Если требуется, дженерик может иметь любое количеством параметров: Generic[T1, T2, T3].
-Также, при определении TypeVar вы можете ограничить допустимые типы:
+Если требуется, дженерик может иметь любое количеством параметров: `Generic[T1, T2, T3]`.
+Также, при определении `TypeVar` вы можете ограничить допустимые типы:
 
 ```python
 T2 = TypeVar("T2", int, float)
@@ -9944,9 +9009,8 @@ x = SomethingNumeric[str]()  # error: Value of type variable "T2" of "SomethingN
 # Cast
 
 Иногда анализатор статический анализатор не может корректно определить тип переменной,
-в этом случае можно использовать функцию cast.
+в этом случае можно использовать функцию `cast`.
 Её единственная задача — показать анализатору, что выражение имеет определённый тип.
-Например:
 
 ```python
 from typing import List, cast
@@ -15190,48 +14254,6 @@ button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
 |                                       |                                                                                     |
 
 """,
-    "test": r"""
-Нажмите на кнопку с темой, чтобы увидеть здесь обьяснение
-варианты кода
-&lt;color> квадрат с цветом или фон для текста
-&lt;code> без подсветки
-&lt;sql> подсветка sql
-&lt;python> подсветка питон
-""",
-    "Университет": {
-        "Высшая математика": {
-            "Матрицы": {
-                "Матрицы": """""",
-                "Определители": """
-n = 1
-A = [
-    [a]
-]
-det(A) = a
-
-
-n = 2
-A = [
-    [a, b],
-    [c, d]
-]
-det(A) = a&#42;d - b&#42;c
-
-
-n = 3
-A = [
-    [a11, a12, a13],
-    [a21, a22, a23],
-    [a31, a32, a33]
-]
-det(A) = a11&#42;a22&#42;a33 + a12&#42;a23&#42;a31 + a13&#42;a21&#42;a32 - a13&#42;a22&#42;a31 - a12&#42;a21&#42;a33 - a11&#42;a32&#42;a23
-
-Минор это под табличка от основной матрицы.
-
-""",
-            },
-        },
-    },
 }
 
 # if __name__ == "__main__":
