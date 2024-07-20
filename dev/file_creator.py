@@ -104,7 +104,11 @@ def to_markup(markdown_text):
     highlighted_html = code_block_pattern.sub(code_block_callback, markdown_text)
 
     # Обработка остальной разметки
-    md_extensions = ["markdown.extensions.tables"]
+    md_extensions = [
+        "markdown.extensions.tables",
+        "markdown.extensions.fenced_code",
+        "markdown.extensions.codehilite",
+    ]
     final_html = markdown.markdown(highlighted_html, extensions=md_extensions)
 
     return final_html

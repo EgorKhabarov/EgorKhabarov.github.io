@@ -117,7 +117,7 @@
 </tr>
 <tr>
 <td>{,n}?  {m,}?</td>
-<td>Добавление ? делает их ленивыми, они захватывают минимально возможное число символов</td>
+<td>Добавление ? делает их ленивыми, они захватывают минимально возможное число символов.</td>
 </tr>
 </tbody>
 </table>
@@ -214,7 +214,7 @@
 <td>(?P&lt;name&gt;pattern)</td>
 <td>Именованная группа захвата</td>
 <td>My name is (?P&lt;name&gt;\w+)</td>
-<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><code>re.compile(r"My name is (?P&lt;name&gt;\w+)")</code><br><code>.match("My name is John")</code><br><code>.group("name")</code><br><code># John</code></td>
+<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><br><span class="c1"># John</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td>(?P=name)</td>
@@ -251,7 +251,7 @@
 <td>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</td>
 <td>Условные выражения<br>с именованными группами</td>
 <td></td>
-<td><code>re.compile(</code><br><code>r"(?P&lt;name1&gt;pattern1|"</code><br><code>r"(?P&lt;name2&gt;pattern2))"</code><br><code>)</code><br><code>.match("pattern2")</code><br><code>.groupdict()</code><br>{<br>"name1": "pattern2",<br>"name2": "pattern2",<br>}</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1|&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 </tbody>
 </table>
@@ -269,7 +269,7 @@
 <tr>
 <td>re.ASCII</td>
 <td>(?a)</td>
-<td>По умолчанию \w, \W, \b, \B, \d, \D, \s, \S соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII.</td>
+<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII.</td>
 </tr>
 <tr>
 <td>re.IGNORECASE</td>
@@ -279,25 +279,25 @@
 <tr>
 <td>re.MULTILINE</td>
 <td>(?m)</td>
-<td>Специальные символы ^ и $ соответствуют началу и концу каждой строки</td>
+<td>Специальные символы <code>^</code> и <code>$</code> соответствуют началу и концу каждой строки</td>
 </tr>
 <tr>
 <td>re.DOTALL</td>
 <td>(?s)</td>
-<td>По умолчанию символ \n конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
+<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
 </tr>
 <tr>
 <td>re.VERBOSE</td>
 <td>(?x)</td>
-<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как &#42;?, (?:или (?P&lt;...&gt;. Например, и не допускаются.<br><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre>a = re.compile(<span class="s1">r&#34;&#34;&#34;\d +  # the integral part<br>                   &#92;.    # the decimal point<br>                   \d *  # some fractional digits&#34;&#34;&#34;</span>, re.X)<br>b = re.compile(<span class="s1">r"\d+.\d*"</span>)</pre></div></div></td>
+<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;\d +  # the integral part</span><br><span class="s2">                   \.    # the decimal point</span><br><span class="s2">                   \d *  # some fractional digits&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 </tbody>
 </table>
-<p>Группы-модификаторы можно объединять в одну группу: (?i-sm).
-Такая группа включает режим i и выключает режимы s и m.
+<p>Группы-модификаторы можно объединять в одну группу: <code>(?i-sm)</code>.
+Такая группа включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>.
 Если использование модификаторов требуется только в пределах группы, то нужный шаблон
 указывается внутри группы после модификаторов и после двоеточия.
-Например, <b>(?-i)(?i:tv)set</b> найдёт <b>TVset</b>, но не <b>TVSET</b>.</p>
+Например, <b><code>(?-i)(?i:tv)set</code></b> найдёт <b><code>TVset</code></b>, но не <b><code>TVSET</code></b>.</p>
 <h1>Команды</h1>
 <table>
 <thead>

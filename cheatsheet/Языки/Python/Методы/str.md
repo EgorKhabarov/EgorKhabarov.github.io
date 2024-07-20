@@ -10,17 +10,17 @@
 <tr>
 <td style="text-align: left;">str.capitalize()</td>
 <td style="text-align: left;">Переводит первую букву в верхний, а остальные в нижний регистр.</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;capitalize&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><br><span class="unselectable"><span class="n">Capitalize</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;capitalize&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;Capitalize&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.casefold()</td>
 <td style="text-align: left;">Переводит все символы в нижний регистр</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;CaSeFoLd&quot;</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span><br><span class="unselectable"><span class="n">casefold</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;CaSeFoLd&quot;</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;casefold&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.lower()</td>
 <td style="text-align: left;">Переводит символы строки в нижний регистр</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;lOwEr&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><br><span class="unselectable"><span class="n">lower</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;lOwEr&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;lower&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.upper()</td>
@@ -220,12 +220,12 @@
 <tr>
 <td style="text-align: left;">str.isspace()</td>
 <td style="text-align: left;"><code>True</code>, если строка состоит из пробелов</td>
-<td></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;     &quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.istitle()</td>
 <td style="text-align: left;"><code>True</code>, если строка начинается с заглавной буквы,<br>а остальные — строчные</td>
-<td></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Aa&quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;aA&quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Aa1 &quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 </tbody>
 </table>
