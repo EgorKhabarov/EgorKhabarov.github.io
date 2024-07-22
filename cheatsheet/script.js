@@ -270,7 +270,30 @@ document.addEventListener("DOMContentLoaded", function() {
         let vpath = decodeURIComponent(arg);
         console.log("vpath", vpath);
         let element = document.querySelector(`[vpath="${vpath}"]`);
-        element.scrollIntoView({ behavior: 'smooth' });
+
+
+        const container = document.querySelector('.cheatsheet-buttons');
+        element.scrollIntoView({ block: 'center'}); // behavior: 'smooth',
+        container.scrollLeft -= 200;
+        element.focus();
+
+
+        // element.style.backgroundColor = "#424242";
+        // element.style.transform = "translateY(2px)";
+        // setTimeout(() => {
+        //     element.style.removeProperty('background-color');
+        //     element.style.removeProperty('transform');
+        // }, 500); // Удаление класса через 200 мс
+
+
+        // setTimeout(() => {
+        // }, 1000); // Задержка в 500 мс или по вашему усмотрению
+
+        // document.getElementByClass("cheatsheet-buttons").scrollLeft -= 20;
+        // document.getElementByClass("cheatsheet-buttons").scrollTo({
+        //     left: container.scrollLeft - 20,
+        //     behavior: 'smooth'
+        // });
     } else {
         console.log("No argument found");
     }

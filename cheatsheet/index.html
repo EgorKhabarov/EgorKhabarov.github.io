@@ -99,7 +99,7 @@ tr:hover td {background: #46494b;}
   cursor: pointer;
 }
 .button:hover {background-color: #424242;}
-.button:active {background-color: #525252;}
+.button:active {background-color: #525252; transform: translateY(2px);}
 .button:focus {background-color: #999999;color: #252525;}
 
 /* Поле в котором появляется шпаргалка */
@@ -211,7 +211,7 @@ code {
 .bp {color:#94558D;} /* Self */
 .nd {color:#BBB529;} /* Декоратор */
 .nf {color:#FFC66D;} /* Название функции */
-.na {color:#AA4926;} /* Аргумент
+/*.na {color:#AA4926;}  Аргумент
 
 
 /*
@@ -534,7 +534,30 @@ document.addEventListener("DOMContentLoaded", function() {
         let vpath = decodeURIComponent(arg);
         console.log("vpath", vpath);
         let element = document.querySelector(`[vpath="${vpath}"]`);
-        element.scrollIntoView({ behavior: 'smooth' });
+
+
+        const container = document.querySelector('.cheatsheet-buttons');
+        element.scrollIntoView({ block: 'center'}); // behavior: 'smooth',
+        container.scrollLeft -= 200;
+        element.focus();
+
+
+        // element.style.backgroundColor = "#424242";
+        // element.style.transform = "translateY(2px)";
+        // setTimeout(() => {
+        //     element.style.removeProperty('background-color');
+        //     element.style.removeProperty('transform');
+        // }, 500); // Удаление класса через 200 мс
+
+
+        // setTimeout(() => {
+        // }, 1000); // Задержка в 500 мс или по вашему усмотрению
+
+        // document.getElementByClass("cheatsheet-buttons").scrollLeft -= 20;
+        // document.getElementByClass("cheatsheet-buttons").scrollTo({
+        //     left: container.scrollLeft - 20,
+        //     behavior: 'smooth'
+        // });
     } else {
         console.log("No argument found");
     }
@@ -612,18 +635,18 @@ function toggleStyleDisplayByPath(kpath) {
      📄 sync asyn
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки397176984df1a93ff003bccfc3c7bfbb);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки1fd2ef889d90add8bdeb804f71a626a1);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки397176984df1a93ff003bccfc3c7bfbb" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python1cb07ef7043951672684c26d6b6477ed);">
+   <div class="button-folder" id="Языки1fd2ef889d90add8bdeb804f71a626a1" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python9bf720aa6064ede7ef0a6e41ef23a6e5);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python1cb07ef7043951672684c26d6b6477ed" style="display:none;">
-     <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотеки4cf816a5f38c48c0c2733f7aea4265f9);">
+    <div class="button-folder" id="Python9bf720aa6064ede7ef0a6e41ef23a6e5" style="display:none;">
+     <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотекиe7591b75964d9cea892d16d1c704336d);">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотеки4cf816a5f38c48c0c2733f7aea4265f9" style="display:none;">
+     <div class="button-folder" id="Библиотекиe7591b75964d9cea892d16d1c704336d" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Библиотеки/Оглавление.md');" vpath="Языки/Python/Библиотеки/Оглавление.md">
        📄 Оглавление
       </button>
@@ -959,10 +982,18 @@ function toggleStyleDisplayByPath(kpath) {
         📄 cycler
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Python" onclick="toggleDisplay(Python4ce2a89856a0bc622ca7a15cc923a092);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Python" onclick="toggleDisplay(Python0f7de4239c0dd0c40578111a64b70f67);">
        📂 Python
       </button>
-      <div class="button-folder" id="Python4ce2a89856a0bc622ca7a15cc923a092" style="display:none;">
+      <div class="button-folder" id="Python0f7de4239c0dd0c40578111a64b70f67" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Python/markdown" onclick="toggleDisplay(markdown357251672769c7e06e9bed069a13b3b7);">
+        📂 markdown
+       </button>
+       <div class="button-folder" id="markdown357251672769c7e06e9bed069a13b3b7" style="display:none;">
+        <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/markdown/extensions.md');" vpath="Языки/Python/Библиотеки/Python/markdown/extensions.md">
+         📄 extensions
+        </button>
+       </div>
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/import.md');" vpath="Языки/Python/Библиотеки/Python/import.md">
         📄 import
        </button>
@@ -1163,10 +1194,32 @@ function toggleStyleDisplayByPath(kpath) {
       📄 images
      </button>
     </div>
-    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Javab73f7d390a67bc62ced540d07fa7a53a);">
+    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Java5402475a5ec0d6b7eef701c29c041dc0);">
      📂 Java
     </button>
-    <div class="button-folder" id="Javab73f7d390a67bc62ced540d07fa7a53a" style="display:none;">
+    <div class="button-folder" id="Java5402475a5ec0d6b7eef701c29c041dc0" style="display:none;">
+     <button class="button" kpath="Языки/Java/java" onclick="toggleDisplay(javaa3d5c43465420e5f723414f471081eac);">
+      📂 java
+     </button>
+     <div class="button-folder" id="javaa3d5c43465420e5f723414f471081eac" style="display:none;">
+      <button class="button" kpath="Языки/Java/java/util" onclick="toggleDisplay(util4041b983610e99f2200fad36c933d79f);">
+       📂 util
+      </button>
+      <div class="button-folder" id="util4041b983610e99f2200fad36c933d79f" style="display:none;">
+       <button class="button" onclick="GET('Языки/Java/java/util/Scanner.md');" vpath="Языки/Java/java/util/Scanner.md">
+        📄 Scanner
+       </button>
+       <button class="button" onclick="GET('Языки/Java/java/util/Arrays.md');" vpath="Языки/Java/java/util/Arrays.md">
+        📄 Arrays
+       </button>
+       <button class="button" onclick="GET('Языки/Java/java/util/LinkedList.md');" vpath="Языки/Java/java/util/LinkedList.md">
+        📄 LinkedList
+       </button>
+       <button class="button" onclick="GET('Языки/Java/java/util/ArrayList.md');" vpath="Языки/Java/java/util/ArrayList.md">
+        📄 ArrayList
+       </button>
+      </div>
+     </div>
      <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(Запуск657afb1d3dc98f0425bdf1f6d3dda45a);">
       📂 Запуск
      </button>
@@ -1184,28 +1237,25 @@ function toggleStyleDisplayByPath(kpath) {
      <button class="button" onclick="GET('Языки/Java/Логические операторы.md');" vpath="Языки/Java/Логические операторы.md">
       📄 Логические операторы
      </button>
-     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
-      📄 Массив (Array)
-     </button>
      <button class="button" onclick="GET('Языки/Java/Циклы.md');" vpath="Языки/Java/Циклы.md">
       📄 Циклы
      </button>
-     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы9bf82a34881a101aab3b87b446c96ef0);">
+     <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
+      📄 Массив (Array)
+     </button>
+     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы2e16939e153be498c6b2ab3e2dccc564);">
       📂 Классы
      </button>
-     <div class="button-folder" id="Классы9bf82a34881a101aab3b87b446c96ef0" style="display:none;">
+     <div class="button-folder" id="Классы2e16939e153be498c6b2ab3e2dccc564" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
        📄 Объекты, конструкторы
       </button>
-      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыa9569c9bde1b751628558ba28540514d);">
+      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методы664c94cfa06ed218198674a643b35e6b);">
        📂 Методы
       </button>
-      <div class="button-folder" id="Методыa9569c9bde1b751628558ba28540514d" style="display:none;">
+      <div class="button-folder" id="Методы664c94cfa06ed218198674a643b35e6b" style="display:none;">
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
         📄 Методы
-       </button>
-       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы 2.md');" vpath="Языки/Java/Классы/Методы/Методы 2.md">
-        📄 Методы 2
        </button>
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Не статические методы.md');" vpath="Языки/Java/Классы/Методы/Не статические методы.md">
         📄 Не статические методы

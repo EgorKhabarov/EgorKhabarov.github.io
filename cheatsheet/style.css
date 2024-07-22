@@ -90,7 +90,7 @@ tr:hover td {background: #46494b;}
   cursor: pointer;
 }
 .button:hover {background-color: #424242;}
-.button:active {background-color: #525252;}
+.button:active {background-color: #525252; transform: translateY(2px);}
 .button:focus {background-color: #999999;color: #252525;}
 
 /* Поле в котором появляется шпаргалка */
@@ -202,7 +202,7 @@ code {
 .bp {color:#94558D;} /* Self */
 .nd {color:#BBB529;} /* Декоратор */
 .nf {color:#FFC66D;} /* Название функции */
-.na {color:#AA4926;} /* Аргумент
+/*.na {color:#AA4926;}  Аргумент
 
 
 /*
