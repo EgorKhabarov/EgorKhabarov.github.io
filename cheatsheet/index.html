@@ -535,29 +535,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("vpath", vpath);
         let element = document.querySelector(`[vpath="${vpath}"]`);
 
-
         const container = document.querySelector('.cheatsheet-buttons');
-        element.scrollIntoView({ block: 'center'}); // behavior: 'smooth',
+        element.scrollIntoView({ block: 'center'});
         container.scrollLeft -= 200;
         element.focus();
-
-
-        // element.style.backgroundColor = "#424242";
-        // element.style.transform = "translateY(2px)";
-        // setTimeout(() => {
-        //     element.style.removeProperty('background-color');
-        //     element.style.removeProperty('transform');
-        // }, 500); // Удаление класса через 200 мс
-
-
-        // setTimeout(() => {
-        // }, 1000); // Задержка в 500 мс или по вашему усмотрению
-
-        // document.getElementByClass("cheatsheet-buttons").scrollLeft -= 20;
-        // document.getElementByClass("cheatsheet-buttons").scrollTo({
-        //     left: container.scrollLeft - 20,
-        //     behavior: 'smooth'
-        // });
     } else {
         console.log("No argument found");
     }
@@ -635,10 +616,10 @@ function toggleStyleDisplayByPath(kpath) {
      📄 sync asyn
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки1fd2ef889d90add8bdeb804f71a626a1);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки88cf8ded697a59850ba2963c742ad45d);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки1fd2ef889d90add8bdeb804f71a626a1" style="display:none;">
+   <div class="button-folder" id="Языки88cf8ded697a59850ba2963c742ad45d" style="display:none;">
     <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python9bf720aa6064ede7ef0a6e41ef23a6e5);">
      📂 Python
     </button>
@@ -1194,10 +1175,10 @@ function toggleStyleDisplayByPath(kpath) {
       📄 images
      </button>
     </div>
-    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Java5402475a5ec0d6b7eef701c29c041dc0);">
+    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Java84e439a979f3f9d1a0e538e92419983f);">
      📂 Java
     </button>
-    <div class="button-folder" id="Java5402475a5ec0d6b7eef701c29c041dc0" style="display:none;">
+    <div class="button-folder" id="Java84e439a979f3f9d1a0e538e92419983f" style="display:none;">
      <button class="button" kpath="Языки/Java/java" onclick="toggleDisplay(javaa3d5c43465420e5f723414f471081eac);">
       📂 java
      </button>
@@ -1243,17 +1224,20 @@ function toggleStyleDisplayByPath(kpath) {
      <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
       📄 Массив (Array)
      </button>
-     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы2e16939e153be498c6b2ab3e2dccc564);">
+     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы422a9e18d2b9a7c8b2c641859cff487f);">
       📂 Классы
      </button>
-     <div class="button-folder" id="Классы2e16939e153be498c6b2ab3e2dccc564" style="display:none;">
+     <div class="button-folder" id="Классы422a9e18d2b9a7c8b2c641859cff487f" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
        📄 Объекты, конструкторы
       </button>
-      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методы664c94cfa06ed218198674a643b35e6b);">
+      <button class="button" onclick="GET('Языки/Java/Классы/Модификатор доступа.md');" vpath="Языки/Java/Классы/Модификатор доступа.md">
+       📄 Модификатор доступа
+      </button>
+      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыf94ed8836dac32b3e1b2c384e964ba42);">
        📂 Методы
       </button>
-      <div class="button-folder" id="Методы664c94cfa06ed218198674a643b35e6b" style="display:none;">
+      <div class="button-folder" id="Методыf94ed8836dac32b3e1b2c384e964ba42" style="display:none;">
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
         📄 Методы
        </button>
@@ -1266,11 +1250,23 @@ function toggleStyleDisplayByPath(kpath) {
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Переопределение методов.md');" vpath="Языки/Java/Классы/Методы/Переопределение методов.md">
         📄 Переопределение методов
        </button>
+       <button class="button" onclick="GET('Языки/Java/Классы/Методы/Абстрактные методы.md');" vpath="Языки/Java/Классы/Методы/Абстрактные методы.md">
+        📄 Абстрактные методы
+       </button>
       </div>
       <button class="button" onclick="GET('Языки/Java/Классы/Наследование.md');" vpath="Языки/Java/Классы/Наследование.md">
        📄 Наследование
       </button>
+      <button class="button" onclick="GET('Языки/Java/Классы/Анонимный класс.md');" vpath="Языки/Java/Классы/Анонимный класс.md">
+       📄 Анонимный класс
+      </button>
+      <button class="button" onclick="GET('Языки/Java/Классы/interface.md');" vpath="Языки/Java/Классы/interface.md">
+       📄 interface
+      </button>
      </div>
+     <button class="button" onclick="GET('Языки/Java/Пакеты.md');" vpath="Языки/Java/Пакеты.md">
+      📄 Пакеты
+     </button>
      <button class="button" onclick="GET('Языки/Java/Исключения.md');" vpath="Языки/Java/Исключения.md">
       📄 Исключения
      </button>

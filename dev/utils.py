@@ -42,13 +42,11 @@ def set_unselectable(text: str, sep: str = "\n"):
     return sep.join(l)
 
 
-def to_table_code_py(code_block: str) -> str:
-    lang = "python"
-    code_block = code_block  # html.escape(code_block).replace("\n", "<br>")
+def to_table_code(lang: str, code: str):
     formatter = HtmlFormatter(style="default")
     lexer = get_lexer_by_name(lang, stripall=True)
     highlighted_code = (
-        highlight(code_block, lexer, formatter).strip().replace("\n", "<br>")
+        highlight(code, lexer, formatter).strip().replace("\n", "<br>")
     )
 
     if (
@@ -65,7 +63,15 @@ def to_table_code_py(code_block: str) -> str:
 </pre>
 </div>
 </div>
-    """.strip().replace(
+""".strip().replace(
         "\n", ""
     )
     return result
+
+
+def to_table_code_py(code: str) -> str:
+    return to_table_code("python", code)
+
+
+def to_table_code_java(code: str) -> str:
+    return to_table_code("java", code)
