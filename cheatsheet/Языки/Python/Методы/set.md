@@ -27,8 +27,8 @@
 <td style="text-align: left;">Возвращает копию множества.</td>
 </tr>
 <tr>
-<td style="text-align: left;">set.union(set2),</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">set.union(set2), |</td>
+<td style="text-align: left;">Возвращает новое множество, содержащее все элементы из <code>set</code> и <code>set2</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left;">set.difference(set2), -</td>
