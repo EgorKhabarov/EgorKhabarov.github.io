@@ -111,6 +111,39 @@ git commit -m "added new image"
 | logs/debug.log                       | logs/debug.log<br>но не<br>debug.log<br>build/logs/debug.log                               | Шаблоны, указывающие на файл в определенном каталоге,<br>задаются относительно корневого каталога репозитория.<br>(При желании можно добавить в начало косую черту, но она ни на что особо не повлияет.) |
 """,
         },
+        "Networking Protocols": """
+|                  |                                                            |                                |
+|------------------|------------------------------------------------------------|--------------------------------|
+| FTP              | File Transfer Protocol                                     | Port 21                        |
+| SSH              | Secure Shell                                               | Port 22                        |
+| Teinet           | Port 23                                                    |                                |
+| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
+| DNS              | Domain Naming System (or Service)                          | Port 53                        |
+| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
+| POP3             | Post Office Protocol                                       | Port 110                       |
+| IMAP             | Internet Message Access Protocol                           | Port 143                       |
+| HTTPS            | HTTP Secure                                                | Port 443                       |
+| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
+| TCP              | Transmission Control Protocol                              |                                |
+| UDP              | User Datagram Protocol                                     |                                |
+| ARP              | Address Resolution Protocol                                |                                |
+| RARP             | Reverse ARP                                                |                                |
+| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
+| MTP              | Media Transfert Protocol                                   |                                |
+| SFTP             | Secure File Transfer Protocol                              |                                |
+| SSL              | Secure Socket Layer                                        |                                |
+| TLS              | Transport Layer Security                                   |                                |
+| E6               | Ethernet globalization protocols                           |                                |
+| NTP              | Network time protocol                                      |                                |
+| PPP              | Point to Point Protocol                                    |                                |
+| NNTP             | Network News Transfer Protocol                             |                                |
+| QOTD             | Quote Of The Day                                           |                                |
+| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
+| ICMP             | Internet Control Message Protocol                          |                                |
+| IGMP             | Internet Group Management Protocol                         |                                |
+| GGP              | Gateway-to-Gateway Protocol                                |                                |
+| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
+""",
         "HTTP": {
             "HTTР": """HTTP
 (Hypertext Transfer Protocol)
@@ -8072,23 +8105,25 @@ print(f"{p}")  # Person Object
 | Метод                                 | Описание                                                                                                        |
 |:--------------------------------------|:----------------------------------------------------------------------------------------------------------------|
 | set.add(element)                      | Добавляет элемент `element` во множество. Если элемент уже присутствует, ничего не происходит.                  |
-| set.pop()                             | Удаляет и возвращает произвольный элемент из множества. Если множество пустое, возникает исключение `KeyError`. |
-| set.difference_update(set2)           | Обновляет множество, удаляя элементы из `set`, которые присутствуют в `set2`.                                   |
-| set.remove(element)                   | Удаляет элемент element из множества. Если элемент не найден, возникает исключение `KeyError`.                  |
-| set.copy()                            | Возвращает копию множества.                                                                                     |
-| set.union(set2)                       | Возвращает новое множество, содержащее все элементы из `set` и `set2`.                                          |
-| set.isdisjoint(set2)                  | Проверяет, есть ли общие элементы между `set` и `set2`. Возвращает `True`, если нет, иначе `False`.             |
-| set.clear()                           | Удаляет все элементы из множества, делая его пустым.                                                            |
-| set.discard(element)                  | Удаляет элемент `element` из множества. Если элемент не найден, ничего не происходит.                           |
-| set.update(set2)                      | Обновляет множество, добавляя элементы из `set2`.                                                               |
-| set.difference(set2)                  | Возвращает новое множество, содержащее элементы из `set`, которые отсутствуют в `set2`.                         |
-| set.intersection(set2)                | Возвращает новое множество, содержащее только элементы, присутствующие одновременно в `set` и `set2`.           |
-| set.intersection_update(set2)         | Обновляет множество, оставляя только элементы, присутствующие одновременно в `set` и `set2`.                    |
 | set.issubset(set2)                    | Проверяет, является ли `set` подмножеством `set2`. Возвращает `True`, если так, иначе `False`.                  |
+| set.isdisjoint(set2)                  | Проверяет, есть ли общие элементы между `set` и `set2`. Возвращает `True`, если нет, иначе `False`.             |
 | set.issuperset(set2)                  | Проверяет, является ли `set` надмножеством `set2`. Возвращает `True`, если так, иначе `False`.                  |
-| set.symmetric_difference(set2)        | Возвращает новое множество, содержащее элементы, присутствующие только в одном из `set` и `set2`.               |
+| set.copy()                            | Возвращает копию множества.                                                                                     |
+| set.union(set2), |                    | Возвращает новое множество, содержащее все элементы из `set` и `set2`.                                          |
+| set.difference(set2), -               | Возвращает новое множество, содержащее элементы из `set`, которые отсутствуют в `set2`.                         |
+| set.intersection(set2), &             | Возвращает новое множество, содержащее только элементы, присутствующие одновременно в `set` и `set2`.           |
+| set.symmetric_difference(set2), ^     | Возвращает новое множество, содержащее элементы, присутствующие только в одном из `set` и `set2`.               |
+| set.update(set2)                      | Обновляет множество, добавляя элементы из `set2`.                                                               |
+| set.difference_update(set2)           | Обновляет множество, удаляя элементы из `set`, которые присутствуют в `set2`.                                   |
+| set.intersection_update(set2)         | Обновляет множество, оставляя только элементы, присутствующие одновременно в `set` и `set2`.                    |
 | set.symmetric_difference_update(set2) | Обновляет множество, оставляя только элементы, присутствующие только в одном из `set` и `set2`.                 |
+| set.pop()                             | Удаляет и возвращает произвольный элемент из множества. Если множество пустое, возникает исключение `KeyError`. |
+| set.clear()                           | Удаляет все элементы из множества, делая его пустым.                                                            |
+| set.remove(element)                   | Удаляет элемент element из множества. Если элемент не найден, возникает исключение `KeyError`.                  |
+| set.discard(element)                  | Удаляет элемент `element` из множества. Если элемент не найден, ничего не происходит.                           |
 
+
+# frozenset
 
 В Python «замороженный» означает, что объект не может быть изменен. Например, рассмотрим `set` и `frozenset`:
 
