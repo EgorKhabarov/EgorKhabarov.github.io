@@ -271,6 +271,193 @@ https://habr.com/ru/post/421625
 | Синхронность  | Означает, что программа выполняет одну задачу за раз, поэтому она не может<br>выполнять несколько задач одновременно. Это означает, что если одна задача<br>занимает много времени, то все остальные задачи будут ждать,<br>пока эта задача не будет завершена.                    |
 | Асинхронность | Означает, что программа может выполнять несколько задач одновременно.<br>Она может ожидать ответа от сервера и продолжать выполнение других задач<br>в то время, как она ждет. Это позволяет программе эффективно использовать<br>ресурсы и обрабатывать больше задач за один раз. |
 """,
+        "Паттерны проектирования": {
+            "Singleton (Одиночка)": """
+## Singleton (Одиночка)
+
+**Описание:** Гарантирует, что у класса есть только **один экземпляр**,
+и предоставляет глобальную точку доступа к этому экземпляру.
+
+**Когда использовать:** Когда нужно ограничить создание объекта одним экземпляром,
+например, для логгера, подключения к базе данных, конфигурационного объекта.
+
+**Пример реализации:**
+```python
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+```
+""",
+            "Factory (Фабрика)": """
+## Factory (Фабрика)
+
+**Описание:** Предоставляет интерфейс для создания объектов в суперклассе,
+но позволяет подклассам изменять тип создаваемых объектов.
+
+**Когда использовать:** Когда нужно делегировать создание объектов подклассам
+или когда тип создаваемых объектов заранее неизвестен.
+
+**Пример реализации:**
+```python
+class Car:
+    def drive(self):
+        raise NotImplementedError
+
+class ElectricCar(Car):
+    def drive(self):
+        return "Driving an electric car"
+
+class PetrolCar(Car):
+    def drive(self):
+        return "Driving a petrol car"
+
+class CarFactory:
+    @staticmethod
+    def create_car(car_type):
+        if car_type == "electric":
+            return ElectricCar()
+        elif car_type == "petrol":
+            return PetrolCar()
+        else:
+            raise ValueError("Unknown car type")
+```
+""",
+            "Observer (Наблюдатель)": """
+## Observer (Наблюдатель)
+
+**Описание:** Определяет зависимость **один-ко-многим** между объектами таким образом,
+что при **изменении состояния одного объекта все зависимые объекты уведомляются и обновляются автоматически**.
+
+**Когда использовать:** Когда изменение состояния одного объекта должно привести к изменению состояния других объектов,
+например, в системах событий или уведомлений.
+
+**Пример реализации:**
+```python
+class Subject:
+    def __init__(self):
+        self._observers = []
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self):
+        for observer in self._observers:
+            observer.update()
+
+class ConcreteObserver:
+    def update(self):
+        print("Observer updated")
+
+subject = Subject()
+observer = ConcreteObserver()
+subject.attach(observer)
+subject.notify()  # Вывод: "Observer updated"
+```
+""",
+            "Strategy (Стратегия)": """
+## Strategy (Стратегия)
+
+**Описание:** Определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми.
+Позволяет изменять алгоритм независимо от клиентов, которые им пользуются.
+
+**Когда использовать:** Когда у вас есть несколько схожих алгоритмов,
+и необходимо переключаться между ними в зависимости от условий.
+
+**Пример реализации:**
+```python
+class Strategy:
+    def execute(self, data):
+        raise NotImplementedError
+
+class ConcreteStrategyA(Strategy):
+    def execute(self, data):
+        return sorted(data)
+
+class ConcreteStrategyB(Strategy):
+    def execute(self, data):
+        return sorted(data, reverse=True)
+
+class Context:
+    def __init__(self, strategy: Strategy):
+        self._strategy = strategy
+
+    def do_some_business_logic(self, data):
+        return self._strategy.execute(data)
+
+context = Context(ConcreteStrategyA())
+print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [1, 2, 3]
+
+context = Context(ConcreteStrategyB())
+print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [3, 2, 1]
+```
+""",
+            "Decorator (Декоратор)": """
+## Decorator (Декоратор)
+
+**Описание:** Позволяет динамически добавлять новое поведение объектам, оборачивая их в класс-оболочку.
+
+**Когда использовать:** Когда нужно добавлять дополнительные функциональности объектам без изменения их класса.
+
+**Пример реализации:**
+```python
+class Component:
+    def operation(self):
+        pass
+
+class ConcreteComponent(Component):
+    def operation(self):
+        return "ConcreteComponent"
+
+class Decorator(Component):
+    def __init__(self, component):
+        self._component = component
+
+    def operation(self):
+        return f"Decorator({self._component.operation()})"
+
+component = ConcreteComponent()
+decorated = Decorator(component)
+print(decorated.operation())  # Вывод: "Decorator(ConcreteComponent)"
+```
+""",
+            "Adapter (Адаптер)": """
+## Adapter (Адаптер)
+
+**Описание:** Преобразует интерфейс одного класса в интерфейс другого, который ожидает клиент.
+Позволяет классам с несовместимыми интерфейсами работать вместе.
+
+**Когда использовать:** Когда необходимо использовать существующий класс, но его интерфейс не соответствует нужному.
+
+**Пример реализации:**
+```python
+class Adaptee:
+    def specific_request(self):
+        return "specific request"
+
+class Target:
+    def request(self):
+        pass
+
+class Adapter(Target):
+    def __init__(self, adaptee):
+        self._adaptee = adaptee
+
+    def request(self):
+        return f"Adapter: {self._adaptee.specific_request()}"
+
+adaptee = Adaptee()
+adapter = Adapter(adaptee)
+print(adapter.request())  # Вывод: "Adapter: specific request"
+```
+""",
+        },
     },
     "Языки": {
         "Python": {
