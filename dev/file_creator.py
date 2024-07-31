@@ -30,7 +30,7 @@ def code_block_callback(match):
     elif language == "csv":
         _language = "python"
     elif language == "python-console":
-        _language = "python"
+        _language = "pycon"
     # elif language == "row":
     #     return """<div class="row">{}</div>""".format(code_block.strip())
     else:
@@ -40,8 +40,13 @@ def code_block_callback(match):
     highlighted_code = highlight(code_block, lexer, formatter).strip()
 
     if (
-        _language == "python"
-        and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
+        _language in ("python", "pycon")
+        and (
+            '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
+            or '<span class="gp">&gt;&gt;&gt; </span>' in highlighted_code
+            or '<span class="o">>>></span> ' in highlighted_code
+            or '<span class="gp">>>> </span>' in highlighted_code
+        )
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 

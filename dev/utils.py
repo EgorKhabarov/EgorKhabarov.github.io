@@ -14,26 +14,66 @@ def set_unselectable(text: str, sep: str = "\n"):
     l = []
 
     for line in text.split(sep):
-        if line.startswith('<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> '):
+        if line.startswith(
+            (
+                '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ',
+                '<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span>',
+                '<div class="highlight"><pre><span></span><span class="o">>>></span> ',
+                '<div class="highlight"><pre><span></span><span class="gp">>>> </span>',
+            )
+        ):
             line = (
                 '<div class="highlight"><pre><span></span>'
                 '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>'
             ) + line.removeprefix(
                 '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> '
+            ).removeprefix(
+                '<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span>'
+            ).removeprefix(
+                '<div class="highlight"><pre><span></span><span class="o">>>></span> '
+            ).removeprefix(
+                '<div class="highlight"><pre><span></span><span class="gp">>>> </span>'
             )
-        elif line.startswith('<span class="o">&gt;&gt;&gt;</span> '):
+        elif line.startswith(
+            (
+                '<span class="o">&gt;&gt;&gt;</span> ',
+                '<span class="gp">&gt;&gt;&gt; </span>',
+                '<span class="o">>>></span> ',
+                '<span class="gp">>>> </span>',
+            )
+        ):
             line = '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
-                '<span class="o">&gt;&gt;&gt;</span> ')
-        elif line.startswith('<div class="highlight"><pre><span></span><span class="o">...</span> '):
+                '<span class="o">&gt;&gt;&gt;</span> '
+            ).removeprefix(
+                '<span class="gp">&gt;&gt;&gt; </span>'
+            ).removeprefix(
+                '<span class="o">>>></span> '
+            ).removeprefix(
+                '<span class="gp">>>> </span>'
+            )
+        elif line.startswith(
+            (
+                '<div class="highlight"><pre><span></span><span class="o">...</span> ',
+                '<div class="highlight"><pre><span></span><span class="gp">... </span>',
+            )
+        ):
             line = (
                 '<div class="highlight"><pre><span></span>'
                 '<span class="unselectable"><span class="o">...</span> </span>'
             ) + line.removeprefix(
                 '<div class="highlight"><pre><span></span><span class="o">...</span> '
+            ).removeprefix(
+                '<div class="highlight"><pre><span></span><span class="gp">... </span>'
             )
-        elif line.startswith('<span class="o">...</span> '):
+        elif line.startswith(
+            (
+                '<span class="o">...</span> ',
+                '<span class="gp">... </span>',
+            )
+        ):
             line = '<span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
-                '<span class="o">...</span> ')
+                '<span class="o">...</span> '
+            ).removeprefix('<span class="gp">... </span>')
         else:
             line = f'<span class="unselectable">{line}</span>'
 

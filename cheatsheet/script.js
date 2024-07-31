@@ -1,4 +1,3 @@
-
 /* Скрыть / показать папку */
 function toggleDisplay(element) {
     if (element.style.display == "none") {
@@ -7,12 +6,12 @@ function toggleDisplay(element) {
         element.style.display = "none";
     }
 }
+
 function setDisplayBlock(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     }
 }
-
 
 /* Изменение размера шрифта */
 function changeFontSize(element, action) {
@@ -38,19 +37,16 @@ function changeFontSize(element, action) {
     }
 }
 
-
 /* Копирование всего текста */
 function copyTextFromDiv(element) {
     var text = element.innerText;
     console.log(text);
-    //copyTextToClipboard(text);
     var textArea = document.createElement("textarea");
     textArea.value = text;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("copy");
     textArea.remove();
-    //alert("Copied the text: " + text);
 }
 
 /*Копировать выделенный текст*/
@@ -58,14 +54,13 @@ function copyTextFromDiv2() {
     document.execCommand("copy");
 }
 
-/*Изменить цвет кнопки*/
+/*Изменить цвет кнопки справа*/
 function changeColor(element) {
     element.style.backgroundColor = "#008000";
     setTimeout(function() {element.style.backgroundColor = "#525252";}, 2000);
 }
 
-
-/*Взять нужную шпаргалку по пути*/
+/*Вставить шпаргалку в нужный элемент*/
 function PutHtmlText(html) {
     if (html != "") {
         let FieldElement = document.getElementById("field");
@@ -79,6 +74,7 @@ function PutHtmlText(html) {
     }
 }
 
+/*Взять нужную шпаргалку по пути*/
 function getCheatSheat(url) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, false); // Используется синхронный запрос
@@ -91,7 +87,7 @@ function getCheatSheat(url) {
     }
 }
 
-
+/**/
 function removeSuffix(str, suffix) {
   if (str.endsWith(suffix)) {
     return str.slice(0, -suffix.length);
@@ -99,12 +95,9 @@ function removeSuffix(str, suffix) {
   return str;
 }
 
-
 function GET(url) {
     console.log(url)
-    if (url.endsWith("/index.md")) {
-        url = removeSuffix(url, "/index.md");
-    }
+    url = removeSuffix(url, "/index.md");
     addArgumentToUrl(url);
     if (!url.endsWith(".md")) {
         if (isCtrlPressed) {
@@ -113,29 +106,15 @@ function GET(url) {
         url += "/index.md";
     }
 
-    if (!(url in history)) {
-        history[url] = getCheatSheat(url);
+    if (need_save_history) {
+        if (!(url in history)) {
+            history[url] = getCheatSheat(url);
+        }
+        cheatsheet = history[url];
+    } else {
+        cheatsheet = getCheatSheat(url);
     }
-    PutHtmlText(history[url]);
-}
-
-
-/* Для обработки консольного кода */
-function processPythonConsoleText(text) {
-  const lines = text.split("\n");
-  const userInputLines = [];
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-
-    if (line.startsWith(">>> ") || line.startsWith("... ")) {
-      userInputLines.push(line.slice(4));
-    } else if (line !== "") {
-      userInputLines.push("\n");
-    }
-  }
-
-  return userInputLines.join("");
+    PutHtmlText(cheatsheet);
 }
 
 function copyCode(element, elementButton) {
@@ -168,6 +147,7 @@ function copyCode(element, elementButton) {
         }
     }, 1000);
 }
+
 function downloadTextFile(text, filename) {
   // Создаем элемент <a> для загрузки файла
   const element = document.createElement('a');
@@ -184,6 +164,7 @@ function downloadTextFile(text, filename) {
   // Удаляем элемент из DOM
   document.body.removeChild(element);
 }
+
 function DownloadCode(element, button_element, filename) {
     let text = element.textContent
     console.log(element.textContent)
@@ -212,31 +193,6 @@ function DownloadCode(element, button_element, filename) {
         }
     }, 1000);
 }
-
-/*
-
-<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="20 6 9 17 4 12"></polyline>
-</svg>
-<pre>Copied!</pre>
-
-
-<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-</svg>
-<pre>Copy code</pre>
-
-*/
-
-//function togglePopup() {
-//    var popup = document.getElementById("popupElement");
-//    if (popup.style.display === "none") {
-//        popup.style.display = "block";
-//    } else {
-//        popup.style.display = "none";
-//    }
-//}
 
 function handleSearch(event) {
     event.preventDefault(); // Предотвращает отправку формы при нажатии Enter
@@ -280,6 +236,25 @@ function removeArgumentFromUrl() {
     window.history.replaceState(null, null, url.href);
 }
 
+function getPathWithoutFilename(filePath) {
+    filePath = decodeURIComponent(filePath);
+    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(0, lastSlashIndex);
+    }
+   return '';
+}
+
+function toggleStyleDisplayByPath(kpath) {
+    let element = document.querySelector(`[kpath="${kpath}"]`);
+    element.click();
+    let parent = element.parentElement;
+    while (parent) {
+        setDisplayBlock(parent);
+        parent = parent.parentElement;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     // Проверяем наличие аргумента при загрузке страницы
     const arg = getArgumentFromUrl();
@@ -302,28 +277,9 @@ document.addEventListener("DOMContentLoaded", function() {
         element.focus();
     }
 });
-
-function getPathWithoutFilename(filePath) {
-    filePath = decodeURIComponent(filePath);
-    const lastSlashIndex = filePath.lastIndexOf('/');
-    if (lastSlashIndex !== -1) {
-        return filePath.substring(0, lastSlashIndex);
-    }
-   return '';
-}
-
-function toggleStyleDisplayByPath(kpath) {
-    let element = document.querySelector(`[kpath="${kpath}"]`);
-    element.click();
-    let parent = element.parentElement;
-    while (parent) {
-        setDisplayBlock(parent);
-        parent = parent.parentElement;
-    }
-}
-
-
-let history = {};
-let isCtrlPressed = false;
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
+
+let need_save_history = false;
+let history = {};
+let isCtrlPressed = false;

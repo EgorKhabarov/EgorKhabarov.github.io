@@ -78,37 +78,37 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">my_function</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>   <span class="c1"># This is my function.</span>
 </pre></div></div></div>
 
-<div class="code-element"><div class="lang-line"><text>python-console</text><button class="copy-button" id="code21ed38153624a3d86f3c5b0ffc859b37b" onclick="copyCode(code21ed38153624a3d86f3c5b0ffc859b37, code21ed38153624a3d86f3c5b0ffc859b37b)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code21ed38153624a3d86f3c5b0ffc859b37"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" id="code31109ec23269d4ce3cbebb0776dc872fb" onclick="copyCode(code31109ec23269d4ce3cbebb0776dc872f, code31109ec23269d4ce3cbebb0776dc872fb)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code31109ec23269d4ce3cbebb0776dc872f"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="n">w</span>
-<span class="unselectable"><span class="o">...</span></span>
+<span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nd">@dec</span>
 <span class="unselectable"><span class="o">...</span> </span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;&quot;&quot;comment&quot;&quot;&quot;</span>
+<span class="unselectable"><span class="o">...</span> </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;comment&quot;&quot;&quot;</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="unselectable"><span class="o">...</span></span>
+<span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">foo</span>
-<span class="unselectable"><span class="o">&lt;</span><span class="n">function</span> <span class="n">dec</span><span class="o">.&lt;</span><span class="nb">locals</span><span class="o">&gt;.</span><span class="n">w</span> <span class="n">at</span> <span class="mh">0x00000182FB1982C0</span><span class="o">&gt;</span></span>
+<span class="unselectable"><span class="go">&lt;function dec.&lt;locals&gt;.w at 0x00000182FB1982C0&gt;</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">foo</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="unselectable"><span class="s2">&quot;w&quot;</span></span>
+<span class="unselectable"><span class="go">&quot;w&quot;</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">dec</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="n">w</span>
-<span class="unselectable"><span class="o">...</span></span>
+<span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nd">@dec</span>
 <span class="unselectable"><span class="o">...</span> </span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;&quot;&quot;comment&quot;&quot;&quot;</span>
+<span class="unselectable"><span class="o">...</span> </span><span class="w">    </span><span class="sd">&quot;&quot;&quot;comment&quot;&quot;&quot;</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="unselectable"><span class="o">...</span></span>
+<span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">foo</span>
-<span class="unselectable"><span class="o">&lt;</span><span class="n">function</span> <span class="n">foo</span> <span class="n">at</span> <span class="mh">0x00000182FB198400</span><span class="o">&gt;</span></span>
+<span class="unselectable"><span class="go">&lt;function foo at 0x00000182FB198400&gt;</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">foo</span><span class="o">.</span><span class="vm">__name__</span>
-<span class="unselectable"><span class="s2">&quot;foo&quot;</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span></span>
+<span class="unselectable"><span class="go">&quot;foo&quot;</span></span>
+<span class="unselectable"><span class="gp">&gt;&gt;&gt;</span></span>
 <span class="unselectable"></pre></div></span></div></div>
 
 <p>total_ordering(cls) 

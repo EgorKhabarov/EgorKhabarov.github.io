@@ -271,12 +271,12 @@ function toggleDisplay(element) {
         element.style.display = "none";
     }
 }
+
 function setDisplayBlock(element) {
     if (element.style.display == "none") {
         element.style.display = "block";
     }
 }
-
 
 /* Изменение размера шрифта */
 function changeFontSize(element, action) {
@@ -302,19 +302,16 @@ function changeFontSize(element, action) {
     }
 }
 
-
 /* Копирование всего текста */
 function copyTextFromDiv(element) {
     var text = element.innerText;
     console.log(text);
-    //copyTextToClipboard(text);
     var textArea = document.createElement("textarea");
     textArea.value = text;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("copy");
     textArea.remove();
-    //alert("Copied the text: " + text);
 }
 
 /*Копировать выделенный текст*/
@@ -322,14 +319,13 @@ function copyTextFromDiv2() {
     document.execCommand("copy");
 }
 
-/*Изменить цвет кнопки*/
+/*Изменить цвет кнопки справа*/
 function changeColor(element) {
     element.style.backgroundColor = "#008000";
     setTimeout(function() {element.style.backgroundColor = "#525252";}, 2000);
 }
 
-
-/*Взять нужную шпаргалку по пути*/
+/*Вставить шпаргалку в нужный элемент*/
 function PutHtmlText(html) {
     if (html != "") {
         let FieldElement = document.getElementById("field");
@@ -343,6 +339,7 @@ function PutHtmlText(html) {
     }
 }
 
+/*Взять нужную шпаргалку по пути*/
 function getCheatSheat(url) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, false); // Используется синхронный запрос
@@ -355,7 +352,7 @@ function getCheatSheat(url) {
     }
 }
 
-
+/**/
 function removeSuffix(str, suffix) {
   if (str.endsWith(suffix)) {
     return str.slice(0, -suffix.length);
@@ -363,12 +360,9 @@ function removeSuffix(str, suffix) {
   return str;
 }
 
-
 function GET(url) {
     console.log(url)
-    if (url.endsWith("/index.md")) {
-        url = removeSuffix(url, "/index.md");
-    }
+    url = removeSuffix(url, "/index.md");
     addArgumentToUrl(url);
     if (!url.endsWith(".md")) {
         if (isCtrlPressed) {
@@ -377,29 +371,15 @@ function GET(url) {
         url += "/index.md";
     }
 
-    if (!(url in history)) {
-        history[url] = getCheatSheat(url);
+    if (need_save_history) {
+        if (!(url in history)) {
+            history[url] = getCheatSheat(url);
+        }
+        cheatsheet = history[url];
+    } else {
+        cheatsheet = getCheatSheat(url);
     }
-    PutHtmlText(history[url]);
-}
-
-
-/* Для обработки консольного кода */
-function processPythonConsoleText(text) {
-  const lines = text.split("\n");
-  const userInputLines = [];
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-
-    if (line.startsWith(">>> ") || line.startsWith("... ")) {
-      userInputLines.push(line.slice(4));
-    } else if (line !== "") {
-      userInputLines.push("\n");
-    }
-  }
-
-  return userInputLines.join("");
+    PutHtmlText(cheatsheet);
 }
 
 function copyCode(element, elementButton) {
@@ -432,6 +412,7 @@ function copyCode(element, elementButton) {
         }
     }, 1000);
 }
+
 function downloadTextFile(text, filename) {
   // Создаем элемент <a> для загрузки файла
   const element = document.createElement('a');
@@ -448,6 +429,7 @@ function downloadTextFile(text, filename) {
   // Удаляем элемент из DOM
   document.body.removeChild(element);
 }
+
 function DownloadCode(element, button_element, filename) {
     let text = element.textContent
     console.log(element.textContent)
@@ -476,31 +458,6 @@ function DownloadCode(element, button_element, filename) {
         }
     }, 1000);
 }
-
-/*
-
-<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <polyline points="20 6 9 17 4 12"></polyline>
-</svg>
-<pre>Copied!</pre>
-
-
-<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-</svg>
-<pre>Copy code</pre>
-
-*/
-
-//function togglePopup() {
-//    var popup = document.getElementById("popupElement");
-//    if (popup.style.display === "none") {
-//        popup.style.display = "block";
-//    } else {
-//        popup.style.display = "none";
-//    }
-//}
 
 function handleSearch(event) {
     event.preventDefault(); // Предотвращает отправку формы при нажатии Enter
@@ -544,6 +501,25 @@ function removeArgumentFromUrl() {
     window.history.replaceState(null, null, url.href);
 }
 
+function getPathWithoutFilename(filePath) {
+    filePath = decodeURIComponent(filePath);
+    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(0, lastSlashIndex);
+    }
+   return '';
+}
+
+function toggleStyleDisplayByPath(kpath) {
+    let element = document.querySelector(`[kpath="${kpath}"]`);
+    element.click();
+    let parent = element.parentElement;
+    while (parent) {
+        setDisplayBlock(parent);
+        parent = parent.parentElement;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     // Проверяем наличие аргумента при загрузке страницы
     const arg = getArgumentFromUrl();
@@ -566,39 +542,20 @@ document.addEventListener("DOMContentLoaded", function() {
         element.focus();
     }
 });
-
-function getPathWithoutFilename(filePath) {
-    filePath = decodeURIComponent(filePath);
-    const lastSlashIndex = filePath.lastIndexOf('/');
-    if (lastSlashIndex !== -1) {
-        return filePath.substring(0, lastSlashIndex);
-    }
-   return '';
-}
-
-function toggleStyleDisplayByPath(kpath) {
-    let element = document.querySelector(`[kpath="${kpath}"]`);
-    element.click();
-    let parent = element.parentElement;
-    while (parent) {
-        setDisplayBlock(parent);
-        parent = parent.parentElement;
-    }
-}
-
-
-let history = {};
-let isCtrlPressed = false;
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
+
+let need_save_history = false;
+let history = {};
+let isCtrlPressed = false;
   </script>
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее57c91963c4a3316877506030cff4b0b7);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее87009bba72f55af3fb2eef75ad7d2d9e);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее57c91963c4a3316877506030cff4b0b7" style="display:none;">
+   <div class="button-folder" id="Общее87009bba72f55af3fb2eef75ad7d2d9e" style="display:none;">
     <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
      📂 GIT
     </button>
@@ -739,15 +696,18 @@ document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlP
     <button class="button" onclick="GET('Общее/Угрозы безопасности.md');" vpath="Общее/Угрозы безопасности.md">
      📄 Угрозы безопасности
     </button>
+    <button class="button" onclick="GET('Общее/Google Search.md');" vpath="Общее/Google Search.md">
+     📄 Google Search
+    </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки88cf8ded697a59850ba2963c742ad45d);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиe5ae198cfc95a3d9806f32dd5b02a98b);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки88cf8ded697a59850ba2963c742ad45d" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python9bf720aa6064ede7ef0a6e41ef23a6e5);">
+   <div class="button-folder" id="Языкиe5ae198cfc95a3d9806f32dd5b02a98b" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Pythond006eab890d7f576a286400a91893ba7);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python9bf720aa6064ede7ef0a6e41ef23a6e5" style="display:none;">
+    <div class="button-folder" id="Pythond006eab890d7f576a286400a91893ba7" style="display:none;">
      <button class="button" kpath="Языки/Python/Библиотеки" onclick="toggleDisplay(Библиотекиe7591b75964d9cea892d16d1c704336d);">
       📂 Библиотеки
      </button>
@@ -1169,21 +1129,21 @@ document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlP
        </button>
       </div>
      </div>
-     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы6426601aa2f0e9fd49177921ca389439);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методы54acd3efdbea5acdcaa02364aa815f51);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методы6426601aa2f0e9fd49177921ca389439" style="display:none;">
+     <div class="button-folder" id="Методы54acd3efdbea5acdcaa02364aa815f51" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/Магические методы.md');" vpath="Языки/Python/Методы/Магические методы.md">
        📄 Магические методы
-      </button>
-      <button class="button" onclick="GET('Языки/Python/Методы/int.md');" vpath="Языки/Python/Методы/int.md">
-       📄 int
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/str.md');" vpath="Языки/Python/Методы/str.md">
        📄 str
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/fstrings.md');" vpath="Языки/Python/Методы/fstrings.md">
        📄 fstrings
+      </button>
+      <button class="button" onclick="GET('Языки/Python/Методы/int.md');" vpath="Языки/Python/Методы/int.md">
+       📄 int
       </button>
       <button class="button" onclick="GET('Языки/Python/Методы/list.md');" vpath="Языки/Python/Методы/list.md">
        📄 list

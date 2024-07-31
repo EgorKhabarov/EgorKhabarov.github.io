@@ -73,14 +73,24 @@
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;qwerty123&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><br><span class="unselectable"><span class="sa">b</span><span class="s2">&quot;qwerty123&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.startswith(prefix[, start][, end])</td>
+<td style="text-align: left;">str.startswith(prefix[, start[, end]])</td>
 <td style="text-align: left;"><code>True</code> если строка начинается с <code>prefix</code></td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;34&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;12&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;12&quot;</span><span class="p">,</span> <span class="s2">&quot;89&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.endswith(suffix[, start][, end])</td>
+<td style="text-align: left;">str.endswith(suffix[, start[, end]])</td>
 <td style="text-align: left;"><code>True</code> если строка заканчивается на <code>suffix</code></td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;12&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;34&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">&quot;34&quot;</span><span class="p">,</span> <span class="s2">&quot;56&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+</tr>
+<tr>
+<td style="text-align: left;">str.removeprefix(prefix: str)</td>
+<td style="text-align: left;">Возвращает строку без прификса <code>prefix</code></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;23&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+</tr>
+<tr>
+<td style="text-align: left;">str.removesuffix(suffix: str)</td>
+<td style="text-align: left;">Возвращает строку без суффикса <code>suffix</code></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;12&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.expandtabs(tabsize=8)</td>
@@ -88,22 +98,22 @@
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;        &quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.index(str[, start][, end])</td>
+<td style="text-align: left;">str.index(str[, start[, end]])</td>
 <td style="text-align: left;">Возвращает индекс начала первой подстроки str<br>в выбранном промежутке или <code>ValueError</code>, если она не найдена</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mi">1</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.rindex(str[, start][, end])</td>
+<td style="text-align: left;">str.rindex(str[, start[, end]])</td>
 <td style="text-align: left;">Возвращает индекс начала последней подстроки <code>str</code><br>в выбранном промежутке или <code>ValueError</code>, если она не найдена</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123427&quot;</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mi">4</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.find(str[, start][, end])</td>
+<td style="text-align: left;">str.find(str[, start[, end]])</td>
 <td style="text-align: left;">Возвращает индекс начала первой подстроки <code>str</code><br>в выбранном промежутке или <code>-1</code>, если она не найдена</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mi">1</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.rfind(str[, start][, end])</td>
+<td style="text-align: left;">str.rfind(str[, start[, end]])</td>
 <td style="text-align: left;">Возвращает индекс начала последней подстроки <code>str</code><br>в выбранном промежутке или <code>-1</code>, если она не найдена</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123427&quot;</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mi">4</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
@@ -115,7 +125,7 @@
 <tr>
 <td style="text-align: left;">str.format_map(dict)</td>
 <td style="text-align: left;">Заменяет <code>{&lt;val&gt;}</code> в строке на <code>dict[&lt;val&gt;]</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{x}</span><span class="s2"> </span><span class="si">{y}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format_map</span><span class="p">({</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">})</span><br><span class="unselectable"><span class="s2">&quot;4 -5&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{x}</span><span class="s2"> </span><span class="si">{y}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format_map</span><span class="p">(</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">}</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;4 -5&quot;</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.join(iter)</td>
@@ -198,11 +208,6 @@
 <td></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.isdigit()</td>
-<td style="text-align: left;"><code>True</code>, если строка состоит только из цифр</td>
-<td></td>
-</tr>
-<tr>
 <td style="text-align: left;">str.isidentifier()</td>
 <td style="text-align: left;"><code>True</code>, если строка является идентификатором<br>(<code>if</code>, <code>class</code>, <code>assert</code>)</td>
 <td></td>
@@ -226,6 +231,16 @@
 <td style="text-align: left;">str.istitle()</td>
 <td style="text-align: left;"><code>True</code>, если строка начинается с заглавной буквы,<br>а остальные — строчные</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Aa&quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;aA&quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Aa1 &quot;</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+</tr>
+<tr>
+<td style="text-align: left;">str.isascii()</td>
+<td style="text-align: left;">Проверяет, состоит ли строка только из ASCII символов</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Состоит только из ASCII</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Hello, World!&quot;</span><span class="o">.</span><span class="n">isascii</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Состоит не из ASCII</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Привет, мир!&quot;</span><span class="o">.</span><span class="n">isascii</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Не содержит не-ASCII</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">isascii</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
+</tr>
+<tr>
+<td style="text-align: left;">str.isdigit()</td>
+<td style="text-align: left;">Проверяет, состоит ли строка только из цифр (0-9)</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;12345&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;abc123&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123 456&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;123.45&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;+123&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;-123&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"></pre></div></span></pre></div></div></td>
 </tr>
 </tbody>
 </table>
