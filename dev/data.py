@@ -111,39 +111,434 @@ git commit -m "added new image"
 | logs/debug.log                       | logs/debug.log<br>но не<br>debug.log<br>build/logs/debug.log                               | Шаблоны, указывающие на файл в определенном каталоге,<br>задаются относительно корневого каталога репозитория.<br>(При желании можно добавить в начало косую черту, но она ни на что особо не повлияет.) |
 """,
         },
-        "Networking Protocols": """
-|                  |                                                            |                                |
-|------------------|------------------------------------------------------------|--------------------------------|
-| FTP              | File Transfer Protocol                                     | Port 21                        |
-| SSH              | Secure Shell                                               | Port 22                        |
-| Teinet           | Port 23                                                    |                                |
-| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
-| DNS              | Domain Naming System (or Service)                          | Port 53                        |
-| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
-| POP3             | Post Office Protocol                                       | Port 110                       |
-| IMAP             | Internet Message Access Protocol                           | Port 143                       |
-| HTTPS            | HTTP Secure                                                | Port 443                       |
-| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
-| TCP              | Transmission Control Protocol                              |                                |
-| UDP              | User Datagram Protocol                                     |                                |
-| ARP              | Address Resolution Protocol                                |                                |
-| RARP             | Reverse ARP                                                |                                |
-| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
-| MTP              | Media Transfert Protocol                                   |                                |
-| SFTP             | Secure File Transfer Protocol                              |                                |
-| SSL              | Secure Socket Layer                                        |                                |
-| TLS              | Transport Layer Security                                   |                                |
-| E6               | Ethernet globalization protocols                           |                                |
-| NTP              | Network time protocol                                      |                                |
-| PPP              | Point to Point Protocol                                    |                                |
-| NNTP             | Network News Transfer Protocol                             |                                |
-| QOTD             | Quote Of The Day                                           |                                |
-| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
-| ICMP             | Internet Control Message Protocol                          |                                |
-| IGMP             | Internet Group Management Protocol                         |                                |
-| GGP              | Gateway-to-Gateway Protocol                                |                                |
-| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
+        "Паттерны проектирования": {
+            "index": """
+### Порождающие паттерны <img alt="C" src="Общее/Паттерны проектирования/C.png" height="17">
+
+Порождающие паттерны проектирования фокусируются на процессах создания объектов.
+Они помогают абстрагировать процесс инстанцирования, что может быть полезным,
+когда конкретный процесс создания объекта должен быть отделён от его использования.
+Это позволяет создавать объекты более гибко и предотвращает жесткую связь между кодом и конкретными классами объектов.
+
+
+### Структурные паттерны <img alt="S" src="Общее/Паттерны проектирования/S.png" height="17">
+
+Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
+могут быть объединены для создания более крупных и гибких структур.
+Эти паттерны помогают определить отношения между компонентами и обеспечивают гибкость и масштабируемость систем.
+
+### Поведенческие паттерны <img alt="B" src="Общее/Паттерны проектирования/B.png" height="17">
+
+Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
+Они помогают определить, как объекты должны взаимодействовать друг с другом и как распределять ответственность между ними.
+
+
+<img alt="шаблоны.jpg" src="Общее/Паттерны проектирования/шаблоны.jpg">
+
+Copy from https://habr.com/ru/articles/210288/
 """,
+            "Порождающие паттерны": {
+                "Singleton (Одиночка)": """
+## Singleton (Одиночка)
+
+**Описание:** Гарантирует, что у класса есть только **один экземпляр**,
+и предоставляет глобальную точку доступа к этому экземпляру.
+
+**Когда использовать:** Когда нужно ограничить создание объекта одним экземпляром,
+например, для логгера, подключения к базе данных, конфигурационного объекта.
+
+**Пример реализации:**
+```python
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+
+
+singleton1 = Singleton()
+singleton2 = Singleton()
+print(singleton1 is singleton2)  # True
+```
+""",
+                "Factory (Фабрика)": """
+## Factory (Фабрика)
+
+**Описание:** Предоставляет интерфейс для создания объектов в суперклассе,
+но позволяет подклассам изменять тип создаваемых объектов.
+
+**Когда использовать:** Когда нужно делегировать создание объектов подклассам
+или когда тип создаваемых объектов заранее неизвестен.
+
+**Пример реализации:**
+```python
+class Car:
+    def drive(self):
+        raise NotImplementedError
+
+class ElectricCar(Car):
+    def drive(self):
+        return "Driving an electric car"
+
+class PetrolCar(Car):
+    def drive(self):
+        return "Driving a petrol car"
+
+class CarFactory:
+    @staticmethod
+    def create_car(car_type):
+        if car_type == "electric":
+            return ElectricCar()
+        elif car_type == "petrol":
+            return PetrolCar()
+        else:
+            raise ValueError("Unknown car type")
+```
+""",
+                "Abstract Factory (Абстрактная фабрика)": """
+Abstract Factory предоставляет интерфейс для создания семейства взаимосвязанных объектов без указания их конкретных классов.
+
+""",
+                "Builder (Строитель)": """
+### Builder (Строитель)
+Паттерн Строитель используется для пошагового создания сложных объектов.
+Он отделяет конструирование объекта от его представления,
+так что один и тот же процесс создания может создавать разные представления.
+
+```python
+class House:
+    def __init__(self):
+        self.walls = None
+        self.roof = None
+        self.doors = None
+
+    def __str__(self):
+        return f"Walls: {self.walls}, Roof: {self.roof}, Doors: {self.doors}"
+
+class HouseBuilder:
+    def __init__(self):
+        self.house = House()
+
+    def build_walls(self, walls):
+        self.house.walls = walls
+        return self
+
+    def build_roof(self, roof):
+        self.house.roof = roof
+        return self
+
+    def build_doors(self, doors):
+        self.house.doors = doors
+        return self
+
+    def get_house(self):
+        return self.house
+
+# Использование
+builder = HouseBuilder()
+house = builder.build_walls("Brick walls").build_roof("Tile roof").build_doors("Wooden doors").get_house()
+print(house)
+```
+""",
+                "Prototype (Прототип)": """
+### Prototype (Прототип)
+
+Паттерн Прототип позволяет копировать объекты, не зависимо от их конкретных классов.
+Это особенно полезно, когда создание нового объекта требует сложной или дорогостоящей инициализации.
+
+```python
+import copy
+
+class Prototype:
+    def clone(self):
+        return copy.deepcopy(self)
+
+class ConcretePrototype(Prototype):
+    def __init__(self, attribute):
+        self.attribute = attribute
+
+    def __str__(self):
+        return f"ConcretePrototype with attribute: {self.attribute}"
+
+# Использование
+prototype = ConcretePrototype("Initial value")
+clone = prototype.clone()
+clone.attribute = "Changed value"
+print(prototype)
+print(clone)
+```
+""",
+            },
+            "Структурные паттерны": {
+                "Adapter (Адаптер)": """
+## Adapter (Адаптер)
+
+**Описание:** Преобразует интерфейс одного класса в интерфейс другого, который ожидает клиент.
+Позволяет классам с несовместимыми интерфейсами работать вместе.
+
+**Когда использовать:** Когда необходимо использовать существующий класс, но его интерфейс не соответствует нужному.
+
+**Пример реализации:**
+```python
+class Adaptee:
+    def specific_request(self):
+        return "specific request"
+
+class Target:
+    def request(self):
+        pass
+
+class Adapter(Target):
+    def __init__(self, adaptee):
+        self._adaptee = adaptee
+
+    def request(self):
+        return f"Adapter: {self._adaptee.specific_request()}"
+
+adaptee = Adaptee()
+adapter = Adapter(adaptee)
+print(adapter.request())  # Вывод: "Adapter: specific request"
+```
+""",
+                "Bridge (Мост)": """
+### Bridge (Мост)
+
+Паттерн Мост используется для разделения абстракции и её реализации, позволяя изменять их независимо.
+Это достигается использованием интерфейсов или абстрактных классов.
+
+```python
+class DrawingAPI:
+    def draw_circle(self, x, y, radius):
+        pass
+
+class DrawingAPI1(DrawingAPI):
+    def draw_circle(self, x, y, radius):
+        print(f"API1.circle at ({x}, {y}), radius {radius}")
+
+class DrawingAPI2(DrawingAPI):
+    def draw_circle(self, x, y, radius):
+        print(f"API2.circle at ({x}, {y}), radius {radius}")
+
+class Circle:
+    def __init__(self, x, y, radius, drawing_api):
+        self.x = x
+        self.y = y
+        self.radius = radius
+        self.drawing_api = drawing_api
+
+    def draw(self):
+        self.drawing_api.draw_circle(self.x, self.y, self.radius)
+
+    def scale(self, factor):
+        self.radius *= factor
+
+# Использование
+circle1 = Circle(1, 2, 3, DrawingAPI1())
+circle1.draw()
+
+circle2 = Circle(5, 7, 11, DrawingAPI2())
+circle2.draw()
+```
+""",
+                "Composite (Компоновщик)": """
+### Composite (Компоновщик)
+
+Паттерн Компоновщик позволяет работать с группами объектов так же, как с отдельными объектами.
+Это удобно для представления иерархических структур.
+
+```python
+class Graphic:
+    def render(self):
+        pass
+
+class Line(Graphic):
+    def render(self):
+        print("Rendering a line")
+
+class Rectangle(Graphic):
+    def render(self):
+        print("Rendering a rectangle")
+
+class GraphicGroup(Graphic):
+    def __init__(self):
+        self.graphics = []
+
+    def add(self, graphic):
+        self.graphics.append(graphic)
+
+    def render(self):
+        for graphic in self.graphics:
+            graphic.render()
+
+# Использование
+group = GraphicGroup()
+group.add(Line())
+group.add(Rectangle())
+group.add(Line())
+
+group.render()
+```
+""",
+                "Decorator (Декоратор)": """
+## Decorator (Декоратор)
+
+**Описание:** Позволяет динамически добавлять новое поведение объектам, оборачивая их в класс-оболочку.
+
+**Когда использовать:** Когда нужно добавлять дополнительные функциональности объектам без изменения их класса.
+
+**Пример реализации:**
+```python
+class Component:
+    def operation(self):
+        pass
+
+class ConcreteComponent(Component):
+    def operation(self):
+        return "ConcreteComponent"
+
+class Decorator(Component):
+    def __init__(self, component):
+        self._component = component
+
+    def operation(self):
+        return f"Decorator({self._component.operation()})"
+
+component = ConcreteComponent()
+decorated = Decorator(component)
+print(decorated.operation())  # Вывод: "Decorator(ConcreteComponent)"
+```
+""",
+                "Facade (Фасад)": """
+### Facade (Фасад)
+
+Паттерн Фасад предоставляет унифицированный интерфейс к набору интерфейсов в подсистеме, упрощая использование сложных систем.
+
+```python
+class CPU:
+    def freeze(self):
+        print("Freezing CPU")
+
+    def jump(self, position):
+        print(f"Jumping to {position}")
+
+    def execute(self):
+        print("Executing instructions")
+
+class Memory:
+    def load(self, position, data):
+        print(f"Loading data from {position} to {data}")
+
+class HardDrive:
+    def read(self, lba, size):
+        print(f"Reading {size} bytes from LBA {lba}")
+        return "data"
+
+class ComputerFacade:
+    def __init__(self):
+        self.cpu = CPU()
+        self.memory = Memory()
+        self.hard_drive = HardDrive()
+
+    def start(self):
+        self.cpu.freeze()
+        self.memory.load(0, self.hard_drive.read(1024, 4096))
+        self.cpu.jump(0)
+        self.cpu.execute()
+
+# Использование
+computer = ComputerFacade()
+computer.start()
+```
+""",
+                "Flyweight (Легковес)": """""",
+                "Proxy (Заместитель)": """""",
+            },
+            "Поведенческие паттерны": {
+                "Chain of Responsibility (Цепочка обязанностей)": """""",
+                "Command (Команда)": """""",
+                "Interpreter (Интерпретатор)": """""",
+                "Iterator (Итератор)": """""",
+                "Mediator (Посредник)": """""",
+                "Memento (Снимок)": """""",
+                "Observer (Наблюдатель)": """
+## Observer (Наблюдатель)
+
+**Описание:** Определяет зависимость **один-ко-многим** между объектами таким образом,
+что при **изменении состояния одного объекта все зависимые объекты уведомляются и обновляются автоматически**.
+
+**Когда использовать:** Когда изменение состояния одного объекта должно привести к изменению состояния других объектов,
+например, в системах событий или уведомлений.
+
+**Пример реализации:**
+```python
+class Subject:
+    def __init__(self):
+        self._observers = []
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self):
+        for observer in self._observers:
+            observer.update()
+
+class ConcreteObserver:
+    def update(self):
+        print("Observer updated")
+
+subject = Subject()
+observer = ConcreteObserver()
+subject.attach(observer)
+subject.notify()  # Вывод: "Observer updated"
+```
+""",
+                "State (Состояние)": """""",
+                "Strategy (Стратегия)": """
+## Strategy (Стратегия)
+
+**Описание:** Определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми.
+Позволяет изменять алгоритм независимо от клиентов, которые им пользуются.
+
+**Когда использовать:** Когда у вас есть несколько схожих алгоритмов,
+и необходимо переключаться между ними в зависимости от условий.
+
+**Пример реализации:**
+```python
+class Strategy:
+    def execute(self, data):
+        raise NotImplementedError
+
+class ConcreteStrategyA(Strategy):
+    def execute(self, data):
+        return sorted(data)
+
+class ConcreteStrategyB(Strategy):
+    def execute(self, data):
+        return sorted(data, reverse=True)
+
+class Context:
+    def __init__(self, strategy: Strategy):
+        self._strategy = strategy
+
+    def do_some_business_logic(self, data):
+        return self._strategy.execute(data)
+
+context = Context(ConcreteStrategyA())
+print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [1, 2, 3]
+
+context = Context(ConcreteStrategyB())
+print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [3, 2, 1]
+```
+""",
+                "Template Method (Шаблонный метод)": """""",
+                "Visitor (Посетитель)": """""",
+            },
+        },
         "HTTP": {
             "HTTР": """HTTP
 (Hypertext Transfer Protocol)
@@ -257,6 +652,39 @@ SELECT num FROM N WHERE num > 3 AND num < 100;
 Конкретные типы счетов, такие как "текущий счет" или "депозитный счет", могут быть созданы на основе этого абстрактного класса 
 и расширены своими дополнительными свойствами и методами.
 """,
+        "Networking Protocols": """
+|                  |                                                            |                                |
+|------------------|------------------------------------------------------------|--------------------------------|
+| FTP              | File Transfer Protocol                                     | Port 21                        |
+| SSH              | Secure Shell                                               | Port 22                        |
+| Teinet           | Port 23                                                    |                                |
+| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
+| DNS              | Domain Naming System (or Service)                          | Port 53                        |
+| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
+| POP3             | Post Office Protocol                                       | Port 110                       |
+| IMAP             | Internet Message Access Protocol                           | Port 143                       |
+| HTTPS            | HTTP Secure                                                | Port 443                       |
+| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
+| TCP              | Transmission Control Protocol                              |                                |
+| UDP              | User Datagram Protocol                                     |                                |
+| ARP              | Address Resolution Protocol                                |                                |
+| RARP             | Reverse ARP                                                |                                |
+| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
+| MTP              | Media Transfert Protocol                                   |                                |
+| SFTP             | Secure File Transfer Protocol                              |                                |
+| SSL              | Secure Socket Layer                                        |                                |
+| TLS              | Transport Layer Security                                   |                                |
+| E6               | Ethernet globalization protocols                           |                                |
+| NTP              | Network time protocol                                      |                                |
+| PPP              | Point to Point Protocol                                    |                                |
+| NNTP             | Network News Transfer Protocol                             |                                |
+| QOTD             | Quote Of The Day                                           |                                |
+| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
+| ICMP             | Internet Control Message Protocol                          |                                |
+| IGMP             | Internet Group Management Protocol                         |                                |
+| GGP              | Gateway-to-Gateway Protocol                                |                                |
+| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
+""",
         "Интерпретатор Компилятор": """
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -271,193 +699,30 @@ https://habr.com/ru/post/421625
 | Синхронность  | Означает, что программа выполняет одну задачу за раз, поэтому она не может<br>выполнять несколько задач одновременно. Это означает, что если одна задача<br>занимает много времени, то все остальные задачи будут ждать,<br>пока эта задача не будет завершена.                    |
 | Асинхронность | Означает, что программа может выполнять несколько задач одновременно.<br>Она может ожидать ответа от сервера и продолжать выполнение других задач<br>в то время, как она ждет. Это позволяет программе эффективно использовать<br>ресурсы и обрабатывать больше задач за один раз. |
 """,
-        "Паттерны проектирования": {
-            "Singleton (Одиночка)": """
-## Singleton (Одиночка)
+        "Угрозы безопасности": """
+### Cross-Site Scripting (XSS)
+XSS-атаки позволяют злоумышленникам внедрять вредоносный JavaScript-код
+на страницы сайта, который затем выполняется в браузерах пользователей.
+Это может использоваться для кражи данных, таких как cookie-файлы, сессии или для проведения фишинговых атак.
+**Экранирование данных!**
 
-**Описание:** Гарантирует, что у класса есть только **один экземпляр**,
-и предоставляет глобальную точку доступа к этому экземпляру.
+|     |          |
+|----:|:---------|
+| `<` | `&lt;`   |
+| `>` | `&gt;`   |
+| `&` | `&amp;`  |
+| `"` | `&quot;` |
+| `'` | `&#39;`  |
 
-**Когда использовать:** Когда нужно ограничить создание объекта одним экземпляром,
-например, для логгера, подключения к базе данных, конфигурационного объекта.
+### Cross-Site Request Forgery (CSRF)
+CSRF-атаки заставляют пользователя выполнять нежелательные действия на сайте,
+на который он в данный момент авторизован, без его ведома.
+Это может включать изменение пароля, перевод средств или выполнение других действий от имени пользователя.
 
-**Пример реализации:**
-```python
-class Singleton:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
-        return cls._instance
-```
+**Использование CSRF-токенов**
+Встраивайте уникальный токен в каждую форму или запрос, который необходимо проверить на стороне сервера.
+Токен должен быть уникален для каждого сеанса или формы и должен проверяться при обработке запросов.
 """,
-            "Factory (Фабрика)": """
-## Factory (Фабрика)
-
-**Описание:** Предоставляет интерфейс для создания объектов в суперклассе,
-но позволяет подклассам изменять тип создаваемых объектов.
-
-**Когда использовать:** Когда нужно делегировать создание объектов подклассам
-или когда тип создаваемых объектов заранее неизвестен.
-
-**Пример реализации:**
-```python
-class Car:
-    def drive(self):
-        raise NotImplementedError
-
-class ElectricCar(Car):
-    def drive(self):
-        return "Driving an electric car"
-
-class PetrolCar(Car):
-    def drive(self):
-        return "Driving a petrol car"
-
-class CarFactory:
-    @staticmethod
-    def create_car(car_type):
-        if car_type == "electric":
-            return ElectricCar()
-        elif car_type == "petrol":
-            return PetrolCar()
-        else:
-            raise ValueError("Unknown car type")
-```
-""",
-            "Observer (Наблюдатель)": """
-## Observer (Наблюдатель)
-
-**Описание:** Определяет зависимость **один-ко-многим** между объектами таким образом,
-что при **изменении состояния одного объекта все зависимые объекты уведомляются и обновляются автоматически**.
-
-**Когда использовать:** Когда изменение состояния одного объекта должно привести к изменению состояния других объектов,
-например, в системах событий или уведомлений.
-
-**Пример реализации:**
-```python
-class Subject:
-    def __init__(self):
-        self._observers = []
-
-    def attach(self, observer):
-        self._observers.append(observer)
-
-    def detach(self, observer):
-        self._observers.remove(observer)
-
-    def notify(self):
-        for observer in self._observers:
-            observer.update()
-
-class ConcreteObserver:
-    def update(self):
-        print("Observer updated")
-
-subject = Subject()
-observer = ConcreteObserver()
-subject.attach(observer)
-subject.notify()  # Вывод: "Observer updated"
-```
-""",
-            "Strategy (Стратегия)": """
-## Strategy (Стратегия)
-
-**Описание:** Определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми.
-Позволяет изменять алгоритм независимо от клиентов, которые им пользуются.
-
-**Когда использовать:** Когда у вас есть несколько схожих алгоритмов,
-и необходимо переключаться между ними в зависимости от условий.
-
-**Пример реализации:**
-```python
-class Strategy:
-    def execute(self, data):
-        raise NotImplementedError
-
-class ConcreteStrategyA(Strategy):
-    def execute(self, data):
-        return sorted(data)
-
-class ConcreteStrategyB(Strategy):
-    def execute(self, data):
-        return sorted(data, reverse=True)
-
-class Context:
-    def __init__(self, strategy: Strategy):
-        self._strategy = strategy
-
-    def do_some_business_logic(self, data):
-        return self._strategy.execute(data)
-
-context = Context(ConcreteStrategyA())
-print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [1, 2, 3]
-
-context = Context(ConcreteStrategyB())
-print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [3, 2, 1]
-```
-""",
-            "Decorator (Декоратор)": """
-## Decorator (Декоратор)
-
-**Описание:** Позволяет динамически добавлять новое поведение объектам, оборачивая их в класс-оболочку.
-
-**Когда использовать:** Когда нужно добавлять дополнительные функциональности объектам без изменения их класса.
-
-**Пример реализации:**
-```python
-class Component:
-    def operation(self):
-        pass
-
-class ConcreteComponent(Component):
-    def operation(self):
-        return "ConcreteComponent"
-
-class Decorator(Component):
-    def __init__(self, component):
-        self._component = component
-
-    def operation(self):
-        return f"Decorator({self._component.operation()})"
-
-component = ConcreteComponent()
-decorated = Decorator(component)
-print(decorated.operation())  # Вывод: "Decorator(ConcreteComponent)"
-```
-""",
-            "Adapter (Адаптер)": """
-## Adapter (Адаптер)
-
-**Описание:** Преобразует интерфейс одного класса в интерфейс другого, который ожидает клиент.
-Позволяет классам с несовместимыми интерфейсами работать вместе.
-
-**Когда использовать:** Когда необходимо использовать существующий класс, но его интерфейс не соответствует нужному.
-
-**Пример реализации:**
-```python
-class Adaptee:
-    def specific_request(self):
-        return "specific request"
-
-class Target:
-    def request(self):
-        pass
-
-class Adapter(Target):
-    def __init__(self, adaptee):
-        self._adaptee = adaptee
-
-    def request(self):
-        return f"Adapter: {self._adaptee.specific_request()}"
-
-adaptee = Adaptee()
-adapter = Adapter(adaptee)
-print(adapter.request())  # Вывод: "Adapter: specific request"
-```
-""",
-        },
     },
     "Языки": {
         "Python": {

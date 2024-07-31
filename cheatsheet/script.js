@@ -55,7 +55,7 @@ function copyTextFromDiv(element) {
 
 /*Копировать выделенный текст*/
 function copyTextFromDiv2() {
-    document.execCommand('copy');
+    document.execCommand("copy");
 }
 
 /*Изменить цвет кнопки*/
@@ -70,12 +70,12 @@ function PutHtmlText(html) {
     if (html != "") {
         let FieldElement = document.getElementById("field");
 
-        if (typeof FieldElement.innerText != 'undefined') {
+        if (typeof FieldElement.innerText != "undefined") {
             FieldElement.innerHTML = html; // IE8-
         } else {
             FieldElement.textContent = html; // Нормальные браузеры
         }
-        document.getElementById('field').scrollTo(0, 0);
+        document.getElementById("field").scrollTo(0, 0);
     }
 }
 
@@ -91,37 +91,59 @@ function getCheatSheat(url) {
     }
 }
 
+
+function removeSuffix(str, suffix) {
+  if (str.endsWith(suffix)) {
+    return str.slice(0, -suffix.length);
+  }
+  return str;
+}
+
+
 function GET(url) {
     console.log(url)
-    addArgumentToUrl(url)
-    return PutHtmlText(getCheatSheat(url))
+    if (url.endsWith("/index.md")) {
+        url = removeSuffix(url, "/index.md");
+    }
+    addArgumentToUrl(url);
+    if (!url.endsWith(".md")) {
+        if (isCtrlPressed) {
+            return
+        }
+        url += "/index.md";
+    }
+
+    if (!(url in history)) {
+        history[url] = getCheatSheat(url);
+    }
+    PutHtmlText(history[url]);
 }
 
 
 /* Для обработки консольного кода */
 function processPythonConsoleText(text) {
-  const lines = text.split('\n');
+  const lines = text.split("\n");
   const userInputLines = [];
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    if (line.startsWith('>>> ') || line.startsWith('... ')) {
+    if (line.startsWith(">>> ") || line.startsWith("... ")) {
       userInputLines.push(line.slice(4));
-    } else if (line !== '') {
-      userInputLines.push('\n');
+    } else if (line !== "") {
+      userInputLines.push("\n");
     }
   }
 
-  return userInputLines.join('');
+  return userInputLines.join("");
 }
 
 function copyCode(element, elementButton) {
-    const textarea = document.createElement('textarea');
+    const textarea = document.createElement("textarea");
     textarea.value = element.textContent;
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(textarea);
 
     let svg1 = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" ';
@@ -274,9 +296,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const container = document.querySelector('.cheatsheet-buttons');
         element.scrollIntoView({ block: 'center'});
         container.scrollLeft -= 200;
+        if (!vpath.endsWith(".md")) {
+            element.click();
+        }
         element.focus();
-    } else {
-        console.log("No argument found");
     }
 });
 
@@ -298,3 +321,9 @@ function toggleStyleDisplayByPath(kpath) {
         parent = parent.parentElement;
     }
 }
+
+
+let history = {};
+let isCtrlPressed = false;
+document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
+document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});

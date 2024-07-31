@@ -319,7 +319,7 @@ function copyTextFromDiv(element) {
 
 /*Копировать выделенный текст*/
 function copyTextFromDiv2() {
-    document.execCommand('copy');
+    document.execCommand("copy");
 }
 
 /*Изменить цвет кнопки*/
@@ -334,12 +334,12 @@ function PutHtmlText(html) {
     if (html != "") {
         let FieldElement = document.getElementById("field");
 
-        if (typeof FieldElement.innerText != 'undefined') {
+        if (typeof FieldElement.innerText != "undefined") {
             FieldElement.innerHTML = html; // IE8-
         } else {
             FieldElement.textContent = html; // Нормальные браузеры
         }
-        document.getElementById('field').scrollTo(0, 0);
+        document.getElementById("field").scrollTo(0, 0);
     }
 }
 
@@ -355,37 +355,59 @@ function getCheatSheat(url) {
     }
 }
 
+
+function removeSuffix(str, suffix) {
+  if (str.endsWith(suffix)) {
+    return str.slice(0, -suffix.length);
+  }
+  return str;
+}
+
+
 function GET(url) {
     console.log(url)
-    addArgumentToUrl(url)
-    return PutHtmlText(getCheatSheat(url))
+    if (url.endsWith("/index.md")) {
+        url = removeSuffix(url, "/index.md");
+    }
+    addArgumentToUrl(url);
+    if (!url.endsWith(".md")) {
+        if (isCtrlPressed) {
+            return
+        }
+        url += "/index.md";
+    }
+
+    if (!(url in history)) {
+        history[url] = getCheatSheat(url);
+    }
+    PutHtmlText(history[url]);
 }
 
 
 /* Для обработки консольного кода */
 function processPythonConsoleText(text) {
-  const lines = text.split('\n');
+  const lines = text.split("\n");
   const userInputLines = [];
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    if (line.startsWith('>>> ') || line.startsWith('... ')) {
+    if (line.startsWith(">>> ") || line.startsWith("... ")) {
       userInputLines.push(line.slice(4));
-    } else if (line !== '') {
-      userInputLines.push('\n');
+    } else if (line !== "") {
+      userInputLines.push("\n");
     }
   }
 
-  return userInputLines.join('');
+  return userInputLines.join("");
 }
 
 function copyCode(element, elementButton) {
-    const textarea = document.createElement('textarea');
+    const textarea = document.createElement("textarea");
     textarea.value = element.textContent;
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(textarea);
 
     let svg1 = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" ';
@@ -538,9 +560,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const container = document.querySelector('.cheatsheet-buttons');
         element.scrollIntoView({ block: 'center'});
         container.scrollLeft -= 200;
+        if (!vpath.endsWith(".md")) {
+            element.click();
+        }
         element.focus();
-    } else {
-        console.log("No argument found");
     }
 });
 
@@ -562,14 +585,20 @@ function toggleStyleDisplayByPath(kpath) {
         parent = parent.parentElement;
     }
 }
+
+
+let history = {};
+let isCtrlPressed = false;
+document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
+document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
   </script>
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее7f735ae326ce9ab39016ca8d5b67672f);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее57c91963c4a3316877506030cff4b0b7);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее7f735ae326ce9ab39016ca8d5b67672f" style="display:none;">
+   <div class="button-folder" id="Общее57c91963c4a3316877506030cff4b0b7" style="display:none;">
     <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
      📂 GIT
     </button>
@@ -581,9 +610,95 @@ function toggleStyleDisplayByPath(kpath) {
       📄 gitignore
      </button>
     </div>
-    <button class="button" onclick="GET('Общее/Networking Protocols.md');" vpath="Общее/Networking Protocols.md">
-     📄 Networking Protocols
+    <button class="button" kpath="Общее/Паттерны проектирования" onclick="toggleDisplay(Паттерныпроектированияfbd79200a6120adf2de6e3bd107e364e);GET('Общее/Паттерны проектирования/index.md');" vpath="Общее/Паттерны проектирования">
+     📂 Паттерны проектирования
     </button>
+    <div class="button-folder" id="Паттерныпроектированияfbd79200a6120adf2de6e3bd107e364e" style="display:none;">
+     <button class="button" kpath="Общее/Паттерны проектирования/Порождающие паттерны" onclick="toggleDisplay(Порождающиепаттерныb61c862509271e3ed305306dbe4a21e3);">
+      📂 Порождающие паттерны
+     </button>
+     <div class="button-folder" id="Порождающиепаттерныb61c862509271e3ed305306dbe4a21e3" style="display:none;">
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md">
+       📄 Singleton (Одиночка)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md">
+       📄 Factory (Фабрика)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md">
+       📄 Abstract Factory (Абстрактная фабрика)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md">
+       📄 Builder (Строитель)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md">
+       📄 Prototype (Прототип)
+      </button>
+     </div>
+     <button class="button" kpath="Общее/Паттерны проектирования/Структурные паттерны" onclick="toggleDisplay(Структурныепаттерны547aa36db0d2f51a070ac2865d229718);">
+      📂 Структурные паттерны
+     </button>
+     <div class="button-folder" id="Структурныепаттерны547aa36db0d2f51a070ac2865d229718" style="display:none;">
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md">
+       📄 Adapter (Адаптер)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md">
+       📄 Bridge (Мост)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md">
+       📄 Composite (Компоновщик)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md">
+       📄 Decorator (Декоратор)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md">
+       📄 Facade (Фасад)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md">
+       📄 Flyweight (Легковес)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md">
+       📄 Proxy (Заместитель)
+      </button>
+     </div>
+     <button class="button" kpath="Общее/Паттерны проектирования/Поведенческие паттерны" onclick="toggleDisplay(Поведенческиепаттерны3b2ec16734b81404acb18bc979a73230);">
+      📂 Поведенческие паттерны
+     </button>
+     <div class="button-folder" id="Поведенческиепаттерны3b2ec16734b81404acb18bc979a73230" style="display:none;">
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md">
+       📄 Chain of Responsibility (Цепочка обязанностей)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md">
+       📄 Command (Команда)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md">
+       📄 Interpreter (Интерпретатор)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md">
+       📄 Iterator (Итератор)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md">
+       📄 Mediator (Посредник)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md">
+       📄 Memento (Снимок)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md">
+       📄 Observer (Наблюдатель)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md">
+       📄 State (Состояние)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md">
+       📄 Strategy (Стратегия)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md">
+       📄 Template Method (Шаблонный метод)
+      </button>
+      <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md">
+       📄 Visitor (Посетитель)
+      </button>
+     </div>
+    </div>
     <button class="button" kpath="Общее/HTTP" onclick="toggleDisplay(HTTP64a74433299cdd7de00a762948127a3d);">
      📂 HTTP
     </button>
@@ -612,35 +727,18 @@ function toggleStyleDisplayByPath(kpath) {
     <button class="button" onclick="GET('Общее/ООП.md');" vpath="Общее/ООП.md">
      📄 ООП
     </button>
+    <button class="button" onclick="GET('Общее/Networking Protocols.md');" vpath="Общее/Networking Protocols.md">
+     📄 Networking Protocols
+    </button>
     <button class="button" onclick="GET('Общее/Интерпретатор Компилятор.md');" vpath="Общее/Интерпретатор Компилятор.md">
      📄 Интерпретатор Компилятор
     </button>
     <button class="button" onclick="GET('Общее/sync asyn.md');" vpath="Общее/sync asyn.md">
      📄 sync asyn
     </button>
-    <button class="button" kpath="Общее/Паттерны проектирования" onclick="toggleDisplay(Паттерныпроектирования47e4d2c1eed53b03be469e7697ea6d9a);">
-     📂 Паттерны проектирования
+    <button class="button" onclick="GET('Общее/Угрозы безопасности.md');" vpath="Общее/Угрозы безопасности.md">
+     📄 Угрозы безопасности
     </button>
-    <div class="button-folder" id="Паттерныпроектирования47e4d2c1eed53b03be469e7697ea6d9a" style="display:none;">
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Singleton (Одиночка).md');" vpath="Общее/Паттерны проектирования/Singleton (Одиночка).md">
-      📄 Singleton (Одиночка)
-     </button>
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Factory (Фабрика).md');" vpath="Общее/Паттерны проектирования/Factory (Фабрика).md">
-      📄 Factory (Фабрика)
-     </button>
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Observer (Наблюдатель).md');" vpath="Общее/Паттерны проектирования/Observer (Наблюдатель).md">
-      📄 Observer (Наблюдатель)
-     </button>
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Strategy (Стратегия).md');" vpath="Общее/Паттерны проектирования/Strategy (Стратегия).md">
-      📄 Strategy (Стратегия)
-     </button>
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Decorator (Декоратор).md');" vpath="Общее/Паттерны проектирования/Decorator (Декоратор).md">
-      📄 Decorator (Декоратор)
-     </button>
-     <button class="button" onclick="GET('Общее/Паттерны проектирования/Adapter (Адаптер).md');" vpath="Общее/Паттерны проектирования/Adapter (Адаптер).md">
-      📄 Adapter (Адаптер)
-     </button>
-    </div>
    </div>
    <button class="button" kpath="Языки" onclick="toggleDisplay(Языки88cf8ded697a59850ba2963c742ad45d);">
     📂 Языки
@@ -1656,5 +1754,8 @@ function toggleStyleDisplayByPath(kpath) {
         <span class="close-button" onclick="togglePopup()" style="z-index: 8;">❌</span>
         <div class="search-list"></div>
     </div> -->
+  <script>
+   PutHtmlText(getCheatSheat("README.html"))
+  </script>
  </body>
 </html>

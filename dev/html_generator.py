@@ -23,8 +23,10 @@ def get_id(data: str, noprint: bool = False):
 
 
 def buttons(dictionary: dict, directory=""):
-    text = ""
+    text_list = []
     for key, value in dictionary.items():
+        if key == "index":
+            continue
         print(f"{directory}\\{key}")
         title = key
         key_path = os.path.join(directory, key)
@@ -35,26 +37,41 @@ def buttons(dictionary: dict, directory=""):
         key = key.split(maxsplit=1)[0]
         directory_e = directory.replace("\\", "/").strip("/")
 
-        if isinstance(value, dict):
+        if isinstance(value, dict) and "index" in value:
             val = buttons(value, key_path)[0]
             kpath = f"{directory_e}/{title}".strip("/")
-            # print(f"directory={directory}\\{key} val={' '.join(val.splitlines())}")
-            text += """<button onclick="toggleDisplay({name});" class="button" kpath="{kpath}">{title}</button>
+            text_list.append(
+                """<button onclick="toggleDisplay({name});GET('{csname}');" class="button" kpath="{kpath}" vpath="{vpath}">{title}</button>
 <div id="{name}" style="display:none;" class="button-folder">{text}</div>""".format(
-                name=f"{key}{get_id(key+val)}",
-                kpath=kpath,
-                title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
-                text=val,
-                # url=title,
+                    name=f"{key}{get_id(key + val)}",
+                    kpath=kpath,
+                    title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
+                    text=val,
+                    vpath=f"{directory_e}/{title}",
+                    csname=key_path.replace("\\", "&#x2f;") + "/index.md",
+                )
+            )
+        elif isinstance(value, dict):
+            val = buttons(value, key_path)[0]
+            kpath = f"{directory_e}/{title}".strip("/")
+            text_list.append(
+                """<button onclick="toggleDisplay({name});" class="button" kpath="{kpath}">{title}</button>
+<div id="{name}" style="display:none;" class="button-folder">{text}</div>""".format(
+                    name=f"{key}{get_id(key+val)}",
+                    kpath=kpath,
+                    title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
+                    text=val,
+                )
             )
         else:
-            # print(key_path)
-            text += """<button onclick="GET('{name}');" class="button" vpath="{vpath}.md">{title}</button>\n""".format(
-                name=key_path.replace("\\", "&#x2f;") + ".md",
-                vpath=f"{directory_e}/{title}",
-                title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
+            text_list.append(
+                """<button onclick="GET('{name}');" class="button" vpath="{vpath}">{title}</button>\n""".format(
+                    name=key_path.replace("\\", "&#x2f;") + ".md",
+                    vpath=f"{directory_e}/{title}.md",
+                    title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
+                )
             )
-    return text, directory
+    return "".join(text_list), directory
 
 
 with (
@@ -108,6 +125,9 @@ result = f"""
         <span class="close-button" onclick="togglePopup()" style="z-index: 8;">❌</span>
         <div class="search-list"></div>
     </div> -->
+    <script>
+        PutHtmlText(getCheatSheat("README.html"))
+    </script>
 </body>
 </html>
 """

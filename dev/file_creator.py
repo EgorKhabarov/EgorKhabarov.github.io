@@ -2,6 +2,7 @@ import os
 import re
 
 import markdown
+import requests
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
@@ -139,3 +140,33 @@ def create_files_and_folders(dictionary, directory="."):
 
 # if __name__ == '__main__':
 create_files_and_folders(DICT, "../cheatsheet")
+
+
+def r(d: dict, c: int = 0) -> int:
+    for k, v in d.items():
+        if isinstance(v, dict):
+            c = r(v, c)
+        else:
+            c += 1
+    return c
+
+
+content = requests.get(
+    f"https://img.shields.io/badge/{r(DICT)}%20cheatsheet-brightgreen",
+    {
+        "style": "flat",
+        "logo": "github",
+        "label": "GitHub Pages",
+    },
+).content.decode()
+
+
+with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
+    file_readme.write(
+        f"""
+{content}
+<!--
+https://img.shields.io/badge/{r(DICT)}%20cheatsheet-brightgreen?style=flat&logo=github&label=GitHub Pages
+-->
+""".strip()
+    )
