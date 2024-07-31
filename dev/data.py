@@ -7405,7 +7405,7 @@ with contextlib.ExitStack() as stack:
         print(file.readline())
 ```
 
-В этом примере ExitStack используется для управления тремя файлами, которые могут быть открыты и закрыты в любом порядке. 
+В этом примере ExitStack используется для управления тремя файлами, которые могут быть открыты и закрыты в любом порядке
 Функция stack.enter_context(open(f)) добавляет каждый файл в стек контекстных менеджеров, 
 который гарантирует их правильное закрытие в конце работы с ними.
 """,
@@ -15101,20 +15101,20 @@ button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
     },
     "Полезные ссылки": """
 # **Python**
-| Описание                                |                                   Ссылка                                                         |
-|:----------------------------------------|:-------------------------------------------------------------------------------------------------|
-| Дорожная карта                          | https://roadmap.sh/python https://roadmap.sh/backend https://roadmap.sh/roadmaps                 |
-| Sorting Algorithms                      | https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm               |
-|                                         | https://realpython.com/sorting-algorithms-python/                                                |
-| логирование                             | https://habr.com/ru/companies/wunderfund/articles/683880/                                        |
-| re                                      | https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf                                       |
-|                                         | https://www.exlab.net/files/tools/sheets/regexp/regexp.png                                       |
-| Recursive Regular Expressions           | http://www.rexegg.com/regex-recursion.html                                                       |
-| Магические методы                       | https://habr.com/ru/post/186608/                                                                 |
-| Unit Tests                              | https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/              |
-| Асинхронность                           | https://habr.com/ru/articles/421625/                                                             |
+| Описание                                | Ссылка |
+|:----------------------------------------|:-------|
+| Дорожная карта                          | https://roadmap.sh/python https://roadmap.sh/backend https://roadmap.sh/roadmaps               |
+| Sorting Algorithms                      | https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm             |
+|                                         | https://realpython.com/sorting-algorithms-python/                                              |
+| логирование                             | https://habr.com/ru/companies/wunderfund/articles/683880/                                      |
+| re                                      | https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf                                     |
+|                                         | https://www.exlab.net/files/tools/sheets/regexp/regexp.png                                     |
+| Recursive Regular Expressions           | http://www.rexegg.com/regex-recursion.html                                                     |
+| Магические методы                       | https://habr.com/ru/post/186608/                                                               |
+| Unit Tests                              | https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/            |
+| Асинхронность                           | https://habr.com/ru/articles/421625/                                                           |
 | Лексический анализ. Документация Python | https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion |
-| string                                  | https://digitology.tech/docs/python_3/library/string.html                                        |
+| string                                  | https://digitology.tech/docs/python_3/library/string.html                                      |
 
 **__Уже есть__**
 
@@ -15127,39 +15127,28 @@ button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
 
 
 # **Python Другое**
-|                                       |                                                                                     |
-|:--------------------------------------|:------------------------------------------------------------------------------------|
-| Алгоритм генерации судоку             | https://habr.com/ru/articles/192102/                                                |
-|                                       | https://habr.com/ru/post/249899/                                                    |
-|                                       | https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html                           |
-| Компиляторы и трансляторы кода Python | https://egorovegor.ru/python-compiler-and-translator/                               |
-|                                       | https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89         |
-| N + 1 query                           |                                                                                     |
-|                                       |                                                                                     |
+|                                       |                                                                             |
+|:--------------------------------------|:----------------------------------------------------------------------------|
+| Алгоритм генерации судоку             | https://habr.com/ru/articles/192102/                                        |
+|                                       | https://habr.com/ru/post/249899/                                            |
+|                                       | https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html                   |
+| Компиляторы и трансляторы кода Python | https://egorovegor.ru/python-compiler-and-translator/                       |
+|                                       | https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89 |
+| N + 1 query                           |                                                                             |
 
 # **C++**
-|                                       |                                                                                     |
-|---------------------------------------|-------------------------------------------------------------------------------------|
-| Дорожная карта                        | https://habr.com/ru/specials/726724/                                                |
-|                                       | https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/                    |
-|                                       | https://en.cppreference.com/w/                                                      |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
+|                |                                                                  |
+|----------------|------------------------------------------------------------------|
+| Дорожная карта | https://habr.com/ru/specials/726724/                             |
+|                | https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/ |
+|                | https://en.cppreference.com/w/                                   |
 
 
 # **GIT GitHub**
-|                                       |                                                                                     |
-|---------------------------------------|-------------------------------------------------------------------------------------|
-| Git и Github. Простые рецепты         | https://habr.com/ru/articles/273897/                                                |
-| Книга                                 | https://git-scm.com/book/ru/v2                                                      |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
-|                                       |                                                                                     |
+|                               |                                      |
+|-------------------------------|--------------------------------------|
+| Git и Github. Простые рецепты | https://habr.com/ru/articles/273897/ |
+| Книга                         | https://git-scm.com/book/ru/v2       |
 
 """,
 }

@@ -31,8 +31,6 @@ def code_block_callback(match):
         _language = "python"
     elif language == "python-console":
         _language = "pycon"
-    # elif language == "row":
-    #     return """<div class="row">{}</div>""".format(code_block.strip())
     else:
         _language = language
     lexer = get_lexer_by_name(_language, stripall=True)
@@ -52,25 +50,51 @@ def code_block_callback(match):
 
     code_id = get_id(language+highlighted_code, True)
     btn = (
-        f"""<button class="copy-button-2" id="code{code_id}_2b" onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{code_block.strip().splitlines()[0].removeprefix("#file ")}')">
-    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        """
+<button class="copy-button-2"
+        id="code{code_id}_2b"
+        onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{code_block}')">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
       <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
       <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Download code</text>
-  </button>"""
+  </button>
+""".format(
+            code_id=code_id,
+            code_block=code_block.strip().splitlines()[0].removeprefix("#file ")
+        ).strip()
         if code_block.strip().startswith("#file ")
         else ""
     )
-
     return "".join(
         line.strip()
         for line in """
 <div class="code-element">
 <div class="lang-line">
   <text>{lang}</text>
-  <button class="copy-button" id="code{index}b" onclick="copyCode(code{index}, code{index}b)">
-    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <button class="copy-button"
+          id="code{index}b"
+          onclick="copyCode(code{index}, code{index}b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
       <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
       <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
@@ -81,7 +105,12 @@ def code_block_callback(match):
 <div class="code" id="code{index}">{code}</div>
 </div>
     """.strip().splitlines()
-    ).format(lang=language, code=highlighted_code, index=code_id, btn=btn)
+    ).format(
+        lang=language,
+        code=highlighted_code,
+        index=code_id,
+        btn=btn,
+    )
 
 
 def url_shortener(url):
@@ -124,8 +153,8 @@ def create_files_and_folders(dictionary, directory="."):
     """
     Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
 
-    :param dictionary: словарь, который нужно воссоздать в виде файлов и папок
-    :param directory: директория, в которой нужно создать файлы и папки (по умолчанию - текущая директория)
+    :param dictionary: Словарь, который нужно воссоздать в виде файлов и папок
+    :param directory: Директория, в которой нужно создать файлы и папки (по умолчанию - текущая директория)
     """
     for key, value in dictionary.items():
         if isinstance(value, str):
@@ -143,7 +172,6 @@ def create_files_and_folders(dictionary, directory="."):
                 f.write(to_markup(value.strip()))
 
 
-# if __name__ == '__main__':
 create_files_and_folders(DICT, "../cheatsheet")
 
 
