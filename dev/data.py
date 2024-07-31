@@ -8198,8 +8198,8 @@ SyntaxError: f-string: single '}' is not allowed
     f"{1:}}>20}"
                 ^
 SyntaxError: f-string: single '}' is not allowed
->>> f"{1:{'{'}>20}"
-'{{{{{{{{{{{{{{{{{{{1'```
+>>> f"{1:{'}'}>20}"
+"}}}}}}}}}}}}}}}}}}}1"```
 </details>
 Это ограничение не влияет на функцию `format()`.
 

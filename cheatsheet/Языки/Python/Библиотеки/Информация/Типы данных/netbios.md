@@ -33,22 +33,94 @@
 </table>
 <p>Список самых часто используемых методов, их краткого описания и</p>
 <p>nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера. </p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codee5765f20dbcb2fa7fa59b1f0352eb1d8b"onclick="copyCode(codee5765f20dbcb2fa7fa59b1f0352eb1d8, codee5765f20dbcb2fa7fa59b1f0352eb1d8b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codee5765f20dbcb2fa7fa59b1f0352eb1d8"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codee5765f20dbcb2fa7fa59b1f0352eb1d8b"
+          onclick="copyCode(codee5765f20dbcb2fa7fa59b1f0352eb1d8, codee5765f20dbcb2fa7fa59b1f0352eb1d8b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codee5765f20dbcb2fa7fa59b1f0352eb1d8"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
 
 <span class="n">name</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">getnetbiosname</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>
 
 <p>nbt.getwinsaddrs(): Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="coded71042d31e95c0c49bbc4d25f3e48195b"onclick="copyCode(coded71042d31e95c0c49bbc4d25f3e48195, coded71042d31e95c0c49bbc4d25f3e48195b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="coded71042d31e95c0c49bbc4d25f3e48195"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="coded71042d31e95c0c49bbc4d25f3e48195b"
+          onclick="copyCode(coded71042d31e95c0c49bbc4d25f3e48195, coded71042d31e95c0c49bbc4d25f3e48195b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="coded71042d31e95c0c49bbc4d25f3e48195"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
 
 <span class="n">wins_addrs</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">getwinsaddrs</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wins_addrs</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>
 
 <p>nbt.getnodetype(): Возвращает тип узла в сети.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code6e1b63d2875e709125ff20f8ae8ba234b"onclick="copyCode(code6e1b63d2875e709125ff20f8ae8ba234, code6e1b63d2875e709125ff20f8ae8ba234b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code6e1b63d2875e709125ff20f8ae8ba234"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code6e1b63d2875e709125ff20f8ae8ba234b"
+          onclick="copyCode(code6e1b63d2875e709125ff20f8ae8ba234, code6e1b63d2875e709125ff20f8ae8ba234b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code6e1b63d2875e709125ff20f8ae8ba234"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netbios</span> <span class="k">as</span> <span class="nn">nb</span>
 
 <span class="n">node_type</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">getnodetype</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">node_type</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>

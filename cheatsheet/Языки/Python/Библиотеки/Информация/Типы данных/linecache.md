@@ -7,32 +7,104 @@
 <p>Примеры подмодулей отсутствуют.</p>
 <p>Некоторые из самых часто используемых методов "linecache" включают:
 Метод <code>getline(filename, lineno)</code> - возвращает указанную строку из указанного файла.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code9ca67182401f7ef31e16bd76838a6f0bb"onclick="copyCode(code9ca67182401f7ef31e16bd76838a6f0b, code9ca67182401f7ef31e16bd76838a6f0bb)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code9ca67182401f7ef31e16bd76838a6f0b"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code9ca67182401f7ef31e16bd76838a6f0bb"
+          onclick="copyCode(code9ca67182401f7ef31e16bd76838a6f0b, code9ca67182401f7ef31e16bd76838a6f0bb)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code9ca67182401f7ef31e16bd76838a6f0b"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
 
 <span class="n">line</span> <span class="o">=</span> <span class="n">linecache</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>
 
 <p>Этот код выведет пятую строку из файла "file.txt".</p>
 <p>Метод <code>getlines(filename)</code> - возвращает все строки из указанного файла в виде списка.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codea4f755dfe575daa298a3ef21010d1211b"onclick="copyCode(codea4f755dfe575daa298a3ef21010d1211, codea4f755dfe575daa298a3ef21010d1211b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codea4f755dfe575daa298a3ef21010d1211"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codea4f755dfe575daa298a3ef21010d1211b"
+          onclick="copyCode(codea4f755dfe575daa298a3ef21010d1211, codea4f755dfe575daa298a3ef21010d1211b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codea4f755dfe575daa298a3ef21010d1211"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
 
 <span class="n">lines</span> <span class="o">=</span> <span class="n">linecache</span><span class="o">.</span><span class="n">getlines</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>
 
 <p>Этот код выведет все строки из файла "file.txt" по одной строке на каждую итерацию цикла.</p>
 <p>Метод <code>clearcache()</code> - очищает кэш, используемый для хранения строк файла.
 Это может быть полезно, если файл изменился и требуется обновить строки в кэше.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codeec77ce8aa8676a0b1355232ce12de170b"onclick="copyCode(codeec77ce8aa8676a0b1355232ce12de170, codeec77ce8aa8676a0b1355232ce12de170b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codeec77ce8aa8676a0b1355232ce12de170"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codeec77ce8aa8676a0b1355232ce12de170b"
+          onclick="copyCode(codeec77ce8aa8676a0b1355232ce12de170, codeec77ce8aa8676a0b1355232ce12de170b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codeec77ce8aa8676a0b1355232ce12de170"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
 
 <span class="c1"># Изменения в файле &quot;file.txt&quot;</span>
 
 <span class="n">linecache</span><span class="o">.</span><span class="n">clearcache</span><span class="p">()</span>
 <span class="n">line</span> <span class="o">=</span> <span class="n">linecache</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>
 
 <p>Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла "file.txt".</p>
 <p>Примечание: Убедитесь, что файл "file.txt" существует и содержит нужные строки.</p>

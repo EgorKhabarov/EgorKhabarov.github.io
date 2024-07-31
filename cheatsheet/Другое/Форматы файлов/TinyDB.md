@@ -1,8 +1,55 @@
 <p>Шпаргалка по TinyDB в Python:</p>
-<div class="code-element"><div class="lang-line"><text>bash</text><button class="copy-button"id="code3e5ba61b96aea57365d1d0ba7e22c4b7b"onclick="copyCode(code3e5ba61b96aea57365d1d0ba7e22c4b7, code3e5ba61b96aea57365d1d0ba7e22c4b7b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code3e5ba61b96aea57365d1d0ba7e22c4b7"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>tinydb
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>bash</text>
+  <button class="copy-button"
+          id="code3e5ba61b96aea57365d1d0ba7e22c4b7b"
+          onclick="copyCode(code3e5ba61b96aea57365d1d0ba7e22c4b7, code3e5ba61b96aea57365d1d0ba7e22c4b7b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
 
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code62578d1afc71e5f4078d1425d1412b35b"onclick="copyCode(code62578d1afc71e5f4078d1425d1412b35, code62578d1afc71e5f4078d1425d1412b35b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code62578d1afc71e5f4078d1425d1412b35"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span>
+</div>
+<div class="code" id="code3e5ba61b96aea57365d1d0ba7e22c4b7"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>tinydb
+</pre></div></div>
+</div>
+
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code62578d1afc71e5f4078d1425d1412b35b"
+          onclick="copyCode(code62578d1afc71e5f4078d1425d1412b35, code62578d1afc71e5f4078d1425d1412b35b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code62578d1afc71e5f4078d1425d1412b35"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tinydb</span> <span class="kn">import</span> <span class="n">TinyDB</span><span class="p">,</span> <span class="n">Query</span>
 
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">TinyDB</span><span class="p">(</span><span class="s2">&quot;db.json&quot;</span><span class="p">)</span>
@@ -19,4 +66,5 @@
 
 <span class="c1"># Удаление записи по условию (например, по имени)</span>
 <span class="n">users_table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>

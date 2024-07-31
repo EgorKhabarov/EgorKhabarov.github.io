@@ -76,9 +76,7 @@ def code_block_callback(match):
         if code_block.strip().startswith("#file ")
         else ""
     )
-    return "".join(
-        line.strip()
-        for line in """
+    return """
 <div class="code-element">
 <div class="lang-line">
   <text>{lang}</text>
@@ -104,8 +102,7 @@ def code_block_callback(match):
 </div>
 <div class="code" id="code{index}">{code}</div>
 </div>
-    """.strip().splitlines()
-    ).format(
+""".strip().format(
         lang=language,
         code=highlighted_code,
         index=code_id,

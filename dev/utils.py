@@ -14,6 +14,10 @@ def set_unselectable(text: str, sep: str = "\n"):
     l = []
 
     for line in text.split(sep):
+        if line.startswith("</pre></div>"):
+            l.append(line)
+            continue
+
         if line.startswith(
             (
                 '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ',

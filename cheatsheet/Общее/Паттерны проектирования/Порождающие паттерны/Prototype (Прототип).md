@@ -1,7 +1,30 @@
 <h3>Prototype (Прототип)</h3>
 <p>Паттерн Прототип позволяет копировать объекты, не зависимо от их конкретных классов.
 Это особенно полезно, когда создание нового объекта требует сложной или дорогостоящей инициализации.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codec239220e080fe1e5f39bd5dd47869fd0b"onclick="copyCode(codec239220e080fe1e5f39bd5dd47869fd0, codec239220e080fe1e5f39bd5dd47869fd0b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codec239220e080fe1e5f39bd5dd47869fd0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codec239220e080fe1e5f39bd5dd47869fd0b"
+          onclick="copyCode(codec239220e080fe1e5f39bd5dd47869fd0, codec239220e080fe1e5f39bd5dd47869fd0b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codec239220e080fe1e5f39bd5dd47869fd0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="k">class</span> <span class="nc">Prototype</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -20,4 +43,5 @@
 <span class="n">clone</span><span class="o">.</span><span class="n">attribute</span> <span class="o">=</span> <span class="s2">&quot;Changed value&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">prototype</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">clone</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>

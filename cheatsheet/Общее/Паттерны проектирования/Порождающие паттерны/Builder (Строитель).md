@@ -2,7 +2,30 @@
 <p>Паттерн Строитель используется для пошагового создания сложных объектов.
 Он отделяет конструирование объекта от его представления,
 так что один и тот же процесс создания может создавать разные представления.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codebc04688cb27ba1acd8bcd57daf6912ceb"onclick="copyCode(codebc04688cb27ba1acd8bcd57daf6912ce, codebc04688cb27ba1acd8bcd57daf6912ceb)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codebc04688cb27ba1acd8bcd57daf6912ce"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">House</span><span class="p">:</span>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codebc04688cb27ba1acd8bcd57daf6912ceb"
+          onclick="copyCode(codebc04688cb27ba1acd8bcd57daf6912ce, codebc04688cb27ba1acd8bcd57daf6912ceb)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codebc04688cb27ba1acd8bcd57daf6912ce"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">House</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">walls</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">roof</span> <span class="o">=</span> <span class="kc">None</span>
@@ -34,4 +57,5 @@
 <span class="n">builder</span> <span class="o">=</span> <span class="n">HouseBuilder</span><span class="p">()</span>
 <span class="n">house</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build_walls</span><span class="p">(</span><span class="s2">&quot;Brick walls&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build_roof</span><span class="p">(</span><span class="s2">&quot;Tile roof&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build_doors</span><span class="p">(</span><span class="s2">&quot;Wooden doors&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_house</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">house</span><span class="p">)</span>
-</pre></div></div></div>
+</pre></div></div>
+</div>

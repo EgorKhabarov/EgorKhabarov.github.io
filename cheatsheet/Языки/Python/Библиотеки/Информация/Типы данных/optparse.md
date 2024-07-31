@@ -10,21 +10,141 @@ OptionConflictError: Исключение, возникающее при кон�
 OptionValueError: Исключение, возникающее при некорректном значении опции.</p>
 <p>Некоторые из самых часто используемых методов "optparse" и их описание:</p>
 <p>add_option(): Добавляет опцию в парсер командной строки.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="codedecca86d57a50088290d977cf4e5fc90b"onclick="copyCode(codedecca86d57a50088290d977cf4e5fc90, codedecca86d57a50088290d977cf4e5fc90b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="codedecca86d57a50088290d977cf4e5fc90"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specify input file&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="codedecca86d57a50088290d977cf4e5fc90b"
+          onclick="copyCode(codedecca86d57a50088290d977cf4e5fc90, codedecca86d57a50088290d977cf4e5fc90b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="codedecca86d57a50088290d977cf4e5fc90"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Specify input file&quot;</span><span class="p">)</span>
+</pre></div></div>
+</div>
 
 <p>parse_args(): Разбирает аргументы командной строки и возвращает объект, содержащий значения опций.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code76342032178bffb4ba5fdf8280acfecfb"onclick="copyCode(code76342032178bffb4ba5fdf8280acfecf, code76342032178bffb4ba5fdf8280acfecfb)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code76342032178bffb4ba5fdf8280acfecf"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code76342032178bffb4ba5fdf8280acfecfb"
+          onclick="copyCode(code76342032178bffb4ba5fdf8280acfecf, code76342032178bffb4ba5fdf8280acfecfb)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code76342032178bffb4ba5fdf8280acfecf"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div></div>
+</div>
 
 <p>print_help(): Выводит справку о доступных опциях командной строки.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code9015d8bab3f36bde402fc8a88c557bc7b"onclick="copyCode(code9015d8bab3f36bde402fc8a88c557bc7, code9015d8bab3f36bde402fc8a88c557bc7b)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code9015d8bab3f36bde402fc8a88c557bc7"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code9015d8bab3f36bde402fc8a88c557bc7b"
+          onclick="copyCode(code9015d8bab3f36bde402fc8a88c557bc7, code9015d8bab3f36bde402fc8a88c557bc7b)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code9015d8bab3f36bde402fc8a88c557bc7"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+</pre></div></div>
+</div>
 
 <p>error(): Генерирует сообщение об ошибке и выводит справку о доступных опциях командной строки.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code9f37e54bc9acfd135634b7891881019eb"onclick="copyCode(code9f37e54bc9acfd135634b7891881019e, code9f37e54bc9acfd135634b7891881019eb)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code9f37e54bc9acfd135634b7891881019e"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Input file is required&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code9f37e54bc9acfd135634b7891881019eb"
+          onclick="copyCode(code9f37e54bc9acfd135634b7891881019e, code9f37e54bc9acfd135634b7891881019eb)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code9f37e54bc9acfd135634b7891881019e"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Input file is required&quot;</span><span class="p">)</span>
+</pre></div></div>
+</div>
 
 <p>set_defaults(): Устанавливает значения по умолчанию для опций.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button"id="code8cccdc1c31dd3dc22fc89fc66ac2b9beb"onclick="copyCode(code8cccdc1c31dd3dc22fc89fc66ac2b9be, code8cccdc1c31dd3dc22fc89fc66ac2b9beb)"><svg stroke="currentColor"fill="none"stroke-width="2"viewBox="0 0 24 24"stroke-linecap="round"stroke-linejoin="round"class="h-4 w-4"height="1em"width="1em"xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code" id="code8cccdc1c31dd3dc22fc89fc66ac2b9be"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div></div></div>
+<div class="code-element">
+<div class="lang-line">
+  <text>python</text>
+  <button class="copy-button"
+          id="code8cccdc1c31dd3dc22fc89fc66ac2b9beb"
+          onclick="copyCode(code8cccdc1c31dd3dc22fc89fc66ac2b9be, code8cccdc1c31dd3dc22fc89fc66ac2b9beb)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+  </button>
+
+</div>
+<div class="code" id="code8cccdc1c31dd3dc22fc89fc66ac2b9be"><div class="highlight"><pre><span></span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div></div>
+</div>
