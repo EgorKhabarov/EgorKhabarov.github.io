@@ -159,12 +159,11 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count-
     :param y:
     """
     for key, value in dictionary.items():
-        print_progress_bar(x, y, "create_files_and_folders", key)
+        key_path = os.path.join(directory, key)
+        print_progress_bar(x, y, "create_files_and_folders", key_path)
 
         if isinstance(value, str):
-            key += ".md"
-
-        key_path = os.path.join(directory, key)
+            key_path += ".md"
 
         if isinstance(value, dict):
             # Если значение - словарь, создаем папку и вызываем функцию рекурсивно

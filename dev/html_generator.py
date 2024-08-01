@@ -93,7 +93,7 @@ def buttons(
                     'vpath="{vpath}">{title}</button>\n'
                 ).format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
-                    vpath=f"{directory_e}/{title}.md",
+                    vpath=f"{directory_e}/{title}.md".strip("/"),
                     title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
                 )
             )
@@ -108,8 +108,8 @@ def generate_index_html():
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="icon.png">
     <title>Шпаргалка</title>
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/script.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js"></script>
 </head>
 <body>
     <div class="cheatsheet-buttons">
@@ -144,9 +144,6 @@ def generate_index_html():
                 class="control-button"
                 style="padding-left: 28px;">/</button>
     </div>
-    <script>
-        PutHtmlText(getCheatSheat("README.html"))
-    </script>
 </body>
 </html>
 """

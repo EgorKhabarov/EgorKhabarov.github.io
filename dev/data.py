@@ -15260,27 +15260,7 @@ int main()
 ```
 """,
         },
-        "Пример этой кнопки": """
-```
-<button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
-<pre id=" {NAME} " style="display:none;" class="code-str-1">
-{TEXT}
-</pre>
-```
-
-или полный вариант:
-
-```html
-button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
-<div id=" {NAME} " style="display:none;" class="button-field">
-    <button onclick="PutText( {NAME-1} )" class="trigger"> {NAME-1} </button>
-    <pre id=" {NAME-1} " style="display:none;" class="code-str-1">
-{TEXT}
-</pre>
-```
-""",
-    },
-    "Полезные ссылки": """
+        "Полезные ссылки": """
 # **Python**
 | Описание                                | Ссылка |
 |:----------------------------------------|:-------|
@@ -15332,4 +15312,5 @@ button onclick="toggleDisplay( {NAME} )" class="trigger"> {NAME} </button>
 | Книга                         | https://git-scm.com/book/ru/v2       |
 
 """,
+    },
 }

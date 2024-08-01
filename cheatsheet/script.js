@@ -284,8 +284,6 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log("vpath", vpath);
 
         const container = document.querySelector(".cheatsheet-buttons");
-        velement.scrollIntoView({ block: "center"});
-        container.scrollLeft -= 200;
         if (vpath.endsWith("/")) {
             velement.click();
         }
@@ -294,7 +292,11 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(`click "${vpath}"`)
             velement.click();
         }
+        velement.scrollIntoView({ block: "center"});
+        container.scrollLeft -= 200;
         GET(decodeURIComponent(arg));
+    } else {
+        PutHtmlText(getCheatSheat("README.html"))
     }
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
