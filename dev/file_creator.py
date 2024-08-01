@@ -9,8 +9,10 @@ from pygments.formatters import HtmlFormatter
 
 from dev.data import DICT
 from dev.html_generator import get_id
-from dev.utils import set_unselectable
+from dev.utils import set_unselectable, r, print_progress_bar
 
+
+cheatsheet_count = r(DICT)
 formatter = HtmlFormatter(style="default")
 
 
@@ -146,14 +148,18 @@ def to_markup(markdown_text):
     return final_html
 
 
-def create_files_and_folders(dictionary, directory="."):
+def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count-1):
     """
     Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
 
     :param dictionary: Словарь, который нужно воссоздать в виде файлов и папок
     :param directory: Директория, в которой нужно создать файлы и папки (по умолчанию - текущая директория)
+    :param x:
+    :param y:
     """
     for key, value in dictionary.items():
+        print_progress_bar(x, y, "create_files_and_folders", key)
+
         if isinstance(value, str):
             key += ".md"
 
@@ -162,41 +168,34 @@ def create_files_and_folders(dictionary, directory="."):
         if isinstance(value, dict):
             # Если значение - словарь, создаем папку и вызываем функцию рекурсивно
             os.makedirs(key_path, exist_ok=True)
-            create_files_and_folders(value, directory=key_path)
+            x = create_files_and_folders(value, key_path, x)
         else:
+            x += 1
             # Если значение - строка, создаем файл с содержимым строки
             with open(key_path, "w", encoding="utf-8") as f:
                 f.write(to_markup(value.strip()))
 
-
-create_files_and_folders(DICT, "../cheatsheet")
-
-
-def r(d: dict, c: int = 0) -> int:
-    for k, v in d.items():
-        if isinstance(v, dict):
-            c = r(v, c)
-        else:
-            c += 1
-    return c
+    return x
 
 
-content = requests.get(
-    f"https://img.shields.io/badge/{r(DICT)}%20cheatsheet-brightgreen",
-    {
-        "style": "flat",
-        "logo": "github",
-        "label": "GitHub Pages",
-    },
-).content.decode()
+def create_files():
+    create_files_and_folders(DICT, "../cheatsheet")
 
+    content = requests.get(
+        f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",
+        {
+            "style": "flat",
+            "logo": "github",
+            "label": "GitHub Pages",
+        },
+    ).content.decode()
 
-with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
-    file_readme.write(
-        f"""
+    with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
+        file_readme.write(
+            f"""
 {content}
 <!--
-https://img.shields.io/badge/{r(DICT)}%20cheatsheet-brightgreen?style=flat&logo=github&label=GitHub Pages
+https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen?style=flat&logo=github&label=GitHub Pages
 -->
 """.strip()
-    )
+        )

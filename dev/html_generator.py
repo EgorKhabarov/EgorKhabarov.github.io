@@ -4,8 +4,10 @@ import hashlib
 from bs4 import BeautifulSoup
 
 from dev.data import DICT
+from dev.utils import r, print_progress_bar
 
 
+cheatsheet_count = r(DICT)
 id_dict = []
 
 
@@ -22,12 +24,17 @@ def get_id(data: str, noprint: bool = False):
     return h
 
 
-def buttons(dictionary: dict, directory="") -> tuple[str, str]:
+def buttons(dictionary: dict, directory="", x=0, y=cheatsheet_count-1) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
+        print_progress_bar(x, y, "generate index.html", f"{directory}\\{key}")
+
         if key == "index":
+            x += 1
             continue
-        print(f"{directory}\\{key}")
+
+        # print(f"{directory}\\{key}")
+
         title = key
         key_path = os.path.join(directory, key)
 
@@ -38,7 +45,7 @@ def buttons(dictionary: dict, directory="") -> tuple[str, str]:
         directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict) and "index" in value:
-            val = buttons(value, key_path)[0]
+            val, _, x = buttons(value, key_path, x)
             kpath = f"{directory_e}/{title}".strip("/")
             text_list.append(
                 (
@@ -55,7 +62,7 @@ def buttons(dictionary: dict, directory="") -> tuple[str, str]:
                 )
             )
         elif isinstance(value, dict):
-            val = buttons(value, key_path)[0]
+            val, _, x = buttons(value, key_path, x)
             kpath = f"{directory_e}/{title}".strip("/")
             text_list.append(
                 (
@@ -69,6 +76,7 @@ def buttons(dictionary: dict, directory="") -> tuple[str, str]:
                 )
             )
         else:
+            x += 1
             text_list.append(
                 """<button onclick="GET('{name}');" class="button" vpath="{vpath}">{title}</button>\n""".format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
@@ -76,17 +84,18 @@ def buttons(dictionary: dict, directory="") -> tuple[str, str]:
                     title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
                 )
             )
-    return "".join(text_list), directory
+    return "".join(text_list), directory, x
 
 
-with (
-    open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
-    open("../cheatsheet/script.js", "r", encoding="utf-8") as script,
-):
-    css_code = style.read().strip()
-    js_code = script.read().strip()
+def generate_index_html():
+    with (
+        open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
+        open("../cheatsheet/script.js", "r", encoding="utf-8") as script,
+    ):
+        css_code = style.read().strip()
+        js_code = script.read().strip()
 
-result = f"""
+    result = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,8 +149,5 @@ result = f"""
 </html>
 """
 
-# with open("cheatsheet/index.html", "w", encoding="utf-8") as file:
-#     file.write(BeautifulSoup(result, "html.parser").prettify())
-
-with open("../cheatsheet/index.html", "w", encoding="utf-8") as file:
-    file.write(BeautifulSoup(result, "html.parser").prettify())
+    with open("../cheatsheet/index.html", "w", encoding="utf-8") as file:
+        file.write(BeautifulSoup(result, "html.parser").prettify())

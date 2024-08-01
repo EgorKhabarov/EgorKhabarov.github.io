@@ -1,3 +1,5 @@
+import sys
+
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
@@ -119,3 +121,22 @@ def to_table_code_py(code: str) -> str:
 
 def to_table_code_java(code: str) -> str:
     return to_table_code("java", code)
+
+
+def r(d: dict, c: int = 0) -> int:
+    for k, v in d.items():
+        if isinstance(v, dict):
+            c = r(v, c)
+        else:
+            c += 1
+    return c
+
+
+def print_progress_bar(x: int, y: int, name: str, text: str = None):
+    bar_length = 50
+    progress = x / y
+    arrow = '█' * int(progress * bar_length)
+    spaces = ' ' * (bar_length - len(arrow))
+    text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
+    sys.stdout.write(f'\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}')
+    sys.stdout.flush()
