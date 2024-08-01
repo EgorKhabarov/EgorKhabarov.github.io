@@ -361,14 +361,14 @@ function removeSuffix(str, suffix) {
 }
 
 function GET(url) {
-    console.log(url)
-    url = removeSuffix(url, "/index.md");
+    console.log("GET", url)
+    url = removeSuffix(url, "index.md");
     addArgumentToUrl(url);
     if (!url.endsWith(".md")) {
         if (isCtrlPressed) {
             return
         }
-        url += "/index.md";
+        url += "index.md";
     }
 
     if (need_save_history) {
@@ -503,11 +503,14 @@ function removeArgumentFromUrl() {
 
 function getPathWithoutFilename(filePath) {
     filePath = decodeURIComponent(filePath);
-    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (filePath.endsWith("/")) {
+        return filePath
+    }
+    const lastSlashIndex = filePath.lastIndexOf("/");
     if (lastSlashIndex !== -1) {
         return filePath.substring(0, lastSlashIndex);
     }
-   return '';
+   return "";
 }
 
 function toggleStyleDisplayByPath(kpath) {
@@ -525,37 +528,52 @@ document.addEventListener("DOMContentLoaded", function() {
     const arg = getArgumentFromUrl();
     if (arg) {
         console.log("Argument found:", decodeURIComponent(arg));
-        GET(arg);
-        console.log("getPathWithoutFilename", getPathWithoutFilename(arg));
-        toggleStyleDisplayByPath(getPathWithoutFilename(arg));
+        let kpath = getPathWithoutFilename(arg);
+        let kelement = document.querySelector(`[kpath="${kpath}"]`);
+        if (!kelement) {
+            kpath += "/";
+            kelement = document.querySelector(`[kpath="${kpath}"]`);
+        }
+        console.log("getPathWithoutFilename", kpath);
+        toggleStyleDisplayByPath(kpath);
 
         let vpath = decodeURIComponent(arg);
-        console.log("vpath", vpath);
-        let element = document.querySelector(`[vpath="${vpath}"]`);
-
-        const container = document.querySelector('.cheatsheet-buttons');
-        element.scrollIntoView({ block: 'center'});
-        container.scrollLeft -= 200;
-        if (!vpath.endsWith(".md")) {
-            element.click();
+        let velement = document.querySelector(`[vpath="${vpath}"]`);
+        if (!velement) {
+            vpath += "/";
+            velement = document.querySelector(`[vpath="${vpath}"]`);
         }
-        element.focus();
+        console.log("vpath", vpath);
+
+        const container = document.querySelector(".cheatsheet-buttons");
+        velement.scrollIntoView({ block: "center"});
+        container.scrollLeft -= 200;
+        if (vpath.endsWith("/")) {
+            console.log("click")
+            velement.click();
+        }
+        velement.focus();
+        if (vpath.endsWith("/")) {
+            console.log("click")
+            velement.click();
+        }
+        GET(arg);
     }
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
 
-let need_save_history = false;
+let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
   </script>
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее331fc511a7e71290bb2391402cd45502);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее7020cd63f7fd3ac875a619583c7e53a5);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее331fc511a7e71290bb2391402cd45502" style="display:none;">
+   <div class="button-folder" id="Общее7020cd63f7fd3ac875a619583c7e53a5" style="display:none;">
     <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
      📂 GIT
     </button>
@@ -567,7 +585,7 @@ let isCtrlPressed = false;
       📄 gitignore
      </button>
     </div>
-    <button class="button" kpath="Общее/Паттерны проектирования" onclick='toggleDisplay(Паттерныпроектирования6049cfcf95bf7f2b73c2df83e6a0487d);GET("Общее/Паттерны проектирования/index.md");' vpath="Общее/Паттерны проектирования">
+    <button class="button" kpath="Общее/Паттерны проектирования/" onclick='toggleDisplay(Паттерныпроектирования6049cfcf95bf7f2b73c2df83e6a0487d);GET("Общее/Паттерны проектирования/index.md");' vpath="Общее/Паттерны проектирования/">
      📂 Паттерны проектирования
     </button>
     <div class="button-folder" id="Паттерныпроектирования6049cfcf95bf7f2b73c2df83e6a0487d" style="display:none;">
@@ -700,10 +718,10 @@ let isCtrlPressed = false;
      📄 Google Search
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки225f909d088d83ef14cc575c5814e789);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки62cbc201271f7633f9ca8e4ea9444943);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языки225f909d088d83ef14cc575c5814e789" style="display:none;">
+   <div class="button-folder" id="Языки62cbc201271f7633f9ca8e4ea9444943" style="display:none;">
     <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python59d11a813c2b172887457a0c496ada3a);">
      📂 Python
     </button>
@@ -1614,6 +1632,35 @@ let isCtrlPressed = false;
     <div class="button-folder" id="LaTex4a3a5aa37c41f096933e17d1ddbdff23" style="display:none;">
      <button class="button" onclick="GET('Языки/LaTex/Элементы.md');" vpath="Языки/LaTex/Элементы.md">
       📄 Элементы
+     </button>
+    </div>
+    <button class="button" kpath="Языки/Jinja/" onclick='toggleDisplay(Jinja4e934666d84d1309c3d6071d367d423d);GET("Языки/Jinja/index.md");' vpath="Языки/Jinja/">
+     📂 Jinja
+    </button>
+    <div class="button-folder" id="Jinja4e934666d84d1309c3d6071d367d423d" style="display:none;">
+     <button class="button" onclick="GET('Языки/Jinja/Базовый синтаксис.md');" vpath="Языки/Jinja/Базовый синтаксис.md">
+      📄 Базовый синтаксис
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Управляющие структуры.md');" vpath="Языки/Jinja/Управляющие структуры.md">
+      📄 Управляющие структуры
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Фильтры и функции.md');" vpath="Языки/Jinja/Фильтры и функции.md">
+      📄 Фильтры и функции
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Шаблонные наследования.md');" vpath="Языки/Jinja/Шаблонные наследования.md">
+      📄 Шаблонные наследования
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Инклюды и импорт.md');" vpath="Языки/Jinja/Инклюды и импорт.md">
+      📄 Инклюды и импорт
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Работа с контекстом.md');" vpath="Языки/Jinja/Работа с контекстом.md">
+      📄 Работа с контекстом
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Безопасность.md');" vpath="Языки/Jinja/Безопасность.md">
+      📄 Безопасность
+     </button>
+     <button class="button" onclick="GET('Языки/Jinja/Лучшие практики.md');" vpath="Языки/Jinja/Лучшие практики.md">
+      📄 Лучшие практики
      </button>
     </div>
    </div>

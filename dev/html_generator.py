@@ -47,10 +47,10 @@ def buttons(dictionary: dict, directory="") -> tuple[str, str]:
                     "<div id='{name}' style='display:none;' class='button-folder'>{text}</div>"
                 ).format(
                     name=f"{key}{get_id(key + val)}",
-                    kpath=kpath,
+                    kpath=f"{kpath}/",
                     title="📂&nbsp;" + title.replace(" ", "&nbsp;"),
                     text=val,
-                    vpath=f"{directory_e}/{title}",
+                    vpath=f"{directory_e}/{title}/",
                     csname=key_path.replace("\\", "&#x2f;") + "/index.md",
                 )
             )

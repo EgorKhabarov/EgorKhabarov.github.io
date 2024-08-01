@@ -96,14 +96,14 @@ function removeSuffix(str, suffix) {
 }
 
 function GET(url) {
-    console.log(url)
-    url = removeSuffix(url, "/index.md");
+    console.log("GET", url)
+    url = removeSuffix(url, "index.md");
     addArgumentToUrl(url);
     if (!url.endsWith(".md")) {
         if (isCtrlPressed) {
             return
         }
-        url += "/index.md";
+        url += "index.md";
     }
 
     if (need_save_history) {
@@ -238,11 +238,14 @@ function removeArgumentFromUrl() {
 
 function getPathWithoutFilename(filePath) {
     filePath = decodeURIComponent(filePath);
-    const lastSlashIndex = filePath.lastIndexOf('/');
+    if (filePath.endsWith("/")) {
+        return filePath
+    }
+    const lastSlashIndex = filePath.lastIndexOf("/");
     if (lastSlashIndex !== -1) {
         return filePath.substring(0, lastSlashIndex);
     }
-   return '';
+   return "";
 }
 
 function toggleStyleDisplayByPath(kpath) {
@@ -260,26 +263,41 @@ document.addEventListener("DOMContentLoaded", function() {
     const arg = getArgumentFromUrl();
     if (arg) {
         console.log("Argument found:", decodeURIComponent(arg));
-        GET(arg);
-        console.log("getPathWithoutFilename", getPathWithoutFilename(arg));
-        toggleStyleDisplayByPath(getPathWithoutFilename(arg));
+        let kpath = getPathWithoutFilename(arg);
+        let kelement = document.querySelector(`[kpath="${kpath}"]`);
+        if (!kelement) {
+            kpath += "/";
+            kelement = document.querySelector(`[kpath="${kpath}"]`);
+        }
+        console.log("getPathWithoutFilename", kpath);
+        toggleStyleDisplayByPath(kpath);
 
         let vpath = decodeURIComponent(arg);
-        console.log("vpath", vpath);
-        let element = document.querySelector(`[vpath="${vpath}"]`);
-
-        const container = document.querySelector('.cheatsheet-buttons');
-        element.scrollIntoView({ block: 'center'});
-        container.scrollLeft -= 200;
-        if (!vpath.endsWith(".md")) {
-            element.click();
+        let velement = document.querySelector(`[vpath="${vpath}"]`);
+        if (!velement) {
+            vpath += "/";
+            velement = document.querySelector(`[vpath="${vpath}"]`);
         }
-        element.focus();
+        console.log("vpath", vpath);
+
+        const container = document.querySelector(".cheatsheet-buttons");
+        velement.scrollIntoView({ block: "center"});
+        container.scrollLeft -= 200;
+        if (vpath.endsWith("/")) {
+            console.log("click")
+            velement.click();
+        }
+        velement.focus();
+        if (vpath.endsWith("/")) {
+            console.log("click")
+            velement.click();
+        }
+        GET(arg);
     }
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
 
-let need_save_history = false;
+let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
