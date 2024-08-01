@@ -108,8 +108,8 @@ def generate_index_html():
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="icon.png">
     <title>Шпаргалка</title>
-    <link rel="stylesheet" href="cheatsheet/styles.css">
-    <script src="cheatsheet/script.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js"></script>
 </head>
 <body>
     <div class="cheatsheet-buttons">
