@@ -2,11 +2,11 @@ from time import time
 
 start_time = time()  # noqa
 
-import os
+import os  # noqa
 
-from dev.html_generator import generate_index_html
-from dev.file_creator import create_files, cheatsheet_count
-from dev.utils import print_progress_bar
+from dev.html_generator import generate_index_html  # noqa
+from dev.file_creator import create_files, cheatsheet_count  # noqa
+from dev.utils import print_progress_bar  # noqa
 
 
 folder_path = "../cheatsheet"

@@ -13,11 +13,11 @@ def escape_markdown(content: str) -> str:
 
 
 def set_unselectable(text: str, sep: str = "\n"):
-    l = []
+    lines = []
 
     for line in text.split(sep):
         if line.startswith("</pre></div>"):
-            l.append(line)
+            lines.append(line)
             continue
 
         if line.startswith(
@@ -48,14 +48,12 @@ def set_unselectable(text: str, sep: str = "\n"):
                 '<span class="gp">>>> </span>',
             )
         ):
-            line = '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>' + line.removeprefix(
-                '<span class="o">&gt;&gt;&gt;</span> '
-            ).removeprefix(
-                '<span class="gp">&gt;&gt;&gt; </span>'
-            ).removeprefix(
-                '<span class="o">>>></span> '
-            ).removeprefix(
-                '<span class="gp">>>> </span>'
+            line = (
+                '<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>'
+                + line.removeprefix('<span class="o">&gt;&gt;&gt;</span> ')
+                .removeprefix('<span class="gp">&gt;&gt;&gt; </span>')
+                .removeprefix('<span class="o">>>></span> ')
+                .removeprefix('<span class="gp">>>> </span>')
             )
         elif line.startswith(
             (
@@ -77,28 +75,26 @@ def set_unselectable(text: str, sep: str = "\n"):
                 '<span class="gp">... </span>',
             )
         ):
-            line = '<span class="unselectable"><span class="o">...</span> </span>' + line.removeprefix(
-                '<span class="o">...</span> '
-            ).removeprefix('<span class="gp">... </span>')
+            line = (
+                '<span class="unselectable"><span class="o">...</span> </span>'
+                + line.removeprefix('<span class="o">...</span> ').removeprefix(
+                    '<span class="gp">... </span>'
+                )
+            )
         else:
             line = f'<span class="unselectable">{line}</span>'
 
-        l.append(line)
+        lines.append(line)
 
-    return sep.join(l)
+    return sep.join(lines)
 
 
 def to_table_code(lang: str, code: str):
     formatter = HtmlFormatter(style="default")
     lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = (
-        highlight(code, lexer, formatter).strip().replace("\n", "<br>")
-    )
+    highlighted_code = highlight(code, lexer, formatter).strip().replace("\n", "<br>")
 
-    if (
-        lang == "python"
-        and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
-    ):
+    if lang == "python" and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code:
         highlighted_code = set_unselectable(highlighted_code, "<br>")
 
     result = rf"""
@@ -138,5 +134,7 @@ def print_progress_bar(x: int, y: int, name: str, text: str = None):
     arrow = "█" * int(progress * bar_length)
     spaces = " " * (bar_length - len(arrow))
     text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
-    sys.stdout.write(f"\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}")
+    sys.stdout.write(
+        f"\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}"
+    )
     sys.stdout.flush()

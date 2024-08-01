@@ -40,18 +40,15 @@ def code_block_callback(match):
 
     highlighted_code = highlight(code_block, lexer, formatter).strip()
 
-    if (
-        _language in ("python", "pycon")
-        and (
-            '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
-            or '<span class="gp">&gt;&gt;&gt; </span>' in highlighted_code
-            or '<span class="o">>>></span> ' in highlighted_code
-            or '<span class="gp">>>> </span>' in highlighted_code
-        )
+    if _language in ("python", "pycon") and (
+        '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
+        or '<span class="gp">&gt;&gt;&gt; </span>' in highlighted_code
+        or '<span class="o">>>></span> ' in highlighted_code
+        or '<span class="gp">>>> </span>' in highlighted_code
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
-    code_id = get_id(language+highlighted_code, True)
+    code_id = get_id(language + highlighted_code, True)
     btn = (
         """
 <button class="copy-button-2"
@@ -74,7 +71,7 @@ def code_block_callback(match):
   </button>
 """.format(
             code_id=code_id,
-            code_block=code_block.strip().splitlines()[0].removeprefix("#file ")
+            code_block=code_block.strip().splitlines()[0].removeprefix("#file "),
         ).strip()
         if code_block.strip().startswith("#file ")
         else ""
@@ -149,7 +146,7 @@ def to_markup(markdown_text):
     return final_html
 
 
-def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count-1):
+def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count - 1):
     """
     Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
 

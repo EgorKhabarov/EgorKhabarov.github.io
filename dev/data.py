@@ -7801,7 +7801,6 @@ conn = NNTP("news.example.com")
 resp = conn.post("<subject>", "<from>", "<body>")
 ```
 """,
-
                 },
             },
             "Методы": {
@@ -7961,7 +7960,9 @@ resp = conn.post("<subject>", "<from>", "<body>")
 
                     """.format(
                         __format__=to_table_code_py('"{0:{format_spec}}".format(self)'),
-                        __prepare__=to_table_code_py("@classmethod\ndef __prepare__(metacls, name, bases):"),
+                        __prepare__=to_table_code_py(
+                            "@classmethod\ndef __prepare__(metacls, name, bases):"
+                        ),
                         __init_subclass__=to_table_code_py(
                             "class Subclass(Parent):\n"
                             "    pass\n"
@@ -7973,8 +7974,8 @@ resp = conn.post("<subject>", "<from>", "<body>")
                             "MyClass.__mro_entries__(bases)"
                         ),
                         __set_name__=to_table_code_py(
-                            'class MyClass:\n'
-                            '    attr = MyDescriptor()\n'
+                            "class MyClass:\n"
+                            "    attr = MyDescriptor()\n"
                             'MyClass.attr.__set_name__(MyClass, "attr")'
                         ),
                         __aexit__=to_table_code_py(
@@ -8061,14 +8062,20 @@ resp = conn.post("<subject>", "<from>", "<body>")
 | \\0       | символ Null                   | "\\0"                |           |
 | \\u00A0   | символ неразнывного пробела   |                      |           |
 """.format(
-                    capitalize=to_table_code_py('>>> "capitalize".capitalize()\n"Capitalize"'),
+                    capitalize=to_table_code_py(
+                        '>>> "capitalize".capitalize()\n"Capitalize"'
+                    ),
                     casefold=to_table_code_py('>>> "CaSeFoLd".casefold()\n"casefold"'),
                     lower=to_table_code_py('>>> "lOwEr".lower()\n"lower"'),
                     upper=to_table_code_py('>>> "upper".upper()\n"UPPER"'),
                     swapcase=to_table_code_py('>>> "sWaPcAsE".swapcase()\n"SwApCaSe"'),
                     title=to_table_code_py('>>> "title title".title()\n"Title Title"'),
-                    isupper=to_table_code_py('>>> "A".isupper()\nTrue\n>>> "a".isupper()\nFalse'),
-                    islower=to_table_code_py('>>> "a".islower()\nTrue\n"A".islower()\nFalse'),
+                    isupper=to_table_code_py(
+                        '>>> "A".isupper()\nTrue\n>>> "a".isupper()\nFalse'
+                    ),
+                    islower=to_table_code_py(
+                        '>>> "a".islower()\nTrue\n"A".islower()\nFalse'
+                    ),
                     center=to_table_code_py('>>> "0".center(5, "_")\n"\\_\\_0\\_\\_"'),
                     ljust=to_table_code_py('>>> "1".ljust(5, "_")\n"1____"'),
                     rjust=to_table_code_py('>>> "1".rjust(5, "_")\n"____1"'),
@@ -8091,15 +8098,23 @@ resp = conn.post("<subject>", "<from>", "<body>")
                     rindex=to_table_code_py('>>> "123427".rindex("2")\n4'),
                     find=to_table_code_py('>>> "1234".find("2")\n1'),
                     rfind=to_table_code_py('>>> "123427".rfind("2")\n4'),
-                    format=to_table_code_py('>>> "{}".format("1")\n"1"\n>>> "{a}".format(a="1")\n"1"'),
-                    format_map=to_table_code_py('>>> "{x} {y}".format_map(\n... {"x": 4, "y": -5}\n... )\n"4 -5"'),
+                    format=to_table_code_py(
+                        '>>> "{}".format("1")\n"1"\n>>> "{a}".format(a="1")\n"1"'
+                    ),
+                    format_map=to_table_code_py(
+                        '>>> "{x} {y}".format_map(\n... {"x": 4, "y": -5}\n... )\n"4 -5"'
+                    ),
                     join=to_table_code_py('>>> " ".join(("1", "2"))\n"1 2"'),
                     strip=to_table_code_py('>>> "   1 3\t".strip()\n"1 3"'),
                     lstrip=to_table_code_py('>>> "   1 3\t".lstrip()\n"1 3\t"'),
                     rstrip=to_table_code_py('>>> "   1 3\t".rstrip()\n"   1 3"'),
-                    replace=to_table_code_py('>>> "1231".replace("1", "_")\n"\\_23\\_"'),
+                    replace=to_table_code_py(
+                        '>>> "1231".replace("1", "_")\n"\\_23\\_"'
+                    ),
                     split=to_table_code_py('>>> "1 3".split()\n["1", "3"]'),
-                    splitlines=to_table_code_py('>>> "1 3\\n4".splitlines()\n["1 3", "4"]'),
+                    splitlines=to_table_code_py(
+                        '>>> "1 3\\n4".splitlines()\n["1 3", "4"]'
+                    ),
                     rsplit=to_table_code_py('>>> "1 3".split()\n["1", "3"]'),
                     zfill=to_table_code_py('>>> "1".zfill(5)\n"00001"'),
                     maketrans="",
@@ -8112,7 +8127,9 @@ resp = conn.post("<subject>", "<from>", "<body>")
                     isidentifier="",
                     isnumeric="",
                     isprintable="",
-                    isspace=to_table_code_py('>>> " \t".isspace()\nTrue\n>>> "a".isspace()\nFalse'),
+                    isspace=to_table_code_py(
+                        '>>> " \t".isspace()\nTrue\n>>> "a".isspace()\nFalse'
+                    ),
                     istitle=to_table_code_py(
                         '>>> "Aa".istitle()\nTrue\n'
                         '>>> "aA".istitle()\nFalse\n'
@@ -8164,52 +8181,50 @@ resp = conn.post("<subject>", "<from>", "<body>")
 
 """.format(
                     append=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.append(4)\n"
-                        f">>> print(l)\n[1, 2, 3, 4]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.append(4)\n"
+                        ">>> print(l)\n[1, 2, 3, 4]"
                     ),
                     clear=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.clear()\n"
-                        f">>> print(l)\n[]"
+                        ">>> l = [1, 2, 3]\n>>> l.clear()\n>>> print(l)\n[]"
                     ),
                     сору=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l1 = l.copy()\n"
-                        f">>> print(l)\n[1, 2, 3]\n"
-                        f">>> l is l1\nFalse"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l1 = l.copy()\n"
+                        ">>> print(l)\n[1, 2, 3]\n"
+                        ">>> l is l1\nFalse"
                     ),
-                    count=to_table_code_py(f">>> [1, 1, 2].count(1)\n2"),
+                    count=to_table_code_py(">>> [1, 1, 2].count(1)\n2"),
                     extend=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.extend([4, 5])\n"
-                        f">>> print(l)\n[1, 2, 3, 4, 5]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.extend([4, 5])\n"
+                        ">>> print(l)\n[1, 2, 3, 4, 5]"
                     ),
-                    index=to_table_code_py(f">>> [1, 2, 3].index(2)\n1"),
+                    index=to_table_code_py(">>> [1, 2, 3].index(2)\n1"),
                     insert=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.insert(3, 4)\n"
-                        f">>> print(l)\n[1, 2, 3, 4]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.insert(3, 4)\n"
+                        ">>> print(l)\n[1, 2, 3, 4]"
                     ),
                     pop=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.pop(2)\n3\n"
-                        f">>> print(l)\n[1, 2]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.pop(2)\n3\n"
+                        ">>> print(l)\n[1, 2]"
                     ),
                     remove=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.remove(2)\n"
-                        f">>> print(l)\n[1, 3]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.remove(2)\n"
+                        ">>> print(l)\n[1, 3]"
                     ),
                     reverse=to_table_code_py(
-                        f">>> l = [1, 2, 3]\n"
-                        f">>> l.reverse()\n"
-                        f">>> print(l)\n[3, 2, 1]"
+                        ">>> l = [1, 2, 3]\n"
+                        ">>> l.reverse()\n"
+                        ">>> print(l)\n[3, 2, 1]"
                     ),
                     sort=to_table_code_py(
-                        f">>> l = [4, 3, 5]\n"
-                        f">>> l.sort()\n"
-                        f">>> print(l)\n[3, 4, 5]"
+                        ">>> l = [4, 3, 5]\n"
+                        ">>> l.sort()\n"
+                        ">>> print(l)\n[3, 4, 5]"
                     ),
                 ),
                 "tuple": """
@@ -8235,11 +8250,15 @@ resp = conn.post("<subject>", "<from>", "<body>")
 | dict.keys()       | Возвращает объект просмотра всех ключей<br>{keys}                                     |
 | dict.values()     | Возвращает список всех значений в словаре<br>{values}                                 |
 """.format(
-                    clear=to_table_code_py(">>> d = {1: 2, 3: 4}\n>>> d.clear()\n>>> print(d)\n{}"),
-                    copy=to_table_code_py(">>> d = {1: 2, 3: 4}\n>>> d.copy()\n>>> print(d)\n{1: 2, 3: 4}"),
+                    clear=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n>>> d.clear()\n>>> print(d)\n{}"
+                    ),
+                    copy=to_table_code_py(
+                        ">>> d = {1: 2, 3: 4}\n>>> d.copy()\n>>> print(d)\n{1: 2, 3: 4}"
+                    ),
                     fromkeys=to_table_code_py(
-                        f'>>> print(dict.fromkeys(("key1", "key2", "key3"), 0))\n'
-                        f'{{"key1": 0, "key2": 0, "key3": 0}}'
+                        '>>> print(dict.fromkeys(("key1", "key2", "key3"), 0))\n'
+                        '{"key1": 0, "key2": 0, "key3": 0}'
                     ),
                     get=to_table_code_py(
                         '>>> print({"model": "Mustang", "year": 1964}.get("model"))\nMustang\n'
@@ -8256,7 +8275,7 @@ resp = conn.post("<subject>", "<from>", "<body>")
                         ">>> print(d)\n{1: 2}"
                     ),
                     setdefault=to_table_code_py(
-                        '>>> d = {}\n'
+                        ">>> d = {}\n"
                         '>>> d.setdefault("k", "d")\n"d"\n'
                         '>>> d\n{"k": "d"}'
                     ),
@@ -10607,27 +10626,26 @@ None
                     're.compile(r"My name is (?P<name>\\w+)")\n'
                     '.match("My name is John")\n'
                     '.group("name")\n'
-                    '# John'
+                    "# John"
                 ),
                 conditional_expressions_with_named_groups=to_table_code_py(
-                    '>>> re.compile(\n'
+                    ">>> re.compile(\n"
                     '>>>     r"(?P<name1>pattern1\\|"\n'
                     '>>>     r"(?P<name2>pattern2))"\n'
-                    '>>> ).match(\n'
+                    ">>> ).match(\n"
                     '>>>     "pattern2"\n'
-                    '>>> ).groupdict()\n'
-                    '{\n'
+                    ">>> ).groupdict()\n"
+                    "{\n"
                     '    "name1": "pattern2",\n'
                     '    "name2": "pattern2",\n'
-                    '}'
+                    "}"
                 ),
                 VERBOSE=to_table_code_py(
                     'a = re.compile(r"""\\d +  # the integral part\n'
-                    '                   \\\\.    # the decimal point\n'
+                    "                   \\\\.    # the decimal point\n"
                     '                   \\d *  # some fractional digits""", re.X)\n'
                     'b = re.compile(r"\\d+.\\d*")'
                 ),
-
             ),
             "images": r"""
 <img alt="regexp.png" src="Языки/RegExp/regexp.png">
