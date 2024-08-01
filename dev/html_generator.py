@@ -14,17 +14,26 @@ id_dict = []
 def get_id(data: str, noprint: bool = False):
     h = hashlib.md5(data.encode()).hexdigest()
     attempt = 0
+
     while h in id_dict:
         attempt += 1
         data = f"{data}{attempt}"
         h = hashlib.md5(data.encode()).hexdigest()
+
     id_dict.append(h)
+
     if attempt != 0 and not noprint:
         print(attempt)
+
     return h
 
 
-def buttons(dictionary: dict, directory="", x=0, y=cheatsheet_count-1) -> tuple[str, str, int]:
+def buttons(
+    dictionary: dict,
+    directory: str = "",
+    x: int = 0,
+    y: int = cheatsheet_count - 1,
+) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
         print_progress_bar(x, y, "generate index.html", f"{directory}\\{key}")
@@ -66,7 +75,8 @@ def buttons(dictionary: dict, directory="", x=0, y=cheatsheet_count-1) -> tuple[
             kpath = f"{directory_e}/{title}".strip("/")
             text_list.append(
                 (
-                    "<button onclick='toggleDisplay({name});' class='button' kpath='{kpath}'>{title}</button>"
+                    "<button onclick='toggleDisplay({name});' "
+                    "class='button' kpath='{kpath}'>{title}</button>"
                     "<div id='{name}' style='display:none;' class='button-folder'>{text}</div>"
                 ).format(
                     name=f"{key}{get_id(key+val)}",
@@ -78,7 +88,10 @@ def buttons(dictionary: dict, directory="", x=0, y=cheatsheet_count-1) -> tuple[
         else:
             x += 1
             text_list.append(
-                """<button onclick="GET('{name}');" class="button" vpath="{vpath}">{title}</button>\n""".format(
+                (
+                    '<button onclick="GET(\'{name}\');" class="button" '
+                    'vpath="{vpath}">{title}</button>\n'
+                ).format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
                     vpath=f"{directory_e}/{title}.md",
                     title="📄&nbsp;" + title.replace(" ", "&nbsp;"),
@@ -88,13 +101,6 @@ def buttons(dictionary: dict, directory="", x=0, y=cheatsheet_count-1) -> tuple[
 
 
 def generate_index_html():
-    with (
-        open("../cheatsheet/style.css", "r", encoding="utf-8") as style,
-        open("../cheatsheet/script.js", "r", encoding="utf-8") as script,
-    ):
-        css_code = style.read().strip()
-        js_code = script.read().strip()
-
     result = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -102,12 +108,8 @@ def generate_index_html():
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="icon.png">
     <title>Шпаргалка</title>
-    <style>
-{css_code}
-    </style>
-    <script>
-{js_code}
-    </script>
+    <link rel="stylesheet" href="cheatsheet/styles.css">
+    <script src="cheatsheet/script.js"></script>
 </head>
 <body>
     <div class="cheatsheet-buttons">

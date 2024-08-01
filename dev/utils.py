@@ -135,8 +135,8 @@ def r(d: dict, c: int = 0) -> int:
 def print_progress_bar(x: int, y: int, name: str, text: str = None):
     bar_length = 50
     progress = x / y
-    arrow = '█' * int(progress * bar_length)
-    spaces = ' ' * (bar_length - len(arrow))
+    arrow = "█" * int(progress * bar_length)
+    spaces = " " * (bar_length - len(arrow))
     text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
-    sys.stdout.write(f'\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}')
+    sys.stdout.write(f"\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}")
     sys.stdout.flush()

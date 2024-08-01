@@ -11,6 +11,7 @@ from dev.utils import print_progress_bar
 
 folder_path = "../cheatsheet"
 x = 0
+
 for foldername, _, filenames in os.walk(folder_path):
     for filename in filenames:
         if filename.endswith(".md"):
@@ -18,7 +19,6 @@ for foldername, _, filenames in os.walk(folder_path):
             path = os.path.join(foldername, filename)
             print_progress_bar(x, cheatsheet_count, "delete old cheatsheet", path)
             os.remove(path)
-            # print(f"Файл удален: {os.path.join(foldername, filename)}")
 
 print()
 generate_index_html()

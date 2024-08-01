@@ -35,6 +35,7 @@ def code_block_callback(match):
         _language = "pycon"
     else:
         _language = language
+
     lexer = get_lexer_by_name(_language, stripall=True)
 
     highlighted_code = highlight(code_block, lexer, formatter).strip()
@@ -194,6 +195,7 @@ def create_files():
         file_readme.write(
             f"""
 {content}
+
 <!--
 https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen?style=flat&logo=github&label=GitHub Pages
 -->

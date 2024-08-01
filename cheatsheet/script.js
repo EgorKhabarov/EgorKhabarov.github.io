@@ -96,7 +96,6 @@ function removeSuffix(str, suffix) {
 }
 
 function GET(url) {
-    console.log("GET", url)
     url = removeSuffix(url, "index.md");
     addArgumentToUrl(url);
     if (!url.endsWith(".md")) {
@@ -109,10 +108,14 @@ function GET(url) {
     if (need_save_history) {
         if (!(url in history)) {
             history[url] = getCheatSheat(url);
+            console.log(`GET "${url}"`)
+        } else {
+            console.log(`GET history["${url}"]`)
         }
         cheatsheet = history[url];
     } else {
         cheatsheet = getCheatSheat(url);
+        console.log(`GET "${url}"`)
     }
     PutHtmlText(cheatsheet);
 }
@@ -262,14 +265,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Проверяем наличие аргумента при загрузке страницы
     const arg = getArgumentFromUrl();
     if (arg) {
-        console.log("Argument found:", decodeURIComponent(arg));
+        console.log(`Argument found: "${decodeURIComponent(arg)}"`);
         let kpath = getPathWithoutFilename(arg);
         let kelement = document.querySelector(`[kpath="${kpath}"]`);
         if (!kelement) {
             kpath += "/";
             kelement = document.querySelector(`[kpath="${kpath}"]`);
         }
-        console.log("getPathWithoutFilename", kpath);
+        // console.log("getPathWithoutFilename", kpath);
         toggleStyleDisplayByPath(kpath);
 
         let vpath = decodeURIComponent(arg);
@@ -278,21 +281,20 @@ document.addEventListener("DOMContentLoaded", function() {
             vpath += "/";
             velement = document.querySelector(`[vpath="${vpath}"]`);
         }
-        console.log("vpath", vpath);
+        // console.log("vpath", vpath);
 
         const container = document.querySelector(".cheatsheet-buttons");
         velement.scrollIntoView({ block: "center"});
         container.scrollLeft -= 200;
         if (vpath.endsWith("/")) {
-            console.log("click")
             velement.click();
         }
         velement.focus();
         if (vpath.endsWith("/")) {
-            console.log("click")
+            console.log(`click "${vpath}"`)
             velement.click();
         }
-        GET(arg);
+        GET(decodeURIComponent(arg));
     }
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
