@@ -193,6 +193,8 @@ def create_files():
     with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
         file_readme.write(
             f"""
+<h1>egorkhabarov.github.io/cheatsheet</h1>
+
 {content}
 
 <!--
