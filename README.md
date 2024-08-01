@@ -7,7 +7,7 @@
 )
 
 I'm not a front-end developer, and I know this is junk code.
-Most of the code was written using ChatGPT with simple copy and paste.
+Some code was written using ChatGPT or websites with simple copy and paste.
 I needed a simple and convenient cheat sheet.
 
 If you have suggestions for improving the code, I'm open to them.
