@@ -1,4 +1,6 @@
-<p>Библиотека "pstats" в Python используется для профилирования производительности программы. Она предоставляет возможность анализировать данные о времени выполнения и вызовах функций, что помогает оптимизировать код и улучшить его производительность.</p>
+<p>Библиотека "pstats" в Python используется для профилирования производительности программы.
+Она предоставляет возможность анализировать данные о времени выполнения и вызовах функций,
+что помогает оптимизировать код и улучшить его производительность.</p>
 <p>Методы и подмодули библиотеки "pstats" включают:</p>
 <p>"Stats" (статистика)
     - "add" - добавляет данные о времени выполнения и вызовах функций в статистику.
@@ -19,8 +21,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code03ff69e690c7e8f39ec3aa23f8ba2a59b"
-          onclick="copyCode(code03ff69e690c7e8f39ec3aa23f8ba2a59, code03ff69e690c7e8f39ec3aa23f8ba2a59b)">
+          id="codeef4e0f00620a826aea142dc94c3fb052b"
+          onclick="copyCode(codeef4e0f00620a826aea142dc94c3fb052, codeef4e0f00620a826aea142dc94c3fb052b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -38,7 +40,7 @@
   </button>
 
 </div>
-<div class="code" id="code03ff69e690c7e8f39ec3aa23f8ba2a59"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pstats</span>
+<div class="code" id="codeef4e0f00620a826aea142dc94c3fb052"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pstats</span>
 
 <span class="c1"># Создаем объект статистики</span>
 <span class="n">stats</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="s2">&quot;profile_result&quot;</span><span class="p">)</span>
@@ -54,8 +56,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code693b937a9859dbf5ad575dc6c9571653b"
-          onclick="copyCode(code693b937a9859dbf5ad575dc6c9571653, code693b937a9859dbf5ad575dc6c9571653b)">
+          id="code1c33bf3919383f9f0c29f45c799070b9b"
+          onclick="copyCode(code1c33bf3919383f9f0c29f45c799070b9, code1c33bf3919383f9f0c29f45c799070b9b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -73,7 +75,7 @@
   </button>
 
 </div>
-<div class="code" id="code693b937a9859dbf5ad575dc6c9571653"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pstats</span>
+<div class="code" id="code1c33bf3919383f9f0c29f45c799070b9"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pstats</span>
 
 <span class="c1"># Создаем объект статистики</span>
 <span class="n">stats</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="s2">&quot;profile_result&quot;</span><span class="p">)</span>
