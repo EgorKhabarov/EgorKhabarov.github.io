@@ -4,10 +4,9 @@ import hashlib
 from bs4 import BeautifulSoup
 
 from dev.data import DICT
-from dev.utils import r, print_progress_bar
+from dev.utils import print_progress_bar
 
 
-cheatsheet_count = r(DICT)
 id_dict = []
 
 
@@ -32,11 +31,11 @@ def buttons(
     dictionary: dict,
     directory: str = "",
     x: int = 0,
-    y: int = cheatsheet_count - 1,
+    y: int = 0,
 ) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
-        print_progress_bar(x, y, "generate index.html", f"{directory}\\{key}")
+        print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
 
         if key == "index":
             x += 1
@@ -54,7 +53,7 @@ def buttons(
         directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict) and "index" in value:
-            val, _, x = buttons(value, key_path, x)
+            val, _, x = buttons(value, key_path, x, y)
             kpath = f"{directory_e}/{title}".strip("/")
             text_list.append(
                 (
@@ -71,7 +70,7 @@ def buttons(
                 )
             )
         elif isinstance(value, dict):
-            val, _, x = buttons(value, key_path, x)
+            val, _, x = buttons(value, key_path, x, y)
             kpath = f"{directory_e}/{title}".strip("/")
             text_list.append(
                 (
@@ -100,7 +99,7 @@ def buttons(
     return "".join(text_list), directory, x
 
 
-def generate_index_html():
+def generate_index_html(cheatsheet_count: int):
     result = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +112,7 @@ def generate_index_html():
 </head>
 <body>
     <div class="cheatsheet-buttons">
-        {buttons(DICT)[0]}
+        {buttons(DICT, y=cheatsheet_count - 1)[0]}
     </div>
 
     <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>

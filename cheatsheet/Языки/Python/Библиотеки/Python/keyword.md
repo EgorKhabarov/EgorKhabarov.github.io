@@ -8,8 +8,8 @@ kwlist: Возвращает список всех ключевых слов в 
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="codeb08d4f1bc07e18b67382f1f78e3a3669b"
-          onclick="copyCode(codeb08d4f1bc07e18b67382f1f78e3a3669, codeb08d4f1bc07e18b67382f1f78e3a3669b)">
+          id="codefda4cda1b6aa22f59701644220757398b"
+          onclick="copyCode(codefda4cda1b6aa22f59701644220757398, codefda4cda1b6aa22f59701644220757398b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -27,7 +27,8 @@ kwlist: Возвращает список всех ключевых слов в 
   </button>
 
 </div>
-<div class="code" id="codeb08d4f1bc07e18b67382f1f78e3a3669"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyword</span>
+<div class="code" id="codefda4cda1b6aa22f59701644220757398"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyword</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">&quot;if&quot;</span><span class="p">))</span>  <span class="c1"># Вывод: True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">iskeyword</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">))</span>  <span class="c1"># Вывод: False</span>
 </pre></div></div>

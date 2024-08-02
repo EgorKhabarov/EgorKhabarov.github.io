@@ -10,23 +10,23 @@
 </thead>
 <tbody>
 <tr>
-<td><code>__init__()</code></td>
+<td><strong>init</strong>()</td>
 <td>Инициализирует новый объект frozenlist.</td>
 </tr>
 <tr>
-<td><code>__contains__()</code></td>
+<td><strong>contains</strong>()</td>
 <td>Проверяет наличие элемента в списке.</td>
 </tr>
 <tr>
-<td><code>__getitem__()</code></td>
+<td><strong>getitem</strong>()</td>
 <td>Получает элемент списка по индексу.</td>
 </tr>
 <tr>
-<td><code>__len__()</code></td>
+<td><strong>len</strong>()</td>
 <td>Возвращает количество элементов в списке.</td>
 </tr>
 <tr>
-<td><code>copy()</code></td>
+<td>copy()</td>
 <td>Возвращает копию frozenlist.</td>
 </tr>
 </tbody>

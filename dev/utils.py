@@ -5,6 +5,46 @@ from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 
 
+
+reserved_filenames = [
+    filename
+    for filenames in map(
+        lambda l: (l, l + "."),
+        """
+CON
+PRN
+AUX
+NUL
+COM1
+COM2
+COM3
+COM4
+COM5
+COM6
+COM7
+COM8
+COM9
+LPT1
+LPT2
+LPT3
+LPT4
+LPT5
+LPT6
+LPT7
+LPT8
+LPT9
+CLOCK$
+CONIN$
+CONOUT$
+COM0
+PRN0
+LPT0
+""".strip().splitlines()
+    )
+    for filename in filenames
+]
+
+
 def escape_markdown(content: str) -> str:
     # parse = re.sub(r"([_*\[\]()~`>\#\+\-=|\.!])", r"\\\1", content)
     # reparse = re.sub(r"\\\\([_*\[\]()~`>\#\+\-=|\.!])", r"\1", parse)
@@ -119,10 +159,22 @@ def to_table_code_java(code: str) -> str:
     return to_table_code("java", code)
 
 
-def r(d: dict, c: int = 0) -> int:
+def check_dict_keys(d: dict, c: int = 0) -> bool | int:
     for k, v in d.items():
+        print_progress_bar(c, 0, "counting cheatsheets", k)
+        if (
+            (not k)
+            or k == "."
+            or "\x00" in k
+            or set(k) & set("\\/:*?'\"<>|")
+            or k in reserved_filenames
+        ):
+            return False
         if isinstance(v, dict):
-            c = r(v, c)
+            res = check_dict_keys(v, c)
+            if res is False:
+                return False
+            c = res
         else:
             c += 1
     return c
@@ -130,11 +182,15 @@ def r(d: dict, c: int = 0) -> int:
 
 def print_progress_bar(x: int, y: int, name: str, text: str = None):
     bar_length = 50
+
+    if y == 0:
+        y = 100
+
     progress = x / y
-    arrow = "█" * int(progress * bar_length)
+    arrow = ("█" * int(progress * bar_length))[:bar_length]
     spaces = " " * (bar_length - len(arrow))
     text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
     sys.stdout.write(
-        f"\r[{arrow}{spaces}][{name:<24}][{int(progress * 100):>3}%] >>> {text: <100}"
+        f"\r[{arrow}{spaces}][{name:<21}][{int(progress * 100):>3}%] >>> {text: <100}"
     )
     sys.stdout.flush()

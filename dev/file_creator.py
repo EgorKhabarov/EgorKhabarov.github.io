@@ -9,10 +9,9 @@ from pygments.formatters import HtmlFormatter
 
 from dev.data import DICT
 from dev.html_generator import get_id
-from dev.utils import set_unselectable, r, print_progress_bar
+from dev.utils import set_unselectable, print_progress_bar
 
 
-cheatsheet_count = r(DICT)
 formatter = HtmlFormatter(style="default")
 
 
@@ -146,7 +145,7 @@ def to_markup(markdown_text):
     return final_html
 
 
-def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count - 1):
+def create_files_and_folders(dictionary, directory=".", x=0, y=0):
     """
     Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
 
@@ -157,7 +156,7 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count 
     """
     for key, value in dictionary.items():
         key_path = os.path.join(directory, key)
-        print_progress_bar(x, y, "create_files_and_folders", key_path)
+        print_progress_bar(x, y, "create cheatsheets", key_path)
 
         if isinstance(value, str):
             key_path += ".md"
@@ -165,7 +164,7 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count 
         if isinstance(value, dict):
             # Если значение - словарь, создаем папку и вызываем функцию рекурсивно
             os.makedirs(key_path, exist_ok=True)
-            x = create_files_and_folders(value, key_path, x)
+            x = create_files_and_folders(value, key_path, x, y)
         else:
             x += 1
             # Если значение - строка, создаем файл с содержимым строки
@@ -175,8 +174,8 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=cheatsheet_count 
     return x
 
 
-def create_files():
-    create_files_and_folders(DICT, "../cheatsheet")
+def create_files(cheatsheet_count: int):
+    create_files_and_folders(DICT, "../cheatsheet", y=cheatsheet_count - 1)
 
     content = requests.get(
         f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",

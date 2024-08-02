@@ -40,23 +40,23 @@ HMAC обеспечивает целостность и аутентификац
 <tbody>
 <tr>
 <td>hmac.new(key, msg, digestmod)</td>
-<td>Создает новый HMAC объект с заданным ключом, сообщением и используемой хеш-функцией.</td>
-<td><code>hmac_object = hmac.new(key, msg, hashlib.sha256)</code></td>
+<td>Создает новый HMAC объект с заданным ключом,<br>сообщением и используемой хеш-функцией.</td>
+<td>hmac.new(key, msg, hashlib.sha256)</td>
 </tr>
 <tr>
 <td>hmac.digest()</td>
 <td>Возвращает HMAC в виде строки байтов.</td>
-<td><code>hmac_bytes = hmac_object.digest()</code></td>
+<td>hmac_object.digest()</td>
 </tr>
 <tr>
 <td>hmac.hexdigest()</td>
 <td>Возвращает HMAC в виде шестнадцатеричной строки.</td>
-<td><code>hmac_string = hmac_object.hexdigest()</code></td>
+<td>hmac_object.hexdigest()</td>
 </tr>
 <tr>
 <td>hmac.compare_digest(a, b)</td>
-<td>Сравнивает два HMAC и возвращает True, если они совпадают, иначе возвращает False.</td>
-<td><code>result = hmac.compare_digest(hmac1, hmac2)</code></td>
+<td>Сравнивает два HMAC и возвращает True, если они совпадают,<br>иначе возвращает False.</td>
+<td>hmac.compare_digest(hmac1, hmac2)</td>
 </tr>
 </tbody>
 </table>
