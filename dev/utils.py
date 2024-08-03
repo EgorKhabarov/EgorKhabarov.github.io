@@ -162,6 +162,9 @@ def to_table_code_java(code: str) -> str:
 def check_dict_keys(d: dict, c: int = 0) -> bool | int:
     for k, v in d.items():
         print_progress_bar(c, 0, "counting cheatsheets", k)
+        if k.startswith("link:"):
+            continue
+
         if (
             (not k)
             or k == "."

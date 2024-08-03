@@ -35,6 +35,23 @@ def buttons(
 ) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
+        if key.startswith("link:"):
+            key = key.removeprefix("link:")
+            directory_e = directory.replace("\\", "/").strip("/")
+            name = os.path.join(directory, key).replace("\\", "&#x2f;") + ".md"
+            text_list.append(
+                (
+                    '<button onclick="GET(\'{name}\');restoreCheatSheetState(\'{name2}\')" class="button" '
+                    'vpath="{vpath}">{title}</button>\n'
+                ).format(
+                    name=name,
+                    vpath=f"{directory_e}/{key}.md".strip("/"),
+                    title="🔗&nbsp;" + key.replace(" ", "&nbsp;"),
+                    name2=name.removesuffix(".md") + "index.md" if name.endswith("/.md") else name,
+                )
+            )
+            continue
+
         print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
 
         if key == "index":

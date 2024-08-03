@@ -265,40 +265,46 @@ function toggleStyleDisplayByPath(kpath) {
     }
 }
 
+
+function restoreCheatSheetState(path) {
+    let kpath = getPathWithoutFilename(path);
+    let kelement = document.querySelector(`[kpath="${kpath}"]`);
+    if (!kelement) {
+        kpath += "/";
+        kelement = document.querySelector(`[kpath="${kpath}"]`);
+    }
+    // console.log("getPathWithoutFilename", kpath);
+    toggleStyleDisplayByPath(kpath);
+
+    let vpath = path;
+    let velement = document.querySelector(`[vpath="${vpath}"]`);
+    if (!velement) {
+        vpath += "/";
+        velement = document.querySelector(`[vpath="${vpath}"]`);
+    }
+    // console.log("vpath", vpath);
+
+    const container = document.querySelector(".cheatsheet-buttons");
+    if (vpath.endsWith("/")) {
+        velement.click();
+    }
+    velement.focus();
+    if (vpath.endsWith("/")) {
+        console.log(`click "${vpath}"`)
+        velement.click();
+    }
+    velement.scrollIntoView({ block: "center"});
+    container.scrollLeft -= 200;
+    GET(path);
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
     // Проверяем наличие аргумента при загрузке страницы
     const arg = getArgumentFromUrl();
     if (arg) {
         console.log(`Argument found: "${decodeURIComponent(arg)}"`);
-        let kpath = getPathWithoutFilename(arg);
-        let kelement = document.querySelector(`[kpath="${kpath}"]`);
-        if (!kelement) {
-            kpath += "/";
-            kelement = document.querySelector(`[kpath="${kpath}"]`);
-        }
-        // console.log("getPathWithoutFilename", kpath);
-        toggleStyleDisplayByPath(kpath);
-
-        let vpath = decodeURIComponent(arg);
-        let velement = document.querySelector(`[vpath="${vpath}"]`);
-        if (!velement) {
-            vpath += "/";
-            velement = document.querySelector(`[vpath="${vpath}"]`);
-        }
-        // console.log("vpath", vpath);
-
-        const container = document.querySelector(".cheatsheet-buttons");
-        if (vpath.endsWith("/")) {
-            velement.click();
-        }
-        velement.focus();
-        if (vpath.endsWith("/")) {
-            console.log(`click "${vpath}"`)
-            velement.click();
-        }
-        velement.scrollIntoView({ block: "center"});
-        container.scrollLeft -= 200;
-        GET(decodeURIComponent(arg));
+        restoreCheatSheetState(decodeURIComponent(arg));
     } else {
         PutHtmlText(getCheatSheat("README.html"))
     }
