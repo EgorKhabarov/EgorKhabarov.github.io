@@ -198,3 +198,14 @@ https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen?style=f
 -->
 """.strip()
         )
+
+
+def create_file(keys: tuple[str]):
+    filepath = f"cheatsheet\\" + "\\".join(keys) + ".md"
+    os.makedirs(filepath.rsplit("\\", maxsplit=1)[0], exist_ok=True)
+    value = DICT
+    for key in keys:
+        value = value[key]
+
+    with open(filepath, "w", encoding="utf-8") as file:
+        file.write(to_markup(value.strip()))

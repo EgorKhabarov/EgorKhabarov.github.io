@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, send_file, abort
+from flask import Flask, send_file, send_from_directory, abort
+from werkzeug.exceptions import NotFound
 
 
 app = Flask(__name__)
@@ -19,11 +20,8 @@ def cheatsheet():
 @app.route("/<path:path>")
 def index_html_path(path: str):
     try:
-        path = "/" + path.removeprefix("cheatsheet").lstrip(r".\/").replace("..", "")
-        print(os.path.join(r"../cheatsheet", *path.split("/")))
-
-        return send_file(os.path.join(r"../cheatsheet", *path.split("/")))
-    except FileNotFoundError:
+        return send_from_directory("../cheatsheet", f"{path}")
+    except (FileNotFoundError, NotFound):
         return abort(404, "FileNotFoundError")
 
 

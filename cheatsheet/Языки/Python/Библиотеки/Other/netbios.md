@@ -32,7 +32,7 @@
 </tbody>
 </table>
 <p>Список самых часто используемых методов, их краткого описания и</p>
-<p>nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера. </p>
+<p>nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>python</text>

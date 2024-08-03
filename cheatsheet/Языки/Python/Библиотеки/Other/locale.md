@@ -7,7 +7,7 @@ setlocale(category, locale=None): устанавливает текущую ло
 localeconv(): возвращает словарь с настройками форматирования чисел и валюты в текущей локали.</p>
 <p>Наиболее часто используемые методы и их описание:</p>
 <p>setlocale(category, locale=None): Этот метод позволяет установить локаль для определенной категории.
-Например, setlocale(locale.LC_NUMERIC, "en_US") устанавливает локаль для чисел на английский (США). </p>
+Например, setlocale(locale.LC_NUMERIC, "en_US") устанавливает локаль для чисел на английский (США).</p>
 <div class="code-element">
 <div class="lang-line">
   <text>python</text>

@@ -107,12 +107,16 @@ function GET(url) {
 
     if (need_save_history) {
         if (!(url in history)) {
-            history[url] = getCheatSheat(url);
+            cs = getCheatSheat(url);
+            if (cs) {
+                history[url] = cs
+            }
             console.log(`GET "${url}"`)
         } else {
             console.log(`GET history["${url}"]`)
         }
         cheatsheet = history[url];
+        if (cheatsheet === undefined) {cheatsheet = '';}
     } else {
         cheatsheet = getCheatSheat(url);
         console.log(`GET "${url}"`)

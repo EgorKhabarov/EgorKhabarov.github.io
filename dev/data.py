@@ -754,15 +754,8 @@ CSRF-атаки заставляют пользователя выполнять
                 "index": """
 # <span style="color:#b82e2e">Внимание! Все шпаргалки сгенерированы с помощью <b><u>ChatGPT 3.5</u></b></span>
 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101" height="20" role="img" aria-label="ChatGPT: 3.5"><title>ChatGPT: 3.5</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="101" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="74" height="20" fill="#555"/><rect x="74" width="27" height="20" fill="#007ec6"/><rect width="101" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg=="/><text aria-hidden="true" x="465" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="470">ChatGPT</text><text x="465" y="140" transform="scale(.1)" fill="#fff" textLength="470">ChatGPT</text><text aria-hidden="true" x="865" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="170">3.5</text><text x="865" y="140" transform="scale(.1)" fill="#fff" textLength="170">3.5</text></g></svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101" height="20" role="img" aria-label="ChatGPT: 3.5"><title>ChatGPT: 3.5</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="101" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="74" height="20" fill="#555"/><rect x="74" width="27" height="20" fill="#007ec6"/><rect width="101" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg=="/><text aria-hidden="true" x="465" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="470">ChatGPT</text><text x="465" y="140" transform="scale(.1)" fill="#fff" textLength="470">ChatGPT</text><text aria-hidden="true" x="865" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="170">3.5</text><text x="865" y="140" transform="scale(.1)" fill="#fff" textLength="170">3.5</text></g><style xmlns="" class="darkreader darkreader--fallback">html, body, body :not(iframe) {
-    background-color: #2e2f30 !important;
-    border-color: #7d766c !important;
-    color: #dcdbd8 !important;
-}
-div[style*="background-color: rgb(135, 135, 135)"] {
-    background-color: #878787 !important;
-}</style></svg>
 <!--
 https://img.shields.io/badge/ChatGPT-3.5-blue?logo=openai
 -->
@@ -2859,758 +2852,6 @@ else:
 """,
                 },
                 "Информация": {
-                    "Типы данных": {
-                        "traitlets": r"""
-Библиотека "traitlets" в Python используется для определения и использования
-типизированных атрибутов (traits) и событий (events) в объектно-ориентированном программировании.
-Она обеспечивает механизмы проверки типов, установки значений по умолчанию,
-уведомлений об изменениях и другие функции, улучшающие модульность и гибкость кода.
-
-
-Модуль: traitlets
-
-Методы:
-HasTraits(): Базовый класс, предоставляющий инфраструктуру для определения типизированных атрибутов и событий.
-default(obj): Метод, возвращающий значение по умолчанию для указанного атрибута.
-validate(obj, value): Метод, проверяющий значение атрибута на соответствие заданным условиям или типу.
-observe(cls, handler, names=None): Метод класса, позволяющий связать обработчик события с указанными атрибутами.
-link(target, name, linkname=None): Метод объекта, позволяющий установить
-связь между атрибутами текущего объекта и атрибутами другого объекта.
-
-Подмодуль: traitlets.config
-
-Методы:
-Configurable(): Базовый класс, предоставляющий функциональность для работы с конфигурационными файлами и параметрами.
-load_config_file(filename): Метод, загружающий конфигурационный файл, указанный по имени.
-Application: Класс, представляющий приложение, которое может быть настроено с помощью конфигурационных файлов.
-Config: Класс, представляющий конфигурацию, содержащую набор параметров для настройки.
-
-
-Самые часто используемые методы:
-default(obj): Возвращает значение по умолчанию для указанного атрибута.
-
-```python
-value = default("attr_name")
-```
-
-validate(obj, value): Проверяет значение атрибута на соответствие заданным условиям или типу.
-
-```python
-is_valid = validate("attr_name", value)
-```
-
-observe(cls, handler, names=None): Связывает обработчик события с указанными атрибутами.
-
-```python
-observe("class_name", handler_func, ["attr_name1", "attr_name2"])
-```
-
-link(target, name, linkname=None): Устанавливает связь между атрибутами
-текущего объекта и атрибутами другого объекта.
-
-```python
-link(other_object, "attr_name", "linked_attr_name")
-```
-""",
-                        "linecache": r"""
-Библиотека "linecache" в Python используется для чтения линий из файлов с исходным кодом.
-Она предоставляет функции для извлечения строк из файла по их номеру.
-
-Методы модуля "linecache" включают:
-`getline(filename, lineno)`: Возвращает указанную строку из указанного файла.
-`getlines(filename)`: Возвращает все строки из указанного файла в виде списка.
-`clearcache()`: Очищает кэш, используемый для хранения строк файла.
-   
-   Примеры подмодулей отсутствуют.
-
-Некоторые из самых часто используемых методов "linecache" включают:
-Метод `getline(filename, lineno)` - возвращает указанную строку из указанного файла.
-
-```python
-import linecache
-
-line = linecache.getline("file.txt", 5)
-print(line)
-```
-
-Этот код выведет пятую строку из файла "file.txt".
-
-Метод `getlines(filename)` - возвращает все строки из указанного файла в виде списка.
-
-```python
-import linecache
-
-lines = linecache.getlines("file.txt")
-for line in lines:
-    print(line)
-```
-
-Этот код выведет все строки из файла "file.txt" по одной строке на каждую итерацию цикла.
-
-Метод `clearcache()` - очищает кэш, используемый для хранения строк файла.
-Это может быть полезно, если файл изменился и требуется обновить строки в кэше.
-
-```python
-import linecache
-
-# Изменения в файле "file.txt"
-
-linecache.clearcache()
-line = linecache.getline("file.txt", 5)
-print(line)
-```
-
-Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла "file.txt".
-
-Примечание: Убедитесь, что файл "file.txt" существует и содержит нужные строки.
-""",
-                        "readline": r"""
-Библиотека "readline" используется в Python для обеспечения функциональности чтения и редактирования строк в интерактивной командной оболочке.
-
-Методы модуля "readline" и его подмодулей:
-
-readline(): Читает строку из входного потока.
-add_history(string): Добавляет строку в историю командной оболочки.
-clear_history(): Очищает историю командной оболочки.
-get_history_length(): Возвращает количество записей в истории командной оболочки.
-set_history_length(length): Устанавливает максимальное количество записей в истории командной оболочки.
-get_current_history_length(): Возвращает текущую длину истории командной оболочки.
-remove_history_item(pos): Удаляет запись из истории командной оболочки по указанной позиции.
-replace_history_item(pos, string): Заменяет запись в истории командной оболочки по указанной позиции новой строкой.
-
-Наиболее часто используемые методы:
-
-readline(): Читает строку из входного потока.
-
-```python
-import readline
-
-input_string = readline.readline()
-print("Input:", input_string)
-```
-
-add_history(string): Добавляет строку в историю командной оболочки.
-
-```python
-import readline
-
-readline.add_history("command 1")
-readline.add_history("command 2")
-```
-
-clear_history(): Очищает историю командной оболочки.
-
-```python
-import readline
-
-readline.clear_history()
-```
-""",
-                        "sched": r"""
-Библиотека "sched" в Python используется для планирования и управления задачами в программе.
-Она позволяет создавать расписания выполнения задач и контролировать их выполнение в определенные моменты времени.
-
-Методы модуля "sched" и его подмодулей:
-sched.timefunc: Устанавливает функцию, которая будет использоваться для получения времени.
-sched.delayfunc: Устанавливает функцию, вызываемую перед каждым циклом планировщика.
-sched.enter(delay, priority, action, argument): Планирует выполнение задачи с заданным задержкой, приоритетом, действием и аргументом.
-sched.enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом, действием и аргументом.
-sched.cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
-sched.run(): Запускает планировщик и начинает выполнение задач.
-
-Самые часто используемые методы библиотеки "sched" и их краткие описания:
-enter(delay, priority, action, argument): Планирует выполнение задачи с заданной задержкой и приоритетом.
-
-```python
-import sched
-import time
-
-def print_message():
-    print("Scheduled task executed.")
-
-scheduler = sched.scheduler(time.time, time.sleep)
-scheduler.enter(5, 1, print_message, ())
-scheduler.run()
-```
-
-enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом.
-
-```python
-import sched
-import time
-
-def print_message():
-    print("Scheduled task executed.")
-
-scheduler = sched.scheduler(time.time, time.sleep)
-scheduler.enterabs(time.time() + 10, 1, print_message, ())
-scheduler.run()
-```
-
-cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
-
-```python
-import sched
-import time
-
-def print_message():
-    print("Scheduled task executed.")
-
-scheduler = sched.scheduler(time.time, time.sleep)
-event = scheduler.enter(5, 1, print_message, ())
-scheduler.cancel(event)
-scheduler.run()
-```
-
-Пожалуйста, помните об обеспечении безопасности при использовании этой библиотеки и выполнении задач в программе.
-""",
-                        "grpc": r"""
-Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
-Это позволяет разработчикам создавать распределенные системы,
-где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
-
-Методы и подмодули библиотеки "grpc":
-grpc.insecure_channel(): Создает небезопасный канал связи для клиентского подключения к серверу.
-grpc.secure_channel(): Создает безопасный канал связи (шифрованное соединение) для клиентского подключения к серверу.
-grpc.Channel: Класс, представляющий канал связи между клиентом и сервером.
-grpc.Server: Класс, представляющий сервер, который слушает входящие запросы и обрабатывает их с помощью определенных сервисов.
-grpc.stub: Подмодуль, содержащий классы и функции для создания клиентских и серверных стабов (stub), облегчающих взаимодействие по RPC.
-grpc.Service: Базовый класс для реализации пользовательских сервисов GRPC.
-grpc.rpc_error: Подмодуль, содержащий классы исключений, связанных с ошибками RPC.
-
-Некоторые часто используемые методы библиотеки "grpc":
-grpc.insecure_channel(): Создает небезопасный канал связи с сервером. `channel = grpc.insecure_channel("localhost:50051")`
-grpc.stub: Подмодуль, который предоставляет классы для создания клиентских и серверных стабов (stub) для удобного взаимодействия по RPC.
-grpc.Server.add_insecure_port(): Определяет небезопасный порт, на котором сервер будет прослушивать входящие запросы. `server.add_insecure_port("[::]:50051")`
-grpc.Server.start(): Запускает сервер, ожидающий входящих запросов. `server.start()`
-grpc.Service: Базовый класс, который разработчики могут наследовать для создания пользовательских сервисов GRPC. `class MyService(grpc.Service):`
-""",
-                        "packaging": r"""
-Библиотека "packaging" в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов.
-Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива.
-
-Методы модуля "packaging" и его подмодулей:
-
-Модуль packaging.version:
-parse(version_string): Парсит версию из строки и возвращает объект Version.
-Version: Класс для представления версии пакета.
-
-Модуль packaging.specifiers:
-Specifier: Класс для представления спецификации версии пакета.
-LegacySpecifier: Класс для представления устаревшей спецификации версии пакета.
-SpecifierSet: Класс для представления набора спецификаций версий пакета.
-
-Модуль packaging.requirements:
-Requirement: Класс для представления требования к пакету.
-
-Модуль packaging.markers:
-Marker: Класс для представления условий маркера.
-default_environment: Возвращает стандартное окружение.
-
-Модуль packaging.tags:
-Tag: Класс для представления метки платформы.
-sys_tags(): Возвращает метки платформы для текущей системы.
-
-Наиболее часто используемые методы в библиотеке "packaging":
-
-parse(version_string): Парсит версию из строки и возвращает объект Version.
-
-```python
-from packaging import version
-
-version_string = "1.2.3"
-parsed_version = version.parse(version_string)
-print(parsed_version)
-```
-
-SpecifierSet(specifier_string): Создает набор спецификаций версий на основе строки.
-
-```python
-from packaging.specifiers import SpecifierSet
-
-specifier_string = ">=1.0,<=2.0"
-specifier_set = SpecifierSet(specifier_string)
-print(specifier_set)
-```
-
-Requirement(requirement_string): Создает требование к пакету на основе строки.
-
-```python
-from packaging.requirements import Requirement
-
-requirement_string = "numpy>=1.0"
-requirement = Requirement(requirement_string)
-print(requirement)
-```
-
-Убедитесь, что у вас установлена библиотека "packaging" перед использованием этих методов.
-""",
-                        "nis": r"""
-Библиотека "nis" в Python используется для работы с сервисом Network Information Service (NIS).
-NIS предоставляет распределенную базу данных, которая используется для хранения информации о пользователях,
-группах и других системных ресурсах в сети.
-
-Методы модуля "nis":
-nis.match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
-nis.cat(mapname): Возвращает все записи из указанной базы данных.
-nis.maps(): Возвращает список доступных баз данных.
-nis.getmapbyname(name): Возвращает содержимое базы данных с указанным именем.
-nis.getmapbynumber(number): Возвращает содержимое базы данных с указанным номером.
-
-Некоторые из самых часто используемых методов "nis" включают:
-match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
-
-```python
-import nis
-
-value = nis.match("passwd", "john")
-print(value)
-```
-
-cat(mapname): Возвращает все записи из указанной базы данных.
-
-```python
-import nis
-
-records = nis.cat("passwd")
-for record in records:
-    print(record)
-```
-
-maps(): Возвращает список доступных баз данных.
-
-```python
-import nis
-
-map_list = nis.maps()
-print(map_list)
-```
-
-Это лишь некоторые из методов, доступных в библиотеке "nis".
-""",
-                        "notebook": r"""
-Библиотека "notebook" используется для создания интерактивных блокнотов в среде Jupyter Notebook.
-Она предоставляет возможность комбинировать код, текст, графики и другие элементы в одном документе,
-что делает его удобным инструментом для исследования данных, прототипирования и обучения.
-
-Методы модуля "notebook" и его подмодулей:
-
-Модуль "notebook":
-`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
-`open_notebook(path)`: открывает блокнот по указанному пути.
-`create_notebook()`: создает новый блокнот.
-`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
-`export_notebook(path, format)`: экспортирует блокнот в указанный формат (например, HTML, PDF).
-
-Подмодуль "cells":
-`list_cells()`: возвращает список всех ячеек в текущем блокноте.
-`add_code_cell()`: добавляет новую ячейку с кодом.
-`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
-`delete_cell(index)`: удаляет ячейку по указанному индексу.
-
-Самые часто используемые методы:
-
-`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
-
-```python
-from notebook import list_notebooks
-
-notebooks = list_notebooks()
-print(notebooks)
-```
-
-`open_notebook(path)`: открывает блокнот по указанному пути.
-
-```python
-from notebook import open_notebook
-
-notebook = open_notebook("path/to/notebook.ipynb")
-print(notebook)
-```
-
-`create_notebook()`: создает новый блокнот.
-
-```python
-from notebook import create_notebook
-
-notebook = create_notebook()
-print(notebook)
-```
-
-`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
-
-```python
-from notebook import save_notebook
-
-save_notebook("path/to/save.ipynb")
-```
-
-`list_cells()`: возвращает список всех ячеек в текущем блокноте.
-
-```python
-from notebook.cells import list_cells
-
-cells = list_cells()
-print(cells)
-```
-
-`add_code_cell()`: добавляет новую ячейку с кодом.
-
-```python
-from notebook.cells import add_code_cell
-
-cell = add_code_cell()
-print(cell)
-```
-
-`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
-
-```python
-from notebook.cells import add_markdown_cell
-
-cell = add_markdown_cell()
-print(cell)
-```
-
-`delete_cell(index)`: удаляет ячейку по указанному индексу.
-
-```python
-from notebook.cells import delete_cell
-
-delete_cell(0)
-```
-""",
-                        "quopri": r"""
-Библиотека "quopri" в Python используется для кодирования и декодирования данных в формате Quoted-Printable.
-Quoted-Printable - это способ представления непечатных или специальных символов в текстовом формате,
-который используется в электронной почте и других приложениях.
-
-Методы и подмодули библиотеки "quopri":
-
-`quopri.encode(input, output, quotetabs=False)` - кодирует входные данные в формат Quoted-Printable и записывает результат в выходной поток.
-`quopri.decode(input, output, headers=False)` - декодирует входные данные из формата Quoted-Printable и записывает результат в выходной поток.
-`quopri.quote(data)` - возвращает строку, в которой данные закодированы в формате Quoted-Printable.
-`quopri.unquote(data)` - возвращает строку, в которой данные декодированы из формата Quoted-Printable.
-`quopri.encodestring(s)` - кодирует строку в формат Quoted-Printable и возвращает результат как строку.
-`quopri.decodestring(s)` - декодирует строку из формата Quoted-Printable и возвращает результат как строку.
-
-Самые часто используемые методы:
-
-`quopri.encode(input, output, quotetabs=False)` - метод для кодирования данных в формат Quoted-Printable.
-Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи.
-
-```python
-import quopri
-
-input_data = b"Hello, world!"
-encoded_data = quopri.encode(input_data)
-print(encoded_data)
-```
-   
-`quopri.decode(input, output, headers=False)` - метод для декодирования данных из формата Quoted-Printable.
-Полезно при работе с данными, полученными из электронной почты или других источников, где данные могут быть закодированы в этом формате.
-     
-```python
-import quopri
-
-encoded_data = b"Hello=2C=20world=21"
-decoded_data = quopri.decode(encoded_data)
-print(decoded_data)
-```
-""",
-                        "mailcap": r"""
-Библиотека "mailcap" в Python используется для обработки типов файлов и ассоциированных программ.
-
-
-Модуль: mailcap
-findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
-getcaps: Возвращает все записи в файле mailcap.
-getparam: Возвращает значение параметра из записи mailcap.
-listmailcapfiles: Возвращает список файлов mailcap в системе.
-lookup: Находит запись mailcap для заданного типа файла.
-parse: Разбирает содержимое mailcap-файла и возвращает его в виде словаря.
-
-
-findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
-
-```python
-import mailcap
-
-filename = "example.txt"
-type = "text/plain"
-
-match = mailcap.findmatch(type, filename)
-if match:
-    command = match[0]
-    params = match[1]
-    # выполнение команды с использованием параметров
-```
-
-getcaps: Возвращает все записи в файле mailcap.
-
-```python
-import mailcap
-
-caps = mailcap.getcaps()
-for cap in caps:
-    print(cap)
-```
-
-lookup: Находит запись mailcap для заданного типа файла.
-
-```python
-import mailcap
-
-type = "text/plain"
-lookup = mailcap.lookup(type)
-if lookup:
-    print(lookup)
-```
-   
-Маленький код для демонстрации этих методов:
-```python
-import mailcap
-
-filename = "example.txt"
-type = "text/plain"
-
-match = mailcap.findmatch(type, filename)
-if match:
-    command = match[0]
-    params = match[1]
-    # выполнение команды с использованием параметров
-
-caps = mailcap.getcaps()
-for cap in caps:
-    print(cap)
-
-lookup = mailcap.lookup(type)
-if lookup:
-    print(lookup)
-```
-""",
-                        "errno": r"""
-Библиотека "errno" в Python используется для обработки ошибок, связанных с системными вызовами и функциями операционной системы.
-Она предоставляет доступ к кодам ошибок, которые могут возникать
-при выполнении операций ввода-вывода, работы с файлами, сетью и другими системными ресурсами.
-
-Методы и подмодули библиотеки "errno":
-
-errno.errorcode: Возвращает словарь, ключами которого являются коды ошибок, а значениями - соответствующие им символьные имена.
-errno.geterrno(): Возвращает код текущей ошибки.
-errno.geterror(): Возвращает описание текущей ошибки в виде строки.
-errno.strerror(errno): Возвращает описание ошибки по заданному коду ошибки.
-errno.clear(): Очищает код текущей ошибки.
-
-Самые часто используемые методы библиотеки "errno":
-
-errno.errorcode: Возвращает словарь, где ключами являются коды ошибок, а значениями - символьные имена.
-Например: {"ENOENT": "No such file or directory", "EACCES": "Permission denied"}.
-
-```python
-import errno
-
-error_codes = errno.errorcode
-print(error_codes)
-```
-
-errno.geterrno(): Возвращает код текущей ошибки. Например: 2.
-
-```python
-import errno
-
-error_num = errno.geterrno()
-print(error_num)
-```
-
-errno.geterror(): Возвращает описание текущей ошибки в виде строки. Например: "No such file or directory".
-
-```python
-import errno
-
-error_desc = errno.geterror()
-print(error_desc)
-```
-""",
-                        "ntpath": r"""
-Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
-с учетом специфических особенностей операционной системы Windows.
-
-Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:
-
-Метод                                     | Описание
-----------------------------------------|---------------------------------------------------
-ntpath.abspath(path)                     | Возвращает абсолютный путь к указанному пути.
-ntpath.basename(path)                    | Возвращает базовое имя файла или каталога из указанного пути.
-ntpath.commonprefix(list)                | Возвращает наибольший общий префикс из списка путей.
-ntpath.dirname(path)                     | Возвращает каталог, содержащий указанный путь.
-ntpath.exists(path)                      | Проверяет, существует ли указанный путь.
-ntpath.expanduser(path)                  | Заменяет в указанном пути тильду (~) на домашний каталог пользователя.
-ntpath.expandvars(path)                  | Заменяет переменные окружения в указанном пути на их значения.
-ntpath.isfile(path)                      | Проверяет, является ли указанный путь файлом.
-ntpath.isdir(path)                       | Проверяет, является ли указанный путь каталогом.
-ntpath.join(path, *paths)                | Объединяет пути с использованием разделителя.
-ntpath.normpath(path)                    | Нормализует указанный путь, удаляя двойные слеши и точки.
-ntpath.realpath(path)                    | Возвращает канонический абсолютный путь к указанному пути.
-ntpath.relpath(path, start)              | Возвращает относительный путь от исходного пути до указанного пути.
-ntpath.split(path)                       | Разделяет указанный путь на имя каталога и имя файла.
-
-Несколько часто используемых методов "ntpath" с их кратким описанием и примерами кода:
-
-Метод                                     | Описание                                | Пример
------------------------------------------|-----------------------------------------|--------------------------------------------------
-ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути. | dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -> "file.txt"
-ntpath.exists(path)                       | Проверяет, существует ли указанный путь. | if ntpath.exists("/path/to/file.txt"): print("File exists")
-ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя. | full_path = ntpath.join("/path/to", "file.txt") print(full_path) -> "/path/to/file.txt"
-""",
-                        "locale": r"""
-Библиотека "locale" в Python используется для обработки локализации и форматирования числовых,
-датовых и строковых значений в соответствии с настройками локали операционной системы.
-
-Таблица методов и их описания для модуля "locale" и его подмодулей:
-
-Модуль "locale":
-setlocale(category, locale=None): устанавливает текущую локаль для данной категории (категории определяют тип данных, например, числа, даты и др.).
-
-Подмодуль "localeconv":
-localeconv(): возвращает словарь с настройками форматирования чисел и валюты в текущей локали.
-
-Наиболее часто используемые методы и их описание:
-
-setlocale(category, locale=None): Этот метод позволяет установить локаль для определенной категории.
-Например, setlocale(locale.LC_NUMERIC, "en_US") устанавливает локаль для чисел на английский (США). 
-
-
-```python
-import locale
-
-locale.setlocale(locale.LC_NUMERIC, "en_US")
-formatted_number = locale.format_string("%.2f", 1234.5678)
-print(formatted_number)
-```
-Результат: "1,234.57"
-  
-Помните, что информация о локализации и форматировании может отличаться в зависимости от операционной системы и языка установки Python.
-""",
-                        "gettext": r"""
-Библиотека "gettext" в Python используется для локализации и перевода текстовых сообщений в программе. 
-
-# Таблица методов модуля "gettext" и его подмодулей:
-### Методы модуля "gettext":
-bindtextdomain(domain, directory): устанавливает домен и директорию для поиска файлов перевода.
-dgettext(domain, message): возвращает перевод сообщения из указанного домена.
-dngettext(domain, singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
-gettext(message): возвращает перевод сообщения.
-ngettext(singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
-textdomain(domain): устанавливает текущий домен перевода.
-
-### Методы подмодуля "gettext.translation":
-gettext.translation(domain, localedir=None, languages=None, fallback=False): создает объект перевода на основе заданного домена и директории локализации.
-gettext.translation(""): возвращает объект перевода для текущего домена.
-add_fallback(translations): добавляет объект перевода в список резервных вариантов перевода.
-install(domain, localedir=None, unicode=0): устанавливает объект перевода в качестве текущего.
-
-Самые часто используемые методы библиотеки "gettext" вместе с их кратким описанием и примером кода:
-
-gettext(message): Возвращает перевод сообщения.
-
-```python
-import gettext
-gettext.bindtextdomain("mydomain", "locale/")
-gettext.textdomain("mydomain")
-
-_ = gettext.gettext
-print(_("Hello, world!"))
-```
-
-ngettext(singular, plural, n): Возвращает перевод множественного сообщения на основе числа n.
-
-```python
-import gettext
-gettext.bindtextdomain("mydomain", "locale/")
-gettext.textdomain("mydomain")
-
-_ = gettext.ngettext
-print(_("%d apple", "%d apples", 5) % 5)
-```
-
-dgettext(domain, message): Возвращает перевод сообщения из указанного домена.
-
-```python
-import gettext
-gettext.bindtextdomain("mydomain", "locale/")
-gettext.textdomain("mydomain")
-
-_ = gettext.dgettext
-print(_("mydomain", "Hello, world!"))
-```
-""",
-                        "rfc3339_validator": r"""
-Библиотека "rfc3339_validator" используется для проверки правильности формата даты и времени в соответствии со стандартом RFC 3339.
-
-Таблица методов модуля и его подмодулей:
-
-Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
-Возвращает булевое значение True, если формат верен, и False в противном случае.
-
-Список самых частых методов, их краткого описания и примерного кода:
-
-Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
-
-```python
-from rfc3339_validator import validate
-
-date_string = "2022-01-01T12:34:56Z"
-if validate(date_string):
-    print("Формат даты и времени верный")
-else:
-    print("Некорректный формат даты и времени")
-```
-""",
-                        "netbios": r"""
-"netbios" - это библиотека в Python, которая предоставляет функциональность
-для работы с протоколом NetBIOS (Network Basic Input/Output System).
-
-Таблица методов модуля "netbios" и их краткого описания:
-
-Метод                  | Описание
------------------------|----------------------------------------------------
-nbt.getnetbiosname()   | Получает NetBIOS-имя компьютера, на котором выполняется код.
-nbt.getwinsaddrs()     | Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
-nbt.getnodetype()      | Возвращает тип узла в сети.
-nbt.gethostbyname()    | Возвращает IP-адреса, связанные с указанным NetBIOS-именем.
-nbt.getbcastaddrs()    | Возвращает список широковещательных адресов, связанных с NetBIOS-именами.
-
-Список самых часто используемых методов, их краткого описания и
-
-nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера. 
-
-```python
-import netbios as nb
-
-name = nb.getnetbiosname()
-print(name)
-```
-
-nbt.getwinsaddrs(): Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
-
-```python
-import netbios as nb
-
-wins_addrs = nb.getwinsaddrs()
-print(wins_addrs)
-```
-
-nbt.getnodetype(): Возвращает тип узла в сети.
-
-```python
-import netbios as nb
-
-node_type = nb.getnodetype()
-print(node_type)
-```
-""",
-                    },
                     "textwrap": """
 Функция textwrap.wrap из модуля textwrap в Python используется 
 для разбиения текстовой строки на список строк с заданной шириной столбца.
@@ -4523,31 +3764,6 @@ python script.py command_a 5
 
 ```bash
 python script.py command_b --bar test
-```
-""",
-                    "bz2": """
-Модуль bz2 в Python предоставляет интерфейс для сжатия и распаковки данных
-с использованием алгоритма BZ2 (Burrows-Wheeler).
-Он позволяет работать с файлами и байтовыми объектами, обеспечивая эффективное сжатие данных.
-
-| Метод                                                     | Описание                                                                           |
-|-----------------------------------------------------------|------------------------------------------------------------------------------------|
-| bz2.compress(data, compresslevel=9)                       | Сжимает данные BZ2. Можно указать уровень сжатия (1-9).                            |
-| bz2.decompress(data)                                      | Распаковывает данные BZ2.                                                          |
-| bz2.BZ2File(file, mode="r", buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: "r" (чтение), "w" (запись), "a" (добавление). |
-
-**bz2.compress(data, compresslevel=9)** Сжимает данные BZ2.
-
-```python
-compressed_data = bz2.compress(b"Hello, World!")
-print(compressed_data)
-```
-
-**bz2.decompress(data)** Распаковывает данные BZ2.
-
-```python
-decompressed_data = bz2.decompress(compressed_data)
-print(decompressed_data)
 ```
 """,
                     "cycler": """
@@ -6790,120 +6006,6 @@ for line in fileinput.input():
 ```
 """,
                 },
-                "regex": {
-                    "regcheck": r"""
-Библиотека "regcheck" используется для работы с регулярными выражениями в Python.
-Она предоставляет инструменты для поиска и сравнения строк, основываясь на заданных шаблонах.
-
-Таблица методов и их краткое описание для модуля "regcheck":
-
-Метод         | Описание
-------------- | -------------
-search        | Выполняет поиск заданного регулярного выражения в строке и возвращает первое совпадение.
-match         | Проверяет, соответствует ли вся строка заданному регулярному выражению.
-findall       | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде списка.
-finditer      | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде итератора.
-split         | Разделяет строку на подстроки, используя заданное регулярное выражение в качестве разделителя.
-sub           | Заменяет все совпадения заданного регулярного выражения в строке указанным значением.
-
-Список самых часто используемых методов, их краткое описание и примерный код для демонстрации их работы:
-
-Метод      | Описание                            | Примерный код
----------- | ----------------------------------- | -------------
-search     | Ищет первое совпадение в строке      | import re \n result = re.search(r"pattern", string)
-findall    | Находит все совпадения в строке       | import re \n results = re.findall(r"pattern", string)
-split      | Разделяет строку на подстроки         | import re \n parts = re.split(r"\s", string)
-sub        | Заменяет совпадения в строке          | import re \n new_string = re.sub(r"pattern", replacement, string)
-""",
-                },
-                "Почта": {
-                    "poplib": r"""
-Библиотека "poplib" в Python используется для работы с протоколом почтового ящика на основе протокола POP3 (Post Office Protocol version 3).
-Она позволяет получать электронные письма, удалять их, и выполнять другие операции взаимодействия с почтовым сервером.
-
-Методы и подмодули библиотеки "poplib":
-
-`poplib.POP3(host[, port])`: Создает объект соединения с почтовым сервером POP3 на указанном хосте и порту.
-`poplib.POP3.user(username)`: Аутентифицирует пользователя на сервере, указывая имя пользователя.
-`poplib.POP3.pass_(password)`: Аутентифицирует пользователя на сервере, указывая пароль.
-`poplib.POP3.stat()`: Возвращает информацию о состоянии почтового ящика, включая количество сообщений и общий размер.
-`poplib.POP3.list([which])`: Возвращает список всех сообщений в почтовом ящике, или информацию о конкретном сообщении, если указан параметр "which".
-`poplib.POP3.retr(which)`: Получает содержимое указанного сообщения из почтового ящика.
-`poplib.POP3.dele(which)`: Отмечает указанное сообщение для удаления.
-`poplib.POP3.quit()`: Закрывает соединение с сервером POP3.
-
-Наиболее часто используемые методы в библиотеке "poplib":
-
-`poplib.POP3(host[, port])`: Создание соединения с почтовым сервером.
-`poplib.POP3.user(username)` и `poplib.POP3.pass_(password)`: Аутентификация пользователя на сервере.
-`poplib.POP3.stat()`: Получение информации о состоянии почтового ящика.
-`poplib.POP3.list()`: Получение списка всех сообщений в почтовом ящике.
-`poplib.POP3.retr(which)`: Получение содержимого конкретного сообщения.
-`poplib.POP3.quit()`: Закрытие соединения с сервером POP3.
-
-Пример использования метода `poplib.POP3(user, password)` для создания соединения с почтовым сервером:
-
-```python
-import poplib
-
-pop_server = poplib.POP3("mail.example.com", 110)
-pop_server.user("your_username")
-pop_server.pass_("your_password")
-```
-""",
-                    "mailbox": r"""
-Библиотека "mailbox" в Python используется для работы с почтовыми ящиками.
-Она позволяет читать и записывать электронные письма в различных форматах, таких как mbox, MMDF, babyl и др.
-
-Таблица методов библиотеки "mailbox":
-
-| Метод               | Краткое описание                                      |
-|---------------------|-------------------------------------------------------|
-| mailbox.mbox        | Позволяет работать с форматом mbox.                    |
-| mailbox.Maildir     | Предоставляет доступ к Maildir-формату почтового ящика. |
-| mailbox.Babyl       | Обеспечивает работу с форматом babyl.                   |
-| mailbox.MMDF        | Позволяет чтение и запись писем в формате MMDF.         |
-| mailbox.Mailbox     | Предоставляет общий интерфейс для работы с почтовыми ящиками в разных форматах.  |
-| mailbox.MaildirMessage  | Представляет отдельное письмо в формате Maildir. |
-| mailbox.MH          | Работа с письмами в формате MH.                         |
-
-Самые часто используемые методы библиотеки "mailbox":
-
-`add` - добавляет письмо в почтовый ящик.
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    message = EmailMessage()
-    message["Subject"] = "Hello"
-    message.set_content("This is a test email")
-    mbox.add(message)
-```
-
-`iterkeys` - возвращает итератор для ключей (идентификаторов) писем в почтовом ящике.
-
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    for key in mbox.iterkeys():
-        print(key)
-```
-
-`get_message` - возвращает письмо по ключу (идентификатору).
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    message = mbox.get_message("12345")
-    print(message["Subject"])
-```
-
-`remove` - удаляет письмо по ключу (идентификатору).
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    mbox.remove("12345")
-```
-""",
-                },
                 "Алгоритмы": {
                     "bisect": r"""
 Библиотека "bisect" в Python используется для выполнения бинарного поиска в отсортированных последовательностях.
@@ -7946,6 +7048,891 @@ value = rasutil.GPIORead(12)
 
 Методы "GPIOSet" и "GPIORead" позволяют управлять значениями пинов GPIO на Raspberry Pi,
 устанавливая значения и считывая их соответственно. Метод "GPIOInit" необходим для инициализации пинов GPIO перед их использованием.
+""",
+                    "poplib": r"""
+Библиотека "poplib" в Python используется для работы с протоколом почтового ящика на основе протокола POP3 (Post Office Protocol version 3).
+Она позволяет получать электронные письма, удалять их, и выполнять другие операции взаимодействия с почтовым сервером.
+
+Методы и подмодули библиотеки "poplib":
+
+`poplib.POP3(host[, port])`: Создает объект соединения с почтовым сервером POP3 на указанном хосте и порту.
+`poplib.POP3.user(username)`: Аутентифицирует пользователя на сервере, указывая имя пользователя.
+`poplib.POP3.pass_(password)`: Аутентифицирует пользователя на сервере, указывая пароль.
+`poplib.POP3.stat()`: Возвращает информацию о состоянии почтового ящика, включая количество сообщений и общий размер.
+`poplib.POP3.list([which])`: Возвращает список всех сообщений в почтовом ящике, или информацию о конкретном сообщении, если указан параметр "which".
+`poplib.POP3.retr(which)`: Получает содержимое указанного сообщения из почтового ящика.
+`poplib.POP3.dele(which)`: Отмечает указанное сообщение для удаления.
+`poplib.POP3.quit()`: Закрывает соединение с сервером POP3.
+
+Наиболее часто используемые методы в библиотеке "poplib":
+
+`poplib.POP3(host[, port])`: Создание соединения с почтовым сервером.
+`poplib.POP3.user(username)` и `poplib.POP3.pass_(password)`: Аутентификация пользователя на сервере.
+`poplib.POP3.stat()`: Получение информации о состоянии почтового ящика.
+`poplib.POP3.list()`: Получение списка всех сообщений в почтовом ящике.
+`poplib.POP3.retr(which)`: Получение содержимого конкретного сообщения.
+`poplib.POP3.quit()`: Закрытие соединения с сервером POP3.
+
+Пример использования метода `poplib.POP3(user, password)` для создания соединения с почтовым сервером:
+
+```python
+import poplib
+
+pop_server = poplib.POP3("mail.example.com", 110)
+pop_server.user("your_username")
+pop_server.pass_("your_password")
+```
+""",
+                    "mailbox": r"""
+Библиотека "mailbox" в Python используется для работы с почтовыми ящиками.
+Она позволяет читать и записывать электронные письма в различных форматах, таких как mbox, MMDF, babyl и др.
+
+Таблица методов библиотеки "mailbox":
+
+| Метод               | Краткое описание                                      |
+|---------------------|-------------------------------------------------------|
+| mailbox.mbox        | Позволяет работать с форматом mbox.                    |
+| mailbox.Maildir     | Предоставляет доступ к Maildir-формату почтового ящика. |
+| mailbox.Babyl       | Обеспечивает работу с форматом babyl.                   |
+| mailbox.MMDF        | Позволяет чтение и запись писем в формате MMDF.         |
+| mailbox.Mailbox     | Предоставляет общий интерфейс для работы с почтовыми ящиками в разных форматах.  |
+| mailbox.MaildirMessage  | Представляет отдельное письмо в формате Maildir. |
+| mailbox.MH          | Работа с письмами в формате MH.                         |
+
+Самые часто используемые методы библиотеки "mailbox":
+
+`add` - добавляет письмо в почтовый ящик.
+
+```python
+with mailbox.mbox("sample.mbox") as mbox:
+    message = EmailMessage()
+    message["Subject"] = "Hello"
+    message.set_content("This is a test email")
+    mbox.add(message)
+```
+
+`iterkeys` - возвращает итератор для ключей (идентификаторов) писем в почтовом ящике.
+
+
+```python
+with mailbox.mbox("sample.mbox") as mbox:
+    for key in mbox.iterkeys():
+        print(key)
+```
+
+`get_message` - возвращает письмо по ключу (идентификатору).
+
+```python
+with mailbox.mbox("sample.mbox") as mbox:
+    message = mbox.get_message("12345")
+    print(message["Subject"])
+```
+
+`remove` - удаляет письмо по ключу (идентификатору).
+
+```python
+with mailbox.mbox("sample.mbox") as mbox:
+    mbox.remove("12345")
+```
+""",
+                    "regcheck": r"""
+Библиотека "regcheck" используется для работы с регулярными выражениями в Python.
+Она предоставляет инструменты для поиска и сравнения строк, основываясь на заданных шаблонах.
+
+Таблица методов и их краткое описание для модуля "regcheck":
+
+Метод         | Описание
+------------- | -------------
+search        | Выполняет поиск заданного регулярного выражения в строке и возвращает первое совпадение.
+match         | Проверяет, соответствует ли вся строка заданному регулярному выражению.
+findall       | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде списка.
+finditer      | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде итератора.
+split         | Разделяет строку на подстроки, используя заданное регулярное выражение в качестве разделителя.
+sub           | Заменяет все совпадения заданного регулярного выражения в строке указанным значением.
+
+Список самых часто используемых методов, их краткое описание и примерный код для демонстрации их работы:
+
+Метод      | Описание                            | Примерный код
+---------- | ----------------------------------- | -------------
+search     | Ищет первое совпадение в строке      | import re \n result = re.search(r"pattern", string)
+findall    | Находит все совпадения в строке       | import re \n results = re.findall(r"pattern", string)
+split      | Разделяет строку на подстроки         | import re \n parts = re.split(r"\s", string)
+sub        | Заменяет совпадения в строке          | import re \n new_string = re.sub(r"pattern", replacement, string)
+""",
+                    "traitlets": r"""
+Библиотека "traitlets" в Python используется для определения и использования
+типизированных атрибутов (traits) и событий (events) в объектно-ориентированном программировании.
+Она обеспечивает механизмы проверки типов, установки значений по умолчанию,
+уведомлений об изменениях и другие функции, улучшающие модульность и гибкость кода.
+
+
+Модуль: traitlets
+
+Методы:
+HasTraits(): Базовый класс, предоставляющий инфраструктуру для определения типизированных атрибутов и событий.
+default(obj): Метод, возвращающий значение по умолчанию для указанного атрибута.
+validate(obj, value): Метод, проверяющий значение атрибута на соответствие заданным условиям или типу.
+observe(cls, handler, names=None): Метод класса, позволяющий связать обработчик события с указанными атрибутами.
+link(target, name, linkname=None): Метод объекта, позволяющий установить
+связь между атрибутами текущего объекта и атрибутами другого объекта.
+
+Подмодуль: traitlets.config
+
+Методы:
+Configurable(): Базовый класс, предоставляющий функциональность для работы с конфигурационными файлами и параметрами.
+load_config_file(filename): Метод, загружающий конфигурационный файл, указанный по имени.
+Application: Класс, представляющий приложение, которое может быть настроено с помощью конфигурационных файлов.
+Config: Класс, представляющий конфигурацию, содержащую набор параметров для настройки.
+
+
+Самые часто используемые методы:
+default(obj): Возвращает значение по умолчанию для указанного атрибута.
+
+```python
+value = default("attr_name")
+```
+
+validate(obj, value): Проверяет значение атрибута на соответствие заданным условиям или типу.
+
+```python
+is_valid = validate("attr_name", value)
+```
+
+observe(cls, handler, names=None): Связывает обработчик события с указанными атрибутами.
+
+```python
+observe("class_name", handler_func, ["attr_name1", "attr_name2"])
+```
+
+link(target, name, linkname=None): Устанавливает связь между атрибутами
+текущего объекта и атрибутами другого объекта.
+
+```python
+link(other_object, "attr_name", "linked_attr_name")
+```
+""",
+                    "linecache": r"""
+Библиотека "linecache" в Python используется для чтения линий из файлов с исходным кодом.
+Она предоставляет функции для извлечения строк из файла по их номеру.
+
+Методы модуля "linecache" включают:
+`getline(filename, lineno)`: Возвращает указанную строку из указанного файла.
+`getlines(filename)`: Возвращает все строки из указанного файла в виде списка.
+`clearcache()`: Очищает кэш, используемый для хранения строк файла.
+
+   Примеры подмодулей отсутствуют.
+
+Некоторые из самых часто используемых методов "linecache" включают:
+Метод `getline(filename, lineno)` - возвращает указанную строку из указанного файла.
+
+```python
+import linecache
+
+line = linecache.getline("file.txt", 5)
+print(line)
+```
+
+Этот код выведет пятую строку из файла "file.txt".
+
+Метод `getlines(filename)` - возвращает все строки из указанного файла в виде списка.
+
+```python
+import linecache
+
+lines = linecache.getlines("file.txt")
+for line in lines:
+    print(line)
+```
+
+Этот код выведет все строки из файла "file.txt" по одной строке на каждую итерацию цикла.
+
+Метод `clearcache()` - очищает кэш, используемый для хранения строк файла.
+Это может быть полезно, если файл изменился и требуется обновить строки в кэше.
+
+```python
+import linecache
+
+# Изменения в файле "file.txt"
+
+linecache.clearcache()
+line = linecache.getline("file.txt", 5)
+print(line)
+```
+
+Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла "file.txt".
+
+Примечание: Убедитесь, что файл "file.txt" существует и содержит нужные строки.
+""",
+                    "readline": r"""
+Библиотека "readline" используется в Python для обеспечения функциональности чтения и редактирования строк в интерактивной командной оболочке.
+
+Методы модуля "readline" и его подмодулей:
+
+readline(): Читает строку из входного потока.
+add_history(string): Добавляет строку в историю командной оболочки.
+clear_history(): Очищает историю командной оболочки.
+get_history_length(): Возвращает количество записей в истории командной оболочки.
+set_history_length(length): Устанавливает максимальное количество записей в истории командной оболочки.
+get_current_history_length(): Возвращает текущую длину истории командной оболочки.
+remove_history_item(pos): Удаляет запись из истории командной оболочки по указанной позиции.
+replace_history_item(pos, string): Заменяет запись в истории командной оболочки по указанной позиции новой строкой.
+
+Наиболее часто используемые методы:
+
+readline(): Читает строку из входного потока.
+
+```python
+import readline
+
+input_string = readline.readline()
+print("Input:", input_string)
+```
+
+add_history(string): Добавляет строку в историю командной оболочки.
+
+```python
+import readline
+
+readline.add_history("command 1")
+readline.add_history("command 2")
+```
+
+clear_history(): Очищает историю командной оболочки.
+
+```python
+import readline
+
+readline.clear_history()
+```
+""",
+                    "sched": r"""
+Библиотека "sched" в Python используется для планирования и управления задачами в программе.
+Она позволяет создавать расписания выполнения задач и контролировать их выполнение в определенные моменты времени.
+
+Методы модуля "sched" и его подмодулей:
+sched.timefunc: Устанавливает функцию, которая будет использоваться для получения времени.
+sched.delayfunc: Устанавливает функцию, вызываемую перед каждым циклом планировщика.
+sched.enter(delay, priority, action, argument): Планирует выполнение задачи с заданным задержкой, приоритетом, действием и аргументом.
+sched.enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом, действием и аргументом.
+sched.cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
+sched.run(): Запускает планировщик и начинает выполнение задач.
+
+Самые часто используемые методы библиотеки "sched" и их краткие описания:
+enter(delay, priority, action, argument): Планирует выполнение задачи с заданной задержкой и приоритетом.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+scheduler.enter(5, 1, print_message, ())
+scheduler.run()
+```
+
+enterabs(time, priority, action, argument): Планирует выполнение задачи в определенный момент времени с указанным приоритетом.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+scheduler.enterabs(time.time() + 10, 1, print_message, ())
+scheduler.run()
+```
+
+cancel(event): Отменяет выполнение задачи, связанной с указанным событием.
+
+```python
+import sched
+import time
+
+def print_message():
+    print("Scheduled task executed.")
+
+scheduler = sched.scheduler(time.time, time.sleep)
+event = scheduler.enter(5, 1, print_message, ())
+scheduler.cancel(event)
+scheduler.run()
+```
+
+Пожалуйста, помните об обеспечении безопасности при использовании этой библиотеки и выполнении задач в программе.
+""",
+                    "grpc": r"""
+Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
+Это позволяет разработчикам создавать распределенные системы,
+где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
+
+Методы и подмодули библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи для клиентского подключения к серверу.
+grpc.secure_channel(): Создает безопасный канал связи (шифрованное соединение) для клиентского подключения к серверу.
+grpc.Channel: Класс, представляющий канал связи между клиентом и сервером.
+grpc.Server: Класс, представляющий сервер, который слушает входящие запросы и обрабатывает их с помощью определенных сервисов.
+grpc.stub: Подмодуль, содержащий классы и функции для создания клиентских и серверных стабов (stub), облегчающих взаимодействие по RPC.
+grpc.Service: Базовый класс для реализации пользовательских сервисов GRPC.
+grpc.rpc_error: Подмодуль, содержащий классы исключений, связанных с ошибками RPC.
+
+Некоторые часто используемые методы библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи с сервером. `channel = grpc.insecure_channel("localhost:50051")`
+grpc.stub: Подмодуль, который предоставляет классы для создания клиентских и серверных стабов (stub) для удобного взаимодействия по RPC.
+grpc.Server.add_insecure_port(): Определяет небезопасный порт, на котором сервер будет прослушивать входящие запросы. `server.add_insecure_port("[::]:50051")`
+grpc.Server.start(): Запускает сервер, ожидающий входящих запросов. `server.start()`
+grpc.Service: Базовый класс, который разработчики могут наследовать для создания пользовательских сервисов GRPC. `class MyService(grpc.Service):`
+""",
+                    "packaging": r"""
+Библиотека "packaging" в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов.
+Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива.
+
+Методы модуля "packaging" и его подмодулей:
+
+Модуль packaging.version:
+parse(version_string): Парсит версию из строки и возвращает объект Version.
+Version: Класс для представления версии пакета.
+
+Модуль packaging.specifiers:
+Specifier: Класс для представления спецификации версии пакета.
+LegacySpecifier: Класс для представления устаревшей спецификации версии пакета.
+SpecifierSet: Класс для представления набора спецификаций версий пакета.
+
+Модуль packaging.requirements:
+Requirement: Класс для представления требования к пакету.
+
+Модуль packaging.markers:
+Marker: Класс для представления условий маркера.
+default_environment: Возвращает стандартное окружение.
+
+Модуль packaging.tags:
+Tag: Класс для представления метки платформы.
+sys_tags(): Возвращает метки платформы для текущей системы.
+
+Наиболее часто используемые методы в библиотеке "packaging":
+
+parse(version_string): Парсит версию из строки и возвращает объект Version.
+
+```python
+from packaging import version
+
+version_string = "1.2.3"
+parsed_version = version.parse(version_string)
+print(parsed_version)
+```
+
+SpecifierSet(specifier_string): Создает набор спецификаций версий на основе строки.
+
+```python
+from packaging.specifiers import SpecifierSet
+
+specifier_string = ">=1.0,<=2.0"
+specifier_set = SpecifierSet(specifier_string)
+print(specifier_set)
+```
+
+Requirement(requirement_string): Создает требование к пакету на основе строки.
+
+```python
+from packaging.requirements import Requirement
+
+requirement_string = "numpy>=1.0"
+requirement = Requirement(requirement_string)
+print(requirement)
+```
+
+Убедитесь, что у вас установлена библиотека "packaging" перед использованием этих методов.
+""",
+                    "nis": r"""
+Библиотека "nis" в Python используется для работы с сервисом Network Information Service (NIS).
+NIS предоставляет распределенную базу данных, которая используется для хранения информации о пользователях,
+группах и других системных ресурсах в сети.
+
+Методы модуля "nis":
+nis.match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
+nis.cat(mapname): Возвращает все записи из указанной базы данных.
+nis.maps(): Возвращает список доступных баз данных.
+nis.getmapbyname(name): Возвращает содержимое базы данных с указанным именем.
+nis.getmapbynumber(number): Возвращает содержимое базы данных с указанным номером.
+
+Некоторые из самых часто используемых методов "nis" включают:
+match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
+
+```python
+import nis
+
+value = nis.match("passwd", "john")
+print(value)
+```
+
+cat(mapname): Возвращает все записи из указанной базы данных.
+
+```python
+import nis
+
+records = nis.cat("passwd")
+for record in records:
+    print(record)
+```
+
+maps(): Возвращает список доступных баз данных.
+
+```python
+import nis
+
+map_list = nis.maps()
+print(map_list)
+```
+
+Это лишь некоторые из методов, доступных в библиотеке "nis".
+""",
+                    "notebook": r"""
+Библиотека "notebook" используется для создания интерактивных блокнотов в среде Jupyter Notebook.
+Она предоставляет возможность комбинировать код, текст, графики и другие элементы в одном документе,
+что делает его удобным инструментом для исследования данных, прототипирования и обучения.
+
+Методы модуля "notebook" и его подмодулей:
+
+Модуль "notebook":
+`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
+`open_notebook(path)`: открывает блокнот по указанному пути.
+`create_notebook()`: создает новый блокнот.
+`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
+`export_notebook(path, format)`: экспортирует блокнот в указанный формат (например, HTML, PDF).
+
+Подмодуль "cells":
+`list_cells()`: возвращает список всех ячеек в текущем блокноте.
+`add_code_cell()`: добавляет новую ячейку с кодом.
+`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
+`delete_cell(index)`: удаляет ячейку по указанному индексу.
+
+Самые часто используемые методы:
+
+`list_notebooks()`: возвращает список всех блокнотов в текущем рабочем каталоге.
+
+```python
+from notebook import list_notebooks
+
+notebooks = list_notebooks()
+print(notebooks)
+```
+
+`open_notebook(path)`: открывает блокнот по указанному пути.
+
+```python
+from notebook import open_notebook
+
+notebook = open_notebook("path/to/notebook.ipynb")
+print(notebook)
+```
+
+`create_notebook()`: создает новый блокнот.
+
+```python
+from notebook import create_notebook
+
+notebook = create_notebook()
+print(notebook)
+```
+
+`save_notebook(path)`: сохраняет текущий блокнот по указанному пути.
+
+```python
+from notebook import save_notebook
+
+save_notebook("path/to/save.ipynb")
+```
+
+`list_cells()`: возвращает список всех ячеек в текущем блокноте.
+
+```python
+from notebook.cells import list_cells
+
+cells = list_cells()
+print(cells)
+```
+
+`add_code_cell()`: добавляет новую ячейку с кодом.
+
+```python
+from notebook.cells import add_code_cell
+
+cell = add_code_cell()
+print(cell)
+```
+
+`add_markdown_cell()`: добавляет новую ячейку с текстом в формате Markdown.
+
+```python
+from notebook.cells import add_markdown_cell
+
+cell = add_markdown_cell()
+print(cell)
+```
+
+`delete_cell(index)`: удаляет ячейку по указанному индексу.
+
+```python
+from notebook.cells import delete_cell
+
+delete_cell(0)
+```
+""",
+                    "quopri": r"""
+Библиотека "quopri" в Python используется для кодирования и декодирования данных в формате Quoted-Printable.
+Quoted-Printable - это способ представления непечатных или специальных символов в текстовом формате,
+который используется в электронной почте и других приложениях.
+
+Методы и подмодули библиотеки "quopri":
+
+`quopri.encode(input, output, quotetabs=False)` - кодирует входные данные в формат Quoted-Printable и записывает результат в выходной поток.
+`quopri.decode(input, output, headers=False)` - декодирует входные данные из формата Quoted-Printable и записывает результат в выходной поток.
+`quopri.quote(data)` - возвращает строку, в которой данные закодированы в формате Quoted-Printable.
+`quopri.unquote(data)` - возвращает строку, в которой данные декодированы из формата Quoted-Printable.
+`quopri.encodestring(s)` - кодирует строку в формат Quoted-Printable и возвращает результат как строку.
+`quopri.decodestring(s)` - декодирует строку из формата Quoted-Printable и возвращает результат как строку.
+
+Самые часто используемые методы:
+
+`quopri.encode(input, output, quotetabs=False)` - метод для кодирования данных в формат Quoted-Printable.
+Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи.
+
+```python
+import quopri
+
+input_data = b"Hello, world!"
+encoded_data = quopri.encode(input_data)
+print(encoded_data)
+```
+
+`quopri.decode(input, output, headers=False)` - метод для декодирования данных из формата Quoted-Printable.
+Полезно при работе с данными, полученными из электронной почты или других источников, где данные могут быть закодированы в этом формате.
+
+```python
+import quopri
+
+encoded_data = b"Hello=2C=20world=21"
+decoded_data = quopri.decode(encoded_data)
+print(decoded_data)
+```
+""",
+                    "mailcap": r"""
+Библиотека "mailcap" в Python используется для обработки типов файлов и ассоциированных программ.
+
+
+Модуль: mailcap
+findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
+getcaps: Возвращает все записи в файле mailcap.
+getparam: Возвращает значение параметра из записи mailcap.
+listmailcapfiles: Возвращает список файлов mailcap в системе.
+lookup: Находит запись mailcap для заданного типа файла.
+parse: Разбирает содержимое mailcap-файла и возвращает его в виде словаря.
+
+
+findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
+
+```python
+import mailcap
+
+filename = "example.txt"
+type = "text/plain"
+
+match = mailcap.findmatch(type, filename)
+if match:
+    command = match[0]
+    params = match[1]
+    # выполнение команды с использованием параметров
+```
+
+getcaps: Возвращает все записи в файле mailcap.
+
+```python
+import mailcap
+
+caps = mailcap.getcaps()
+for cap in caps:
+    print(cap)
+```
+
+lookup: Находит запись mailcap для заданного типа файла.
+
+```python
+import mailcap
+
+type = "text/plain"
+lookup = mailcap.lookup(type)
+if lookup:
+    print(lookup)
+```
+
+Маленький код для демонстрации этих методов:
+```python
+import mailcap
+
+filename = "example.txt"
+type = "text/plain"
+
+match = mailcap.findmatch(type, filename)
+if match:
+    command = match[0]
+    params = match[1]
+    # выполнение команды с использованием параметров
+
+caps = mailcap.getcaps()
+for cap in caps:
+    print(cap)
+
+lookup = mailcap.lookup(type)
+if lookup:
+    print(lookup)
+```
+""",
+                    "errno": r"""
+Библиотека "errno" в Python используется для обработки ошибок, связанных с системными вызовами и функциями операционной системы.
+Она предоставляет доступ к кодам ошибок, которые могут возникать
+при выполнении операций ввода-вывода, работы с файлами, сетью и другими системными ресурсами.
+
+Методы и подмодули библиотеки "errno":
+
+errno.errorcode: Возвращает словарь, ключами которого являются коды ошибок, а значениями - соответствующие им символьные имена.
+errno.geterrno(): Возвращает код текущей ошибки.
+errno.geterror(): Возвращает описание текущей ошибки в виде строки.
+errno.strerror(errno): Возвращает описание ошибки по заданному коду ошибки.
+errno.clear(): Очищает код текущей ошибки.
+
+Самые часто используемые методы библиотеки "errno":
+
+errno.errorcode: Возвращает словарь, где ключами являются коды ошибок, а значениями - символьные имена.
+Например: {"ENOENT": "No such file or directory", "EACCES": "Permission denied"}.
+
+```python
+import errno
+
+error_codes = errno.errorcode
+print(error_codes)
+```
+
+errno.geterrno(): Возвращает код текущей ошибки. Например: 2.
+
+```python
+import errno
+
+error_num = errno.geterrno()
+print(error_num)
+```
+
+errno.geterror(): Возвращает описание текущей ошибки в виде строки. Например: "No such file or directory".
+
+```python
+import errno
+
+error_desc = errno.geterror()
+print(error_desc)
+```
+""",
+                    "ntpath": r"""
+Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
+с учетом специфических особенностей операционной системы Windows.
+
+Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:
+
+Метод                                     | Описание
+----------------------------------------|---------------------------------------------------
+ntpath.abspath(path)                     | Возвращает абсолютный путь к указанному пути.
+ntpath.basename(path)                    | Возвращает базовое имя файла или каталога из указанного пути.
+ntpath.commonprefix(list)                | Возвращает наибольший общий префикс из списка путей.
+ntpath.dirname(path)                     | Возвращает каталог, содержащий указанный путь.
+ntpath.exists(path)                      | Проверяет, существует ли указанный путь.
+ntpath.expanduser(path)                  | Заменяет в указанном пути тильду (~) на домашний каталог пользователя.
+ntpath.expandvars(path)                  | Заменяет переменные окружения в указанном пути на их значения.
+ntpath.isfile(path)                      | Проверяет, является ли указанный путь файлом.
+ntpath.isdir(path)                       | Проверяет, является ли указанный путь каталогом.
+ntpath.join(path, *paths)                | Объединяет пути с использованием разделителя.
+ntpath.normpath(path)                    | Нормализует указанный путь, удаляя двойные слеши и точки.
+ntpath.realpath(path)                    | Возвращает канонический абсолютный путь к указанному пути.
+ntpath.relpath(path, start)              | Возвращает относительный путь от исходного пути до указанного пути.
+ntpath.split(path)                       | Разделяет указанный путь на имя каталога и имя файла.
+
+Несколько часто используемых методов "ntpath" с их кратким описанием и примерами кода:
+
+Метод                                     | Описание                                | Пример
+-----------------------------------------|-----------------------------------------|--------------------------------------------------
+ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути. | dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -> "file.txt"
+ntpath.exists(path)                       | Проверяет, существует ли указанный путь. | if ntpath.exists("/path/to/file.txt"): print("File exists")
+ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя. | full_path = ntpath.join("/path/to", "file.txt") print(full_path) -> "/path/to/file.txt"
+""",
+                    "locale": r"""
+Библиотека "locale" в Python используется для обработки локализации и форматирования числовых,
+датовых и строковых значений в соответствии с настройками локали операционной системы.
+
+Таблица методов и их описания для модуля "locale" и его подмодулей:
+
+Модуль "locale":
+setlocale(category, locale=None): устанавливает текущую локаль для данной категории (категории определяют тип данных, например, числа, даты и др.).
+
+Подмодуль "localeconv":
+localeconv(): возвращает словарь с настройками форматирования чисел и валюты в текущей локали.
+
+Наиболее часто используемые методы и их описание:
+
+setlocale(category, locale=None): Этот метод позволяет установить локаль для определенной категории.
+Например, setlocale(locale.LC_NUMERIC, "en_US") устанавливает локаль для чисел на английский (США).
+
+
+```python
+import locale
+
+locale.setlocale(locale.LC_NUMERIC, "en_US")
+formatted_number = locale.format_string("%.2f", 1234.5678)
+print(formatted_number)
+```
+Результат: "1,234.57"
+
+Помните, что информация о локализации и форматировании может отличаться в зависимости от операционной системы и языка установки Python.
+""",
+                    "gettext": r"""
+Библиотека "gettext" в Python используется для локализации и перевода текстовых сообщений в программе.
+
+# Таблица методов модуля "gettext" и его подмодулей:
+### Методы модуля "gettext":
+bindtextdomain(domain, directory): устанавливает домен и директорию для поиска файлов перевода.
+dgettext(domain, message): возвращает перевод сообщения из указанного домена.
+dngettext(domain, singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
+gettext(message): возвращает перевод сообщения.
+ngettext(singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
+textdomain(domain): устанавливает текущий домен перевода.
+
+### Методы подмодуля "gettext.translation":
+gettext.translation(domain, localedir=None, languages=None, fallback=False): создает объект перевода на основе заданного домена и директории локализации.
+gettext.translation(""): возвращает объект перевода для текущего домена.
+add_fallback(translations): добавляет объект перевода в список резервных вариантов перевода.
+install(domain, localedir=None, unicode=0): устанавливает объект перевода в качестве текущего.
+
+Самые часто используемые методы библиотеки "gettext" вместе с их кратким описанием и примером кода:
+
+gettext(message): Возвращает перевод сообщения.
+
+```python
+import gettext
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
+
+_ = gettext.gettext
+print(_("Hello, world!"))
+```
+
+ngettext(singular, plural, n): Возвращает перевод множественного сообщения на основе числа n.
+
+```python
+import gettext
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
+
+_ = gettext.ngettext
+print(_("%d apple", "%d apples", 5) % 5)
+```
+
+dgettext(domain, message): Возвращает перевод сообщения из указанного домена.
+
+```python
+import gettext
+gettext.bindtextdomain("mydomain", "locale/")
+gettext.textdomain("mydomain")
+
+_ = gettext.dgettext
+print(_("mydomain", "Hello, world!"))
+```
+""",
+                    "rfc3339_validator": r"""
+Библиотека "rfc3339_validator" используется для проверки правильности формата даты и времени в соответствии со стандартом RFC 3339.
+
+Таблица методов модуля и его подмодулей:
+
+Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
+Возвращает булевое значение True, если формат верен, и False в противном случае.
+
+Список самых частых методов, их краткого описания и примерного кода:
+
+Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
+
+```python
+from rfc3339_validator import validate
+
+date_string = "2022-01-01T12:34:56Z"
+if validate(date_string):
+    print("Формат даты и времени верный")
+else:
+    print("Некорректный формат даты и времени")
+```
+""",
+                    "netbios": r"""
+"netbios" - это библиотека в Python, которая предоставляет функциональность
+для работы с протоколом NetBIOS (Network Basic Input/Output System).
+
+Таблица методов модуля "netbios" и их краткого описания:
+
+Метод                  | Описание
+-----------------------|----------------------------------------------------
+nbt.getnetbiosname()   | Получает NetBIOS-имя компьютера, на котором выполняется код.
+nbt.getwinsaddrs()     | Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
+nbt.getnodetype()      | Возвращает тип узла в сети.
+nbt.gethostbyname()    | Возвращает IP-адреса, связанные с указанным NetBIOS-именем.
+nbt.getbcastaddrs()    | Возвращает список широковещательных адресов, связанных с NetBIOS-именами.
+
+Список самых часто используемых методов, их краткого описания и
+
+nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера.
+
+```python
+import netbios as nb
+
+name = nb.getnetbiosname()
+print(name)
+```
+
+nbt.getwinsaddrs(): Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
+
+```python
+import netbios as nb
+
+wins_addrs = nb.getwinsaddrs()
+print(wins_addrs)
+```
+
+nbt.getnodetype(): Возвращает тип узла в сети.
+
+```python
+import netbios as nb
+
+node_type = nb.getnodetype()
+print(node_type)
+```
+""",
+                    "bz2": """
+Модуль bz2 в Python предоставляет интерфейс для сжатия и распаковки данных
+с использованием алгоритма BZ2 (Burrows-Wheeler).
+Он позволяет работать с файлами и байтовыми объектами, обеспечивая эффективное сжатие данных.
+
+| Метод                                                     | Описание                                                                           |
+|-----------------------------------------------------------|------------------------------------------------------------------------------------|
+| bz2.compress(data, compresslevel=9)                       | Сжимает данные BZ2. Можно указать уровень сжатия (1-9).                            |
+| bz2.decompress(data)                                      | Распаковывает данные BZ2.                                                          |
+| bz2.BZ2File(file, mode="r", buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: "r" (чтение), "w" (запись), "a" (добавление). |
+
+**bz2.compress(data, compresslevel=9)** Сжимает данные BZ2.
+
+```python
+compressed_data = bz2.compress(b"Hello, World!")
+print(compressed_data)
+```
+
+**bz2.decompress(data)** Распаковывает данные BZ2.
+
+```python
+decompressed_data = bz2.decompress(compressed_data)
+print(decompressed_data)
+```
 """,
                 },
             },
@@ -9478,6 +9465,71 @@ Person Object
 ```
 
 Взято из https://digitology.tech/docs/python_3/library/string.html
+""",
+            "mro": """
+# Method resolution order | Порядок разрешения методов
+
+Позволяет Питону выяснить, из какого класса-предка нужно вызывать метод,
+если он не обнаружен непосредственно в классе-потомке при множественном наследовании.
+
+Решает проблему **«ромбовидной структуры»** («diamond diagram»).
+
+```python
+\U00002800 object
+   /   \\
+  A     B
+   \\   /
+     C
+```
+
+**Линеаризация класса** - это список из самого класса и всех его предков (родителей и прародителей)
+в котором по порядку слева направо будет производиться поиск метода.
+
+**Монотонность** — это свойство, которое требует соблюдения в линеаризации класса-потомка
+того же порядка следования классов-прародителей, что и в линеаризации класса-родителя.
+
+**Порядок локального старшинства** — это свойство, которое требует соблюдения в линеаризации класса-потомка
+того же порядка следования классов-родителей, что и в его объявлении.
+
+Для решения проблемы ромбовидной структуры линеаризация должна быть **монотонной**.
+
+
+# Алгоритм порядка разрешения методов C3.
+
+Для достижения указанных выше целей в Питоне используется алгоритм **C3**.
+
+`[C1, C2, … CN]` – список из элементов `C1`, `C2`, … `CN`. Соответственно, `[С]` — список из одного элемента `C`.
+`L[C]` – линеаризация класса `C`. Важно помнить, что любая линеаризация есть список по определению.
+`merge(L[C1], L[C2], …, L[CN])` – объединение элементов линеаризаций `L[C1]`, `L[C2]`, …, `L[CN]` в список с помощью некоторого алгоритма.
+По сути, этот алгоритм должен упорядочить все классы из `L[C1]`, `L[C2]`, …, `L[CN]` и исключить дублирование классов в итоговом списке.
+
+
+Алгоритм C3 представляет из себя набор следующих правил:
+
+- Линеаризация класса `C` есть одноэлементный список из самого класса `C` плюс объединение линеаризаций его родителей и списка всех его родителей.
+  В условных обозначениях это можно записать как `L[C] = [C] + merge(L[C1], L[C2], …, L[CN], [C1, C2, …, CN])`,
+  если класс `C` был объявлен как `class C(C1, C2, …, CN)`.
+  Надо отметить, что каждая линеаризация `L[CX]` начинается с класса `CX`,
+  который был дополнительно приписан в конец списка объединения как непосредственный родитель класса `C`.
+  Зачем это сделано станет ясно далее.
+- Объединение линеаризаций происходит следующим образом:
+    1. Берётся нулевой элемент из первой линеаризации `L[C1][0]`.
+    2. Этот элемент ищется во всех других линеаризациях (от `L[C2]` до `L[CN]`).
+    3. Если этот элемент найден где-то вне начала списка
+       (`L[CK][X] == L[C1][0]`, `X != 0`; по сути это значит, что `L[C1][0]` является чьйм-то предком),
+       то алгоритм переходит к первому шагу, беря в качестве нулевого элемент из следующей линеаризации (`L[C2][0]`).
+    4. Если элемент нигде не найден в позиции отличной от нулевой, то он добавляется в конец итогового списка линеаризации
+       и удаляется из всех рассматриваемых списков (от `L[C1]` до` L[CN]`; один и тот же класс не может встречаться в итоговом списке дважды).
+       Если после удаления элемента остались пустые списки — они исключаются из объединения.
+       После этого алгоритм повторяется с самого начала (от нового элемента L[C1][0]), если он есть.
+       Если его нет — объединение закончено.
+    5. Если алгоритм дошёл до последнего элемента `L[CN]`,
+       но ни один из нулевых элементов не удовлетворяет правилам, то линеаризация не возможна.
+
+
+
+
+https://habr.com/ru/articles/62203/
 """,
             "Аннотации типов": """
 ```python
