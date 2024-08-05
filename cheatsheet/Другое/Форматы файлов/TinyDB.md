@@ -1,4 +1,3 @@
-<p>Шпаргалка по TinyDB в Python:</p>
 <div class="code-element">
 <div class="lang-line">
   <text>bash</text>

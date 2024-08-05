@@ -1,4 +1,3 @@
-<p><a href='https://habr.com/ru/post/421625' target='_blank'>https://habr.com/ru/post/421625</a></p>
 <table>
 <thead>
 <tr>
@@ -17,3 +16,4 @@
 </tr>
 </tbody>
 </table>
+<p><a target="_blank" href="https://habr.com/ru/post/421625">https://habr.com/ru/post/421625</a></p>

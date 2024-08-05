@@ -12,10 +12,10 @@
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" kpath="Общее" onclick="toggleDisplay(Общее7020cd63f7fd3ac875a619583c7e53a5);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(Общееd177f216a743e7a61c7bd2e58af14f86);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общее7020cd63f7fd3ac875a619583c7e53a5" style="display:none;">
+   <div class="button-folder" id="Общееd177f216a743e7a61c7bd2e58af14f86" style="display:none;">
     <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
      📂 GIT
     </button>
@@ -141,6 +141,9 @@
       📄 Декларативная
      </button>
     </div>
+    <button class="button" onclick="GET('Общее/ip.md');" vpath="Общее/ip.md">
+     📄 ip
+    </button>
     <button class="button" onclick="GET('Общее/ООП.md');" vpath="Общее/ООП.md">
      📄 ООП
     </button>
@@ -160,18 +163,18 @@
      📄 Google Search
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиd87701bf5358a43fbf8477cf4cef2764);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(Языки5320dd76320bee3f3b8a449b7fb9dc91);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языкиd87701bf5358a43fbf8477cf4cef2764" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python20345120c3e762695f5584855e638160);">
+   <div class="button-folder" id="Языки5320dd76320bee3f3b8a449b7fb9dc91" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python6990db823b90951d6067fa154a667fde);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python20345120c3e762695f5584855e638160" style="display:none;">
-     <button class="button" kpath="Языки/Python/Библиотеки/" onclick='toggleDisplay(Библиотекиd7dc303872292e7970460b0fbe2f8625);GET("Языки/Python/Библиотеки/index.md");' vpath="Языки/Python/Библиотеки/">
+    <div class="button-folder" id="Python6990db823b90951d6067fa154a667fde" style="display:none;">
+     <button class="button" kpath="Языки/Python/Библиотеки/" onclick='toggleDisplay(Библиотекиde18d032b73008314bfbbb08ffbb7b4b);GET("Языки/Python/Библиотеки/index.md");' vpath="Языки/Python/Библиотеки/">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотекиd7dc303872292e7970460b0fbe2f8625" style="display:none;">
+     <div class="button-folder" id="Библиотекиde18d032b73008314bfbbb08ffbb7b4b" style="display:none;">
       <button class="button" kpath="Языки/Python/Библиотеки/Система" onclick="toggleDisplay(Системаecafcf90119b08d748537f6b95cb99c8);">
        📂 Система
       </button>
@@ -530,6 +533,17 @@
         📄 rfc3986_validator
        </button>
       </div>
+      <button class="button" kpath="Языки/Python/Библиотеки/Базы данных" onclick="toggleDisplay(Базыданныхd667296e2eff94e9333cd8fc2357ccc3);">
+       📂 Базы данных
+      </button>
+      <div class="button-folder" id="Базыданныхd667296e2eff94e9333cd8fc2357ccc3" style="display:none;">
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Базы данных/sqlite3.md');" vpath="Языки/Python/Библиотеки/Базы данных/sqlite3.md">
+        📄 sqlite3
+       </button>
+       <button class="button" onclick="GET('Языки/Python/Библиотеки/Базы данных/psycopg.md');" vpath="Языки/Python/Библиотеки/Базы данных/psycopg.md">
+        📄 psycopg
+       </button>
+      </div>
       <button class="button" kpath="Языки/Python/Библиотеки/Other" onclick="toggleDisplay(Othera4fd38d6b1ea96a52becc92c9c0b0896);">
        📂 Other
       </button>
@@ -841,27 +855,43 @@
       📄 Лямбда-выражения
      </button>
     </div>
-    <button class="button" kpath="Языки/SQL" onclick="toggleDisplay(SQL0aa3ea3c77da47bb8726937fce1799e4);">
+    <button class="button" kpath="Языки/SQL" onclick="toggleDisplay(SQL2c3205e9ed35a6fe382f6096d876b1da);">
      📂 SQL
     </button>
-    <div class="button-folder" id="SQL0aa3ea3c77da47bb8726937fce1799e4" style="display:none;">
-     <button class="button" onclick="GET('Языки/SQL/Разное.md');" vpath="Языки/SQL/Разное.md">
-      📄 Разное
+    <div class="button-folder" id="SQL2c3205e9ed35a6fe382f6096d876b1da" style="display:none;">
+     <button class="button" kpath="Языки/SQL/SQLite3" onclick="toggleDisplay(SQLite3984151a5352d3359c5a04ec877ca1e1c);">
+      📂 SQLite3
      </button>
-     <button class="button" onclick="GET('Языки/SQL/JOIN.md');" vpath="Языки/SQL/JOIN.md">
-      📄 JOIN
+     <div class="button-folder" id="SQLite3984151a5352d3359c5a04ec877ca1e1c" style="display:none;">
+      <button class="button" onclick="GET('Языки/SQL/SQLite3/Date And Time Format.md');" vpath="Языки/SQL/SQLite3/Date And Time Format.md">
+       📄 Date And Time Format
+      </button>
+      <button class="button" onclick="GET('Языки/SQL/SQLite3/Разное.md');" vpath="Языки/SQL/SQLite3/Разное.md">
+       📄 Разное
+      </button>
+      <button class="button" onclick="GET('Языки/SQL/SQLite3/JOIN.md');" vpath="Языки/SQL/SQLite3/JOIN.md">
+       📄 JOIN
+      </button>
+      <button class="button" onclick="GET('Языки/SQL/SQLite3/Операторы.md');" vpath="Языки/SQL/SQLite3/Операторы.md">
+       📄 Операторы
+      </button>
+      <button class="button" onclick="GET('Языки/SQL/SQLite3/Функции.md');" vpath="Языки/SQL/SQLite3/Функции.md">
+       📄 Функции
+      </button>
+     </div>
+     <button class="button" kpath="Языки/SQL/PostgreSQL" onclick="toggleDisplay(PostgreSQL17b3e0d64f7f2b7a9082ee2d42303682);">
+      📂 PostgreSQL
      </button>
-     <button class="button" onclick="GET('Языки/SQL/Операторы.md');" vpath="Языки/SQL/Операторы.md">
-      📄 Операторы
-     </button>
-     <button class="button" onclick="GET('Языки/SQL/Функции.md');" vpath="Языки/SQL/Функции.md">
-      📄 Функции
-     </button>
+     <div class="button-folder" id="PostgreSQL17b3e0d64f7f2b7a9082ee2d42303682" style="display:none;">
+      <button class="button" onclick="GET('Языки/SQL/PostgreSQL/Типы данных.md');" vpath="Языки/SQL/PostgreSQL/Типы данных.md">
+       📄 Типы данных
+      </button>
+      <button class="button" onclick="GET('Языки/SQL/PostgreSQL/pg_hba.conf.md');" vpath="Языки/SQL/PostgreSQL/pg_hba.conf.md">
+       📄 pg_hba.conf
+      </button>
+     </div>
      <button class="button" onclick="GET('Языки/SQL/Картинки.md');" vpath="Языки/SQL/Картинки.md">
       📄 Картинки
-     </button>
-     <button class="button" onclick="GET('Языки/SQL/SQLite3 Date And Time Format.md');" vpath="Языки/SQL/SQLite3 Date And Time Format.md">
-      📄 SQLite3 Date And Time Format
      </button>
     </div>
     <button class="button" kpath="Языки/Dockerfile" onclick="toggleDisplay(Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861);">
@@ -1126,10 +1156,10 @@
      </button>
     </div>
    </div>
-   <button class="button" kpath="Другое" onclick="toggleDisplay(Другоеd54f41905a4273daa57fd8d94c6239d0);">
+   <button class="button" kpath="Другое" onclick="toggleDisplay(Другое89e0e6b9e7c6f4b9bdf17afa779f105a);">
     📂 Другое
    </button>
-   <div class="button-folder" id="Другоеd54f41905a4273daa57fd8d94c6239d0" style="display:none;">
+   <div class="button-folder" id="Другое89e0e6b9e7c6f4b9bdf17afa779f105a" style="display:none;">
     <button class="button" kpath="Другое/Форматы файлов" onclick="toggleDisplay(Форматыфайлов3a9825b6ba7a02b3e372e4fb7e25fca0);">
      📂 Форматы файлов
     </button>
@@ -1179,8 +1209,22 @@
       📄 Минимальное максимальное число матрицы cpp
      </button>
     </div>
+    <button class="button" onclick="GET('Другое/Alt Символы.md');" vpath="Другое/Alt Символы.md">
+     📄 Alt Символы
+    </button>
     <button class="button" onclick="GET('Другое/Полезные ссылки.md');" vpath="Другое/Полезные ссылки.md">
      📄 Полезные ссылки
+    </button>
+   </div>
+   <button class="button" kpath="Shortcuts" onclick="toggleDisplay(Shortcuts05b04abc6549d5ada894b0a7eb777b04);">
+    📂 Shortcuts
+   </button>
+   <div class="button-folder" id="Shortcuts05b04abc6549d5ada894b0a7eb777b04" style="display:none;">
+    <button class="button" onclick="GET('Языки/Python/fstrings.md');restoreCheatSheetState('Языки/Python/fstrings.md')" vpath="Языки/Python/fstrings.md">
+     🔗 Языки/Python/fstrings
+    </button>
+    <button class="button" onclick="GET('Языки/RegExp/RegExp.md');restoreCheatSheetState('Языки/RegExp/RegExp.md')" vpath="Языки/RegExp/RegExp.md">
+     🔗 Языки/RegExp/RegExp
     </button>
    </div>
   </div>

@@ -1,50 +1,23 @@
 <h1>F-Strings</h1>
 <p><strong>F-строки</strong> - это новый способ форматирования строк в Python 3.6 и выше. 
 Они позволяют встраивать выражения Python внутри строк посредством указания их в <code>{}</code> внутри строки, заключенной в <code>f</code>.</p>
-<div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="code934e685b530125435db079b74c897fd2b"
-          onclick="copyCode(code934e685b530125435db079b74c897fd2, code934e685b530125435db079b74c897fd2b)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-  </button>
-
-</div>
-<div class="code" id="code934e685b530125435db079b74c897fd2"><div class="highlight"><pre><span></span>replacement_field ::=  &quot;{&quot; [field_name] [&quot;!&quot; conversion] [&quot;:&quot; format_spec] &quot;}&quot;
-
-field_name        ::=  arg_name (&quot;.&quot; attribute_name | &quot;[&quot; element_index &quot;]&quot;)*
+<blockquote>
+<p>replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"</p>
+<p>field_name        ::=  arg_name ("." attribute_name | "[" element_index "]")*
 arg_name          ::=  [identifier | digit+]
 attribute_name    ::=  identifier
 element_index     ::=  digit+ | index_string
-index_string      ::=  &lt;любой исходный символ, кроме &quot;]&quot;&gt; +
-
-conversion        ::=  &quot;r&quot; | &quot;s&quot; | &quot;a&quot;
-
-format_spec       ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
-fill              ::=  &lt;any character&gt;
-align             ::=  &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;=&quot; | &quot;^&quot;
-sign              ::=  &quot;+&quot; | &quot;-&quot; | &quot; &quot;
+index_string      ::=  &lt;любой исходный символ, кроме "]"&gt; +</p>
+<p>conversion        ::=  "r" | "s" | "a"</p>
+<p>format_spec       ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
+fill              ::=  <any character>
+align             ::=  "&lt;" | "&gt;" | "=" | "^"
+sign              ::=  "+" | "-" | " "
 width             ::=  digit+
-grouping_option   ::=  &quot;_&quot; | &quot;,&quot;
+grouping_option   ::=  "_" | ","
 precision         ::=  digit+
-type              ::=  &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;E&quot; | &quot;f&quot; | &quot;F&quot; | &quot;g&quot; | &quot;G&quot; | &quot;n&quot; | &quot;o&quot; | &quot;s&quot; | &quot;x&quot; | &quot;X&quot; | &quot;%&quot;
-</pre></div></div>
-</div>
-
+type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"</p>
+</blockquote>
 <h2>Field_name</h2>
 <p>Выражение формы <code>".name"</code> выбирает именованный атрибут с помощью <code>getattr()</code>
 Выражение формы <code>"[index]"</code> выполняет поиск по индексу с использованием <code>getitem()</code></p>
@@ -968,4 +941,35 @@ type              ::=  &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&q
 </pre></div></div>
 </div>
 
-<p>Взято из <a href='https://digitology.tech/docs/python_3/library/string.html' target='_blank'>https://digitology.tech/docs/python_3/library/string.html</a></p>
+<p>Взято из <a target="_blank" href="https://digitology.tech/docs/python_3/library/string.html">https://digitology.tech/docs/python_3/library/string.html</a></p>
+<h1>% strings</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">%s</td>
+<td style="text-align: left;">Строковое представление.</td>
+</tr>
+<tr>
+<td style="text-align: right;">%d</td>
+<td style="text-align: left;">Целое число.</td>
+</tr>
+<tr>
+<td style="text-align: right;">%f</td>
+<td style="text-align: left;">Число с плавающей точкой.</td>
+</tr>
+<tr>
+<td style="text-align: right;">%x</td>
+<td style="text-align: left;">Шестнадцатеричное представление целого числа.</td>
+</tr>
+<tr>
+<td style="text-align: right;">%o</td>
+<td style="text-align: left;">Восьмеричное представление целого числа.</td>
+</tr>
+</tbody>
+</table>

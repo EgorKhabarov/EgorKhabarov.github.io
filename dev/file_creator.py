@@ -115,13 +115,13 @@ def url_shortener(url):
     if url == "http://www.w3.org/2000/svg":
         return url
 
-    return f"<a href='{url}' target='_blank'>{url}</a>"
+    return f'<a target="_blank" href="{url}">{url}</a>'
 
 
 def to_markup(markdown_text):
     # r"(http?s?://\S+)"
     markdown_text = re.sub(
-        r"((?:http|https|\w+)://[^\"\'\n ]+)", url_shortener, markdown_text
+        r"(?<!\()(?<=\W)(\w+://[^\"\')\n ]+)(?!\))", url_shortener, markdown_text
     )
 
     # Регулярное выражение для поиска блоков кода
@@ -142,7 +142,7 @@ def to_markup(markdown_text):
     ]
     final_html = markdown.markdown(highlighted_html, extensions=md_extensions)
 
-    return final_html
+    return final_html.replace('<a href="', '<a target="_blank" href="').replace("<a href='", "<a target='_blank' href='")
 
 
 def create_files_and_folders(dictionary, directory=".", x=0, y=0):

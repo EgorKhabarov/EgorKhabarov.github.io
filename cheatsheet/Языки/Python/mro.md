@@ -70,4 +70,4 @@
 </ol>
 </li>
 </ul>
-<p><a href='https://habr.com/ru/articles/62203/' target='_blank'>https://habr.com/ru/articles/62203/</a></p>
+<p><a target="_blank" href="https://habr.com/ru/articles/62203/">https://habr.com/ru/articles/62203/</a></p>

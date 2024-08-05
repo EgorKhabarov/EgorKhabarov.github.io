@@ -31,13 +31,13 @@ a:visited {color: #539bf5;}
 th {
   padding: 10px 15px;
   background-color: #46494b;
-  width: max-content;
+  width: min-content;
 }
 td {
   border-top: 1px solid #46494b;
   padding: 10px 15px;
   background-color: #3c3f41;
-  width: max-content;
+  width: min-content;
 }
 th:first-child {border-top-left-radius: .375rem;}
 th:last-child {border-top-right-radius: .375rem;}
@@ -51,25 +51,25 @@ tr:hover td {background: #46494b;}
   display: flex;
   flex-direction: row;
   border: 0px solid;
-  border-radius: 10px;
-  height: 84vh;
+  border-radius: 10px 0px 0px 10px;
+  height: 89vh;
   width: 300px;
   background-color: #191919;
-  padding: 20px;
+  padding: 15px;
   flex-direction: column;
   overflow-y: auto;
 }
 
 /* Папка с кнопками */
 .button-folder {
-  height: max-content;
-  width: 0px; //initial; //max-content;
+  /*height: max-content;*/
+  width: 0px; /*//initial; //max-content;*/
   border: 0px solid;
   border-radius: 10px;
   padding-left: 10px;
-  background-color: #505050; //#AFB1B3; //#343434;
+  background-color: #505050; /*//#AFB1B3; //#343434;*/
   color: #AAAAAA;
-  margin: -3px 0px 8px 2px;
+  margin: -3px 0px 3px 2px;
 }
 
 /* Кнопки выбора темы */
@@ -78,7 +78,8 @@ tr:hover td {background: #46494b;}
   font-size: 1em;
   display: flex;
   align-items: center;
-  margin: 8px 0;
+  margin: 6px 0;
+  margin-top: 0;
   padding: 0 20px;
   padding-left: 10px;
   min-height: 45px;
@@ -96,11 +97,9 @@ tr:hover td {background: #46494b;}
 /* Поле в котором появляется шпаргалка */
 .cheatsheet-field {
   display: flex;
-  height: 84vh;
   width: 100%;
   border: 0px solid;
   padding: 20px;
-  border-radius: 10px;
   background-color: #2B2B2B;
   color: #AAAAAA;
   font-size: 12px;
@@ -109,7 +108,7 @@ tr:hover td {background: #46494b;}
   flex-direction: column;
 }
 
-/* Кнопки усправления справа */
+/* Кнопки управления справа */
 .control-button {
   height: 64px;
   width: 64px;
@@ -133,7 +132,7 @@ tr:hover td {background: #46494b;}
 .code-element {
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: min-content;
   margin-bottom:1rem;
   border-radius:.375rem;
 }
@@ -186,11 +185,14 @@ tr:hover td {background: #46494b;}
 }
 
 code {
-  padding: 0.1rem;
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
   overflow-y:auto;
   border-radius: 5px;
-  background-color: #272727;
+  background-color: #474747;
 }
+
+td > code {background-color: #676767;color: #b8b8b8;}
+th > code {background-color: #676767;color: #b8b8b8;}
 
 /* Подсветка синтаксиса */
 .k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */

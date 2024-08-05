@@ -1,4 +1,3 @@
-<p><a href='https://python-markdown.github.io/extensions/' target='_blank'>https://python-markdown.github.io/extensions/</a></p>
 <table>
 <thead>
 <tr>
@@ -100,3 +99,4 @@
 </tr>
 </tbody>
 </table>
+<p><a target="_blank" href="https://python-markdown.github.io/extensions/">https://python-markdown.github.io/extensions/</a></p>

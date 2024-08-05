@@ -274,7 +274,11 @@ function restoreCheatSheetState(path) {
         kelement = document.querySelector(`[kpath="${kpath}"]`);
     }
     // console.log("getPathWithoutFilename", kpath);
-    toggleStyleDisplayByPath(kpath);
+    try {
+        toggleStyleDisplayByPath(kpath);
+    } catch (e) {
+        console.log("toggleStyleDisplayByPath(kpath);");
+    }
 
     let vpath = path;
     let velement = document.querySelector(`[vpath="${vpath}"]`);

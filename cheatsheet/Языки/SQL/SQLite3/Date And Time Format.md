@@ -1,4 +1,4 @@
-<p>copied from <a href='https://www.sqlite.org/lang_datefunc.html' target='_blank'>https://www.sqlite.org/lang_datefunc.html</a></p>
+<p>copied from <a target="_blank" href="https://www.sqlite.org/lang_datefunc.html">https://www.sqlite.org/lang_datefunc.html</a></p>
 <h2>Overview</h2>
 <p>SQLite supports seven scalar date and time functions as follows:</p>
 <ol>

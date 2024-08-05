@@ -46,11 +46,11 @@
 </tr>
 <tr>
 <td>[^..]</td>
-<td>Любой символ, кроме перечисленных &lt;[^&gt;]&gt;</td>
+<td>Любой символ, кроме перечисленных [^&gt;]</td>
 </tr>
 <tr>
 <td>\d≈[0-9]</td>
-<td>Буква “ё” не включается в общий диапазон букв!</td>
+<td>Буква <code>ё</code> не включается в общий диапазон букв!</td>
 </tr>
 <tr>
 <td>\D≈[^0-9]<br>\w≈[0-9a-zA-Zа-яА-ЯёЁ]<br>\s≈[ \f\n\r\t\v]</td>
@@ -256,7 +256,7 @@
 </tbody>
 </table>
 <h1>Флаги</h1>
-<p><a href='https://docs.python.org/3/library/re.html#flags' target='_blank'>https://docs.python.org/3/library/re.html#flags</a></p>
+<p><a target="_blank" href="https://docs.python.org/3/library/re.html#flags">https://docs.python.org/3/library/re.html#flags</a></p>
 <table>
 <thead>
 <tr>

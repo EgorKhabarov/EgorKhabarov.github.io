@@ -1,4 +1,3 @@
-<p><a href='https://vedis-python.readthedocs.io/en/latest/quickstart.html' target='_blank'>https://vedis-python.readthedocs.io/en/latest/quickstart.html</a></p>
 <div class="code-element">
 <div class="lang-line">
   <text>python</text>
@@ -33,5 +32,6 @@
 </pre></div></div>
 </div>
 
+<p><a target="_blank" href="https://vedis-python.readthedocs.io/en/latest/quickstart.html">https://vedis-python.readthedocs.io/en/latest/quickstart.html</a></p>
 <p>Пример использования в боте
-<a href='https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/' target='_blank'>https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/</a></p>
+<a target="_blank" href="https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/">https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/</a></p>
