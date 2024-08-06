@@ -1,9 +1,8 @@
 <h1>TOML - Tom's Obvious, Minimal Language</h1>
 <p>формат конфигурационных файлов, который был разработан
-для использования в проектах, написанных на языке программирования Rust.</p>
+для использования в проектах, написанных на языке программирования <code>Rust</code>.</p>
 <p>TOML файлы имеют структуру ключ-значение, где ключи и значения
-разделены знаком "=", и используют синтаксис, похожий на язык программирования INI.
-Пример</p>
+разделены знаком <code>=</code>, и используют синтаксис, похожий на язык программирования <code>INI</code>.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>toml</text>
@@ -38,8 +37,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code65a861331f284e6e5ea55a1d7020267db"
-          onclick="copyCode(code65a861331f284e6e5ea55a1d7020267d, code65a861331f284e6e5ea55a1d7020267db)">
+          id="code78ce31013a1b2467c6163e320a7e4044b"
+          onclick="copyCode(code78ce31013a1b2467c6163e320a7e4044, code78ce31013a1b2467c6163e320a7e4044b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -57,12 +56,17 @@
   </button>
 
 </div>
-<div class="code" id="code65a861331f284e6e5ea55a1d7020267d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">toml</span>  <span class="c1"># pip install toml</span>
+<div class="code" id="code78ce31013a1b2467c6163e320a7e4044"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">toml</span>  <span class="c1"># pip install toml</span>
+
+
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">toml</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">toml</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>  <span class="c1"># toml.dump(config, file)</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">config</span> <span class="o">=</span> <span class="n">toml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">toml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># toml.loads(file.read())</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </pre></div></div>
 </div>

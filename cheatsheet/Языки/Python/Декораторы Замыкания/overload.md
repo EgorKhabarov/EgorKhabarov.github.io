@@ -5,8 +5,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code4ebb5b5332cf59aeaeed0d69cd42b03eb"
-          onclick="copyCode(code4ebb5b5332cf59aeaeed0d69cd42b03e, code4ebb5b5332cf59aeaeed0d69cd42b03eb)">
+          id="code00c7c1092e58cacf27aeb14f07ca9ca3b"
+          onclick="copyCode(code00c7c1092e58cacf27aeb14f07ca9ca3, code00c7c1092e58cacf27aeb14f07ca9ca3b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -24,7 +24,7 @@
   </button>
 
 </div>
-<div class="code" id="code4ebb5b5332cf59aeaeed0d69cd42b03e"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
+<div class="code" id="code00c7c1092e58cacf27aeb14f07ca9ca3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">overload</span>
 
 <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
     <span class="nd">@overload</span>
@@ -41,9 +41,9 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">arg1</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">my_method</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># 4</span>
 
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">my_method</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>        <span class="c1"># 4</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">my_method</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">))</span>  <span class="c1"># HELLO</span>
 </pre></div></div>
 </div>

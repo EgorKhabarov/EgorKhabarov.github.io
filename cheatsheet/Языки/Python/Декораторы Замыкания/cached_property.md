@@ -2,8 +2,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code00aa3b9b07b46bc262ab5edadd1543a6b"
-          onclick="copyCode(code00aa3b9b07b46bc262ab5edadd1543a6, code00aa3b9b07b46bc262ab5edadd1543a6b)">
+          id="code79624f3cd6584bd7386946b633ceb889b"
+          onclick="copyCode(code79624f3cd6584bd7386946b633ceb889, code79624f3cd6584bd7386946b633ceb889b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -21,7 +21,7 @@
   </button>
 
 </div>
-<div class="code" id="code00aa3b9b07b46bc262ab5edadd1543a6"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
+<div class="code" id="code79624f3cd6584bd7386946b633ceb889"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">cached_property</span>
 
 
 <span class="k">class</span> <span class="nc">Circle</span><span class="p">:</span>
@@ -35,8 +35,8 @@
 
 <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
-<span class="c1"># напечатает 314.0</span>
+<span class="c1"># Напечатает 314.0</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">circle</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
-<span class="c1"># вернет кешированное значение 314.0 без вычислений</span>
+<span class="c1"># Вернет кешированное значение 314.0 без вычислений</span>
 </pre></div></div>
 </div>

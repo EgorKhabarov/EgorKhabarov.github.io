@@ -1,9 +1,8 @@
 <h1>YAML - Ain't Markup Language</h1>
 <p>Формат файлов, который используется для хранения и обмена неструктурированными и структурированными
 данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
-YAML использует отступы и специальные символы для обозначения структуры данных.
-Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.
-Пример</p>
+<code>YAML</code> использует отступы и специальные символы для обозначения структуры данных.
+Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>yaml</text>
@@ -37,8 +36,8 @@ YAML использует отступы и специальные символ�
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="codeae3a525a3b2acbb6b1720dd2fee6402db"
-          onclick="copyCode(codeae3a525a3b2acbb6b1720dd2fee6402d, codeae3a525a3b2acbb6b1720dd2fee6402db)">
+          id="code318fa2f0e5ae776bc90b0d36dacb86dcb"
+          onclick="copyCode(code318fa2f0e5ae776bc90b0d36dacb86dc, code318fa2f0e5ae776bc90b0d36dacb86dcb)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -56,12 +55,17 @@ YAML использует отступы и специальные символ�
   </button>
 
 </div>
-<div class="code" id="codeae3a525a3b2acbb6b1720dd2fee6402d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install yaml</span>
+<div class="code" id="code318fa2f0e5ae776bc90b0d36dacb86dc"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install yaml</span>
+
+
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </pre></div></div>
 </div>

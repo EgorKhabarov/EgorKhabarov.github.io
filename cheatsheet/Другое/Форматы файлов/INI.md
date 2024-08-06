@@ -1,9 +1,8 @@
 <h1>INI (Initialization)</h1>
 <p>формат конфигурационных файлов, который используется 
 для хранения настроек приложений и операционных систем. 
-Он был разработан в Windows и стал широко используемым 
-форматом для хранения конфигурационных данных в различных программных продуктах.
-Пример</p>
+Он был разработан в <code>Windows</code> и стал широко используемым 
+форматом для хранения конфигурационных данных в различных программных продуктах.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>ini</text>
@@ -41,8 +40,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code389e09306e44d6bf18bcbd86e70532ebb"
-          onclick="copyCode(code389e09306e44d6bf18bcbd86e70532eb, code389e09306e44d6bf18bcbd86e70532ebb)">
+          id="codec1cfcde7cd4a65d2ad9af97de3cf42f2b"
+          onclick="copyCode(codec1cfcde7cd4a65d2ad9af97de3cf42f2, codec1cfcde7cd4a65d2ad9af97de3cf42f2b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -60,14 +59,18 @@
   </button>
 
 </div>
-<div class="code" id="code389e09306e44d6bf18bcbd86e70532eb"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
+<div class="code" id="codec1cfcde7cd4a65d2ad9af97de3cf42f2"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
 <span class="c1"># config[&quot;BOT&quot;] = {&quot;bot_name&quot;: &quot;&quot;, &quot;token&quot;: &quot;&quot;}</span>
 
 <span class="kn">import</span> <span class="nn">configparser</span>
+
+
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
 <span class="n">config_ini</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">config_ini</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.ini&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">config_ini</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 

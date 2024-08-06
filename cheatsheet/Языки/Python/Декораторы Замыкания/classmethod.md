@@ -1,13 +1,13 @@
 <p>Декоратор <code>@classmethod</code> используется для определения методов класса,
-которые принимают первый аргумент в виде самого класса (обычно называемый cls),
-а не экземпляра класса (как в случае с методами экземпляра, где первый аргумент называется self).</p>
+которые принимают первый аргумент в виде самого класса (обычно называемый <code>cls</code>),
+а не экземпляра класса (как в случае с методами экземпляра, где первый аргумент называется <code>self</code>).</p>
 <p><code>@classmethod</code> позволяет вызывать метод как на экземпляре класса, так и на самом классе.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code76ce15c3e0b3c88c91d9118847259d60b"
-          onclick="copyCode(code76ce15c3e0b3c88c91d9118847259d60, code76ce15c3e0b3c88c91d9118847259d60b)">
+          id="code7d6607b6a746b2a0de0f2f02c37c3350b"
+          onclick="copyCode(code7d6607b6a746b2a0de0f2f02c37c3350, code7d6607b6a746b2a0de0f2f02c37c3350b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -25,14 +25,13 @@
   </button>
 
 </div>
-<div class="code" id="code76ce15c3e0b3c88c91d9118847259d60"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<div class="code" id="code7d6607b6a746b2a0de0f2f02c37c3350"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 
-<span class="n">MyClass</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">MyClass</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>    <span class="c1"># 5</span>
+<span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># 6</span>
 </pre></div></div>
 </div>
-<p>5
-6</p>

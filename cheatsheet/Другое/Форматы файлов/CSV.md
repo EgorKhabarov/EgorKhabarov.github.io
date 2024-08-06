@@ -1,7 +1,6 @@
 <h1>CSV - Comma Separated Values</h1>
 <p>Текстовый формат файла, который используется для хранения табличных данных.
-Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.
-Пример</p>
+Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>csv</text>
@@ -35,8 +34,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="codead2e1ba4617672b314e501ba8981e193b"
-          onclick="copyCode(codead2e1ba4617672b314e501ba8981e193, codead2e1ba4617672b314e501ba8981e193b)">
+          id="codec49e1d2b6472aa1d3d59157af32e5754b"
+          onclick="copyCode(codec49e1d2b6472aa1d3d59157af32e5754, codec49e1d2b6472aa1d3d59157af32e5754b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -54,10 +53,19 @@
   </button>
 
 </div>
-<div class="code" id="codead2e1ba4617672b314e501ba8981e193"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">]]</span>
+<div class="code" id="codec49e1d2b6472aa1d3d59157af32e5754"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+<span class="p">]</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)]</span>
 </pre></div></div>

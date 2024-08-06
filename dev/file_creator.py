@@ -23,6 +23,10 @@ def code_block_callback(match):
         .removeprefix('<pre><code class="language-')
         .strip('">')
     )
+    if "@" in language:
+        language, filename = language.split("@", maxsplit=1)
+    else:
+        filename = ""
 
     if language == "":
         _language, language = "text", "text"
@@ -52,7 +56,7 @@ def code_block_callback(match):
         """
 <button class="copy-button-2"
         id="code{code_id}_2b"
-        onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{code_block}')">
+        onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{filename}')">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -70,9 +74,9 @@ def code_block_callback(match):
   </button>
 """.format(
             code_id=code_id,
-            code_block=code_block.strip().splitlines()[0].removeprefix("#file "),
+            filename=filename,
         ).strip()
-        if code_block.strip().startswith("#file ")
+        if filename
         else ""
     )
     return """
@@ -126,7 +130,7 @@ def to_markup(markdown_text):
 
     # Регулярное выражение для поиска блоков кода
     code_block_pattern = re.compile(
-        r"(?si)(```[a-z+#-]*|<pre><code class=\"language-[a-z+#-]*\">)"
+        r"(?si)(```[a-z+#@._-]*|<pre><code class=\"language-[a-z+#-]*\">)"
         r"(.*?)"
         r"(```|</code></pre>)"
     )

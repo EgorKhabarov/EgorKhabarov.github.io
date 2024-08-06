@@ -162,7 +162,7 @@
 </pre></div></div>
 </div>
 
-<p><img alt="collections.jpg" src="Языки/Java/collections.jpg"></p>
+<p><img alt="collections.jpg" src="Языки/Java/collections.jpg" /></p>
 <p>Основные коллекции
 Помимо главного интерфейса Collection есть три других главных формата:</p>
 <ul>

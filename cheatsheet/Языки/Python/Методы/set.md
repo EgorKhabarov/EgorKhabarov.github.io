@@ -43,19 +43,19 @@
 <td style="text-align: left;">Возвращает новое множество, содержащее элементы, присутствующие только в одном из <code>set</code> и <code>set2</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">set.update(set2)</td>
+<td style="text-align: left;">set.update(set2), |=</td>
 <td style="text-align: left;">Обновляет множество, добавляя элементы из <code>set2</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">set.difference_update(set2)</td>
+<td style="text-align: left;">set.difference_update(set2), -=</td>
 <td style="text-align: left;">Обновляет множество, удаляя элементы из <code>set</code>, которые присутствуют в <code>set2</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">set.intersection_update(set2)</td>
+<td style="text-align: left;">set.intersection_update(set2), &amp;=</td>
 <td style="text-align: left;">Обновляет множество, оставляя только элементы, присутствующие одновременно в <code>set</code> и <code>set2</code>.</td>
 </tr>
 <tr>
-<td style="text-align: left;">set.symmetric_difference_update(set2)</td>
+<td style="text-align: left;">set.symmetric_difference_update(set2), ^=</td>
 <td style="text-align: left;">Обновляет множество, оставляя только элементы, присутствующие только в одном из <code>set</code> и <code>set2</code>.</td>
 </tr>
 <tr>
@@ -68,7 +68,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">set.remove(element)</td>
-<td style="text-align: left;">Удаляет элемент element из множества. Если элемент не найден, возникает исключение <code>KeyError</code>.</td>
+<td style="text-align: left;">Удаляет элемент <code>element</code> из множества. Если элемент не найден, возникает исключение <code>KeyError</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left;">set.discard(element)</td>

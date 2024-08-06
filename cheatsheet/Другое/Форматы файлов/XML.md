@@ -2,8 +2,7 @@
 <p>Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
 Он использует теги для определения структуры данных и может быть использован для хранения
 всех видов данных, включая текст, изображения и мультимедиа.
-XML широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
-Пример</p>
+<code>XML</code> широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.</p>
 <div class="code-element">
 <div class="lang-line">
   <text>xml</text>
@@ -41,8 +40,8 @@ XML широко используется в Интернете для хран�
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code4dc2cef260689316eacfb1fba36a30f5b"
-          onclick="copyCode(code4dc2cef260689316eacfb1fba36a30f5, code4dc2cef260689316eacfb1fba36a30f5b)">
+          id="codeadcdc788c4c83c6907350e89dde19688b"
+          onclick="copyCode(codeadcdc788c4c83c6907350e89dde19688, codeadcdc788c4c83c6907350e89dde19688b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -60,7 +59,7 @@ XML широко используется в Интернете для хран�
   </button>
 
 </div>
-<div class="code" id="code4dc2cef260689316eacfb1fba36a30f5"><div class="highlight"><pre><span></span><span class="c1"># config = ET.Element(&quot;config&quot;)</span>
+<div class="code" id="codeadcdc788c4c83c6907350e89dde19688"><div class="highlight"><pre><span></span><span class="c1"># config = ET.Element(&quot;config&quot;)</span>
 <span class="c1"># bot = ET.SubElement(config, &quot;BOT&quot;)</span>
 <span class="c1"># ET.SubElement(bot, &quot;bot_name&quot;).text = &quot;&quot;</span>
 <span class="c1"># ET.SubElement(bot, &quot;token&quot;).text = &quot;&quot;</span>
@@ -103,10 +102,13 @@ XML широко используется в Интернете для хран�
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">dict_to_xml</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">ElementTree</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">tree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">tree</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
 <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">xml_to_dict</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
