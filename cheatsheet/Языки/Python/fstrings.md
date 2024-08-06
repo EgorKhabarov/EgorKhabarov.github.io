@@ -185,17 +185,17 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <table>
 <thead>
 <tr>
-<th>Тип</th>
+<th style="text-align: center;">Тип</th>
 <th>Значение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>"<code>s</code>"</td>
+<td style="text-align: center;">"<code>s</code>"</td>
 <td>Формат строки. Это тип по умолчанию для строк, и его можно опустить.</td>
 </tr>
 <tr>
-<td>None</td>
+<td style="text-align: center;">None</td>
 <td>То же, что "<code>s</code>".</td>
 </tr>
 </tbody>
@@ -247,45 +247,45 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Тип</th>
+<th style="text-align: center;">Тип</th>
 <th>Значение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>e</strong></td>
+<td style="text-align: center;"><strong>e</strong></td>
 <td>Научная нотация.<br>Для заданной точности <code>p</code> форматирует число в <strong>экспоненциальном представлении</strong> с буквой «<code>e</code>», отделяющей <strong><code>p</code> цифр коэффициента</strong> от экспоненты.<br>Коэффициент состоит из одной цифры перед и после десятичной точки, всего <code>p + 1</code> значащих цифр.<br>Если точность не указана, используется точность <strong>6 цифр</strong> после десятичной точки для <code>float</code><br>и отображаются все цифры коэффициентов для <code>Decimal</code>.<br>Если после десятичной точки нет цифр, десятичная точка также удаляется,<br>если не используется опция <code>#</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>E</strong></td>
+<td style="text-align: center;"><strong>E</strong></td>
 <td>Научная нотация.<br>То же, что и '<code>e</code>', за исключением того, что в качестве символа-разделителя используется заглавная буква «<code>E</code>»</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>f</strong></td>
+<td style="text-align: center;"><strong>f</strong></td>
 <td>Запись с фиксированной точкой.<br>Для заданной точности <code>p</code> форматирует число как десятичное с точностью <code>p</code> цифр после десятичной точки.<br>Если точность не указана, используется точность <strong>6 цифр</strong> после десятичной точки для <code>float</code><br>и используется точность, достаточно большая для отображения всех цифр коэффициентов для <code>Decimal</code>.<br>Если после десятичной точки нет цифр, десятичная точка также удаляется,<br>если не используется опция <code>#</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>F</strong></td>
+<td style="text-align: center;"><strong>F</strong></td>
 <td>Представление с фиксированной точкой.<br>То же, что и '<code>f</code>', но преобразует <code>nan</code> в <code>NAN</code> и <code>inf</code> в <code>INF</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>g</strong></td>
+<td style="text-align: center;"><strong>g</strong></td>
 <td>Общий формат.<br>Для заданной точности <code>p &gt;= 1</code> округляет число до <code>p</code> значащих цифр и затем форматирует результат либо в формате с фиксированной точкой,<br>либо в научном представлении, в зависимости от его величины.<br><br>Точные правила следующие: предположим, что результат отформатирован с типом представления '<code>e</code>' и <code>p-1</code> точности, будет с exp экспонентой.<br>Затем, если <code>m &lt;= exp &lt; p</code>, где <code>m</code> равно <code>-4</code> для <code>floats</code> и <code>-6</code> для <code>Decimals</code>,<br>число форматируется с типом представления '<code>f</code>' и точностью <code>p-1-exp</code>.<br>В противном случае номер форматируется с помощью '<code>e</code>' типа представления и <code>p-1</code> точности.<br>В обоих случаях из значащего удаляются незначительные конечные нули, а десятичная точка также удаляется, если после неё нет оставшихся цифр,<br>если не используется опция '<code>#</code>'.<br><br>Без указания точности использует точность <strong><code>6</code> значащих цифр</strong> для <code>float</code>.<br>Для <code>Decimal</code> коэффициент результата формируется из цифр коэффициента значения;<br>экспоненциальная нотация используется для значений, меньших, чем <code>1e-6</code> по абсолютной величине, и значений,<br>в которых разряд наименее значащей цифры больше 1, а в противном случае используется нотация с фиксированной точкой.<br><br>Положительные и отрицательные бесконечности, положительный и отрицательный ноль и <code>nan</code>,<br>форматируются как <code>inf</code>, <code>-inf</code>, <code>0</code>, <code>-0</code> и <code>nan</code> соответственно, независимо от точности</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>G</strong></td>
+<td style="text-align: center;"><strong>G</strong></td>
 <td>Общий формат.<br>То же, что и '<code>g</code>', за исключением переключения на '<code>E</code>', если число становится слишком большим.<br>Представления бесконечности и <code>NaN</code> также в верхнем регистре.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>n</strong></td>
+<td style="text-align: center;"><strong>n</strong></td>
 <td>Номер.<br>Это то же самое, что и '<code>g</code>', за исключением того, что он использует текущую настройку локали<br>для вставки соответствующих символов разделителя чисел.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>%</strong></td>
+<td style="text-align: center;"><strong>%</strong></td>
 <td>Процент.<br><strong>Умножает число на <code>100</code> и отображает в фиксированном ('<code>f</code>') формате</strong>, за которым следует знак процента.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>None</strong></td>
+<td style="text-align: center;"><strong>None</strong></td>
 <td>Для <code>float</code> это то же самое, что и для '<code>g</code>',<br>за исключением того, что когда для форматирования результата используется запись с фиксированной точкой,<br>она всегда включает как минимум одну цифру после десятичной точки.<br>Используемая точность настолько велика, насколько это необходимо для точного представления заданного значения.<br><br>Для Decimal это то же самое, что '<code>g</code>' или '<code>G</code>' в зависимости от значения <code>context.capitals</code> для текущего десятичного контекста.<br><br>Общий эффект заключается в том, чтобы соответствовать выходным данным <code>str()</code>, измененному другими модификаторами формата.</td>
 </tr>
 </tbody>
@@ -946,29 +946,29 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <table>
 <thead>
 <tr>
-<th style="text-align: right;"></th>
+<th style="text-align: center;"></th>
 <th style="text-align: left;"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">%s</td>
+<td style="text-align: center;">%s</td>
 <td style="text-align: left;">Строковое представление.</td>
 </tr>
 <tr>
-<td style="text-align: right;">%d</td>
+<td style="text-align: center;">%d</td>
 <td style="text-align: left;">Целое число.</td>
 </tr>
 <tr>
-<td style="text-align: right;">%f</td>
+<td style="text-align: center;">%f</td>
 <td style="text-align: left;">Число с плавающей точкой.</td>
 </tr>
 <tr>
-<td style="text-align: right;">%x</td>
+<td style="text-align: center;">%x</td>
 <td style="text-align: left;">Шестнадцатеричное представление целого числа.</td>
 </tr>
 <tr>
-<td style="text-align: right;">%o</td>
+<td style="text-align: center;">%o</td>
 <td style="text-align: left;">Восьмеричное представление целого числа.</td>
 </tr>
 </tbody>
