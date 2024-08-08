@@ -16,14 +16,26 @@ print()
 
 folder_path = "../cheatsheet"
 x = 0
+print_progress_bar(0, cheatsheet_count, "delete old cheatsheet", "")
+
+
+def g(path: str):
+    r = DICT
+    for k in path.removeprefix("../cheatsheet").strip("/").strip("\\").removesuffix(".md").split("\\"):
+        r = r[k]
+    return r
+
 
 for foldername, _, filenames in os.walk(folder_path):
     for filename in filenames:
         if filename.endswith(".md"):
             x += 1
             path = os.path.join(foldername, filename)
-            print_progress_bar(x, cheatsheet_count, "delete old cheatsheet", path)
-            os.remove(path)
+            try:
+                g(path)
+            except KeyError:
+                print_progress_bar(x, cheatsheet_count, "delete old cheatsheet", path)
+                os.remove(path)
 
 print()
 generate_index_html(cheatsheet_count)

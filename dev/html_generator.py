@@ -17,6 +17,8 @@ def buttons(
 ) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
+        print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
+
         if key.startswith("link:"):
             key = key.removeprefix("link:")
             name = key.replace("\\", "&#x2f;") + ".md"
@@ -32,8 +34,6 @@ def buttons(
                 )
             )
             continue
-
-        print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
 
         if key == "index":
             x += 1
