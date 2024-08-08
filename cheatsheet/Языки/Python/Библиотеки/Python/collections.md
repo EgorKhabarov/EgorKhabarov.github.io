@@ -17,11 +17,10 @@
 <p>Эти классы облегчают работу с коллекциями в Python и уменьшают необходимость писать большой и сложный код для выполнения стандартных задач.</p>
 <p>namedtuple:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code76a5d3e92c7161412a2912f54889f1d1b"
-          onclick="copyCode(code76a5d3e92c7161412a2912f54889f1d1, code76a5d3e92c7161412a2912f54889f1d1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -32,14 +31,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code76a5d3e92c7161412a2912f54889f1d1"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 
 <span class="c1"># создаем именованный кортеж Point</span>
 <span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">])</span>
@@ -55,11 +54,10 @@
 
 <p>deque:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code241983f4ec829263fffb7ef39280f828b"
-          onclick="copyCode(code241983f4ec829263fffb7ef39280f828, code241983f4ec829263fffb7ef39280f828b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -70,14 +68,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code241983f4ec829263fffb7ef39280f828"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 
 <span class="c1"># создаем пустую двустороннюю очередь</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
@@ -98,11 +96,10 @@
 
 <p>Counter:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codebcc509ee230ff9544fdefef5fb326925b"
-          onclick="copyCode(codebcc509ee230ff9544fdefef5fb326925, codebcc509ee230ff9544fdefef5fb326925b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -113,14 +110,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codebcc509ee230ff9544fdefef5fb326925"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="c1"># создаем счетчик</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s2">&quot;hello, world&quot;</span><span class="p">)</span>
@@ -135,11 +132,10 @@
 
 <p>OrderedDict:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code4fd315de5b61b6dab32386a407dc957cb"
-          onclick="copyCode(code4fd315de5b61b6dab32386a407dc957c, code4fd315de5b61b6dab32386a407dc957cb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -150,14 +146,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4fd315de5b61b6dab32386a407dc957c"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 
 <span class="c1"># создаем упорядоченный словарь</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
@@ -179,11 +175,10 @@
 
 <p>defaultdict:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb0e0732ae78347b738abb408bfa62c57b"
-          onclick="copyCode(codeb0e0732ae78347b738abb408bfa62c57, codeb0e0732ae78347b738abb408bfa62c57b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -194,14 +189,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb0e0732ae78347b738abb408bfa62c57"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 <span class="c1"># создаем словарь с дефолтным значением 0</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -218,11 +213,10 @@
 
 <p>ChainMap:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code1bada3188d1d5c29f3116c4356210fe9b"
-          onclick="copyCode(code1bada3188d1d5c29f3116c4356210fe9, code1bada3188d1d5c29f3116c4356210fe9b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -233,14 +227,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1bada3188d1d5c29f3116c4356210fe9"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">ChainMap</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">ChainMap</span>
 
 <span class="c1"># создаем два словаря</span>
 <span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
@@ -266,11 +260,10 @@
 
 <p>UserDict:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code0b47e0c140ba217c347889fa7b148da3b"
-          onclick="copyCode(code0b47e0c140ba217c347889fa7b148da3, code0b47e0c140ba217c347889fa7b148da3b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -281,14 +274,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code0b47e0c140ba217c347889fa7b148da3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserDict</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserDict</span>
 
 <span class="c1"># создаем пользовательский словарь</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">UserDict</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
@@ -303,11 +296,10 @@
 
 <p>UserList:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb742e073fbf11e5d240f2493d155efa2b"
-          onclick="copyCode(codeb742e073fbf11e5d240f2493d155efa2, codeb742e073fbf11e5d240f2493d155efa2b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -318,14 +310,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb742e073fbf11e5d240f2493d155efa2"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserList</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserList</span>
 
 <span class="c1"># создаем пользовательский список</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">UserList</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -340,11 +332,10 @@
 
 <p>UserString:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code4b3113757d2d4f07bf829d025e4508c2b"
-          onclick="copyCode(code4b3113757d2d4f07bf829d025e4508c2, code4b3113757d2d4f07bf829d025e4508c2b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -355,14 +346,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4b3113757d2d4f07bf829d025e4508c2"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserString</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">UserString</span>
 
 <span class="c1"># создаем пользовательскую строку</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">UserString</span><span class="p">(</span><span class="s2">&quot;hello, world&quot;</span><span class="p">)</span>

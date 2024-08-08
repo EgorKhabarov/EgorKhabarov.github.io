@@ -33,11 +33,10 @@
 </table>
 <p><code>readmodule()</code> Читает и анализирует модуль, возвращая словарь классов и функций.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code967a153fadf26de344b2a51316963c65b"
-          onclick="copyCode(code967a153fadf26de344b2a51316963c65, code967a153fadf26de344b2a51316963c65b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -48,14 +47,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code967a153fadf26de344b2a51316963c65"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
 
 <span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">readmodule</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
 
@@ -68,11 +67,10 @@
 
 <p><code>Class</code> Класс, представляющий отдельный класс из исходного кода.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb23ddfa64b45d96a14ab84d89d61d918b"
-          onclick="copyCode(codeb23ddfa64b45d96a14ab84d89d61d918, codeb23ddfa64b45d96a14ab84d89d61d918b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -83,14 +81,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb23ddfa64b45d96a14ab84d89d61d918"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
 
 <span class="n">class_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Class</span><span class="p">(</span><span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
 
@@ -102,11 +100,10 @@
 
 <p><code>Function</code> Класс, представляющий отдельную функцию из исходного кода.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code90a45693059b00535e6728a88da31b2bb"
-          onclick="copyCode(code90a45693059b00535e6728a88da31b2b, code90a45693059b00535e6728a88da31b2bb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -117,14 +114,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code90a45693059b00535e6728a88da31b2b"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
 
 <span class="n">function_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s2">&quot;function_name&quot;</span><span class="p">)</span>
 
@@ -135,11 +132,10 @@
 
 <p><code>Module</code> Класс, представляющий модуль и его структуру.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code991407cdbaf0a6ff699b278ac77680c3b"
-          onclick="copyCode(code991407cdbaf0a6ff699b278ac77680c3, code991407cdbaf0a6ff699b278ac77680c3b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -150,14 +146,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code991407cdbaf0a6ff699b278ac77680c3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
 
 <span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Module</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
 

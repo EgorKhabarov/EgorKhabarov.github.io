@@ -1,10 +1,9 @@
 <h2>File</h2>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code82410564fa44b764fcfce67f97da5d36b"
-          onclick="copyCode(code82410564fa44b764fcfce67f97da5d36, code82410564fa44b764fcfce67f97da5d36b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -15,14 +14,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code82410564fa44b764fcfce67f97da5d36"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.File</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileExample</span><span class="w"> </span><span class="p">{</span>
@@ -44,11 +43,10 @@
 
 <h2>BufferedReader</h2>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code5fb5cd407c06d6ab9517b48f32605f6bb"
-          onclick="copyCode(code5fb5cd407c06d6ab9517b48f32605f6b, code5fb5cd407c06d6ab9517b48f32605f6bb)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -59,14 +57,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code5fb5cd407c06d6ab9517b48f32605f6b"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedReader</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.BufferedReader</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileReader</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
 
@@ -87,11 +85,10 @@
 
 <h2>FileWriter</h2>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code6c5c046f67d9b871626f2a89c4e76a60b"
-          onclick="copyCode(code6c5c046f67d9b871626f2a89c4e76a60, code6c5c046f67d9b871626f2a89c4e76a60b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -102,14 +99,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code6c5c046f67d9b871626f2a89c4e76a60"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileWriter</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.FileWriter</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileWriterExample</span><span class="w"> </span><span class="p">{</span>

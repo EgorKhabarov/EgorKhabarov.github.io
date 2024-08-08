@@ -76,11 +76,10 @@
 <p>Separate your steps with /. Use two (//) if you don’t want to select direct children.</p>
 <h1>Steps</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code5de062bd4234dc14c0200c59fbb4494cb"
-          onclick="copyCode(code5de062bd4234dc14c0200c59fbb4494c, code5de062bd4234dc14c0200c59fbb4494cb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -91,14 +90,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code5de062bd4234dc14c0200c59fbb4494c"><div class="highlight"><pre><span></span>//div
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>//div
 //div<span class="o">[</span>@name<span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="o">]</span>
 //<span class="o">[</span>@id<span class="o">=</span><span class="s1">&#39;link&#39;</span><span class="o">]</span>
 </pre></div></div>
@@ -106,11 +105,10 @@
 
 <p>A step may have an element name (div) and predicates ([...]). Both are optional. They can also be these other things:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code85a38b0973f189ad4bb2fb8f2b4e7792b"
-          onclick="copyCode(code85a38b0973f189ad4bb2fb8f2b4e7792, code85a38b0973f189ad4bb2fb8f2b4e7792b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -121,14 +119,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code85a38b0973f189ad4bb2fb8f2b4e7792"><div class="highlight"><pre><span></span>//a/text<span class="o">()</span><span class="w">     </span><span class="c1">#=&gt; &quot;Go home&quot;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>//a/text<span class="o">()</span><span class="w">     </span><span class="c1">#=&gt; &quot;Go home&quot;</span>
 //a/@href<span class="w">      </span><span class="c1">#=&gt; &quot;index.html&quot;</span>
 //a/*<span class="w">          </span><span class="c1">#=&gt; All a&#39;s child elements</span>
 </pre></div></div>

@@ -1,11 +1,10 @@
 <p>Случайные числа
 Для генерации случайных чисел необходимо использовать метод rand(). Чтобы создать случайное число в диапазоне от 1 до 20 потребуется следующий код:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>cpp</text>
-  <button class="copy-button"
-          id="codeadba9642e973cf68b75d61b20ccf0a06b"
-          onclick="copyCode(codeadba9642e973cf68b75d61b20ccf0a06, codeadba9642e973cf68b75d61b20ccf0a06b)">
+    <div class="lang-line">
+        <text>cpp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -16,14 +15,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeadba9642e973cf68b75d61b20ccf0a06"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
 </pre></div></div>
 </div>
 
@@ -33,11 +32,10 @@
 <p>После её подключения в функции main пропишите команду: srand(time(NULL));</p>
 <p>Пример реализации:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>cpp</text>
-  <button class="copy-button"
-          id="code42ea7dda79f7ab8046e4d4027b6ba138b"
-          onclick="copyCode(code42ea7dda79f7ab8046e4d4027b6ba138, code42ea7dda79f7ab8046e4d4027b6ba138b)">
+    <div class="lang-line">
+        <text>cpp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -48,14 +46,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code42ea7dda79f7ab8046e4d4027b6ba138"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span>
 

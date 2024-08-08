@@ -1,9 +1,8 @@
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codef0a8fe71e8f2a5aee70385188ec76976b"
-          onclick="copyCode(codef0a8fe71e8f2a5aee70385188ec76976, codef0a8fe71e8f2a5aee70385188ec76976b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -14,14 +13,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codef0a8fe71e8f2a5aee70385188ec76976"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">from</span> <span class="nn">PIL.ImageDraw</span> <span class="kn">import</span> <span class="n">Draw</span>
 
 <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -31,11 +30,10 @@
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code1f006a589e571d6e4fe53b1e587b0be2b"
-          onclick="copyCode(code1f006a589e571d6e4fe53b1e587b0be2, code1f006a589e571d6e4fe53b1e587b0be2b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -46,14 +44,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1f006a589e571d6e4fe53b1e587b0be2"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">draw</span><span class="p">)]</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">draw</span><span class="p">)]</span>
 </pre></div></div>
 </div>
 

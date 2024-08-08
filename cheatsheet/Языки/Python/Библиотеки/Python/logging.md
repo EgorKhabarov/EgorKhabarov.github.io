@@ -13,11 +13,10 @@
 <p>Наиболее часто используемые методы:</p>
 <p><code>logging.debug()</code>: Регистрирует отладочное сообщение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code673d2f835f69e4e27a003eaa22bfd2ccb"
-          onclick="copyCode(code673d2f835f69e4e27a003eaa22bfd2cc, code673d2f835f69e4e27a003eaa22bfd2ccb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -28,25 +27,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code673d2f835f69e4e27a003eaa22bfd2cc"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is a debug message&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p><code>logging.info()</code>: Регистрирует информационное сообщение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code57ba9d6b5e35848aeca1e1cc3be650b4b"
-          onclick="copyCode(code57ba9d6b5e35848aeca1e1cc3be650b4, code57ba9d6b5e35848aeca1e1cc3be650b4b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -57,25 +55,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code57ba9d6b5e35848aeca1e1cc3be650b4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an info message&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p><code>logging.warning()</code>: Регистрирует предупреждение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code7f4c6ef88ae211210705cd65ef974f8cb"
-          onclick="copyCode(code7f4c6ef88ae211210705cd65ef974f8c, code7f4c6ef88ae211210705cd65ef974f8cb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -86,25 +83,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7f4c6ef88ae211210705cd65ef974f8c"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p><code>logging.error()</code>: Регистрирует сообщение об ошибке.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codefed0f8a8c67ace19786eb09f7fc63ba8b"
-          onclick="copyCode(codefed0f8a8c67ace19786eb09f7fc63ba8, codefed0f8a8c67ace19786eb09f7fc63ba8b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -115,25 +111,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefed0f8a8c67ace19786eb09f7fc63ba8"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is an error message&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p><code>logging.critical()</code>: Регистрирует критическое сообщение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec420b32e103d35fa2eda98ef4bb23be6b"
-          onclick="copyCode(codec420b32e103d35fa2eda98ef4bb23be6, codec420b32e103d35fa2eda98ef4bb23be6b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -144,14 +139,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec420b32e103d35fa2eda98ef4bb23be6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;This is a critical message&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
@@ -159,11 +154,10 @@
 <p>import logging</p>
 <p>Запись в файл</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code189f3ddce9a51329d776583239b52ff8b"
-          onclick="copyCode(code189f3ddce9a51329d776583239b52ff8, code189f3ddce9a51329d776583239b52ff8b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -174,25 +168,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code189f3ddce9a51329d776583239b52ff8"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;example.log&quot;</span><span class="p">,</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;example.log&quot;</span><span class="p">,</span>
                     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>Запись в консоль</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code4f484d4e4fdfc6cfdd7d885043822066b"
-          onclick="copyCode(code4f484d4e4fdfc6cfdd7d885043822066, code4f484d4e4fdfc6cfdd7d885043822066b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -203,25 +196,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4f484d4e4fdfc6cfdd7d885043822066"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
                     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>Запись в файл и в консоль</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb2044b2f0ff660e8b4c3eedba4d60d11b"
-          onclick="copyCode(codeb2044b2f0ff660e8b4c3eedba4d60d11, codeb2044b2f0ff660e8b4c3eedba4d60d11b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -232,14 +224,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb2044b2f0ff660e8b4c3eedba4d60d11"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;example.log&quot;</span><span class="p">,</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;example.log&quot;</span><span class="p">,</span>
                     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
                     <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
                     <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
@@ -256,11 +248,10 @@
 
 <p>Для самих сообщений</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="codeed98c162d955d297bd260c3ea8c468e7b"
-          onclick="copyCode(codeed98c162d955d297bd260c3ea8c468e7, codeed98c162d955d297bd260c3ea8c468e7b)">
+    <div class="lang-line">
+        <text>text</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -271,14 +262,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeed98c162d955d297bd260c3ea8c468e7"><div class="highlight"><pre><span></span>%s           строка
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>%s           строка
 %d           для целых чисел
 %c           для имени логгера
 %f           для чисел с плавающей точкой
@@ -292,11 +283,10 @@
 
 <p>Для настроек логгирования</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="codedb4a794f5e31cc106cc897d39902afc9b"
-          onclick="copyCode(codedb4a794f5e31cc106cc897d39902afc9, codedb4a794f5e31cc106cc897d39902afc9b)">
+    <div class="lang-line">
+        <text>text</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -307,14 +297,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codedb4a794f5e31cc106cc897d39902afc9"><div class="highlight"><pre><span></span>%(message)s     сообщение журнала
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>%(message)s     сообщение журнала
 
 %(asctime)s     время записи сообщения в формате (по умолчанию YYYY-MM-DD HH:MM:SS,sss настраивать в basicConfig(datefmt))
 %(created)f     время записи сообщения в секундах, начиная с 1 января 1970 года
@@ -338,11 +328,10 @@
 
 <p>Код для применения функций к тексту</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code990d5b8801b791665bc3726ae9834157b"
-          onclick="copyCode(code990d5b8801b791665bc3726ae9834157, code990d5b8801b791665bc3726ae9834157b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -353,13 +342,13 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code990d5b8801b791665bc3726ae9834157"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">Up</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">Up</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 </pre></div></div>
 </div>

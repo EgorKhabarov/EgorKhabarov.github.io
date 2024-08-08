@@ -1,11 +1,10 @@
 <p>Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.</p>
 <p>io.StringIO() - создание в памяти строкового потока.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="coded99b337f64dcd161fc7ab057d4d2d066b"
-          onclick="copyCode(coded99b337f64dcd161fc7ab057d4d2d066, coded99b337f64dcd161fc7ab057d4d2d066b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -16,14 +15,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="coded99b337f64dcd161fc7ab057d4d2d066"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
 <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -34,11 +33,10 @@
 
 <p>io.BytesIO() - создание в памяти потока байт.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codefd06ea04013202ce66389c37e7968fcab"
-          onclick="copyCode(codefd06ea04013202ce66389c37e7968fca, codefd06ea04013202ce66389c37e7968fcab)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -49,14 +47,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefd06ea04013202ce66389c37e7968fca"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
 <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -67,11 +65,10 @@
 
 <p>io.open() - открытие файла в нужном режиме.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee15bad2d5d5d29d79c2c39ae7a8b7528b"
-          onclick="copyCode(codee15bad2d5d5d29d79c2c39ae7a8b7528, codee15bad2d5d5d29d79c2c39ae7a8b7528b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -82,14 +79,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee15bad2d5d5d29d79c2c39ae7a8b7528"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -101,11 +98,10 @@
 
 <p>io.TextIOWrapper() - обертка для текстовых потоков.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codea0dc60ed64d9879e4deb7dd9e2ebacc3b"
-          onclick="copyCode(codea0dc60ed64d9879e4deb7dd9e2ebacc3, codea0dc60ed64d9879e4deb7dd9e2ebacc3b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -116,14 +112,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea0dc60ed64d9879e4deb7dd9e2ebacc3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">wrapper</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
@@ -137,11 +133,10 @@
 
 <p>io.BufferedWriter() - буферизированный записывающий поток.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code0a6c5351fe254997ba2fe86536bbcd17b"
-          onclick="copyCode(code0a6c5351fe254997ba2fe86536bbcd17, code0a6c5351fe254997ba2fe86536bbcd17b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -152,14 +147,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code0a6c5351fe254997ba2fe86536bbcd17"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BufferedWriter</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -173,11 +168,10 @@
 
 <p>io.BufferedReader() - буферизированный читающий поток.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code09d5c5a83790c97c2f5b6848fc5977a1b"
-          onclick="copyCode(code09d5c5a83790c97c2f5b6848fc5977a1, code09d5c5a83790c97c2f5b6848fc5977a1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -188,14 +182,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code09d5c5a83790c97c2f5b6848fc5977a1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -208,11 +202,10 @@
 
 <p>io.FileIO() - создание потока для работы с файлом в бинарном режиме.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code946ad034dcd95e02dd5fae3ac6b93263b"
-          onclick="copyCode(code946ad034dcd95e02dd5fae3ac6b93263, code946ad034dcd95e02dd5fae3ac6b93263b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -223,14 +216,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code946ad034dcd95e02dd5fae3ac6b93263"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">FileIO</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -242,11 +235,10 @@
 
 <p>io.TextIOBase() - базовый класс для всех текстовых потоков.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="coded645665d5980fed43dcdb4567881d01bb"
-          onclick="copyCode(coded645665d5980fed43dcdb4567881d01b, coded645665d5980fed43dcdb4567881d01bb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -257,14 +249,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="coded645665d5980fed43dcdb4567881d01b"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">class</span> <span class="nc">UpperTextIO</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">TextIOBase</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
@@ -287,11 +279,10 @@
 
 <p>io.StringIO.getvalue() - получение содержимого из строкового потока.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code40aa85165e3ce7912c1693fa042e26f6b"
-          onclick="copyCode(code40aa85165e3ce7912c1693fa042e26f6, code40aa85165e3ce7912c1693fa042e26f6b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -302,14 +293,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code40aa85165e3ce7912c1693fa042e26f6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
 <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -319,11 +310,10 @@
 
 <p>io.BytesIO.getvalue() - получение содержимого из потока байт.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code7edfeae0f63fe7ca46610e29a394f3ebb"
-          onclick="copyCode(code7edfeae0f63fe7ca46610e29a394f3eb, code7edfeae0f63fe7ca46610e29a394f3ebb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -334,14 +324,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7edfeae0f63fe7ca46610e29a394f3eb"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
 <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
@@ -351,11 +341,10 @@
 
 <p>io.TextIOWrapper.detach() - отсоединение потока от обертки.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code1c313f92bf3275c555f610e077d90c27b"
-          onclick="copyCode(code1c313f92bf3275c555f610e077d90c27, code1c313f92bf3275c555f610e077d90c27b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -366,14 +355,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1c313f92bf3275c555f610e077d90c27"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">wrapper</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
@@ -389,11 +378,10 @@
 
 <p>io.BufferedRandom() - буферизированный поток с произвольным доступом.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code6261c171854718796e6da28e45577617b"
-          onclick="copyCode(code6261c171854718796e6da28e45577617, code6261c171854718796e6da28e45577617b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -404,14 +392,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code6261c171854718796e6da28e45577617"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BufferedRandom</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>

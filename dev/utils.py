@@ -5,7 +5,6 @@ from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 
 
-
 reserved_filenames = [
     filename
     for filenames in map(
@@ -45,22 +44,60 @@ LPT0
 ]
 
 
-def escape_markdown(content: str) -> str:
-    # parse = re.sub(r"([_*\[\]()~`>\#\+\-=|\.!])", r"\\\1", content)
-    # reparse = re.sub(r"\\\\([_*\[\]()~`>\#\+\-=|\.!])", r"\1", parse)
-    # return reparse
-    return content.replace("__", "&#95;&#95;")
-
-
 def set_unselectable(text: str, sep: str = "\n"):
     lines = []
+    text_list = text.split(sep)
+    text_list_len = len(text_list)
+    text_list_iterator = iter(text_list)
+    n = 0
 
-    for line in text.split(sep):
+    for line in text_list_iterator:
         if line.startswith("</pre></div>"):
             lines.append(line)
             continue
 
-        if line.startswith(
+        if line.startswith('<span class="go">') and line.endswith("</span>"):
+            line_list = [line]
+            while (
+                n + 1 <= text_list_len
+                and text_list[n + 1].startswith('<span class="go">')
+                and text_list[n + 1].endswith("</span>")
+            ):
+                line_list.append(next(text_list_iterator))
+                n += 1
+            try:
+                nextline = next(text_list_iterator)
+                n += 1
+            except StopIteration:
+                nextline = "</span>"
+            else:
+                if nextline.startswith(
+                    (
+                        '<span class="o">&gt;&gt;&gt;</span> ',
+                        '<span class="gp">&gt;&gt;&gt; </span>',
+                        '<span class="o">>>></span> ',
+                        '<span class="gp">>>> </span>',
+                        '<span class="o">&gt;&gt;&gt;</span>',
+                        '<span class="gp">&gt;&gt;&gt;</span>',
+                        '<span class="o">>>></span>',
+                        '<span class="gp">>>></span>',
+                    )
+                ):
+                    nextline = '<span class="o">&gt;&gt;&gt; </span></span>{}'.format(
+                        nextline
+                        .removeprefix('<span class="o">&gt;&gt;&gt;</span> ')
+                        .removeprefix('<span class="gp">&gt;&gt;&gt; </span>')
+                        .removeprefix('<span class="o">>>></span> ')
+                        .removeprefix('<span class="gp">>>> </span>')
+                        .removeprefix('<span class="o">&gt;&gt;&gt;</span>')
+                        .removeprefix('<span class="gp">&gt;&gt;&gt;</span>')
+                        .removeprefix('<span class="o">>>></span>')
+                        .removeprefix('<span class="gp">>>></span>')
+                    )
+                else:
+                    nextline = f"</span>{nextline}"
+            line = f'<span class="unselectable">{sep.join(line_list)}{sep}{nextline}'
+        elif line.startswith(
             (
                 '<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> ',
                 '<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span>',
@@ -125,6 +162,7 @@ def set_unselectable(text: str, sep: str = "\n"):
             line = f'<span class="unselectable">{line}</span>'
 
         lines.append(line)
+        n += 1
 
     return sep.join(lines)
 
@@ -162,7 +200,7 @@ def to_table_code_java(code: str) -> str:
 def to_link(path: str) -> str:
     path = path.removesuffix(".md")
     filename = path.rsplit("/", 1)[-1]
-    return f'<a target="_self" href="./cheatsheet?{path}.md">{filename}</a>'
+    return f'<a target="_self" href="./?{path}.md">{filename}</a>'
 
 
 def check_dict_keys(d: dict, c: int = 0) -> bool | int:

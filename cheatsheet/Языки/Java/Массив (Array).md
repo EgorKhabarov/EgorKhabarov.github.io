@@ -3,11 +3,10 @@
 <li><strong><code>Список (list)</code></strong> — это интерфейс в Java, который представляет динамическую структуру данных, размер которой может изменяться.</li>
 </ul>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="codeb2a714818a940a523a4d1bb862c1121eb"
-          onclick="copyCode(codeb2a714818a940a523a4d1bb862c1121e, codeb2a714818a940a523a4d1bb862c1121eb)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -18,14 +17,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb2a714818a940a523a4d1bb862c1121e"><div class="highlight"><pre><span></span><span class="c1">// Создание пустого массива</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1">// Создание пустого массива</span>
 <span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">stroka</span><span class="p">;</span>
 <span class="c1">// Или</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">numbers</span><span class="o">[]</span><span class="p">;</span>
@@ -48,11 +47,10 @@
 <h1>Вывод значений</h1>
 <p>Для вывода всех значений массива используйте метод <code>Arrays.toString()</code>, преобразующий массив в строку.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code2ce7edd5f41df82ba93db1f58a663b1eb"
-          onclick="copyCode(code2ce7edd5f41df82ba93db1f58a663b1e, code2ce7edd5f41df82ba93db1f58a663b1eb)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -63,22 +61,21 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code2ce7edd5f41df82ba93db1f58a663b1e"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
 </pre></div></div>
 </div>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code0aebd6102fd739d2679c6510a5bee393b"
-          onclick="copyCode(code0aebd6102fd739d2679c6510a5bee393, code0aebd6102fd739d2679c6510a5bee393b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -89,24 +86,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code0aebd6102fd739d2679c6510a5bee393"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span>
 </pre></div></div>
 </div>
 
 <p>Или напишите цикл, выводящий последовательно элементы массива.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code3f5a3b96754d9297ce4090c8ef8aba24b"
-          onclick="copyCode(code3f5a3b96754d9297ce4090c8ef8aba24, code3f5a3b96754d9297ce4090c8ef8aba24b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -117,14 +113,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code3f5a3b96754d9297ce4090c8ef8aba24"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="c1">// Или</span>
@@ -136,11 +132,10 @@
 
 <h1>Многомерный массив</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="codeec54ef3eff58e3b1eb4a8182a3bc18d7b"
-          onclick="copyCode(codeec54ef3eff58e3b1eb4a8182a3bc18d7, codeec54ef3eff58e3b1eb4a8182a3bc18d7b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -151,14 +146,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeec54ef3eff58e3b1eb4a8182a3bc18d7"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
 </pre></div></div>
 </div>
 
@@ -171,11 +166,10 @@
 <li><code>Map</code> - коллекция для создания массивов данных, где индексами являются ключи ("one", "2", "three" и так далее).</li>
 </ul>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="code533a454cfd3c4c436e30f9a262fefd9cb"
-          onclick="copyCode(code533a454cfd3c4c436e30f9a262fefd9c, code533a454cfd3c4c436e30f9a262fefd9cb)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -186,14 +180,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code533a454cfd3c4c436e30f9a262fefd9c"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
 
@@ -220,11 +214,10 @@
 <li><code>set(index, element)</code> - меняет значение элемента по индексу.</li>
 </ul>
 <div class="code-element">
-<div class="lang-line">
-  <text>java</text>
-  <button class="copy-button"
-          id="codeb044f47c229757b08da58b7790233cd2b"
-          onclick="copyCode(codeb044f47c229757b08da58b7790233cd2, codeb044f47c229757b08da58b7790233cd2b)">
+    <div class="lang-line">
+        <text>java</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -235,14 +228,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb044f47c229757b08da58b7790233cd2"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">items</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
 <span class="n">items</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 <span class="n">items</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mf">3.14</span><span class="p">);</span>
@@ -258,11 +251,10 @@
 </pre></div></div>
 </div>
 <div class="code-element">
-<div class="lang-line">
-  <text>output</text>
-  <button class="copy-button"
-          id="code1fcb38c110d29732cddab056fbc9370cb"
-          onclick="copyCode(code1fcb38c110d29732cddab056fbc9370c, code1fcb38c110d29732cddab056fbc9370cb)">
+    <div class="lang-line">
+        <text>output</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -273,14 +265,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1fcb38c110d29732cddab056fbc9370c"><div class="highlight"><pre><span></span><span class="go">5</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="go">5</span>
 <span class="go">3.14</span>
 <span class="go">Hello</span>
 <span class="go">3.14</span>

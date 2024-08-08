@@ -1,9 +1,8 @@
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code75b06f363ff53e49bff261dfcf2ba5f5b"
-          onclick="copyCode(code75b06f363ff53e49bff261dfcf2ba5f5, code75b06f363ff53e49bff261dfcf2ba5f5b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -14,30 +13,28 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code75b06f363ff53e49bff261dfcf2ba5f5"><div class="highlight"><pre><span></span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
 <span class="n">result_list</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">item</span>
     <span class="k">for</span> <span class="n">tpl</span> <span class="ow">in</span> <span class="n">list_of_tuples</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tpl</span>
 <span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5, 6]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </pre></div></div>
 </div>
-
-<p>==</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb3df97b74ee3f9e1c66020e86aca787fb"
-          onclick="copyCode(codeb3df97b74ee3f9e1c66020e86aca787f, codeb3df97b74ee3f9e1c66020e86aca787fb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -48,19 +45,20 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb3df97b74ee3f9e1c66020e86aca787f"><div class="highlight"><pre><span></span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">list_of_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
 <span class="n">result_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">tpl</span> <span class="ow">in</span> <span class="n">list_of_tuples</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tpl</span><span class="p">:</span>
         <span class="n">result_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5, 6]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_list</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </pre></div></div>
 </div>

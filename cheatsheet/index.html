@@ -12,14 +12,14 @@
  </head>
  <body>
   <div class="cheatsheet-buttons">
-   <button class="button" kpath="Общее" onclick="toggleDisplay(Общееd177f216a743e7a61c7bd2e58af14f86);">
+   <button class="button" kpath="Общее" onclick="toggleDisplay(this.nextElementSibling);">
     📂 Общее
    </button>
-   <div class="button-folder" id="Общееd177f216a743e7a61c7bd2e58af14f86" style="display:none;">
-    <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(GITbc2ae0e614b3166349136e419732f2a0);">
+   <div class="button-folder" style="display:none;">
+    <button class="button" kpath="Общее/GIT" onclick="toggleDisplay(this.nextElementSibling);">
      📂 GIT
     </button>
-    <div class="button-folder" id="GITbc2ae0e614b3166349136e419732f2a0" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Общее/GIT/Команды.md');" vpath="Общее/GIT/Команды.md">
       📄 Команды
      </button>
@@ -27,14 +27,14 @@
       📄 gitignore
      </button>
     </div>
-    <button class="button" kpath="Общее/Паттерны проектирования/" onclick='toggleDisplay(Паттерныпроектирования6049cfcf95bf7f2b73c2df83e6a0487d);GET("Общее/Паттерны проектирования/index.md");' vpath="Общее/Паттерны проектирования/">
+    <button class="button" kpath="Общее/Паттерны проектирования/" onclick="toggleDisplay(this.nextElementSibling);GET('Общее/Паттерны проектирования/index.md');" vpath="Общее/Паттерны проектирования/">
      📂 Паттерны проектирования
     </button>
-    <div class="button-folder" id="Паттерныпроектирования6049cfcf95bf7f2b73c2df83e6a0487d" style="display:none;">
-     <button class="button" kpath="Общее/Паттерны проектирования/Порождающие паттерны" onclick="toggleDisplay(Порождающиепаттерныb61c862509271e3ed305306dbe4a21e3);">
+    <div class="button-folder" style="display:none;">
+     <button class="button" kpath="Общее/Паттерны проектирования/Порождающие паттерны" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Порождающие паттерны
      </button>
-     <div class="button-folder" id="Порождающиепаттерныb61c862509271e3ed305306dbe4a21e3" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Общее/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md');" vpath="Общее/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md">
        📄 Singleton (Одиночка)
       </button>
@@ -51,10 +51,10 @@
        📄 Prototype (Прототип)
       </button>
      </div>
-     <button class="button" kpath="Общее/Паттерны проектирования/Структурные паттерны" onclick="toggleDisplay(Структурныепаттерны547aa36db0d2f51a070ac2865d229718);">
+     <button class="button" kpath="Общее/Паттерны проектирования/Структурные паттерны" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Структурные паттерны
      </button>
-     <div class="button-folder" id="Структурныепаттерны547aa36db0d2f51a070ac2865d229718" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Общее/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md');" vpath="Общее/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md">
        📄 Adapter (Адаптер)
       </button>
@@ -77,10 +77,10 @@
        📄 Proxy (Заместитель)
       </button>
      </div>
-     <button class="button" kpath="Общее/Паттерны проектирования/Поведенческие паттерны" onclick="toggleDisplay(Поведенческиепаттерны3b2ec16734b81404acb18bc979a73230);">
+     <button class="button" kpath="Общее/Паттерны проектирования/Поведенческие паттерны" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Поведенческие паттерны
      </button>
-     <div class="button-folder" id="Поведенческиепаттерны3b2ec16734b81404acb18bc979a73230" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Общее/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md');" vpath="Общее/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md">
        📄 Chain of Responsibility (Цепочка обязанностей)
       </button>
@@ -116,10 +116,10 @@
       </button>
      </div>
     </div>
-    <button class="button" kpath="Общее/HTTP" onclick="toggleDisplay(HTTP64a74433299cdd7de00a762948127a3d);">
+    <button class="button" kpath="Общее/HTTP" onclick="toggleDisplay(this.nextElementSibling);">
      📂 HTTP
     </button>
-    <div class="button-folder" id="HTTP64a74433299cdd7de00a762948127a3d" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Общее/HTTP/HTTР.md');" vpath="Общее/HTTP/HTTР.md">
       📄 HTTР
      </button>
@@ -130,10 +130,10 @@
       📄 Протоколы связи
      </button>
     </div>
-    <button class="button" kpath="Общее/Парадигмы" onclick="toggleDisplay(Парадигмы45647d86e052744271a55e2610fea496);">
+    <button class="button" kpath="Общее/Парадигмы" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Парадигмы
     </button>
-    <div class="button-folder" id="Парадигмы45647d86e052744271a55e2610fea496" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Общее/Парадигмы/Императивная.md');" vpath="Общее/Парадигмы/Императивная.md">
       📄 Императивная
      </button>
@@ -163,22 +163,22 @@
      📄 Google Search
     </button>
    </div>
-   <button class="button" kpath="Языки" onclick="toggleDisplay(Языкиdbfbd15f79698c03835525da32b60ce2);">
+   <button class="button" kpath="Языки" onclick="toggleDisplay(this.nextElementSibling);">
     📂 Языки
    </button>
-   <div class="button-folder" id="Языкиdbfbd15f79698c03835525da32b60ce2" style="display:none;">
-    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(Python2a35fbbd2549e39de3d784afe1b36c5c);">
+   <div class="button-folder" style="display:none;">
+    <button class="button" kpath="Языки/Python" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Python
     </button>
-    <div class="button-folder" id="Python2a35fbbd2549e39de3d784afe1b36c5c" style="display:none;">
-     <button class="button" kpath="Языки/Python/Библиотеки/" onclick='toggleDisplay(Библиотекиd7dc303872292e7970460b0fbe2f8625);GET("Языки/Python/Библиотеки/index.md");' vpath="Языки/Python/Библиотеки/">
+    <div class="button-folder" style="display:none;">
+     <button class="button" kpath="Языки/Python/Библиотеки/" onclick="toggleDisplay(this.nextElementSibling);GET('Языки/Python/Библиотеки/index.md');" vpath="Языки/Python/Библиотеки/">
       📂 Библиотеки
      </button>
-     <div class="button-folder" id="Библиотекиd7dc303872292e7970460b0fbe2f8625" style="display:none;">
-      <button class="button" kpath="Языки/Python/Библиотеки/Система" onclick="toggleDisplay(Системаecafcf90119b08d748537f6b95cb99c8);">
+     <div class="button-folder" style="display:none;">
+      <button class="button" kpath="Языки/Python/Библиотеки/Система" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Система
       </button>
-      <div class="button-folder" id="Системаecafcf90119b08d748537f6b95cb99c8" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Система/io.md');" vpath="Языки/Python/Библиотеки/Система/io.md">
         📄 io
        </button>
@@ -255,10 +255,10 @@
         📄 fcntl
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Типы данных" onclick="toggleDisplay(Типыданных7ced9653ffbc75299e30317caa87227c);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Типы данных" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Типы данных
       </button>
-      <div class="button-folder" id="Типыданных7ced9653ffbc75299e30317caa87227c" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Типы данных/xml.md');" vpath="Языки/Python/Библиотеки/Типы данных/xml.md">
         📄 xml
        </button>
@@ -287,10 +287,10 @@
         📄 netrc
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Информация" onclick="toggleDisplay(Информацияa228adee06c49d41f300a5fc6a451b31);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Информация" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Информация
       </button>
-      <div class="button-folder" id="Информацияa228adee06c49d41f300a5fc6a451b31" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/textwrap.md');" vpath="Языки/Python/Библиотеки/Информация/textwrap.md">
         📄 textwrap
        </button>
@@ -309,10 +309,10 @@
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/random.md');" vpath="Языки/Python/Библиотеки/Информация/random.md">
         📄 random
        </button>
-       <button class="button" kpath="Языки/Python/Библиотеки/Информация/PIL" onclick="toggleDisplay(PIL0a525e34202be0fc6fb897d46a00f103);">
+       <button class="button" kpath="Языки/Python/Библиотеки/Информация/PIL" onclick="toggleDisplay(this.nextElementSibling);">
         📂 PIL
        </button>
-       <div class="button-folder" id="PIL0a525e34202be0fc6fb897d46a00f103" style="display:none;">
+       <div class="button-folder" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Информация/PIL/ImageDraw.Draw.md');" vpath="Языки/Python/Библиотеки/Информация/PIL/ImageDraw.Draw.md">
          📄 ImageDraw.Draw
         </button>
@@ -342,14 +342,14 @@
         📄 string
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Python" onclick="toggleDisplay(Python834c4b89cf84a1e7664d37ff30f193de);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Python" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Python
       </button>
-      <div class="button-folder" id="Python834c4b89cf84a1e7664d37ff30f193de" style="display:none;">
-       <button class="button" kpath="Языки/Python/Библиотеки/Python/markdown" onclick="toggleDisplay(markdown357251672769c7e06e9bed069a13b3b7);">
+      <div class="button-folder" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Python/markdown" onclick="toggleDisplay(this.nextElementSibling);">
         📂 markdown
        </button>
-       <div class="button-folder" id="markdown357251672769c7e06e9bed069a13b3b7" style="display:none;">
+       <div class="button-folder" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Python/markdown/extensions.md');" vpath="Языки/Python/Библиотеки/Python/markdown/extensions.md">
          📄 extensions
         </button>
@@ -451,10 +451,10 @@
         📄 fileinput
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Алгоритмы" onclick="toggleDisplay(Алгоритмы2d0de0aeb6abd88677927825bb4ddcc3);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Алгоритмы" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Алгоритмы
       </button>
-      <div class="button-folder" id="Алгоритмы2d0de0aeb6abd88677927825bb4ddcc3" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Алгоритмы/bisect.md');" vpath="Языки/Python/Библиотеки/Алгоритмы/bisect.md">
         📄 bisect
        </button>
@@ -468,30 +468,30 @@
         📄 lzma
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Веб" onclick="toggleDisplay(Веб44f299cb6cc53e579bca64a1e044a510);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Веб" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Веб
       </button>
-      <div class="button-folder" id="Веб44f299cb6cc53e579bca64a1e044a510" style="display:none;">
-       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Django" onclick="toggleDisplay(Django935d015cc19738c41ace5f54495a06a7);">
+      <div class="button-folder" style="display:none;">
+       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Django" onclick="toggleDisplay(this.nextElementSibling);">
         📂 Django
        </button>
-       <div class="button-folder" id="Django935d015cc19738c41ace5f54495a06a7" style="display:none;">
+       <div class="button-folder" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Django/Команды.md');" vpath="Языки/Python/Библиотеки/Веб/Django/Команды.md">
          📄 Команды
         </button>
        </div>
-       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Flask" onclick="toggleDisplay(Flaskc4a063158a39383f9188fab9a5e98fd0);">
+       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Flask" onclick="toggleDisplay(this.nextElementSibling);">
         📂 Flask
        </button>
-       <div class="button-folder" id="Flaskc4a063158a39383f9188fab9a5e98fd0" style="display:none;">
+       <div class="button-folder" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Flask/Типы переменных.md');" vpath="Языки/Python/Библиотеки/Веб/Flask/Типы переменных.md">
          📄 Типы переменных
         </button>
        </div>
-       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Jinja/" onclick='toggleDisplay(Jinjaa75a44dc19676ceb3edb41dcf65aa7b4);GET("Языки/Python/Библиотеки/Веб/Jinja/index.md");' vpath="Языки/Python/Библиотеки/Веб/Jinja/">
+       <button class="button" kpath="Языки/Python/Библиотеки/Веб/Jinja/" onclick="toggleDisplay(this.nextElementSibling);GET('Языки/Python/Библиотеки/Веб/Jinja/index.md');" vpath="Языки/Python/Библиотеки/Веб/Jinja/">
         📂 Jinja
        </button>
-       <div class="button-folder" id="Jinjaa75a44dc19676ceb3edb41dcf65aa7b4" style="display:none;">
+       <div class="button-folder" style="display:none;">
         <button class="button" onclick="GET('Языки/Python/Библиотеки/Веб/Jinja/Базовый синтаксис.md');" vpath="Языки/Python/Библиотеки/Веб/Jinja/Базовый синтаксис.md">
          📄 Базовый синтаксис
         </button>
@@ -533,10 +533,10 @@
         📄 rfc3986_validator
        </button>
       </div>
-      <button class="button" kpath="Языки/Python/Библиотеки/Other" onclick="toggleDisplay(Othera4fd38d6b1ea96a52becc92c9c0b0896);">
+      <button class="button" kpath="Языки/Python/Библиотеки/Other" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Other
       </button>
-      <div class="button-folder" id="Othera4fd38d6b1ea96a52becc92c9c0b0896" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Python/Библиотеки/Other/pythoncom.md');" vpath="Языки/Python/Библиотеки/Other/pythoncom.md">
         📄 pythoncom
        </button>
@@ -617,10 +617,10 @@
        </button>
       </div>
      </div>
-     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(Методыf0cd1be4856fdc0a8205d32840a5b962);">
+     <button class="button" kpath="Языки/Python/Методы" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Методы
      </button>
-     <div class="button-folder" id="Методыf0cd1be4856fdc0a8205d32840a5b962" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Методы/Магические методы.md');" vpath="Языки/Python/Методы/Магические методы.md">
        📄 Магические методы
       </button>
@@ -646,10 +646,10 @@
        📄 set
       </button>
      </div>
-     <button class="button" kpath="Языки/Python/Декораторы Замыкания" onclick="toggleDisplay(ДекораторыЗамыканияeb4883bce98cd41d68d2e20d688f5b4d);">
+     <button class="button" kpath="Языки/Python/Декораторы Замыкания" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Декораторы Замыкания
      </button>
-     <div class="button-folder" id="ДекораторыЗамыканияeb4883bce98cd41d68d2e20d688f5b4d" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md');" vpath="Языки/Python/Декораторы Замыкания/Декораторы Замыкания.md">
        📄 Декораторы Замыкания
       </button>
@@ -675,10 +675,10 @@
        📄 final
       </button>
      </div>
-     <button class="button" kpath="Языки/Python/bash" onclick="toggleDisplay(bash7a3cc3f7cb20b16ef84991890351e58c);">
+     <button class="button" kpath="Языки/Python/bash" onclick="toggleDisplay(this.nextElementSibling);">
       📂 bash
      </button>
-     <div class="button-folder" id="bash7a3cc3f7cb20b16ef84991890351e58c" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/bash/Флаги cmd Python.md');" vpath="Языки/Python/bash/Флаги cmd Python.md">
        📄 Флаги cmd Python
       </button>
@@ -692,10 +692,10 @@
        📄 IPython
       </button>
      </div>
-     <button class="button" kpath="Языки/Python/Генераторы и списки" onclick="toggleDisplay(Генераторыисписки2d9cc83ad7430f1a4bfc023c92820738);">
+     <button class="button" kpath="Языки/Python/Генераторы и списки" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Генераторы и списки
      </button>
-     <div class="button-folder" id="Генераторыисписки2d9cc83ad7430f1a4bfc023c92820738" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Python/Генераторы и списки/for in list comprehension.md');" vpath="Языки/Python/Генераторы и списки/for in list comprehension.md">
        📄 for in list comprehension
       </button>
@@ -719,10 +719,10 @@
       📄 Встроенные функции
      </button>
     </div>
-    <button class="button" kpath="Языки/RegExp" onclick="toggleDisplay(RegExp7f8c29237610effd82527fbad04a4adb);">
+    <button class="button" kpath="Языки/RegExp" onclick="toggleDisplay(this.nextElementSibling);">
      📂 RegExp
     </button>
-    <div class="button-folder" id="RegExp7f8c29237610effd82527fbad04a4adb" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/RegExp/RegExp.md');" vpath="Языки/RegExp/RegExp.md">
       📄 RegExp
      </button>
@@ -730,18 +730,18 @@
       📄 images
      </button>
     </div>
-    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(Java616baee77a419d131808927596605616);">
+    <button class="button" kpath="Языки/Java" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Java
     </button>
-    <div class="button-folder" id="Java616baee77a419d131808927596605616" style="display:none;">
-     <button class="button" kpath="Языки/Java/java" onclick="toggleDisplay(java593ddda3569e9d0c2c354150bce8dfd3);">
+    <div class="button-folder" style="display:none;">
+     <button class="button" kpath="Языки/Java/java" onclick="toggleDisplay(this.nextElementSibling);">
       📂 java
      </button>
-     <div class="button-folder" id="java593ddda3569e9d0c2c354150bce8dfd3" style="display:none;">
-      <button class="button" kpath="Языки/Java/java/util" onclick="toggleDisplay(utilbbbfd0341533f54d542cbb1357b889b3);">
+     <div class="button-folder" style="display:none;">
+      <button class="button" kpath="Языки/Java/java/util" onclick="toggleDisplay(this.nextElementSibling);">
        📂 util
       </button>
-      <div class="button-folder" id="utilbbbfd0341533f54d542cbb1357b889b3" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Java/java/util/Scanner.md');" vpath="Языки/Java/java/util/Scanner.md">
         📄 Scanner
        </button>
@@ -762,10 +762,10 @@
        </button>
       </div>
      </div>
-     <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(Запуск657afb1d3dc98f0425bdf1f6d3dda45a);">
+     <button class="button" kpath="Языки/Java/Запуск" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Запуск
      </button>
-     <div class="button-folder" id="Запуск657afb1d3dc98f0425bdf1f6d3dda45a" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Запуск/Запуск.md');" vpath="Языки/Java/Запуск/Запуск.md">
        📄 Запуск
       </button>
@@ -785,20 +785,20 @@
      <button class="button" onclick="GET('Языки/Java/Массив (Array).md');" vpath="Языки/Java/Массив (Array).md">
       📄 Массив (Array)
      </button>
-     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(Классы97d146c1ccb934e2de8435ef606772b4);">
+     <button class="button" kpath="Языки/Java/Классы" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Классы
      </button>
-     <div class="button-folder" id="Классы97d146c1ccb934e2de8435ef606772b4" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/Java/Классы/Объекты, конструкторы.md');" vpath="Языки/Java/Классы/Объекты, конструкторы.md">
        📄 Объекты, конструкторы
       </button>
       <button class="button" onclick="GET('Языки/Java/Классы/Модификатор доступа.md');" vpath="Языки/Java/Классы/Модификатор доступа.md">
        📄 Модификатор доступа
       </button>
-      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(Методыf94ed8836dac32b3e1b2c384e964ba42);">
+      <button class="button" kpath="Языки/Java/Классы/Методы" onclick="toggleDisplay(this.nextElementSibling);">
        📂 Методы
       </button>
-      <div class="button-folder" id="Методыf94ed8836dac32b3e1b2c384e964ba42" style="display:none;">
+      <div class="button-folder" style="display:none;">
        <button class="button" onclick="GET('Языки/Java/Классы/Методы/Методы.md');" vpath="Языки/Java/Классы/Методы/Методы.md">
         📄 Методы
        </button>
@@ -847,14 +847,14 @@
       📄 Лямбда-выражения
      </button>
     </div>
-    <button class="button" kpath="Языки/SQL" onclick="toggleDisplay(SQL38867e99cb8b1bb7b2167711572ed7c6);">
+    <button class="button" kpath="Языки/SQL" onclick="toggleDisplay(this.nextElementSibling);">
      📂 SQL
     </button>
-    <div class="button-folder" id="SQL38867e99cb8b1bb7b2167711572ed7c6" style="display:none;">
-     <button class="button" kpath="Языки/SQL/SQLite3" onclick="toggleDisplay(SQLite3984151a5352d3359c5a04ec877ca1e1c);">
+    <div class="button-folder" style="display:none;">
+     <button class="button" kpath="Языки/SQL/SQLite3" onclick="toggleDisplay(this.nextElementSibling);">
       📂 SQLite3
      </button>
-     <div class="button-folder" id="SQLite3984151a5352d3359c5a04ec877ca1e1c" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/SQL/SQLite3/Date And Time Format.md');" vpath="Языки/SQL/SQLite3/Date And Time Format.md">
        📄 Date And Time Format
       </button>
@@ -871,10 +871,10 @@
        📄 Функции
       </button>
      </div>
-     <button class="button" kpath="Языки/SQL/PostgreSQL" onclick="toggleDisplay(PostgreSQLe3cdf59484fcf906c8fda3e8857dfb01);">
+     <button class="button" kpath="Языки/SQL/PostgreSQL" onclick="toggleDisplay(this.nextElementSibling);">
       📂 PostgreSQL
      </button>
-     <div class="button-folder" id="PostgreSQLe3cdf59484fcf906c8fda3e8857dfb01" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/SQL/PostgreSQL/Типы данных.md');" vpath="Языки/SQL/PostgreSQL/Типы данных.md">
        📄 Типы данных
       </button>
@@ -892,10 +892,10 @@
       📄 Картинки
      </button>
     </div>
-    <button class="button" kpath="Языки/Dockerfile" onclick="toggleDisplay(Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861);">
+    <button class="button" kpath="Языки/Dockerfile" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Dockerfile
     </button>
-    <div class="button-folder" id="Dockerfile43bd5ab0d97f2e73f614f81a9c8b9861" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/Dockerfile/Dockerfile.md');" vpath="Языки/Dockerfile/Dockerfile.md">
       📄 Dockerfile
      </button>
@@ -903,10 +903,10 @@
       📄 RUN mkdir -p
      </button>
     </div>
-    <button class="button" kpath="Языки/JavaScript" onclick="toggleDisplay(JavaScriptbce5a53026db8b9651b6a15ff0279234);">
+    <button class="button" kpath="Языки/JavaScript" onclick="toggleDisplay(this.nextElementSibling);">
      📂 JavaScript
     </button>
-    <div class="button-folder" id="JavaScriptbce5a53026db8b9651b6a15ff0279234" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/JavaScript/Списки.md');" vpath="Языки/JavaScript/Списки.md">
       📄 Списки
      </button>
@@ -920,14 +920,14 @@
       📄 Переменные
      </button>
     </div>
-    <button class="button" kpath="Языки/CSS" onclick="toggleDisplay(CSSc1cc377c3a5d919219c7e25687a54577);">
+    <button class="button" kpath="Языки/CSS" onclick="toggleDisplay(this.nextElementSibling);">
      📂 CSS
     </button>
-    <div class="button-folder" id="CSSc1cc377c3a5d919219c7e25687a54577" style="display:none;">
-     <button class="button" kpath="Языки/CSS/css-text" onclick="toggleDisplay(csstextcc8299a7e016041091baf07134e762d1);">
+    <div class="button-folder" style="display:none;">
+     <button class="button" kpath="Языки/CSS/css-text" onclick="toggleDisplay(this.nextElementSibling);">
       📂 css-text
      </button>
-     <div class="button-folder" id="csstextcc8299a7e016041091baf07134e762d1" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/CSS/css-text/Backgrounds.md');" vpath="Языки/CSS/css-text/Backgrounds.md">
        📄 Backgrounds
       </button>
@@ -996,10 +996,10 @@
       📄 Единицы измерения
      </button>
     </div>
-    <button class="button" kpath="Языки/HTML" onclick="toggleDisplay(HTML624d631f3d4d07e47d51a2abc8958c74);">
+    <button class="button" kpath="Языки/HTML" onclick="toggleDisplay(this.nextElementSibling);">
      📂 HTML
     </button>
-    <div class="button-folder" id="HTML624d631f3d4d07e47d51a2abc8958c74" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/HTML/Теги.md');" vpath="Языки/HTML/Теги.md">
       📄 Теги
      </button>
@@ -1009,10 +1009,10 @@
      <button class="button" onclick="GET('Языки/HTML/tag input.md');" vpath="Языки/HTML/tag input.md">
       📄 tag input
      </button>
-     <button class="button" kpath="Языки/HTML/Xpath" onclick="toggleDisplay(Xpath4cb7e330fd672d41bbb31b081297fc76);">
+     <button class="button" kpath="Языки/HTML/Xpath" onclick="toggleDisplay(this.nextElementSibling);">
       📂 Xpath
      </button>
-     <div class="button-folder" id="Xpath4cb7e330fd672d41bbb31b081297fc76" style="display:none;">
+     <div class="button-folder" style="display:none;">
       <button class="button" onclick="GET('Языки/HTML/Xpath/Link.md');" vpath="Языки/HTML/Xpath/Link.md">
        📄 Link
       </button>
@@ -1036,10 +1036,10 @@
       </button>
      </div>
     </div>
-    <button class="button" kpath="Языки/Cpp" onclick="toggleDisplay(Cpp5ae02da3a72644bc4e5e848cd84b2534);">
+    <button class="button" kpath="Языки/Cpp" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Cpp
     </button>
-    <div class="button-folder" id="Cpp5ae02da3a72644bc4e5e848cd84b2534" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/Cpp/Типы данных.md');" vpath="Языки/Cpp/Типы данных.md">
       📄 Типы данных
      </button>
@@ -1134,10 +1134,10 @@
       📄 Указатели2
      </button>
     </div>
-    <button class="button" kpath="Языки/Bash" onclick="toggleDisplay(Bash97893f28eabb962cdc73fe862ae496c3);">
+    <button class="button" kpath="Языки/Bash" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Bash
     </button>
-    <div class="button-folder" id="Bash97893f28eabb962cdc73fe862ae496c3" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/Bash/help.md');" vpath="Языки/Bash/help.md">
       📄 help
      </button>
@@ -1145,23 +1145,23 @@
       📄 Переменные окружения
      </button>
     </div>
-    <button class="button" kpath="Языки/LaTex" onclick="toggleDisplay(LaTex4a3a5aa37c41f096933e17d1ddbdff23);">
+    <button class="button" kpath="Языки/LaTex" onclick="toggleDisplay(this.nextElementSibling);">
      📂 LaTex
     </button>
-    <div class="button-folder" id="LaTex4a3a5aa37c41f096933e17d1ddbdff23" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Языки/LaTex/Элементы.md');" vpath="Языки/LaTex/Элементы.md">
       📄 Элементы
      </button>
     </div>
    </div>
-   <button class="button" kpath="Другое" onclick="toggleDisplay(Другоеe7cc5baf61eb0a355b025b7461dbd756);">
+   <button class="button" kpath="Другое" onclick="toggleDisplay(this.nextElementSibling);">
     📂 Другое
    </button>
-   <div class="button-folder" id="Другоеe7cc5baf61eb0a355b025b7461dbd756" style="display:none;">
-    <button class="button" kpath="Другое/Форматы файлов" onclick="toggleDisplay(Форматыфайлов3bf624352036e00fa18589aec9abad59);">
+   <div class="button-folder" style="display:none;">
+    <button class="button" kpath="Другое/Форматы файлов" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Форматы файлов
     </button>
-    <div class="button-folder" id="Форматыфайлов3bf624352036e00fa18589aec9abad59" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Другое/Форматы файлов/JSON.md');" vpath="Другое/Форматы файлов/JSON.md">
       📄 JSON
      </button>
@@ -1190,10 +1190,10 @@
       📄 TinyDB (json)
      </button>
     </div>
-    <button class="button" kpath="Другое/Примеры решений" onclick="toggleDisplay(Примерырешений70f507940c6c16c4c4df4d042b37dc30);">
+    <button class="button" kpath="Другое/Примеры решений" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Примеры решений
     </button>
-    <div class="button-folder" id="Примерырешений70f507940c6c16c4c4df4d042b37dc30" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Другое/Примеры решений/Пирамида граф.md');" vpath="Другое/Примеры решений/Пирамида граф.md">
       📄 Пирамида граф
      </button>
@@ -1204,10 +1204,10 @@
       📄 Минимальное максимальное число матрицы cpp
      </button>
     </div>
-    <button class="button" kpath="Другое/Minecraft" onclick="toggleDisplay(Minecraftb1d55e8e5190abbabb08dd527e9bd087);">
+    <button class="button" kpath="Другое/Minecraft" onclick="toggleDisplay(this.nextElementSibling);">
      📂 Minecraft
     </button>
-    <div class="button-folder" id="Minecraftb1d55e8e5190abbabb08dd527e9bd087" style="display:none;">
+    <div class="button-folder" style="display:none;">
      <button class="button" onclick="GET('Другое/Minecraft/color.md');" vpath="Другое/Minecraft/color.md">
       📄 color
      </button>
@@ -1219,10 +1219,10 @@
      📄 Полезные ссылки
     </button>
    </div>
-   <button class="button" kpath="Shortcuts" onclick="toggleDisplay(Shortcuts05b04abc6549d5ada894b0a7eb777b04);">
+   <button class="button" kpath="Shortcuts" onclick="toggleDisplay(this.nextElementSibling);">
     📂 Shortcuts
    </button>
-   <div class="button-folder" id="Shortcuts05b04abc6549d5ada894b0a7eb777b04" style="display:none;">
+   <div class="button-folder" style="display:none;">
     <button class="button" onclick="GET('Языки/Python/fstrings.md');restoreCheatSheetState('Языки/Python/fstrings.md')" vpath="Языки/Python/fstrings.md">
      🔗 Языки/Python/fstrings
     </button>
@@ -1231,7 +1231,9 @@
     </button>
    </div>
   </div>
-  <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
+  <pre class="cheatsheet-field" id="field">
+            Нажмите на кнопку с темой, чтобы увидеть здесь объяснение
+        </pre>
   <div>
    <button class="control-button" id="FontSizeSize" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">
     12px
@@ -1243,11 +1245,11 @@
     -
    </button>
    <button class="control-button" id="COPY" onclick="copyTextFromDiv(field);
-                changeColor(COPY)" style="padding-left: 12px;">
+                    changeColor(COPY)" style="padding-left: 12px;">
     Copy
    </button>
    <button class="control-button" id="COPY2" onclick="copyTextFromDiv2();
-                changeColor(COPY2)" style="padding-left: 2px;">
+                    changeColor(COPY2)" style="padding-left: 2px;">
     Copy selected
    </button>
    <button class="control-button" id="removeargfromurl" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)" style="padding-left: 28px;">

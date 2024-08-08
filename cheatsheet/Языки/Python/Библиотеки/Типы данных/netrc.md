@@ -10,11 +10,10 @@
 <code>netrc.authenticators(host)</code> - возвращает информацию об аутентификации для указанного хоста.</p>
 <p><code>netrc.authenticators(host)</code>:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codefeb06348ccb16a6263bc9fdd8d044e22b"
-          onclick="copyCode(codefeb06348ccb16a6263bc9fdd8d044e22, codefeb06348ccb16a6263bc9fdd8d044e22b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -25,14 +24,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefeb06348ccb16a6263bc9fdd8d044e22"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netrc</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netrc</span>
 
 <span class="k">def</span> <span class="nf">get_credentials</span><span class="p">(</span><span class="n">hostname</span><span class="p">):</span>
     <span class="n">credentials</span> <span class="o">=</span> <span class="n">netrc</span><span class="o">.</span><span class="n">netrc</span><span class="p">()</span>

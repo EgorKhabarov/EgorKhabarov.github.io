@@ -30,11 +30,10 @@
 <p>Список самых частых методов, их краткое описание и</p>
 <p>TopologicalSort Сортирует вершины графа в топологическом порядке.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code3e916bc4f8a7c6208f3deff30f133af5b"
-          onclick="copyCode(code3e916bc4f8a7c6208f3deff30f133af5, code3e916bc4f8a7c6208f3deff30f133af5b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -45,14 +44,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code3e916bc4f8a7c6208f3deff30f133af5"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">graphlib</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">graph</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
@@ -64,11 +63,10 @@
 
 <p>Graph.add_vertex Добавляет новую вершину в граф.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeafb2e5c982a8bd847a2cf9545c9d68a4b"
-          onclick="copyCode(codeafb2e5c982a8bd847a2cf9545c9d68a4, codeafb2e5c982a8bd847a2cf9545c9d68a4b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -79,14 +77,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeafb2e5c982a8bd847a2cf9545c9d68a4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">graphlib</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">graph</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -96,11 +94,10 @@
 
 <p>DiGraph.add_edge Добавляет новое ребро между двумя вершинами в ориентированном графе.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code93f6481d07474e0d6e653b9cf8aae323b"
-          onclick="copyCode(code93f6481d07474e0d6e653b9cf8aae323, code93f6481d07474e0d6e653b9cf8aae323b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -111,14 +108,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code93f6481d07474e0d6e653b9cf8aae323"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">graphlib</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 <span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -128,11 +125,10 @@
 
 <p>find_cycles Находит все циклы в графе и возвращает их в виде списка.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec4c6565fd7fab12bbd67005223c89385b"
-          onclick="copyCode(codec4c6565fd7fab12bbd67005223c89385, codec4c6565fd7fab12bbd67005223c89385b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -143,14 +139,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec4c6565fd7fab12bbd67005223c89385"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphlib</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">graphlib</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="n">graph</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span>

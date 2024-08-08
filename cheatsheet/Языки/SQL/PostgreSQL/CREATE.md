@@ -1,9 +1,8 @@
 <div class="code-element">
-<div class="lang-line">
-  <text>sql</text>
-  <button class="copy-button"
-          id="code981f9e641f61d011334018d54ab6f416b"
-          onclick="copyCode(code981f9e641f61d011334018d54ab6f416, code981f9e641f61d011334018d54ab6f416b)">
+    <div class="lang-line">
+        <text>sql</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -14,14 +13,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code981f9e641f61d011334018d54ab6f416"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">ACCESS</span><span class="w"> </span><span class="k">METHOD</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">ACCESS</span><span class="w"> </span><span class="k">METHOD</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">AGGREGATE</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">CAST</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">COLLATION</span>
@@ -67,11 +66,10 @@
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>sql</text>
-  <button class="copy-button"
-          id="code8216c062f95f99617376ed47ca660c67b"
-          onclick="copyCode(code8216c062f95f99617376ed47ca660c67, code8216c062f95f99617376ed47ca660c67b)">
+    <div class="lang-line">
+        <text>sql</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -82,14 +80,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code8216c062f95f99617376ed47ca660c67"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">tst</span><span class="p">;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">tst</span><span class="p">;</span>
 
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tbl</span><span class="p">(</span>
 <span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Имя поля Тип поля</span>
@@ -99,11 +97,10 @@
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>sql</text>
-  <button class="copy-button"
-          id="code1880d521d919bb6ee470d8a8c3334e9cb"
-          onclick="copyCode(code1880d521d919bb6ee470d8a8c3334e9c, code1880d521d919bb6ee470d8a8c3334e9cb)">
+    <div class="lang-line">
+        <text>sql</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -114,14 +111,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1880d521d919bb6ee470d8a8c3334e9c"><div class="highlight"><pre><span></span><span class="s1">&#39;st&#39;&#39;r&#39;</span><span class="w">  </span><span class="c1">-- это строка с одинарным апострофом</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="s1">&#39;st&#39;&#39;r&#39;</span><span class="w">  </span><span class="c1">-- это строка с одинарным апострофом</span>
 <span class="n">E</span><span class="s1">&#39;st\&#39;</span><span class="n">r</span><span class="s1">&#39; -- ... и это – она же</span>
 <span class="s1">$$st&#39;</span><span class="n">r$$</span><span class="w"> </span><span class="c1">-- ... и даже вот это</span>
 <span class="err">$</span><span class="n">abcd$st</span><span class="err">&#39;</span><span class="n">r$abcd$</span>

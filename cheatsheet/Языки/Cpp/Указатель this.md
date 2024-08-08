@@ -3,11 +3,10 @@
 Чтобы не возникало конфликтов имен можно использовать указать «this».</p>
 <p>Пример работы:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>cpp</text>
-  <button class="copy-button"
-          id="code164160daaadf8acde6d4a13c04721167b"
-          onclick="copyCode(code164160daaadf8acde6d4a13c04721167, code164160daaadf8acde6d4a13c04721167b)">
+    <div class="lang-line">
+        <text>cpp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -18,14 +17,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code164160daaadf8acde6d4a13c04721167"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="p">{</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">test</span><span class="p">;</span>
 
@@ -44,11 +43,10 @@
 <p>Например, если у вас есть класс Person, и вы хотите использовать поле name текущего 
 объекта внутри метода printName, то вы можете сделать это следующим образом:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>cpp</text>
-  <button class="copy-button"
-          id="codef58c1db536d5ca1bb780039608700bd0b"
-          onclick="copyCode(codef58c1db536d5ca1bb780039608700bd0, codef58c1db536d5ca1bb780039608700bd0b)">
+    <div class="lang-line">
+        <text>cpp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -59,14 +57,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codef58c1db536d5ca1bb780039608700bd0"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">printName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

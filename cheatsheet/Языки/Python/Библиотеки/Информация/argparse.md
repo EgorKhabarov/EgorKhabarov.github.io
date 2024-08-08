@@ -4,11 +4,10 @@
 <p>Вот несколько примеров использования библиотеки argparse в Python:
 Простой скрипт</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code531a8f16b387a1b7b0c6f51a0cc0ff9ab"
-          onclick="copyCode(code531a8f16b387a1b7b0c6f51a0cc0ff9a, code531a8f16b387a1b7b0c6f51a0cc0ff9ab)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -19,14 +18,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code531a8f16b387a1b7b0c6f51a0cc0ff9a"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;echo the string you use here&quot;</span><span class="p">)</span>
@@ -38,11 +37,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code96c6d658ffb1a8d99a837a0e92671ae4b"
-          onclick="copyCode(code96c6d658ffb1a8d99a837a0e92671ae4, code96c6d658ffb1a8d99a837a0e92671ae4b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -53,24 +51,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code96c6d658ffb1a8d99a837a0e92671ae4"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>hello
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>hello
 </pre></div></div>
 </div>
 
 <p>Аргументы с флагами</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code6437debd83d30359b4a1c8d5b4df3a60b"
-          onclick="copyCode(code6437debd83d30359b4a1c8d5b4df3a60, code6437debd83d30359b4a1c8d5b4df3a60b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -81,14 +78,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code6437debd83d30359b4a1c8d5b4df3a60"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbosity&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
@@ -101,11 +98,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codee230645b192f1bdbd5eaa98fe82034deb"
-          onclick="copyCode(codee230645b192f1bdbd5eaa98fe82034de, codee230645b192f1bdbd5eaa98fe82034deb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -116,24 +112,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee230645b192f1bdbd5eaa98fe82034de"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbosity
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbosity
 </pre></div></div>
 </div>
 
 <p>Опциональный аргумент</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code210de1d56e3f002c1cd86eb4d9d922cfb"
-          onclick="copyCode(code210de1d56e3f002c1cd86eb4d9d922cf, code210de1d56e3f002c1cd86eb4d9d922cfb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -144,14 +139,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code210de1d56e3f002c1cd86eb4d9d922cf"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--number&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;enter a number&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -164,11 +159,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code44eeff6f4812cf383d6c656d4f8f8f6eb"
-          onclick="copyCode(code44eeff6f4812cf383d6c656d4f8f8f6e, code44eeff6f4812cf383d6c656d4f8f8f6eb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -179,24 +173,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code44eeff6f4812cf383d6c656d4f8f8f6e"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--number<span class="w"> </span><span class="m">5</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--number<span class="w"> </span><span class="m">5</span>
 </pre></div></div>
 </div>
 
 <p>Обязательный аргумент</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee5b1dc58ad4b6c674d7a06c207095c10b"
-          onclick="copyCode(codee5b1dc58ad4b6c674d7a06c207095c10, codee5b1dc58ad4b6c674d7a06c207095c10b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -207,14 +200,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee5b1dc58ad4b6c674d7a06c207095c10"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name of the file to read&quot;</span><span class="p">)</span>
@@ -226,11 +219,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code7dc1cd0816898bd66dfb0a4fa43db564b"
-          onclick="copyCode(code7dc1cd0816898bd66dfb0a4fa43db564, code7dc1cd0816898bd66dfb0a4fa43db564b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -241,24 +233,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7dc1cd0816898bd66dfb0a4fa43db564"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>filename.txt
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>filename.txt
 </pre></div></div>
 </div>
 
 <p>Группировка аргументов</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code3085136da2ab3801fefdce0d31423476b"
-          onclick="copyCode(code3085136da2ab3801fefdce0d31423476, code3085136da2ab3801fefdce0d31423476b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -269,14 +260,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code3085136da2ab3801fefdce0d31423476"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">()</span>
@@ -293,11 +284,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codeeb5846c0035aab1dcf283d924fe50bf9b"
-          onclick="copyCode(codeeb5846c0035aab1dcf283d924fe50bf9, codeeb5846c0035aab1dcf283d924fe50bf9b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -308,24 +298,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeeb5846c0035aab1dcf283d924fe50bf9"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbose<span class="w"> </span>или<span class="w"> </span>python<span class="w"> </span>script.py<span class="w"> </span>--quiet
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbose<span class="w"> </span>или<span class="w"> </span>python<span class="w"> </span>script.py<span class="w"> </span>--quiet
 </pre></div></div>
 </div>
 
 <p>Позиционные аргументы с выбором</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code47054f739f6a34cee2b22d76836b950db"
-          onclick="copyCode(code47054f739f6a34cee2b22d76836b950d, code47054f739f6a34cee2b22d76836b950db)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -336,14 +325,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code47054f739f6a34cee2b22d76836b950d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;operation&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;operation to perform&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;mul&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">])</span>
@@ -364,11 +353,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codebfa80111d93e8fd8dcbc46944d4a15cbb"
-          onclick="copyCode(codebfa80111d93e8fd8dcbc46944d4a15cb, codebfa80111d93e8fd8dcbc46944d4a15cbb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -379,24 +367,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codebfa80111d93e8fd8dcbc46944d4a15cb"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>add<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>add<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span>
 </pre></div></div>
 </div>
 
 <p>Описание программы и аргументов</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee61fd5952bd1cbb4fb937f2bed25a42bb"
-          onclick="copyCode(codee61fd5952bd1cbb4fb937f2bed25a42b, codee61fd5952bd1cbb4fb937f2bed25a42bb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -407,14 +394,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee61fd5952bd1cbb4fb937f2bed25a42b"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;A simple calculator program&quot;</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;operation&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;operation to perform&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;mul&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">])</span>
@@ -435,11 +422,10 @@
 
 <p>Для запуска скрипта нужно использовать команду: </p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codeeb5bd1cffdf0842e119843d7e1bcbc80b"
-          onclick="copyCode(codeeb5bd1cffdf0842e119843d7e1bcbc80, codeeb5bd1cffdf0842e119843d7e1bcbc80b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -450,24 +436,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeeb5bd1cffdf0842e119843d7e1bcbc80"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--help
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--help
 </pre></div></div>
 </div>
 
 <p>Парсинг аргументов из файла</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code8c8fc24d30d279eaca7d23757e4866b2b"
-          onclick="copyCode(code8c8fc24d30d279eaca7d23757e4866b2, code8c8fc24d30d279eaca7d23757e4866b2b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -478,14 +463,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code8c8fc24d30d279eaca7d23757e4866b2"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">fromfile_prefix_chars</span><span class="o">=</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;operation&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;operation to perform&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;mul&quot;</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">])</span>
@@ -506,11 +491,10 @@
 
 <p>Для использования данного примера нужно создать файл "args.txt" со следующим содержимым</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="coded27c6558d8ec9e0ee07bf7fdeee92ac2b"
-          onclick="copyCode(coded27c6558d8ec9e0ee07bf7fdeee92ac2, coded27c6558d8ec9e0ee07bf7fdeee92ac2b)">
+    <div class="lang-line">
+        <text>text</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -521,24 +505,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="coded27c6558d8ec9e0ee07bf7fdeee92ac2"><div class="highlight"><pre><span></span>add 5 3
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>add 5 3
 </pre></div></div>
 </div>
 
 <p>Затем, чтобы запустить скрипт, нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codea5d32e9e6a2e479c9fa7fe2ef3e8674db"
-          onclick="copyCode(codea5d32e9e6a2e479c9fa7fe2ef3e8674d, codea5d32e9e6a2e479c9fa7fe2ef3e8674db)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -549,24 +532,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea5d32e9e6a2e479c9fa7fe2ef3e8674d"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>@args.txt
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>@args.txt
 </pre></div></div>
 </div>
 
 <p>Аргумент со значением по умолчанию</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code08c36babb3c4cf9ff2618afc7a881ad4b"
-          onclick="copyCode(code08c36babb3c4cf9ff2618afc7a881ad4, code08c36babb3c4cf9ff2618afc7a881ad4b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -577,14 +559,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code08c36babb3c4cf9ff2618afc7a881ad4"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbosity&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;increase output verbosity&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
@@ -599,11 +581,10 @@
 
 <p>Для запуска скрипта нужно использовать команду</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code057bc48af8755d0c4d3e9ede9ec689c4b"
-          onclick="copyCode(code057bc48af8755d0c4d3e9ede9ec689c4, code057bc48af8755d0c4d3e9ede9ec689c4b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -614,24 +595,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code057bc48af8755d0c4d3e9ede9ec689c4"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbosity<span class="w"> </span>--num<span class="w"> </span><span class="m">3</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--verbosity<span class="w"> </span>--num<span class="w"> </span><span class="m">3</span>
 </pre></div></div>
 </div>
 
 <p>Поддержка субкоманд</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code056ffcc42296523bd5d5e524c54d03ecb"
-          onclick="copyCode(code056ffcc42296523bd5d5e524c54d03ec, code056ffcc42296523bd5d5e524c54d03ecb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -642,14 +622,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code056ffcc42296523bd5d5e524c54d03ec"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;subcommands&quot;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;subcommand&quot;</span><span class="p">)</span>
@@ -670,11 +650,10 @@
 
 <p>Для запуска скрипта нужно использовать команду: </p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codee9f8b94835bf76d4f6ca0cee832c5016b"
-          onclick="copyCode(codee9f8b94835bf76d4f6ca0cee832c5016, codee9f8b94835bf76d4f6ca0cee832c5016b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -685,24 +664,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee9f8b94835bf76d4f6ca0cee832c5016"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>command_a<span class="w"> </span><span class="m">5</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>command_a<span class="w"> </span><span class="m">5</span>
 </pre></div></div>
 </div>
 
 <p>или</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codefa1c801e4af5777a5ee36b9f9f60b58ab"
-          onclick="copyCode(codefa1c801e4af5777a5ee36b9f9f60b58a, codefa1c801e4af5777a5ee36b9f9f60b58ab)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -713,13 +691,13 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefa1c801e4af5777a5ee36b9f9f60b58a"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>command_b<span class="w"> </span>--bar<span class="w"> </span><span class="nb">test</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>command_b<span class="w"> </span>--bar<span class="w"> </span><span class="nb">test</span>
 </pre></div></div>
 </div>

@@ -14,11 +14,10 @@ save(file): Сохраняет аудиофайл на диск с исполь�
 get_urls(text): Возвращает список URL-адресов для отслеживания прогресса синтеза речи.</p>
 <p>Пример кода для использования библиотеки "gtts":</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec3eefde0ea01bba606ca8cc36a6b5c4eb"
-          onclick="copyCode(codec3eefde0ea01bba606ca8cc36a6b5c4e, codec3eefde0ea01bba606ca8cc36a6b5c4eb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -29,14 +28,14 @@ get_urls(text): Возвращает список URL-адресов для от
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec3eefde0ea01bba606ca8cc36a6b5c4e"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gtts</span> <span class="kn">import</span> <span class="n">gTTS</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gtts</span> <span class="kn">import</span> <span class="n">gTTS</span>
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Привет, как дела?&quot;</span>
 <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;ru&quot;</span>

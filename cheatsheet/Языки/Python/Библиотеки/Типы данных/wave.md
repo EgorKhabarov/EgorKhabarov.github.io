@@ -15,11 +15,10 @@ wave.Wave_write.writeframesraw(data): Записывает сырые байты
 wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.</p>
 <p>wave.open(file, mode): Открывает WAV-файл для чтения или записи.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec51cac1ce60169cd2bd242ce2da8603cb"
-          onclick="copyCode(codec51cac1ce60169cd2bd242ce2da8603c, codec51cac1ce60169cd2bd242ce2da8603cb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -30,14 +29,14 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec51cac1ce60169cd2bd242ce2da8603c"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
 
 <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wav_file</span><span class="p">:</span>
     <span class="c1"># проведите необходимые операции с аудиофайлом</span>
@@ -46,11 +45,10 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
 
 <p>wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codef7876b2bdce0472d845750ecc78c8a70b"
-          onclick="copyCode(codef7876b2bdce0472d845750ecc78c8a70, codef7876b2bdce0472d845750ecc78c8a70b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -61,14 +59,14 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codef7876b2bdce0472d845750ecc78c8a70"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
 
 <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wav_file</span><span class="p">:</span>
     <span class="n">num_frames</span> <span class="o">=</span> <span class="n">wav_file</span><span class="o">.</span><span class="n">getnframes</span><span class="p">()</span>
@@ -78,11 +76,10 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
 
 <p>wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code849bde2eb46643bc2df5ef2e6b457bb1b"
-          onclick="copyCode(code849bde2eb46643bc2df5ef2e6b457bb1, code849bde2eb46643bc2df5ef2e6b457bb1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -93,14 +90,14 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code849bde2eb46643bc2df5ef2e6b457bb1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wave</span>
 
 <span class="n">new_frames</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">&quot;</span>  <span class="c1"># пример сырых байтов аудио-данных</span>
 

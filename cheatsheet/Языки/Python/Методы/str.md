@@ -99,7 +99,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">str.index(str[, start[, end]])</td>
-<td style="text-align: left;">Возвращает индекс начала первой подстроки str<br>в выбранном промежутке или <code>ValueError</code>, если она не найдена</td>
+<td style="text-align: left;">Возвращает индекс начала первой подстроки <code>str</code><br>в выбранном промежутке или <code>ValueError</code>, если она не найдена</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1234&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mi">1</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
@@ -139,7 +139,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">str.lstrip([chars])</td>
-<td style="text-align: left;">Возвращает строку без пробельных символов или chars в начале</td>
+<td style="text-align: left;">Возвращает строку без пробельных символов или <code>chars</code> в начале</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;   1 3   &quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;1 3    &quot;</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
@@ -256,97 +256,91 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">\n</td>
+<td style="text-align: left;"><code>\n</code></td>
 <td style="text-align: left;">Перевод строки</td>
-<td style="text-align: left;">"ab\ncd"</td>
-<td style="text-align: left;">ab</td>
+<td style="text-align: left;"><code>"ab\ncd"</code></td>
+<td style="text-align: left;">ab<br>cd</td>
 </tr>
 <tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">cd</td>
-</tr>
-<tr>
-<td style="text-align: left;">\</td>
+<td style="text-align: left;"><code>\</code></td>
 <td style="text-align: left;">Экранирование</td>
-<td style="text-align: left;">"ab\ncd"</td>
+<td style="text-align: left;"><code>"ab\ncd"</code></td>
 <td style="text-align: left;">ab\ncd</td>
 </tr>
 <tr>
-<td style="text-align: left;">\a</td>
+<td style="text-align: left;"><code>\a</code></td>
 <td style="text-align: left;">Звонок</td>
-<td style="text-align: left;">"a\aa"</td>
+<td style="text-align: left;"><code>"a\aa"</code></td>
 <td style="text-align: left;">a[BEL]a</td>
 </tr>
 <tr>
-<td style="text-align: left;">\b</td>
+<td style="text-align: left;"><code>\b</code></td>
 <td style="text-align: left;">Забой</td>
-<td style="text-align: left;">"ab\ba"</td>
+<td style="text-align: left;"><code>"ab\ba"</code></td>
 <td style="text-align: left;">ac</td>
 </tr>
 <tr>
-<td style="text-align: left;">\f</td>
+<td style="text-align: left;"><code>\f</code></td>
 <td style="text-align: left;">Перевод страницы</td>
-<td style="text-align: left;">"a\fa"</td>
+<td style="text-align: left;"><code>"a\fa"</code></td>
 <td style="text-align: left;">a[FF]a</td>
 </tr>
 <tr>
-<td style="text-align: left;">\r</td>
+<td style="text-align: left;"><code>\r</code></td>
 <td style="text-align: left;">Возврат каретки</td>
-<td style="text-align: left;">"ab\rcd"</td>
+<td style="text-align: left;"><code>"ab\rcd"</code></td>
 <td style="text-align: left;">cd</td>
 </tr>
 <tr>
-<td style="text-align: left;">\t</td>
+<td style="text-align: left;"><code>\t</code></td>
 <td style="text-align: left;">Горизонтальная табуляция</td>
-<td style="text-align: left;">"a\ta"</td>
+<td style="text-align: left;"><code>"a\ta"</code></td>
 <td style="text-align: left;">a a</td>
 </tr>
 <tr>
-<td style="text-align: left;">\v</td>
+<td style="text-align: left;"><code>\v</code></td>
 <td style="text-align: left;">Вертикальная табуляция</td>
-<td style="text-align: left;">"a\va"</td>
+<td style="text-align: left;"><code>"a\va"</code></td>
 <td style="text-align: left;">a[VT]a</td>
 </tr>
 <tr>
-<td style="text-align: left;">\N{id}</td>
+<td style="text-align: left;"><code>\N{id}</code></td>
 <td style="text-align: left;">Символ Юникода по id</td>
-<td style="text-align: left;">"\N{Degree Sign}"</td>
+<td style="text-align: left;"><code>"\N{Degree Sign}"</code></td>
 <td style="text-align: left;">°</td>
 </tr>
 <tr>
-<td style="text-align: left;">\uhhhh</td>
+<td style="text-align: left;"><code>\uhhhh</code></td>
 <td style="text-align: left;">16-ричный символ Юникода</td>
-<td style="text-align: left;">"\u2030"</td>
+<td style="text-align: left;"><code>"\u2030"</code></td>
 <td style="text-align: left;">‰</td>
 </tr>
 <tr>
-<td style="text-align: left;">\Uhhhh</td>
+<td style="text-align: left;"><code>\Uhhhh</code></td>
 <td style="text-align: left;">32-ичный символ Юникода</td>
-<td style="text-align: left;">"\U00000394"</td>
+<td style="text-align: left;"><code>"\U00000394"</code></td>
 <td style="text-align: left;">Δ</td>
 </tr>
 <tr>
-<td style="text-align: left;">\xhh</td>
+<td style="text-align: left;"><code>\xhh</code></td>
 <td style="text-align: left;">16-ричное значение символа</td>
-<td style="text-align: left;">"\x2A"</td>
+<td style="text-align: left;"><code>"\x2A"</code></td>
 <td style="text-align: left;">*</td>
 </tr>
 <tr>
-<td style="text-align: left;">\ooo</td>
+<td style="text-align: left;"><code>\ooo</code></td>
 <td style="text-align: left;">восьмеричное значение символа</td>
-<td style="text-align: left;">"\275"</td>
+<td style="text-align: left;"><code>"\275"</code></td>
 <td style="text-align: left;">½</td>
 </tr>
 <tr>
-<td style="text-align: left;">\0</td>
+<td style="text-align: left;"><code>\0</code></td>
 <td style="text-align: left;">символ Null</td>
-<td style="text-align: left;">"\0"</td>
+<td style="text-align: left;"><code>"\0"</code></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">\u00A0</td>
+<td style="text-align: left;"><code>\u00A0</code></td>
 <td style="text-align: left;">символ неразнывного пробела</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>

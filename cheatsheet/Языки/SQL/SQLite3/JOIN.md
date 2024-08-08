@@ -33,11 +33,10 @@
 </tbody>
 </table>
 <div class="code-element">
-<div class="lang-line">
-  <text>sql</text>
-  <button class="copy-button"
-          id="code66e2ab7b861ac514bdafe8f8a7eebfb5b"
-          onclick="copyCode(code66e2ab7b861ac514bdafe8f8a7eebfb5, code66e2ab7b861ac514bdafe8f8a7eebfb5b)">
+    <div class="lang-line">
+        <text>sql</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -48,25 +47,24 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code66e2ab7b861ac514bdafe8f8a7eebfb5"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table1</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table1</span>
 <span class="k">FULL</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table2</span>
 <span class="k">ON</span><span class="w"> </span><span class="n">Table1</span><span class="p">.</span><span class="n">Field1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Table2</span><span class="p">.</span><span class="n">Field1</span><span class="p">;</span>
 </pre></div></div>
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>sql</text>
-  <button class="copy-button"
-          id="code4b4dfafa9ea7d1daee4f777403b68a60b"
-          onclick="copyCode(code4b4dfafa9ea7d1daee4f777403b68a60, code4b4dfafa9ea7d1daee4f777403b68a60b)">
+    <div class="lang-line">
+        <text>sql</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -77,14 +75,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4b4dfafa9ea7d1daee4f777403b68a60"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table1</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Table1</span>
 <span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Table2</span><span class="p">;</span>
 </pre></div></div>
 </div>

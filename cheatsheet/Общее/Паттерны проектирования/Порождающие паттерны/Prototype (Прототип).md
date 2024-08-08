@@ -2,11 +2,10 @@
 <p>Паттерн Прототип позволяет копировать объекты, не зависимо от их конкретных классов.
 Это особенно полезно, когда создание нового объекта требует сложной или дорогостоящей инициализации.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec239220e080fe1e5f39bd5dd47869fd0b"
-          onclick="copyCode(codec239220e080fe1e5f39bd5dd47869fd0, codec239220e080fe1e5f39bd5dd47869fd0b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -17,14 +16,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec239220e080fe1e5f39bd5dd47869fd0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
 
 <span class="k">class</span> <span class="nc">Prototype</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

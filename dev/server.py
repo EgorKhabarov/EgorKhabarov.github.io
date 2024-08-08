@@ -22,4 +22,4 @@ def index_html_path(path: str):
 
 # http://127.0.0.1:5000/cheatsheet
 app.run("0.0.0.0", port=5000)
-# , ssl_context=('cert.pem', 'key.pem'))
+# , ssl_context=("cert.pem", "key.pem"))

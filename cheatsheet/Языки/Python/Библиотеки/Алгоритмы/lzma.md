@@ -12,11 +12,10 @@
 <code>lzma.CHECK_SHA256</code>: Константа, представляющая проверку сжатия с использованием алгоритма SHA-256.</p>
 <p><code>lzma.compress(data)</code>: Сжимает данные, используя алгоритм сжатия LZMA.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code1815ee2f7ac9b53a1de9d237925ab9bab"
-          onclick="copyCode(code1815ee2f7ac9b53a1de9d237925ab9ba, code1815ee2f7ac9b53a1de9d237925ab9bab)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -27,14 +26,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1815ee2f7ac9b53a1de9d237925ab9ba"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lzma</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lzma</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, World!&quot;</span>
 <span class="n">compressed_data</span> <span class="o">=</span> <span class="n">lzma</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -43,11 +42,10 @@
 
 <p><code>lzma.decompress(data)</code>: Распаковывает сжатые данные, сжатые с использованием алгоритма LZMA.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeed225a23d87570a1e3c1ff2f82566d22b"
-          onclick="copyCode(codeed225a23d87570a1e3c1ff2f82566d22, codeed225a23d87570a1e3c1ff2f82566d22b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -58,14 +56,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeed225a23d87570a1e3c1ff2f82566d22"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lzma</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lzma</span>
 
 <span class="n">compressed_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xfd</span><span class="s2">7zXZ</span><span class="se">\x00\x00\x04\xe6\xd6\xb4\x46\x02\x00</span><span class="s2">!</span><span class="se">\x01\x16\x00\x00\x00</span><span class="s2">t/</span><span class="se">\xe5\xfd\x01\x00\x00\x00\xff\xff</span><span class="s2">&quot;</span>
 <span class="n">decompressed_data</span> <span class="o">=</span> <span class="n">lzma</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">compressed_data</span><span class="p">)</span>

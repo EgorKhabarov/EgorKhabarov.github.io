@@ -12,11 +12,10 @@ Quoted-Printable - это способ представления непечат
 <p><code>quopri.encode(input, output, quotetabs=False)</code> - метод для кодирования данных в формат Quoted-Printable.
 Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee505d2f154078872847ae0d865546e24b"
-          onclick="copyCode(codee505d2f154078872847ae0d865546e24, codee505d2f154078872847ae0d865546e24b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -27,14 +26,14 @@ Quoted-Printable - это способ представления непечат
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee505d2f154078872847ae0d865546e24"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quopri</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quopri</span>
 
 <span class="n">input_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span>
 <span class="n">encoded_data</span> <span class="o">=</span> <span class="n">quopri</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
@@ -45,11 +44,10 @@ Quoted-Printable - это способ представления непечат
 <p><code>quopri.decode(input, output, headers=False)</code> - метод для декодирования данных из формата Quoted-Printable.
 Полезно при работе с данными, полученными из электронной почты или других источников, где данные могут быть закодированы в этом формате.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code7c2d373a9dbbc8f4013c47037fa2717db"
-          onclick="copyCode(code7c2d373a9dbbc8f4013c47037fa2717d, code7c2d373a9dbbc8f4013c47037fa2717db)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -60,14 +58,14 @@ Quoted-Printable - это способ представления непечат
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7c2d373a9dbbc8f4013c47037fa2717d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quopri</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quopri</span>
 
 <span class="n">encoded_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello=2C=20world=21&quot;</span>
 <span class="n">decoded_data</span> <span class="o">=</span> <span class="n">quopri</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>

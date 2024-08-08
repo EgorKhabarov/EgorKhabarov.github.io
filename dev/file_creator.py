@@ -8,7 +8,6 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
 from dev.data import DICT
-from dev.html_generator import get_id
 from dev.utils import set_unselectable, print_progress_bar
 
 
@@ -51,12 +50,10 @@ def code_block_callback(match):
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
-    code_id = get_id(language + highlighted_code, True)
     download_btn = (
         """
 <button class="copy-button-2"
-        id="code{code_id}_2b"
-        onclick="DownloadCode(code{code_id}, code{code_id}_2b, '{filename}')">
+        onclick="DownloadCode(this, '{filename}')">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -67,13 +64,12 @@ def code_block_callback(match):
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Download code</text>
-  </button>
+</button>
 """.format(
-            code_id=code_id,
             filename=filename,
         ).strip()
         if filename
@@ -81,8 +77,7 @@ def code_block_callback(match):
     )
     copy_btn = """
 <button class="copy-button"
-          id="code{index}b"
-          onclick="copyCode(code{index}, code{index}b)">
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -93,25 +88,24 @@ def code_block_callback(match):
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
-""".strip().format(index=code_id)
+</button>
+""".strip()
     return """
 <div class="code-element">
-<div class="lang-line">
-  <text>{lang}</text>
-  {copy_btn}
-  {download_btn}
-</div>
-<div class="code" id="code{index}">{code}</div>
+    <div class="lang-line">
+        <text>{lang}</text>
+        {copy_btn}
+        {download_btn}
+    </div>
+    <div class="code">{code}</div>
 </div>
 """.strip().format(
         lang=language,
         code=highlighted_code,
-        index=code_id,
         copy_btn=copy_btn,
         download_btn=download_btn,
     )

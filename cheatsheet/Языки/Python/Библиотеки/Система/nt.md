@@ -16,11 +16,10 @@ ntpath.split(path): Разделяет путь на имя директории
 <p>Некоторые часто используемые методы и их описание:</p>
 <p>nt.getcwd(): Возвращает текущую рабочую директорию.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code7c278f79692c4c6401a99f41b4f14e24b"
-          onclick="copyCode(code7c278f79692c4c6401a99f41b4f14e24, code7c278f79692c4c6401a99f41b4f14e24b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -31,14 +30,14 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7c278f79692c4c6401a99f41b4f14e24"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">current_dir</span><span class="p">)</span>
 </pre></div></div>
@@ -46,11 +45,10 @@ ntpath.split(path): Разделяет путь на имя директории
 
 <p>nt.listdir(path): Возвращает список файлов и директорий в указанном пути.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee286e497ed52151f85af45b495eb41ebb"
-          onclick="copyCode(codee286e497ed52151f85af45b495eb41eb, codee286e497ed52151f85af45b495eb41ebb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -61,14 +59,14 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee286e497ed52151f85af45b495eb41eb"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">file_list</span> <span class="o">=</span> <span class="n">nt</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;C:/Users&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
 </pre></div></div>
@@ -76,11 +74,10 @@ ntpath.split(path): Разделяет путь на имя директории
 
 <p>nt.mkdir(path): Создает новую директорию по указанному пути.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code75cece4fa78439eaa9fcaf2383d53c84b"
-          onclick="copyCode(code75cece4fa78439eaa9fcaf2383d53c84, code75cece4fa78439eaa9fcaf2383d53c84b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -91,25 +88,24 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code75cece4fa78439eaa9fcaf2383d53c84"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">nt</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;C:/Users/NewDirectory&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>nt.remove(path): Удаляет файл по указанному пути.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codea22f32f5655b61718f050f8a77ee66afb"
-          onclick="copyCode(codea22f32f5655b61718f050f8a77ee66af, codea22f32f5655b61718f050f8a77ee66afb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -120,25 +116,24 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea22f32f5655b61718f050f8a77ee66af"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">nt</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;C:/Users/example.txt&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>nt.rename(src, dst): Переименовывает файл или директорию.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code70a2fc0d1eb212e64aa290195336fce6b"
-          onclick="copyCode(code70a2fc0d1eb212e64aa290195336fce6, code70a2fc0d1eb212e64aa290195336fce6b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -149,25 +144,24 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code70a2fc0d1eb212e64aa290195336fce6"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">nt</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;C:/Users/old_name.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;C:/Users/new_name.txt&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>nt.system(command): Выполняет команду операционной системы.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="coded157a416a3264166f5655b7cc5998783b"
-          onclick="copyCode(coded157a416a3264166f5655b7cc5998783, coded157a416a3264166f5655b7cc5998783b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -178,14 +172,14 @@ ntpath.split(path): Разделяет путь на имя директории
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="coded157a416a3264166f5655b7cc5998783"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nt</span>
 <span class="n">nt</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;dir&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>

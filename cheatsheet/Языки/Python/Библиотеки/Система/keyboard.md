@@ -42,11 +42,10 @@
 <p>Список самых часто используемых методов библиотеки "keyboard":</p>
 <p>keyboard.press(): эмулирует нажатие клавиши.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code732289e69da3d99598187fae822c213fb"
-          onclick="copyCode(code732289e69da3d99598187fae822c213f, code732289e69da3d99598187fae822c213fb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -57,14 +56,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code732289e69da3d99598187fae822c213f"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
 
 <span class="n">keyboard</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>  <span class="c1"># Нажатие клавиши &quot;A&quot;</span>
 </pre></div></div>
@@ -72,11 +71,10 @@
 
 <p>keyboard.release(): освобождает заданную клавишу после её нажатия.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb10df16ac91f5eae6fef16f25e4fc830b"
-          onclick="copyCode(codeb10df16ac91f5eae6fef16f25e4fc830, codeb10df16ac91f5eae6fef16f25e4fc830b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -87,14 +85,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb10df16ac91f5eae6fef16f25e4fc830"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
 
 <span class="n">keyboard</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>  <span class="c1"># Освобождение клавиши &quot;A&quot;</span>
 </pre></div></div>
@@ -102,11 +100,10 @@
 
 <p>keyboard.is_pressed(): проверяет, нажата ли заданная клавиша.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code026de75c19bf706d8aa87c6e8344f4fbb"
-          onclick="copyCode(code026de75c19bf706d8aa87c6e8344f4fb, code026de75c19bf706d8aa87c6e8344f4fbb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -117,14 +114,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code026de75c19bf706d8aa87c6e8344f4fb"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keyboard</span>
 
 <span class="k">if</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">is_pressed</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">):</span>  <span class="c1"># Проверка, нажата ли клавиша &quot;A&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Клавиша A нажата&quot;</span><span class="p">)</span>

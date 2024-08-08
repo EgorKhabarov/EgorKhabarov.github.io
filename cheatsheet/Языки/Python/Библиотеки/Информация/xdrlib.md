@@ -7,11 +7,10 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
 <p>Наиболее часто используемые методы:</p>
 <p>pack_uint(value): Упаковывает беззнаковое целое число (unsigned int) в формате XDR.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codebd59d7da341f32754c8d58d79539617db"
-          onclick="copyCode(codebd59d7da341f32754c8d58d79539617d, codebd59d7da341f32754c8d58d79539617db)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -22,14 +21,14 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codebd59d7da341f32754c8d58d79539617d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
 
 <span class="n">packer</span> <span class="o">=</span> <span class="n">xdrlib</span><span class="o">.</span><span class="n">Packer</span><span class="p">()</span>
 <span class="n">packed_data</span> <span class="o">=</span> <span class="n">packer</span><span class="o">.</span><span class="n">pack_uint</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -39,11 +38,10 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
 
 <p>unpack_uint(packed_data): Распаковывает беззнаковое целое число (unsigned int) из данных в формате XDR и возвращает его значение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code1bdf966cb602218eeaf6ceba17362deeb"
-          onclick="copyCode(code1bdf966cb602218eeaf6ceba17362dee, code1bdf966cb602218eeaf6ceba17362deeb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -54,14 +52,14 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1bdf966cb602218eeaf6ceba17362dee"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
 
 <span class="n">packed_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x2a</span><span class="s2">&quot;</span>
 <span class="n">unpacker</span> <span class="o">=</span> <span class="n">xdrlib</span><span class="o">.</span><span class="n">Unpacker</span><span class="p">(</span><span class="n">packed_data</span><span class="p">)</span>
@@ -72,11 +70,10 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
 
 <p>pack_string(value): Упаковывает строку в формате XDR.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code8c466439bc1c4559f690fb072f35f3b1b"
-          onclick="copyCode(code8c466439bc1c4559f690fb072f35f3b1, code8c466439bc1c4559f690fb072f35f3b1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -87,14 +84,14 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code8c466439bc1c4559f690fb072f35f3b1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
 
 <span class="n">packer</span> <span class="o">=</span> <span class="n">xdrlib</span><span class="o">.</span><span class="n">Packer</span><span class="p">()</span>
 <span class="n">packed_data</span> <span class="o">=</span> <span class="n">packer</span><span class="o">.</span><span class="n">pack_string</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
@@ -104,11 +101,10 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
 
 <p>unpack_string(packed_data): Распаковывает строку из данных в формате XDR и возвращает ее значение.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code9040202f7e48a392a74bac3fc3b7a694b"
-          onclick="copyCode(code9040202f7e48a392a74bac3fc3b7a694, code9040202f7e48a392a74bac3fc3b7a694b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -119,14 +115,14 @@ unpack_fstring(format_string, packed_data): Распаковывает данн�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code9040202f7e48a392a74bac3fc3b7a694"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xdrlib</span>
 
 <span class="n">packed_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x0c</span><span class="s2">Hello, World!&quot;</span>
 <span class="n">unpacker</span> <span class="o">=</span> <span class="n">xdrlib</span><span class="o">.</span><span class="n">Unpacker</span><span class="p">(</span><span class="n">packed_data</span><span class="p">)</span>

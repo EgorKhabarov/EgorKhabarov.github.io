@@ -1,10 +1,9 @@
 <h1>Backgrounds</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>css</text>
-  <button class="copy-button"
-          id="code612bb74554bd92aec7fa24940ef98fb7b"
-          onclick="copyCode(code612bb74554bd92aec7fa24940ef98fb7, code612bb74554bd92aec7fa24940ef98fb7b)">
+    <div class="lang-line">
+        <text>css</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -15,14 +14,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code612bb74554bd92aec7fa24940ef98fb7"><div class="highlight"><pre><span></span><span class="nt">background</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="nt">background</span>
 <span class="nt">background-image</span>
 <span class="nt">background-position</span>
 <span class="nt">background-size</span>

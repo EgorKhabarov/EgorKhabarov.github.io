@@ -7,53 +7,52 @@
 </thead>
 <tbody>
 <tr>
-<td>-c</td>
+<td><code>-c</code></td>
 <td>Выполнить однострочный Python-код из командной строки.</td>
 </tr>
 <tr>
-<td>-m</td>
+<td><code>-m</code></td>
 <td>Запустить указанный Python-модуль как скрипт.</td>
 </tr>
 <tr>
-<td>-i —interactive</td>
+<td><code>-i</code> <code>—interactive</code></td>
 <td>Запускает интерпретатор Python в интерактивном режиме после выполнения скрипта.</td>
 </tr>
 <tr>
-<td>-O —optimize</td>
+<td><code>-O</code> <code>—optimize</code></td>
 <td>Включает режим оптимизации, который удаляет отладочную информацию и выполняет оптимизации в байт-коде.<br>Это может уменьшить размер файлов <code>.pyc</code> и улучшить производительность, но осложнить отладку.</td>
 </tr>
 <tr>
-<td>-B —dont-write-bytecode</td>
+<td><code>-B</code> <code>—dont-write-bytecode</code></td>
 <td>Предотвращает запись байт-кода (<code>.pyc</code> файлов) на диск.</td>
 </tr>
 <tr>
-<td>-v —verbose</td>
+<td><code>-v</code> <code>—verbose</code></td>
 <td>Выводит подробные сообщения о том, какие модули импортируются<br>и какие файлы открываются в процессе выполнения программы.</td>
 </tr>
 <tr>
-<td>-q —quiet</td>
+<td><code>-q</code> <code>—quiet</code></td>
 <td>Уменьшает уровень вывода, игнорируя сообщения о запуске и прочие информационные сообщения.</td>
 </tr>
 <tr>
-<td>-E —ignore-environment</td>
+<td><code>-E</code> <code>—ignore-environment</code></td>
 <td>Игнорировать переменные окружения,<br>которые обычно влияют на поведение Python, такие как <code>PYTHONPATH</code>.</td>
 </tr>
 <tr>
-<td>-u —unbuffered</td>
+<td><code>-u</code> <code>—unbuffered</code></td>
 <td>Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных.</td>
 </tr>
 <tr>
-<td>-h —help</td>
+<td><code>-h</code> <code>—help</code></td>
 <td>Выведет список всех доступных флагов и их описания.</td>
 </tr>
 </tbody>
 </table>
 <div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="codee8ebee3e833d0d4b8099205be1901dfeb"
-          onclick="copyCode(codee8ebee3e833d0d4b8099205be1901dfe, codee8ebee3e833d0d4b8099205be1901dfeb)">
+    <div class="lang-line">
+        <text>text</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -64,14 +63,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee8ebee3e833d0d4b8099205be1901dfe"><div class="highlight"><pre><span></span>&gt;python -h
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>&gt;python -h
 usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options (and corresponding environment variables):
 -b     : issue warnings about str(bytes_instance), str(bytearray_instance)

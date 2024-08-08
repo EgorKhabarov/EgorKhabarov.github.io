@@ -10,11 +10,10 @@ nis.getmapbynumber(number): Возвращает содержимое базы �
 <p>Некоторые из самых часто используемых методов "nis" включают:
 match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeaf4d2ca262476c06c07272575da9ae82b"
-          onclick="copyCode(codeaf4d2ca262476c06c07272575da9ae82, codeaf4d2ca262476c06c07272575da9ae82b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -25,14 +24,14 @@ match(mapname, key): Возвращает значение, связанное �
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeaf4d2ca262476c06c07272575da9ae82"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
 
 <span class="n">value</span> <span class="o">=</span> <span class="n">nis</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;passwd&quot;</span><span class="p">,</span> <span class="s2">&quot;john&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -41,11 +40,10 @@ match(mapname, key): Возвращает значение, связанное �
 
 <p>cat(mapname): Возвращает все записи из указанной базы данных.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code298184750f8f68e542547d39b88b12f7b"
-          onclick="copyCode(code298184750f8f68e542547d39b88b12f7, code298184750f8f68e542547d39b88b12f7b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -56,14 +54,14 @@ match(mapname, key): Возвращает значение, связанное �
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code298184750f8f68e542547d39b88b12f7"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
 
 <span class="n">records</span> <span class="o">=</span> <span class="n">nis</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="s2">&quot;passwd&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
@@ -73,11 +71,10 @@ match(mapname, key): Возвращает значение, связанное �
 
 <p>maps(): Возвращает список доступных баз данных.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeb59e602285af20ad5dadc30f461e5d3db"
-          onclick="copyCode(codeb59e602285af20ad5dadc30f461e5d3d, codeb59e602285af20ad5dadc30f461e5d3db)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -88,14 +85,14 @@ match(mapname, key): Возвращает значение, связанное �
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb59e602285af20ad5dadc30f461e5d3d"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nis</span>
 
 <span class="n">map_list</span> <span class="o">=</span> <span class="n">nis</span><span class="o">.</span><span class="n">maps</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">map_list</span><span class="p">)</span>

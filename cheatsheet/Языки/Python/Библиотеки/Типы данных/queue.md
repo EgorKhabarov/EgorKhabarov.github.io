@@ -36,11 +36,10 @@
 </table>
 <p><strong>put(item)</strong> Добавляет элемент в очередь.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code55f2f1c8f8f59bc2319441035997425cb"
-          onclick="copyCode(code55f2f1c8f8f59bc2319441035997425c, code55f2f1c8f8f59bc2319441035997425cb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -51,14 +50,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code55f2f1c8f8f59bc2319441035997425c"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
 <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">qsize</span><span class="p">())</span>  <span class="c1"># Вывод: 2</span>
@@ -67,11 +66,10 @@
 
 <p><strong>get()</strong> Удаляет и возвращает первый элемент из очереди.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code01b0321ffee93443f9639ed43363a230b"
-          onclick="copyCode(code01b0321ffee93443f9639ed43363a230, code01b0321ffee93443f9639ed43363a230b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -82,14 +80,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code01b0321ffee93443f9639ed43363a230"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
 <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>  <span class="c1"># Вывод: 1</span>
@@ -98,11 +96,10 @@
 
 <p><strong>empty()</strong> Проверяет, пуста ли очередь.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codea28cd972ce8a6fd70ed0ae2a460fc242b"
-          onclick="copyCode(codea28cd972ce8a6fd70ed0ae2a460fc242, codea28cd972ce8a6fd70ed0ae2a460fc242b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -113,14 +110,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea28cd972ce8a6fd70ed0ae2a460fc242"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">empty</span><span class="p">())</span>  <span class="c1"># Вывод: True</span>
 </pre></div></div>
 </div>

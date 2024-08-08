@@ -1,10 +1,9 @@
 <h1>Using axes</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code9c606545b06a010df6715c2a3979a58fb"
-          onclick="copyCode(code9c606545b06a010df6715c2a3979a58f, code9c606545b06a010df6715c2a3979a58fb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -15,14 +14,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code9c606545b06a010df6715c2a3979a58f"><div class="highlight"><pre><span></span>//ul/li<span class="w">                       </span><span class="c1"># ul &gt; li</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>//ul/li<span class="w">                       </span><span class="c1"># ul &gt; li</span>
 //ul/child::li<span class="w">                </span><span class="c1"># ul &gt; li (same)</span>
 //ul/following-sibling::li<span class="w">    </span><span class="c1"># ul ~ li</span>
 //ul/descendant-or-self::li<span class="w">   </span><span class="c1"># ul li</span>
@@ -58,11 +57,10 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </table>
 <h1>Child axis</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code1ae0be2f62161b8958a41a64ca740fbeb"
-          onclick="copyCode(code1ae0be2f62161b8958a41a64ca740fbe, code1ae0be2f62161b8958a41a64ca740fbeb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -73,14 +71,14 @@ That’s not always true: you can specify a different “axis” with ::.</p>
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code1ae0be2f62161b8958a41a64ca740fbe"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 //ul/li/a
 //child::ul/child::li/child::a
 </pre></div></div>
@@ -88,11 +86,10 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 
 <p>child:: is the default axis. This makes //a/b/c work.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="codecd924c0c3ae1d7dc1584104d5f7f523bb"
-          onclick="copyCode(codecd924c0c3ae1d7dc1584104d5f7f523b, codecd924c0c3ae1d7dc1584104d5f7f523bb)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -103,14 +100,14 @@ That’s not always true: you can specify a different “axis” with ::.</p>
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codecd924c0c3ae1d7dc1584104d5f7f523b"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 <span class="c1"># this works because `child::li` is truthy, so the predicate succeeds</span>
 //ul<span class="o">[</span>li<span class="o">]</span>
 //ul<span class="o">[</span>child::li<span class="o">]</span>
@@ -118,11 +115,10 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code4c52059df86c3379aece4f4b0ca75af5b"
-          onclick="copyCode(code4c52059df86c3379aece4f4b0ca75af5, code4c52059df86c3379aece4f4b0ca75af5b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -133,14 +129,14 @@ That’s not always true: you can specify a different “axis” with ::.</p>
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4c52059df86c3379aece4f4b0ca75af5"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 //ul<span class="o">[</span>count<span class="o">(</span>li<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span><span class="o">]</span>
 //ul<span class="o">[</span>count<span class="o">(</span>child::li<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">2</span><span class="o">]</span>
 </pre></div></div>
@@ -148,11 +144,10 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 
 <h1>Descendant-or-self axis</h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code43e7aa6e328567c9fc0f5a0fe7574bd5b"
-          onclick="copyCode(code43e7aa6e328567c9fc0f5a0fe7574bd5, code43e7aa6e328567c9fc0f5a0fe7574bd5b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -163,14 +158,14 @@ That’s not always true: you can specify a different “axis” with ::.</p>
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code43e7aa6e328567c9fc0f5a0fe7574bd5"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 //div//h4
 //div/descendant-or-self::h4
 </pre></div></div>
@@ -178,11 +173,10 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 
 <p>// is short for the descendant-or-self:: axis.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>bash</text>
-  <button class="copy-button"
-          id="code8a00ad61c8a551821e85edac12956463b"
-          onclick="copyCode(code8a00ad61c8a551821e85edac12956463, code8a00ad61c8a551821e85edac12956463b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -193,14 +187,14 @@ That’s not always true: you can specify a different “axis” with ::.</p>
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code8a00ad61c8a551821e85edac12956463"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 //ul//<span class="o">[</span>last<span class="o">()]</span>
 //ul/descendant-or-self::<span class="o">[</span>last<span class="o">()]</span>
 </pre></div></div>

@@ -7,50 +7,48 @@
 </thead>
 <tbody>
 <tr>
-<td>-r --requirements</td>
+<td><code>-r</code> <code>--requirements</code></td>
 <td>Установить пакеты из указанного файла зависимостей <code>requirements.txt</code>.</td>
 </tr>
 <tr>
-<td>-U --upgrade</td>
+<td><code>-U</code> <code>--upgrade</code></td>
 <td>Обновить уже установленные пакеты до последней версии.</td>
 </tr>
 <tr>
-<td>-e --editable</td>
+<td><code>-e</code> <code>--editable</code></td>
 <td>Установить пакет в режиме редактирования, что позволяет вносить изменения в код и сразу же видеть результаты.</td>
 </tr>
 <tr>
-<td>-t --target</td>
+<td><code>-t</code> <code>--target</code></td>
 <td>Указать путь к каталогу, в который будут установлены пакеты.</td>
 </tr>
 <tr>
-<td>-f --find-links</td>
+<td><code>-f</code> <code>--find-links</code></td>
 <td>Указать дополнительные источники для поиска пакетов (например, <code>URL</code> или путь к локальному каталогу).</td>
 </tr>
 <tr>
-<td>-i --index-url</td>
+<td><code>-i</code> <code>--index-url</code></td>
 <td>Указать <code>URL</code> для поиска пакетов в репозитории <code>PyPI</code>.</td>
 </tr>
 <tr>
-<td>--no-index</td>
+<td><code>--no-index</code></td>
 <td>Не использовать <code>PyPI</code> для поиска пакетов, только локальные источники.</td>
 </tr>
 <tr>
-<td>--no-cache-dir</td>
+<td><code>--no-cache-dir</code></td>
 <td>Не использовать кэш при установке пакетов.</td>
 </tr>
 <tr>
-<td>--user</td>
+<td><code>--user</code></td>
 <td>Установить пакеты в домашний каталог текущего пользователя.</td>
 </tr>
 </tbody>
 </table>
-<h1><code>pip install --help</code></h1>
 <div class="code-element">
-<div class="lang-line">
-  <text>text</text>
-  <button class="copy-button"
-          id="coded6492c742f2ac49ae40b51bcfb2cade8b"
-          onclick="copyCode(coded6492c742f2ac49ae40b51bcfb2cade8, coded6492c742f2ac49ae40b51bcfb2cade8b)">
+    <div class="lang-line">
+        <text>bash</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -61,14 +59,40 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--help
+</pre></div></div>
 </div>
-<div class="code" id="coded6492c742f2ac49ae40b51bcfb2cade8"><div class="highlight"><pre><span></span>Usage:
+
+<div class="code-element">
+    <div class="lang-line">
+        <text>text</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Copy code</text>
+</button>
+
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>Usage:
   pip install [options] &lt;requirement specifier&gt; [package-index-options] ...
   pip install [options] -r &lt;requirements file&gt; [package-index-options] ...
   pip install [options] [-e] &lt;vcs project url&gt; ...

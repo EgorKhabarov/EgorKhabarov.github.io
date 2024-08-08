@@ -15,11 +15,10 @@ flush(mode): Завершает распаковку и возвращает о�
 <p>Самые часто используемые методы:</p>
 <p>compress(data, level=-1): Сжимает данные с использованием алгоритма Deflate.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee475be44f61375253d4a07d6e391e956b"
-          onclick="copyCode(codee475be44f61375253d4a07d6e391e956, codee475be44f61375253d4a07d6e391e956b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -30,25 +29,24 @@ flush(mode): Завершает распаковку и возвращает о�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee475be44f61375253d4a07d6e391e956"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
 <span class="n">compressed_data</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>decompress(data, wbits=MAX_WBITS, bufsize=DEF_BUF_SIZE): Распаковывает сжатые данные.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code9172df806f89a77ed38c2bd1d08cd56eb"
-          onclick="copyCode(code9172df806f89a77ed38c2bd1d08cd56e, code9172df806f89a77ed38c2bd1d08cd56eb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -59,25 +57,24 @@ flush(mode): Завершает распаковку и возвращает о�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code9172df806f89a77ed38c2bd1d08cd56e"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
 <span class="n">decompressed_data</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">compressed_data</span><span class="p">)</span>
 </pre></div></div>
 </div>
 
 <p>crc32(data, value=0): Вычисляет контрольную сумму CRC-32 для данных.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code86f95d19aa9f8ab49a9a3276dc5f7df1b"
-          onclick="copyCode(code86f95d19aa9f8ab49a9a3276dc5f7df1, code86f95d19aa9f8ab49a9a3276dc5f7df1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -88,14 +85,14 @@ flush(mode): Завершает распаковку и возвращает о�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code86f95d19aa9f8ab49a9a3276dc5f7df1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zlib</span>
 <span class="n">checksum</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>

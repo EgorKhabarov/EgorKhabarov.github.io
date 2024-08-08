@@ -13,11 +13,10 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
 <p>Самые часто используемые методы:</p>
 <p>stat.S_ISDIR(mode): Проверяет, является ли файл директорией.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code0808dc74a9a4cd274396c019eeab9833b"
-          onclick="copyCode(code0808dc74a9a4cd274396c019eeab9833, code0808dc74a9a4cd274396c019eeab9833b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -28,14 +27,14 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code0808dc74a9a4cd274396c019eeab9833"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">stat</span>
 
 <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;path/to/file.txt&quot;</span>
@@ -49,11 +48,10 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
 
 <p>stat.S_ISREG(mode): Проверяет, является ли файл обычным файлом.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code07c2df88c6af073be74d189e763d2b48b"
-          onclick="copyCode(code07c2df88c6af073be74d189e763d2b48, code07c2df88c6af073be74d189e763d2b48b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -64,14 +62,14 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code07c2df88c6af073be74d189e763d2b48"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">stat</span>
 
 <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;path/to/file.txt&quot;</span>
@@ -85,11 +83,10 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
 
 <p>stat.S_IMODE(mode): Возвращает режим доступа к файлу.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code7b90dbabeb502e6f99c1a491420e400eb"
-          onclick="copyCode(code7b90dbabeb502e6f99c1a491420e400e, code7b90dbabeb502e6f99c1a491420e400eb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -100,14 +97,14 @@ stat.S_IFMT(mode): Возвращает тип файла и режим дост
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code7b90dbabeb502e6f99c1a491420e400e"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">stat</span>
 
 <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;path/to/file.txt&quot;</span>

@@ -4,11 +4,10 @@
 Он был разработан в <code>Windows</code> и стал широко используемым 
 форматом для хранения конфигурационных данных в различных программных продуктах.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>ini</text>
-  <button class="copy-button"
-          id="code24d83b2219118d748652e8c6ab45c61ab"
-          onclick="copyCode(code24d83b2219118d748652e8c6ab45c61a, code24d83b2219118d748652e8c6ab45c61ab)">
+    <div class="lang-line">
+        <text>ini</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -19,14 +18,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code24d83b2219118d748652e8c6ab45c61a"><div class="highlight"><pre><span></span><span class="k">[Section1]</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="k">[Section1]</span>
 <span class="na">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value1</span>
 <span class="na">key2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value2</span>
 
@@ -37,11 +36,10 @@
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codec1cfcde7cd4a65d2ad9af97de3cf42f2b"
-          onclick="copyCode(codec1cfcde7cd4a65d2ad9af97de3cf42f2, codec1cfcde7cd4a65d2ad9af97de3cf42f2b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -52,14 +50,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec1cfcde7cd4a65d2ad9af97de3cf42f2"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
 <span class="c1"># config[&quot;BOT&quot;] = {&quot;bot_name&quot;: &quot;&quot;, &quot;token&quot;: &quot;&quot;}</span>
 
 <span class="kn">import</span> <span class="nn">configparser</span>

@@ -11,11 +11,10 @@ replace_history_item(pos, string): Заменяет запись в истори
 <p>Наиболее часто используемые методы:</p>
 <p>readline(): Читает строку из входного потока.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code3197e95a3a21ddb5b1cf05c44f4f6fa0b"
-          onclick="copyCode(code3197e95a3a21ddb5b1cf05c44f4f6fa0, code3197e95a3a21ddb5b1cf05c44f4f6fa0b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -26,14 +25,14 @@ replace_history_item(pos, string): Заменяет запись в истори
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code3197e95a3a21ddb5b1cf05c44f4f6fa0"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
 
 <span class="n">input_string</span> <span class="o">=</span> <span class="n">readline</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input:&quot;</span><span class="p">,</span> <span class="n">input_string</span><span class="p">)</span>
@@ -42,11 +41,10 @@ replace_history_item(pos, string): Заменяет запись в истори
 
 <p>add_history(string): Добавляет строку в историю командной оболочки.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code308d1adf40bc225bc7f28e1334625e97b"
-          onclick="copyCode(code308d1adf40bc225bc7f28e1334625e97, code308d1adf40bc225bc7f28e1334625e97b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -57,14 +55,14 @@ replace_history_item(pos, string): Заменяет запись в истори
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code308d1adf40bc225bc7f28e1334625e97"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
 
 <span class="n">readline</span><span class="o">.</span><span class="n">add_history</span><span class="p">(</span><span class="s2">&quot;command 1&quot;</span><span class="p">)</span>
 <span class="n">readline</span><span class="o">.</span><span class="n">add_history</span><span class="p">(</span><span class="s2">&quot;command 2&quot;</span><span class="p">)</span>
@@ -73,11 +71,10 @@ replace_history_item(pos, string): Заменяет запись в истори
 
 <p>clear_history(): Очищает историю командной оболочки.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code6803509b841da6a099416fbd12549ce1b"
-          onclick="copyCode(code6803509b841da6a099416fbd12549ce1, code6803509b841da6a099416fbd12549ce1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -88,14 +85,14 @@ replace_history_item(pos, string): Заменяет запись в истори
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code6803509b841da6a099416fbd12549ce1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">readline</span>
 
 <span class="n">readline</span><span class="o">.</span><span class="n">clear_history</span><span class="p">()</span>
 </pre></div></div>

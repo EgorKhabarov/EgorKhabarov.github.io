@@ -5,11 +5,10 @@
 <p>Класс Decimal
 Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code052d68a8d4a6ae8718400c204ddf1eaab"
-          onclick="copyCode(code052d68a8d4a6ae8718400c204ddf1eaa, code052d68a8d4a6ae8718400c204ddf1eaab)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -20,14 +19,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code052d68a8d4a6ae8718400c204ddf1eaa"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 
 <span class="c1"># Создание десятичного числа</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.5&quot;</span><span class="p">)</span>
@@ -52,11 +51,10 @@
 <p>Класс Context
 Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codea5bcfbd76fe5af75404f0d7c50eb08ceb"
-          onclick="copyCode(codea5bcfbd76fe5af75404f0d7c50eb08ce, codea5bcfbd76fe5af75404f0d7c50eb08ceb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -67,14 +65,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea5bcfbd76fe5af75404f0d7c50eb08ce"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">Context</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">Context</span>
 
 <span class="c1"># Создание контекста округления</span>
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>
@@ -98,11 +96,10 @@
 <p>Функции округления
 Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code68251b7f822b2d94eacc5664c98d41e1b"
-          onclick="copyCode(code68251b7f822b2d94eacc5664c98d41e1, code68251b7f822b2d94eacc5664c98d41e1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -113,14 +110,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code68251b7f822b2d94eacc5664c98d41e1"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">ROUND_HALF_UP</span><span class="p">,</span> <span class="n">ROUND_HALF_DOWN</span><span class="p">,</span> <span class="n">ROUND_CEILING</span><span class="p">,</span> <span class="n">ROUND_FLOOR</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">ROUND_HALF_UP</span><span class="p">,</span> <span class="n">ROUND_HALF_DOWN</span><span class="p">,</span> <span class="n">ROUND_CEILING</span><span class="p">,</span> <span class="n">ROUND_FLOOR</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.555&quot;</span><span class="p">)</span>
 

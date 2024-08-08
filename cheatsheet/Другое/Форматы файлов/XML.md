@@ -4,11 +4,10 @@
 всех видов данных, включая текст, изображения и мультимедиа.
 <code>XML</code> широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>xml</text>
-  <button class="copy-button"
-          id="code2b9ed1424adacd9fed9d9cc95f0a7973b"
-          onclick="copyCode(code2b9ed1424adacd9fed9d9cc95f0a7973, code2b9ed1424adacd9fed9d9cc95f0a7973b)">
+    <div class="lang-line">
+        <text>xml</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -19,14 +18,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code2b9ed1424adacd9fed9d9cc95f0a7973"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;note&gt;</span>
 <span class="nt">&lt;to&gt;</span>Tove<span class="nt">&lt;/to&gt;</span>
 <span class="nt">&lt;from&gt;</span>Jani<span class="nt">&lt;/from&gt;</span>
@@ -37,11 +36,10 @@
 </div>
 
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeadcdc788c4c83c6907350e89dde19688b"
-          onclick="copyCode(codeadcdc788c4c83c6907350e89dde19688, codeadcdc788c4c83c6907350e89dde19688b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -52,14 +50,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeadcdc788c4c83c6907350e89dde19688"><div class="highlight"><pre><span></span><span class="c1"># config = ET.Element(&quot;config&quot;)</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># config = ET.Element(&quot;config&quot;)</span>
 <span class="c1"># bot = ET.SubElement(config, &quot;BOT&quot;)</span>
 <span class="c1"># ET.SubElement(bot, &quot;bot_name&quot;).text = &quot;&quot;</span>
 <span class="c1"># ET.SubElement(bot, &quot;token&quot;).text = &quot;&quot;</span>

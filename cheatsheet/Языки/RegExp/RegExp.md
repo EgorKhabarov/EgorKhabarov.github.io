@@ -296,6 +296,11 @@
 <td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов.</td>
 </tr>
 <tr>
+<td><code>re.U</code><br><code>re.UNICODE</code></td>
+<td></td>
+<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости.</td>
+</tr>
+<tr>
 <td><code>re.DEBUG</code></td>
 <td></td>
 <td>Отображение отладочной информации о скомпилированном выражении.</td>
@@ -304,11 +309,6 @@
 <td><code>re.NOFLAG</code></td>
 <td></td>
 <td>С версии 3.11.</td>
-</tr>
-<tr>
-<td><code>re.U</code> <code>re.UNICODE</code></td>
-<td></td>
-<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости.</td>
 </tr>
 </tbody>
 </table>
@@ -408,11 +408,10 @@
 </table>
 <p><br></p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code82faef4b2f1c5f897c4abf89e20f3cf3b"
-          onclick="copyCode(code82faef4b2f1c5f897c4abf89e20f3cf3, code82faef4b2f1c5f897c4abf89e20f3cf3b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -423,14 +422,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code82faef4b2f1c5f897c4abf89e20f3cf3"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
 <span class="unselectable"><span class="o">...</span></span>
@@ -443,11 +442,10 @@
 <h1>Примеры</h1>
 <h3>Номер кредитки:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="coded4ed93e2ce8415a7e694dba41cb3da83b"
-          onclick="copyCode(coded4ed93e2ce8415a7e694dba41cb3da83, coded4ed93e2ce8415a7e694dba41cb3da83b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -458,24 +456,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="coded4ed93e2ce8415a7e694dba41cb3da83"><div class="highlight"><pre><span></span>[0-9]{13,16}
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>[0-9]{13,16}
 </pre></div></div>
 </div>
 
 <h3>ICQ:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codeb260276c6da79f9ac4af2a8e31e60a12b"
-          onclick="copyCode(codeb260276c6da79f9ac4af2a8e31e60a12, codeb260276c6da79f9ac4af2a8e31e60a12b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -486,24 +483,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeb260276c6da79f9ac4af2a8e31e60a12"><div class="highlight"><pre><span></span>([1-9])+(?:-?\d){4,}
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>([1-9])+(?:-?\d){4,}
 </pre></div></div>
 </div>
 
 <h3>Набор из букв и цифр (латиница):</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code5bc1896f52b12cca130ae0d470a866f5b"
-          onclick="copyCode(code5bc1896f52b12cca130ae0d470a866f5, code5bc1896f52b12cca130ae0d470a866f5b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -514,24 +510,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code5bc1896f52b12cca130ae0d470a866f5"><div class="highlight"><pre><span></span>^[a-zA-Z0-9]+$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>^[a-zA-Z0-9]+$
 </pre></div></div>
 </div>
 
 <h3>Набор из букв и цифр (латиница + кириллица):</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codefad6f9ba390acfa1fb6951e19c852f9eb"
-          onclick="copyCode(codefad6f9ba390acfa1fb6951e19c852f9e, codefad6f9ba390acfa1fb6951e19c852f9eb)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -542,24 +537,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefad6f9ba390acfa1fb6951e19c852f9e"><div class="highlight"><pre><span></span>^[а-яА-ЯёЁa-zA-Z0-9]+$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>^[а-яА-ЯёЁa-zA-Z0-9]+$
 </pre></div></div>
 </div>
 
 <h3>Домен (например seo-zona.ru):</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code134073f01048f82d2feaecff35daa517b"
-          onclick="copyCode(code134073f01048f82d2feaecff35daa517, code134073f01048f82d2feaecff35daa517b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -570,24 +564,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code134073f01048f82d2feaecff35daa517"><div class="highlight"><pre><span></span>^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
 </pre></div></div>
 </div>
 
 <h3>IPv4:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code95eabfd4e595db100b99562c8f0078ddb"
-          onclick="copyCode(code95eabfd4e595db100b99562c8f0078dd, code95eabfd4e595db100b99562c8f0078ddb)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -598,24 +591,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code95eabfd4e595db100b99562c8f0078dd"><div class="highlight"><pre><span></span>((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
 </pre></div></div>
 </div>
 
 <h3>IPv6:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code41143cc43bdc30af740c6ea18752806db"
-          onclick="copyCode(code41143cc43bdc30af740c6ea18752806d, code41143cc43bdc30af740c6ea18752806db)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -626,24 +618,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code41143cc43bdc30af740c6ea18752806d"><div class="highlight"><pre><span></span>((^|:)([0-9a-fA-F]{0,4})){1,8}$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>((^|:)([0-9a-fA-F]{0,4})){1,8}$
 </pre></div></div>
 </div>
 
 <h3>Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code2079af251c1b85dcb70f7ea7803ac375b"
-          onclick="copyCode(code2079af251c1b85dcb70f7ea7803ac375, code2079af251c1b85dcb70f7ea7803ac375b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -654,24 +645,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code2079af251c1b85dcb70f7ea7803ac375"><div class="highlight"><pre><span></span>^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
 </pre></div></div>
 </div>
 
 <h3>Дата в формате YYYY-MM-DD:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codebaf0e99d3f41e4d5bfee16f26f6d96d4b"
-          onclick="copyCode(codebaf0e99d3f41e4d5bfee16f26f6d96d4, codebaf0e99d3f41e4d5bfee16f26f6d96d4b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -682,24 +672,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codebaf0e99d3f41e4d5bfee16f26f6d96d4"><div class="highlight"><pre><span></span>[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
 </pre></div></div>
 </div>
 
 <h3>Дата в формате <code>DD/MM/YYYY</code>:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codefb2f0340c604de8fdb84994ed30c047eb"
-          onclick="copyCode(codefb2f0340c604de8fdb84994ed30c047e, codefb2f0340c604de8fdb84994ed30c047eb)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -710,24 +699,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codefb2f0340c604de8fdb84994ed30c047e"><div class="highlight"><pre><span></span>(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
 </pre></div></div>
 </div>
 
 <h3>Целые числа и числа с плавающей точкой (разделитель точка):</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="code4a0c3086d171f69f4f7e3548e64fcb34b"
-          onclick="copyCode(code4a0c3086d171f69f4f7e3548e64fcb34, code4a0c3086d171f69f4f7e3548e64fcb34b)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -738,24 +726,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code4a0c3086d171f69f4f7e3548e64fcb34"><div class="highlight"><pre><span></span>\-?\d+(\.\d{0,})?
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>\-?\d+(\.\d{0,})?
 </pre></div></div>
 </div>
 
 <h3>UUID:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codea348a4c28548056428d0e617d313b5bbb"
-          onclick="copyCode(codea348a4c28548056428d0e617d313b5bb, codea348a4c28548056428d0e617d313b5bbb)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -766,24 +753,23 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codea348a4c28548056428d0e617d313b5bb"><div class="highlight"><pre><span></span>^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
 </pre></div></div>
 </div>
 
 <h3>Широта или долгота:</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>regexp</text>
-  <button class="copy-button"
-          id="codeca87fa467b49fe890c53d77db57b9baab"
-          onclick="copyCode(codeca87fa467b49fe890c53d77db57b9baa, codeca87fa467b49fe890c53d77db57b9baab)">
+    <div class="lang-line">
+        <text>regexp</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -794,14 +780,14 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeca87fa467b49fe890c53d77db57b9baa"><div class="highlight"><pre><span></span>-?\d{1,3}\.\d+
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span>-?\d{1,3}\.\d+
 </pre></div></div>
 </div>
 
@@ -833,11 +819,10 @@
 </ol>
 <h3>Пример кода</h3>
 <div class="code-element">
-<div class="lang-line">
-  <text>pycon</text>
-  <button class="copy-button"
-          id="codec907e22d1560e6a1c2e6e89407eb2aaab"
-          onclick="copyCode(codec907e22d1560e6a1c2e6e89407eb2aaa, codec907e22d1560e6a1c2e6e89407eb2aaab)">
+    <div class="lang-line">
+        <text>pycon</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -848,19 +833,19 @@
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codec907e22d1560e6a1c2e6e89407eb2aaa"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">atomic_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&gt;a|ab)c&quot;</span><span class="p">)</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">simple_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Обычная группа</span>
-<span class="unselectable"><span class="go">abc</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
-<span class="unselectable"><span class="go">None</span></span>
-</pre></div></div>
+<span class="unselectable"><span class="go">abc</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
+<span class="unselectable"><span class="go">None</span>
+</span></pre></div></div>
 </div>

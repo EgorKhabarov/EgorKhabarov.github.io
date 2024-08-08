@@ -9,11 +9,10 @@ concurrent.futures.Future: Представляет отложенный рез�
 <p>Некоторые из самых часто используемых методов библиотеки "concurrent" в Python:</p>
 <p>submit(fn, <em>args, </em>*kwargs): Подает задачу на выполнение в пул потоков или процессов.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codee42fb4b5ecd835ec45d0bb9c25db2536b"
-          onclick="copyCode(codee42fb4b5ecd835ec45d0bb9c25db2536, codee42fb4b5ecd835ec45d0bb9c25db2536b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -24,14 +23,14 @@ concurrent.futures.Future: Представляет отложенный рез�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codee42fb4b5ecd835ec45d0bb9c25db2536"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
@@ -44,11 +43,10 @@ concurrent.futures.Future: Представляет отложенный рез�
 
 <p>map(fn, *iterables, timeout=None): Применяет функцию к каждому элементу итерируемых объектов и возвращает результаты в том же порядке.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="codeba82831512409f6a6ef9929c42da529fb"
-          onclick="copyCode(codeba82831512409f6a6ef9929c42da529f, codeba82831512409f6a6ef9929c42da529fb)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -59,14 +57,14 @@ concurrent.futures.Future: Представляет отложенный рез�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="codeba82831512409f6a6ef9929c42da529f"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
@@ -79,11 +77,10 @@ concurrent.futures.Future: Представляет отложенный рез�
 
 <p>shutdown(wait=True): Завершает работу пула потоков или процессов.</p>
 <div class="code-element">
-<div class="lang-line">
-  <text>python</text>
-  <button class="copy-button"
-          id="code738306b0571019881f2bc58f0686d1a1b"
-          onclick="copyCode(code738306b0571019881f2bc58f0686d1a1, code738306b0571019881f2bc58f0686d1a1b)">
+    <div class="lang-line">
+        <text>python</text>
+        <button class="copy-button"
+        onclick="copyCode(this)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -94,14 +91,14 @@ concurrent.futures.Future: Представляет отложенный рез�
          height="1em"
          width="1em"
          xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-      <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
     </svg>
     <text>Copy code</text>
-  </button>
+</button>
 
-</div>
-<div class="code" id="code738306b0571019881f2bc58f0686d1a1"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
+    </div>
+    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">concurrent.futures</span>
 
 <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
     <span class="c1"># Выполнение задач</span>
