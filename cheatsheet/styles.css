@@ -28,16 +28,17 @@ a:active  {color: #6ba4e9;}
 a:visited {color: #539bf5;}
 
 /* Таблицы */
+table thead tbody tr {max-width: min-content;}
 th {
   padding: 10px 15px;
   background-color: #46494b;
-  width: min-content;
+  max-width: min-content;
 }
 td {
   border-top: 1px solid #46494b;
   padding: 10px 15px;
   background-color: #3c3f41;
-  width: min-content;
+  max-width: min-content;
 }
 th:first-child {border-top-left-radius: .375rem;}
 th:last-child {border-top-right-radius: .375rem;}
@@ -189,7 +190,9 @@ code {
   overflow-y:auto;
   border-radius: 5px;
   background-color: #474747;
+  cursor: pointer;
 }
+code:active {background-color: #373737;}
 
 td > code {background-color: #676767;color: #b8b8b8;}
 th > code {background-color: #676767;color: #b8b8b8;}

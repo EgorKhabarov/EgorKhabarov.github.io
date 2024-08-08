@@ -13,64 +13,64 @@
 </thead>
 <tbody>
 <tr>
-<td>.</td>
-<td>Один любой символ, кроме новой строки \n.</td>
+<td><code>.</code></td>
+<td>Один любой символ, кроме новой строки <code>\n</code>.</td>
 </tr>
 <tr>
-<td>\d</td>
+<td><code>\d</code></td>
 <td>Любая цифра</td>
 </tr>
 <tr>
-<td>\D</td>
+<td><code>\D</code></td>
 <td>Любой символ, кроме цифры</td>
 </tr>
 <tr>
-<td>\s</td>
+<td><code>\s</code></td>
 <td>Любой пробельный символ (пробел, табуляция, конец строки и т.п.)</td>
 </tr>
 <tr>
-<td>\S</td>
+<td><code>\S</code></td>
 <td>Любой не пробельный символ</td>
 </tr>
 <tr>
-<td>\w</td>
-<td>Любая буква (то, что может быть частью слова), а также цифры и _</td>
+<td><code>\w</code></td>
+<td>Любая буква (то, что может быть частью слова), а также цифры и <code>_</code></td>
 </tr>
 <tr>
-<td>\W</td>
+<td><code>\W</code></td>
 <td>Любая не-буква, не-цифра и не подчёркивание</td>
 </tr>
 <tr>
-<td>[..]</td>
-<td>Один из символов в скобках, а также любой символ из диапазона a-b [0-9][0-9A-Fa-f]</td>
+<td><code>[..]</code></td>
+<td>Один из символов в скобках, а также любой символ из диапазона <code>a-b</code> <code>[0-9]</code> <code>[0-9A-Fa-f]</code></td>
 </tr>
 <tr>
-<td>[^..]</td>
-<td>Любой символ, кроме перечисленных [^&gt;]</td>
+<td><code>[^..]</code></td>
+<td>Любой символ, кроме перечисленных <code>[^&gt;]</code></td>
 </tr>
 <tr>
-<td>\d≈[0-9]</td>
+<td><code>\d≈[0-9]</code></td>
 <td>Буква <code>ё</code> не включается в общий диапазон букв!</td>
 </tr>
 <tr>
-<td>\D≈[^0-9]<br>\w≈[0-9a-zA-Zа-яА-ЯёЁ]<br>\s≈[ \f\n\r\t\v]</td>
-<td>Вообще говоря, в \d включается всё, что в юникоде помечено как «цифра», а в \w — как буква</td>
+<td><code>\D</code>≈<code>[^0-9]</code><br><code>\w</code>≈<code>[0-9a-zA-Zа-яА-ЯёЁ]</code><br><code>\s</code>≈<code>[ \f\n\r\t\v]</code></td>
+<td>Вообще говоря, в <code>\d</code> включается всё, что в юникоде помечено как «цифра», а в <code>\w</code> — как буква</td>
 </tr>
 <tr>
-<td>[abc-], [-1]</td>
+<td><code>[abc-], [-1]</code></td>
 <td>Если нужен минус, его нужно указать последним или первым</td>
 </tr>
 <tr>
-<td>[*[(+\]\t]</td>
-<td>Внутри скобок нужно экранировать только ] и \</td>
+<td><code>[*[(+\\\]\t]</code></td>
+<td>Внутри скобок нужно экранировать только <code>]</code> и <code>\</code></td>
 </tr>
 <tr>
-<td>\b</td>
+<td><code>\b</code></td>
 <td>Начало или конец слова (слева пусто или не-буква, справа буква и наоборот).<br>В отличие от предыдущих соответствует позиции, а не символу</td>
 </tr>
 <tr>
-<td>\B</td>
-<td>Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы</td>
+<td><code>\B</code></td>
+<td>Не граница слова: либо и слева, и справа буквы, либо и слева, и справа <strong>НЕ</strong> буквы</td>
 </tr>
 </tbody>
 </table>
@@ -84,40 +84,40 @@
 </thead>
 <tbody>
 <tr>
-<td>{n}</td>
+<td><code>{n}</code></td>
 <td>Ровно n повторений</td>
 </tr>
 <tr>
-<td>{m,n}</td>
+<td><code>{m,n}</code></td>
 <td>От m до n повторений включительно</td>
 </tr>
 <tr>
-<td>{m,}</td>
+<td><code>{m,}</code></td>
 <td>Не менее m повторений</td>
 </tr>
 <tr>
-<td>{,n}</td>
+<td><code>{,n}</code></td>
 <td>Не более n повторений</td>
 </tr>
 <tr>
-<td>?</td>
-<td>Ноль или одно вхождение, синоним {0,1}</td>
+<td><code>?</code></td>
+<td>Ноль или одно вхождение, синоним <code>{0,1}</code></td>
 </tr>
 <tr>
-<td>*</td>
-<td>Ноль или более, синоним {0,}</td>
+<td><code>*</code></td>
+<td>Ноль или более, синоним <code>{0,}</code></td>
 </tr>
 <tr>
-<td>+</td>
-<td>Одно или более, синоним {1,}</td>
+<td><code>+</code></td>
+<td>Одно или более, синоним <code>{1,}</code></td>
 </tr>
 <tr>
-<td>*?  +?  ??  {m,n}?</td>
+<td><code>*?</code>  <code>+?</code>  <code>??</code>  <code>{m,n}?</code></td>
 <td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.</td>
 </tr>
 <tr>
-<td>{,n}?  {m,}?</td>
-<td>Добавление ? делает их ленивыми, они захватывают минимально возможное число символов.</td>
+<td><code>{,n}?</code>  <code>{m,}?</code></td>
+<td>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
 </tr>
 </tbody>
 </table>
@@ -131,27 +131,27 @@
 </thead>
 <tbody>
 <tr>
-<td>^</td>
+<td><code>^</code></td>
 <td>Начало всего текста или начало строчки текста, если <code>flags=re.MULTILINE</code></td>
 </tr>
 <tr>
-<td>$</td>
+<td><code>$</code></td>
 <td>Конец всего текста или конец строчки текста, если <code>flags=re.MULTILINE</code></td>
 </tr>
 <tr>
-<td>\A</td>
+<td><code>\A</code></td>
 <td>Строго начало всего текста</td>
 </tr>
 <tr>
-<td>\Z</td>
+<td><code>\Z</code></td>
 <td>Строго конец всего текста</td>
 </tr>
 <tr>
-<td>\b</td>
+<td><code>\b</code></td>
 <td>Начало или конец слова (слева пусто или не-буква, справа буква и наоборот)</td>
 </tr>
 <tr>
-<td>\B</td>
+<td><code>\B</code></td>
 <td>Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы</td>
 </tr>
 </tbody>
@@ -168,27 +168,27 @@
 </thead>
 <tbody>
 <tr>
-<td>(?=...)</td>
+<td><code>(?=.)</code></td>
 <td>Позитивный просмотр вперёд</td>
-<td>Людовик(?=XVI)</td>
+<td><code>Людовик(?=XVI)</code></td>
 <td>ЛюдовикXV, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVI, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
 </tr>
 <tr>
-<td>(?!...)</td>
+<td><code>(?!.)</code></td>
 <td>Негативный просмотр вперёд</td>
-<td>Людовик(?!XVI)</td>
+<td><code>Людовик(?!XVI)</code></td>
 <td><span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL</td>
 </tr>
 <tr>
-<td>(?&lt;=...)</td>
+<td><code>(?&lt;=.)</code></td>
 <td>Позитивный просмотр назад<br>Длина шаблона должна быть фиксированной</td>
-<td>(?&lt;=Сергей )Иванов</td>
+<td><code>(?&lt;=Сергей )Иванов</code></td>
 <td>Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов</td>
 </tr>
 <tr>
-<td>(?&lt;!...)</td>
+<td><code>(?&lt;!.)</code></td>
 <td>Негативный просмотр назад</td>
-<td>(?&lt;!Сергей )Иванов</td>
+<td><code>(?&lt;!Сергей )Иванов</code></td>
 <td>Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span></td>
 </tr>
 </tbody>
@@ -205,21 +205,21 @@
 </thead>
 <tbody>
 <tr>
-<td>(?:pattern)</td>
+<td><code>(?:pattern)</code></td>
 <td>Незахватывающая группа</td>
-<td>(?:abc|def)</td>
+<td><code>(?:abc\|def)</code></td>
 <td>123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456</td>
 </tr>
 <tr>
-<td>(?P&lt;name&gt;pattern)</td>
+<td><code>(?P&lt;name&gt;pattern)</code></td>
 <td>Именованная группа захвата</td>
-<td>My name is (?P&lt;name&gt;\w+)</td>
+<td><code>My name is (?P&amp;lt;name&gt;\w+)</code></td>
 <td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><br><span class="c1"># John</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
-<td>(?P=name)</td>
+<td><code>(?P=name)</code></td>
 <td>Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени</td>
-<td>(?P&lt;word&gt;\w+)\s+(?P=word)</td>
+<td><code>(?P&amp;lt;word&gt;\w+)\s+(?P=word)</code></td>
 <td><span style="background-color: #999999; color: #FFFFFF">hello hello</span></td>
 </tr>
 </tbody>
@@ -236,27 +236,26 @@
 </thead>
 <tbody>
 <tr>
-<td>(?&gt;pattern)</td>
+<td><code>(?&gt;pattern)</code></td>
 <td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала.</td>
 <td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад.</td>
 <td><span style="background-color: #999999; color: #FFFFFF">1234</span></td>
 </tr>
 <tr>
-<td>(?R) или (?0)</td>
+<td><code>(?R)</code> или <code>(?0)</code></td>
 <td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя.</td>
 <td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
 <td><span style="background-color: #999999; color: #FFFFFF">(a(b)c)</span></td>
 </tr>
 <tr>
-<td>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</td>
+<td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
 <td>Условные выражения<br>с именованными группами</td>
 <td></td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1|&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div></td>
 </tr>
 </tbody>
 </table>
-<h1>Флаги</h1>
-<p><a target="_blank" href="https://docs.python.org/3/library/re.html#flags">https://docs.python.org/3/library/re.html#flags</a></p>
+<h1><a target="_blank" href="https://docs.python.org/3/library/re.html#flags">Флаги</a></h1>
 <table>
 <thead>
 <tr>
@@ -267,29 +266,49 @@
 </thead>
 <tbody>
 <tr>
-<td>re.ASCII</td>
-<td>(?a)</td>
+<td><code>re.A</code><br><code>re.ASCII</code></td>
+<td><code>(?a)</code></td>
 <td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII.</td>
 </tr>
 <tr>
-<td>re.IGNORECASE</td>
-<td>(?i)</td>
+<td><code>re.I</code><br><code>re.IGNORECASE</code></td>
+<td><code>(?i)</code></td>
 <td>Не различать заглавные и маленькие буквы. Работает медленнее, но иногда удобно</td>
 </tr>
 <tr>
-<td>re.MULTILINE</td>
-<td>(?m)</td>
+<td><code>re.M</code><br><code>re.MULTILINE</code></td>
+<td><code>(?m)</code></td>
 <td>Специальные символы <code>^</code> и <code>$</code> соответствуют началу и концу каждой строки</td>
 </tr>
 <tr>
-<td>re.DOTALL</td>
-<td>(?s)</td>
+<td><code>re.S</code><br><code>re.DOTALL</code></td>
+<td><code>(?s)</code></td>
 <td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
 </tr>
 <tr>
-<td>re.VERBOSE</td>
-<td>(?x)</td>
+<td><code>re.X</code><br><code>re.VERBOSE</code></td>
+<td><code>(?x)</code></td>
 <td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;\d +  # the integral part</span><br><span class="s2">                   \.    # the decimal point</span><br><span class="s2">                   \d *  # some fractional digits&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>re.L</code><br><code>re.LOCALE</code></td>
+<td><code>(?L)</code></td>
+<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов.</td>
+</tr>
+<tr>
+<td><code>re.DEBUG</code></td>
+<td></td>
+<td>Отображение отладочной информации о скомпилированном выражении.</td>
+</tr>
+<tr>
+<td><code>re.NOFLAG</code></td>
+<td></td>
+<td>С версии 3.11.</td>
+</tr>
+<tr>
+<td><code>re.U</code> <code>re.UNICODE</code></td>
+<td></td>
+<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости.</td>
 </tr>
 </tbody>
 </table>
@@ -340,7 +359,7 @@
 <td>Проверяет, полностью ли строка соответствует шаблону.</td>
 </tr>
 <tr>
-<td>re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0       <br>                                                                                <br>) -&gt; Pattern[AnyStr]</td>
+<td>re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0       <br>) -&gt; Pattern[AnyStr]</td>
 <td>Компилирует регулярное выражение в объект регулярного выражения.</td>
 </tr>
 </tbody>
@@ -392,8 +411,8 @@
 <div class="lang-line">
   <text>python</text>
   <button class="copy-button"
-          id="code4427cfaf8227306f5744cc4752203cb7b"
-          onclick="copyCode(code4427cfaf8227306f5744cc4752203cb7, code4427cfaf8227306f5744cc4752203cb7b)">
+          id="code82faef4b2f1c5f897c4abf89e20f3cf3b"
+          onclick="copyCode(code82faef4b2f1c5f897c4abf89e20f3cf3, code82faef4b2f1c5f897c4abf89e20f3cf3b)">
     <svg stroke="currentColor"
          fill="none"
          stroke-width="2"
@@ -411,17 +430,18 @@
   </button>
 
 </div>
-<div class="code" id="code4427cfaf8227306f5744cc4752203cb7"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span> 
-<span class="k">def</span> <span class="nf">repl</span><span class="p">(</span><span class="n">m</span><span class="p">):</span> 
-    <span class="k">return</span> <span class="s1">&#39;&gt;censored(&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39;)&lt;&#39;</span> 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b[хХxX]\w*&#39;</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span> 
-<span class="c1"># -&gt; Некоторые &gt;censored(7)&lt; слова подозрительны: &gt;censored(3)&lt;, &gt;censored(7)&lt;, &gt;censored(15)&lt;.</span>
+<div class="code" id="code82faef4b2f1c5f897c4abf89e20f3cf3"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
+<span class="unselectable"><span class="o">...</span></span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+<span class="unselectable"><span class="n">Некоторые</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span> <span class="n">слова</span> <span class="n">подозрительны</span><span class="p">:</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span><span class="o">.</span></span>
 </pre></div></div>
 </div>
 
-<p>Примеры
-Номер кредитки:</p>
+<h1>Примеры</h1>
+<h3>Номер кредитки:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -449,7 +469,7 @@
 </pre></div></div>
 </div>
 
-<p>ICQ:</p>
+<h3>ICQ:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -477,7 +497,7 @@
 </pre></div></div>
 </div>
 
-<p>Набор из букв и цифр (латиница):</p>
+<h3>Набор из букв и цифр (латиница):</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -505,7 +525,7 @@
 </pre></div></div>
 </div>
 
-<p>Набор из букв и цифр (латиница + кириллица):</p>
+<h3>Набор из букв и цифр (латиница + кириллица):</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -533,7 +553,7 @@
 </pre></div></div>
 </div>
 
-<p>Домен (например seo-zona.ru):</p>
+<h3>Домен (например seo-zona.ru):</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -561,7 +581,7 @@
 </pre></div></div>
 </div>
 
-<p>IPv4:</p>
+<h3>IPv4:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -589,7 +609,7 @@
 </pre></div></div>
 </div>
 
-<p>IPv6:</p>
+<h3>IPv6:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -617,8 +637,7 @@
 </pre></div></div>
 </div>
 
-<p>Имя пользователя (с ограничением 2-20 символов, 
-которыми могут быть буквы и цифры, первый символ обязательно буква):</p>
+<h3>Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -646,7 +665,7 @@
 </pre></div></div>
 </div>
 
-<p>Дата в формате YYYY-MM-DD:</p>
+<h3>Дата в формате YYYY-MM-DD:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -674,7 +693,7 @@
 </pre></div></div>
 </div>
 
-<p>Дата в формате DD/MM/YYYY:</p>
+<h3>Дата в формате <code>DD/MM/YYYY</code>:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -702,7 +721,7 @@
 </pre></div></div>
 </div>
 
-<p>Целые числа и числа с плавающей точкой (разделитель точка):</p>
+<h3>Целые числа и числа с плавающей точкой (разделитель точка):</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -730,7 +749,7 @@
 </pre></div></div>
 </div>
 
-<p>UUID:</p>
+<h3>UUID:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>
@@ -758,7 +777,7 @@
 </pre></div></div>
 </div>
 
-<p>Широта или долгота:</p>
+<h3>Широта или долгота:</h3>
 <div class="code-element">
 <div class="lang-line">
   <text>regexp</text>

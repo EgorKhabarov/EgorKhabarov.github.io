@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, send_file, send_from_directory, abort
 from werkzeug.exceptions import NotFound
 
@@ -12,15 +10,12 @@ def home():
     return send_file("../index.html")
 
 
-@app.route("/cheatsheet")
-def cheatsheet():
-    return send_file("../cheatsheet/index.html")
-
-
 @app.route("/<path:path>")
 def index_html_path(path: str):
+    if path.endswith("/"):
+        path += "index.html"
     try:
-        return send_from_directory("../cheatsheet", f"{path}")
+        return send_from_directory("..", path)
     except (FileNotFoundError, NotFound):
         return abort(404, "FileNotFoundError")
 

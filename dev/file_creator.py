@@ -52,7 +52,7 @@ def code_block_callback(match):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
     code_id = get_id(language + highlighted_code, True)
-    btn = (
+    download_btn = (
         """
 <button class="copy-button-2"
         id="code{code_id}_2b"
@@ -79,11 +79,8 @@ def code_block_callback(match):
         if filename
         else ""
     )
-    return """
-<div class="code-element">
-<div class="lang-line">
-  <text>{lang}</text>
-  <button class="copy-button"
+    copy_btn = """
+<button class="copy-button"
           id="code{index}b"
           onclick="copyCode(code{index}, code{index}b)">
     <svg stroke="currentColor"
@@ -101,7 +98,13 @@ def code_block_callback(match):
     </svg>
     <text>Copy code</text>
   </button>
-  {btn}
+""".strip().format(index=code_id)
+    return """
+<div class="code-element">
+<div class="lang-line">
+  <text>{lang}</text>
+  {copy_btn}
+  {download_btn}
 </div>
 <div class="code" id="code{index}">{code}</div>
 </div>
@@ -109,7 +112,8 @@ def code_block_callback(match):
         lang=language,
         code=highlighted_code,
         index=code_id,
-        btn=btn,
+        copy_btn=copy_btn,
+        download_btn=download_btn,
     )
 
 
@@ -184,18 +188,21 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=0):
 def create_files(cheatsheet_count: int):
     create_files_and_folders(DICT, "../cheatsheet", y=cheatsheet_count - 1)
 
-    content = requests.get(
-        f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",
-        {
-            "style": "flat",
-            "logo": "github",
-            "label": "GitHub Pages",
-        },
-    ).content.decode()
-
-    with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
-        file_readme.write(
-            f"""
+    try:
+        content = requests.get(
+            f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",
+            {
+                "style": "flat",
+                "logo": "github",
+                "label": "GitHub Pages",
+            },
+        ).content.decode()
+    except requests.exceptions.ConnectionError:
+        pass
+    else:
+        with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
+            file_readme.write(
+                f"""
 <h1>egorkhabarov.github.io/cheatsheet</h1>
 
 {content}
@@ -204,7 +211,7 @@ def create_files(cheatsheet_count: int):
 https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen?style=flat&logo=github&label=GitHub Pages
 -->
 """.strip()
-        )
+            )
 
 
 def create_file(keys: tuple[str]):

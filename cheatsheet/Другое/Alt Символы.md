@@ -7,6 +7,10 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align: right;">§</td>
+<td style="text-align: left;">21</td>
+</tr>
+<tr>
 <td style="text-align: right;">…</td>
 <td style="text-align: left;">0133</td>
 </tr>

@@ -137,8 +137,8 @@ function copyCode(element, elementButton) {
     let svg = svg1 + svg2;
     delete svg1, svg2;
 
-    let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><pre>Copied!</pre>';
-    let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><pre>Copy code</pre>';
+    let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text>Copied!</text>';
+    let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text>';
 
     if (typeof elementButton.innerText != 'undefined') {
          elementButton.innerHTML = html1; // IE8
@@ -265,7 +265,6 @@ function toggleStyleDisplayByPath(kpath) {
     }
 }
 
-
 function restoreCheatSheetState(path) {
     let kpath = getPathWithoutFilename(path);
     let kelement = document.querySelector(`[kpath="${kpath}"]`);
@@ -315,6 +314,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
+document.addEventListener("click", function(event) {
+    if (event.target.tagName === "CODE") {
+        const tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = event.target.textContent;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+});
+
 
 let need_save_history = true;
 let history = {};
