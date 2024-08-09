@@ -160,7 +160,7 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=0):
         key_path = os.path.join(directory, key)
         print_progress_bar(x, y, "create cheatsheets", key_path)
 
-        if key.startswith("link:"):
+        if key.startswith("::link::"):
             continue
 
         if isinstance(value, str):

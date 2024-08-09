@@ -16,12 +16,12 @@ print()
 
 folder_path = "../cheatsheet"
 x = 0
-print_progress_bar(0, cheatsheet_count, "delete old cheatsheet", "")
+print_progress_bar(0, cheatsheet_count, "delete cheatsheet", "")
 
 
-def g(path: str):
+def g(path_: str):
     r = DICT
-    for k in path.removeprefix("../cheatsheet").strip("/").strip("\\").removesuffix(".md").split("\\"):
+    for k in path_.removeprefix("../cheatsheet").strip("/").strip("\\").removesuffix(".md").split("\\"):
         r = r[k]
     return r
 
@@ -34,7 +34,7 @@ for foldername, _, filenames in os.walk(folder_path):
             try:
                 g(path)
             except KeyError:
-                print_progress_bar(x, cheatsheet_count, "delete old cheatsheet", path)
+                print_progress_bar(x, cheatsheet_count, "delete cheatsheet", path)
                 os.remove(path)
 
 print()

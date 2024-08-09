@@ -19,8 +19,8 @@ def buttons(
     for key, value in dictionary.items():
         print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
 
-        if key.startswith("link:"):
-            key = key.removeprefix("link:")
+        if key.startswith("::link::"):
+            key = key.removeprefix("::link::")
             name = key.replace("\\", "&#x2f;") + ".md"
             text_list.append(
                 (

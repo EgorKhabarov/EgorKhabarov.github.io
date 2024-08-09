@@ -16211,7 +16211,7 @@ int main()
 """,
     },
     "Shortcuts": {
-         "link:Языки/Python/fstrings": "",
-         "link:Языки/RegExp/RegExp": "",
+         "::link::Языки/Python/fstrings": "",
+         "::link::Языки/RegExp/RegExp": "",
     },
 }
