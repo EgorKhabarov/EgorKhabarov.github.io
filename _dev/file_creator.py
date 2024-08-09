@@ -8,8 +8,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
-from dev.data import DICT
-from dev.utils import set_unselectable, print_progress_bar
+from _dev.data import DICT
+from _dev.utils import set_unselectable, print_progress_bar
 
 
 formatter = HtmlFormatter(style="default")

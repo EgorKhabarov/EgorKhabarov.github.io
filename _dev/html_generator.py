@@ -2,8 +2,8 @@ import os
 
 from bs4 import BeautifulSoup
 
-from dev.data import DICT
-from dev.utils import print_progress_bar
+from _dev.data import DICT
+from _dev.utils import print_progress_bar
 
 
 id_dict = []

@@ -4,10 +4,10 @@ start_time = time()  # noqa
 
 import os  # noqa
 
-from dev.data import DICT  # noqa
-from dev.html_generator import generate_index_html  # noqa
-from dev.file_creator import create_files  # noqa
-from dev.utils import print_progress_bar, check_dict_keys  # noqa
+from _dev.data import DICT  # noqa
+from _dev.html_generator import generate_index_html  # noqa
+from _dev.file_creator import create_files  # noqa
+from _dev.utils import print_progress_bar, check_dict_keys  # noqa
 
 
 cheatsheet_count = check_dict_keys(DICT)

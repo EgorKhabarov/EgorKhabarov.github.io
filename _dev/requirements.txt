@@ -1,5 +1,6 @@
-Flask~=3.0.3
+requests~=2.32.3
 markdown~=3.6
 Pygments~=2.18.0
+Flask~=3.0.3
+werkzeug~=3.0.3
 BeautifulSoup4~=4.12.3
-requests~=2.32.3

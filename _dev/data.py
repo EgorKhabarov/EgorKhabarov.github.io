@@ -1,4 +1,4 @@
-from dev.utils import to_table_code_py, to_table_code_java, to_link, to_table_code_sql
+from _dev.utils import to_table_code_py, to_table_code_java, to_link, to_table_code_sql
 
 DICT = {
     "Общее": {
