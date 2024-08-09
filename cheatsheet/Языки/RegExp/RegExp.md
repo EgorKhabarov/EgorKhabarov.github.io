@@ -3,7 +3,7 @@
 основанный на использовании метасимволов. 
 Для поиска используется строка-образец, состоящая из символов и 
 метасимволов и задающая правило поиска.</p>
-<h1>Обозначения</h1>
+<h1 id="Обозначения">Обозначения</h1>
 <table>
 <thead>
 <tr>
@@ -49,12 +49,8 @@
 <td>Любой символ, кроме перечисленных <code>[^&gt;]</code></td>
 </tr>
 <tr>
-<td><code>\d≈[0-9]</code></td>
-<td>Буква <code>ё</code> не включается в общий диапазон букв!</td>
-</tr>
-<tr>
-<td><code>\D</code>≈<code>[^0-9]</code><br><code>\w</code>≈<code>[0-9a-zA-Zа-яА-ЯёЁ]</code><br><code>\s</code>≈<code>[ \f\n\r\t\v]</code></td>
-<td>Вообще говоря, в <code>\d</code> включается всё, что в юникоде помечено как «цифра», а в <code>\w</code> — как буква</td>
+<td><code>\d</code>≈<code>[0-9]</code><br><code>\D</code>≈<code>[^0-9]</code><br><code>\w</code>≈<code>[0-9a-zA-Zа-яА-ЯёЁ]</code><br><code>\s</code>≈<code>[ \f\n\r\t\v]</code></td>
+<td>Буква <code>ё</code> не включается в общий диапазон букв!<br>Вообще говоря, в <code>\d</code> включается всё, что в юникоде помечено как «цифра», а в <code>\w</code> — как буква</td>
 </tr>
 <tr>
 <td><code>[abc-], [-1]</code></td>
@@ -74,7 +70,7 @@
 </tr>
 </tbody>
 </table>
-<h1>Повторения</h1>
+<h1 id="Повторения">Повторения</h1>
 <table>
 <thead>
 <tr>
@@ -112,16 +108,12 @@
 <td>Одно или более, синоним <code>{1,}</code></td>
 </tr>
 <tr>
-<td><code>*?</code>  <code>+?</code>  <code>??</code>  <code>{m,n}?</code></td>
-<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.</td>
-</tr>
-<tr>
-<td><code>{,n}?</code>  <code>{m,}?</code></td>
-<td>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
+<td><code>*?</code> <code>+?</code> <code>??</code> <code>{m,n}?</code><br><code>{,n}?</code> <code>{m,}?</code></td>
+<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
 </tr>
 </tbody>
 </table>
-<h1>Начало &amp; конец</h1>
+<h1 id="Начало&amp;amp;конец">Начало &amp; конец</h1>
 <table>
 <thead>
 <tr>
@@ -156,7 +148,7 @@
 </tr>
 </tbody>
 </table>
-<h1>Условные выражения</h1>
+<h1 id="Условныевыражения">Условные выражения</h1>
 <table>
 <thead>
 <tr>
@@ -193,7 +185,7 @@
 </tr>
 </tbody>
 </table>
-<h1>Группы захвата</h1>
+<h1 id="Группызахвата">Группы захвата</h1>
 <table>
 <thead>
 <tr>
@@ -213,18 +205,18 @@
 <tr>
 <td><code>(?P&lt;name&gt;pattern)</code></td>
 <td>Именованная группа захвата</td>
-<td><code>My name is (?P&amp;lt;name&gt;\w+)</code></td>
+<td><code>My name is (?P&lt;name&gt;\w+)</code></td>
 <td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><br><span class="c1"># John</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>(?P=name)</code></td>
 <td>Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени</td>
-<td><code>(?P&amp;lt;word&gt;\w+)\s+(?P=word)</code></td>
+<td><code>(?P&lt;word&gt;\w+)\s+(?P=word)</code></td>
 <td><span style="background-color: #999999; color: #FFFFFF">hello hello</span></td>
 </tr>
 </tbody>
 </table>
-<h1>Другое</h1>
+<h1 id="Другое">Другое</h1>
 <table>
 <thead>
 <tr>
@@ -317,7 +309,7 @@
 Если использование модификаторов требуется только в пределах группы, то нужный шаблон
 указывается внутри группы после модификаторов и после двоеточия.
 Например, <b><code>(?-i)(?i:tv)set</code></b> найдёт <b><code>TVset</code></b>, но не <b><code>TVSET</code></b>.</p>
-<h1>Команды</h1>
+<h1 id="Команды">Команды</h1>
 <table>
 <thead>
 <tr>
@@ -439,8 +431,8 @@
 </pre></div></div>
 </div>
 
-<h1>Примеры</h1>
-<h3>Номер кредитки:</h3>
+<h1 id="Примеры">Примеры</h1>
+<h3 id="Номеркредитки:">Номер кредитки:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -467,7 +459,7 @@
 </pre></div></div>
 </div>
 
-<h3>ICQ:</h3>
+<h3 id="ICQ:">ICQ:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -494,7 +486,7 @@
 </pre></div></div>
 </div>
 
-<h3>Набор из букв и цифр (латиница):</h3>
+<h3 id="Наборизбуквицифр(латиница):">Набор из букв и цифр (латиница):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -521,7 +513,7 @@
 </pre></div></div>
 </div>
 
-<h3>Набор из букв и цифр (латиница + кириллица):</h3>
+<h3 id="Наборизбуквицифр(латиница+кириллица):">Набор из букв и цифр (латиница + кириллица):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -548,7 +540,7 @@
 </pre></div></div>
 </div>
 
-<h3>Домен (например seo-zona.ru):</h3>
+<h3 id="Домен(напримерseo-zona.ru):">Домен (например seo-zona.ru):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -575,7 +567,7 @@
 </pre></div></div>
 </div>
 
-<h3>IPv4:</h3>
+<h3 id="IPv4:">IPv4:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -602,7 +594,7 @@
 </pre></div></div>
 </div>
 
-<h3>IPv6:</h3>
+<h3 id="IPv6:">IPv6:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -629,7 +621,7 @@
 </pre></div></div>
 </div>
 
-<h3>Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
+<h3 id="Имяпользователя(сограничением2-20символов,&lt;br&gt;которымимогутбытьбуквыицифры,первыйсимволобязательнобуква):">Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -656,7 +648,7 @@
 </pre></div></div>
 </div>
 
-<h3>Дата в формате YYYY-MM-DD:</h3>
+<h3 id="ДатавформатеYYYY-MM-DD:">Дата в формате YYYY-MM-DD:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -683,7 +675,7 @@
 </pre></div></div>
 </div>
 
-<h3>Дата в формате <code>DD/MM/YYYY</code>:</h3>
+<h3 id="Датавформате&lt;code&gt;DD/MM/YYYY&lt;/code&gt;:">Дата в формате <code>DD/MM/YYYY</code>:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -710,7 +702,7 @@
 </pre></div></div>
 </div>
 
-<h3>Целые числа и числа с плавающей точкой (разделитель точка):</h3>
+<h3 id="Целыечислаичисласплавающейточкой(разделительточка):">Целые числа и числа с плавающей точкой (разделитель точка):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -737,7 +729,7 @@
 </pre></div></div>
 </div>
 
-<h3>UUID:</h3>
+<h3 id="UUID:">UUID:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -764,7 +756,7 @@
 </pre></div></div>
 </div>
 
-<h3>Широта или долгота:</h3>
+<h3 id="Широтаилидолгота:">Широта или долгота:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -794,7 +786,7 @@
 <p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению.
 Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
-<h2>Пример бэктрекинга</h2>
+<h2 id="Примербэктрекинга">Пример бэктрекинга</h2>
 <p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
 <ol>
 <li>Начало сопоставления с <code>a</code> — успех.</li>
@@ -809,7 +801,7 @@
 <li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code>.</li>
 <li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
 </ol>
-<h3>Пример атомарной группы</h3>
+<h3 id="Примератомарнойгруппы">Пример атомарной группы</h3>
 <p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
 <ol>
 <li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code>.</li>
@@ -817,7 +809,7 @@
 <li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code>.</li>
 <li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
 </ol>
-<h3>Пример кода</h3>
+<h3 id="Примеркода">Пример кода</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>pycon</text>

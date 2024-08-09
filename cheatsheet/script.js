@@ -218,11 +218,11 @@ function handleSearch(event) {
 }
 
 function downloadFile(text, filename) {
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
+    var element = document.createElement("a");
+    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+    element.setAttribute("download", filename);
 
-    element.style.display = 'none';
+    element.style.display = "none";
     document.body.appendChild(element);
 
     element.click();
@@ -233,7 +233,7 @@ function downloadFile(text, filename) {
 function addArgumentToUrl(arg) {
     const currentUrl = new URL(window.location.href);
     currentUrl.search = arg;
-    window.history.pushState({}, '', currentUrl);
+    window.history.pushState({}, "", currentUrl);
 }
 
 function getArgumentFromUrl() {
@@ -243,8 +243,11 @@ function getArgumentFromUrl() {
 
 function removeArgumentFromUrl() {
     let url = new URL(window.location.href);
-    url.search = '';
+    url.search = "";
     window.history.replaceState(null, null, url.href);
+    if (window.location.hash) {
+        window.location.hash = "";
+    }
 }
 
 function getPathWithoutFilename(filePath) {

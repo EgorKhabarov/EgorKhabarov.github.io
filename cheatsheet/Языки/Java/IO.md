@@ -1,4 +1,4 @@
-<h2>File</h2>
+<h2 id="File">File</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>java</text>
@@ -41,7 +41,7 @@
 </pre></div></div>
 </div>
 
-<h2>BufferedReader</h2>
+<h2 id="BufferedReader">BufferedReader</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>java</text>
@@ -83,7 +83,7 @@
 </pre></div></div>
 </div>
 
-<h2>FileWriter</h2>
+<h2 id="FileWriter">FileWriter</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>java</text>

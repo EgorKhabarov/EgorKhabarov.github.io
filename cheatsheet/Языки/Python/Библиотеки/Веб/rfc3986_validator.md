@@ -36,7 +36,7 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
     </div>
     <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rfc3986_validator</span> <span class="kn">import</span> <span class="n">validate</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&lt;a target=&quot;</span><span class="n">_blank</span><span class="s2">&quot; href=&quot;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="s2">&quot;&gt;https://www.example.com&lt;/a&gt;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com&quot;</span>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>  <span class="c1"># Выводит True, если URL действителен</span>
 </pre></div></div>
@@ -68,7 +68,7 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
     </div>
     <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rfc3986_validator</span> <span class="kn">import</span> <span class="n">get_host</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&lt;a target=&quot;</span><span class="n">_blank</span><span class="s2">&quot; href=&quot;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">path</span><span class="s2">&quot;&gt;https://www.example.com/path&lt;/a&gt;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com/path&quot;</span>
 <span class="n">host</span> <span class="o">=</span> <span class="n">get_host</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>  <span class="c1"># Выводит &quot;www.example.com&quot;</span>
 </pre></div></div>
@@ -100,7 +100,7 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
     </div>
     <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rfc3986_validator</span> <span class="kn">import</span> <span class="n">get_path</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&lt;a target=&quot;</span><span class="n">_blank</span><span class="s2">&quot; href=&quot;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">path</span><span class="s2">&quot;&gt;https://www.example.com/path&lt;/a&gt;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com/path&quot;</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">get_path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># Выводит &quot;/path&quot;</span>
 </pre></div></div>

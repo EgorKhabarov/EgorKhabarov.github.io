@@ -1,4 +1,4 @@
-<h1>Steps and axes</h1>
+<h1 id="Stepsandaxes">Steps and axes</h1>
 <table>
 <thead>
 <tr>
@@ -23,7 +23,7 @@
 </tr>
 </tbody>
 </table>
-<h1>Prefixes</h1>
+<h1 id="Prefixes">Prefixes</h1>
 <table>
 <thead>
 <tr>
@@ -51,7 +51,7 @@
 </tbody>
 </table>
 <p>Begin your expression with any of these.</p>
-<h1>Axes</h1>
+<h1 id="Axes">Axes</h1>
 <table>
 <thead>
 <tr>
@@ -74,7 +74,7 @@
 </tbody>
 </table>
 <p>Separate your steps with /. Use two (//) if you don’t want to select direct children.</p>
-<h1>Steps</h1>
+<h1 id="Steps">Steps</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>

@@ -197,6 +197,10 @@ def to_table_code_java(code: str) -> str:
     return to_table_code("java", code)
 
 
+def to_table_code_sql(code: str) -> str:
+    return to_table_code("sql", code)
+
+
 def to_link(path: str) -> str:
     path = path.removesuffix(".md")
     filename = path.rsplit("/", 1)[-1]

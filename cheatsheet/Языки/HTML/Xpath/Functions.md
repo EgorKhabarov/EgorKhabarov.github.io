@@ -1,4 +1,4 @@
-<h1>Node functions</h1>
+<h1 id="Nodefunctions">Node functions</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -56,7 +56,7 @@ position<span class="o">()</span><span class="w">                 </span><span c
 </pre></div></div>
 </div>
 
-<h1>Boolean functions</h1>
+<h1 id="Booleanfunctions">Boolean functions</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -83,7 +83,7 @@ position<span class="o">()</span><span class="w">                 </span><span c
 </pre></div></div>
 </div>
 
-<h1>String functions</h1>
+<h1 id="Stringfunctions">String functions</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -144,7 +144,7 @@ string-length<span class="o">()</span>
 </pre></div></div>
 </div>
 
-<h1>Type conversion</h1>
+<h1 id="Typeconversion">Type conversion</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>

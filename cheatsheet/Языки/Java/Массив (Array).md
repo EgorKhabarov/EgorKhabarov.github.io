@@ -44,7 +44,7 @@
 </pre></div></div>
 </div>
 
-<h1>Вывод значений</h1>
+<h1 id="Выводзначений">Вывод значений</h1>
 <p>Для вывода всех значений массива используйте метод <code>Arrays.toString()</code>, преобразующий массив в строку.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -130,7 +130,7 @@
 </pre></div></div>
 </div>
 
-<h1>Многомерный массив</h1>
+<h1 id="Многомерныймассив">Многомерный массив</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>java</text>

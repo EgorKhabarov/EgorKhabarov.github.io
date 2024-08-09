@@ -1,4 +1,4 @@
-<h1>Backgrounds</h1>
+<h1 id="Backgrounds">Backgrounds</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>

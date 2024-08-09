@@ -1,4 +1,4 @@
-<h1>JSON - JavaScript Object Notation</h1>
+<h1 id="JSON-JavaScriptObjectNotation">JSON - JavaScript Object Notation</h1>
 <p>Tекстовый формат обмена данными, который основан на синтаксисе JavaScript.
 Он используется для хранения и обмена структурированными данными и часто используется
 в веб-приложениях для обмена данными между клиентом и сервером.</p>
@@ -71,7 +71,7 @@
 </pre></div></div>
 </div>
 
-<h1>JSONL</h1>
+<h1 id="JSONL">JSONL</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>python</text>

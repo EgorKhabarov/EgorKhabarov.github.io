@@ -1,4 +1,4 @@
-<h1>TOML - Tom's Obvious, Minimal Language</h1>
+<h1 id="TOML-Tom&#x27;sObvious,MinimalLanguage">TOML - Tom's Obvious, Minimal Language</h1>
 <p>формат конфигурационных файлов, который был разработан
 для использования в проектах, написанных на языке программирования <code>Rust</code>.</p>
 <p>TOML файлы имеют структуру ключ-значение, где ключи и значения

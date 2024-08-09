@@ -1,4 +1,4 @@
-<h4>SequenceMatcher</h4>
+<h4 id="SequenceMatcher">SequenceMatcher</h4>
 <p>Сравнение двух последовательностей и определение степени их сходства.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -36,7 +36,7 @@
 </pre></div></div>
 </div>
 
-<h4>get_close_matches</h4>
+<h4 id="get_close_matches">get_close_matches</h4>
 <p>Нахождение наиболее похожей строки в наборе строк на основе заданной строки.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -73,7 +73,7 @@
 </pre></div></div>
 </div>
 
-<h4>unified_diff</h4>
+<h4 id="unified_diff">unified_diff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -126,7 +126,7 @@
 </pre></div></div>
 </div>
 
-<h4>HtmlDiff</h4>
+<h4 id="HtmlDiff">HtmlDiff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате HTML.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -167,7 +167,7 @@
 </pre></div></div>
 </div>
 
-<h4>context_diff</h4>
+<h4 id="context_diff">context_diff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате context diff.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -226,7 +226,7 @@
 </pre></div></div>
 </div>
 
-<h4>ndiff</h4>
+<h4 id="ndiff">ndiff</h4>
 <p>Генерация отчета о различиях между двумя последовательностями в формате ndiff.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -276,7 +276,7 @@
 </pre></div></div>
 </div>
 
-<h4>isjunk и ignore</h4>
+<h4 id="isjunkиignore">isjunk и ignore</h4>
 <p>Использование пользовательских функций для игнорирования символов при сравнении последовательностей.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -322,7 +322,7 @@
 </pre></div></div>
 </div>
 
-<h4>reduce_func</h4>
+<h4 id="reduce_func">reduce_func</h4>
 <p>Использование пользовательской функции для преобразования различий в отчете о сравнении.</p>
 <div class="code-element">
     <div class="lang-line">

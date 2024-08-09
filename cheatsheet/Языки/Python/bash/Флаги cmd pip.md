@@ -185,7 +185,7 @@ Install Options:
   --no-clean                  Don&#39;t clean up build directories.
 
 Package Index Options:
-  -i, --index-url &lt;url&gt;       Base URL of the Python Package Index (default (https://pypi.org/simple)). This should point to a repository compliant with PEP
+  -i, --index-url &lt;url&gt;       Base URL of the Python Package Index (default https://pypi.org/simple). This should point to a repository compliant with PEP
                               503 (the simple repository API) or a local directory laid out in the same format.
   --extra-index-url &lt;url&gt;     Extra URLs of package indexes to use in addition to --index-url. Should follow the same rules as --index-url.
   --no-index                  Ignore package index (only looking at --find-links URLs instead).
@@ -208,7 +208,7 @@ General Options:
   --keyring-provider &lt;keyring_provider&gt;
                               Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [disabled,
                               import, subprocess]. (default: disabled)
-  --proxy &lt;proxy&gt;             Specify a proxy in the form &lt;a target=&quot;_blank&quot; href=&quot;scheme://[user:passwd@]proxy.server:port.&quot;&gt;scheme://[user:passwd@]proxy.server:port.&lt;/a&gt;
+  --proxy &lt;proxy&gt;             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
   --retries &lt;retries&gt;         Maximum number of retries each connection should attempt (default 5 times).
   --timeout &lt;sec&gt;             Set the socket timeout (default 15 seconds).
   --exists-action &lt;action&gt;    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.

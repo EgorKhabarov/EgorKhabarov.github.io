@@ -1,4 +1,4 @@
-<h1>Transitions</h1>
+<h1 id="Transitions">Transitions</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>

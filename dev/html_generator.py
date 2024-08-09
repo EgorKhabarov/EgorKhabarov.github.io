@@ -18,6 +18,7 @@ def buttons(
     text_list = []
     for key, value in dictionary.items():
         print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
+        title = key.replace(" ", "&nbsp;").replace("-", "&#8288;-&#8288;")
 
         if key.startswith("::link::"):
             key = key.removeprefix("::link::")
@@ -29,7 +30,7 @@ def buttons(
                 ).format(
                     name=name,
                     vpath=f"{key}.md".strip("/"),
-                    title="🔗&nbsp;" + key.replace(" ", "&nbsp;"),
+                    title=f"🔗&nbsp;{title.removeprefix('::link::')}",
                     name2=name.removesuffix(".md") + "index.md" if name.endswith("/.md") else name,
                 )
             )
@@ -46,15 +47,14 @@ def buttons(
 
         if isinstance(value, dict) and "index" in value:
             val, _, x = buttons(value, key_path, x, y)
-            kpath = f"{directory_e}/{key}".strip("/")
             text_list.append(
                 (
                     '<button class="button" onclick="toggleDisplay(this.nextElementSibling);GET(\'{csname}\');" '
                     'kpath="{kpath}" vpath="{vpath}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
-                    kpath=f"{kpath}/",
-                    title="📂&nbsp;" + key.replace(" ", "&nbsp;"),
+                    kpath=f"{directory_e}/{key}".strip("/") + "/",
+                    title=f"📂&nbsp;{title}",
                     text=val,
                     vpath=f"{directory_e}/{key}/",
                     csname=key_path.replace("\\", "&#x2f;") + "/index.md",
@@ -62,15 +62,14 @@ def buttons(
             )
         elif isinstance(value, dict):
             val, _, x = buttons(value, key_path, x, y)
-            kpath = f"{directory_e}/{key}".strip("/")
             text_list.append(
                 (
                     '<button class="button" onclick="toggleDisplay(this.nextElementSibling);" '
                     'kpath="{kpath}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
-                    kpath=kpath,
-                    title="📂&nbsp;" + key.replace(" ", "&nbsp;"),
+                    kpath=f"{directory_e}/{key}".strip("/"),
+                    title=f"📂&nbsp;{title}",
                     text=val,
                 )
             )
@@ -83,7 +82,7 @@ def buttons(
                 ).format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
                     vpath=f"{directory_e}/{key}.md".strip("/"),
-                    title="📄&nbsp;" + key.replace(" ", "&nbsp;"),
+                    title=f"📄&nbsp;{title}",
                 )
             )
     return "".join(text_list), directory, x

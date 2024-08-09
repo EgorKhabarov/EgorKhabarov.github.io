@@ -1,5 +1,6 @@
 import os
 import re
+import html
 
 import markdown
 import requests
@@ -12,6 +13,15 @@ from dev.utils import set_unselectable, print_progress_bar
 
 
 formatter = HtmlFormatter(style="default")
+
+
+def h_func(m: re.Match):
+    h_num = m.group("h_num")
+    h_content = m.group("h_content")
+    h_content_id = html.escape(h_content.replace(" ", ""))
+    if "<a" in h_content:
+        return f'<h{h_num}>{h_content}</h{h_num}>'
+    return f'<h{h_num} id="{h_content_id}">{h_content}</h{h_num}>'
 
 
 def code_block_callback(match):
@@ -50,31 +60,6 @@ def code_block_callback(match):
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
-    download_btn = (
-        """
-<button class="copy-button-2"
-        onclick="DownloadCode(this, '{filename}')">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Download code</text>
-</button>
-""".format(
-            filename=filename,
-        ).strip()
-        if filename
-        else ""
-    )
     copy_btn = """
 <button class="copy-button"
         onclick="copyCode(this)">
@@ -94,6 +79,29 @@ def code_block_callback(match):
     <text>Copy code</text>
 </button>
 """.strip()
+    download_btn = (
+        """
+<button class="copy-button-2"
+        onclick="DownloadCode(this, '{filename}')">
+    <svg stroke="currentColor"
+         fill="none"
+         stroke-width="2"
+         viewBox="0 0 24 24"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="h-4 w-4"
+         height="1em"
+         width="1em"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+    </svg>
+    <text>Download code</text>
+</button>
+""".format(filename=filename).strip()
+        if filename
+        else ""
+    ).strip()
     return """
 <div class="code-element">
     <div class="lang-line">
@@ -103,29 +111,15 @@ def code_block_callback(match):
     </div>
     <div class="code">{code}</div>
 </div>
-""".strip().format(
+""".format(
         lang=language,
         code=highlighted_code,
         copy_btn=copy_btn,
         download_btn=download_btn,
-    )
-
-
-def url_shortener(url):
-    url = url[0]
-
-    if url == "http://www.w3.org/2000/svg":
-        return url
-
-    return f'<a target="_blank" href="{url}">{url}</a>'
+    ).strip()
 
 
 def to_markup(markdown_text):
-    # r"(http?s?://\S+)"
-    markdown_text = re.sub(
-        r"(?<!\()(?<=\W)(\w+://[^\"\')\n ]+)(?!\))", url_shortener, markdown_text
-    )
-
     # Регулярное выражение для поиска блоков кода
     code_block_pattern = re.compile(
         r"(?si)(```[a-z+#@._-]*|<pre><code class=\"language-[a-z+#-]*\">)"
@@ -140,11 +134,14 @@ def to_markup(markdown_text):
     md_extensions = [
         "markdown.extensions.tables",
         "markdown.extensions.fenced_code",
-        "markdown.extensions.codehilite",
     ]
     final_html = markdown.markdown(highlighted_html, extensions=md_extensions)
 
-    return final_html.replace('<a href="', '<a target="_blank" href="').replace("<a href='", "<a target='_blank' href='")
+    # Добавляем всем ссылкам target="_blank"
+    final_html = final_html.replace('<a href="', '<a target="_blank" href="')
+
+    # Добавляем всем тегам h тегам id с содержимым
+    return re.sub(r"(?s)<h(?P<h_num>[1-6])>(?P<h_content>.+?)</h(?P=h_num)>", h_func, final_html)
 
 
 def create_files_and_folders(dictionary, directory=".", x=0, y=0):
@@ -157,11 +154,11 @@ def create_files_and_folders(dictionary, directory=".", x=0, y=0):
     :param y:
     """
     for key, value in dictionary.items():
-        key_path = os.path.join(directory, key)
-        print_progress_bar(x, y, "create cheatsheets", key_path)
-
         if key.startswith("::link::"):
             continue
+
+        key_path = os.path.join(directory, key)
+        print_progress_bar(x, y, "create cheatsheets", key_path)
 
         if isinstance(value, str):
             key_path += ".md"
