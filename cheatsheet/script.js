@@ -322,7 +322,7 @@ function performSearch(search_query) {
     }
     searchButtonFolder.innerHTML = "";
 
-    const s1Array = search_query.toLowerCase().split(" ");
+    const s1Array = search_query.toLowerCase().split(" ").filter(item => item !== "");
     function searchElements(element) {
         let results = [];
         for (el of element)
@@ -338,7 +338,7 @@ function performSearch(search_query) {
     };
     results = searchElements(Array.from(cheatsheetButtons.children).slice(2));
     console.log("found", results.length, "results")
-    if (results) {
+    if (results.length > 0) {
         results.forEach(element => {
             vpath = element.getAttribute("vpath");
             text = element.textContent.trim().split(" ")[0] + " " + vpath.replace(".md", "");
@@ -374,6 +374,9 @@ document.addEventListener("DOMContentLoaded", function() {
     searchInput.addEventListener("input", function() {
         performSearch(searchInput.value);
     });
+
+    const rpanrResize = document.getElementById("rpanrResize");
+    rpanrResize.addEventListener("mousedown", mD)
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
@@ -392,3 +395,26 @@ document.addEventListener("click", function(event) {
 let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
+let ismdwn = 0
+
+
+function mD(event) {
+    ismdwn = 1;
+    document.body.addEventListener("mousemove", mV);
+    document.body.addEventListener("mouseup", end);
+};
+
+function mV(event) {
+    if (ismdwn === 1) {
+        cheatsheetButtons = document.getElementById("cheatsheet-buttons");
+        cheatsheetButtons.style.flexBasis = event.clientX - 48 + "px";
+    } else {
+        end()
+    }
+};
+
+const end = (e) => {
+    ismdwn = 0;
+    document.body.removeEventListener("mouseup", end);
+    rpanrResize.removeEventListener("mousemove", mV);
+};

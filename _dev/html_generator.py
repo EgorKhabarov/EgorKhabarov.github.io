@@ -109,6 +109,7 @@ def generate_index_html(cheatsheet_count: int):
             </div>
             {buttons(DICT, y=cheatsheet_count - 1)[0]}
         </div>
+        <div id="rpanrResize">&nbsp;</div>
         <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
         <div>
             <button id="FontSizeSize"     class="control-button" style="padding-left: 12px;" onclick="changeFontSize(field, '=')">12px</button>

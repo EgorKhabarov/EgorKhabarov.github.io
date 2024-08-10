@@ -19,7 +19,6 @@ body {
   max-height: 94vh;
 }
 
-img {border-radius: 10px;}
 pre {margin-bottom: 0px;margin-top: 0px;}
 
 /* Цвета ссылок */
@@ -66,6 +65,13 @@ blockquote {
   margin-right: auto;
 }
 
+summary {cursor: pointer;}
+
+ul {
+    margin: 0px;
+    padding-left: 2em;
+}
+
 
 /* Контейнер с кнопками выбора темы */
 .cheatsheet-buttons {
@@ -74,11 +80,16 @@ blockquote {
   border: 0px solid;
   border-radius: 10px 0px 0px 10px;
   height: 89vh;
-  width: 300px;
   background-color: #191919;
   padding: 15px;
   flex-direction: column;
   overflow-y: auto;
+
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 14.5%;
+  min-width: 10%;
+  max-width: 70%;
 }
 
 /* Папка с кнопками */
@@ -95,7 +106,9 @@ blockquote {
 
 /* Кнопки выбора темы */
 .button {
-  max-width: 350px;
+  min-width: 184px;
+  max-width: 1000px;
+  width: max-content;
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -127,6 +140,9 @@ blockquote {
   margin: 0px 0px 0px 0px;
   overflow-y: auto;
   flex-direction: column;
+
+  flex-grow: 0;
+  flex-shrink: 1;
 }
 
 /* Кнопки управления справа */
@@ -213,15 +229,7 @@ blockquote {
 .bp {color:#94558D;} /* Self */
 .nd {color:#BBB529;} /* Декоратор */
 .nf {color:#FFC66D;} /* Название функции */
-/*.na {color:#AA4926;}  Аргумент
-
-
-/*
-.cheatsheet-field div.row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}*/
+/*.na {color:#AA4926;}  Аргумент */
 
 
 
@@ -258,7 +266,8 @@ blockquote {
 */
 .search-container {
   display: flex;
-  max-width: 350px;
+  min-width: 184px;
+  max-width: 185px;
   min-height: 45px;
   font-size: 1em;
   margin-bottom: 6px;
@@ -266,9 +275,8 @@ blockquote {
   border-radius: 10px;
 }
 .search-input {
-  max-width: 350px;
+  min-width: 154px;
   font-size: 16px;
-  max-width: 350px;
   display: flex;
   padding: 0 20px;
   padding-left: 10px;
@@ -280,21 +288,28 @@ blockquote {
   height: 100%;
 }
 
+#rpanrResize {
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: #222222;
+  width: 0.3rem;
+  width: 10px;
+  cursor: col-resize;
+  margin: 0 0 0 auto;
+  background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/vsizegrip.png) center center no-repeat #222222;
+}
 
-.button {
-  max-width: 350px;
-  font-size: 1em;
-  display: flex;
-  align-items: center;
-  margin: 6px 0;
-  margin-top: 0;
-  padding: 0 20px;
-  padding-left: 10px;
-  min-height: 45px;
-  border: 1px solid #2B2B2B;
-  border-radius: 10px;
-  background-color: #323232;
-  color: #AFB1B3;
-  transition: background-color 0.2s ease-out;
-  cursor: pointer;
+hr {
+    border-top-width: 4px;
+    border-bottom-width 4px
+    border-top-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    height: 1px; /* Толщина линии */
+    width: max-container; /* Ширина на всю ширину контейнера */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    opacity: 1; /* Устанавливаем непрозрачность */
+    border-color: rgb(170, 170, 170); /* #393939; */
+    border-radius: 0px;
 }
