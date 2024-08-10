@@ -245,9 +245,12 @@ function removeArgumentFromUrl() {
     let url = new URL(window.location.href);
     url.search = "";
     window.history.replaceState(null, null, url.href);
-    if (window.location.hash) {
-        window.location.hash = "";
-    }
+}
+
+function addSearchArgumentToUrl(arg) {
+    const currentUrl = new URL(window.location.href);
+    currentUrl.search = arg;
+    window.history.pushState({}, "", currentUrl);
 }
 
 function getPathWithoutFilename(filePath) {
@@ -308,6 +311,54 @@ function restoreCheatSheetState(path) {
     GET(path);
 }
 
+function performSearch(search_query) {
+    console.log("Search:", search_query);
+    const searchButtonFolder = document.getElementById("search-button-folder");
+    const cheatsheetButtons = document.getElementById("cheatsheet-buttons");
+    if (search_query) {
+        searchButtonFolder.style.display = "block";
+    } else {
+        searchButtonFolder.style.display = "none"
+    }
+    searchButtonFolder.innerHTML = "";
+
+    const s1Array = search_query.toLowerCase().split(" ");
+    function searchElements(element) {
+        let results = [];
+        for (el of element)
+            if (el.tagName === "BUTTON" && el.getAttribute("vpath")) {
+                const s2Array = el.getAttribute("vpath").toLowerCase().replace(".md", "").split("/");
+                if (s1Array.every(ss1 => s2Array.some(ss2 => ss2.includes(ss1 ? ss1 : null)))) {
+                    results.push(el);
+                }
+            } else {
+                results = results.concat(searchElements(el.children));
+            }
+        return results;
+    };
+    results = searchElements(Array.from(cheatsheetButtons.children).slice(2));
+    console.log("found", results.length, "results")
+    if (results) {
+        results.forEach(element => {
+            vpath = element.getAttribute("vpath");
+            text = element.textContent.trim().split(" ")[0] + " " + vpath.replace(".md", "");
+            text = text.replaceAll(" ", " ").replaceAll("/", "⁠/⁠").replaceAll("-", "⁠-⁠");
+            button = document.createElement("button");
+            button.textContent = text;  //element.textContent;
+            button.classList.add("button");
+            button.setAttribute("onclick", "GET('"+`${vpath}`+"');restoreCheatSheetState('"+`${vpath}`+"')");
+            button.setAttribute("title", text);
+            searchButtonFolder.appendChild(button);
+        });
+    } else {
+        button = document.createElement("button");
+        button.textContent = "Nothing found";
+        button.classList.add("button");
+        button.setAttribute("title", "Nothing found");
+        searchButtonFolder.appendChild(button);
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     // Проверяем наличие аргумента при загрузке страницы
@@ -318,6 +369,11 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         PutHtmlText(getCheatSheat("README.html"))
     }
+
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", function() {
+        performSearch(searchInput.value);
+    });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});

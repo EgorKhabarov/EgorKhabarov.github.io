@@ -45,6 +45,26 @@ th:last-child {border-top-right-radius: .375rem;}
 tr:last-child td:first-child {border-bottom-left-radius: .375rem;}
 tr:last-child td:last-child {border-bottom-right-radius: .375rem;}
 tr:hover td {background: #46494b;}
+td > code {background-color: #676767;color: #b8b8b8;}
+th > code {background-color: #676767;color: #b8b8b8;}
+
+code {
+  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+  overflow-y:auto;
+  border-radius: 5px;
+  background-color: #474747;
+  cursor: pointer;
+}
+
+code:active {background-color: #373737;}
+
+blockquote {
+  background-color: #525252;
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: auto;
+}
 
 
 /* Контейнер с кнопками выбора темы */
@@ -183,18 +203,6 @@ tr:hover td {background: #46494b;}
   background-color: #272727;
 }
 
-code {
-  padding: 0.1rem 0.2rem 0.1rem 0.2rem;
-  overflow-y:auto;
-  border-radius: 5px;
-  background-color: #474747;
-  cursor: pointer;
-}
-code:active {background-color: #373737;}
-
-td > code {background-color: #676767;color: #b8b8b8;}
-th > code {background-color: #676767;color: #b8b8b8;}
-
 /* Подсветка синтаксиса */
 .k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */
 .s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
@@ -236,11 +244,6 @@ th > code {background-color: #676767;color: #b8b8b8;}
   background-color: #f1f1f1;
 }
 
-/*
-Контейнер список для поиска
-Контейнер поискового результата
-*/
-
 .unselectable {
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -248,14 +251,50 @@ th > code {background-color: #676767;color: #b8b8b8;}
   user-select: none;
 }
 
-blockquote {
-  background-color: #525252;
-  padding: 0px 20px 0px 20px;
-  border-radius: 5px;
-  margin-left: 5px;
-  margin-right: auto;
+
+/*
+Контейнер список для поиска
+Контейнер поискового результата
+*/
+.search-container {
+  display: flex;
+  max-width: 350px;
+  min-height: 45px;
+  font-size: 1em;
+  margin-bottom: 6px;
+  background-color: #323232;
+  border-radius: 10px;
+}
+.search-input {
+  max-width: 350px;
+  font-size: 16px;
+  max-width: 350px;
+  display: flex;
+  padding: 0 20px;
+  padding-left: 10px;
+  border: 1px solid #2B2B2B;
+  border-radius: 10px;
+  background-color: #323232;
+  color: #AFB1B3;
+  width: 100%;
+  height: 100%;
 }
 
-.anchor {
-    left: -28px;
+
+.button {
+  max-width: 350px;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  margin-top: 0;
+  padding: 0 20px;
+  padding-left: 10px;
+  min-height: 45px;
+  border: 1px solid #2B2B2B;
+  border-radius: 10px;
+  background-color: #323232;
+  color: #AFB1B3;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
 }

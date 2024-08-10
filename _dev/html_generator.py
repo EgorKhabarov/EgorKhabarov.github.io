@@ -26,7 +26,7 @@ def buttons(
             text_list.append(
                 (
                     '<button onclick="GET(\'{name}\');restoreCheatSheetState(\'{name2}\')" class="button" '
-                    'vpath="{vpath}">{title}</button>\n'
+                    'vpath="{vpath}" title="{title}">{title}</button>\n'
                 ).format(
                     name=name,
                     vpath=f"{key}.md".strip("/"),
@@ -50,7 +50,7 @@ def buttons(
             text_list.append(
                 (
                     '<button class="button" onclick="toggleDisplay(this.nextElementSibling);GET(\'{csname}\');" '
-                    'kpath="{kpath}" vpath="{vpath}">{title}</button>'
+                    'kpath="{kpath}" vpath="{vpath}" title="{title}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
                     kpath=f"{directory_e}/{key}".strip("/") + "/",
@@ -65,7 +65,7 @@ def buttons(
             text_list.append(
                 (
                     '<button class="button" onclick="toggleDisplay(this.nextElementSibling);" '
-                    'kpath="{kpath}">{title}</button>'
+                    'kpath="{kpath}" title="{title}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
                     kpath=f"{directory_e}/{key}".strip("/"),
@@ -78,7 +78,7 @@ def buttons(
             text_list.append(
                 (
                     '<button onclick="GET(\'{name}\');" class="button" '
-                    'vpath="{vpath}">{title}</button>\n'
+                    'vpath="{vpath}" title="{title}">{title}</button>\n'
                 ).format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
                     vpath=f"{directory_e}/{key}.md".strip("/"),
@@ -94,43 +94,29 @@ def generate_index_html(cheatsheet_count: int):
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" type="image/png" href="icon.png">
         <title>Шпаргалка</title>
+        <link rel="icon" type="image/png" href="icon.png">
         <link rel="stylesheet" href="./styles.css">
         <script src="./script.js"></script>
     </head>
     <body>
-        <div class="cheatsheet-buttons">
+        <div id="cheatsheet-buttons" class="cheatsheet-buttons">
+            <div class="search-container">
+                <input id="search" type="text" class="search-input" placeholder="🔎 Поиск">
+            </div>
+            <div id="search-button-folder" class="button-folder" style="display:none;">
+            
+            </div>
             {buttons(DICT, y=cheatsheet_count - 1)[0]}
         </div>
-        <pre id="field" class="cheatsheet-field">
-            Нажмите на кнопку с темой, чтобы увидеть здесь объяснение
-        </pre>
+        <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
         <div>
-            <button id="FontSizeSize"
-                    class="control-button"
-                    onclick="changeFontSize(field, '=')"
-                    style="padding-left: 12px;">12px</button>
-            <button onclick="changeFontSize(field, '+')"
-                    class="control-button"
-                    style="padding-left: 25px;">+</button>
-            <button onclick="changeFontSize(field, '-')"
-                    class="control-button"
-                    style="padding-left: 27px;">-</button>
-            <button id="COPY"
-                    onclick="copyTextFromDiv(field);
-                    changeColor(COPY)"
-                    class="control-button"
-                    style="padding-left: 12px;">Copy</button>
-            <button id="COPY2"
-                    onclick="copyTextFromDiv2();
-                    changeColor(COPY2)"
-                    class="control-button"
-                    style="padding-left: 2px;">Copy selected</button>
-            <button id="removeargfromurl"
-                    onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)"
-                    class="control-button"
-                    style="padding-left: 28px;">/</button>
+            <button id="FontSizeSize"     class="control-button" style="padding-left: 12px;" onclick="changeFontSize(field, '=')">12px</button>
+            <button                       class="control-button" style="padding-left: 25px;" onclick="changeFontSize(field, '+')">+</button>
+            <button                       class="control-button" style="padding-left: 27px;" onclick="changeFontSize(field, '-')">-</button>
+            <button id="COPY"             class="control-button" style="padding-left: 12px;" onclick="copyTextFromDiv(field);changeColor(COPY)">Copy</button>
+            <button id="COPY2"            class="control-button" style="padding-left: 2px;"  onclick="copyTextFromDiv2();changeColor(COPY2)">Copy selected</button>
+            <button id="removeargfromurl" class="control-button" style="padding-left: 28px;" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)">/</button>
         </div>
     </body>
 </html>
