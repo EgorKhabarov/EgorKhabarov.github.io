@@ -2,9 +2,9 @@
 <h2 id="Overview">Overview</h2>
 <p>SQLite supports seven scalar date and time functions as follows:</p>
 <ol>
-<li><code>date(time-value, modifier, modifier, ...)</code>  YYYY-MM-DD</li>
-<li><code>time(time-value, modifier, modifier, ...)</code>  HH:MM:SS or as HH:MM:SS.SSS</li>
-<li><code>datetime(time-value, modifier, modifier, ...)</code>  YYYY-MM-DD HH:MM:SS or as YYYY-MM-DD HH:MM:SS.SSS</li>
+<li><code>date(time-value, modifier, modifier, ...)</code>  <code>YYYY-MM-DD</code></li>
+<li><code>time(time-value, modifier, modifier, ...)</code>  <code>HH:MM:SS</code> or as <code>HH:MM:SS.SSS</code></li>
+<li><code>datetime(time-value, modifier, modifier, ...)</code>  <code>YYYY-MM-DD HH:MM:SS</code> or as <code>YYYY-MM-DD HH:MM:SS.SSS</code></li>
 <li><code>julianday(time-value, modifier, modifier, ...)</code>  - the fractional number of days since noon in Greenwich on November 24, 4714 B.C.</li>
 <li><code>unixepoch(time-value, modifier, modifier, ...)</code>  unix timestamp</li>
 <li><code>strftime(format, time-value, modifier, modifier, ...)</code></li>
@@ -19,112 +19,112 @@
 </thead>
 <tbody>
 <tr>
-<td>%d</td>
+<td><code>%d</code></td>
 <td>day of month: <code>01-31</code></td>
 </tr>
 <tr>
-<td>%e</td>
+<td><code>%e</code></td>
 <td>day of month without leading zero: <code>1-31</code></td>
 </tr>
 <tr>
-<td>%f</td>
+<td><code>%f</code></td>
 <td>fractional seconds: SS.SSS</td>
 </tr>
 <tr>
-<td>%F</td>
+<td><code>%F</code></td>
 <td>ISO 8601 date: <code>YYYY-MM-DD</code></td>
 </tr>
 <tr>
-<td>%G</td>
+<td><code>%G</code></td>
 <td>ISO 8601 year corresponding to <code>%V</code></td>
 </tr>
 <tr>
-<td>%g</td>
+<td><code>%g</code></td>
 <td>2-digit ISO 8601 year corresponding to <code>%V</code></td>
 </tr>
 <tr>
-<td>%H</td>
+<td><code>%H</code></td>
 <td>hour: <code>00-24</code></td>
 </tr>
 <tr>
-<td>%I</td>
+<td><code>%I</code></td>
 <td>hour for 12-hour clock: <code>01-12</code></td>
 </tr>
 <tr>
-<td>%j</td>
+<td><code>%j</code></td>
 <td>day of year: <code>001-366</code></td>
 </tr>
 <tr>
-<td>%J</td>
+<td><code>%J</code></td>
 <td>Julian day number (fractional)</td>
 </tr>
 <tr>
-<td>%k</td>
+<td><code>%k</code></td>
 <td>hour without leading zero: <code>0-24</code></td>
 </tr>
 <tr>
-<td>%l</td>
+<td><code>%l</code></td>
 <td>%I without leading zero: <code>1-12</code></td>
 </tr>
 <tr>
-<td>%m</td>
+<td><code>%m</code></td>
 <td>month: <code>01-12</code></td>
 </tr>
 <tr>
-<td>%M</td>
+<td><code>%M</code></td>
 <td>minute: <code>00-59</code></td>
 </tr>
 <tr>
-<td>%p</td>
-<td>"<code>AM</code>" or "<code>PM</code>" depending on the hour</td>
+<td><code>%p</code></td>
+<td><code>AM</code> or <code>PM</code> depending on the hour</td>
 </tr>
 <tr>
-<td>%P</td>
-<td>"<code>am</code>" or "<code>pm</code>" depending on the hour</td>
+<td><code>%P</code></td>
+<td><code>am</code> or <code>pm</code> depending on the hour</td>
 </tr>
 <tr>
-<td>%R</td>
+<td><code>%R</code></td>
 <td>ISO 8601 time: <code>HH:MM</code></td>
 </tr>
 <tr>
-<td>%s</td>
+<td><code>%s</code></td>
 <td>seconds since <code>1970-01-01</code></td>
 </tr>
 <tr>
-<td>%S</td>
+<td><code>%S</code></td>
 <td>seconds: <code>00-59</code></td>
 </tr>
 <tr>
-<td>%T</td>
+<td><code>%T</code></td>
 <td>ISO 8601 time: <code>HH:MM:SS</code></td>
 </tr>
 <tr>
-<td>%U</td>
+<td><code>%U</code></td>
 <td>week of year (<code>00-53</code>) - week 01 starts on the first Sunday</td>
 </tr>
 <tr>
-<td>%u</td>
+<td><code>%u</code></td>
 <td>day of week <code>1-7</code> with Monday==1</td>
 </tr>
 <tr>
-<td>%V</td>
+<td><code>%V</code></td>
 <td>ISO 8601 week of year</td>
 </tr>
 <tr>
-<td>%w</td>
+<td><code>%w</code></td>
 <td>day of week <code>0-6</code> with Sunday==0</td>
 </tr>
 <tr>
-<td>%W</td>
+<td><code>%W</code></td>
 <td>week of year (<code>00-53</code>) - week 01 starts on the first Monday</td>
 </tr>
 <tr>
-<td>%Y</td>
+<td><code>%Y</code></td>
 <td>year: <code>0000-9999</code></td>
 </tr>
 <tr>
-<td>%%</td>
-<td>%</td>
+<td><code>%%</code></td>
+<td><code>%</code></td>
 </tr>
 </tbody>
 </table>
