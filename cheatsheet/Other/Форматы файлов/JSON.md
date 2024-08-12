@@ -139,4 +139,4 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
 </pre></div></div>
 </div>
-<p><a target="_self" href="./?Другое/Форматы файлов/TinyDB (json).md">TinyDB (json)</a></p>
+<p><a target="_self" href="./?Other/Форматы файлов/TinyDB (json).md">TinyDB (json)</a></p>
