@@ -395,7 +395,7 @@ document.addEventListener("click", function(event) {
 let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
-let ismdwn = 0
+let ismdwn = 0;
 
 
 function mD(event) {

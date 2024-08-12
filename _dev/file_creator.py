@@ -122,7 +122,7 @@ def code_block_callback(match):
 def to_markup(markdown_text):
     # Регулярное выражение для поиска блоков кода
     code_block_pattern = re.compile(
-        r"(?si)(```[a-z+#@._-]*|<pre><code class=\"language-[a-z+#-]*\">)"
+        r"(?si)(```[a-z+#@._\d-]*|<pre><code class=\"language-[a-z+#-]*\">)"
         r"(.*?)"
         r"(```|</code></pre>)"
     )

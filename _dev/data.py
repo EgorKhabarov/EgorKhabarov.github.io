@@ -7620,7 +7620,6 @@ cd PROJECTNAME
 def func(name: type):
     pass
 ```
-
 """,
                     },
                     "Jinja": {
@@ -8056,6 +8055,27 @@ url = "https://www.example.com/path"
 path = get_path(url)
 print(path)  # Выводит "/path"
 ```
+""",
+                    "grpc": r"""
+Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
+Это позволяет разработчикам создавать распределенные системы,
+где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
+
+Методы и подмодули библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи для клиентского подключения к серверу.
+grpc.secure_channel(): Создает безопасный канал связи (шифрованное соединение) для клиентского подключения к серверу.
+grpc.Channel: Класс, представляющий канал связи между клиентом и сервером.
+grpc.Server: Класс, представляющий сервер, который слушает входящие запросы и обрабатывает их с помощью определенных сервисов.
+grpc.stub: Подмодуль, содержащий классы и функции для создания клиентских и серверных стабов (stub), облегчающих взаимодействие по RPC.
+grpc.Service: Базовый класс для реализации пользовательских сервисов GRPC.
+grpc.rpc_error: Подмодуль, содержащий классы исключений, связанных с ошибками RPC.
+
+Некоторые часто используемые методы библиотеки "grpc":
+grpc.insecure_channel(): Создает небезопасный канал связи с сервером. `channel = grpc.insecure_channel("localhost:50051")`
+grpc.stub: Подмодуль, который предоставляет классы для создания клиентских и серверных стабов (stub) для удобного взаимодействия по RPC.
+grpc.Server.add_insecure_port(): Определяет небезопасный порт, на котором сервер будет прослушивать входящие запросы. `server.add_insecure_port("[::]:50051")`
+grpc.Server.start(): Запускает сервер, ожидающий входящих запросов. `server.start()`
+grpc.Service: Базовый класс, который разработчики могут наследовать для создания пользовательских сервисов GRPC. `class MyService(grpc.Service):`
 """,
                 },
                 "Other": {
@@ -8770,27 +8790,6 @@ scheduler.run()
 
 Пожалуйста, помните об обеспечении безопасности при использовании этой библиотеки и выполнении задач в программе.
 """,
-                    "grpc": r"""
-Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
-Это позволяет разработчикам создавать распределенные системы,
-где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
-
-Методы и подмодули библиотеки "grpc":
-grpc.insecure_channel(): Создает небезопасный канал связи для клиентского подключения к серверу.
-grpc.secure_channel(): Создает безопасный канал связи (шифрованное соединение) для клиентского подключения к серверу.
-grpc.Channel: Класс, представляющий канал связи между клиентом и сервером.
-grpc.Server: Класс, представляющий сервер, который слушает входящие запросы и обрабатывает их с помощью определенных сервисов.
-grpc.stub: Подмодуль, содержащий классы и функции для создания клиентских и серверных стабов (stub), облегчающих взаимодействие по RPC.
-grpc.Service: Базовый класс для реализации пользовательских сервисов GRPC.
-grpc.rpc_error: Подмодуль, содержащий классы исключений, связанных с ошибками RPC.
-
-Некоторые часто используемые методы библиотеки "grpc":
-grpc.insecure_channel(): Создает небезопасный канал связи с сервером. `channel = grpc.insecure_channel("localhost:50051")`
-grpc.stub: Подмодуль, который предоставляет классы для создания клиентских и серверных стабов (stub) для удобного взаимодействия по RPC.
-grpc.Server.add_insecure_port(): Определяет небезопасный порт, на котором сервер будет прослушивать входящие запросы. `server.add_insecure_port("[::]:50051")`
-grpc.Server.start(): Запускает сервер, ожидающий входящих запросов. `server.start()`
-grpc.Service: Базовый класс, который разработчики могут наследовать для создания пользовательских сервисов GRPC. `class MyService(grpc.Service):`
-""",
                     "packaging": r"""
 Библиотека "packaging" в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов.
 Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива.
@@ -9347,187 +9346,187 @@ print(decompressed_data)
                 "Магические методы": r"""
 # Арифметические операции
 
-| Функция                          | Пример              | Описание                                      |
-|----------------------------------|---------------------|-----------------------------------------------|
-| def __eq__(self, other) -> bool: | self == other       | Равенство                                     |
-| def __ge__(self, other) -> bool: | self >= other       | Больше или равен                              |
-| def __gt__(self, other) -> bool: | self > other        | Больше                                        |
-| def __le__(self, other) -> bool: | self <= other       | Mеньше или равен                              |
-| def __lt__(self, other) -> bool: | self < other        | Меньше                                        |
-| def __ne__(self, other) -> bool: | self != other       | Не равен                                      |
-| def __or__(self, other):         | self \| other       | Побитовое **ИЛИ**                             |
-| def __add__(self, other):        | self + other        | Сложение                                      |
-| def __and__(self, other):        | self & other        | Побитовое **И**                               |
-| def __ior__(self, other):        | self \|= other      | Побитовое **ИЛИ** с присваиванием             |
-| def __mod__(self, other):        | self % other        | Остаток от деления                            |
-| def __mul__(self, other):        | self * other        | Умножение                                     |
-| def __ror__(self, other):        | self \| other       | Побитовое ИЛИ с обратным присваиванием        |
-| def __sub__(self, other):        | self - other        | Вычитание                                     |
-| def __xor__(self, other):        | self ^ other        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ**                 |
-| def __iadd__(self, other):       | self += other       | Сложение с присваиванием                      |
-| def __iand__(self, other):       | self &= other       | Побитовое **И** с присваиванием               |
-| def __idiv__(self, other):       | self /= other       | Деление с присваиванием                       |
-| def __imod__(self, other):       | self %= other       | Взятие остатка от деления с присваиванием     |
-| def __imul__(self, other):       | self *= other       | Умножение с присваиванием                     |
-| def __ipow__(self, other):       | self **= other      | Возведение в степень с присваиванием          |
-| def __isub__(self, other):       | self -= other       | Вычитание с присваиванием                     |
-| def __ixor__(self, other):       | self ^= other       | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** с присваиванием |
-| def __radd__(self, other):       | other + self        | Сложение справа                               |
-| def __rand__(self, other):       | other & self        | Выполняет побитовое **И** справа              |
-| def __rdiv__(self, other):       | other / self        | Деление справа                                |
-| def __divmod__(self, other):     | divmod(self, other) | Деление с остатком                            |
-| def __rdivmod__(self, other):    | divmod(other, self) | Деление с остатком справа                     |
-| def __rmod__(self, other):       | other % self        | Взятие остатка от деления справа              |
-| def __rmul__(self, other):       | other * self        | Умножение справа                              |
-| def __rpow__(self, other):       | other ** self       | Возведение в степень справа                   |
-| def __rsub__(self, other):       | other - self        | Вычитание справа                              |
-| def __rxor__(self, other):       | other ^ self        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** справа          |
-| def __floordiv__(self, other):   | self // other       | Целочисленное деление                         |
-| def __ilshift__(self, other):    | self <<= other      | Побитовый сдвиг влево с присваиванием         |
-| def __imatmul__(self, other):    | self @= other       | Матричное умножение с присваиванием           |
-| def __irshift__(self, other):    | self >>= other      | Побитовый сдвиг вправо с присваиванием        |
-| def __itruediv__(self, other):   | self /= other       | Деление с присваиванием                       |
-| def __rlshift__(self, other):    | other << self       | Побитовый сдвиг влево справа                  |
-| def __rmatmul__(self, other):    | other @ self        | Матричное умножение справа                    |
-| def __matmul__(self, other):     | self @ other        | Матричное умножение                           |
-| def __rrshift__(self, other):    | other >> self       | Побитовый сдвиг вправо справа                 |
-| def __rtruediv__(self, other):   | other / self        | Деление справа                                |
-| def __truediv__(self, other):    | self / other        | Деление                                       |
-| def __lshift__(self, other):     | self << other       | Побитовый сдвиг влево                         |
-| def __rshift__(self, other):     | self >> other       | Побитовый сдвиг вправо                        |
-| def __ifloordiv__(self, other):  | self //= other      | Целочисленное деление с присваиванием         |
-| def __rfloordiv__(self, other):  | other // self       | Целочисленное деление справа                  |
-| def __pos__(self):               | +self               | Положительное значение объекта                |
-| def __neg__(self):               | -self               | Отрицательное значение объекта                |
-| def __invert__(self):            | ~self               | Инвертированное значение объекта              |
+| Функция                            | Пример                | Описание                                      |
+|------------------------------------|-----------------------|-----------------------------------------------|
+| `def __eq__(self, other) -> bool:` | self `==` other       | Равенство                                     |
+| `def __ge__(self, other) -> bool:` | self `>=` other       | Больше или равен                              |
+| `def __gt__(self, other) -> bool:` | self `>` other        | Больше                                        |
+| `def __le__(self, other) -> bool:` | self `<=` other       | Mеньше или равен                              |
+| `def __lt__(self, other) -> bool:` | self `<` other        | Меньше                                        |
+| `def __ne__(self, other) -> bool:` | self `!=` other       | Не равен                                      |
+| `def __or__(self, other):`         | self `|` other        | Побитовое **ИЛИ**                             |
+| `def __add__(self, other):`        | self `+` other        | Сложение                                      |
+| `def __and__(self, other):`        | self `&` other        | Побитовое **И**                               |
+| `def __ior__(self, other):`        | self `|=` other       | Побитовое **ИЛИ** с присваиванием             |
+| `def __mod__(self, other):`        | self `%` other        | Остаток от деления                            |
+| `def __mul__(self, other):`        | self `*` other        | Умножение                                     |
+| `def __ror__(self, other):`        | self `|` other        | Побитовое ИЛИ с обратным присваиванием        |
+| `def __sub__(self, other):`        | self `-` other        | Вычитание                                     |
+| `def __xor__(self, other):`        | self `^` other        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ**                 |
+| `def __iadd__(self, other):`       | self `+=` other       | Сложение с присваиванием                      |
+| `def __iand__(self, other):`       | self `&=` other       | Побитовое **И** с присваиванием               |
+| `def __idiv__(self, other):`       | self `/=` other       | Деление с присваиванием                       |
+| `def __imod__(self, other):`       | self `%=` other       | Взятие остатка от деления с присваиванием     |
+| `def __imul__(self, other):`       | self `*=` other       | Умножение с присваиванием                     |
+| `def __ipow__(self, other):`       | self `**=` other      | Возведение в степень с присваиванием          |
+| `def __isub__(self, other):`       | self `-=` other       | Вычитание с присваиванием                     |
+| `def __ixor__(self, other):`       | self `^=` other       | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** с присваиванием |
+| `def __radd__(self, other):`       | other `+` self        | Сложение справа                               |
+| `def __rand__(self, other):`       | other `&` self        | Выполняет побитовое **И** справа              |
+| `def __rdiv__(self, other):`       | other `/` self        | Деление справа                                |
+| `def __divmod__(self, other):`     | `divmod`(self, other) | Деление с остатком                            |
+| `def __rdivmod__(self, other):`    | `divmod`(other, self) | Деление с остатком справа                     |
+| `def __rmod__(self, other):`       | other `%` self        | Взятие остатка от деления справа              |
+| `def __rmul__(self, other):`       | other `*` self        | Умножение справа                              |
+| `def __rpow__(self, other):`       | other `**` self       | Возведение в степень справа                   |
+| `def __rsub__(self, other):`       | other `-` self        | Вычитание справа                              |
+| `def __rxor__(self, other):`       | other `^` self        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** справа          |
+| `def __floordiv__(self, other):`   | self `//` other       | Целочисленное деление                         |
+| `def __ilshift__(self, other):`    | self `<<=` other      | Побитовый сдвиг влево с присваиванием         |
+| `def __imatmul__(self, other):`    | self `@=` other       | Матричное умножение с присваиванием           |
+| `def __irshift__(self, other):`    | self `>>=` other      | Побитовый сдвиг вправо с присваиванием        |
+| `def __itruediv__(self, other):`   | self `/=` other       | Деление с присваиванием                       |
+| `def __rlshift__(self, other):`    | other `<<` self       | Побитовый сдвиг влево справа                  |
+| `def __rmatmul__(self, other):`    | other `@` self        | Матричное умножение справа                    |
+| `def __matmul__(self, other):`     | self `@` other        | Матричное умножение                           |
+| `def __rrshift__(self, other):`    | other `>>` self       | Побитовый сдвиг вправо справа                 |
+| `def __rtruediv__(self, other):`   | other `/` self        | Деление справа                                |
+| `def __truediv__(self, other):`    | self `/` other        | Деление                                       |
+| `def __lshift__(self, other):`     | self `<<` other       | Побитовый сдвиг влево                         |
+| `def __rshift__(self, other):`     | self `>>` other       | Побитовый сдвиг вправо                        |
+| `def __ifloordiv__(self, other):`  | self `//=` other      | Целочисленное деление с присваиванием         |
+| `def __rfloordiv__(self, other):`  | other `//` self       | Целочисленное деление справа                  |
+| `def __pos__(self):`               | `+`self               | Положительное значение объекта                |
+| `def __neg__(self):`               | `-`self               | Отрицательное значение объекта                |
+| `def __invert__(self):`            | `~`self               | Инвертированное значение объекта              |
 
 # func call
 
-| Функция                                        | Пример                        | Описание                                                                           |
-|------------------------------------------------|-------------------------------|------------------------------------------------------------------------------------|
-| def __pow__(self, power, modulo=None):         | pow(self, power, modulo)      | Возведение в степень                                                               |
-| def __abs__(self):                             | abs(self)                     | Абсолютное значение объекта                                                        |
-| def __hex__(self):                             | hex(self)                     | Строковое представление объекта в<br>шестнадцатеричной системе счисления           |
-| def __float__(self):                           | float(self)                   | Представление объекта в виде числа с плавающей запятой                             |
-| def __bytes__(self):                           | bytes(self)                   | Байтовое представление объекта                                                     |
-| def __long__(self):                            | int(self)                     | Длинное целочисленное представление объекта                                        |
-| def __int__(self):                             | int(self)                     | Целочисленное представление объекта                                                |
-| def __bool__(self) -> bool:                    | bool(self)                    | Булево значение                                                                    |
-| def __oct__(self):                             | oct(self)                     | Строковое представление объекта в<br>восьмеричной системе счисления                |
-| def __len__(self):                             | len(self)                     | Возвращает длину объекта                                                           |
-| def __str__(self):                             | str(self)                     | Строковое представление объекта                                                    |
-| def __hash__(self):                            | hash(self)                    | Хеш-значение объекта                                                               |
-| def __iter__(self):                            | iter(self)                    | Итератор объекта                                                                   |
-| def __next__(self):                            | next(self)                    | Следующий элемент в итерации                                                       |
-| def __round__(self, n=None):                   | round(self, n)                | Округленное значение                                                               |
-| def __complex__(self):                         | complex(self)                 | Комплексное представление                                                          |
-| def __reversed__(self):                        | reversed(self)                | Возвращает обратный итератор объекта                                               |
-| def __unicode__(self):                         | unicode(self)                 | Строковое представление объекта (`Python 2`)                                       |
-| def __instancecheck__(self, instance) -> bool: | isinstance(obj, cls)          | Проверяет, является ли объект экземпляром класса                                   |
-| def __subclasscheck__(self, subclass) -> bool: | issubclass(subclass, cls)     | Является ли класс подклассом другого класса                                        |
-| def __call__(self, *args, **kwargs):           | self(*args, **kwargs)         | Вызывает объект как функцию                                                        |
-| def __repr__(self):                            | repr(self)                    | Строковое представление объекта                                                    |
-| def __subclasshook__(cls, __subclass):         | issubclass(Subclass, MyClass) | Проверяет, является ли класс подклассом другого класса                             |
-| def __dir__(self):                             | dir(self)                     | Список атрибутов и методов объекта                                                 |
-| def __format__(self, format_spec):             | {__format__}                  | Форматированную строку объекта                                                     |
-| def __cmp__(self, other) -> int:               | cmp(self, other)              | Сравнивает объекты и возвращает `-1`, `0` или `1`                                  |
-| def __aiter__(self):                           | awaitable.__aiter__()         | Асинхронный итератор объекта                                                       |
-| def __anext__(self):                           | awaitable.__anext__()         | Возвращает следующий элемент в асинхронной итерации                                |
-| def __coerce__(self, other):                   | coerce(self, other)           | Преобразует объект к общему типу с другим объектом                                 |
-| def __index__(self):                           | operator.index(self)          | Целочисленное представление объекта<br>для использования в индексации              |
-| def __floor__(self):                           | math.floor(self)              | Наибольшее целое число, меньшее или равное объекту                                 |
-| def __trunc__(self):                           | math.trunc(self)              | Усеченное значение объекта                                                         |
-| def __ceil__(self):                            | math.ceil(self)               | Наименьшее целое число, большее или равное объекту                                 |
-| def __copy__(self):                            | copy.copy(self)               | Создает поверхностную копию объекта                                                |
-| def __deepcopy__(self, memodict={{}}):         | copy.deepcopy(self)           | Создает глубокую копию объекта                                                     |
-| def __sizeof__(self):                          | sys.getsizeof(self)           | Возвращает размер объекта в байтах                                                 |
-| def __fspath__(self):                          | os.fspath(self)               | Возвращает строковое представление<br>объекта для использования в функции `fspath` |
+| Функция                                          | Пример                          | Описание                                                                           |
+|--------------------------------------------------|---------------------------------|------------------------------------------------------------------------------------|
+| `def __pow__(self, power, modulo=None):`         | `pow`(self, power, modulo)      | Возведение в степень                                                               |
+| `def __abs__(self):`                             | `abs`(self)                     | Абсолютное значение объекта                                                        |
+| `def __hex__(self):`                             | `hex`(self)                     | Строковое представление объекта в<br>шестнадцатеричной системе счисления           |
+| `def __float__(self):`                           | `float`(self)                   | Представление объекта в виде числа с плавающей запятой                             |
+| `def __bytes__(self):`                           | `bytes`(self)                   | Байтовое представление объекта                                                     |
+| `def __long__(self):`                            | `int`(self)                     | Длинное целочисленное представление объекта                                        |
+| `def __int__(self):`                             | `int`(self)                     | Целочисленное представление объекта                                                |
+| `def __bool__(self) -> bool:`                    | `bool`(self)                    | Булево значение                                                                    |
+| `def __oct__(self):`                             | `oct`(self)                     | Строковое представление объекта в<br>восьмеричной системе счисления                |
+| `def __len__(self):`                             | `len`(self)                     | Возвращает длину объекта                                                           |
+| `def __str__(self):`                             | `str`(self)                     | Строковое представление объекта                                                    |
+| `def __hash__(self):`                            | `hash`(self)                    | Хеш-значение объекта                                                               |
+| `def __iter__(self):`                            | `iter`(self)                    | Итератор объекта                                                                   |
+| `def __next__(self):`                            | `next`(self)                    | Следующий элемент в итерации                                                       |
+| `def __round__(self, n=None):`                   | `round`(self, n)                | Округленное значение                                                               |
+| `def __complex__(self):`                         | `complex`(self)                 | Комплексное представление                                                          |
+| `def __reversed__(self):`                        | `reversed`(self)                | Возвращает обратный итератор объекта                                               |
+| `def __unicode__(self):`                         | `unicode`(self)                 | Строковое представление объекта (`Python 2`)                                       |
+| `def __instancecheck__(self, instance) -> bool:` | `isinstance`(obj, cls)          | Проверяет, является ли объект экземпляром класса                                   |
+| `def __subclasscheck__(self, subclass) -> bool:` | `issubclass`(subclass, cls)     | Является ли класс подклассом другого класса                                        |
+| `def __call__(self, *args, **kwargs):`           | self(*args, **kwargs)           | Вызывает объект как функцию                                                        |
+| `def __repr__(self):`                            | `repr`(self)                    | Строковое представление объекта                                                    |
+| `def __subclasshook__(cls, __subclass):`         | `issubclass`(Subclass, MyClass) | Проверяет, является ли класс подклассом другого класса                             |
+| `def __dir__(self):`                             | `dir`(self)                     | Список атрибутов и методов объекта                                                 |
+| `def __format__(self, format_spec):`             | {__format__}                    | Форматированную строку объекта                                                     |
+| `def __cmp__(self, other) -> int:`               | `cmp`(self, other)              | Сравнивает объекты и возвращает `-1`, `0` или `1`                                  |
+| `def __aiter__(self):`                           | `aiter`(self)                   | Асинхронный итератор объекта                                                       |
+| `def __anext__(self):`                           | `anext`(self)                   | Возвращает следующий элемент в асинхронной итерации                                |
+| `def __coerce__(self, other):`                   | `coerce`(self, other)           | Преобразует объект к общему типу с другим объектом                                 |
+| `def __index__(self):`                           | `operator.index`(self)          | Целочисленное представление объекта<br>для использования в индексации              |
+| `def __floor__(self):`                           | `math.floor`(self)              | Наибольшее целое число, меньшее или равное объекту                                 |
+| `def __trunc__(self):`                           | `math.trunc`(self)              | Усеченное значение объекта                                                         |
+| `def __ceil__(self):`                            | `math.ceil`(self)               | Наименьшее целое число, большее или равное объекту                                 |
+| `def __copy__(self):`                            | `copy.copy`(self)               | Создает поверхностную копию объекта                                                |
+| `def __deepcopy__(self, memodict={{}}):`         | `copy.deepcopy`(self)           | Создает глубокую копию объекта                                                     |
+| `def __sizeof__(self):`                          | `sys.getsizeof`(self)           | Возвращает размер объекта в байтах                                                 |
+| `def __fspath__(self):`                          | `os.fspath`(self)               | Возвращает строковое представление<br>объекта для использования в функции `fspath` |
 
 # Контейнеры
 
-| Функция                                 | Пример                                | Описание                                                  |
-|-----------------------------------------|---------------------------------------|-----------------------------------------------------------|
-| def __getitem__(self, item):            | self[item]                            | Элемент по индексу или ключу                              |
-| def __missing__(self, key):             | self[key]                             | Вызывается при отсутствии ключа в объекте                 |
-| def __contains__(self, item) -> bool:   | item in self                          | Содержится ли элемент в объекте                           |
-| def __setslice__(self, i, j, sequence): | self[i:j] = sequence                  | Заменяет срез объекта указанной последовательностью       |
-| def __delattr__(self, item):            | del self.item                         | Удаляет атрибут объекта                                   |
-| def __delitem__(self, key):             | del self[key]                         | Удаляет элемент по ключу                                  |
-| def __delslice__(self, i, j):           | del self[i:j]                         | Удаляет срез из объекта                                   |
-| def __get__(self, instance, owner):     | value = self.__get__(instance, owner) | Возвращает значение атрибута объекта в классе-дескрипторе |
+| Функция                                   | Пример                                  | Описание                                                  |
+|-------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
+| `def __getitem__(self, item):`            | self[item]                              | Элемент по индексу или ключу                              |
+| `def __missing__(self, key):`             | self[key]                               | Вызывается при отсутствии ключа в объекте                 |
+| `def __contains__(self, item) -> bool:`   | item `in` self                          | Содержится ли элемент в объекте                           |
+| `def __setslice__(self, i, j, sequence):` | self[i:j] = sequence                    | Заменяет срез объекта указанной последовательностью       |
+| `def __delattr__(self, item):`            | `del` self.item                         | Удаляет атрибут объекта                                   |
+| `def __delitem__(self, key):`             | `del` self[key]                         | Удаляет элемент по ключу                                  |
+| `def __delslice__(self, i, j):`           | `del` self[i:j]                         | Удаляет срез из объекта                                   |
+| `def __get__(self, instance, owner):`     | value = self.`__get__`(instance, owner) | Возвращает значение атрибута объекта в классе-дескрипторе |
 
 # Классы
 
-| Функция                               | Пример                                             | Описание                                                                         |
-|---------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------|
-| def __new__(cls, *args, **kwargs):    | instance = MyClass(args)                           | Создает новый обьект                                                             |
-| def __init__(self):                   | instance = MyClass(args)                           | При инициализации нового экземпляра объекта                                      |
-| def __class__(self):                  | obj_class = obj.__class__()                        | Возвращает класс объекта                                                         |
-| def __del__(self):                    | del self                                           | При удалении объекта                                                             |
-| {__prepare__}                         | metacls.__prepare__(name, bases)                   | Словарь для использования в качестве<br>пространства имен класса                 |
-| def __delete__(self, instance):       | del instance.self                                  | Удаляет атрибут объекта                                                          |
-| def __init_subclass__(cls, **kwargs): | {__init_subclass__}                                | Вызывается при создании подкласса                                                |
-| def __mro_entries__(self, bases):     | {__mro_entries__}                                  | Возвращает кортеж для обновления `MRO`<br>(Method Resolution Order)              |
-| def __getinitargs__(self):            | args = self.__getinitargs__()                      | Кортеж аргументов для использования при создании объекта                         |
-| def __set_name__(self, owner, name):  | {__set_name__}                                     | Вызывается при установке имени атрибута в классе                                 |
-| def __getnewargs__(self):             | args = self.__getnewargs__()                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
-| def __getattribute__(self, item):     | value = self.__getattribute__("attr")              | Возвращает значение атрибута объекта                                             |
-| def __getattr__(self, item):          | value = self.__getattr__("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
-| def __await__(self):                  | await awaitable                                    | Возвращает объект, поддерживающий асинхронное ожидание                           |
-| def __set__(self, instance, value):   | instance.attr = value                              | Устанавливает значение атрибута в экземпляре класса                              |
-| def __class_getitem__(cls, item):     | item_type = MyGenericClass.__class_getitem__(Item) | Обобщенный тип объекта                                                           |
-| def __setattr__(self, key, value):    | self.key = value                                   | Устанавливает значение атрибута объекта                                          |
-| def __setitem__(self, key, value):    | self[key] = value                                  | Устанавливает значение элемента по ключу в объекте                               |
+| Функция                                 | Пример                                               | Описание                                                                         |
+|-----------------------------------------|------------------------------------------------------|----------------------------------------------------------------------------------|
+| `def __new__(cls, *args, **kwargs):`    | instance = MyClass(args)                             | Создает новый обьект                                                             |
+| `def __init__(self):`                   | instance = MyClass(args)                             | При инициализации нового экземпляра объекта                                      |
+| `def __class__(self):`                  | obj_class = obj.`__class__()`                        | Возвращает класс объекта                                                         |
+| `def __del__(self):`                    | `del` self                                           | При удалении объекта                                                             |
+| {__prepare__}                           | metacls.`__prepare__`(name, bases)                   | Словарь для использования в качестве<br>пространства имен класса                 |
+| `def __delete__(self, instance):`       | `del` instance.self                                  | Удаляет атрибут объекта                                                          |
+| `def __init_subclass__(cls, **kwargs):` | {__init_subclass__}                                  | Вызывается при создании подкласса                                                |
+| `def __mro_entries__(self, bases):`     | {__mro_entries__}                                    | Возвращает кортеж для обновления `MRO`<br>(Method Resolution Order)              |
+| `def __getinitargs__(self):`            | args = self.`__getinitargs__()`                      | Кортеж аргументов для использования при создании объекта                         |
+| `def __set_name__(self, owner, name):`  | {__set_name__}                                       | Вызывается при установке имени атрибута в классе                                 |
+| `def __getnewargs__(self):`             | args = self.`__getnewargs__()`                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
+| `def __getattribute__(self, item):`     | value = self.`__getattribute__`("attr")              | Возвращает значение атрибута объекта                                             |
+| `def __getattr__(self, item):`          | value = self.`__getattr__`("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
+| `def __await__(self):`                  | `await` self                                         | Возвращает объект, поддерживающий асинхронное ожидание                           |
+| `def __set__(self, instance, value):`   | instance.attr = value                                | Устанавливает значение атрибута в экземпляре класса                              |
+| `def __class_getitem__(cls, item):`     | item_type = MyGenericClass.`__class_getitem__`(Item) | Обобщенный тип объекта                                                           |
+| `def __setattr__(self, key, value):`    | self.key = value                                     | Устанавливает значение атрибута объекта                                          |
+| `def __setitem__(self, key, value):`    | self[key] = value                                    | Устанавливает значение элемента по ключу в объекте                               |
 
 # with as
 
-| Функция                                         | Пример                | Описание                                                 |
-|-------------------------------------------------|-----------------------|----------------------------------------------------------|
-| def __enter__(self):                            | with self as x:       | Выполняет код при входе в блок `with`                    |
-| def __aenter__(self):                           | async with self as x: | Вызывается при входе в асинхронный<br>контекстный блок   |
-| def __aexit__(self, exc_type, exc_val, exc_tb): | {__aexit__}           | Вызывается при выходе из асинхронного контекстного блока | 
-| def __exit__(self, exc_type, exc_val, exc_tb):  | {__exit__}            | Вызывается при выходе из контекстного блока              |
+| Функция                                           | Пример                  | Описание                                                 |
+|---------------------------------------------------|-------------------------|----------------------------------------------------------|
+| `def __enter__(self):`                            | `with self as x:`       | Выполняет код при входе в блок `with`                    |
+| `def __aenter__(self):`                           | `async with self as x:` | Вызывается при входе в асинхронный<br>контекстный блок   |
+| `def __aexit__(self, exc_type, exc_val, exc_tb):` | {__aexit__}             | Вызывается при выходе из асинхронного контекстного блока | 
+| `def __exit__(self, exc_type, exc_val, exc_tb):`  | {__exit__}              | Вызывается при выходе из контекстного блока              |
 
 # Pickle
 
-| Функция                            | Пример                                          | Описание                                                                            |
-|------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------|
-| def __setstate__(self, state):     | obj.__setstate__(state)                         | Восстанавливает состояние объекта                                                   |
-| def __reduce_ex__(self, protocol): | pickle.loads(pickle.dumps(self, protocol))      | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
-| def __getstate__(self):            | pickle.loads(pickle.dumps(self).__getstate__()) | Возвращает состояние объекта для использования<br>в процессе сериализации           |
-| def __reduce__(self):              | pickle.loads(pickle.dumps(self))                | Возвращает данные для использования<br>в процессе сериализации объекта              |
+| Функция                              | Пример                                            | Описание                                                                            |
+|--------------------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------|
+| `def __setstate__(self, state):`     | obj.`__setstate__`(state)                         | Восстанавливает состояние объекта                                                   |
+| `def __reduce_ex__(self, protocol):` | `pickle.loads(pickle.dumps(self, protocol))`      | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
+| `def __getstate__(self):`            | `pickle.loads(pickle.dumps(self).__getstate__())` | Возвращает состояние объекта для использования<br>в процессе сериализации           |
+| `def __reduce__(self):`              | `pickle.loads(pickle.dumps(self))`                | Возвращает данные для использования<br>в процессе сериализации объекта              |
 
 """.format(
                     __format__=to_table_code_py('"{0:{format_spec}}".format(self)'),
                     __prepare__=to_table_code_py(
                         "@classmethod\ndef __prepare__(metacls, name, bases):"
-                    ),
+                    ).replace("__", "&#95;&#95;"),
                     __init_subclass__=to_table_code_py(
                         "class Subclass(Parent):\n"
                         "    pass\n"
                         "Subclass.__init_subclass__()"
-                    ),
+                    ).replace("__", "&#95;&#95;"),
                     __mro_entries__=to_table_code_py(
                         "class MyClass(Base1, Base2, metaclass=MyMeta):\n"
                         "    pass\n"
                         "MyClass.__mro_entries__(bases)"
-                    ),
+                    ).replace("__", "&#95;&#95;"),
                     __set_name__=to_table_code_py(
                         "class MyClass:\n"
                         "    attr = MyDescriptor()\n"
                         'MyClass.attr.__set_name__(MyClass, "attr")'
-                    ),
+                    ).replace("__", "&#95;&#95;"),
                     __aexit__=to_table_code_py(
                         "async with self as x:\n"
                         "    pass\n"
                         "await self.__aexit__(exc_type, exc_val, exc_tb)"
-                    ),
+                    ).replace("__", "&#95;&#95;"),
                     __exit__=to_table_code_py(
                         "with self as x:\n"
                         "    pass\n"
                         "self.__exit__(exc_type, exc_val, exc_tb)"
-                    ),
-                ).replace("__", "&#95;&#95;"),
+                    ).replace("__", "&#95;&#95;"),
+                ),
                 "str": """
 | Метод                                  | Описание                                                                                                           |                |
 |:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------|----------------|
@@ -10006,7 +10005,6 @@ from dataclasses import dataclass
     frozen: bool = False,
 )
 ```
-
 """,
                 "property": """
 ```python
@@ -11667,7 +11665,7 @@ my_func()  # 43
 
 | Группа захвата      | Название                                                                                | Регулярка                   | Соответствие                                                                                      |
 |---------------------|-----------------------------------------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------|
-| `(?:pattern)`       | Незахватывающая группа                                                                  | `(?:abc\|def)`              | 123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456                        |
+| `(?:pattern)`       | Незахватывающая группа                                                                  | `(?:abc|def)`               | 123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456                        |
 | `(?P<name>pattern)` | Именованная группа захвата                                                              | `My name is (?P<name>\w+)`  | My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br>{capture_group} |
 | `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени | `(?P<word>\w+)\s+(?P=word)` | <span style="background-color: #999999; color: #FFFFFF">hello hello</span>                        |
 
@@ -11681,7 +11679,9 @@ my_func()  # 43
 | `(?P<name1>pattern1|(?P<name2>pattern2))` | Условные выражения<br>с именованными группами |  | {conditional_expressions_with_named_groups} |
 
 
-# [Флаги](https://docs.python.org/3/library/re.html#flags)
+# Флаги
+
+[https://docs.python.org/3/library/re.html#flags](https://docs.python.org/3/library/re.html#flags)
 
 |                           |        |        |
 |---------------------------|--------|--------|
@@ -11872,22 +11872,40 @@ None
                     "# John"
                 ),
                 conditional_expressions_with_named_groups=to_table_code_py(
-                    ">>> re.compile(\n"
-                    '>>>     r"(?P<name1>pattern1\\|"\n'
-                    '>>>     r"(?P<name2>pattern2))"\n'
-                    ">>> ).match(\n"
-                    '>>>     "pattern2"\n'
-                    ">>> ).groupdict()\n"
-                    "{\n"
-                    '    "name1": "pattern2",\n'
-                    '    "name2": "pattern2",\n'
-                    "}"
+                    """
+>>> re.compile(
+>>>     r"(?P<name1>pattern1\\|"
+>>>     r"(?P<name2>pattern2))"
+>>> ).match(
+>>>     "pattern2"
+>>> ).groupdict()
+{
+    "name1": "pattern2",
+    "name2": "pattern2",
+}
+""".strip(),
                 ),
                 VERBOSE=to_table_code_py(
-                    'a = re.compile(r"""\\d +  # the integral part\n'
-                    "                   \\\\.    # the decimal point\n"
-                    '                   \\d *  # some fractional digits""", re.X)\n'
-                    'b = re.compile(r"\\d+.\\d*")'
+                    '''
+a = re.compile(
+   r"""
+\\d +  # the integral part
+\\\\.    # the decimal point
+\\d *  # some fractional digits
+""",
+   re.X,
+)
+b = re.compile(r"\\d+.\\d*")
+
+# Wrong!
+c = re.compile(
+   r"""(?s)
+\\d +  # the integral part
+\\\\.    # the decimal point
+\\d *  # some fractional digits
+"""
+)
+'''.strip(),
                 ),
             ),
             "images": r"""
@@ -12772,7 +12790,6 @@ import java.util.Arrays;
 ```java
 import java.util.*;
 ```
-
 """,
             "Исключения": """
 В языке Java все исключения являются объектами и могут быть вызваны не только системой,
@@ -13014,7 +13031,6 @@ public class LambdaExample {
     }
 }
 ```
-
 """,
         },
         "SQL": {
@@ -13958,7 +13974,6 @@ if (list.includes(textToCheck)) {
     console.log("Text does not exist in the list");
 }
 ```
-
 """,
             "for": """
 Цикл for в JavaScript используется для выполнения одного 
@@ -14777,7 +14792,6 @@ ease-in-out | cubic-Bezier
 ```html
 <input type="color" id="">
 ```
-
 """,
             "tag a": """
 [https://www.w3schools.com/tags/tag_a.asp](https://www.w3schools.com/tags/tag_a.asp)
@@ -16808,150 +16822,162 @@ q = *m;
         },
         "Bash": {
             "help": """
-Работа с файлами
-COPY           Копирование одного или нескольких файлов в другое место.
-DEL            Удаление одного или нескольких файлов.
-REN            Переименовывает файлы.
-RENAME         Переименовывает файлы.
-REPLACE        Заменяет файлы.
-TYPE           Отображает содержимое текстовых файлов.
-XCOPY          Копирует файлы и деревья папок.
+# Работа с файлами
 
-Работа с папками
-DIR            Вывод списка файлов и подпапок из указанной папки.
-RD             Удаляет каталог.
-RMDIR          Удаляет каталог.
+|         |   |
+|---------|---|
+| COPY    | Копирование одного или нескольких файлов в другое место.
+| DEL     | Удаление одного или нескольких файлов.
+| REN     | Переименовывает файлы.
+| RENAME  | Переименовывает файлы.
+| REPLACE | Заменяет файлы.
+| TYPE    | Отображает содержимое текстовых файлов.
+| XCOPY   | Копирует файлы и деревья папок.
 
 
-Для получения сведений об определенной команде наберите HELP <имя команды>
-CD             Вывод имени либо смена текущей папки.
-ECHO           Отображает сообщения и переключает режим отображения команд на экране.
-CLS            Очистка экрана.
-CMD            Запуск еще одного интерпретатора командных строк Windows.
-COLOR          Установка цветов переднего плана и фона, используемых по умолчанию.
+# Работа с папками
+|       |   |
+|-------|---|
+| DIR   | Вывод списка файлов и подпапок из указанной папки.
+| RD    | Удаляет каталог.
+| RMDIR | Удаляет каталог.
 
-ASSOC          Вывод либо изменение сопоставлений по расширениям имен файлов.
-ATTRIB         Отображение и изменение атрибутов файлов.
-BREAK          Включение и выключение режима обработки комбинации клавиш CTRL+C.
-BCDEDIT        Задает свойства в базе данных загрузки для управления начальной загрузкой.
-CACLS          Отображение и редактирование списков управления доступом (ACL) к файлам.
-CALL           Вызов одного пакетного файла из другого.
-CHCP           Вывод либо установка активной кодовой страницы.
-CHDIR          Вывод имени либо смена текущей папки.
-CHKDSK         Проверка диска и вывод статистики.
-CHKNTFS        Отображение или изменение выполнения проверки диска во время загрузки.
-COMP           Сравнение содержимого двух файлов или двух наборов файлов.
-COMPACT        Отображение и изменение сжатия файлов в разделах NTFS.
-CONVERT        Преобразует тома FAT в NTFS. Вы не можете преобразовать текущий диск.
-DATE           Вывод либо установка текущей даты.
-DISKPART       Отображает или настраивает свойства раздела диска.
-DOSKEY         Редактирует командные строки, повторно вызывает команды Windows и создает макросы.
-DRIVERQUERY    Отображает текущее состояние и свойства драйвера устройства.
-ENDLOCAL       Завершает локализацию изменений среды для пакетного файла.
-ERASE          Удаляет один или несколько файлов.
-EXIT           Завершает работу программы CMD.EXE (интерпретатора командных строк).
-FC             Сравнивает два файла или два набора файлов и отображает различия между ними.
-FIND           Ищет текстовую строку в одном или нескольких файлах.
-FINDSTR        Ищет строки в файлах.
-FOR            Запускает указанную команду для каждого из файлов в наборе.
-FORMAT         Форматирует диск для работы с Windows.
-FSUTIL         Отображает или настраивает свойства файловой системы.
-FTYPE          Отображает либо изменяет типы файлов, используемые при сопоставлении по расширениям имен файлов.
-GOTO           Направляет интерпретатор команд Windows в отмеченную строку пакетной программы.
-GPRESULT       Отображает информацию о групповой политике для компьютера или пользователя.
-GRAFTABL       Позволяет Windows отображать расширенный набор символов в графическом режиме.
-HELP           Выводит справочную информацию о командах Windows.
-ICACLS         Отображает, изменяет, архивирует или восстанавливает списки ACL для файлов и каталогов.
-IF             Выполняет условную обработку в пакетных программах.
-LABEL          Создает, изменяет или удаляет метки тома для дисков.
-MD             Создает каталог.
-MKDIR          Создает каталог.
-MKLINK         Создает символьные ссылки и жесткие связи
-MODE           Настраивает системные устройства.
-MORE           Последовательно отображает данные по частям размером в один экран.
-MOVE           Перемещает один или несколько файлов из одного каталога в другой.
-OPENFILES      Отображает файлы, открытые для файлового ресурса удаленными пользователями.
-PATH           Отображает или устанавливает путь поиска исполняемых файлов.
-PAUSE          Приостанавливает выполнение пакетного файла и выводит сообщение.
-POPD           Восстанавливает предыдущее значение текущего каталога, сохраненное с помощью команды PUSHD.
-PRINT          Выводит на печать содержимое текстового файла.
-PROMPT         Изменяет командную строку Windows.
-PUSHD          Сохраняет текущий каталог, затем изменяет его.
-RECOVER        Восстанавливает данные, которые можно прочитать, с плохого или поврежденного диска.
-REM            Записывает комментарии в пакетные файлы или файл CONFIG.SYS.
-ROBOCOPY       Улучшенная служебная программа копирования файлов и деревьев папок
-SET            Показывает, устанавливает или удаляет переменные среды Windows.
-SETLOCAL       Начинает локализацию изменений среды в пакетном файле.
-SC             Отображает или настраивает службы (фоновые процессы).
-SCHTASKS       Выполняет команды и запускает программы на компьютере по расписанию.
-SHIFT          Изменяет положение заменяемых параметров в пакетных файлах.
-SHUTDOWN       Позволяет локально или удаленно завершить работу компьютера.
-SORT           Сортирует ввод.
-START          Выполняет указанную программу или команду в отдельном окне.
-SUBST          Связывает путь с именем диска.
-SYSTEMINFO     Отображает сведения о свойствах и конфигурации определенного компьютера.
-TASKLIST       Отображает все выполняемые задачи, включая службы.
-TASKKILL       Прекращение или остановка процесса либо приложения.
-TIME           Отображает или устанавливает системное время.
-TITLE          Назначает заголовок окна для сеанса CMD.EXE.
-TREE           Графически отображает структуру каталогов диска или пути.
-VER            Отображает сведения о версии Windows.
-VERIFY         Устанавливает режим проверки в Windows правильности записи файлов на диск.
-VOL            Отображает метку и серийный номер тома для диска.
-WMIC           Отображает сведения об инструментарии WMI в интерактивной командной оболочке.
+
+# Для получения сведений об определенной команде наберите HELP <имя команды>
+|             |   |
+|-------------|---|
+| CD          | Вывод имени либо смена текущей папки.
+| ECHO        | Отображает сообщения и переключает режим отображения команд на экране.
+| CLS         | Очистка экрана.
+| CMD         | Запуск еще одного интерпретатора командных строк Windows.
+| COLOR       | Установка цветов переднего плана и фона, используемых по умолчанию.
+|             |
+| ASSOC       | Вывод либо изменение сопоставлений по расширениям имен файлов.
+| ATTRIB      | Отображение и изменение атрибутов файлов.
+| BREAK       | Включение и выключение режима обработки комбинации клавиш CTRL+C.
+| BCDEDIT     | Задает свойства в базе данных загрузки для управления начальной загрузкой.
+| CACLS       | Отображение и редактирование списков управления доступом (ACL) к файлам.
+| CALL        | Вызов одного пакетного файла из другого.
+| CHCP        | Вывод либо установка активной кодовой страницы.
+| CHDIR       | Вывод имени либо смена текущей папки.
+| CHKDSK      | Проверка диска и вывод статистики.
+| CHKNTFS     | Отображение или изменение выполнения проверки диска во время загрузки.
+| COMP        | Сравнение содержимого двух файлов или двух наборов файлов.
+| COMPACT     | Отображение и изменение сжатия файлов в разделах NTFS.
+| CONVERT     | Преобразует тома FAT в NTFS. Вы не можете преобразовать текущий диск.
+| DATE        | Вывод либо установка текущей даты.
+| DISKPART    | Отображает или настраивает свойства раздела диска.
+| DOSKEY      | Редактирует командные строки, повторно вызывает команды Windows и создает макросы.
+| DRIVERQUERY | Отображает текущее состояние и свойства драйвера устройства.
+| ENDLOCAL    | Завершает локализацию изменений среды для пакетного файла.
+| ERASE       | Удаляет один или несколько файлов.
+| EXIT        | Завершает работу программы CMD.EXE (интерпретатора командных строк).
+| FC          | Сравнивает два файла или два набора файлов и отображает различия между ними.
+| FIND        | Ищет текстовую строку в одном или нескольких файлах.
+| FINDSTR     | Ищет строки в файлах.
+| FOR         | Запускает указанную команду для каждого из файлов в наборе.
+| FORMAT      | Форматирует диск для работы с Windows.
+| FSUTIL      | Отображает или настраивает свойства файловой системы.
+| FTYPE       | Отображает либо изменяет типы файлов, используемые при сопоставлении по расширениям имен файлов.
+| GOTO        | Направляет интерпретатор команд Windows в отмеченную строку пакетной программы.
+| GPRESULT    | Отображает информацию о групповой политике для компьютера или пользователя.
+| GRAFTABL    | Позволяет Windows отображать расширенный набор символов в графическом режиме.
+| HELP        | Выводит справочную информацию о командах Windows.
+| ICACLS      | Отображает, изменяет, архивирует или восстанавливает списки ACL для файлов и каталогов.
+| IF          | Выполняет условную обработку в пакетных программах.
+| LABEL       | Создает, изменяет или удаляет метки тома для дисков.
+| MD          | Создает каталог.
+| MKDIR       | Создает каталог.
+| MKLINK      | Создает символьные ссылки и жесткие связи
+| MODE        | Настраивает системные устройства.
+| MORE        | Последовательно отображает данные по частям размером в один экран.
+| MOVE        | Перемещает один или несколько файлов из одного каталога в другой.
+| OPENFILES   | Отображает файлы, открытые для файлового ресурса удаленными пользователями.
+| PATH        | Отображает или устанавливает путь поиска исполняемых файлов.
+| PAUSE       | Приостанавливает выполнение пакетного файла и выводит сообщение.
+| POPD        | Восстанавливает предыдущее значение текущего каталога, сохраненное с помощью команды PUSHD.
+| PRINT       | Выводит на печать содержимое текстового файла.
+| PROMPT      | Изменяет командную строку Windows.
+| PUSHD       | Сохраняет текущий каталог, затем изменяет его.
+| RECOVER     | Восстанавливает данные, которые можно прочитать, с плохого или поврежденного диска.
+| REM         | Записывает комментарии в пакетные файлы или файл CONFIG.SYS.
+| ROBOCOPY    | Улучшенная служебная программа копирования файлов и деревьев папок
+| SET         | Показывает, устанавливает или удаляет переменные среды Windows.
+| SETLOCAL    | Начинает локализацию изменений среды в пакетном файле.
+| SC          | Отображает или настраивает службы (фоновые процессы).
+| SCHTASKS    | Выполняет команды и запускает программы на компьютере по расписанию.
+| SHIFT       | Изменяет положение заменяемых параметров в пакетных файлах.
+| SHUTDOWN    | Позволяет локально или удаленно завершить работу компьютера.
+| SORT        | Сортирует ввод.
+| START       | Выполняет указанную программу или команду в отдельном окне.
+| SUBST       | Связывает путь с именем диска.
+| SYSTEMINFO  | Отображает сведения о свойствах и конфигурации определенного компьютера.
+| TASKLIST    | Отображает все выполняемые задачи, включая службы.
+| TASKKILL    | Прекращение или остановка процесса либо приложения.
+| TIME        | Отображает или устанавливает системное время.
+| TITLE       | Назначает заголовок окна для сеанса CMD.EXE.
+| TREE        | Графически отображает структуру каталогов диска или пути.
+| VER         | Отображает сведения о версии Windows.
+| VERIFY      | Устанавливает режим проверки в Windows правильности записи файлов на диск.
+| VOL         | Отображает метку и серийный номер тома для диска.
+| WMIC        | Отображает сведения об инструментарии WMI в интерактивной командной оболочке.
 """,
             "Переменные окружения": """
+```bash
 set MY_VAR="my_value"
-Чтобы удалить переменную окружения через командную строку (cmd) в Windows, 
-можно использовать команду setx с параметром /m, где /m указывает, что переменная должна быть удалена из системной области.
+```
 
-Например, чтобы удалить переменную MY_VAR, можно выполнить следующую команду в cmd:
+Чтобы удалить переменную окружения через командную строку (cmd) в Windows, 
+можно использовать команду `setx` с параметром `/m`, где `/m` указывает, что переменная должна быть удалена из системной области.
+
+Например, чтобы удалить переменную `MY_VAR`, можно выполнить следующую команду в `cmd`:
 
 ```bash
 setx MY_VAR /m
 ```
 
-После выполнения этой команды переменная MY_VAR будет удалена из системной области. 
+После выполнения этой команды переменная `MY_VAR` будет удалена из системной области. 
 Обратите внимание, что эта команда не удалит переменную из текущей области видимости командной строки, 
-поэтому если вы хотите удалить переменную только из текущей сессии cmd, вы можете использовать команду set:
+поэтому если вы хотите удалить переменную только из текущей сессии cmd, вы можете использовать команду `set`:
 
 ```bash
 set MY_VAR=
 ```
 
-Эта команда устанавливает значение переменной MY_VAR в пустую строку, что эквивалентно её удалению.
+Эта команда устанавливает значение переменной `MY_VAR` в пустую строку, что эквивалентно её удалению.
 
 
-Если вы хотите удалить переменную окружения только временно, в рамках текущей сессии cmd, то можно использовать команду set с параметром /u, который 
+Если вы хотите удалить переменную окружения только временно, в рамках текущей сессии cmd, то можно использовать команду `set` с параметром `/u`, который 
 
 
-Чтобы получить значение переменной, можно использовать команду echo с параметром %variable_name%, 
-где variable_name - это имя переменной, значение которой нужно получить. 
-Например, чтобы получить значение переменной MY_VAR, можно выполнить следующую команду в cmd:
+Чтобы получить значение переменной, можно использовать команду `echo` с параметром `%variable_name%`, 
+где `variable_name` - это имя переменной, значение которой нужно получить. 
+Например, чтобы получить значение переменной `MY_VAR`, можно выполнить следующую команду в `cmd`:
 
 ```bash
 echo %MY_VAR%
 ```
 
-После выполнения этой команды в консоль будет выведено значение переменной MY_VAR, если она определена.
+После выполнения этой команды в консоль будет выведено значение переменной `MY_VAR`, если она определена.
 
-Чтобы сохранить значение переменной в файле, можно использовать оператор перенаправления вывода > или >>. 
-Например, чтобы сохранить значение переменной MY_VAR в файл my_file.txt, можно выполнить следующую команду:
+Чтобы сохранить значение переменной в файле, можно использовать оператор перенаправления вывода `>` или `>>`. 
+Например, чтобы сохранить значение переменной `MY_VAR` в файл `my_file.txt`, можно выполнить следующую команду:
 
 ```bash
 echo %MY_VAR% > my_file.txt
 ```
 
-После выполнения этой команды значение переменной MY_VAR будет записано в файл my_file.txt, 
+После выполнения этой команды значение переменной `MY_VAR` будет записано в файл `my_file.txt`, 
 и если файл не существовал, то он будет создан. 
-Если нужно добавить значение переменной в конец файла, а не перезаписать его, можно использовать оператор >> вместо >:
+Если нужно добавить значение переменной в конец файла, а не перезаписать его, можно использовать оператор `>>` вместо `>`:
 
 ```bash
 echo %MY_VAR% >> my_file.txt
 ```
 
-Это добавит значение переменной в конец файла my_file.txt, если файл уже существует. 
-Если файл не существует, то он будет создан и в него будет записано значение переменной.""",
+Это добавит значение переменной в конец файла `my_file.txt`, если файл уже существует. 
+Если файл не существует, то он будет создан и в него будет записано значение переменной.
+""",
         },
         "LaTex": {
             "Элементы": r"""
@@ -17467,7 +17493,8 @@ class Matrix:
     def get_minor(self, i: int, j: int) -> list[list[int]]:
         result = [
             list(row[:j] + row[j+1:])
-            for row_index, row in enumerate(self.matrix) if row_index != i
+            for row_index, row in enumerate(self.matrix) 
+            if row_index != i
         ]
         return result
 
@@ -17572,6 +17599,187 @@ int main()
 }
 ```
 """,
+            "str - int": """
+```python
+chr_digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+
+def number_to_string(number):
+    if number == 0:
+        return "0"
+    sign = "-" if number < 0 else ""
+    number = abs(number)
+    digits = []
+    while number > 0:
+        digit = number % 10
+        digits.append(chr_digit[digit])
+        number //= 10
+    digits.reverse()
+    return sign + "".join(digits)
+
+
+def string_to_number(string):
+    if string == "0":
+        return 0
+    sign = 1
+    if string[0] == "-":
+        sign = -1
+        string = string[1:]
+    number = 0
+    for char in string:
+        digit = chr_digit.index(char)
+        number = number * 10 + digit
+    return sign * number
+```
+```pycon
+>>> print(number_to_string(12345))
+"12345"
+>>> print(string_to_number("12345"))
+12345
+```
+""",
+            "fib": """
+```python
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+```
+```pycon
+>>> print(list(fib(10)))
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+""",
+            "converters": '''
+```python
+def sqrt(x, p: int = 2):
+    return pow(x, (1 / p))
+```
+```python
+def rgb_to_hex(r: int, g: int, b: int) -> str:
+    return "#{:02x}{:02x}{:02x}".format(r, g, b).upper()
+
+def hex_to_rgb(h: str) -> tuple[int, int, int]:
+    return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+```
+```pycon
+>>> rgb_to_hex(164, 73, 211)
+"#A449D3"
+>>> hex_to_rgb("#A449D3")
+(164, 73, 211)
+```
+```python
+def html_escape(text):
+    return "".join(f"&#{ord(char)};" for char in text)
+```
+```python
+def tg_color(chat_id: int):
+    """
+    0x6FB9F0 Синий
+    0xFFD67E Оранжевый
+    0xCB86DB Фиолетовый
+    0x8EEE98 Зелёный
+    0xFF93B2 Розовый
+    0xFB6F5F Красный
+    """
+    return {0: "К", 1: "О", 2: "Ф", 3: "З", 4: "Г", 5: "С", 6: "Р"}[abs(chat_id) % 7]
+```
+```python
+def unicode(text):
+    return "".join(fr"\\U{ord(char):0>8x}" for char in text)
+```
+''',
+            "quicksort": """
+```python
+def quicksort(array):
+    if len(array) < 2:
+        return array
+    else:
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot]
+        greater = [i for i in array[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
+
+
+quicksortL = lambda array: (
+    array
+    if len(array) < 2 else
+    (
+        lambda pivot, less, greater: quicksortL(less) + [pivot] + quicksortL(greater)
+    )(
+        **(
+            lambda pivot, temp_arr: {
+                "pivot": pivot,
+                "less": [i for i in temp_arr if i <= pivot],
+                "greater": [i for i in temp_arr if i > pivot]
+            }
+        )(array[0], array[1:])
+    )
+)
+```
+```pycon
+>>> print(quicksort([10, 5, 2, 3]))
+[2, 3, 5, 10]
+```
+""",
+            "download telegram emoji": """
+```python
+import logging
+
+import requests
+from requests.exceptions import MissingSchema
+
+
+def download_emoji(emoji: str) -> bool:
+    emoji_name = "-".join(str(hex(ord(c)))[2:] for c in emoji)
+    print(emoji_name)
+    link = f"https://web.telegram.org/a/img-apple-64/{emoji_name}.png"
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+        )
+    }
+    try:
+        with open(f"emojis/{emoji_name}.png", "wb") as file:
+            file.write(requests.get(link, headers=headers).content)
+        return True
+    except MissingSchema as e:
+        logging.error(f"{e}")
+    except ConnectionError:
+        logging.error("404")
+    return False
+```
+""",
+            "js YouTube": """
+# изменение скорости воспроизведения на ютубе
+```javascript
+javascript:document.getElementsByClassName("video-stream html5-main-video")[0].playbackRate = 2.5;
+```
+""",
+            "словарь обращение через точку": """
+# Словарь обращение через точку
+
+```python
+class Dict:
+    def __init__(self, d: dict):
+        self.d = d
+
+    def __getattr__(self, item: str):
+        return self.__class__(self.d.get(item))
+
+    def __setattr__(self, name, value):
+        if name == 'd':
+            super().__setattr__(name, value)
+        else:
+            self.d[name] = value
+
+    def __repr__(self):
+        return __repr__(self.d)
+```
+""",
         },
         "Minecraft": {
             "color": """
@@ -17672,12 +17880,33 @@ int main()
 
 # HTML
 
-|        |       |
-|--------|-------|
-| SVG    | [https://flowbite.com/icons/](https://flowbite.com/icons/) |
-|        |       |
+|            |                                                            |
+|------------|------------------------------------------------------------|
+| SVG        | [https://flowbite.com/icons/](https://flowbite.com/icons/) |
+| codepen.io | [https://codepen.io/](https://codepen.io/)                 |
 
 
+""",
+        "TODO": """
+# TODO
+
+- Якоря на `h` тегах и в `URL`
+- История поиска
+- Параметр поиска `s` в `URL`
+    - ?path
+    - ?path&s=query
+    - ?path\\#anchor
+    - ?s=query
+    - ?s=query\\#anchor
+    - \\#anchor
+    - ?path&s=query\\#anchor
+- Перенести микрокод из бота в `snippets`
+- Добавить настройки поиска
+    - Регистронезависимость
+    - Регулярные выражения
+    - Поиск по всему пути или по названию файла
+        - ? _Сделать кнопку, которая вызывает окно посередине экрана с настройками_
+        - ? _Добавить для результатов поиска отдельную всплывашку_
 """,
     },
     "Shortcuts": {
