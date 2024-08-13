@@ -3,57 +3,12 @@
 данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
 <code>YAML</code> использует отступы и специальные символы для обозначения структуры данных.
 Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.</p>
-<div class="code-element">
-    <div class="lang-line">
-        <text>yaml</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">John Smith</span>
+<div class="code-element"><div class="lang-line"><text>yaml</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">John Smith</span>
 <span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 <span class="nt">city</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New York</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>python</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install yaml</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># pip install yaml</span>
 
 
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
@@ -65,5 +20,4 @@
     <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>

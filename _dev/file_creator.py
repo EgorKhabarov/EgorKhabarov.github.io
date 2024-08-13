@@ -50,75 +50,24 @@ def code_block_callback(match):
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
-    copy_btn = """
-<button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-""".strip()
+    copy_btn = '<button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button>'
     download_btn = (
-        """
-<button class="copy-button-2"
-        onclick="DownloadCode(this, '{filename}')">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Download code</text>
-</button>
-""".format(filename=filename).strip()
+        f'<button class="copy-button-2" onclick="DownloadCode(this, \'{filename}\')"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Download code</text></button>'
         if filename
         else ""
-    ).strip()
-    return """
-<div class="code-element">
-    <div class="lang-line">
-        <text>{lang}</text>
-        {copy_btn}
-        {download_btn}
-    </div>
-    <div class="code">{code}</div>
-</div>
-""".format(
-        lang=language,
-        code=highlighted_code,
-        copy_btn=copy_btn,
-        download_btn=download_btn,
-    ).strip()
+    )
+    return f'<div class="code-element"><div class="lang-line"><text>{language}</text>{copy_btn}{download_btn}</div><div class="code">{highlighted_code}</div></div>'
 
 
 def to_markup(markdown_text):
-    # Регулярное выражение для поиска блоков кода
-    code_block_pattern = re.compile(
+    # Замена блоков кода на подсвеченный HTML
+    highlighted_html = re.sub(
         r"(?si)(```[a-z+#@._\d-]*|<pre><code class=\"language-[a-z+#-]*\">)"
         r"(.*?)"
-        r"(```|</code></pre>)"
+        r"(```|</code></pre>)",
+        code_block_callback,
+        markdown_text,
     )
-
-    # Замена блоков кода на подсвеченный HTML
-    highlighted_html = code_block_pattern.sub(code_block_callback, markdown_text)
 
     # Обработка остальной разметки
     md_extensions = [
@@ -128,7 +77,7 @@ def to_markup(markdown_text):
     return markdown.markdown(highlighted_html, extensions=md_extensions)
 
 
-def create_files_and_folders(dictionary, directory=".", x=0, y=0):
+def create_files_and_folders(dictionary, directory: str = ".", x: int = 0, y: int = 0):
     """
     Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
 

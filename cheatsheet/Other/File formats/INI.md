@@ -3,61 +3,16 @@
 для хранения настроек приложений и операционных систем. 
 Он был разработан в <code>Windows</code> и стал широко используемым 
 форматом для хранения конфигурационных данных в различных программных продуктах.</p>
-<div class="code-element">
-    <div class="lang-line">
-        <text>ini</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="k">[Section1]</span>
+<div class="code-element"><div class="lang-line"><text>ini</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">[Section1]</span>
 <span class="na">key1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value1</span>
 <span class="na">key2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value2</span>
 
 <span class="k">[Section2]</span>
 <span class="na">key3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value3</span>
 <span class="na">key4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">value4</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>python</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="c1"># config = configparser.ConfigParser()</span>
 <span class="c1"># config[&quot;BOT&quot;] = {&quot;bot_name&quot;: &quot;&quot;, &quot;token&quot;: &quot;&quot;}</span>
 
 <span class="kn">import</span> <span class="nn">configparser</span>
@@ -75,5 +30,4 @@
 <span class="n">config_ini</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
 <span class="n">config_ini</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;config.ini&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>

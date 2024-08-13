@@ -11,84 +11,16 @@
 <hr />
 <h1>Install</h1>
 <h2>PyPI</h2>
-<div class="code-element">
-    <div class="lang-line">
-        <text>shell</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>table2string
-</pre></div></div>
-</div>
+<div class="code-element"><div class="lang-line"><text>shell</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>table2string
+</pre></div></div></div>
 
 <h2>GitHub</h2>
-<div class="code-element">
-    <div class="lang-line">
-        <text>shell</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/EgorKhabarov/table2string.git@master
-</pre></div></div>
-</div>
+<div class="code-element"><div class="lang-line"><text>shell</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/EgorKhabarov/table2string.git@master
+</pre></div></div></div>
 
 <hr />
 <h1>Usage example</h1>
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">Table</span><span class="p">([(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
 <span class="unselectable"><span class="go">+---------------+</span>
 <span class="go">|  Table Name   |</span>
@@ -171,8 +103,7 @@
 <span class="go">| qwe | rty |   |</span>
 <span class="go">|     | uio |   |</span>
 <span class="go">+-----+-----+---+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 
 <h2>Custom width and height settings</h2>
 <table>
@@ -209,29 +140,7 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Width of the entire table with borders</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Width of the entire table with borders</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">([(</span><span class="mi">1</span><span class="p">,),</span> <span class="p">(</span><span class="mf">2.345</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="unselectable"><span class="go">+--------+</span>
 <span class="go">|      1 |</span>
@@ -285,8 +194,7 @@
 <span class="go">| 789 |</span>
 <span class="go">|     |</span>
 <span class="go">+-----+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 <h2>Text alignment</h2>
@@ -370,29 +278,7 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">kwargs_1</span> <span class="o">=</span> <span class="p">{</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">kwargs_1</span> <span class="o">=</span> <span class="p">{</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;123456789</span><span class="se">\n</span><span class="s2">qwerty</span><span class="se">\n</span><span class="s2">asdfghjklzxcvb&quot;</span><span class="p">)],</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Table Name</span><span class="se">\n</span><span class="s2">Name</span><span class="se">\n</span><span class="s2">Naaaaame&quot;</span><span class="p">,</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;column_names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;col 2</span><span class="se">\n</span><span class="s2">c2&quot;</span><span class="p">),</span>
@@ -501,8 +387,7 @@
 <span class="go">|        123456789   |</span>
 <span class="go">|   asdfghjklzxcvb   |</span>
 <span class="go">+--------------------+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 <h2>Separator settings</h2>
@@ -539,29 +424,7 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">table_1</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;123456</span><span class="se">\n\n</span><span class="s2">789000&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">)]</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">table_1</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;123456</span><span class="se">\n\n</span><span class="s2">789000&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">)]</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;max_width&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;max_height&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
@@ -658,37 +521,14 @@
 <span class="go">+---+---+</span>
 <span class="go">| 7 | 8 |</span>
 <span class="go">+---+---+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 <h2>Borders</h2>
 <details>
 <summary>Border types</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>text</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span>┌──────────────┬───────────────────┐
+<div class="code-element"><div class="lang-line"><text>text</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>┌──────────────┬───────────────────┐
 │  ascii_thin  │ ascii_thin_double │
 │  +---+---+   │     +---+---+     │
 │  |   |   |   │     |   |   |     │
@@ -767,36 +607,13 @@
 │  |   |   |   │                   │
 │  |   |   |   │                   │
 └──────────────┴───────────────────┘
-</pre></div></div>
-</div>
+</pre></div></div></div>
 </details>
 
 <details>
 <summary>Example</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Themes</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Themes</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">column_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;c1&quot;</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">)</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">table</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>
@@ -804,35 +621,12 @@
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_name</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_column_names</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_name_column_names</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <details>
 <summary>Themes.ascii_thin</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
 <span class="unselectable"><span class="go">+-----+-----+---+</span>
 <span class="go">|   1 |   2 | 3 |</span>
 <span class="go">+-----+-----+---+</span>
@@ -868,37 +662,14 @@
 <span class="go">| qwe | rty |   |</span>
 <span class="go">|     | uio |   |</span>
 <span class="go">+-----+-----+---+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.ascii_thin_double</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
 <span class="unselectable"><span class="go">+-----+-----+---+</span>
 <span class="go">|   1 |   2 | 3 |</span>
 <span class="go">+=====+=====+===+</span>
@@ -934,37 +705,14 @@
 <span class="go">| qwe | rty |   |</span>
 <span class="go">|     | uio |   |</span>
 <span class="go">+-----+-----+---+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.ascii_double</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
 <span class="unselectable"><span class="go">+=====+=====+===+</span>
 <span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
 <span class="go">+=====+=====+===+</span>
@@ -1000,37 +748,14 @@
 <span class="go">‖ qwe ‖ rty ‖   ‖</span>
 <span class="go">‖     ‖ uio ‖   ‖</span>
 <span class="go">+=====+=====+===+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.ascii_double_thin</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
 <span class="unselectable"><span class="go">+=====+=====+===+</span>
 <span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
 <span class="go">+-----+-----+---+</span>
@@ -1066,37 +791,14 @@
 <span class="go">‖ qwe ‖ rty ‖   ‖</span>
 <span class="go">‖     ‖ uio ‖   ‖</span>
 <span class="go">+=====+=====+===+</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.ascii_booktabs</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
 <span class="unselectable"><span class="go"> --------------- </span>
 <span class="go">    1     2   3  </span>
 <span class="go"> =============== </span>
@@ -1132,37 +834,14 @@
 <span class="go">  qwe   rty      </span>
 <span class="go">        uio      </span>
 <span class="go"> ---------------</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.thin</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
 <span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">├─────┼─────┼───┤</span>
@@ -1198,37 +877,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.thin_thick</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
 <span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
@@ -1264,37 +920,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.thin_double</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
 <span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">╞═════╪═════╪═══╡</span>
@@ -1330,37 +963,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.rounded</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
 <span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">├─────┼─────┼───┤</span>
@@ -1396,37 +1006,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.rounded_thick</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
 <span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
@@ -1462,37 +1049,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.rounded_double</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
 <span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">╞═════╪═════╪═══╡</span>
@@ -1528,37 +1092,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.thick</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
 <span class="unselectable"><span class="go">┏━━━━━┳━━━━━┳━━━┓</span>
 <span class="go">┃   1 ┃   2 ┃ 3 ┃</span>
 <span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
@@ -1594,37 +1135,14 @@
 <span class="go">┃ qwe ┃ rty ┃   ┃</span>
 <span class="go">┃     ┃ uio ┃   ┃</span>
 <span class="go">┗━━━━━┻━━━━━┻━━━┛</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.thick_thin</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
 <span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
 <span class="go">│   1 │   2 │ 3 │</span>
 <span class="go">┠━━━━━╂━━━━━╂━━━┨</span>
@@ -1660,37 +1178,14 @@
 <span class="go">│ qwe │ rty │   │</span>
 <span class="go">│     │ uio │   │</span>
 <span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.double</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
 <span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
 <span class="go">║   1 ║   2 ║ 3 ║</span>
 <span class="go">╠═════╬═════╬═══╣</span>
@@ -1726,37 +1221,14 @@
 <span class="go">║ qwe ║ rty ║   ║</span>
 <span class="go">║     ║ uio ║   ║</span>
 <span class="go">╚═════╩═════╩═══╝</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.double_thin</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
 <span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
 <span class="go">║   1 ║   2 ║ 3 ║</span>
 <span class="go">╟─────╫─────╫───╢</span>
@@ -1792,37 +1264,14 @@
 <span class="go">║ qwe ║ rty ║   ║</span>
 <span class="go">║     ║ uio ║   ║</span>
 <span class="go">╚═════╩═════╩═══╝</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.booktabs</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
 <span class="unselectable"><span class="go"> ─────────────── </span>
 <span class="go">    1     2   3  </span>
 <span class="go"> ━━━━━━━━━━━━━━━ </span>
@@ -1858,37 +1307,14 @@
 <span class="go">  qwe   rty      </span>
 <span class="go">        uio      </span>
 <span class="go"> ───────────────</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 
 
 <details>
 <summary>Themes.markdown</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>pycon</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
 <span class="unselectable"><span class="go">|   1 |   2 | 3 |</span>
 <span class="go">|-----|-----|---|</span>
 <span class="go">| qwe | rty |   |</span>
@@ -1912,8 +1338,7 @@
 <span class="go">|   1 |   2 | 3 |</span>
 <span class="go">| qwe | rty |   |</span>
 <span class="go">|     | uio |   |</span>
-</span></pre></div></div>
-</div>
+</span></pre></div></div></div>
 </details>
 </details>
 
@@ -1921,29 +1346,7 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element">
-    <div class="lang-line">
-        <text>python</text>
-        <button class="copy-button"
-        onclick="copyCode(this)">
-    <svg stroke="currentColor"
-         fill="none"
-         stroke-width="2"
-         viewBox="0 0 24 24"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         class="h-4 w-4"
-         height="1em"
-         width="1em"
-         xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-    </svg>
-    <text>Copy code</text>
-</button>
-
-    </div>
-    <div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
+<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
 <span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span>
 
 <span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;plain text&quot;</span><span class="p">,</span> <span class="s2">&quot;emoji&quot;</span><span class="p">)</span>
@@ -1963,8 +1366,7 @@
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;table2string&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 <span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-</pre></div></div>
-</div>
+</pre></div></div></div>
 
 <details>
     <summary>Windows Terminal</summary>
