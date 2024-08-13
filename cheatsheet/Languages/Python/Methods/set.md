@@ -76,7 +76,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="frozenset">frozenset</h1>
+<h1>frozenset</h1>
 <p>В Python «замороженный» означает, что объект не может быть изменен. Например, рассмотрим <code>set</code> и <code>frozenset</code>:</p>
 <div class="code-element">
     <div class="lang-line">

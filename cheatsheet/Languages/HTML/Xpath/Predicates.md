@@ -1,4 +1,4 @@
-<h1 id="Predicates">Predicates</h1>
+<h1>Predicates</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -28,7 +28,7 @@
 </div>
 
 <p>Restricts a nodeset only if some condition is true. They can be chained.</p>
-<h1 id="Operators">Operators</h1>
+<h1>Operators</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -87,7 +87,7 @@
 </div>
 
 <p>Use comparison and logic operators to make conditionals.</p>
-<h1 id="Usingnodes">Using nodes</h1>
+<h1>Using nodes</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -144,7 +144,7 @@
 </div>
 
 <p>You can use nodes inside predicates.</p>
-<h1 id="Indexing">Indexing</h1>
+<h1>Indexing</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -176,7 +176,7 @@
 </div>
 
 <p>Use [] with a number, or last() or position().</p>
-<h1 id="Chainingorder">Chaining order</h1>
+<h1>Chaining order</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -205,7 +205,7 @@ a<span class="o">[</span>@href<span class="o">=</span><span class="s1">&#39;/&#3
 </div>
 
 <p>Order is significant, these two are different.</p>
-<h1 id="Nestingpredicates">Nesting predicates</h1>
+<h1>Nesting predicates</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>

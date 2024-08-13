@@ -31,6 +31,6 @@
 </pre></div></div>
 </div>
 
-<p><a target="_blank" href="https://vedis-python.readthedocs.io/en/latest/quickstart.html">https://vedis-python.readthedocs.io/en/latest/quickstart.html</a></p>
+<p><a href="https://vedis-python.readthedocs.io/en/latest/quickstart.html">https://vedis-python.readthedocs.io/en/latest/quickstart.html</a></p>
 <p>Пример использования в боте
-<a target="_blank" href="https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/">https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/</a></p>
+<a href="https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/">https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/</a></p>

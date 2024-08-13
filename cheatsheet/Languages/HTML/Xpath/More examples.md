@@ -1,4 +1,4 @@
-<h1 id="Examples">Examples</h1>
+<h1>Examples</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -30,7 +30,7 @@ count<span class="o">(</span>//*<span class="o">)</span><span class="w">        
 </pre></div></div>
 </div>
 
-<h1 id="Findaparent">Find a parent</h1>
+<h1>Find a parent</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -86,7 +86,7 @@ count<span class="o">(</span>//*<span class="o">)</span><span class="w">        
 
 <p>Finds a &lt;section&gt; that contains h1#section-name.
 (Same as above, but uses descendant-or-self instead of child)</p>
-<h1 id="Closest">Closest</h1>
+<h1>Closest</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -114,7 +114,7 @@ count<span class="o">(</span>//*<span class="o">)</span><span class="w">        
 </div>
 
 <p>Works like jQuery’s $().closest('.box').</p>
-<h1 id="Attributes">Attributes</h1>
+<h1>Attributes</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>

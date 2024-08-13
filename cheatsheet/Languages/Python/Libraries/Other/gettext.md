@@ -1,13 +1,13 @@
 <p>Библиотека "gettext" в Python используется для локализации и перевода текстовых сообщений в программе.</p>
-<h1 id="Таблицаметодовмодуля&quot;gettext&quot;иегоподмодулей:">Таблица методов модуля "gettext" и его подмодулей:</h1>
-<h3 id="Методымодуля&quot;gettext&quot;:">Методы модуля "gettext":</h3>
+<h1>Таблица методов модуля "gettext" и его подмодулей:</h1>
+<h3>Методы модуля "gettext":</h3>
 <p>bindtextdomain(domain, directory): устанавливает домен и директорию для поиска файлов перевода.
 dgettext(domain, message): возвращает перевод сообщения из указанного домена.
 dngettext(domain, singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
 gettext(message): возвращает перевод сообщения.
 ngettext(singular, plural, n): возвращает перевод множественного сообщения на основе числа n.
 textdomain(domain): устанавливает текущий домен перевода.</p>
-<h3 id="Методыподмодуля&quot;gettext.translation&quot;:">Методы подмодуля "gettext.translation":</h3>
+<h3>Методы подмодуля "gettext.translation":</h3>
 <p>gettext.translation(domain, localedir=None, languages=None, fallback=False): создает объект перевода на основе заданного домена и директории локализации.
 gettext.translation(""): возвращает объект перевода для текущего домена.
 add_fallback(translations): добавляет объект перевода в список резервных вариантов перевода.

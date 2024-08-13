@@ -28,7 +28,7 @@
 <li>oct</li>
 <li>nonlocal</li>
 </ul>
-<h2 id="slice">slice</h2>
+<h2>slice</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>python</text>
@@ -56,7 +56,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="frozenset">frozenset</h2>
+<h2>frozenset</h2>
 <p>Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -84,7 +84,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="memoryview">memoryview</h2>
+<h2>memoryview</h2>
 <p>Доступ к буферу памяти объекта без копирования его данных.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -113,7 +113,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="hasattr">hasattr</h2>
+<h2>hasattr</h2>
 <p>Для проверки наличия атрибута (метода или свойства) у объекта.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -147,7 +147,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="reversed">reversed</h2>
+<h2>reversed</h2>
 <p>Для переворачивания последовательности (sequence).</p>
 <div class="code-element">
     <div class="lang-line">
@@ -177,7 +177,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="&lt;strong&gt;import&lt;/strong&gt;"><strong>import</strong></h2>
+<h2><strong>import</strong></h2>
 <p>Для импорта модуля во время выполнения программы.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -206,7 +206,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="staticmethod">staticmethod</h2>
+<h2>staticmethod</h2>
 <p>Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).</p>
 <div class="code-element">
     <div class="lang-line">
@@ -239,7 +239,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="setattr">setattr</h2>
+<h2>setattr</h2>
 <p>Для установки значения атрибута объекта.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -273,7 +273,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="property">property</h2>
+<h2>property</h2>
 <p>Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -311,7 +311,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="object">object</h2>
+<h2>object</h2>
 <p>Базовый класс, от которого наследуются все остальные классы в Python.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -340,7 +340,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="locals">locals</h2>
+<h2>locals</h2>
 <p>Для получения словаря с локальными переменными в текущем контексте выполнения.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -373,7 +373,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="globals">globals</h2>
+<h2>globals</h2>
 <p>Для получения словаря с глобальными переменными в текущем модуле.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -402,7 +402,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="getattr">getattr</h2>
+<h2>getattr</h2>
 <p>Для получения значения атрибута объекта по его имени.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -434,7 +434,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="complex">complex</h2>
+<h2>complex</h2>
 <p>Для создания комплексного числа.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -462,7 +462,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="compile">compile</h2>
+<h2>compile</h2>
 <p>Для компиляции строки с кодом Python в объект-код.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -490,7 +490,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="bytearray">bytearray</h2>
+<h2>bytearray</h2>
 <p>Изменяемый тип данных, представляющий собой массив байтов.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -518,7 +518,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="abs">abs</h2>
+<h2>abs</h2>
 <p>Получения абсолютного значения числа.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -546,7 +546,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="bin">bin</h2>
+<h2>bin</h2>
 <p>Получения двоичного представления числа.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -574,7 +574,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="bytes">bytes</h2>
+<h2>bytes</h2>
 <p>Неизменяемый тип данных, представляющий собой массив байтов.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -602,7 +602,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="callable">callable</h2>
+<h2>callable</h2>
 <p>Является ли объект вызываемым (т.е. функцией или методом).</p>
 <div class="code-element">
     <div class="lang-line">
@@ -639,7 +639,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="chr">chr</h2>
+<h2>chr</h2>
 <p>Получение символа Unicode по его коду.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -667,7 +667,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="classmethod">classmethod</h2>
+<h2>classmethod</h2>
 <p>Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -702,7 +702,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="delattr">delattr</h2>
+<h2>delattr</h2>
 <p>Удаление атрибута объекта.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -735,7 +735,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="dir">dir</h2>
+<h2>dir</h2>
 <p>Получение списка всех атрибутов объекта.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -763,7 +763,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="divmod">divmod</h2>
+<h2>divmod</h2>
 <p>Получения частного и остатка от деления двух чисел.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -791,7 +791,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="filter">filter</h2>
+<h2>filter</h2>
 <p>Фильтрация элементов последовательности с помощью функции.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -819,7 +819,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="oct">oct</h2>
+<h2>oct</h2>
 <p>Получение восьмеричного представления числа.</p>
 <div class="code-element">
     <div class="lang-line">
@@ -847,7 +847,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="nonlocal">nonlocal</h2>
+<h2>nonlocal</h2>
 <p>Объявление переменной из внешней области видимости внутри функции.</p>
 <div class="code-element">
     <div class="lang-line">

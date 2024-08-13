@@ -30,7 +30,7 @@ function changeFontSize(element, action) {
 
     let FontSizeElement = document.getElementById("FontSizeSize");
 
-    if (typeof FontSizeElement.innerText != 'undefined') {
+    if (typeof FontSizeElement.innerText != "undefined") {
         FontSizeElement.innerText = currentSize + "px"; // IE8-
     } else {
         FontSizeElement.textContent = currentSize + "px"; // Нормальные браузеры
@@ -60,18 +60,20 @@ function changeColor(element) {
     setTimeout(function() {element.style.backgroundColor = "#525252";}, 2000);
 }
 
-/*Вставить шпаргалку в нужный элемент*/
+/*Вставить шпаргалку*/
 function PutHtmlText(html) {
-    if (html != "") {
-        let FieldElement = document.getElementById("field");
-
-        if (typeof FieldElement.innerText != "undefined") {
-            FieldElement.innerHTML = html; // IE8-
-        } else {
-            FieldElement.textContent = html; // Нормальные браузеры
-        }
-        document.getElementById("field").scrollTo(0, 0);
+    if (!html) {
+        html = '<img alt="404.png" src="404.png">'
     }
+    let FieldElement = document.getElementById("field");
+
+    if (typeof FieldElement.innerText != "undefined") {
+        FieldElement.innerHTML = html; // IE8-
+    } else {
+        FieldElement.textContent = html; // Нормальные браузеры
+    }
+    FieldElement.scrollTo(0, 0);
+    processingCheatSheet(FieldElement);
 }
 
 /*Взять нужную шпаргалку по пути*/
@@ -87,7 +89,6 @@ function getCheatSheat(url) {
     }
 }
 
-/**/
 function removeSuffix(str, suffix) {
   if (str.endsWith(suffix)) {
     return str.slice(0, -suffix.length);
@@ -116,7 +117,7 @@ function GET(url) {
             console.log(`GET history["${url}"]`)
         }
         cheatsheet = history[url];
-        if (cheatsheet === undefined) {cheatsheet = '';}
+        if (cheatsheet === undefined) {cheatsheet = "";}
     } else {
         cheatsheet = getCheatSheat(url);
         console.log(`GET "${url}"`)
@@ -144,14 +145,14 @@ function copyCode(button_element) {
     let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text>Copied!</text>';
     let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text>';
 
-    if (typeof button_element.innerText != 'undefined') {
+    if (typeof button_element.innerText != "undefined") {
          button_element.innerHTML = html1; // IE8
     } else {
          button_element.textContent = html1; // Нормальные браузеры
     }
 
     setTimeout(function() {
-        if (typeof button_element.innerText != 'undefined') {
+        if (typeof button_element.innerText != "undefined") {
              button_element.innerHTML = html2; // IE8
         } else {
              button_element.textContent = html2; // Нормальные браузеры
@@ -203,31 +204,6 @@ function DownloadCode(button_element, filename) {
              button_element.textContent = html2; // Нормальные браузеры
         }
     }, 1000);
-}
-
-function handleSearch(event) {
-    event.preventDefault(); // Предотвращает отправку формы при нажатии Enter
-    var searchInput = document.getElementById("searchInput");
-    var query = searchInput.value.trim(); // Удаляет начальные и конечные пробелы
-
-    if (query.length > 0 && query.length <= 100) {
-        console.log("Поисковый запрос:", query);
-    }
-
-    // searchInput.value = ""; // Очищает поле поиска после отправки запроса
-}
-
-function downloadFile(text, filename) {
-    var element = document.createElement("a");
-    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
-    element.setAttribute("download", filename);
-
-    element.style.display = "none";
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
 }
 
 function addArgumentToUrl(arg) {
@@ -306,7 +282,7 @@ function restoreCheatSheetState(path) {
         console.log(`click "${vpath}"`)
         velement.click();
     }
-    velement.scrollIntoView({ block: "center"});
+    velement.scrollIntoView({block: "center"});
     container.scrollLeft -= 200;
     GET(path);
 }
@@ -361,13 +337,20 @@ function performSearch(search_query) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Проверяем наличие аргумента при загрузке страницы
-    const arg = getArgumentFromUrl();
+    const arg = decodeURIComponent(getArgumentFromUrl());
+    const anchor = getAnchor();
+
     if (arg) {
-        console.log(`Argument found: "${decodeURIComponent(arg)}"`);
-        restoreCheatSheetState(decodeURIComponent(arg));
+        console.log(`Argument found: "${arg}"`);
+        restoreCheatSheetState(arg);
     } else {
-        PutHtmlText(getCheatSheat("README.html"))
+        PutHtmlText(getCheatSheat("README.html"));
+    }
+
+    if (anchor) {
+        console.log(`Anchor found: "${anchor}"`);
+        anchor_element = document.getElementById(anchor)
+        if (anchor_element) anchor_element.scrollIntoView({block: "start"});
     }
 
     const searchInput = document.getElementById("search");
@@ -417,4 +400,41 @@ const end = (e) => {
     ismdwn = 0;
     document.body.removeEventListener("mouseup", end);
     rpanrResize.removeEventListener("mousemove", mV);
+};
+
+
+function setAnchor(anchor) {
+    const url = new URL(window.location.href);
+    url.hash = anchor ? `#${anchor}` : "";
+    window.history.pushState({}, "", url.toString());
+};
+
+
+function delAnchor() {
+    const url = new URL(window.location.href);
+    url.hash = "";
+    window.history.pushState({}, "", url.toString());
+};
+
+
+function getAnchor() {
+    const url = new URL(window.location.href);
+    return url.hash ? url.hash.slice(1) : null;
+};
+
+function processingCheatSheet(element) {
+    element.querySelectorAll("a").forEach(a => {
+        a.target="_blank"
+    });
+    element.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(header => {
+        let id = header.textContent.trim()
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            // .replace(/[^\w\-]+/g, "")
+            .replace(/\-\-+/g, "-")
+            .replace(/^-+/, "")
+            .replace(/-+$/, "");
+        header.id = id;
+        header.innerHTML = `${header.innerHTML}<a class="anchor" href="#${id}"><svg class="dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg></a>`;
+    });
 };

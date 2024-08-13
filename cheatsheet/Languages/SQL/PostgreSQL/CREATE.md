@@ -125,4 +125,4 @@
 </pre></div></div>
 </div>
 
-<p><a target="_blank" href="https://habr.com/ru/companies/tensor/articles/779698/">https://habr.com/ru/companies/tensor/articles/779698/</a></p>
+<p><a href="https://habr.com/ru/companies/tensor/articles/779698/">https://habr.com/ru/companies/tensor/articles/779698/</a></p>

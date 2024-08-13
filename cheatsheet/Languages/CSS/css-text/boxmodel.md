@@ -1,4 +1,4 @@
-<h1 id="BoxModel">Box Model</h1>
+<h1>Box Model</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>

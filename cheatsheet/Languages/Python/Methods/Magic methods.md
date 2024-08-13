@@ -1,4 +1,4 @@
-<h1 id="Арифметическиеоперации">Арифметические операции</h1>
+<h1>Арифметические операции</h1>
 <table>
 <thead>
 <tr>
@@ -265,7 +265,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="funccall">func call</h1>
+<h1>func call</h1>
 <table>
 <thead>
 <tr>
@@ -462,7 +462,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Контейнеры">Контейнеры</h1>
+<h1>Контейнеры</h1>
 <table>
 <thead>
 <tr>
@@ -514,7 +514,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Классы">Классы</h1>
+<h1>Классы</h1>
 <table>
 <thead>
 <tr>
@@ -616,7 +616,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="withas">with as</h1>
+<h1>with as</h1>
 <table>
 <thead>
 <tr>
@@ -648,7 +648,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Pickle">Pickle</h1>
+<h1>Pickle</h1>
 <table>
 <thead>
 <tr>

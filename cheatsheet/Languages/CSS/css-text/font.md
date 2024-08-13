@@ -1,4 +1,4 @@
-<h1 id="Font">Font</h1>
+<h1>Font</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>

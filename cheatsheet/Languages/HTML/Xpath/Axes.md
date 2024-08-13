@@ -1,4 +1,4 @@
-<h1 id="Usingaxes">Using axes</h1>
+<h1>Using axes</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -55,7 +55,7 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </tr>
 </tbody>
 </table>
-<h1 id="Childaxis">Child axis</h1>
+<h1>Child axis</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -142,7 +142,7 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </pre></div></div>
 </div>
 
-<h1 id="Descendant-or-selfaxis">Descendant-or-self axis</h1>
+<h1>Descendant-or-self axis</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>bash</text>
@@ -200,7 +200,7 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </pre></div></div>
 </div>
 
-<h1 id="Otheraxes">Other axes</h1>
+<h1>Other axes</h1>
 <table>
 <thead>
 <tr>
@@ -282,6 +282,6 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 </tr>
 </tbody>
 </table>
-<h1 id="Unions">Unions</h1>
+<h1>Unions</h1>
 <p>//a | //span
 Use | to join two expressions.</p>

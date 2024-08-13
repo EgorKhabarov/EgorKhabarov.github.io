@@ -25,7 +25,7 @@ def buttons(
             name = key.replace("\\", "&#x2f;") + ".md"
             text_list.append(
                 (
-                    '<button onclick="GET(\'{name}\');restoreCheatSheetState(\'{name2}\')" class="button" '
+                    '<button onclick="GET(\'{name}\');delAnchor();restoreCheatSheetState(\'{name2}\')" class="button unselectable" '
                     'vpath="{vpath}" title="{title}">{title}</button>\n'
                 ).format(
                     name=name,
@@ -49,7 +49,8 @@ def buttons(
             val, _, x = buttons(value, key_path, x, y)
             text_list.append(
                 (
-                    '<button class="button" onclick="toggleDisplay(this.nextElementSibling);GET(\'{csname}\');" '
+                    '<button class="button unselectable" onclick="toggleDisplay(this.nextElementSibling);'
+                    'GET(\'{csname}\');delAnchor();" '
                     'kpath="{kpath}" vpath="{vpath}" title="{title}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
@@ -64,7 +65,7 @@ def buttons(
             val, _, x = buttons(value, key_path, x, y)
             text_list.append(
                 (
-                    '<button class="button" onclick="toggleDisplay(this.nextElementSibling);" '
+                    '<button class="button unselectable" onclick="toggleDisplay(this.nextElementSibling);" '
                     'kpath="{kpath}" title="{title}">{title}</button>'
                     '<div class="button-folder" style="display:none;">{text}</div>'
                 ).format(
@@ -77,7 +78,7 @@ def buttons(
             x += 1
             text_list.append(
                 (
-                    '<button onclick="GET(\'{name}\');" class="button" '
+                    '<button onclick="GET(\'{name}\');delAnchor();" class="button unselectable" '
                     'vpath="{vpath}" title="{title}">{title}</button>\n'
                 ).format(
                     name=key_path.replace("\\", "&#x2f;") + ".md",
@@ -102,22 +103,20 @@ def generate_index_html(cheatsheet_count: int):
     <body>
         <div id="cheatsheet-buttons" class="cheatsheet-buttons">
             <div class="search-container">
-                <input id="search" type="text" class="search-input" placeholder="🔎 Поиск">
+                <input id="search" type="text" class="search-input unselectable" placeholder="🔎 Поиск">
             </div>
-            <div id="search-button-folder" class="button-folder" style="display:none;">
-            
-            </div>
+            <div id="search-button-folder" class="button-folder unselectable" style="display:none;"></div>
             {buttons(DICT, y=cheatsheet_count - 1)[0]}
         </div>
         <div id="rpanrResize">&nbsp;</div>
         <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
         <div>
-            <button id="FontSizeSize"     class="control-button" style="padding-left: 12px;" onclick="changeFontSize(field, '=')">12px</button>
-            <button                       class="control-button" style="padding-left: 25px;" onclick="changeFontSize(field, '+')">+</button>
-            <button                       class="control-button" style="padding-left: 27px;" onclick="changeFontSize(field, '-')">-</button>
-            <button id="COPY"             class="control-button" style="padding-left: 12px;" onclick="copyTextFromDiv(field);changeColor(COPY)">Copy</button>
-            <button id="COPY2"            class="control-button" style="padding-left: 2px;"  onclick="copyTextFromDiv2();changeColor(COPY2)">Copy selected</button>
-            <button id="removeargfromurl" class="control-button" style="padding-left: 28px;" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)">/</button>
+            <button id="FontSizeSize"     class="control-button unselectable" style="padding-left: 12px;" onclick="changeFontSize(field, '=')">12px</button>
+            <button                       class="control-button unselectable" style="padding-left: 25px;" onclick="changeFontSize(field, '+')">+</button>
+            <button                       class="control-button unselectable" style="padding-left: 27px;" onclick="changeFontSize(field, '-')">-</button>
+            <button id="COPY"             class="control-button unselectable" style="padding-left: 12px;" onclick="copyTextFromDiv(field);changeColor(COPY)">Copy</button>
+            <button id="COPY2"            class="control-button unselectable" style="padding-left: 2px;"  onclick="copyTextFromDiv2();changeColor(COPY2)">Copy selected</button>
+            <button id="removeargfromurl" class="control-button unselectable" style="padding-left: 28px;" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)">/</button>
         </div>
     </body>
 </html>

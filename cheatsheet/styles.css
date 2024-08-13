@@ -19,7 +19,10 @@ body {
   max-height: 94vh;
 }
 
-pre {margin-bottom: 0px;margin-top: 0px;}
+pre {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
 
 /* Цвета ссылок */
 a:link    {color: #539bf5;}
@@ -68,10 +71,11 @@ blockquote {
 summary {cursor: pointer;}
 
 ul {
-    margin: 0px;
-    padding-left: 2em;
+  margin: 0px;
+  padding-left: 2em;
 }
 
+h1 h2 h3 h4 h5 h6 {flex-direction: column;}
 
 /* Контейнер с кнопками выбора темы */
 .cheatsheet-buttons {
@@ -183,11 +187,14 @@ ul {
   position:relative;
   color:rgba(217,217,227,1);
   background-color:rgba(52,53,65,1);
-  padding-left:1rem;padding-right:1rem;
-  padding-bottom:.35rem;padding-top:.35rem;
-  font-size:.75rem;line-height:.75rem;
+  padding-left:1rem;
+  padding-right:1rem;
+  padding-bottom:.35rem;
+  padding-top:.35rem;
+  font-size:.75rem;
+  line-height:.75rem;
   font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
-  sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+              sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 /* Кнопка для копирования кода */
@@ -300,16 +307,16 @@ ul {
 }
 
 hr {
-    border-top-width: 4px;
-    border-bottom-width 4px
-    border-top-style: none;
-    border-bottom-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    height: 1px; /* Толщина линии */
-    width: max-container; /* Ширина на всю ширину контейнера */
-    margin: 20px 0; /* Отступы сверху и снизу */
-    opacity: 1; /* Устанавливаем непрозрачность */
-    border-color: rgb(170, 170, 170); /* #393939; */
-    border-radius: 0px;
+  border-top-width: 4px;
+  border-bottom-width 4px
+  border-top-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  height: 1px; /* Толщина линии */
+  width: max-container; /* Ширина на всю ширину контейнера */
+  margin: 20px 0; /* Отступы сверху и снизу */
+  opacity: 1; /* Устанавливаем непрозрачность */
+  border-color: rgb(170, 170, 170); /* #393939; */
+  border-radius: 0px;
 }

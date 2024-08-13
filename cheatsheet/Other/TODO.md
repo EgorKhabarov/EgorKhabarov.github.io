@@ -1,4 +1,4 @@
-<h1 id="TODO">TODO</h1>
+<h1>TODO</h1>
 <ul>
 <li>Якоря на <code>h</code> тегах и в <code>URL</code></li>
 <li>История поиска</li>

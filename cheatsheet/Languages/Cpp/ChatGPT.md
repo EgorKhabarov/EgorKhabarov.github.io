@@ -1,4 +1,4 @@
-<h2 id="Me:">Me:</h2>
+<h2>Me:</h2>
 <p>Можешь переписать этот код на C++?</p>
 <div class="code-element">
     <div class="lang-line">
@@ -27,7 +27,7 @@
 </pre></div></div>
 </div>
 <hr />
-<h2 id="ChatGPT:">ChatGPT:</h2>
+<h2>ChatGPT:</h2>
 <p>Да, я могу переписать этот код на C++:</p>
 <div class="code-element">
     <div class="lang-line">

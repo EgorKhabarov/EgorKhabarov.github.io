@@ -1,4 +1,4 @@
-<h1 id="CSV-CommaSeparatedValues">CSV - Comma Separated Values</h1>
+<h1>CSV - Comma Separated Values</h1>
 <p>Текстовый формат файла, который используется для хранения табличных данных.
 Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.</p>
 <div class="code-element">

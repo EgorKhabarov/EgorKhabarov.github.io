@@ -3,7 +3,7 @@
 основанный на использовании метасимволов. 
 Для поиска используется строка-образец, состоящая из символов и 
 метасимволов и задающая правило поиска.</p>
-<h1 id="Обозначения">Обозначения</h1>
+<h1>Обозначения</h1>
 <table>
 <thead>
 <tr>
@@ -70,7 +70,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Повторения">Повторения</h1>
+<h1>Повторения</h1>
 <table>
 <thead>
 <tr>
@@ -113,7 +113,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Начало&amp;amp;конец">Начало &amp; конец</h1>
+<h1>Начало &amp; конец</h1>
 <table>
 <thead>
 <tr>
@@ -148,7 +148,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Условныевыражения">Условные выражения</h1>
+<h1>Условные выражения</h1>
 <table>
 <thead>
 <tr>
@@ -185,7 +185,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Группызахвата">Группы захвата</h1>
+<h1>Группы захвата</h1>
 <table>
 <thead>
 <tr>
@@ -216,7 +216,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Другое">Другое</h1>
+<h1>Другое</h1>
 <table>
 <thead>
 <tr>
@@ -247,8 +247,8 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Флаги">Флаги</h1>
-<p><a target="_blank" href="https://docs.python.org/3/library/re.html#flags">https://docs.python.org/3/library/re.html#flags</a></p>
+<h1>Флаги</h1>
+<p><a href="https://docs.python.org/3/library/re.html#flags">https://docs.python.org/3/library/re.html#flags</a></p>
 <table>
 <thead>
 <tr>
@@ -310,7 +310,7 @@
 Если использование модификаторов требуется только в пределах группы, то нужный шаблон
 указывается внутри группы после модификаторов и после двоеточия.
 Например, <b><code>(?-i)(?i:tv)set</code></b> найдёт <b><code>TVset</code></b>, но не <b><code>TVSET</code></b>.</p>
-<h1 id="Команды">Команды</h1>
+<h1>Команды</h1>
 <table>
 <thead>
 <tr>
@@ -432,8 +432,8 @@
 </pre></div></div>
 </div>
 
-<h1 id="Примеры">Примеры</h1>
-<h3 id="Номеркредитки:">Номер кредитки:</h3>
+<h1>Примеры</h1>
+<h3>Номер кредитки:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -460,7 +460,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="ICQ:">ICQ:</h3>
+<h3>ICQ:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -487,7 +487,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Наборизбуквицифр(латиница):">Набор из букв и цифр (латиница):</h3>
+<h3>Набор из букв и цифр (латиница):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -514,7 +514,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Наборизбуквицифр(латиница+кириллица):">Набор из букв и цифр (латиница + кириллица):</h3>
+<h3>Набор из букв и цифр (латиница + кириллица):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -541,7 +541,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Домен(напримерseo-zona.ru):">Домен (например seo-zona.ru):</h3>
+<h3>Домен (например seo-zona.ru):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -568,7 +568,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="IPv4:">IPv4:</h3>
+<h3>IPv4:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -595,7 +595,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="IPv6:">IPv6:</h3>
+<h3>IPv6:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -622,7 +622,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Имяпользователя(сограничением2-20символов,&lt;br&gt;которымимогутбытьбуквыицифры,первыйсимволобязательнобуква):">Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
+<h3>Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -649,7 +649,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="ДатавформатеYYYY-MM-DD:">Дата в формате YYYY-MM-DD:</h3>
+<h3>Дата в формате YYYY-MM-DD:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -676,7 +676,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Датавформате&lt;code&gt;DD/MM/YYYY&lt;/code&gt;:">Дата в формате <code>DD/MM/YYYY</code>:</h3>
+<h3>Дата в формате <code>DD/MM/YYYY</code>:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -703,7 +703,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Целыечислаичисласплавающейточкой(разделительточка):">Целые числа и числа с плавающей точкой (разделитель точка):</h3>
+<h3>Целые числа и числа с плавающей точкой (разделитель точка):</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -730,7 +730,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="UUID:">UUID:</h3>
+<h3>UUID:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -757,7 +757,7 @@
 </pre></div></div>
 </div>
 
-<h3 id="Широтаилидолгота:">Широта или долгота:</h3>
+<h3>Широта или долгота:</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>regexp</text>
@@ -787,7 +787,7 @@
 <p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению.
 Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
-<h2 id="Примербэктрекинга">Пример бэктрекинга</h2>
+<h2>Пример бэктрекинга</h2>
 <p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
 <ol>
 <li>Начало сопоставления с <code>a</code> — успех.</li>
@@ -802,7 +802,7 @@
 <li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code>.</li>
 <li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
 </ol>
-<h3 id="Примератомарнойгруппы">Пример атомарной группы</h3>
+<h3>Пример атомарной группы</h3>
 <p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
 <ol>
 <li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code>.</li>
@@ -810,7 +810,7 @@
 <li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code>.</li>
 <li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
 </ol>
-<h3 id="Примеркода">Пример кода</h3>
+<h3>Пример кода</h3>
 <div class="code-element">
     <div class="lang-line">
         <text>pycon</text>

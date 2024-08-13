@@ -1,16 +1,16 @@
-<p><a target="_blank" href="https://github.com/EgorKhabarov/table2string">https://github.com/EgorKhabarov/table2string</a></p>
-<h1 id="table2string">table2string</h1>
-<p><a target="_blank" href="https://github.com/EgorKhabarov/table2string/actions/workflows/tests.yml"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/EgorKhabarov/table2string/tests.yml?style=flat&amp;logo=GitHub&amp;label=Tests" /></a> <a target="_blank" href="https://github.com/EgorKhabarov/table2string/actions/workflows/publish.yml"><img alt="Publish Python Package to PyPI" src="https://img.shields.io/github/actions/workflow/status/EgorKhabarov/table2string/publish.yml?style=flat&amp;logo=GitHub&amp;label=Publish%20to%20PyPI" /></a></p>
-<p><a target="_blank" href="https://pypi.python.org/pypi/table2string"><img alt="PyPi Package Version" src="https://img.shields.io/pypi/v/table2string.svg?style=flat&amp;logo=pypi" /></a> <a target="_blank" href="https://pypi.python.org/pypi/table2string"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/table2string.svg?style=flat&amp;logo=pypi" /></a> <a target="_blank" href="https://pypi.python.org/pypi/table2string"><img alt="PyPi status" src="https://img.shields.io/pypi/status/table2string.svg?style=flat&amp;logo=pypi" /></a> <a target="_blank" href="https://pypi.org/project/table2string/"><img alt="PyPi downloads" src="https://img.shields.io/pypi/dm/table2string.svg?style=flat&amp;logo=pypi" /></a></p>
-<h2 id="Converttabletostring">Convert table to string</h2>
+<p><a href="https://github.com/EgorKhabarov/table2string">https://github.com/EgorKhabarov/table2string</a></p>
+<h1>table2string</h1>
+<p><a href="https://github.com/EgorKhabarov/table2string/actions/workflows/tests.yml"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/EgorKhabarov/table2string/tests.yml?style=flat&amp;logo=GitHub&amp;label=Tests" /></a> <a href="https://github.com/EgorKhabarov/table2string/actions/workflows/publish.yml"><img alt="Publish Python Package to PyPI" src="https://img.shields.io/github/actions/workflow/status/EgorKhabarov/table2string/publish.yml?style=flat&amp;logo=GitHub&amp;label=Publish%20to%20PyPI" /></a></p>
+<p><a href="https://pypi.python.org/pypi/table2string"><img alt="PyPi Package Version" src="https://img.shields.io/pypi/v/table2string.svg?style=flat&amp;logo=pypi" /></a> <a href="https://pypi.python.org/pypi/table2string"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/table2string.svg?style=flat&amp;logo=pypi" /></a> <a href="https://pypi.python.org/pypi/table2string"><img alt="PyPi status" src="https://img.shields.io/pypi/status/table2string.svg?style=flat&amp;logo=pypi" /></a> <a href="https://pypi.org/project/table2string/"><img alt="PyPi downloads" src="https://img.shields.io/pypi/dm/table2string.svg?style=flat&amp;logo=pypi" /></a></p>
+<h2>Convert table to string</h2>
 <p>While there are several libraries available for converting tables to strings in Python, none seemed to meet my specific requirements. </p>
 <ul>
 <li><strong>Line Break Support:</strong> Easily include line breaks within cells for enhanced readability.</li>
 <li><strong>Emoji Integration:</strong> Effortlessly incorporate emoji characters into your tables to add visual appeal and context.</li>
 </ul>
 <hr />
-<h1 id="Install">Install</h1>
-<h2 id="PyPI">PyPI</h2>
+<h1>Install</h1>
+<h2>PyPI</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>shell</text>
@@ -37,7 +37,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="GitHub">GitHub</h2>
+<h2>GitHub</h2>
 <div class="code-element">
     <div class="lang-line">
         <text>shell</text>
@@ -65,7 +65,7 @@
 </div>
 
 <hr />
-<h1 id="Usageexample">Usage example</h1>
+<h1>Usage example</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>pycon</text>
@@ -174,7 +174,7 @@
 </span></pre></div></div>
 </div>
 
-<h2 id="Customwidthandheightsettings">Custom width and height settings</h2>
+<h2>Custom width and height settings</h2>
 <table>
 <thead>
 <tr>
@@ -289,7 +289,7 @@
 </div>
 </details>
 
-<h2 id="Textalignment">Text alignment</h2>
+<h2>Text alignment</h2>
 <table>
 <thead>
 <tr>
@@ -316,7 +316,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="ALLOWED_ALIGNS">ALLOWED_ALIGNS</h3>
+<h3>ALLOWED_ALIGNS</h3>
 <table>
 <thead>
 <tr>
@@ -505,7 +505,7 @@
 </div>
 </details>
 
-<h2 id="Separatorsettings">Separator settings</h2>
+<h2>Separator settings</h2>
 <table>
 <thead>
 <tr>
@@ -662,7 +662,7 @@
 </div>
 </details>
 
-<h2 id="Borders">Borders</h2>
+<h2>Borders</h2>
 <details>
 <summary>Border types</summary>
 
@@ -1917,7 +1917,7 @@
 </details>
 </details>
 
-<h2 id="Emojis">Emojis</h2>
+<h2>Emojis</h2>
 <details>
 <summary>Example</summary>
 

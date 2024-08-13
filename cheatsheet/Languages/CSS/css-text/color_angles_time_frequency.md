@@ -1,4 +1,4 @@
-<h1 id="Color">Color</h1>
+<h1>Color</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>
@@ -31,7 +31,7 @@
 </pre></div></div>
 </div>
 
-<h1 id="Angles">Angles</h1>
+<h1>Angles</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>
@@ -61,7 +61,7 @@
 </pre></div></div>
 </div>
 
-<h1 id="Time">Time</h1>
+<h1>Time</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>
@@ -89,7 +89,7 @@
 </pre></div></div>
 </div>
 
-<h1 id="Frequency">Frequency</h1>
+<h1>Frequency</h1>
 <div class="code-element">
     <div class="lang-line">
         <text>css</text>

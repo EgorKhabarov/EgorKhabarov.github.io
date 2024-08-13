@@ -1,4 +1,4 @@
-<h1 id="Descendantselectors">Descendant selectors</h1>
+<h1>Descendant selectors</h1>
 <table>
 <thead>
 <tr>
@@ -45,7 +45,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Attributeselectors">Attribute selectors</h1>
+<h1>Attribute selectors</h1>
 <table>
 <thead>
 <tr>
@@ -102,7 +102,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Orderselectors">Order selectors</h1>
+<h1>Order selectors</h1>
 <table>
 <thead>
 <tr>
@@ -144,7 +144,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Siblings">Siblings</h1>
+<h1>Siblings</h1>
 <table>
 <thead>
 <tr>
@@ -171,7 +171,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="jQuery">jQuery</h1>
+<h1>jQuery</h1>
 <table>
 <thead>
 <tr>
@@ -203,7 +203,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Otherthings">Other things</h1>
+<h1>Other things</h1>
 <table>
 <thead>
 <tr>
@@ -255,7 +255,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="Classcheck">Class check</h1>
+<h1>Class check</h1>
 <table>
 <thead>
 <tr>

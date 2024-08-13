@@ -12098,17 +12098,17 @@ java Main arg0 arg1 arg2
 """,
             },
             "Типы данных": """
-|         |                                                                    |          |                                                         |
-|---------|--------------------------------------------------------------------|----------|---------------------------------------------------------|
-| byte    | Число                                                              | 1 байт   | -128<br>127                                             |
-| short   | Число                                                              | 2 байта  | -32768<br>32767                                         |
-| int     | Число                                                              | 4 байта  | -2147483648<br>2147483647                               |
-| long    | Число                                                              | 8 байтов | –9 223 372 036 854 775 808<br>9 223 372 036 854 775 807 |
-| float   | Число с плавающей точкой                                           | 4 байта  | -3.4*1038<br>3.4*1038                                   |
-| double  | Число с плавающей точкой                                           | 8 байтов | ±4.9*10-324<br>±1.8*10308                               |
-| char    | Символ                                                             | 2 байта  |                                                         |
-| boolean | true или false                                                     | 1 байт   |                                                         |
-| String  | Текст. В двойных кавычках можно сохранить одно или множество слов. |          |                                                         |
+|         |                                                                    |          |                                                                    |
+|---------|--------------------------------------------------------------------|----------|--------------------------------------------------------------------|
+| byte    | Число                                                              | 1 байт   | -128<br>127<br>`2**7`                                              |
+| short   | Число                                                              | 2 байта  | -32 768<br>32 767<br>`2**15`                                       |
+| int     | Число                                                              | 4 байта  | -2 147 483 648<br>2 147 483 647<br>`2**31`                         |
+| long    | Число                                                              | 8 байтов | –9 223 372 036 854 775 808<br>9 223 372 036 854 775 807<br>`2**63` |
+| float   | Число с плавающей точкой                                           | 4 байта  | -3.4\\*1038<br>3.4\\*1038                                          |
+| double  | Число с плавающей точкой                                           | 8 байтов | ±4.9\\*10-324<br>±1.8\\*10308                                      |
+| char    | Символ                                                             | 2 байта  |                                                                    |
+| boolean | true или false                                                     | 1 байт   |                                                                    |
+| String  | Текст. В двойных кавычках можно сохранить одно или множество слов. |          |                                                                    |
 
 ```java
 int n;
@@ -12776,6 +12776,42 @@ public class ExceptionExample {
             System.out.println("Ошибка деления на ноль: " + e.getMessage());
         } finally {
             System.out.println("Блок finally выполняется всегда.");
+        }
+    }
+}
+```
+
+# try-with-resources
+
+```java
+try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+## Без круглых скобочек
+
+```java
+BufferedReader reader = null;
+try {
+    reader = new BufferedReader(new FileReader("file.txt"));
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    if (reader != null) {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
@@ -17033,7 +17069,7 @@ echo %MY_VAR% >> my_file.txt
         },
     },
     "Other": {
-        "Форматы файлов": {
+        "File formats": {
             "JSON": r"""
 # JSON - JavaScript Object Notation
 
@@ -17388,7 +17424,7 @@ users_table.remove(user_query.name == "John")
 ```
 """,
         },
-        "Примеры решений": {
+        "Code examples": {
             "Пирамида граф": """
 Нахождение пути с максимальной суммой по "пирамиде"
 
@@ -17821,7 +17857,7 @@ class Dict:
 | Reset         | §r   | \\u00A7r |                       
 """,
         },
-        "Alt Символы": """
+        "Alt Symbols": """
 
 | Символ | Код  |
 |-------:|:-----|
@@ -17832,7 +17868,7 @@ class Dict:
 | ³      | 0179 |
 
 """,
-        "Полезные ссылки": """
+        "Links": """
 # Python
 
 | Описание                                | Ссылка |
@@ -17886,6 +17922,20 @@ class Dict:
 | SVG        | [https://flowbite.com/icons/](https://flowbite.com/icons/) |
 | codepen.io | [https://codepen.io/](https://codepen.io/)                 |
 
+# Downloads
+
+|                  |   |
+|------------------|---|
+| Python           | [https://www.python.org/downloads/](https://www.python.org/downloads/)<br>[https://github.com/python/cpython](https://github.com/python/cpython) |
+| Java             | [https://www.oracle.com/java/technologies/downloads/#java](https://www.oracle.com/java/technologies/downloads/#java) |
+| GIT              | [https://git-scm.com/downloads](https://git-scm.com/downloads) |
+| PyCharm          | [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/) |
+| IntelliJ IDEA    | [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)<br>[https://github.com/JetBrains/intellij-community](https://github.com/JetBrains/intellij-community) |
+| Docker           | [https://www.docker.com/get-started/](https://www.docker.com/get-started/)<br>[https://github.com/docker/for-win](https://github.com/docker/for-win) |
+| DBeaver          | [https://dbeaver.io/download/](https://dbeaver.io/download/)<br>[https://github.com/dbeaver/dbeaver](https://github.com/dbeaver/dbeaver) |
+| Windows Terminal | [https://apps.microsoft.com/detail/9n0dx20hk701](https://apps.microsoft.com/detail/9n0dx20hk701)<br>[https://github.com/microsoft/terminal](https://github.com/microsoft/terminal) |
+| DevToys          | [https://devtoys.app/](https://devtoys.app/)<br>[https://github.com/DevToys-app/DevToys](https://github.com/DevToys-app/DevToys) |
+| SQLiteStudio     | [https://sqlitestudio.pl/](https://sqlitestudio.pl/)<br>[https://github.com/pawelsalawa/sqlitestudio](https://github.com/pawelsalawa/sqlitestudio) |
 
 """,
         "TODO": """

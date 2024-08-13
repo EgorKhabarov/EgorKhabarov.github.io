@@ -16,4 +16,4 @@
 </tr>
 </tbody>
 </table>
-<p><a target="_blank" href="https://habr.com/ru/post/421625">https://habr.com/ru/post/421625</a></p>
+<p><a href="https://habr.com/ru/post/421625">https://habr.com/ru/post/421625</a></p>

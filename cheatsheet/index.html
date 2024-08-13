@@ -13,1255 +13,1255 @@
  <body>
   <div class="cheatsheet-buttons" id="cheatsheet-buttons">
    <div class="search-container">
-    <input class="search-input" id="search" placeholder="🔎 Поиск" type="text"/>
+    <input class="search-input unselectable" id="search" placeholder="🔎 Поиск" type="text"/>
    </div>
-   <div class="button-folder" id="search-button-folder" style="display:none;">
+   <div class="button-folder unselectable" id="search-button-folder" style="display:none;">
    </div>
-   <button class="button" kpath="General" onclick="toggleDisplay(this.nextElementSibling);" title="📂 General">
+   <button class="button unselectable" kpath="General" onclick="toggleDisplay(this.nextElementSibling);" title="📂 General">
     📂 General
    </button>
    <div class="button-folder" style="display:none;">
-    <button class="button" kpath="General/GIT" onclick="toggleDisplay(this.nextElementSibling);" title="📂 GIT">
+    <button class="button unselectable" kpath="General/GIT" onclick="toggleDisplay(this.nextElementSibling);" title="📂 GIT">
      📂 GIT
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('General/GIT/Команды.md');" title="📄 Команды" vpath="General/GIT/Команды.md">
+     <button class="button unselectable" onclick="GET('General/GIT/Команды.md');delAnchor();" title="📄 Команды" vpath="General/GIT/Команды.md">
       📄 Команды
      </button>
-     <button class="button" onclick="GET('General/GIT/gitignore.md');" title="📄 gitignore" vpath="General/GIT/gitignore.md">
+     <button class="button unselectable" onclick="GET('General/GIT/gitignore.md');delAnchor();" title="📄 gitignore" vpath="General/GIT/gitignore.md">
       📄 gitignore
      </button>
     </div>
-    <button class="button" kpath="General/Паттерны проектирования/" onclick="toggleDisplay(this.nextElementSibling);GET('General/Паттерны проектирования/index.md');" title="📂 Паттерны проектирования" vpath="General/Паттерны проектирования/">
+    <button class="button unselectable" kpath="General/Паттерны проектирования/" onclick="toggleDisplay(this.nextElementSibling);GET('General/Паттерны проектирования/index.md');delAnchor();" title="📂 Паттерны проектирования" vpath="General/Паттерны проектирования/">
      📂 Паттерны проектирования
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" kpath="General/Паттерны проектирования/Порождающие паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Порождающие паттерны">
+     <button class="button unselectable" kpath="General/Паттерны проектирования/Порождающие паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Порождающие паттерны">
       📂 Порождающие паттерны
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md');" title="📄 Singleton (Одиночка)" vpath="General/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md');delAnchor();" title="📄 Singleton (Одиночка)" vpath="General/Паттерны проектирования/Порождающие паттерны/Singleton (Одиночка).md">
        📄 Singleton (Одиночка)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md');" title="📄 Factory (Фабрика)" vpath="General/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md');delAnchor();" title="📄 Factory (Фабрика)" vpath="General/Паттерны проектирования/Порождающие паттерны/Factory (Фабрика).md">
        📄 Factory (Фабрика)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md');" title="📄 Abstract Factory (Абстрактная фабрика)" vpath="General/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md');delAnchor();" title="📄 Abstract Factory (Абстрактная фабрика)" vpath="General/Паттерны проектирования/Порождающие паттерны/Abstract Factory (Абстрактная фабрика).md">
        📄 Abstract Factory (Абстрактная фабрика)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md');" title="📄 Builder (Строитель)" vpath="General/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md');delAnchor();" title="📄 Builder (Строитель)" vpath="General/Паттерны проектирования/Порождающие паттерны/Builder (Строитель).md">
        📄 Builder (Строитель)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md');" title="📄 Prototype (Прототип)" vpath="General/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md');delAnchor();" title="📄 Prototype (Прототип)" vpath="General/Паттерны проектирования/Порождающие паттерны/Prototype (Прототип).md">
        📄 Prototype (Прототип)
       </button>
      </div>
-     <button class="button" kpath="General/Паттерны проектирования/Структурные паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Структурные паттерны">
+     <button class="button unselectable" kpath="General/Паттерны проектирования/Структурные паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Структурные паттерны">
       📂 Структурные паттерны
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md');" title="📄 Adapter (Адаптер)" vpath="General/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md');delAnchor();" title="📄 Adapter (Адаптер)" vpath="General/Паттерны проектирования/Структурные паттерны/Adapter (Адаптер).md">
        📄 Adapter (Адаптер)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md');" title="📄 Bridge (Мост)" vpath="General/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md');delAnchor();" title="📄 Bridge (Мост)" vpath="General/Паттерны проектирования/Структурные паттерны/Bridge (Мост).md">
        📄 Bridge (Мост)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md');" title="📄 Composite (Компоновщик)" vpath="General/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md');delAnchor();" title="📄 Composite (Компоновщик)" vpath="General/Паттерны проектирования/Структурные паттерны/Composite (Компоновщик).md">
        📄 Composite (Компоновщик)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md');" title="📄 Decorator (Декоратор)" vpath="General/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md');delAnchor();" title="📄 Decorator (Декоратор)" vpath="General/Паттерны проектирования/Структурные паттерны/Decorator (Декоратор).md">
        📄 Decorator (Декоратор)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md');" title="📄 Facade (Фасад)" vpath="General/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md');delAnchor();" title="📄 Facade (Фасад)" vpath="General/Паттерны проектирования/Структурные паттерны/Facade (Фасад).md">
        📄 Facade (Фасад)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md');" title="📄 Flyweight (Легковес)" vpath="General/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md');delAnchor();" title="📄 Flyweight (Легковес)" vpath="General/Паттерны проектирования/Структурные паттерны/Flyweight (Легковес).md">
        📄 Flyweight (Легковес)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md');" title="📄 Proxy (Заместитель)" vpath="General/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md');delAnchor();" title="📄 Proxy (Заместитель)" vpath="General/Паттерны проектирования/Структурные паттерны/Proxy (Заместитель).md">
        📄 Proxy (Заместитель)
       </button>
      </div>
-     <button class="button" kpath="General/Паттерны проектирования/Поведенческие паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Поведенческие паттерны">
+     <button class="button unselectable" kpath="General/Паттерны проектирования/Поведенческие паттерны" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Поведенческие паттерны">
       📂 Поведенческие паттерны
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md');" title="📄 Chain of Responsibility (Цепочка обязанностей)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md');delAnchor();" title="📄 Chain of Responsibility (Цепочка обязанностей)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Chain of Responsibility (Цепочка обязанностей).md">
        📄 Chain of Responsibility (Цепочка обязанностей)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md');" title="📄 Command (Команда)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md');delAnchor();" title="📄 Command (Команда)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Command (Команда).md">
        📄 Command (Команда)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md');" title="📄 Interpreter (Интерпретатор)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md');delAnchor();" title="📄 Interpreter (Интерпретатор)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Interpreter (Интерпретатор).md">
        📄 Interpreter (Интерпретатор)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md');" title="📄 Iterator (Итератор)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md');delAnchor();" title="📄 Iterator (Итератор)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Iterator (Итератор).md">
        📄 Iterator (Итератор)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md');" title="📄 Mediator (Посредник)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md');delAnchor();" title="📄 Mediator (Посредник)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Mediator (Посредник).md">
        📄 Mediator (Посредник)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md');" title="📄 Memento (Снимок)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md');delAnchor();" title="📄 Memento (Снимок)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Memento (Снимок).md">
        📄 Memento (Снимок)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md');" title="📄 Observer (Наблюдатель)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md');delAnchor();" title="📄 Observer (Наблюдатель)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Observer (Наблюдатель).md">
        📄 Observer (Наблюдатель)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md');" title="📄 State (Состояние)" vpath="General/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md');delAnchor();" title="📄 State (Состояние)" vpath="General/Паттерны проектирования/Поведенческие паттерны/State (Состояние).md">
        📄 State (Состояние)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md');" title="📄 Strategy (Стратегия)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md');delAnchor();" title="📄 Strategy (Стратегия)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Strategy (Стратегия).md">
        📄 Strategy (Стратегия)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md');" title="📄 Template Method (Шаблонный метод)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md');delAnchor();" title="📄 Template Method (Шаблонный метод)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Template Method (Шаблонный метод).md">
        📄 Template Method (Шаблонный метод)
       </button>
-      <button class="button" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md');" title="📄 Visitor (Посетитель)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md">
+      <button class="button unselectable" onclick="GET('General/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md');delAnchor();" title="📄 Visitor (Посетитель)" vpath="General/Паттерны проектирования/Поведенческие паттерны/Visitor (Посетитель).md">
        📄 Visitor (Посетитель)
       </button>
      </div>
     </div>
-    <button class="button" kpath="General/HTTP" onclick="toggleDisplay(this.nextElementSibling);" title="📂 HTTP">
+    <button class="button unselectable" kpath="General/HTTP" onclick="toggleDisplay(this.nextElementSibling);" title="📂 HTTP">
      📂 HTTP
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('General/HTTP/HTTР.md');" title="📄 HTTР" vpath="General/HTTP/HTTР.md">
+     <button class="button unselectable" onclick="GET('General/HTTP/HTTР.md');delAnchor();" title="📄 HTTР" vpath="General/HTTP/HTTР.md">
       📄 HTTР
      </button>
-     <button class="button" onclick="GET('General/HTTP/Requests.md');" title="📄 Requests" vpath="General/HTTP/Requests.md">
+     <button class="button unselectable" onclick="GET('General/HTTP/Requests.md');delAnchor();" title="📄 Requests" vpath="General/HTTP/Requests.md">
       📄 Requests
      </button>
-     <button class="button" onclick="GET('General/HTTP/Протоколы связи.md');" title="📄 Протоколы связи" vpath="General/HTTP/Протоколы связи.md">
+     <button class="button unselectable" onclick="GET('General/HTTP/Протоколы связи.md');delAnchor();" title="📄 Протоколы связи" vpath="General/HTTP/Протоколы связи.md">
       📄 Протоколы связи
      </button>
     </div>
-    <button class="button" kpath="General/Парадигмы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Парадигмы">
+    <button class="button unselectable" kpath="General/Парадигмы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Парадигмы">
      📂 Парадигмы
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('General/Парадигмы/Императивная.md');" title="📄 Императивная" vpath="General/Парадигмы/Императивная.md">
+     <button class="button unselectable" onclick="GET('General/Парадигмы/Императивная.md');delAnchor();" title="📄 Императивная" vpath="General/Парадигмы/Императивная.md">
       📄 Императивная
      </button>
-     <button class="button" onclick="GET('General/Парадигмы/Декларативная.md');" title="📄 Декларативная" vpath="General/Парадигмы/Декларативная.md">
+     <button class="button unselectable" onclick="GET('General/Парадигмы/Декларативная.md');delAnchor();" title="📄 Декларативная" vpath="General/Парадигмы/Декларативная.md">
       📄 Декларативная
      </button>
     </div>
-    <button class="button" onclick="GET('General/ip.md');" title="📄 ip" vpath="General/ip.md">
+    <button class="button unselectable" onclick="GET('General/ip.md');delAnchor();" title="📄 ip" vpath="General/ip.md">
      📄 ip
     </button>
-    <button class="button" onclick="GET('General/ООП.md');" title="📄 ООП" vpath="General/ООП.md">
+    <button class="button unselectable" onclick="GET('General/ООП.md');delAnchor();" title="📄 ООП" vpath="General/ООП.md">
      📄 ООП
     </button>
-    <button class="button" onclick="GET('General/Networking Protocols.md');" title="📄 Networking Protocols" vpath="General/Networking Protocols.md">
+    <button class="button unselectable" onclick="GET('General/Networking Protocols.md');delAnchor();" title="📄 Networking Protocols" vpath="General/Networking Protocols.md">
      📄 Networking Protocols
     </button>
-    <button class="button" onclick="GET('General/Interpreter Compiler.md');" title="📄 Interpreter Compiler" vpath="General/Interpreter Compiler.md">
+    <button class="button unselectable" onclick="GET('General/Interpreter Compiler.md');delAnchor();" title="📄 Interpreter Compiler" vpath="General/Interpreter Compiler.md">
      📄 Interpreter Compiler
     </button>
-    <button class="button" onclick="GET('General/sync async.md');" title="📄 sync async" vpath="General/sync async.md">
+    <button class="button unselectable" onclick="GET('General/sync async.md');delAnchor();" title="📄 sync async" vpath="General/sync async.md">
      📄 sync async
     </button>
-    <button class="button" onclick="GET('General/Угрозы безопасности.md');" title="📄 Угрозы безопасности" vpath="General/Угрозы безопасности.md">
+    <button class="button unselectable" onclick="GET('General/Угрозы безопасности.md');delAnchor();" title="📄 Угрозы безопасности" vpath="General/Угрозы безопасности.md">
      📄 Угрозы безопасности
     </button>
-    <button class="button" onclick="GET('General/Google Search.md');" title="📄 Google Search" vpath="General/Google Search.md">
+    <button class="button unselectable" onclick="GET('General/Google Search.md');delAnchor();" title="📄 Google Search" vpath="General/Google Search.md">
      📄 Google Search
     </button>
    </div>
-   <button class="button" kpath="Languages" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Languages">
+   <button class="button unselectable" kpath="Languages" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Languages">
     📂 Languages
    </button>
    <div class="button-folder" style="display:none;">
-    <button class="button" kpath="Languages/Python" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Python">
+    <button class="button unselectable" kpath="Languages/Python" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Python">
      📂 Python
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" kpath="Languages/Python/Libraries/" onclick="toggleDisplay(this.nextElementSibling);GET('Languages/Python/Libraries/index.md');" title="📂 Libraries" vpath="Languages/Python/Libraries/">
+     <button class="button unselectable" kpath="Languages/Python/Libraries/" onclick="toggleDisplay(this.nextElementSibling);GET('Languages/Python/Libraries/index.md');delAnchor();" title="📂 Libraries" vpath="Languages/Python/Libraries/">
       📂 Libraries
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" kpath="Languages/Python/Libraries/System" onclick="toggleDisplay(this.nextElementSibling);" title="📂 System">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/System" onclick="toggleDisplay(this.nextElementSibling);" title="📂 System">
        📂 System
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/io.md');" title="📄 io" vpath="Languages/Python/Libraries/System/io.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/io.md');delAnchor();" title="📄 io" vpath="Languages/Python/Libraries/System/io.md">
         📄 io
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/os.md');" title="📄 os" vpath="Languages/Python/Libraries/System/os.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/os.md');delAnchor();" title="📄 os" vpath="Languages/Python/Libraries/System/os.md">
         📄 os
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/sys.md');" title="📄 sys" vpath="Languages/Python/Libraries/System/sys.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/sys.md');delAnchor();" title="📄 sys" vpath="Languages/Python/Libraries/System/sys.md">
         📄 sys
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/subprocess.md');" title="📄 subprocess" vpath="Languages/Python/Libraries/System/subprocess.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/subprocess.md');delAnchor();" title="📄 subprocess" vpath="Languages/Python/Libraries/System/subprocess.md">
         📄 subprocess
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/multiprocessing.md');" title="📄 multiprocessing" vpath="Languages/Python/Libraries/System/multiprocessing.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/multiprocessing.md');delAnchor();" title="📄 multiprocessing" vpath="Languages/Python/Libraries/System/multiprocessing.md">
         📄 multiprocessing
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/concurrent.md');" title="📄 concurrent" vpath="Languages/Python/Libraries/System/concurrent.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/concurrent.md');delAnchor();" title="📄 concurrent" vpath="Languages/Python/Libraries/System/concurrent.md">
         📄 concurrent
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/keyboard.md');" title="📄 keyboard" vpath="Languages/Python/Libraries/System/keyboard.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/keyboard.md');delAnchor();" title="📄 keyboard" vpath="Languages/Python/Libraries/System/keyboard.md">
         📄 keyboard
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/fnmatch.md');" title="📄 fnmatch" vpath="Languages/Python/Libraries/System/fnmatch.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/fnmatch.md');delAnchor();" title="📄 fnmatch" vpath="Languages/Python/Libraries/System/fnmatch.md">
         📄 fnmatch
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/resource.md');" title="📄 resource" vpath="Languages/Python/Libraries/System/resource.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/resource.md');delAnchor();" title="📄 resource" vpath="Languages/Python/Libraries/System/resource.md">
         📄 resource
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/glob.md');" title="📄 glob" vpath="Languages/Python/Libraries/System/glob.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/glob.md');delAnchor();" title="📄 glob" vpath="Languages/Python/Libraries/System/glob.md">
         📄 glob
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/posix.md');" title="📄 posix" vpath="Languages/Python/Libraries/System/posix.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/posix.md');delAnchor();" title="📄 posix" vpath="Languages/Python/Libraries/System/posix.md">
         📄 posix
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/stat.md');" title="📄 stat" vpath="Languages/Python/Libraries/System/stat.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/stat.md');delAnchor();" title="📄 stat" vpath="Languages/Python/Libraries/System/stat.md">
         📄 stat
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/getopt.md');" title="📄 getopt" vpath="Languages/Python/Libraries/System/getopt.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/getopt.md');delAnchor();" title="📄 getopt" vpath="Languages/Python/Libraries/System/getopt.md">
         📄 getopt
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/optparse.md');" title="📄 optparse" vpath="Languages/Python/Libraries/System/optparse.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/optparse.md');delAnchor();" title="📄 optparse" vpath="Languages/Python/Libraries/System/optparse.md">
         📄 optparse
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/grp.md');" title="📄 grp" vpath="Languages/Python/Libraries/System/grp.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/grp.md');delAnchor();" title="📄 grp" vpath="Languages/Python/Libraries/System/grp.md">
         📄 grp
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/posixpath.md');" title="📄 posixpath" vpath="Languages/Python/Libraries/System/posixpath.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/posixpath.md');delAnchor();" title="📄 posixpath" vpath="Languages/Python/Libraries/System/posixpath.md">
         📄 posixpath
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/genericpath.md');" title="📄 genericpath" vpath="Languages/Python/Libraries/System/genericpath.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/genericpath.md');delAnchor();" title="📄 genericpath" vpath="Languages/Python/Libraries/System/genericpath.md">
         📄 genericpath
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/gc.md');" title="📄 gc" vpath="Languages/Python/Libraries/System/gc.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/gc.md');delAnchor();" title="📄 gc" vpath="Languages/Python/Libraries/System/gc.md">
         📄 gc
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/nt.md');" title="📄 nt" vpath="Languages/Python/Libraries/System/nt.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/nt.md');delAnchor();" title="📄 nt" vpath="Languages/Python/Libraries/System/nt.md">
         📄 nt
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/filecmp.md');" title="📄 filecmp" vpath="Languages/Python/Libraries/System/filecmp.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/filecmp.md');delAnchor();" title="📄 filecmp" vpath="Languages/Python/Libraries/System/filecmp.md">
         📄 filecmp
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/pymsgbox.md');" title="📄 pymsgbox" vpath="Languages/Python/Libraries/System/pymsgbox.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/pymsgbox.md');delAnchor();" title="📄 pymsgbox" vpath="Languages/Python/Libraries/System/pymsgbox.md">
         📄 pymsgbox
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/pygetwindow.md');" title="📄 pygetwindow" vpath="Languages/Python/Libraries/System/pygetwindow.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/pygetwindow.md');delAnchor();" title="📄 pygetwindow" vpath="Languages/Python/Libraries/System/pygetwindow.md">
         📄 pygetwindow
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/psutil.md');" title="📄 psutil" vpath="Languages/Python/Libraries/System/psutil.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/psutil.md');delAnchor();" title="📄 psutil" vpath="Languages/Python/Libraries/System/psutil.md">
         📄 psutil
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/spwd.md');" title="📄 spwd" vpath="Languages/Python/Libraries/System/spwd.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/spwd.md');delAnchor();" title="📄 spwd" vpath="Languages/Python/Libraries/System/spwd.md">
         📄 spwd
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/System/fcntl.md');" title="📄 fcntl" vpath="Languages/Python/Libraries/System/fcntl.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/System/fcntl.md');delAnchor();" title="📄 fcntl" vpath="Languages/Python/Libraries/System/fcntl.md">
         📄 fcntl
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Data types" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Data types">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Data types" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Data types">
        📂 Data types
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/xml.md');" title="📄 xml" vpath="Languages/Python/Libraries/Data types/xml.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/xml.md');delAnchor();" title="📄 xml" vpath="Languages/Python/Libraries/Data types/xml.md">
         📄 xml
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/jsonschema.md');" title="📄 jsonschema" vpath="Languages/Python/Libraries/Data types/jsonschema.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/jsonschema.md');delAnchor();" title="📄 jsonschema" vpath="Languages/Python/Libraries/Data types/jsonschema.md">
         📄 jsonschema
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/jsonpointer.md');" title="📄 jsonpointer" vpath="Languages/Python/Libraries/Data types/jsonpointer.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/jsonpointer.md');delAnchor();" title="📄 jsonpointer" vpath="Languages/Python/Libraries/Data types/jsonpointer.md">
         📄 jsonpointer
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/queue.md');" title="📄 queue" vpath="Languages/Python/Libraries/Data types/queue.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/queue.md');delAnchor();" title="📄 queue" vpath="Languages/Python/Libraries/Data types/queue.md">
         📄 queue
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/enum.md');" title="📄 enum" vpath="Languages/Python/Libraries/Data types/enum.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/enum.md');delAnchor();" title="📄 enum" vpath="Languages/Python/Libraries/Data types/enum.md">
         📄 enum
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/heapq.md');" title="📄 heapq" vpath="Languages/Python/Libraries/Data types/heapq.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/heapq.md');delAnchor();" title="📄 heapq" vpath="Languages/Python/Libraries/Data types/heapq.md">
         📄 heapq
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/graphlib.md');" title="📄 graphlib" vpath="Languages/Python/Libraries/Data types/graphlib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/graphlib.md');delAnchor();" title="📄 graphlib" vpath="Languages/Python/Libraries/Data types/graphlib.md">
         📄 graphlib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/wave.md');" title="📄 wave" vpath="Languages/Python/Libraries/Data types/wave.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/wave.md');delAnchor();" title="📄 wave" vpath="Languages/Python/Libraries/Data types/wave.md">
         📄 wave
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Data types/netrc.md');" title="📄 netrc" vpath="Languages/Python/Libraries/Data types/netrc.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Data types/netrc.md');delAnchor();" title="📄 netrc" vpath="Languages/Python/Libraries/Data types/netrc.md">
         📄 netrc
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Information" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Information">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Information" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Information">
        📂 Information
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/textwrap.md');" title="📄 textwrap" vpath="Languages/Python/Libraries/Information/textwrap.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/textwrap.md');delAnchor();" title="📄 textwrap" vpath="Languages/Python/Libraries/Information/textwrap.md">
         📄 textwrap
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/datetime.md');" title="📄 datetime" vpath="Languages/Python/Libraries/Information/datetime.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/datetime.md');delAnchor();" title="📄 datetime" vpath="Languages/Python/Libraries/Information/datetime.md">
         📄 datetime
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/decimal.md');" title="📄 decimal" vpath="Languages/Python/Libraries/Information/decimal.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/decimal.md');delAnchor();" title="📄 decimal" vpath="Languages/Python/Libraries/Information/decimal.md">
         📄 decimal
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/fractions.md');" title="📄 fractions" vpath="Languages/Python/Libraries/Information/fractions.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/fractions.md');delAnchor();" title="📄 fractions" vpath="Languages/Python/Libraries/Information/fractions.md">
         📄 fractions
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/difflib.md');" title="📄 difflib" vpath="Languages/Python/Libraries/Information/difflib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/difflib.md');delAnchor();" title="📄 difflib" vpath="Languages/Python/Libraries/Information/difflib.md">
         📄 difflib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/random.md');" title="📄 random" vpath="Languages/Python/Libraries/Information/random.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/random.md');delAnchor();" title="📄 random" vpath="Languages/Python/Libraries/Information/random.md">
         📄 random
        </button>
-       <button class="button" kpath="Languages/Python/Libraries/Information/PIL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 PIL">
+       <button class="button unselectable" kpath="Languages/Python/Libraries/Information/PIL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 PIL">
         📂 PIL
        </button>
        <div class="button-folder" style="display:none;">
-        <button class="button" onclick="GET('Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md');" title="📄 ImageDraw.Draw" vpath="Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md');delAnchor();" title="📄 ImageDraw.Draw" vpath="Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md">
          📄 ImageDraw.Draw
         </button>
        </div>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/aalib.md');" title="📄 aalib" vpath="Languages/Python/Libraries/Information/aalib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/aalib.md');delAnchor();" title="📄 aalib" vpath="Languages/Python/Libraries/Information/aalib.md">
         📄 aalib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/argparse.md');" title="📄 argparse" vpath="Languages/Python/Libraries/Information/argparse.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/argparse.md');delAnchor();" title="📄 argparse" vpath="Languages/Python/Libraries/Information/argparse.md">
         📄 argparse
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/cycler.md');" title="📄 cycler" vpath="Languages/Python/Libraries/Information/cycler.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/cycler.md');delAnchor();" title="📄 cycler" vpath="Languages/Python/Libraries/Information/cycler.md">
         📄 cycler
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/shlex.md');" title="📄 shlex" vpath="Languages/Python/Libraries/Information/shlex.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/shlex.md');delAnchor();" title="📄 shlex" vpath="Languages/Python/Libraries/Information/shlex.md">
         📄 shlex
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/base64.md');" title="📄 base64" vpath="Languages/Python/Libraries/Information/base64.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/base64.md');delAnchor();" title="📄 base64" vpath="Languages/Python/Libraries/Information/base64.md">
         📄 base64
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/binhex.md');" title="📄 binhex" vpath="Languages/Python/Libraries/Information/binhex.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/binhex.md');delAnchor();" title="📄 binhex" vpath="Languages/Python/Libraries/Information/binhex.md">
         📄 binhex
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/xdrlib.md');" title="📄 xdrlib" vpath="Languages/Python/Libraries/Information/xdrlib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/xdrlib.md');delAnchor();" title="📄 xdrlib" vpath="Languages/Python/Libraries/Information/xdrlib.md">
         📄 xdrlib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/string.md');" title="📄 string" vpath="Languages/Python/Libraries/Information/string.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/string.md');delAnchor();" title="📄 string" vpath="Languages/Python/Libraries/Information/string.md">
         📄 string
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Information/table2string.md');" title="📄 table2string" vpath="Languages/Python/Libraries/Information/table2string.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Information/table2string.md');delAnchor();" title="📄 table2string" vpath="Languages/Python/Libraries/Information/table2string.md">
         📄 table2string
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Python" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Python">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Python" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Python">
        📂 Python
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" kpath="Languages/Python/Libraries/Python/markdown" onclick="toggleDisplay(this.nextElementSibling);" title="📂 markdown">
+       <button class="button unselectable" kpath="Languages/Python/Libraries/Python/markdown" onclick="toggleDisplay(this.nextElementSibling);" title="📂 markdown">
         📂 markdown
        </button>
        <div class="button-folder" style="display:none;">
-        <button class="button" onclick="GET('Languages/Python/Libraries/Python/markdown/extensions.md');" title="📄 extensions" vpath="Languages/Python/Libraries/Python/markdown/extensions.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/markdown/extensions.md');delAnchor();" title="📄 extensions" vpath="Languages/Python/Libraries/Python/markdown/extensions.md">
          📄 extensions
         </button>
        </div>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/itertools.md');" title="📄 itertools" vpath="Languages/Python/Libraries/Python/itertools.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/itertools.md');delAnchor();" title="📄 itertools" vpath="Languages/Python/Libraries/Python/itertools.md">
         📄 itertools
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/collections.md');" title="📄 collections" vpath="Languages/Python/Libraries/Python/collections.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/collections.md');delAnchor();" title="📄 collections" vpath="Languages/Python/Libraries/Python/collections.md">
         📄 collections
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/functools.md');" title="📄 functools" vpath="Languages/Python/Libraries/Python/functools.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/functools.md');delAnchor();" title="📄 functools" vpath="Languages/Python/Libraries/Python/functools.md">
         📄 functools
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/cachetools.md');" title="📄 cachetools" vpath="Languages/Python/Libraries/Python/cachetools.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/cachetools.md');delAnchor();" title="📄 cachetools" vpath="Languages/Python/Libraries/Python/cachetools.md">
         📄 cachetools
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/contextlib.md');" title="📄 contextlib" vpath="Languages/Python/Libraries/Python/contextlib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/contextlib.md');delAnchor();" title="📄 contextlib" vpath="Languages/Python/Libraries/Python/contextlib.md">
         📄 contextlib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/setuptools.md');" title="📄 setuptools" vpath="Languages/Python/Libraries/Python/setuptools.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/setuptools.md');delAnchor();" title="📄 setuptools" vpath="Languages/Python/Libraries/Python/setuptools.md">
         📄 setuptools
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/import.md');" title="📄 import" vpath="Languages/Python/Libraries/Python/import.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/import.md');delAnchor();" title="📄 import" vpath="Languages/Python/Libraries/Python/import.md">
         📄 import
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/logging.md');" title="📄 logging" vpath="Languages/Python/Libraries/Python/logging.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/logging.md');delAnchor();" title="📄 logging" vpath="Languages/Python/Libraries/Python/logging.md">
         📄 logging
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/tabnanny.md');" title="📄 tabnanny" vpath="Languages/Python/Libraries/Python/tabnanny.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/tabnanny.md');delAnchor();" title="📄 tabnanny" vpath="Languages/Python/Libraries/Python/tabnanny.md">
         📄 tabnanny
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/atexit.md');" title="📄 atexit" vpath="Languages/Python/Libraries/Python/atexit.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/atexit.md');delAnchor();" title="📄 atexit" vpath="Languages/Python/Libraries/Python/atexit.md">
         📄 atexit
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/pstats.md');" title="📄 pstats" vpath="Languages/Python/Libraries/Python/pstats.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/pstats.md');delAnchor();" title="📄 pstats" vpath="Languages/Python/Libraries/Python/pstats.md">
         📄 pstats
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/getpass.md');" title="📄 getpass" vpath="Languages/Python/Libraries/Python/getpass.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/getpass.md');delAnchor();" title="📄 getpass" vpath="Languages/Python/Libraries/Python/getpass.md">
         📄 getpass
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/reprlib.md');" title="📄 reprlib" vpath="Languages/Python/Libraries/Python/reprlib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/reprlib.md');delAnchor();" title="📄 reprlib" vpath="Languages/Python/Libraries/Python/reprlib.md">
         📄 reprlib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/trace.md');" title="📄 trace" vpath="Languages/Python/Libraries/Python/trace.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/trace.md');delAnchor();" title="📄 trace" vpath="Languages/Python/Libraries/Python/trace.md">
         📄 trace
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/traceback.md');" title="📄 traceback" vpath="Languages/Python/Libraries/Python/traceback.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/traceback.md');delAnchor();" title="📄 traceback" vpath="Languages/Python/Libraries/Python/traceback.md">
         📄 traceback
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/warnings.md');" title="📄 warnings" vpath="Languages/Python/Libraries/Python/warnings.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/warnings.md');delAnchor();" title="📄 warnings" vpath="Languages/Python/Libraries/Python/warnings.md">
         📄 warnings
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/keyword.md');" title="📄 keyword" vpath="Languages/Python/Libraries/Python/keyword.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/keyword.md');delAnchor();" title="📄 keyword" vpath="Languages/Python/Libraries/Python/keyword.md">
         📄 keyword
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/frozenlist.md');" title="📄 frozenlist" vpath="Languages/Python/Libraries/Python/frozenlist.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/frozenlist.md');delAnchor();" title="📄 frozenlist" vpath="Languages/Python/Libraries/Python/frozenlist.md">
         📄 frozenlist
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/runpy.md');" title="📄 runpy" vpath="Languages/Python/Libraries/Python/runpy.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/runpy.md');delAnchor();" title="📄 runpy" vpath="Languages/Python/Libraries/Python/runpy.md">
         📄 runpy
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/zipimport.md');" title="📄 zipimport" vpath="Languages/Python/Libraries/Python/zipimport.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/zipimport.md');delAnchor();" title="📄 zipimport" vpath="Languages/Python/Libraries/Python/zipimport.md">
         📄 zipimport
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/zipapp.md');" title="📄 zipapp" vpath="Languages/Python/Libraries/Python/zipapp.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/zipapp.md');delAnchor();" title="📄 zipapp" vpath="Languages/Python/Libraries/Python/zipapp.md">
         📄 zipapp
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/zipfile.md');" title="📄 zipfile" vpath="Languages/Python/Libraries/Python/zipfile.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/zipfile.md');delAnchor();" title="📄 zipfile" vpath="Languages/Python/Libraries/Python/zipfile.md">
         📄 zipfile
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/marshal.md');" title="📄 marshal" vpath="Languages/Python/Libraries/Python/marshal.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/marshal.md');delAnchor();" title="📄 marshal" vpath="Languages/Python/Libraries/Python/marshal.md">
         📄 marshal
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/formatter.md');" title="📄 formatter" vpath="Languages/Python/Libraries/Python/formatter.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/formatter.md');delAnchor();" title="📄 formatter" vpath="Languages/Python/Libraries/Python/formatter.md">
         📄 formatter
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/pyparsing.md');" title="📄 pyparsing" vpath="Languages/Python/Libraries/Python/pyparsing.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/pyparsing.md');delAnchor();" title="📄 pyparsing" vpath="Languages/Python/Libraries/Python/pyparsing.md">
         📄 pyparsing
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/pyclbr.md');" title="📄 pyclbr" vpath="Languages/Python/Libraries/Python/pyclbr.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/pyclbr.md');delAnchor();" title="📄 pyclbr" vpath="Languages/Python/Libraries/Python/pyclbr.md">
         📄 pyclbr
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/gast.md');" title="📄 gast" vpath="Languages/Python/Libraries/Python/gast.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/gast.md');delAnchor();" title="📄 gast" vpath="Languages/Python/Libraries/Python/gast.md">
         📄 gast
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/bdb.md');" title="📄 bdb" vpath="Languages/Python/Libraries/Python/bdb.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/bdb.md');delAnchor();" title="📄 bdb" vpath="Languages/Python/Libraries/Python/bdb.md">
         📄 bdb
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/faulthandler.md');" title="📄 faulthandler" vpath="Languages/Python/Libraries/Python/faulthandler.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/faulthandler.md');delAnchor();" title="📄 faulthandler" vpath="Languages/Python/Libraries/Python/faulthandler.md">
         📄 faulthandler
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/gtts.md');" title="📄 gtts" vpath="Languages/Python/Libraries/Python/gtts.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/gtts.md');delAnchor();" title="📄 gtts" vpath="Languages/Python/Libraries/Python/gtts.md">
         📄 gtts
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/rlcompleter.md');" title="📄 rlcompleter" vpath="Languages/Python/Libraries/Python/rlcompleter.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/rlcompleter.md');delAnchor();" title="📄 rlcompleter" vpath="Languages/Python/Libraries/Python/rlcompleter.md">
         📄 rlcompleter
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Python/fileinput.md');" title="📄 fileinput" vpath="Languages/Python/Libraries/Python/fileinput.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Python/fileinput.md');delAnchor();" title="📄 fileinput" vpath="Languages/Python/Libraries/Python/fileinput.md">
         📄 fileinput
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Algorithms" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Algorithms">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Algorithms" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Algorithms">
        📂 Algorithms
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Python/Libraries/Algorithms/bisect.md');" title="📄 bisect" vpath="Languages/Python/Libraries/Algorithms/bisect.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Algorithms/bisect.md');delAnchor();" title="📄 bisect" vpath="Languages/Python/Libraries/Algorithms/bisect.md">
         📄 bisect
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Algorithms/hmac.md');" title="📄 hmac" vpath="Languages/Python/Libraries/Algorithms/hmac.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Algorithms/hmac.md');delAnchor();" title="📄 hmac" vpath="Languages/Python/Libraries/Algorithms/hmac.md">
         📄 hmac
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Algorithms/zlib.md');" title="📄 zlib" vpath="Languages/Python/Libraries/Algorithms/zlib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Algorithms/zlib.md');delAnchor();" title="📄 zlib" vpath="Languages/Python/Libraries/Algorithms/zlib.md">
         📄 zlib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Algorithms/lzma.md');" title="📄 lzma" vpath="Languages/Python/Libraries/Algorithms/lzma.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Algorithms/lzma.md');delAnchor();" title="📄 lzma" vpath="Languages/Python/Libraries/Algorithms/lzma.md">
         📄 lzma
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Web" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Web">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Web" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Web">
        📂 Web
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" kpath="Languages/Python/Libraries/Web/Django" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Django">
+       <button class="button unselectable" kpath="Languages/Python/Libraries/Web/Django" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Django">
         📂 Django
        </button>
        <div class="button-folder" style="display:none;">
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Django/Команды.md');" title="📄 Команды" vpath="Languages/Python/Libraries/Web/Django/Команды.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Django/Команды.md');delAnchor();" title="📄 Команды" vpath="Languages/Python/Libraries/Web/Django/Команды.md">
          📄 Команды
         </button>
        </div>
-       <button class="button" kpath="Languages/Python/Libraries/Web/Flask" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Flask">
+       <button class="button unselectable" kpath="Languages/Python/Libraries/Web/Flask" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Flask">
         📂 Flask
        </button>
        <div class="button-folder" style="display:none;">
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Flask/Типы переменных.md');" title="📄 Типы переменных" vpath="Languages/Python/Libraries/Web/Flask/Типы переменных.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Flask/Типы переменных.md');delAnchor();" title="📄 Типы переменных" vpath="Languages/Python/Libraries/Web/Flask/Типы переменных.md">
          📄 Типы переменных
         </button>
        </div>
-       <button class="button" kpath="Languages/Python/Libraries/Web/Jinja/" onclick="toggleDisplay(this.nextElementSibling);GET('Languages/Python/Libraries/Web/Jinja/index.md');" title="📂 Jinja" vpath="Languages/Python/Libraries/Web/Jinja/">
+       <button class="button unselectable" kpath="Languages/Python/Libraries/Web/Jinja/" onclick="toggleDisplay(this.nextElementSibling);GET('Languages/Python/Libraries/Web/Jinja/index.md');delAnchor();" title="📂 Jinja" vpath="Languages/Python/Libraries/Web/Jinja/">
         📂 Jinja
        </button>
        <div class="button-folder" style="display:none;">
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Базовый синтаксис.md');" title="📄 Базовый синтаксис" vpath="Languages/Python/Libraries/Web/Jinja/Базовый синтаксис.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Базовый синтаксис.md');delAnchor();" title="📄 Базовый синтаксис" vpath="Languages/Python/Libraries/Web/Jinja/Базовый синтаксис.md">
          📄 Базовый синтаксис
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Управляющие структуры.md');" title="📄 Управляющие структуры" vpath="Languages/Python/Libraries/Web/Jinja/Управляющие структуры.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Управляющие структуры.md');delAnchor();" title="📄 Управляющие структуры" vpath="Languages/Python/Libraries/Web/Jinja/Управляющие структуры.md">
          📄 Управляющие структуры
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Фильтры и функции.md');" title="📄 Фильтры и функции" vpath="Languages/Python/Libraries/Web/Jinja/Фильтры и функции.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Фильтры и функции.md');delAnchor();" title="📄 Фильтры и функции" vpath="Languages/Python/Libraries/Web/Jinja/Фильтры и функции.md">
          📄 Фильтры и функции
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Шаблонные наследования.md');" title="📄 Шаблонные наследования" vpath="Languages/Python/Libraries/Web/Jinja/Шаблонные наследования.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Шаблонные наследования.md');delAnchor();" title="📄 Шаблонные наследования" vpath="Languages/Python/Libraries/Web/Jinja/Шаблонные наследования.md">
          📄 Шаблонные наследования
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Инклюды и импорт.md');" title="📄 Инклюды и импорт" vpath="Languages/Python/Libraries/Web/Jinja/Инклюды и импорт.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Инклюды и импорт.md');delAnchor();" title="📄 Инклюды и импорт" vpath="Languages/Python/Libraries/Web/Jinja/Инклюды и импорт.md">
          📄 Инклюды и импорт
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Работа с контекстом.md');" title="📄 Работа с контекстом" vpath="Languages/Python/Libraries/Web/Jinja/Работа с контекстом.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Работа с контекстом.md');delAnchor();" title="📄 Работа с контекстом" vpath="Languages/Python/Libraries/Web/Jinja/Работа с контекстом.md">
          📄 Работа с контекстом
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Безопасность.md');" title="📄 Безопасность" vpath="Languages/Python/Libraries/Web/Jinja/Безопасность.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Безопасность.md');delAnchor();" title="📄 Безопасность" vpath="Languages/Python/Libraries/Web/Jinja/Безопасность.md">
          📄 Безопасность
         </button>
-        <button class="button" onclick="GET('Languages/Python/Libraries/Web/Jinja/Лучшие практики.md');" title="📄 Лучшие практики" vpath="Languages/Python/Libraries/Web/Jinja/Лучшие практики.md">
+        <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/Jinja/Лучшие практики.md');delAnchor();" title="📄 Лучшие практики" vpath="Languages/Python/Libraries/Web/Jinja/Лучшие практики.md">
          📄 Лучшие практики
         </button>
        </div>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/webcolors.md');" title="📄 webcolors" vpath="Languages/Python/Libraries/Web/webcolors.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/webcolors.md');delAnchor();" title="📄 webcolors" vpath="Languages/Python/Libraries/Web/webcolors.md">
         📄 webcolors
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/bleach.md');" title="📄 bleach" vpath="Languages/Python/Libraries/Web/bleach.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/bleach.md');delAnchor();" title="📄 bleach" vpath="Languages/Python/Libraries/Web/bleach.md">
         📄 bleach
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/webencodings.md');" title="📄 webencodings" vpath="Languages/Python/Libraries/Web/webencodings.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/webencodings.md');delAnchor();" title="📄 webencodings" vpath="Languages/Python/Libraries/Web/webencodings.md">
         📄 webencodings
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/certifi.md');" title="📄 certifi" vpath="Languages/Python/Libraries/Web/certifi.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/certifi.md');delAnchor();" title="📄 certifi" vpath="Languages/Python/Libraries/Web/certifi.md">
         📄 certifi
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/rfc3986_validator.md');" title="📄 rfc3986_validator" vpath="Languages/Python/Libraries/Web/rfc3986_validator.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/rfc3986_validator.md');delAnchor();" title="📄 rfc3986_validator" vpath="Languages/Python/Libraries/Web/rfc3986_validator.md">
         📄 rfc3986_validator
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Web/grpc.md');" title="📄 grpc" vpath="Languages/Python/Libraries/Web/grpc.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Web/grpc.md');delAnchor();" title="📄 grpc" vpath="Languages/Python/Libraries/Web/grpc.md">
         📄 grpc
        </button>
       </div>
-      <button class="button" kpath="Languages/Python/Libraries/Other" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Other">
+      <button class="button unselectable" kpath="Languages/Python/Libraries/Other" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Other">
        📂 Other
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/pythoncom.md');" title="📄 pythoncom" vpath="Languages/Python/Libraries/Other/pythoncom.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/pythoncom.md');delAnchor();" title="📄 pythoncom" vpath="Languages/Python/Libraries/Other/pythoncom.md">
         📄 pythoncom
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/nntplib.md');" title="📄 nntplib" vpath="Languages/Python/Libraries/Other/nntplib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/nntplib.md');delAnchor();" title="📄 nntplib" vpath="Languages/Python/Libraries/Other/nntplib.md">
         📄 nntplib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/wheel.md');" title="📄 wheel" vpath="Languages/Python/Libraries/Other/wheel.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/wheel.md');delAnchor();" title="📄 wheel" vpath="Languages/Python/Libraries/Other/wheel.md">
         📄 wheel
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/js2py.md');" title="📄 js2py" vpath="Languages/Python/Libraries/Other/js2py.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/js2py.md');delAnchor();" title="📄 js2py" vpath="Languages/Python/Libraries/Other/js2py.md">
         📄 js2py
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/pylab.md');" title="📄 pylab" vpath="Languages/Python/Libraries/Other/pylab.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/pylab.md');delAnchor();" title="📄 pylab" vpath="Languages/Python/Libraries/Other/pylab.md">
         📄 pylab
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/rasutil.md');" title="📄 rasutil" vpath="Languages/Python/Libraries/Other/rasutil.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/rasutil.md');delAnchor();" title="📄 rasutil" vpath="Languages/Python/Libraries/Other/rasutil.md">
         📄 rasutil
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/poplib.md');" title="📄 poplib" vpath="Languages/Python/Libraries/Other/poplib.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/poplib.md');delAnchor();" title="📄 poplib" vpath="Languages/Python/Libraries/Other/poplib.md">
         📄 poplib
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/mailbox.md');" title="📄 mailbox" vpath="Languages/Python/Libraries/Other/mailbox.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/mailbox.md');delAnchor();" title="📄 mailbox" vpath="Languages/Python/Libraries/Other/mailbox.md">
         📄 mailbox
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/regcheck.md');" title="📄 regcheck" vpath="Languages/Python/Libraries/Other/regcheck.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/regcheck.md');delAnchor();" title="📄 regcheck" vpath="Languages/Python/Libraries/Other/regcheck.md">
         📄 regcheck
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/traitlets.md');" title="📄 traitlets" vpath="Languages/Python/Libraries/Other/traitlets.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/traitlets.md');delAnchor();" title="📄 traitlets" vpath="Languages/Python/Libraries/Other/traitlets.md">
         📄 traitlets
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/linecache.md');" title="📄 linecache" vpath="Languages/Python/Libraries/Other/linecache.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/linecache.md');delAnchor();" title="📄 linecache" vpath="Languages/Python/Libraries/Other/linecache.md">
         📄 linecache
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/readline.md');" title="📄 readline" vpath="Languages/Python/Libraries/Other/readline.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/readline.md');delAnchor();" title="📄 readline" vpath="Languages/Python/Libraries/Other/readline.md">
         📄 readline
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/sched.md');" title="📄 sched" vpath="Languages/Python/Libraries/Other/sched.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/sched.md');delAnchor();" title="📄 sched" vpath="Languages/Python/Libraries/Other/sched.md">
         📄 sched
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/packaging.md');" title="📄 packaging" vpath="Languages/Python/Libraries/Other/packaging.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/packaging.md');delAnchor();" title="📄 packaging" vpath="Languages/Python/Libraries/Other/packaging.md">
         📄 packaging
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/nis.md');" title="📄 nis" vpath="Languages/Python/Libraries/Other/nis.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/nis.md');delAnchor();" title="📄 nis" vpath="Languages/Python/Libraries/Other/nis.md">
         📄 nis
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/notebook.md');" title="📄 notebook" vpath="Languages/Python/Libraries/Other/notebook.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/notebook.md');delAnchor();" title="📄 notebook" vpath="Languages/Python/Libraries/Other/notebook.md">
         📄 notebook
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/quopri.md');" title="📄 quopri" vpath="Languages/Python/Libraries/Other/quopri.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/quopri.md');delAnchor();" title="📄 quopri" vpath="Languages/Python/Libraries/Other/quopri.md">
         📄 quopri
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/mailcap.md');" title="📄 mailcap" vpath="Languages/Python/Libraries/Other/mailcap.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/mailcap.md');delAnchor();" title="📄 mailcap" vpath="Languages/Python/Libraries/Other/mailcap.md">
         📄 mailcap
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/errno.md');" title="📄 errno" vpath="Languages/Python/Libraries/Other/errno.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/errno.md');delAnchor();" title="📄 errno" vpath="Languages/Python/Libraries/Other/errno.md">
         📄 errno
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/ntpath.md');" title="📄 ntpath" vpath="Languages/Python/Libraries/Other/ntpath.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/ntpath.md');delAnchor();" title="📄 ntpath" vpath="Languages/Python/Libraries/Other/ntpath.md">
         📄 ntpath
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/locale.md');" title="📄 locale" vpath="Languages/Python/Libraries/Other/locale.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/locale.md');delAnchor();" title="📄 locale" vpath="Languages/Python/Libraries/Other/locale.md">
         📄 locale
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/gettext.md');" title="📄 gettext" vpath="Languages/Python/Libraries/Other/gettext.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/gettext.md');delAnchor();" title="📄 gettext" vpath="Languages/Python/Libraries/Other/gettext.md">
         📄 gettext
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/rfc3339_validator.md');" title="📄 rfc3339_validator" vpath="Languages/Python/Libraries/Other/rfc3339_validator.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/rfc3339_validator.md');delAnchor();" title="📄 rfc3339_validator" vpath="Languages/Python/Libraries/Other/rfc3339_validator.md">
         📄 rfc3339_validator
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/netbios.md');" title="📄 netbios" vpath="Languages/Python/Libraries/Other/netbios.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/netbios.md');delAnchor();" title="📄 netbios" vpath="Languages/Python/Libraries/Other/netbios.md">
         📄 netbios
        </button>
-       <button class="button" onclick="GET('Languages/Python/Libraries/Other/bz2.md');" title="📄 bz2" vpath="Languages/Python/Libraries/Other/bz2.md">
+       <button class="button unselectable" onclick="GET('Languages/Python/Libraries/Other/bz2.md');delAnchor();" title="📄 bz2" vpath="Languages/Python/Libraries/Other/bz2.md">
         📄 bz2
        </button>
       </div>
      </div>
-     <button class="button" kpath="Languages/Python/Methods" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Methods">
+     <button class="button unselectable" kpath="Languages/Python/Methods" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Methods">
       📂 Methods
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Python/Methods/Magic methods.md');" title="📄 Magic methods" vpath="Languages/Python/Methods/Magic methods.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/Magic methods.md');delAnchor();" title="📄 Magic methods" vpath="Languages/Python/Methods/Magic methods.md">
        📄 Magic methods
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/str.md');" title="📄 str" vpath="Languages/Python/Methods/str.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/str.md');delAnchor();" title="📄 str" vpath="Languages/Python/Methods/str.md">
        📄 str
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/int.md');" title="📄 int" vpath="Languages/Python/Methods/int.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/int.md');delAnchor();" title="📄 int" vpath="Languages/Python/Methods/int.md">
        📄 int
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/float.md');" title="📄 float" vpath="Languages/Python/Methods/float.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/float.md');delAnchor();" title="📄 float" vpath="Languages/Python/Methods/float.md">
        📄 float
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/list.md');" title="📄 list" vpath="Languages/Python/Methods/list.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/list.md');delAnchor();" title="📄 list" vpath="Languages/Python/Methods/list.md">
        📄 list
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/tuple.md');" title="📄 tuple" vpath="Languages/Python/Methods/tuple.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/tuple.md');delAnchor();" title="📄 tuple" vpath="Languages/Python/Methods/tuple.md">
        📄 tuple
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/dict.md');" title="📄 dict" vpath="Languages/Python/Methods/dict.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/dict.md');delAnchor();" title="📄 dict" vpath="Languages/Python/Methods/dict.md">
        📄 dict
       </button>
-      <button class="button" onclick="GET('Languages/Python/Methods/set.md');" title="📄 set" vpath="Languages/Python/Methods/set.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Methods/set.md');delAnchor();" title="📄 set" vpath="Languages/Python/Methods/set.md">
        📄 set
       </button>
      </div>
-     <button class="button" kpath="Languages/Python/Decorators Closure" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Decorators Closure">
+     <button class="button unselectable" kpath="Languages/Python/Decorators Closure" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Decorators Closure">
       📂 Decorators Closure
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/Decorators Closure.md');" title="📄 Decorators Closure" vpath="Languages/Python/Decorators Closure/Decorators Closure.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/Decorators Closure.md');delAnchor();" title="📄 Decorators Closure" vpath="Languages/Python/Decorators Closure/Decorators Closure.md">
        📄 Decorators Closure
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/dataclass.md');" title="📄 dataclass" vpath="Languages/Python/Decorators Closure/dataclass.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/dataclass.md');delAnchor();" title="📄 dataclass" vpath="Languages/Python/Decorators Closure/dataclass.md">
        📄 dataclass
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/property.md');" title="📄 property" vpath="Languages/Python/Decorators Closure/property.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/property.md');delAnchor();" title="📄 property" vpath="Languages/Python/Decorators Closure/property.md">
        📄 property
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/cached_property.md');" title="📄 cached_property" vpath="Languages/Python/Decorators Closure/cached_property.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/cached_property.md');delAnchor();" title="📄 cached_property" vpath="Languages/Python/Decorators Closure/cached_property.md">
        📄 cached_property
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/staticmethod.md');" title="📄 staticmethod" vpath="Languages/Python/Decorators Closure/staticmethod.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/staticmethod.md');delAnchor();" title="📄 staticmethod" vpath="Languages/Python/Decorators Closure/staticmethod.md">
        📄 staticmethod
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/classmethod.md');" title="📄 classmethod" vpath="Languages/Python/Decorators Closure/classmethod.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/classmethod.md');delAnchor();" title="📄 classmethod" vpath="Languages/Python/Decorators Closure/classmethod.md">
        📄 classmethod
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/overload.md');" title="📄 overload" vpath="Languages/Python/Decorators Closure/overload.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/overload.md');delAnchor();" title="📄 overload" vpath="Languages/Python/Decorators Closure/overload.md">
        📄 overload
       </button>
-      <button class="button" onclick="GET('Languages/Python/Decorators Closure/final.md');" title="📄 final" vpath="Languages/Python/Decorators Closure/final.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Decorators Closure/final.md');delAnchor();" title="📄 final" vpath="Languages/Python/Decorators Closure/final.md">
        📄 final
       </button>
      </div>
-     <button class="button" kpath="Languages/Python/bash" onclick="toggleDisplay(this.nextElementSibling);" title="📂 bash">
+     <button class="button unselectable" kpath="Languages/Python/bash" onclick="toggleDisplay(this.nextElementSibling);" title="📂 bash">
       📂 bash
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Python/bash/Flags cmd Python.md');" title="📄 Flags cmd Python" vpath="Languages/Python/bash/Flags cmd Python.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/bash/Flags cmd Python.md');delAnchor();" title="📄 Flags cmd Python" vpath="Languages/Python/bash/Flags cmd Python.md">
        📄 Flags cmd Python
       </button>
-      <button class="button" onclick="GET('Languages/Python/bash/Flags cmd pip.md');" title="📄 Flags cmd pip" vpath="Languages/Python/bash/Flags cmd pip.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/bash/Flags cmd pip.md');delAnchor();" title="📄 Flags cmd pip" vpath="Languages/Python/bash/Flags cmd pip.md">
        📄 Flags cmd pip
       </button>
-      <button class="button" onclick="GET('Languages/Python/bash/requirements.txt.md');" title="📄 requirements.txt" vpath="Languages/Python/bash/requirements.txt.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/bash/requirements.txt.md');delAnchor();" title="📄 requirements.txt" vpath="Languages/Python/bash/requirements.txt.md">
        📄 requirements.txt
       </button>
-      <button class="button" onclick="GET('Languages/Python/bash/IPython.md');" title="📄 IPython" vpath="Languages/Python/bash/IPython.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/bash/IPython.md');delAnchor();" title="📄 IPython" vpath="Languages/Python/bash/IPython.md">
        📄 IPython
       </button>
      </div>
-     <button class="button" kpath="Languages/Python/Generators and lists" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Generators and lists">
+     <button class="button unselectable" kpath="Languages/Python/Generators and lists" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Generators and lists">
       📂 Generators and lists
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Python/Generators and lists/for in list comprehension.md');" title="📄 for in list comprehension" vpath="Languages/Python/Generators and lists/for in list comprehension.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Generators and lists/for in list comprehension.md');delAnchor();" title="📄 for in list comprehension" vpath="Languages/Python/Generators and lists/for in list comprehension.md">
        📄 for in list comprehension
       </button>
-      <button class="button" onclick="GET('Languages/Python/Generators and lists/yield from.md');" title="📄 yield from" vpath="Languages/Python/Generators and lists/yield from.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Generators and lists/yield from.md');delAnchor();" title="📄 yield from" vpath="Languages/Python/Generators and lists/yield from.md">
        📄 yield from
       </button>
-      <button class="button" onclick="GET('Languages/Python/Generators and lists/Multiplication of lists.md');" title="📄 Multiplication of lists" vpath="Languages/Python/Generators and lists/Multiplication of lists.md">
+      <button class="button unselectable" onclick="GET('Languages/Python/Generators and lists/Multiplication of lists.md');delAnchor();" title="📄 Multiplication of lists" vpath="Languages/Python/Generators and lists/Multiplication of lists.md">
        📄 Multiplication of lists
       </button>
      </div>
-     <button class="button" onclick="GET('Languages/Python/fstrings.md');" title="📄 fstrings" vpath="Languages/Python/fstrings.md">
+     <button class="button unselectable" onclick="GET('Languages/Python/fstrings.md');delAnchor();" title="📄 fstrings" vpath="Languages/Python/fstrings.md">
       📄 fstrings
      </button>
-     <button class="button" onclick="GET('Languages/Python/mro.md');" title="📄 mro" vpath="Languages/Python/mro.md">
+     <button class="button unselectable" onclick="GET('Languages/Python/mro.md');delAnchor();" title="📄 mro" vpath="Languages/Python/mro.md">
       📄 mro
      </button>
-     <button class="button" onclick="GET('Languages/Python/Type Annotations.md');" title="📄 Type Annotations" vpath="Languages/Python/Type Annotations.md">
+     <button class="button unselectable" onclick="GET('Languages/Python/Type Annotations.md');delAnchor();" title="📄 Type Annotations" vpath="Languages/Python/Type Annotations.md">
       📄 Type Annotations
      </button>
-     <button class="button" onclick="GET('Languages/Python/Built-in functions.md');" title="📄 Built⁠-⁠in functions" vpath="Languages/Python/Built-in functions.md">
+     <button class="button unselectable" onclick="GET('Languages/Python/Built-in functions.md');delAnchor();" title="📄 Built⁠-⁠in functions" vpath="Languages/Python/Built-in functions.md">
       📄 Built⁠-⁠in functions
      </button>
     </div>
-    <button class="button" kpath="Languages/RegExp" onclick="toggleDisplay(this.nextElementSibling);" title="📂 RegExp">
+    <button class="button unselectable" kpath="Languages/RegExp" onclick="toggleDisplay(this.nextElementSibling);" title="📂 RegExp">
      📂 RegExp
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/RegExp/RegExp.md');" title="📄 RegExp" vpath="Languages/RegExp/RegExp.md">
+     <button class="button unselectable" onclick="GET('Languages/RegExp/RegExp.md');delAnchor();" title="📄 RegExp" vpath="Languages/RegExp/RegExp.md">
       📄 RegExp
      </button>
-     <button class="button" onclick="GET('Languages/RegExp/images.md');" title="📄 images" vpath="Languages/RegExp/images.md">
+     <button class="button unselectable" onclick="GET('Languages/RegExp/images.md');delAnchor();" title="📄 images" vpath="Languages/RegExp/images.md">
       📄 images
      </button>
     </div>
-    <button class="button" kpath="Languages/Java" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Java">
+    <button class="button unselectable" kpath="Languages/Java" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Java">
      📂 Java
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" kpath="Languages/Java/java" onclick="toggleDisplay(this.nextElementSibling);" title="📂 java">
+     <button class="button unselectable" kpath="Languages/Java/java" onclick="toggleDisplay(this.nextElementSibling);" title="📂 java">
       📂 java
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" kpath="Languages/Java/java/util" onclick="toggleDisplay(this.nextElementSibling);" title="📂 util">
+      <button class="button unselectable" kpath="Languages/Java/java/util" onclick="toggleDisplay(this.nextElementSibling);" title="📂 util">
        📂 util
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Java/java/util/Scanner.md');" title="📄 Scanner" vpath="Languages/Java/java/util/Scanner.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/Scanner.md');delAnchor();" title="📄 Scanner" vpath="Languages/Java/java/util/Scanner.md">
         📄 Scanner
        </button>
-       <button class="button" onclick="GET('Languages/Java/java/util/Arrays.md');" title="📄 Arrays" vpath="Languages/Java/java/util/Arrays.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/Arrays.md');delAnchor();" title="📄 Arrays" vpath="Languages/Java/java/util/Arrays.md">
         📄 Arrays
        </button>
-       <button class="button" onclick="GET('Languages/Java/java/util/LinkedList.md');" title="📄 LinkedList" vpath="Languages/Java/java/util/LinkedList.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/LinkedList.md');delAnchor();" title="📄 LinkedList" vpath="Languages/Java/java/util/LinkedList.md">
         📄 LinkedList
        </button>
-       <button class="button" onclick="GET('Languages/Java/java/util/ArrayList.md');" title="📄 ArrayList" vpath="Languages/Java/java/util/ArrayList.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/ArrayList.md');delAnchor();" title="📄 ArrayList" vpath="Languages/Java/java/util/ArrayList.md">
         📄 ArrayList
        </button>
-       <button class="button" onclick="GET('Languages/Java/java/util/HashSet.md');" title="📄 HashSet" vpath="Languages/Java/java/util/HashSet.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/HashSet.md');delAnchor();" title="📄 HashSet" vpath="Languages/Java/java/util/HashSet.md">
         📄 HashSet
        </button>
-       <button class="button" onclick="GET('Languages/Java/java/util/HashMap.md');" title="📄 HashMap" vpath="Languages/Java/java/util/HashMap.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/java/util/HashMap.md');delAnchor();" title="📄 HashMap" vpath="Languages/Java/java/util/HashMap.md">
         📄 HashMap
        </button>
       </div>
      </div>
-     <button class="button" kpath="Languages/Java/Запуск" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Запуск">
+     <button class="button unselectable" kpath="Languages/Java/Запуск" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Запуск">
       📂 Запуск
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Java/Запуск/Запуск.md');" title="📄 Запуск" vpath="Languages/Java/Запуск/Запуск.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Запуск/Запуск.md');delAnchor();" title="📄 Запуск" vpath="Languages/Java/Запуск/Запуск.md">
        📄 Запуск
       </button>
-      <button class="button" onclick="GET('Languages/Java/Запуск/Аргументы.md');" title="📄 Аргументы" vpath="Languages/Java/Запуск/Аргументы.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Запуск/Аргументы.md');delAnchor();" title="📄 Аргументы" vpath="Languages/Java/Запуск/Аргументы.md">
        📄 Аргументы
       </button>
      </div>
-     <button class="button" onclick="GET('Languages/Java/Типы данных.md');" title="📄 Типы данных" vpath="Languages/Java/Типы данных.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Типы данных.md');delAnchor();" title="📄 Типы данных" vpath="Languages/Java/Типы данных.md">
       📄 Типы данных
      </button>
-     <button class="button" onclick="GET('Languages/Java/Логические операторы.md');" title="📄 Логические операторы" vpath="Languages/Java/Логические операторы.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Логические операторы.md');delAnchor();" title="📄 Логические операторы" vpath="Languages/Java/Логические операторы.md">
       📄 Логические операторы
      </button>
-     <button class="button" onclick="GET('Languages/Java/Циклы.md');" title="📄 Циклы" vpath="Languages/Java/Циклы.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Циклы.md');delAnchor();" title="📄 Циклы" vpath="Languages/Java/Циклы.md">
       📄 Циклы
      </button>
-     <button class="button" onclick="GET('Languages/Java/Массив (Array).md');" title="📄 Массив (Array)" vpath="Languages/Java/Массив (Array).md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Массив (Array).md');delAnchor();" title="📄 Массив (Array)" vpath="Languages/Java/Массив (Array).md">
       📄 Массив (Array)
      </button>
-     <button class="button" kpath="Languages/Java/Классы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Классы">
+     <button class="button unselectable" kpath="Languages/Java/Классы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Классы">
       📂 Классы
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/Java/Классы/Объекты, конструкторы.md');" title="📄 Объекты, конструкторы" vpath="Languages/Java/Классы/Объекты, конструкторы.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Классы/Объекты, конструкторы.md');delAnchor();" title="📄 Объекты, конструкторы" vpath="Languages/Java/Классы/Объекты, конструкторы.md">
        📄 Объекты, конструкторы
       </button>
-      <button class="button" onclick="GET('Languages/Java/Классы/Модификатор доступа.md');" title="📄 Модификатор доступа" vpath="Languages/Java/Классы/Модификатор доступа.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Классы/Модификатор доступа.md');delAnchor();" title="📄 Модификатор доступа" vpath="Languages/Java/Классы/Модификатор доступа.md">
        📄 Модификатор доступа
       </button>
-      <button class="button" kpath="Languages/Java/Классы/Методы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Методы">
+      <button class="button unselectable" kpath="Languages/Java/Классы/Методы" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Методы">
        📂 Методы
       </button>
       <div class="button-folder" style="display:none;">
-       <button class="button" onclick="GET('Languages/Java/Классы/Методы/Методы.md');" title="📄 Методы" vpath="Languages/Java/Классы/Методы/Методы.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/Классы/Методы/Методы.md');delAnchor();" title="📄 Методы" vpath="Languages/Java/Классы/Методы/Методы.md">
         📄 Методы
        </button>
-       <button class="button" onclick="GET('Languages/Java/Классы/Методы/Не статические методы.md');" title="📄 Не статические методы" vpath="Languages/Java/Классы/Методы/Не статические методы.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/Классы/Методы/Не статические методы.md');delAnchor();" title="📄 Не статические методы" vpath="Languages/Java/Классы/Методы/Не статические методы.md">
         📄 Не статические методы
        </button>
-       <button class="button" onclick="GET('Languages/Java/Классы/Методы/Перегруженные методы.md');" title="📄 Перегруженные методы" vpath="Languages/Java/Классы/Методы/Перегруженные методы.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/Классы/Методы/Перегруженные методы.md');delAnchor();" title="📄 Перегруженные методы" vpath="Languages/Java/Классы/Методы/Перегруженные методы.md">
         📄 Перегруженные методы
        </button>
-       <button class="button" onclick="GET('Languages/Java/Классы/Методы/Переопределение методов.md');" title="📄 Переопределение методов" vpath="Languages/Java/Классы/Методы/Переопределение методов.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/Классы/Методы/Переопределение методов.md');delAnchor();" title="📄 Переопределение методов" vpath="Languages/Java/Классы/Методы/Переопределение методов.md">
         📄 Переопределение методов
        </button>
-       <button class="button" onclick="GET('Languages/Java/Классы/Методы/Абстрактные методы.md');" title="📄 Абстрактные методы" vpath="Languages/Java/Классы/Методы/Абстрактные методы.md">
+       <button class="button unselectable" onclick="GET('Languages/Java/Классы/Методы/Абстрактные методы.md');delAnchor();" title="📄 Абстрактные методы" vpath="Languages/Java/Классы/Методы/Абстрактные методы.md">
         📄 Абстрактные методы
        </button>
       </div>
-      <button class="button" onclick="GET('Languages/Java/Классы/Наследование.md');" title="📄 Наследование" vpath="Languages/Java/Классы/Наследование.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Классы/Наследование.md');delAnchor();" title="📄 Наследование" vpath="Languages/Java/Классы/Наследование.md">
        📄 Наследование
       </button>
-      <button class="button" onclick="GET('Languages/Java/Классы/Анонимный класс.md');" title="📄 Анонимный класс" vpath="Languages/Java/Классы/Анонимный класс.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Классы/Анонимный класс.md');delAnchor();" title="📄 Анонимный класс" vpath="Languages/Java/Классы/Анонимный класс.md">
        📄 Анонимный класс
       </button>
-      <button class="button" onclick="GET('Languages/Java/Классы/interface.md');" title="📄 interface" vpath="Languages/Java/Классы/interface.md">
+      <button class="button unselectable" onclick="GET('Languages/Java/Классы/interface.md');delAnchor();" title="📄 interface" vpath="Languages/Java/Классы/interface.md">
        📄 interface
       </button>
      </div>
-     <button class="button" onclick="GET('Languages/Java/try, catch, finally.md');" title="📄 try, catch, finally" vpath="Languages/Java/try, catch, finally.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/try, catch, finally.md');delAnchor();" title="📄 try, catch, finally" vpath="Languages/Java/try, catch, finally.md">
       📄 try, catch, finally
      </button>
-     <button class="button" onclick="GET('Languages/Java/Пакеты.md');" title="📄 Пакеты" vpath="Languages/Java/Пакеты.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Пакеты.md');delAnchor();" title="📄 Пакеты" vpath="Languages/Java/Пакеты.md">
       📄 Пакеты
      </button>
-     <button class="button" onclick="GET('Languages/Java/Исключения.md');" title="📄 Исключения" vpath="Languages/Java/Исключения.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Исключения.md');delAnchor();" title="📄 Исключения" vpath="Languages/Java/Исключения.md">
       📄 Исключения
      </button>
-     <button class="button" onclick="GET('Languages/Java/IO.md');" title="📄 IO" vpath="Languages/Java/IO.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/IO.md');delAnchor();" title="📄 IO" vpath="Languages/Java/IO.md">
       📄 IO
      </button>
-     <button class="button" onclick="GET('Languages/Java/Сериализация и десериализация объектов.md');" title="📄 Сериализация и десериализация объектов" vpath="Languages/Java/Сериализация и десериализация объектов.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Сериализация и десериализация объектов.md');delAnchor();" title="📄 Сериализация и десериализация объектов" vpath="Languages/Java/Сериализация и десериализация объектов.md">
       📄 Сериализация и десериализация объектов
      </button>
-     <button class="button" onclick="GET('Languages/Java/Генерики.md');" title="📄 Генерики" vpath="Languages/Java/Генерики.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Генерики.md');delAnchor();" title="📄 Генерики" vpath="Languages/Java/Генерики.md">
       📄 Генерики
      </button>
-     <button class="button" onclick="GET('Languages/Java/Лямбда-выражения.md');" title="📄 Лямбда⁠-⁠выражения" vpath="Languages/Java/Лямбда-выражения.md">
+     <button class="button unselectable" onclick="GET('Languages/Java/Лямбда-выражения.md');delAnchor();" title="📄 Лямбда⁠-⁠выражения" vpath="Languages/Java/Лямбда-выражения.md">
       📄 Лямбда⁠-⁠выражения
      </button>
     </div>
-    <button class="button" kpath="Languages/SQL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 SQL">
+    <button class="button unselectable" kpath="Languages/SQL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 SQL">
      📂 SQL
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" kpath="Languages/SQL/SQLite3" onclick="toggleDisplay(this.nextElementSibling);" title="📂 SQLite3">
+     <button class="button unselectable" kpath="Languages/SQL/SQLite3" onclick="toggleDisplay(this.nextElementSibling);" title="📂 SQLite3">
       📂 SQLite3
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/SQL/SQLite3/Date And Time Format.md');" title="📄 Date And Time Format" vpath="Languages/SQL/SQLite3/Date And Time Format.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/SQLite3/Date And Time Format.md');delAnchor();" title="📄 Date And Time Format" vpath="Languages/SQL/SQLite3/Date And Time Format.md">
        📄 Date And Time Format
       </button>
-      <button class="button" onclick="GET('Languages/SQL/SQLite3/Разное.md');" title="📄 Разное" vpath="Languages/SQL/SQLite3/Разное.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/SQLite3/Разное.md');delAnchor();" title="📄 Разное" vpath="Languages/SQL/SQLite3/Разное.md">
        📄 Разное
       </button>
-      <button class="button" onclick="GET('Languages/SQL/SQLite3/JOIN.md');" title="📄 JOIN" vpath="Languages/SQL/SQLite3/JOIN.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/SQLite3/JOIN.md');delAnchor();" title="📄 JOIN" vpath="Languages/SQL/SQLite3/JOIN.md">
        📄 JOIN
       </button>
-      <button class="button" onclick="GET('Languages/SQL/SQLite3/Операторы.md');" title="📄 Операторы" vpath="Languages/SQL/SQLite3/Операторы.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/SQLite3/Операторы.md');delAnchor();" title="📄 Операторы" vpath="Languages/SQL/SQLite3/Операторы.md">
        📄 Операторы
       </button>
-      <button class="button" onclick="GET('Languages/SQL/SQLite3/Функции.md');" title="📄 Функции" vpath="Languages/SQL/SQLite3/Функции.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/SQLite3/Функции.md');delAnchor();" title="📄 Функции" vpath="Languages/SQL/SQLite3/Функции.md">
        📄 Функции
       </button>
      </div>
-     <button class="button" kpath="Languages/SQL/PostgreSQL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 PostgreSQL">
+     <button class="button unselectable" kpath="Languages/SQL/PostgreSQL" onclick="toggleDisplay(this.nextElementSibling);" title="📂 PostgreSQL">
       📂 PostgreSQL
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/SQL/PostgreSQL/Типы данных.md');" title="📄 Типы данных" vpath="Languages/SQL/PostgreSQL/Типы данных.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/PostgreSQL/Типы данных.md');delAnchor();" title="📄 Типы данных" vpath="Languages/SQL/PostgreSQL/Типы данных.md">
        📄 Типы данных
       </button>
-      <button class="button" onclick="GET('Languages/SQL/PostgreSQL/pg_hba.conf.md');" title="📄 pg_hba.conf" vpath="Languages/SQL/PostgreSQL/pg_hba.conf.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/PostgreSQL/pg_hba.conf.md');delAnchor();" title="📄 pg_hba.conf" vpath="Languages/SQL/PostgreSQL/pg_hba.conf.md">
        📄 pg_hba.conf
       </button>
-      <button class="button" onclick="GET('Languages/SQL/PostgreSQL/CREATE.md');" title="📄 CREATE" vpath="Languages/SQL/PostgreSQL/CREATE.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/PostgreSQL/CREATE.md');delAnchor();" title="📄 CREATE" vpath="Languages/SQL/PostgreSQL/CREATE.md">
        📄 CREATE
       </button>
-      <button class="button" onclick="GET('Languages/SQL/PostgreSQL/картинки.md');" title="📄 картинки" vpath="Languages/SQL/PostgreSQL/картинки.md">
+      <button class="button unselectable" onclick="GET('Languages/SQL/PostgreSQL/картинки.md');delAnchor();" title="📄 картинки" vpath="Languages/SQL/PostgreSQL/картинки.md">
        📄 картинки
       </button>
      </div>
-     <button class="button" onclick="GET('Languages/SQL/Картинки.md');" title="📄 Картинки" vpath="Languages/SQL/Картинки.md">
+     <button class="button unselectable" onclick="GET('Languages/SQL/Картинки.md');delAnchor();" title="📄 Картинки" vpath="Languages/SQL/Картинки.md">
       📄 Картинки
      </button>
     </div>
-    <button class="button" kpath="Languages/Dockerfile" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Dockerfile">
+    <button class="button unselectable" kpath="Languages/Dockerfile" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Dockerfile">
      📂 Dockerfile
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/Dockerfile/Dockerfile.md');" title="📄 Dockerfile" vpath="Languages/Dockerfile/Dockerfile.md">
+     <button class="button unselectable" onclick="GET('Languages/Dockerfile/Dockerfile.md');delAnchor();" title="📄 Dockerfile" vpath="Languages/Dockerfile/Dockerfile.md">
       📄 Dockerfile
      </button>
-     <button class="button" onclick="GET('Languages/Dockerfile/RUN mkdir -p.md');" title="📄 RUN mkdir ⁠-⁠p" vpath="Languages/Dockerfile/RUN mkdir -p.md">
+     <button class="button unselectable" onclick="GET('Languages/Dockerfile/RUN mkdir -p.md');delAnchor();" title="📄 RUN mkdir ⁠-⁠p" vpath="Languages/Dockerfile/RUN mkdir -p.md">
       📄 RUN mkdir ⁠-⁠p
      </button>
     </div>
-    <button class="button" kpath="Languages/JavaScript" onclick="toggleDisplay(this.nextElementSibling);" title="📂 JavaScript">
+    <button class="button unselectable" kpath="Languages/JavaScript" onclick="toggleDisplay(this.nextElementSibling);" title="📂 JavaScript">
      📂 JavaScript
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/JavaScript/Списки.md');" title="📄 Списки" vpath="Languages/JavaScript/Списки.md">
+     <button class="button unselectable" onclick="GET('Languages/JavaScript/Списки.md');delAnchor();" title="📄 Списки" vpath="Languages/JavaScript/Списки.md">
       📄 Списки
      </button>
-     <button class="button" onclick="GET('Languages/JavaScript/for.md');" title="📄 for" vpath="Languages/JavaScript/for.md">
+     <button class="button unselectable" onclick="GET('Languages/JavaScript/for.md');delAnchor();" title="📄 for" vpath="Languages/JavaScript/for.md">
       📄 for
      </button>
-     <button class="button" onclick="GET('Languages/JavaScript/handlebar.md');" title="📄 handlebar" vpath="Languages/JavaScript/handlebar.md">
+     <button class="button unselectable" onclick="GET('Languages/JavaScript/handlebar.md');delAnchor();" title="📄 handlebar" vpath="Languages/JavaScript/handlebar.md">
       📄 handlebar
      </button>
-     <button class="button" onclick="GET('Languages/JavaScript/Переменные.md');" title="📄 Переменные" vpath="Languages/JavaScript/Переменные.md">
+     <button class="button unselectable" onclick="GET('Languages/JavaScript/Переменные.md');delAnchor();" title="📄 Переменные" vpath="Languages/JavaScript/Переменные.md">
       📄 Переменные
      </button>
     </div>
-    <button class="button" kpath="Languages/CSS" onclick="toggleDisplay(this.nextElementSibling);" title="📂 CSS">
+    <button class="button unselectable" kpath="Languages/CSS" onclick="toggleDisplay(this.nextElementSibling);" title="📂 CSS">
      📂 CSS
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" kpath="Languages/CSS/css-text" onclick="toggleDisplay(this.nextElementSibling);" title="📂 css⁠-⁠text">
+     <button class="button unselectable" kpath="Languages/CSS/css-text" onclick="toggleDisplay(this.nextElementSibling);" title="📂 css⁠-⁠text">
       📂 css⁠-⁠text
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/CSS/css-text/Backgrounds.md');" title="📄 Backgrounds" vpath="Languages/CSS/css-text/Backgrounds.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/Backgrounds.md');delAnchor();" title="📄 Backgrounds" vpath="Languages/CSS/css-text/Backgrounds.md">
        📄 Backgrounds
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/Border.md');" title="📄 Border" vpath="Languages/CSS/css-text/Border.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/Border.md');delAnchor();" title="📄 Border" vpath="Languages/CSS/css-text/Border.md">
        📄 Border
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/table.md');" title="📄 table" vpath="Languages/CSS/css-text/table.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/table.md');delAnchor();" title="📄 table" vpath="Languages/CSS/css-text/table.md">
        📄 table
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/boxmodel.md');" title="📄 boxmodel" vpath="Languages/CSS/css-text/boxmodel.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/boxmodel.md');delAnchor();" title="📄 boxmodel" vpath="Languages/CSS/css-text/boxmodel.md">
        📄 boxmodel
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/font.md');" title="📄 font" vpath="Languages/CSS/css-text/font.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/font.md');delAnchor();" title="📄 font" vpath="Languages/CSS/css-text/font.md">
        📄 font
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/text.md');" title="📄 text" vpath="Languages/CSS/css-text/text.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/text.md');delAnchor();" title="📄 text" vpath="Languages/CSS/css-text/text.md">
        📄 text
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/color_angles_time_frequency.md');" title="📄 color_angles_time_frequency" vpath="Languages/CSS/css-text/color_angles_time_frequency.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/color_angles_time_frequency.md');delAnchor();" title="📄 color_angles_time_frequency" vpath="Languages/CSS/css-text/color_angles_time_frequency.md">
        📄 color_angles_time_frequency
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/animations.md');" title="📄 animations" vpath="Languages/CSS/css-text/animations.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/animations.md');delAnchor();" title="📄 animations" vpath="Languages/CSS/css-text/animations.md">
        📄 animations
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/speech.md');" title="📄 speech" vpath="Languages/CSS/css-text/speech.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/speech.md');delAnchor();" title="📄 speech" vpath="Languages/CSS/css-text/speech.md">
        📄 speech
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/transitions.md');" title="📄 transitions" vpath="Languages/CSS/css-text/transitions.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/transitions.md');delAnchor();" title="📄 transitions" vpath="Languages/CSS/css-text/transitions.md">
        📄 transitions
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/ui.md');" title="📄 ui" vpath="Languages/CSS/css-text/ui.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/ui.md');delAnchor();" title="📄 ui" vpath="Languages/CSS/css-text/ui.md">
        📄 ui
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/column.md');" title="📄 column" vpath="Languages/CSS/css-text/column.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/column.md');delAnchor();" title="📄 column" vpath="Languages/CSS/css-text/column.md">
        📄 column
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/list and markers.md');" title="📄 list and markers" vpath="Languages/CSS/css-text/list and markers.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/list and markers.md');delAnchor();" title="📄 list and markers" vpath="Languages/CSS/css-text/list and markers.md">
        📄 list and markers
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/absolute measurement.md');" title="📄 absolute measurement" vpath="Languages/CSS/css-text/absolute measurement.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/absolute measurement.md');delAnchor();" title="📄 absolute measurement" vpath="Languages/CSS/css-text/absolute measurement.md">
        📄 absolute measurement
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/pseudo element.md');" title="📄 pseudo element" vpath="Languages/CSS/css-text/pseudo element.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/pseudo element.md');delAnchor();" title="📄 pseudo element" vpath="Languages/CSS/css-text/pseudo element.md">
        📄 pseudo element
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/pseudo class.md');" title="📄 pseudo class" vpath="Languages/CSS/css-text/pseudo class.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/pseudo class.md');delAnchor();" title="📄 pseudo class" vpath="Languages/CSS/css-text/pseudo class.md">
        📄 pseudo class
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/colors.md');" title="📄 colors" vpath="Languages/CSS/css-text/colors.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/colors.md');delAnchor();" title="📄 colors" vpath="Languages/CSS/css-text/colors.md">
        📄 colors
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/outlin.md');" title="📄 outlin" vpath="Languages/CSS/css-text/outlin.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/outlin.md');delAnchor();" title="📄 outlin" vpath="Languages/CSS/css-text/outlin.md">
        📄 outlin
       </button>
-      <button class="button" onclick="GET('Languages/CSS/css-text/relative measurement.md');" title="📄 relative measurement" vpath="Languages/CSS/css-text/relative measurement.md">
+      <button class="button unselectable" onclick="GET('Languages/CSS/css-text/relative measurement.md');delAnchor();" title="📄 relative measurement" vpath="Languages/CSS/css-text/relative measurement.md">
        📄 relative measurement
       </button>
      </div>
-     <button class="button" onclick="GET('Languages/CSS/css-img.md');" title="📄 css⁠-⁠img" vpath="Languages/CSS/css-img.md">
+     <button class="button unselectable" onclick="GET('Languages/CSS/css-img.md');delAnchor();" title="📄 css⁠-⁠img" vpath="Languages/CSS/css-img.md">
       📄 css⁠-⁠img
      </button>
-     <button class="button" onclick="GET('Languages/CSS/Селекторы.md');" title="📄 Селекторы" vpath="Languages/CSS/Селекторы.md">
+     <button class="button unselectable" onclick="GET('Languages/CSS/Селекторы.md');delAnchor();" title="📄 Селекторы" vpath="Languages/CSS/Селекторы.md">
       📄 Селекторы
      </button>
-     <button class="button" onclick="GET('Languages/CSS/Единицы измерения.md');" title="📄 Единицы измерения" vpath="Languages/CSS/Единицы измерения.md">
+     <button class="button unselectable" onclick="GET('Languages/CSS/Единицы измерения.md');delAnchor();" title="📄 Единицы измерения" vpath="Languages/CSS/Единицы измерения.md">
       📄 Единицы измерения
      </button>
     </div>
-    <button class="button" kpath="Languages/HTML" onclick="toggleDisplay(this.nextElementSibling);" title="📂 HTML">
+    <button class="button unselectable" kpath="Languages/HTML" onclick="toggleDisplay(this.nextElementSibling);" title="📂 HTML">
      📂 HTML
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/HTML/Теги.md');" title="📄 Теги" vpath="Languages/HTML/Теги.md">
+     <button class="button unselectable" onclick="GET('Languages/HTML/Теги.md');delAnchor();" title="📄 Теги" vpath="Languages/HTML/Теги.md">
       📄 Теги
      </button>
-     <button class="button" onclick="GET('Languages/HTML/Символы и экранирование.md');" title="📄 Символы и экранирование" vpath="Languages/HTML/Символы и экранирование.md">
+     <button class="button unselectable" onclick="GET('Languages/HTML/Символы и экранирование.md');delAnchor();" title="📄 Символы и экранирование" vpath="Languages/HTML/Символы и экранирование.md">
       📄 Символы и экранирование
      </button>
-     <button class="button" onclick="GET('Languages/HTML/tag input.md');" title="📄 tag input" vpath="Languages/HTML/tag input.md">
+     <button class="button unselectable" onclick="GET('Languages/HTML/tag input.md');delAnchor();" title="📄 tag input" vpath="Languages/HTML/tag input.md">
       📄 tag input
      </button>
-     <button class="button" onclick="GET('Languages/HTML/tag a.md');" title="📄 tag a" vpath="Languages/HTML/tag a.md">
+     <button class="button unselectable" onclick="GET('Languages/HTML/tag a.md');delAnchor();" title="📄 tag a" vpath="Languages/HTML/tag a.md">
       📄 tag a
      </button>
-     <button class="button" kpath="Languages/HTML/Xpath" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Xpath">
+     <button class="button unselectable" kpath="Languages/HTML/Xpath" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Xpath">
       📂 Xpath
      </button>
      <div class="button-folder" style="display:none;">
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Link.md');" title="📄 Link" vpath="Languages/HTML/Xpath/Link.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Link.md');delAnchor();" title="📄 Link" vpath="Languages/HTML/Xpath/Link.md">
        📄 Link
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Selectors.md');" title="📄 Selectors" vpath="Languages/HTML/Xpath/Selectors.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Selectors.md');delAnchor();" title="📄 Selectors" vpath="Languages/HTML/Xpath/Selectors.md">
        📄 Selectors
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Expressions.md');" title="📄 Expressions" vpath="Languages/HTML/Xpath/Expressions.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Expressions.md');delAnchor();" title="📄 Expressions" vpath="Languages/HTML/Xpath/Expressions.md">
        📄 Expressions
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Predicates.md');" title="📄 Predicates" vpath="Languages/HTML/Xpath/Predicates.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Predicates.md');delAnchor();" title="📄 Predicates" vpath="Languages/HTML/Xpath/Predicates.md">
        📄 Predicates
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Functions.md');" title="📄 Functions" vpath="Languages/HTML/Xpath/Functions.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Functions.md');delAnchor();" title="📄 Functions" vpath="Languages/HTML/Xpath/Functions.md">
        📄 Functions
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/Axes.md');" title="📄 Axes" vpath="Languages/HTML/Xpath/Axes.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/Axes.md');delAnchor();" title="📄 Axes" vpath="Languages/HTML/Xpath/Axes.md">
        📄 Axes
       </button>
-      <button class="button" onclick="GET('Languages/HTML/Xpath/More examples.md');" title="📄 More examples" vpath="Languages/HTML/Xpath/More examples.md">
+      <button class="button unselectable" onclick="GET('Languages/HTML/Xpath/More examples.md');delAnchor();" title="📄 More examples" vpath="Languages/HTML/Xpath/More examples.md">
        📄 More examples
       </button>
      </div>
     </div>
-    <button class="button" kpath="Languages/Cpp" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Cpp">
+    <button class="button unselectable" kpath="Languages/Cpp" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Cpp">
      📂 Cpp
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/Cpp/Типы данных.md');" title="📄 Типы данных" vpath="Languages/Cpp/Типы данных.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Типы данных.md');delAnchor();" title="📄 Типы данных" vpath="Languages/Cpp/Типы данных.md">
       📄 Типы данных
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/if-else,switch-case.md');" title="📄 if⁠-⁠else,switch⁠-⁠case" vpath="Languages/Cpp/if-else,switch-case.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/if-else,switch-case.md');delAnchor();" title="📄 if⁠-⁠else,switch⁠-⁠case" vpath="Languages/Cpp/if-else,switch-case.md">
       📄 if⁠-⁠else,switch⁠-⁠case
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/rand.md');" title="📄 rand" vpath="Languages/Cpp/rand.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/rand.md');delAnchor();" title="📄 rand" vpath="Languages/Cpp/rand.md">
       📄 rand
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Циклы.md');" title="📄 Циклы" vpath="Languages/Cpp/Циклы.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Циклы.md');delAnchor();" title="📄 Циклы" vpath="Languages/Cpp/Циклы.md">
       📄 Циклы
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/try-catch.md');" title="📄 try⁠-⁠catch" vpath="Languages/Cpp/try-catch.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/try-catch.md');delAnchor();" title="📄 try⁠-⁠catch" vpath="Languages/Cpp/try-catch.md">
       📄 try⁠-⁠catch
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Массивы.md');" title="📄 Массивы" vpath="Languages/Cpp/Массивы.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Массивы.md');delAnchor();" title="📄 Массивы" vpath="Languages/Cpp/Массивы.md">
       📄 Массивы
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Указатели.md');" title="📄 Указатели" vpath="Languages/Cpp/Указатели.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Указатели.md');delAnchor();" title="📄 Указатели" vpath="Languages/Cpp/Указатели.md">
       📄 Указатели
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Динамические массивы.md');" title="📄 Динамические массивы" vpath="Languages/Cpp/Динамические массивы.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Динамические массивы.md');delAnchor();" title="📄 Динамические массивы" vpath="Languages/Cpp/Динамические массивы.md">
       📄 Динамические массивы
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Символы и строки.md');" title="📄 Символы и строки" vpath="Languages/Cpp/Символы и строки.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Символы и строки.md');delAnchor();" title="📄 Символы и строки" vpath="Languages/Cpp/Символы и строки.md">
       📄 Символы и строки
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Структуры данных.md');" title="📄 Структуры данных" vpath="Languages/Cpp/Структуры данных.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Структуры данных.md');delAnchor();" title="📄 Структуры данных" vpath="Languages/Cpp/Структуры данных.md">
       📄 Структуры данных
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Перечисления (Enum).md');" title="📄 Перечисления (Enum)" vpath="Languages/Cpp/Перечисления (Enum).md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Перечисления (Enum).md');delAnchor();" title="📄 Перечисления (Enum)" vpath="Languages/Cpp/Перечисления (Enum).md">
       📄 Перечисления (Enum)
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Работа с файлами.md');" title="📄 Работа с файлами" vpath="Languages/Cpp/Работа с файлами.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Работа с файлами.md');delAnchor();" title="📄 Работа с файлами" vpath="Languages/Cpp/Работа с файлами.md">
       📄 Работа с файлами
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Функции.md');" title="📄 Функции" vpath="Languages/Cpp/Функции.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Функции.md');delAnchor();" title="📄 Функции" vpath="Languages/Cpp/Функции.md">
       📄 Функции
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Перегрузка функций.md');" title="📄 Перегрузка функций" vpath="Languages/Cpp/Перегрузка функций.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Перегрузка функций.md');delAnchor();" title="📄 Перегрузка функций" vpath="Languages/Cpp/Перегрузка функций.md">
       📄 Перегрузка функций
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Математические операции.md');" title="📄 Математические операции" vpath="Languages/Cpp/Математические операции.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Математические операции.md');delAnchor();" title="📄 Математические операции" vpath="Languages/Cpp/Математические операции.md">
       📄 Математические операции
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/(Введение в ООП) Классы и объекты.md');" title="📄 (Введение в ООП) Классы и объекты" vpath="Languages/Cpp/(Введение в ООП) Классы и объекты.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/(Введение в ООП) Классы и объекты.md');delAnchor();" title="📄 (Введение в ООП) Классы и объекты" vpath="Languages/Cpp/(Введение в ООП) Классы и объекты.md">
       📄 (Введение в ООП) Классы и объекты
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Конструкторы и деструкторы.md');" title="📄 Конструкторы и деструкторы" vpath="Languages/Cpp/Конструкторы и деструкторы.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Конструкторы и деструкторы.md');delAnchor();" title="📄 Конструкторы и деструкторы" vpath="Languages/Cpp/Конструкторы и деструкторы.md">
       📄 Конструкторы и деструкторы
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/20 Дружественные функции.md');" title="📄 20 Дружественные функции" vpath="Languages/Cpp/20 Дружественные функции.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/20 Дружественные функции.md');delAnchor();" title="📄 20 Дружественные функции" vpath="Languages/Cpp/20 Дружественные функции.md">
       📄 20 Дружественные функции
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Дружественные классы.md');" title="📄 Дружественные классы" vpath="Languages/Cpp/Дружественные классы.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Дружественные классы.md');delAnchor();" title="📄 Дружественные классы" vpath="Languages/Cpp/Дружественные классы.md">
       📄 Дружественные классы
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Указатель this.md');" title="📄 Указатель this" vpath="Languages/Cpp/Указатель this.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Указатель this.md');delAnchor();" title="📄 Указатель this" vpath="Languages/Cpp/Указатель this.md">
       📄 Указатель this
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Наследование классов (ООП).md');" title="📄 Наследование классов (ООП)" vpath="Languages/Cpp/Наследование классов (ООП).md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Наследование классов (ООП).md');delAnchor();" title="📄 Наследование классов (ООП)" vpath="Languages/Cpp/Наследование классов (ООП).md">
       📄 Наследование классов (ООП)
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Шаблоны функций (template).md');" title="📄 Шаблоны функций (template)" vpath="Languages/Cpp/Шаблоны функций (template).md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Шаблоны функций (template).md');delAnchor();" title="📄 Шаблоны функций (template)" vpath="Languages/Cpp/Шаблоны функций (template).md">
       📄 Шаблоны функций (template)
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Шаблоны классов.md');" title="📄 Шаблоны классов" vpath="Languages/Cpp/Шаблоны классов.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Шаблоны классов.md');delAnchor();" title="📄 Шаблоны классов" vpath="Languages/Cpp/Шаблоны классов.md">
       📄 Шаблоны классов
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/end.md');" title="📄 end" vpath="Languages/Cpp/end.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/end.md');delAnchor();" title="📄 end" vpath="Languages/Cpp/end.md">
       📄 end
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/ChatGPT.md');" title="📄 ChatGPT" vpath="Languages/Cpp/ChatGPT.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/ChatGPT.md');delAnchor();" title="📄 ChatGPT" vpath="Languages/Cpp/ChatGPT.md">
       📄 ChatGPT
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Разное.md');" title="📄 Разное" vpath="Languages/Cpp/Разное.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Разное.md');delAnchor();" title="📄 Разное" vpath="Languages/Cpp/Разное.md">
       📄 Разное
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Операции над числами.md');" title="📄 Операции над числами" vpath="Languages/Cpp/Операции над числами.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Операции над числами.md');delAnchor();" title="📄 Операции над числами" vpath="Languages/Cpp/Операции над числами.md">
       📄 Операции над числами
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/for while.md');" title="📄 for while" vpath="Languages/Cpp/for while.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/for while.md');delAnchor();" title="📄 for while" vpath="Languages/Cpp/for while.md">
       📄 for while
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Массив.md');" title="📄 Массив" vpath="Languages/Cpp/Массив.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Массив.md');delAnchor();" title="📄 Массив" vpath="Languages/Cpp/Массив.md">
       📄 Массив
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Строка.md');" title="📄 Строка" vpath="Languages/Cpp/Строка.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Строка.md');delAnchor();" title="📄 Строка" vpath="Languages/Cpp/Строка.md">
       📄 Строка
      </button>
-     <button class="button" onclick="GET('Languages/Cpp/Указатели2.md');" title="📄 Указатели2" vpath="Languages/Cpp/Указатели2.md">
+     <button class="button unselectable" onclick="GET('Languages/Cpp/Указатели2.md');delAnchor();" title="📄 Указатели2" vpath="Languages/Cpp/Указатели2.md">
       📄 Указатели2
      </button>
     </div>
-    <button class="button" kpath="Languages/Bash" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Bash">
+    <button class="button unselectable" kpath="Languages/Bash" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Bash">
      📂 Bash
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/Bash/help.md');" title="📄 help" vpath="Languages/Bash/help.md">
+     <button class="button unselectable" onclick="GET('Languages/Bash/help.md');delAnchor();" title="📄 help" vpath="Languages/Bash/help.md">
       📄 help
      </button>
-     <button class="button" onclick="GET('Languages/Bash/Переменные окружения.md');" title="📄 Переменные окружения" vpath="Languages/Bash/Переменные окружения.md">
+     <button class="button unselectable" onclick="GET('Languages/Bash/Переменные окружения.md');delAnchor();" title="📄 Переменные окружения" vpath="Languages/Bash/Переменные окружения.md">
       📄 Переменные окружения
      </button>
     </div>
-    <button class="button" kpath="Languages/LaTex" onclick="toggleDisplay(this.nextElementSibling);" title="📂 LaTex">
+    <button class="button unselectable" kpath="Languages/LaTex" onclick="toggleDisplay(this.nextElementSibling);" title="📂 LaTex">
      📂 LaTex
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Languages/LaTex/Элементы.md');" title="📄 Элементы" vpath="Languages/LaTex/Элементы.md">
+     <button class="button unselectable" onclick="GET('Languages/LaTex/Элементы.md');delAnchor();" title="📄 Элементы" vpath="Languages/LaTex/Элементы.md">
       📄 Элементы
      </button>
     </div>
    </div>
-   <button class="button" kpath="Other" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Other">
+   <button class="button unselectable" kpath="Other" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Other">
     📂 Other
    </button>
    <div class="button-folder" style="display:none;">
-    <button class="button" kpath="Other/Форматы файлов" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Форматы файлов">
-     📂 Форматы файлов
+    <button class="button unselectable" kpath="Other/File formats" onclick="toggleDisplay(this.nextElementSibling);" title="📂 File formats">
+     📂 File formats
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Other/Форматы файлов/JSON.md');" title="📄 JSON" vpath="Other/Форматы файлов/JSON.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/JSON.md');delAnchor();" title="📄 JSON" vpath="Other/File formats/JSON.md">
       📄 JSON
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/YAML.md');" title="📄 YAML" vpath="Other/Форматы файлов/YAML.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/YAML.md');delAnchor();" title="📄 YAML" vpath="Other/File formats/YAML.md">
       📄 YAML
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/TOML.md');" title="📄 TOML" vpath="Other/Форматы файлов/TOML.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/TOML.md');delAnchor();" title="📄 TOML" vpath="Other/File formats/TOML.md">
       📄 TOML
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/INI.md');" title="📄 INI" vpath="Other/Форматы файлов/INI.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/INI.md');delAnchor();" title="📄 INI" vpath="Other/File formats/INI.md">
       📄 INI
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/XML.md');" title="📄 XML" vpath="Other/Форматы файлов/XML.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/XML.md');delAnchor();" title="📄 XML" vpath="Other/File formats/XML.md">
       📄 XML
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/CSV.md');" title="📄 CSV" vpath="Other/Форматы файлов/CSV.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/CSV.md');delAnchor();" title="📄 CSV" vpath="Other/File formats/CSV.md">
       📄 CSV
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/SQLite3 to CSV.md');" title="📄 SQLite3 to CSV" vpath="Other/Форматы файлов/SQLite3 to CSV.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/SQLite3 to CSV.md');delAnchor();" title="📄 SQLite3 to CSV" vpath="Other/File formats/SQLite3 to CSV.md">
       📄 SQLite3 to CSV
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/Vedis db.md');" title="📄 Vedis db" vpath="Other/Форматы файлов/Vedis db.md">
+     <button class="button unselectable" onclick="GET('Other/File formats/Vedis db.md');delAnchor();" title="📄 Vedis db" vpath="Other/File formats/Vedis db.md">
       📄 Vedis db
      </button>
-     <button class="button" onclick="GET('Other/Форматы файлов/TinyDB (json).md');" title="📄 TinyDB (json)" vpath="Other/Форматы файлов/TinyDB (json).md">
+     <button class="button unselectable" onclick="GET('Other/File formats/TinyDB (json).md');delAnchor();" title="📄 TinyDB (json)" vpath="Other/File formats/TinyDB (json).md">
       📄 TinyDB (json)
      </button>
     </div>
-    <button class="button" kpath="Other/Примеры решений" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Примеры решений">
-     📂 Примеры решений
+    <button class="button unselectable" kpath="Other/Code examples" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Code examples">
+     📂 Code examples
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Other/Примеры решений/Пирамида граф.md');" title="📄 Пирамида граф" vpath="Other/Примеры решений/Пирамида граф.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/Пирамида граф.md');delAnchor();" title="📄 Пирамида граф" vpath="Other/Code examples/Пирамида граф.md">
       📄 Пирамида граф
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/Определитель матрицы.md');" title="📄 Определитель матрицы" vpath="Other/Примеры решений/Определитель матрицы.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/Определитель матрицы.md');delAnchor();" title="📄 Определитель матрицы" vpath="Other/Code examples/Определитель матрицы.md">
       📄 Определитель матрицы
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/Минимальное максимальное число матрицы cpp.md');" title="📄 Минимальное максимальное число матрицы cpp" vpath="Other/Примеры решений/Минимальное максимальное число матрицы cpp.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/Минимальное максимальное число матрицы cpp.md');delAnchor();" title="📄 Минимальное максимальное число матрицы cpp" vpath="Other/Code examples/Минимальное максимальное число матрицы cpp.md">
       📄 Минимальное максимальное число матрицы cpp
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/str - int.md');" title="📄 str ⁠-⁠ int" vpath="Other/Примеры решений/str - int.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/str - int.md');delAnchor();" title="📄 str ⁠-⁠ int" vpath="Other/Code examples/str - int.md">
       📄 str ⁠-⁠ int
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/fib.md');" title="📄 fib" vpath="Other/Примеры решений/fib.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/fib.md');delAnchor();" title="📄 fib" vpath="Other/Code examples/fib.md">
       📄 fib
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/converters.md');" title="📄 converters" vpath="Other/Примеры решений/converters.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/converters.md');delAnchor();" title="📄 converters" vpath="Other/Code examples/converters.md">
       📄 converters
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/quicksort.md');" title="📄 quicksort" vpath="Other/Примеры решений/quicksort.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/quicksort.md');delAnchor();" title="📄 quicksort" vpath="Other/Code examples/quicksort.md">
       📄 quicksort
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/download telegram emoji.md');" title="📄 download telegram emoji" vpath="Other/Примеры решений/download telegram emoji.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/download telegram emoji.md');delAnchor();" title="📄 download telegram emoji" vpath="Other/Code examples/download telegram emoji.md">
       📄 download telegram emoji
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/js YouTube.md');" title="📄 js YouTube" vpath="Other/Примеры решений/js YouTube.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/js YouTube.md');delAnchor();" title="📄 js YouTube" vpath="Other/Code examples/js YouTube.md">
       📄 js YouTube
      </button>
-     <button class="button" onclick="GET('Other/Примеры решений/словарь обращение через точку.md');" title="📄 словарь обращение через точку" vpath="Other/Примеры решений/словарь обращение через точку.md">
+     <button class="button unselectable" onclick="GET('Other/Code examples/словарь обращение через точку.md');delAnchor();" title="📄 словарь обращение через точку" vpath="Other/Code examples/словарь обращение через точку.md">
       📄 словарь обращение через точку
      </button>
     </div>
-    <button class="button" kpath="Other/Minecraft" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Minecraft">
+    <button class="button unselectable" kpath="Other/Minecraft" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Minecraft">
      📂 Minecraft
     </button>
     <div class="button-folder" style="display:none;">
-     <button class="button" onclick="GET('Other/Minecraft/color.md');" title="📄 color" vpath="Other/Minecraft/color.md">
+     <button class="button unselectable" onclick="GET('Other/Minecraft/color.md');delAnchor();" title="📄 color" vpath="Other/Minecraft/color.md">
       📄 color
      </button>
     </div>
-    <button class="button" onclick="GET('Other/Alt Символы.md');" title="📄 Alt Символы" vpath="Other/Alt Символы.md">
-     📄 Alt Символы
+    <button class="button unselectable" onclick="GET('Other/Alt Symbols.md');delAnchor();" title="📄 Alt Symbols" vpath="Other/Alt Symbols.md">
+     📄 Alt Symbols
     </button>
-    <button class="button" onclick="GET('Other/Полезные ссылки.md');" title="📄 Полезные ссылки" vpath="Other/Полезные ссылки.md">
-     📄 Полезные ссылки
+    <button class="button unselectable" onclick="GET('Other/Links.md');delAnchor();" title="📄 Links" vpath="Other/Links.md">
+     📄 Links
     </button>
-    <button class="button" onclick="GET('Other/TODO.md');" title="📄 TODO" vpath="Other/TODO.md">
+    <button class="button unselectable" onclick="GET('Other/TODO.md');delAnchor();" title="📄 TODO" vpath="Other/TODO.md">
      📄 TODO
     </button>
    </div>
-   <button class="button" kpath="Shortcuts" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Shortcuts">
+   <button class="button unselectable" kpath="Shortcuts" onclick="toggleDisplay(this.nextElementSibling);" title="📂 Shortcuts">
     📂 Shortcuts
    </button>
    <div class="button-folder" style="display:none;">
-    <button class="button" onclick="GET('Languages/Python/fstrings.md');restoreCheatSheetState('Languages/Python/fstrings.md')" title="🔗 Languages/Python/fstrings" vpath="Languages/Python/fstrings.md">
+    <button class="button unselectable" onclick="GET('Languages/Python/fstrings.md');delAnchor();restoreCheatSheetState('Languages/Python/fstrings.md')" title="🔗 Languages/Python/fstrings" vpath="Languages/Python/fstrings.md">
      🔗 Languages/Python/fstrings
     </button>
-    <button class="button" onclick="GET('Languages/RegExp/RegExp.md');restoreCheatSheetState('Languages/RegExp/RegExp.md')" title="🔗 Languages/RegExp/RegExp" vpath="Languages/RegExp/RegExp.md">
+    <button class="button unselectable" onclick="GET('Languages/RegExp/RegExp.md');delAnchor();restoreCheatSheetState('Languages/RegExp/RegExp.md')" title="🔗 Languages/RegExp/RegExp" vpath="Languages/RegExp/RegExp.md">
      🔗 Languages/RegExp/RegExp
     </button>
    </div>
@@ -1270,22 +1270,22 @@
   </div>
   <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
   <div>
-   <button class="control-button" id="FontSizeSize" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">
+   <button class="control-button unselectable" id="FontSizeSize" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">
     12px
    </button>
-   <button class="control-button" onclick="changeFontSize(field, '+')" style="padding-left: 25px;">
+   <button class="control-button unselectable" onclick="changeFontSize(field, '+')" style="padding-left: 25px;">
     +
    </button>
-   <button class="control-button" onclick="changeFontSize(field, '-')" style="padding-left: 27px;">
+   <button class="control-button unselectable" onclick="changeFontSize(field, '-')" style="padding-left: 27px;">
     -
    </button>
-   <button class="control-button" id="COPY" onclick="copyTextFromDiv(field);changeColor(COPY)" style="padding-left: 12px;">
+   <button class="control-button unselectable" id="COPY" onclick="copyTextFromDiv(field);changeColor(COPY)" style="padding-left: 12px;">
     Copy
    </button>
-   <button class="control-button" id="COPY2" onclick="copyTextFromDiv2();changeColor(COPY2)" style="padding-left: 2px;">
+   <button class="control-button unselectable" id="COPY2" onclick="copyTextFromDiv2();changeColor(COPY2)" style="padding-left: 2px;">
     Copy selected
    </button>
-   <button class="control-button" id="removeargfromurl" onclick="removeArgumentFromUrl();window.location.reload();changeColor(removeargfromurl)" style="padding-left: 28px;">
+   <button class="control-button unselectable" id="removeargfromurl" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)" style="padding-left: 28px;">
     /
    </button>
   </div>

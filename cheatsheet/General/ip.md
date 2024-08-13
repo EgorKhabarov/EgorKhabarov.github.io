@@ -13,7 +13,7 @@
 <strong>Публичным IP адресом</strong> называется IP адрес, который используется для выхода в Интернет.
 Адреса, используемые в локальных сетях, относят к частным.
 Частные IP не маршрутизируются в Интернете.</p>
-<h3 id="ЧастныеIPадреса">Частные IP адреса</h3>
+<h3>Частные IP адреса</h3>
 <table>
 <thead>
 <tr>
@@ -59,4 +59,4 @@
 <p><code>169.254.0.0</code> – <code>169.254.255.255</code> (APIPA – Automatic Private IP Addressing).
 Механизм «придумывания» IP адреса.
 Служба APIPA генерирует IP адреса для начала работы с сетью.</p>
-<p><a target="_blank" href="https://habr.com/ru/articles/350878/">https://habr.com/ru/articles/350878/</a></p>
+<p><a href="https://habr.com/ru/articles/350878/">https://habr.com/ru/articles/350878/</a></p>

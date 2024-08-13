@@ -99,4 +99,4 @@
 </tr>
 </tbody>
 </table>
-<p><a target="_blank" href="https://python-markdown.github.io/extensions/">https://python-markdown.github.io/extensions/</a></p>
+<p><a href="https://python-markdown.github.io/extensions/">https://python-markdown.github.io/extensions/</a></p>

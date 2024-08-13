@@ -1,6 +1,5 @@
 import os
 import re
-import html
 
 import markdown
 import requests
@@ -13,15 +12,6 @@ from _dev.utils import set_unselectable, print_progress_bar
 
 
 formatter = HtmlFormatter(style="default")
-
-
-def h_func(m: re.Match):
-    h_num = m.group("h_num")
-    h_content = m.group("h_content")
-    h_content_id = html.escape(h_content.replace(" ", ""))
-    if "<a" in h_content:
-        return f'<h{h_num}>{h_content}</h{h_num}>'
-    return f'<h{h_num} id="{h_content_id}">{h_content}</h{h_num}>'
 
 
 def code_block_callback(match):
@@ -135,13 +125,7 @@ def to_markup(markdown_text):
         "markdown.extensions.tables",
         "markdown.extensions.fenced_code",
     ]
-    final_html = markdown.markdown(highlighted_html, extensions=md_extensions)
-
-    # Добавляем всем ссылкам target="_blank"
-    final_html = final_html.replace('<a href="', '<a target="_blank" href="')
-
-    # Добавляем всем тегам h тегам id с содержимым
-    return re.sub(r"(?s)<h(?P<h_num>[1-6])>(?P<h_content>.+?)</h(?P=h_num)>", h_func, final_html)
+    return markdown.markdown(highlighted_html, extensions=md_extensions)
 
 
 def create_files_and_folders(dictionary, directory=".", x=0, y=0):

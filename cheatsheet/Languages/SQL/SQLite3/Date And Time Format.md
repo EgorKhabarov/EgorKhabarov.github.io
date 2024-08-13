@@ -1,5 +1,5 @@
-<p>copied from <a target="_blank" href="https://www.sqlite.org/lang_datefunc.html">https://www.sqlite.org/lang_datefunc.html</a></p>
-<h2 id="Overview">Overview</h2>
+<p>copied from <a href="https://www.sqlite.org/lang_datefunc.html">https://www.sqlite.org/lang_datefunc.html</a></p>
+<h2>Overview</h2>
 <p>SQLite supports seven scalar date and time functions as follows:</p>
 <ol>
 <li><code>date(time-value, modifier, modifier, ...)</code>  <code>YYYY-MM-DD</code></li>
@@ -184,7 +184,7 @@
 </pre></div></div>
 </div>
 
-<h2 id="TimeValues">Time Values</h2>
+<h2>Time Values</h2>
 <p>A time-value can be in any of the following formats shown below.
 The value is usually a string, though it can be an integer or floating point number in the case of format 12.</p>
 <ol>
@@ -201,7 +201,7 @@ The value is usually a string, though it can be an integer or floating point num
 <li><code>now</code></li>
 <li><code>DDDDDDDDDD</code></li>
 </ol>
-<h2 id="Modifiers">Modifiers</h2>
+<h2>Modifiers</h2>
 <p>For all date/time functions other than <code>timediff()</code>, the time-value argument can be followed by zero or more modifiers that alter date and/or time.
 Each modifier is a transformation that is applied to the time-value to its left.
 Modifiers are applied from left to right; order is important.
