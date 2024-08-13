@@ -11,100 +11,98 @@
 <hr />
 <h1>Install</h1>
 <h2>PyPI</h2>
-<div class="code-element"><div class="lang-line"><text>shell</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>table2string
-</pre></div></div></div>
-
+<pre><code class="language-shell">pip install -U table2string
+</code></pre>
 <h2>GitHub</h2>
-<div class="code-element"><div class="lang-line"><text>shell</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/EgorKhabarov/table2string.git@master
-</pre></div></div></div>
-
+<pre><code class="language-shell">pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
+</code></pre>
 <hr />
 <h1>Usage example</h1>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">Table</span><span class="p">([(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">Table</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="s1">&#39;c1,c2,c3</span><span class="se">\n</span><span class="s1">1,2,3</span><span class="se">\n</span><span class="s1">qwe,&quot;rty</span><span class="se">\n</span><span class="s1">uio&quot;,&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-<span class="unselectable"><span class="go">+----------------+</span>
-<span class="go">|   Table Name   |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">| c1  | c2  | c3 |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">|   1 |   2 |  3 |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">| qwe | rty |    |</span>
-<span class="go">|     | uio |    |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">Table</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="s1">&#39;c1,c2,c3</span><span class="se">\n</span><span class="s1">1,2,3</span><span class="se">\n</span><span class="s1">qwe,&quot;rty</span><span class="se">\n</span><span class="s1">uio&quot;,&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">cursor</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;CREATE TABLE data (c1 TEXT, c2 TEXT, c3 TEXT);&quot;</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;INSERT INTO data (c1, c2, c3) VALUES (?, ?, ?);&quot;</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;SELECT c1, c2, c3 FROM data;&quot;</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">Table</span><span class="o">.</span><span class="n">from_db_cursor</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">Table</span><span class="o">.</span><span class="n">from_db_cursor</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT c1, c2, c3 FROM data;&quot;</span><span class="p">),</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">column_names</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
-<span class="unselectable"><span class="go">+----------------+</span>
-<span class="go">|   Table Name   |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">| c1  | c2  | c3 |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">|   1 |   2 |  3 |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="go">| qwe | rty |    |</span>
-<span class="go">|     | uio |    |</span>
-<span class="go">+-----+-----+----+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">print_table</span><span class="p">,</span> <span class="n">stringify_table</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">([(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">stringify_table</span><span class="p">([(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="p">))</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-</span></pre></div></div></div>
+<pre><code class="language-pycon">&gt;&gt;&gt; from table2string import Table
+&gt;&gt;&gt; Table([(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), (&quot;qwe&quot;, &quot;rty\nuio&quot;, &quot;&quot;)], name=&quot;Table Name&quot;).print()
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; from io import StringIO
+&gt;&gt;&gt; Table.from_csv(StringIO('c1,c2,c3\n1,2,3\nqwe,&quot;rty\nuio&quot;,'), name=&quot;Table Name&quot;).print()
++----------------+
+|   Table Name   |
++-----+-----+----+
+| c1  | c2  | c3 |
++-----+-----+----+
+|   1 |   2 |  3 |
++-----+-----+----+
+| qwe | rty |    |
+|     | uio |    |
++-----+-----+----+
+&gt;&gt;&gt; Table.from_csv(StringIO('c1,c2,c3\n1,2,3\nqwe,&quot;rty\nuio&quot;,'), name=&quot;Table Name&quot;, column_names=False).print()
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; import sqlite3
+&gt;&gt;&gt; cursor = sqlite3.connect(&quot;:memory:&quot;).cursor().execute(
+...     &quot;CREATE TABLE data (c1 TEXT, c2 TEXT, c3 TEXT);&quot;
+... ).executemany(
+...     &quot;INSERT INTO data (c1, c2, c3) VALUES (?, ?, ?);&quot;,
+...     [(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), (&quot;qwe&quot;, &quot;rty\nuio&quot;, &quot;&quot;)],
+... ).execute(
+...     &quot;SELECT c1, c2, c3 FROM data;&quot;
+... )
+&gt;&gt;&gt; Table.from_db_cursor(cursor, name=&quot;Table Name&quot;).print()
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; Table.from_db_cursor(
+...     cursor.execute(&quot;SELECT c1, c2, c3 FROM data;&quot;),
+...     name=&quot;Table Name&quot;,
+...     column_names=True,
+... ).print()
++----------------+
+|   Table Name   |
++-----+-----+----+
+| c1  | c2  | c3 |
++-----+-----+----+
+|   1 |   2 |  3 |
++-----+-----+----+
+| qwe | rty |    |
+|     | uio |    |
++-----+-----+----+
+&gt;&gt;&gt; from table2string import print_table, stringify_table
+&gt;&gt;&gt; print_table([(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), (&quot;qwe&quot;, &quot;rty\nuio&quot;, &quot;&quot;)], name=&quot;Table Name&quot;)
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; print(stringify_table([(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), (&quot;qwe&quot;, &quot;rty\nuio&quot;, &quot;&quot;)], name=&quot;Table Name&quot;))
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
 
+</code></pre>
 <h2>Custom width and height settings</h2>
 <table>
 <thead>
@@ -140,61 +138,64 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Width of the entire table with borders</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">([(</span><span class="mi">1</span><span class="p">,),</span> <span class="p">(</span><span class="mf">2.345</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+--------+</span>
-<span class="go">|      1 |</span>
-<span class="go">+--------+</span>
-<span class="go">|  2.345 |</span>
-<span class="go">+--------+</span>
-<span class="go">| exampl↩|</span>
-<span class="go">| e      |</span>
-<span class="go">+--------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="c1"># Width of each column individually</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">([(</span><span class="mi">1</span><span class="p">,),</span> <span class="p">(</span><span class="mf">2.345</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
-<span class="unselectable"><span class="go">+------------+</span>
-<span class="go">|          1 |</span>
-<span class="go">+------------+</span>
-<span class="go">|      2.345 |</span>
-<span class="go">+------------+</span>
-<span class="go">| example    |</span>
-<span class="go">+------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">([(</span><span class="s2">&quot;123456</span><span class="se">\n\n</span><span class="s2">789000&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">)],</span> <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+------+</span>
-<span class="go">| 123↩| exam↩|</span>
-<span class="go">| 456 | ple  |</span>
-<span class="go">|     |      |</span>
-<span class="go">| 789…|      |</span>
-<span class="go">+-----+------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">([(</span><span class="s2">&quot;123456789&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">max_height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---+</span>
-<span class="go">| 1…|</span>
-<span class="go">+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">table</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;123</span><span class="se">\n</span><span class="s2">456</span><span class="se">\n</span><span class="s2">789&quot;</span><span class="p">,)],</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,),</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">maximize_height</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+</span>
-<span class="go">| 123 |</span>
-<span class="go">| 456 |</span>
-<span class="go">| 789 |</span>
-<span class="go">|     |</span>
-<span class="go">+-----+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">table</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;123456789&quot;</span><span class="p">,)],</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,),</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">max_height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">maximize_height</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+</span>
-<span class="go">| 123↩|</span>
-<span class="go">| 456↩|</span>
-<span class="go">| 789 |</span>
-<span class="go">|     |</span>
-<span class="go">+-----+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; # Width of the entire table with borders
+&gt;&gt;&gt; print_table([(1,), (2.345,), (&quot;example&quot;,)], max_width=10)
++--------+
+|      1 |
++--------+
+|  2.345 |
++--------+
+| exampl↩|
+| e      |
++--------+
+&gt;&gt;&gt; # Width of each column individually
+&gt;&gt;&gt; print_table([(1,), (2.345,), (&quot;example&quot;,)], max_width=(10,))
++------------+
+|          1 |
++------------+
+|      2.345 |
++------------+
+| example    |
++------------+
+&gt;&gt;&gt; print_table([(&quot;123456\n\n789000&quot;, &quot;example&quot;)], max_width=(3, 4), max_height=4)
++-----+------+
+| 123↩| exam↩|
+| 456 | ple  |
+|     |      |
+| 789…|      |
++-----+------+
+&gt;&gt;&gt; print_table([(&quot;123456789&quot;,)], max_width=(1,), max_height=1)
++---+
+| 1…|
++---+
+&gt;&gt;&gt; print_table(
+...     table=[(&quot;123\n456\n789&quot;,)],
+...     max_width=(3,),
+...     max_height=4,
+...     maximize_height=True,
+... )
++-----+
+| 123 |
+| 456 |
+| 789 |
+|     |
++-----+
+&gt;&gt;&gt; print_table(
+...     table=[(&quot;123456789&quot;,)],
+...     max_width=(3,),
+...     max_height=4,
+...     maximize_height=True,
+... )
++-----+
+| 123↩|
+| 456↩|
+| 789 |
+|     |
++-----+
+
+</code></pre>
+
 </details>
 
 <h2>Text alignment</h2>
@@ -278,116 +279,119 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">kwargs_1</span> <span class="o">=</span> <span class="p">{</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;123456789</span><span class="se">\n</span><span class="s2">qwerty</span><span class="se">\n</span><span class="s2">asdfghjklzxcvb&quot;</span><span class="p">)],</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Table Name</span><span class="se">\n</span><span class="s2">Name</span><span class="se">\n</span><span class="s2">Naaaaame&quot;</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;column_names&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;col 2</span><span class="se">\n</span><span class="s2">c2&quot;</span><span class="p">),</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;max_width&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">}</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">|       Table Name        |</span>
-<span class="go">|          Name           |</span>
-<span class="go">|        Naaaaame         |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |      col 2      |</span>
-<span class="go">|       |       c2        |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|     1 | 123456789       |</span>
-<span class="go">|       | qwerty          |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>  <span class="c1"># align=&quot;**&quot;, name_align=&quot;**&quot;, column_names_align=&quot;**&quot;</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">| Table Name              |</span>
-<span class="go">| Name                    |</span>
-<span class="go">| Naaaaame                |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|     1 | col 2           |</span>
-<span class="go">|       | c2              |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|     1 | 123456789       |</span>
-<span class="go">|       | qwerty          |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;&lt;&quot;</span><span class="p">)</span>  <span class="c1"># align=&quot;&lt;&lt;&quot;, name_align=&quot;&lt;&lt;&quot;, column_names_align=&quot;&lt;&lt;&quot;</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">| Table Name              |</span>
-<span class="go">| Name                    |</span>
-<span class="go">| Naaaaame                |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">| 1     | col 2           |</span>
-<span class="go">|       | c2              |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">| 1     | 123456789       |</span>
-<span class="go">|       | qwerty          |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">)</span>  <span class="c1"># align=&quot;&gt;&gt;&quot;, name_align=&quot;&gt;&gt;&quot;, column_names_align=&quot;&gt;&gt;&quot;</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">|              Table Name |</span>
-<span class="go">|                    Name |</span>
-<span class="go">|                Naaaaame |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|     1 |           col 2 |</span>
-<span class="go">|       |              c2 |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|     1 |       123456789 |</span>
-<span class="go">|       |          qwerty |</span>
-<span class="go">|       |  asdfghjklzxcvb |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>  <span class="c1"># align=&quot;^^&quot;, name_align=&quot;^^&quot;, column_names_align=&quot;^^&quot;</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">|       Table Name        |</span>
-<span class="go">|          Name           |</span>
-<span class="go">|        Naaaaame         |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |      col 2      |</span>
-<span class="go">|       |       c2        |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |    123456789    |</span>
-<span class="go">|       |     qwerty      |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&lt;&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;^&lt;&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;^&lt;&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">|       Table Name        |</span>
-<span class="go">|       Name              |</span>
-<span class="go">|       Naaaaame          |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |      col 2      |</span>
-<span class="go">|       |      c2         |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   | 123456789       |</span>
-<span class="go">|       | qwerty          |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs_1</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&gt;&quot;</span><span class="p">,</span> <span class="n">name_align</span><span class="o">=</span><span class="s2">&quot;^&gt;&quot;</span><span class="p">,</span> <span class="n">column_names_align</span><span class="o">=</span><span class="s2">&quot;^&gt;&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------------------------+</span>
-<span class="go">|       Table Name        |</span>
-<span class="go">|             Name        |</span>
-<span class="go">|         Naaaaame        |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |      col 2      |</span>
-<span class="go">|       |         c2      |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="go">|   1   |      123456789  |</span>
-<span class="go">|       |         qwerty  |</span>
-<span class="go">|       | asdfghjklzxcvb  |</span>
-<span class="go">+-------+-----------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">([(</span><span class="s2">&quot;qwerty</span><span class="se">\n</span><span class="s2">123456789</span><span class="se">\n</span><span class="s2">asdfghjklzxcvb&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,),</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&lt;&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+--------------------+</span>
-<span class="go">|   qwerty           |</span>
-<span class="go">|   123456789        |</span>
-<span class="go">|   asdfghjklzxcvb   |</span>
-<span class="go">+--------------------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">([(</span><span class="s2">&quot;qwerty</span><span class="se">\n</span><span class="s2">123456789</span><span class="se">\n</span><span class="s2">asdfghjklzxcvb&quot;</span><span class="p">,)],</span> <span class="n">max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,),</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&gt;&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+--------------------+</span>
-<span class="go">|           qwerty   |</span>
-<span class="go">|        123456789   |</span>
-<span class="go">|   asdfghjklzxcvb   |</span>
-<span class="go">+--------------------+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; kwargs_1 = {
+...     &quot;table&quot;: [(&quot;1&quot;, &quot;123456789\nqwerty\nasdfghjklzxcvb&quot;)],
+...     &quot;name&quot;: &quot;Table Name\nName\nNaaaaame&quot;,
+...     &quot;column_names&quot;: (&quot;1&quot;, &quot;col 2\nc2&quot;),
+...     &quot;max_width&quot;: (5, 15),
+... }
+&gt;&gt;&gt; print_table(**kwargs_1)
++-------------------------+
+|       Table Name        |
+|          Name           |
+|        Naaaaame         |
++-------+-----------------+
+|   1   |      col 2      |
+|       |       c2        |
++-------+-----------------+
+|     1 | 123456789       |
+|       | qwerty          |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;*&quot;, name_align=&quot;*&quot;, column_names_align=&quot;*&quot;)  # align=&quot;**&quot;, name_align=&quot;**&quot;, column_names_align=&quot;**&quot;
++-------------------------+
+| Table Name              |
+| Name                    |
+| Naaaaame                |
++-------+-----------------+
+|     1 | col 2           |
+|       | c2              |
++-------+-----------------+
+|     1 | 123456789       |
+|       | qwerty          |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;&lt;&quot;, name_align=&quot;&lt;&quot;, column_names_align=&quot;&lt;&quot;)  # align=&quot;&lt;&lt;&quot;, name_align=&quot;&lt;&lt;&quot;, column_names_align=&quot;&lt;&lt;&quot;
++-------------------------+
+| Table Name              |
+| Name                    |
+| Naaaaame                |
++-------+-----------------+
+| 1     | col 2           |
+|       | c2              |
++-------+-----------------+
+| 1     | 123456789       |
+|       | qwerty          |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;&gt;&quot;, name_align=&quot;&gt;&quot;, column_names_align=&quot;&gt;&quot;)  # align=&quot;&gt;&gt;&quot;, name_align=&quot;&gt;&gt;&quot;, column_names_align=&quot;&gt;&gt;&quot;
++-------------------------+
+|              Table Name |
+|                    Name |
+|                Naaaaame |
++-------+-----------------+
+|     1 |           col 2 |
+|       |              c2 |
++-------+-----------------+
+|     1 |       123456789 |
+|       |          qwerty |
+|       |  asdfghjklzxcvb |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;^&quot;, name_align=&quot;^&quot;, column_names_align=&quot;^&quot;)  # align=&quot;^^&quot;, name_align=&quot;^^&quot;, column_names_align=&quot;^^&quot;
++-------------------------+
+|       Table Name        |
+|          Name           |
+|        Naaaaame         |
++-------+-----------------+
+|   1   |      col 2      |
+|       |       c2        |
++-------+-----------------+
+|   1   |    123456789    |
+|       |     qwerty      |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;^&lt;&quot;, name_align=&quot;^&lt;&quot;, column_names_align=&quot;^&lt;&quot;)
++-------------------------+
+|       Table Name        |
+|       Name              |
+|       Naaaaame          |
++-------+-----------------+
+|   1   |      col 2      |
+|       |      c2         |
++-------+-----------------+
+|   1   | 123456789       |
+|       | qwerty          |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table(**kwargs_1, align=&quot;^&gt;&quot;, name_align=&quot;^&gt;&quot;, column_names_align=&quot;^&gt;&quot;)
++-------------------------+
+|       Table Name        |
+|             Name        |
+|         Naaaaame        |
++-------+-----------------+
+|   1   |      col 2      |
+|       |         c2      |
++-------+-----------------+
+|   1   |      123456789  |
+|       |         qwerty  |
+|       | asdfghjklzxcvb  |
++-------+-----------------+
+&gt;&gt;&gt; print_table([(&quot;qwerty\n123456789\nasdfghjklzxcvb&quot;,)], max_width=(18,), align=&quot;^&lt;&quot;)
++--------------------+
+|   qwerty           |
+|   123456789        |
+|   asdfghjklzxcvb   |
++--------------------+
+&gt;&gt;&gt; print_table([(&quot;qwerty\n123456789\nasdfghjklzxcvb&quot;,)], max_width=(18,), align=&quot;^&gt;&quot;)
++--------------------+
+|           qwerty   |
+|        123456789   |
+|   asdfghjklzxcvb   |
++--------------------+
+
+</code></pre>
+
 </details>
 
 <h2>Separator settings</h2>
@@ -424,111 +428,116 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">table_1</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;123456</span><span class="se">\n\n</span><span class="s2">789000&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">)]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;max_width&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;max_height&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">}</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">(</span><span class="n">table_1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+------+</span>
-<span class="go">| qwe | rty  |</span>
-<span class="go">|     | uio  |</span>
-<span class="go">+-----+------+</span>
-<span class="go">| 123↩| exam↩|</span>
-<span class="go">| 456 | ple  |</span>
-<span class="go">|     |      |</span>
-<span class="go">| 789…|      |</span>
-<span class="go">+-----+------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+------+</span>
-<span class="go">| qwe | rty  |</span>
-<span class="go">|     | uio  |</span>
-<span class="go">| 123↩| exam↩|</span>
-<span class="go">| 456 | ple  |</span>
-<span class="go">|     |      |</span>
-<span class="go">| 789…|      |</span>
-<span class="go">+-----+------+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">table_2</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">)]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">(</span><span class="n">table_2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------+</span>
-<span class="go">| Name  |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_2</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------+</span>
-<span class="go">| Name  |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">table_3</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="s2">&quot;8&quot;</span><span class="p">)]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-<span class="unselectable"><span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span>
-<span class="unselectable"><span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="unselectable"><span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------+</span>
-<span class="go">| Name  |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------+</span>
-<span class="go">| Name  |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">print_table</span><span class="p">(</span><span class="n">table_3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-------+</span>
-<span class="go">| Name  |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 1 | 2 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 3 | 4 |</span>
-<span class="go">| 5 | 6 |</span>
-<span class="go">+---+---+</span>
-<span class="go">| 7 | 8 |</span>
-<span class="go">+---+---+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; table_1 = [(&quot;qwe&quot;, &quot;rty\nuio&quot;), (&quot;123456\n\n789000&quot;, &quot;example&quot;)]
+&gt;&gt;&gt; kwargs = {
+...     &quot;max_width&quot;: (3, 4),
+...     &quot;max_height&quot;: 4,
+... }
+&gt;&gt;&gt; print_table(table_1, **kwargs, sep=True)
++-----+------+
+| qwe | rty  |
+|     | uio  |
++-----+------+
+| 123↩| exam↩|
+| 456 | ple  |
+|     |      |
+| 789…|      |
++-----+------+
+&gt;&gt;&gt; print_table(table_1, **kwargs, sep=False)
++-----+------+
+| qwe | rty  |
+|     | uio  |
+| 123↩| exam↩|
+| 456 | ple  |
+|     |      |
+| 789…|      |
++-----+------+
+&gt;&gt;&gt; table_2 = [(&quot;1&quot;, &quot;2&quot;), (&quot;3&quot;, &quot;4&quot;)]
+&gt;&gt;&gt; print_table(table_2, sep=True, name=&quot;Name&quot;)
++-------+
+| Name  |
++---+---+
+| 1 | 2 |
++---+---+
+| 3 | 4 |
++---+---+
+&gt;&gt;&gt; print_table(table_2, sep=False, name=&quot;Name&quot;)
++-------+
+| Name  |
++---+---+
+| 1 | 2 |
+| 3 | 4 |
++---+---+
+&gt;&gt;&gt; table_3 = [(&quot;1&quot;, &quot;2&quot;), (&quot;3&quot;, &quot;4&quot;), (&quot;5&quot;, &quot;6&quot;), (&quot;7&quot;, &quot;8&quot;)]
+&gt;&gt;&gt; print_table(table_3, sep=(1,))
++---+---+
+| 1 | 2 |
++---+---+
+| 3 | 4 |
+| 5 | 6 |
+| 7 | 8 |
++---+---+
+&gt;&gt;&gt; print_table(table_3, sep=(2,))
++---+---+
+| 1 | 2 |
+| 3 | 4 |
++---+---+
+| 5 | 6 |
+| 7 | 8 |
++---+---+
+&gt;&gt;&gt; print_table(table_3, sep=(1, 3))
++---+---+
+| 1 | 2 |
++---+---+
+| 3 | 4 |
+| 5 | 6 |
++---+---+
+| 7 | 8 |
++---+---+
+&gt;&gt;&gt; print_table(table_3, sep=(1,), name=&quot;Name&quot;)
++-------+
+| Name  |
++---+---+
+| 1 | 2 |
++---+---+
+| 3 | 4 |
+| 5 | 6 |
+| 7 | 8 |
++---+---+
+&gt;&gt;&gt; print_table(table_3, sep=(2,), name=&quot;Name&quot;)
++-------+
+| Name  |
++---+---+
+| 1 | 2 |
+| 3 | 4 |
++---+---+
+| 5 | 6 |
+| 7 | 8 |
++---+---+
+&gt;&gt;&gt; print_table(table_3, sep=(1, 3), name=&quot;Name&quot;)
++-------+
+| Name  |
++---+---+
+| 1 | 2 |
++---+---+
+| 3 | 4 |
+| 5 | 6 |
++---+---+
+| 7 | 8 |
++---+---+
+
+</code></pre>
+
+
 </details>
 
 <h2>Borders</h2>
 <details>
 <summary>Border types</summary>
 
-<div class="code-element"><div class="lang-line"><text>text</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>┌──────────────┬───────────────────┐
+
+<pre><code class="language-text">┌──────────────┬───────────────────┐
 │  ascii_thin  │ ascii_thin_double │
 │  +---+---+   │     +---+---+     │
 │  |   |   |   │     |   |   |     │
@@ -607,738 +616,795 @@
 │  |   |   |   │                   │
 │  |   |   |   │                   │
 └──────────────┴───────────────────┘
-</pre></div></div></div>
+</code></pre>
+
+
 </details>
 
 <details>
 <summary>Example</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Themes</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">column_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;c1&quot;</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">table</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;qwe&quot;</span><span class="p">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_name</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_column_names</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t_name_column_names</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
-</pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; from table2string import Table, Themes
+&gt;&gt;&gt; name = &quot;Table Name&quot;
+&gt;&gt;&gt; column_names = (&quot;c1&quot;, &quot;c2&quot;, &quot;3&quot;)
+&gt;&gt;&gt; table = [(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), (&quot;qwe&quot;, &quot;rty\nuio&quot;, &quot;&quot;)]
+&gt;&gt;&gt; t = Table(table)
+&gt;&gt;&gt; t_name = Table(table, name=name)
+&gt;&gt;&gt; t_column_names = Table(table, column_names=column_names)
+&gt;&gt;&gt; t_name_column_names = Table(table, name=name, column_names=column_names)
+
+</code></pre>
+
 
 <details>
 <summary>Themes.ascii_thin</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+-----+---+</span>
-<span class="go">| c1  | c2  | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| c1  | c2  | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">
+&gt;&gt;&gt; t.print(theme=Themes.ascii_thin)
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_column_names.print(theme=Themes.ascii_thin)
++-----+-----+---+
+| c1  | c2  | 3 |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_name.print(theme=Themes.ascii_thin)
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.ascii_thin)
++---------------+
+|  Table Name   |
++-----+-----+---+
+| c1  | c2  | 3 |
++-----+-----+---+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.ascii_thin_double</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+-----+-----+---+</span>
-<span class="go">| c1  | c2  | 3 |</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+---------------+</span>
-<span class="go">|  Table Name   |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| c1  | c2  | 3 |</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="go">+-----+-----+---+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.ascii_thin_double)
++-----+-----+---+
+|   1 |   2 | 3 |
++=====+=====+===+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_column_names.print(theme=Themes.ascii_thin_double)
++-----+-----+---+
+| c1  | c2  | 3 |
++=====+=====+===+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_name.print(theme=Themes.ascii_thin_double)
++---------------+
+|  Table Name   |
++-----+-----+---+
+|   1 |   2 | 3 |
++=====+=====+===+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.ascii_thin_double)
++---------------+
+|  Table Name   |
++-----+-----+---+
+| c1  | c2  | 3 |
++=====+=====+===+
+|   1 |   2 | 3 |
++-----+-----+---+
+| qwe | rty |   |
+|     | uio |   |
++-----+-----+---+
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.ascii_double</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+=====+=====+===+</span>
-<span class="go">‖ c1  ‖ c2  ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+===============+</span>
-<span class="go">‖  Table Name   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+===============+</span>
-<span class="go">‖  Table Name   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ c1  ‖ c2  ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.ascii_double)
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_column_names.print(theme=Themes.ascii_double)
++=====+=====+===+
+‖ c1  ‖ c2  ‖ 3 ‖
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_name.print(theme=Themes.ascii_double)
++===============+
+‖  Table Name   ‖
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.ascii_double)
++===============+
+‖  Table Name   ‖
++=====+=====+===+
+‖ c1  ‖ c2  ‖ 3 ‖
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.ascii_double_thin</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+=====+=====+===+</span>
-<span class="go">‖ c1  ‖ c2  ‖ 3 ‖</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+===============+</span>
-<span class="go">‖  Table Name   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">+===============+</span>
-<span class="go">‖  Table Name   ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ c1  ‖ c2  ‖ 3 ‖</span>
-<span class="go">+-----+-----+---+</span>
-<span class="go">‖   1 ‖   2 ‖ 3 ‖</span>
-<span class="go">+=====+=====+===+</span>
-<span class="go">‖ qwe ‖ rty ‖   ‖</span>
-<span class="go">‖     ‖ uio ‖   ‖</span>
-<span class="go">+=====+=====+===+</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.ascii_double_thin)
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++-----+-----+---+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_column_names.print(theme=Themes.ascii_double_thin)
++=====+=====+===+
+‖ c1  ‖ c2  ‖ 3 ‖
++-----+-----+---+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_name.print(theme=Themes.ascii_double_thin)
++===============+
+‖  Table Name   ‖
++=====+=====+===+
+‖   1 ‖   2 ‖ 3 ‖
++-----+-----+---+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.ascii_double_thin)
++===============+
+‖  Table Name   ‖
++=====+=====+===+
+‖ c1  ‖ c2  ‖ 3 ‖
++-----+-----+---+
+‖   1 ‖   2 ‖ 3 ‖
++=====+=====+===+
+‖ qwe ‖ rty ‖   ‖
+‖     ‖ uio ‖   ‖
++=====+=====+===+
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.ascii_booktabs</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> --------------- </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> =============== </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> --------------- </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> --------------- </span>
-<span class="go">  c1    c2    3  </span>
-<span class="go"> =============== </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> --------------- </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> --------------- </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> --------------- </span>
-<span class="go">   Table Name    </span>
-<span class="go"> --------------- </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> =============== </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> --------------- </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">ascii_booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> --------------- </span>
-<span class="go">   Table Name    </span>
-<span class="go"> --------------- </span>
-<span class="go">  c1    c2    3  </span>
-<span class="go"> =============== </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> --------------- </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> ---------------</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.ascii_booktabs)
+ --------------- 
+    1     2   3  
+ =============== 
+  qwe   rty      
+        uio      
+ --------------- 
+&gt;&gt;&gt; t_column_names.print(theme=Themes.ascii_booktabs)
+ --------------- 
+  c1    c2    3  
+ =============== 
+    1     2   3  
+ --------------- 
+  qwe   rty      
+        uio      
+ --------------- 
+&gt;&gt;&gt; t_name.print(theme=Themes.ascii_booktabs)
+ --------------- 
+   Table Name    
+ --------------- 
+    1     2   3  
+ =============== 
+  qwe   rty      
+        uio      
+ --------------- 
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.ascii_booktabs)
+ --------------- 
+   Table Name    
+ --------------- 
+  c1    c2    3  
+ =============== 
+    1     2   3  
+ --------------- 
+  qwe   rty      
+        uio      
+ --------------- 
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.thin</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.thin)
+┌─────┬─────┬───┐
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_column_names.print(theme=Themes.thin)
+┌─────┬─────┬───┐
+│ c1  │ c2  │ 3 │
+├─────┼─────┼───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name.print(theme=Themes.thin)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.thin)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+├─────┼─────┼───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.thin_thick</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.thin_thick)
+┌─────┬─────┬───┐
+│   1 │   2 │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_column_names.print(theme=Themes.thin_thick)
+┌─────┬─────┬───┐
+│ c1  │ c2  │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name.print(theme=Themes.thin_thick)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.thin_thick)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.thin_double</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thin_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.thin_double)
+┌─────┬─────┬───┐
+│   1 │   2 │ 3 │
+╞═════╪═════╪═══╡
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_column_names.print(theme=Themes.thin_double)
+┌─────┬─────┬───┐
+│ c1  │ c2  │ 3 │
+╞═════╪═════╪═══╡
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name.print(theme=Themes.thin_double)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+╞═════╪═════╪═══╡
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.thin_double)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+╞═════╪═════╪═══╡
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.rounded</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.rounded)
+╭─────┬─────┬───╮
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_column_names.print(theme=Themes.rounded)
+╭─────┬─────┬───╮
+│ c1  │ c2  │ 3 │
+├─────┼─────┼───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name.print(theme=Themes.rounded)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.rounded)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+├─────┼─────┼───┤
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.rounded_thick</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┝━━━━━┿━━━━━┿━━━┥</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.rounded_thick)
+╭─────┬─────┬───╮
+│   1 │   2 │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_column_names.print(theme=Themes.rounded_thick)
+╭─────┬─────┬───╮
+│ c1  │ c2  │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name.print(theme=Themes.rounded_thick)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.rounded_thick)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+┝━━━━━┿━━━━━┿━━━┥
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.rounded_double</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭─────┬─────┬───╮</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">rounded_double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╭───────────────╮</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">╞═════╪═════╪═══╡</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">╰─────┴─────┴───╯</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.rounded_double)
+╭─────┬─────┬───╮
+│   1 │   2 │ 3 │
+╞═════╪═════╪═══╡
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_column_names.print(theme=Themes.rounded_double)
+╭─────┬─────┬───╮
+│ c1  │ c2  │ 3 │
+╞═════╪═════╪═══╡
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name.print(theme=Themes.rounded_double)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+╞═════╪═════╪═══╡
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.rounded_double)
+╭───────────────╮
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+╞═════╪═════╪═══╡
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+╰─────┴─────┴───╯
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.thick</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┏━━━━━┳━━━━━┳━━━┓</span>
-<span class="go">┃   1 ┃   2 ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃ qwe ┃ rty ┃   ┃</span>
-<span class="go">┃     ┃ uio ┃   ┃</span>
-<span class="go">┗━━━━━┻━━━━━┻━━━┛</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┏━━━━━┳━━━━━┳━━━┓</span>
-<span class="go">┃ c1  ┃ c2  ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃   1 ┃   2 ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃ qwe ┃ rty ┃   ┃</span>
-<span class="go">┃     ┃ uio ┃   ┃</span>
-<span class="go">┗━━━━━┻━━━━━┻━━━┛</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┏━━━━━━━━━━━━━━━┓</span>
-<span class="go">┃  Table Name   ┃</span>
-<span class="go">┣━━━━━┳━━━━━┳━━━┫</span>
-<span class="go">┃   1 ┃   2 ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃ qwe ┃ rty ┃   ┃</span>
-<span class="go">┃     ┃ uio ┃   ┃</span>
-<span class="go">┗━━━━━┻━━━━━┻━━━┛</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┏━━━━━━━━━━━━━━━┓</span>
-<span class="go">┃  Table Name   ┃</span>
-<span class="go">┣━━━━━┳━━━━━┳━━━┫</span>
-<span class="go">┃ c1  ┃ c2  ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃   1 ┃   2 ┃ 3 ┃</span>
-<span class="go">┣━━━━━╋━━━━━╋━━━┫</span>
-<span class="go">┃ qwe ┃ rty ┃   ┃</span>
-<span class="go">┃     ┃ uio ┃   ┃</span>
-<span class="go">┗━━━━━┻━━━━━┻━━━┛</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.thick)
+┏━━━━━┳━━━━━┳━━━┓
+┃   1 ┃   2 ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃ qwe ┃ rty ┃   ┃
+┃     ┃ uio ┃   ┃
+┗━━━━━┻━━━━━┻━━━┛
+&gt;&gt;&gt; t_column_names.print(theme=Themes.thick)
+┏━━━━━┳━━━━━┳━━━┓
+┃ c1  ┃ c2  ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃   1 ┃   2 ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃ qwe ┃ rty ┃   ┃
+┃     ┃ uio ┃   ┃
+┗━━━━━┻━━━━━┻━━━┛
+&gt;&gt;&gt; t_name.print(theme=Themes.thick)
+┏━━━━━━━━━━━━━━━┓
+┃  Table Name   ┃
+┣━━━━━┳━━━━━┳━━━┫
+┃   1 ┃   2 ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃ qwe ┃ rty ┃   ┃
+┃     ┃ uio ┃   ┃
+┗━━━━━┻━━━━━┻━━━┛
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.thick)
+┏━━━━━━━━━━━━━━━┓
+┃  Table Name   ┃
+┣━━━━━┳━━━━━┳━━━┫
+┃ c1  ┃ c2  ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃   1 ┃   2 ┃ 3 ┃
+┣━━━━━╋━━━━━╋━━━┫
+┃ qwe ┃ rty ┃   ┃
+┃     ┃ uio ┃   ┃
+┗━━━━━┻━━━━━┻━━━┛
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.thick_thin</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┠━━━━━╂━━━━━╂━━━┨</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌─────┬─────┬───┐</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┠━━━━━╂━━━━━╂━━━┨</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">┠━━━━━╂━━━━━╂━━━┨</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">thick_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">┌───────────────┐</span>
-<span class="go">│  Table Name   │</span>
-<span class="go">├─────┬─────┬───┤</span>
-<span class="go">│ c1  │ c2  │ 3 │</span>
-<span class="go">┠━━━━━╂━━━━━╂━━━┨</span>
-<span class="go">│   1 │   2 │ 3 │</span>
-<span class="go">├─────┼─────┼───┤</span>
-<span class="go">│ qwe │ rty │   │</span>
-<span class="go">│     │ uio │   │</span>
-<span class="go">└─────┴─────┴───┘</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.thick_thin)
+┌─────┬─────┬───┐
+│   1 │   2 │ 3 │
+┠━━━━━╂━━━━━╂━━━┨
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_column_names.print(theme=Themes.thick_thin)
+┌─────┬─────┬───┐
+│ c1  │ c2  │ 3 │
+┠━━━━━╂━━━━━╂━━━┨
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name.print(theme=Themes.thick_thin)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│   1 │   2 │ 3 │
+┠━━━━━╂━━━━━╂━━━┨
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.thick_thin)
+┌───────────────┐
+│  Table Name   │
+├─────┬─────┬───┤
+│ c1  │ c2  │ 3 │
+┠━━━━━╂━━━━━╂━━━┨
+│   1 │   2 │ 3 │
+├─────┼─────┼───┤
+│ qwe │ rty │   │
+│     │ uio │   │
+└─────┴─────┴───┘
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.double</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
-<span class="go">║ c1  ║ c2  ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═══════════════╗</span>
-<span class="go">║  Table Name   ║</span>
-<span class="go">╠═════╦═════╦═══╣</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═══════════════╗</span>
-<span class="go">║  Table Name   ║</span>
-<span class="go">╠═════╦═════╦═══╣</span>
-<span class="go">║ c1  ║ c2  ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.double)
+╔═════╦═════╦═══╗
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_column_names.print(theme=Themes.double)
+╔═════╦═════╦═══╗
+║ c1  ║ c2  ║ 3 ║
+╠═════╬═════╬═══╣
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_name.print(theme=Themes.double)
+╔═══════════════╗
+║  Table Name   ║
+╠═════╦═════╦═══╣
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.double)
+╔═══════════════╗
+║  Table Name   ║
+╠═════╦═════╦═══╣
+║ c1  ║ c2  ║ 3 ║
+╠═════╬═════╬═══╣
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.double_thin</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╟─────╫─────╫───╢</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═════╦═════╦═══╗</span>
-<span class="go">║ c1  ║ c2  ║ 3 ║</span>
-<span class="go">╟─────╫─────╫───╢</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═══════════════╗</span>
-<span class="go">║  Table Name   ║</span>
-<span class="go">╠═════╦═════╦═══╣</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╟─────╫─────╫───╢</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">double_thin</span><span class="p">)</span>
-<span class="unselectable"><span class="go">╔═══════════════╗</span>
-<span class="go">║  Table Name   ║</span>
-<span class="go">╠═════╦═════╦═══╣</span>
-<span class="go">║ c1  ║ c2  ║ 3 ║</span>
-<span class="go">╟─────╫─────╫───╢</span>
-<span class="go">║   1 ║   2 ║ 3 ║</span>
-<span class="go">╠═════╬═════╬═══╣</span>
-<span class="go">║ qwe ║ rty ║   ║</span>
-<span class="go">║     ║ uio ║   ║</span>
-<span class="go">╚═════╩═════╩═══╝</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.double_thin)
+╔═════╦═════╦═══╗
+║   1 ║   2 ║ 3 ║
+╟─────╫─────╫───╢
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_column_names.print(theme=Themes.double_thin)
+╔═════╦═════╦═══╗
+║ c1  ║ c2  ║ 3 ║
+╟─────╫─────╫───╢
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_name.print(theme=Themes.double_thin)
+╔═══════════════╗
+║  Table Name   ║
+╠═════╦═════╦═══╣
+║   1 ║   2 ║ 3 ║
+╟─────╫─────╫───╢
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.double_thin)
+╔═══════════════╗
+║  Table Name   ║
+╠═════╦═════╦═══╣
+║ c1  ║ c2  ║ 3 ║
+╟─────╫─────╫───╢
+║   1 ║   2 ║ 3 ║
+╠═════╬═════╬═══╣
+║ qwe ║ rty ║   ║
+║     ║ uio ║   ║
+╚═════╩═════╩═══╝
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.booktabs</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> ─────────────── </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> ━━━━━━━━━━━━━━━ </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> ─────────────── </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> ─────────────── </span>
-<span class="go">  c1    c2    3  </span>
-<span class="go"> ━━━━━━━━━━━━━━━ </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> ─────────────── </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> ─────────────── </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> ─────────────── </span>
-<span class="go">   Table Name    </span>
-<span class="go"> ─────────────── </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> ━━━━━━━━━━━━━━━ </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> ─────────────── </span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">booktabs</span><span class="p">)</span>
-<span class="unselectable"><span class="go"> ─────────────── </span>
-<span class="go">   Table Name    </span>
-<span class="go"> ─────────────── </span>
-<span class="go">  c1    c2    3  </span>
-<span class="go"> ━━━━━━━━━━━━━━━ </span>
-<span class="go">    1     2   3  </span>
-<span class="go"> ─────────────── </span>
-<span class="go">  qwe   rty      </span>
-<span class="go">        uio      </span>
-<span class="go"> ───────────────</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.booktabs)
+ ─────────────── 
+    1     2   3  
+ ━━━━━━━━━━━━━━━ 
+  qwe   rty      
+        uio      
+ ─────────────── 
+&gt;&gt;&gt; t_column_names.print(theme=Themes.booktabs)
+ ─────────────── 
+  c1    c2    3  
+ ━━━━━━━━━━━━━━━ 
+    1     2   3  
+ ─────────────── 
+  qwe   rty      
+        uio      
+ ─────────────── 
+&gt;&gt;&gt; t_name.print(theme=Themes.booktabs)
+ ─────────────── 
+   Table Name    
+ ─────────────── 
+    1     2   3  
+ ━━━━━━━━━━━━━━━ 
+  qwe   rty      
+        uio      
+ ─────────────── 
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.booktabs)
+ ─────────────── 
+   Table Name    
+ ─────────────── 
+  c1    c2    3  
+ ━━━━━━━━━━━━━━━ 
+    1     2   3  
+ ─────────────── 
+  qwe   rty      
+        uio      
+ ─────────────── 
+</code></pre>
+
+
 </details>
 
 
 <details>
 <summary>Themes.markdown</summary>
 
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
-<span class="unselectable"><span class="go">|   1 |   2 | 3 |</span>
-<span class="go">|-----|-----|---|</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
-<span class="unselectable"><span class="go">| c1  | c2  | 3 |</span>
-<span class="go">|-----|-----|---|</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
-<span class="unselectable"><span class="go">|  Table Name   |</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">|-----|-----|---|</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">t_name_column_names</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="n">Themes</span><span class="o">.</span><span class="n">markdown</span><span class="p">)</span>
-<span class="unselectable"><span class="go">|  Table Name   |</span>
-<span class="go">| c1  | c2  | 3 |</span>
-<span class="go">|-----|-----|---|</span>
-<span class="go">|   1 |   2 | 3 |</span>
-<span class="go">| qwe | rty |   |</span>
-<span class="go">|     | uio |   |</span>
-</span></pre></div></div></div>
+
+<pre><code class="language-pycon">&gt;&gt;&gt; t.print(theme=Themes.markdown)
+|   1 |   2 | 3 |
+|-----|-----|---|
+| qwe | rty |   |
+|     | uio |   |
+&gt;&gt;&gt; t_column_names.print(theme=Themes.markdown)
+| c1  | c2  | 3 |
+|-----|-----|---|
+|   1 |   2 | 3 |
+| qwe | rty |   |
+|     | uio |   |
+&gt;&gt;&gt; t_name.print(theme=Themes.markdown)
+|  Table Name   |
+|   1 |   2 | 3 |
+|-----|-----|---|
+| qwe | rty |   |
+|     | uio |   |
+&gt;&gt;&gt; t_name_column_names.print(theme=Themes.markdown)
+|  Table Name   |
+| c1  | c2  | 3 |
+|-----|-----|---|
+|   1 |   2 | 3 |
+| qwe | rty |   |
+|     | uio |   |
+</code></pre>
+
+
 </details>
 </details>
 
@@ -1346,27 +1412,29 @@
 <details>
 <summary>Example</summary>
 
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
-<span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> <span class="n">Table</span>
 
-<span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;plain text&quot;</span><span class="p">,</span> <span class="s2">&quot;emoji&quot;</span><span class="p">)</span>
-<span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span>
-        <span class="s2">&quot;text</span><span class="se">\n</span><span class="s2">text&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;👨‍👩‍👧‍👦👨‍👩‍👦‍👦👨‍👩‍👧‍👧</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👧👩‍❤️‍👨</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;👨‍❤️‍👨👯👩‍🦼👭👨‍👩‍👧‍👦</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;👨‍👨‍👧‍👦👨‍👨‍👦👩‍👩‍👧</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;👨‍👨‍👧‍👧👨‍👩‍👦‍👦&quot;</span><span class="p">,</span>
-    <span class="p">),</span>
-<span class="p">]</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">PrettyTable</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;prettytable&quot;</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">add_rows</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<pre><code class="language-python">from prettytable import PrettyTable
+from table2string import Table
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;table2string&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
-<span class="n">t</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">align</span><span class="o">=</span><span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-</pre></div></div></div>
+names = (&quot;plain text&quot;, &quot;emoji&quot;)
+table = [
+    (
+        &quot;text\ntext&quot;,
+        &quot;👨‍👩‍👧‍👦👨‍👩‍👦‍👦👨‍👩‍👧‍👧\n&quot;
+        &quot;👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👧👩‍❤️‍👨\n&quot;
+        &quot;👨‍❤️‍👨👯👩‍🦼👭👨‍👩‍👧‍👦\n&quot;
+        &quot;👨‍👨‍👧‍👦👨‍👨‍👦👩‍👩‍👧\n&quot;
+        &quot;👨‍👨‍👧‍👧👨‍👩‍👦‍👦&quot;,
+    ),
+]
+t = PrettyTable(title=&quot;prettytable&quot;, field_names=names, align=&quot;c&quot;)
+t.add_rows(table)
+print(t)
+
+t = Table(table, name=&quot;table2string&quot;, column_names=names)
+t.print(align=&quot;^&quot;, sep=(1,))
+</code></pre>
+
 
 <details>
     <summary>Windows Terminal</summary>

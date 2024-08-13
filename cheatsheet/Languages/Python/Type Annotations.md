@@ -1,76 +1,65 @@
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>  <span class="c1"># Любой тип</span>
-</pre></div></div></div>
+<pre><code class="language-python">from typing import Any  # Любой тип
+</code></pre>
+<pre><code class="language-python">from typing import Literal  # Один из вариантов
+direction: Literal[&quot;ASC&quot;, &quot;DESC&quot;] = &quot;DESC&quot;
+</code></pre>
+<pre><code class="language-python">from typing import Union
+val: Union[int, float] = 20.8  # or 20
+</code></pre>
+<pre><code class="language-python">from typing import Final
 
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>  <span class="c1"># Один из вариантов</span>
-<span class="n">direction</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;ASC&quot;</span><span class="p">,</span> <span class="s2">&quot;DESC&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DESC&quot;</span>
-</pre></div></div></div>
-
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
-<span class="n">val</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">20.8</span>  <span class="c1"># or 20</span>
-</pre></div></div></div>
-
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Final</span>
-
-<span class="n">val</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Ошибки не произойдёт, но IDE подсветит как ошибку.</span>
-</pre></div></div></div>
-
+val: Final = 2
+val += 1  # Ошибки не произойдёт, но IDE подсветит как ошибку.
+</code></pre>
 <h1>Использование статической проверки типов в Python</h1>
 <p>Интерпретатор Python по умолчанию не осуществляет проверку типов.
 Однако была создана версия интерпретатора Python – <code>mypy</code>,
 которая обеспечивает проверку типов на уровне интерпретатора.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NoReturn</span>
-<span class="c1"># NoReturn сообщает что функция не завершается нормально.</span>
-<span class="c1"># Например она возбуждает исключение.</span>
+<pre><code class="language-python">from typing import NoReturn
+# NoReturn сообщает что функция не завершается нормально.
+# Например она возбуждает исключение.
 
-<span class="k">def</span> <span class="nf">forever</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">NoReturn</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">pass</span>
-</pre></div></div></div>
-
+def forever() -&gt; NoReturn:
+    while True:
+        pass
+</code></pre>
 <p>Если это генераторная функция, то есть её тело содержит оператор <code>yield</code>, 
 для возвращаемого можно воспользоваться аннотацией <code>Iterable[T]</code>, либо <code>Generator[YT, ST, RT]</code>:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_two</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-    <span class="k">yield</span> <span class="mi">1</span>
-    <span class="k">yield</span> <span class="s2">&quot;2&quot;</span>  <span class="c1"># Incompatible types in &quot;yield&quot; (actual type &quot;str&quot;, expected type &quot;int&quot;)</span>
-</pre></div></div></div>
+<pre><code class="language-python">def generate_two() -&gt; Iterable[int]:
+    yield 1
+    yield &quot;2&quot;  # Incompatible types in &quot;yield&quot; (actual type &quot;str&quot;, expected type &quot;int&quot;)
+</code></pre>
+<pre><code class="language-python">from typing import Optional
 
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+amount: int
+amount = None  # Incompatible types in assignment (expression has type &quot;None&quot;, variable has type &quot;int&quot;)
 
-<span class="n">amount</span><span class="p">:</span> <span class="nb">int</span>
-<span class="n">amount</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Incompatible types in assignment (expression has type &quot;None&quot;, variable has type &quot;int&quot;)</span>
+price: Optional[int]
+price = None
 
-<span class="n">price</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-<span class="n">price</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="c1"># Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.</span>
-</pre></div></div></div>
-
+# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
+</code></pre>
 <h1>Предварительное объявление</h1>
 <p>Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinkedList</span><span class="p">:</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
-    <span class="nb">next</span><span class="p">:</span> <span class="n">LinkedList</span>  <span class="c1"># NameError: name &#39;LinkedList&#39; is not defined</span>
-</pre></div></div></div>
-
+<pre><code class="language-python">class LinkedList:
+    data: Any
+    next: LinkedList  # NameError: name 'LinkedList' is not defined
+</code></pre>
 <p>Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinkedList</span><span class="p">:</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span>
-    <span class="nb">next</span><span class="p">:</span> <span class="s1">&#39;LinkedList&#39;</span>
-</pre></div></div></div>
-
+<pre><code class="language-python">class LinkedList:
+    data: Any
+    next: 'LinkedList'
+</code></pre>
 <p>Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">some_variable</span><span class="p">:</span> <span class="s1">&#39;somemodule.SomeClass&#39;</span>
-</pre></div></div></div>
-
+<pre><code class="language-python">some_variable: 'somemodule.SomeClass'
+</code></pre>
 <p>или</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<pre><code class="language-python">from __future__ import annotations
 
-<span class="k">class</span> <span class="nc">LinkedList</span><span class="p">:</span>
-    <span class="n">data</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="nb">next</span><span class="p">:</span> <span class="n">LinkedList</span>
-</pre></div></div></div>
-
+class LinkedList:
+    data: int
+    next: LinkedList
+</code></pre>
 <h1>Generic-типы</h1>
 <p>Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
 Например, если вы пишете контейнер, который хранит однотипные данные.
@@ -79,63 +68,60 @@
 Но кроме стандартных типов, вы можете создать свои дженерик-типы.
 Для этого надо, во-первых, завести <code>TypeVar</code> переменную,
 которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+<pre><code class="language-python">T = TypeVar(&quot;T&quot;)
 
-<span class="k">class</span> <span class="nc">LinkedList</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
-    <span class="n">data</span><span class="p">:</span> <span class="n">T</span>
-    <span class="nb">next</span><span class="p">:</span> <span class="s2">&quot;LinkedList[T]&quot;</span>
+class LinkedList(Generic[T]):
+    data: T
+    next: &quot;LinkedList[T]&quot;
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">T</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+    def __init__(self, data: T):
+        self.data = data
 
-<span class="n">head_int</span><span class="p">:</span> <span class="n">LinkedList</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">head_int</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">head_int</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># error: Incompatible types in assignment (expression has type &quot;int&quot;, variable has type &quot;LinkedList[int]&quot;)</span>
-<span class="n">head_int</span><span class="o">.</span><span class="n">data</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">head_int</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>  <span class="c1"># error: &quot;int&quot; has no attribute &quot;replace&quot;</span>
+head_int: LinkedList[int] = LinkedList(1)
+head_int.next = LinkedList(2)
+head_int.next = 2  # error: Incompatible types in assignment (expression has type &quot;int&quot;, variable has type &quot;LinkedList[int]&quot;)
+head_int.data += 1
+head_int.data.replace(&quot;0&quot;, &quot;1&quot;)  # error: &quot;int&quot; has no attribute &quot;replace&quot;
 
-<span class="n">head_str</span><span class="p">:</span> <span class="n">LinkedList</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
-<span class="n">head_str</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+head_str: LinkedList[str] = LinkedList(&quot;1&quot;)
+head_str.data.replace(&quot;0&quot;, &quot;1&quot;)
 
-<span class="n">head_str</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">[</span><span class="nb">str</span><span class="p">](</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># error: Argument 1 to &quot;LinkedList&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;</span>
-</pre></div></div></div>
-
+head_str = LinkedList[str](1)  # error: Argument 1 to &quot;LinkedList&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;
+</code></pre>
 <p>Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
 Если требуется, дженерик может иметь любое количеством параметров: <code>Generic[T1, T2, T3]</code>.
 Также, при определении <code>TypeVar</code> вы можете ограничить допустимые типы:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">T2</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T2&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<pre><code class="language-python">T2 = TypeVar(&quot;T2&quot;, int, float)
 
-<span class="k">class</span> <span class="nc">SomethingNumeric</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T2</span><span class="p">]):</span>
-    <span class="k">pass</span>
+class SomethingNumeric(Generic[T2]):
+    pass
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">SomethingNumeric</span><span class="p">[</span><span class="nb">str</span><span class="p">]()</span>  <span class="c1"># error: Value of type variable &quot;T2&quot; of &quot;SomethingNumeric&quot; cannot be &quot;str&quot;</span>
-</pre></div></div></div>
-
+x = SomethingNumeric[str]()  # error: Value of type variable &quot;T2&quot; of &quot;SomethingNumeric&quot; cannot be &quot;str&quot;
+</code></pre>
 <h1>Cast</h1>
 <p>Иногда анализатор статический анализатор не может корректно определить тип переменной,
 в этом случае можно использовать функцию <code>cast</code>.
 Её единственная задача — показать анализатору, что выражение имеет определённый тип.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">cast</span>
+<pre><code class="language-python">from typing import List, cast
 
-<span class="k">def</span> <span class="nf">find_first_str</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-</pre></div></div></div>
-
+def find_first_str(a: List[object]) -&gt; str:
+    index = next(i for i, x in enumerate(a) if isinstance(x, str))
+    return cast(str, a[index])
+</code></pre>
 <p>Также это может быть полезно для декораторов:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">MyCallable</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;MyCallable&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Callable</span><span class="p">)</span>
+<pre><code class="language-python">MyCallable = TypeVar(&quot;MyCallable&quot;, bound=Callable)
 
-<span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">MyCallable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MyCallable</span><span class="p">:</span>
-    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+def logged(func: MyCallable) -&gt; MyCallable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(func.__name__, args, kwargs)
+        return func(*args, **kwargs)
 
-    <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">MyCallable</span><span class="p">,</span> <span class="n">wrapper</span><span class="p">)</span>
+    return cast(MyCallable, wrapper)
 
-<span class="nd">@logged</span>
-<span class="k">def</span> <span class="nf">mysum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+@logged
+def mysum(a: int, b: int) -&gt; int:
+    return a + b
 
-<span class="n">mysum</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># error: Missing positional argument &quot;b&quot; in call to &quot;mysum&quot;</span>
-</pre></div></div></div>
+mysum(a=1)  # error: Missing positional argument &quot;b&quot; in call to &quot;mysum&quot;
+</code></pre>

@@ -397,7 +397,7 @@
 </tr>
 <tr>
 <td><code>def __format__(self, format_spec):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="s2">&quot;{0:</span><span class="si">{format_spec}</span><span class="s2">}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">"{0:{format_spec}}".format(self)</code></pre></td>
 <td>Форматированную строку объекта</td>
 </tr>
 <tr>
@@ -545,7 +545,7 @@
 <td>При удалении объекта</td>
 </tr>
 <tr>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="nd">@classmethod</span><br><span class="k">def</span> <span class="fm">&#95;&#95;prepare&#95;&#95;</span><span class="p">(</span><span class="n">metacls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">):</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">@classmethod<br>def &#95;&#95;prepare&#95;&#95;(metacls, name, bases):</code></pre></td>
 <td>metacls.<code>__prepare__</code>(name, bases)</td>
 <td>Словарь для использования в качестве<br>пространства имен класса</td>
 </tr>
@@ -556,12 +556,12 @@
 </tr>
 <tr>
 <td><code>def __init_subclass__(cls, **kwargs):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Subclass</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">Subclass</span><span class="o">.</span><span class="n">&#95;&#95;init_subclass&#95;&#95;</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">class Subclass(Parent):<br>    pass<br>Subclass.&#95;&#95;init_subclass&#95;&#95;()</code></pre></td>
 <td>Вызывается при создании подкласса</td>
 </tr>
 <tr>
 <td><code>def __mro_entries__(self, bases):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Base1</span><span class="p">,</span> <span class="n">Base2</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MyMeta</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">&#95;&#95;mro_entries&#95;&#95;</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">class MyClass(Base1, Base2, metaclass=MyMeta):<br>    pass<br>MyClass.&#95;&#95;mro_entries&#95;&#95;(bases)</code></pre></td>
 <td>Возвращает кортеж для обновления <code>MRO</code><br>(Method Resolution Order)</td>
 </tr>
 <tr>
@@ -571,7 +571,7 @@
 </tr>
 <tr>
 <td><code>def __set_name__(self, owner, name):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span><br>    <span class="n">attr</span> <span class="o">=</span> <span class="n">MyDescriptor</span><span class="p">()</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">&#95;&#95;set_name&#95;&#95;</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span> <span class="s2">&quot;attr&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">class MyClass:<br>    attr = MyDescriptor()<br>MyClass.attr.&#95;&#95;set_name&#95;&#95;(MyClass, "attr")</code></pre></td>
 <td>Вызывается при установке имени атрибута в классе</td>
 </tr>
 <tr>
@@ -638,12 +638,12 @@
 </tr>
 <tr>
 <td><code>def __aexit__(self, exc_type, exc_val, exc_tb):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;aexit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">async with self as x:<br>    pass<br>await self.&#95;&#95;aexit&#95;&#95;(exc_type, exc_val, exc_tb)</code></pre></td>
 <td>Вызывается при выходе из асинхронного контекстного блока</td>
 </tr>
 <tr>
 <td><code>def __exit__(self, exc_type, exc_val, exc_tb):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;exit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">with self as x:<br>    pass<br>self.&#95;&#95;exit&#95;&#95;(exc_type, exc_val, exc_tb)</code></pre></td>
 <td>Вызывается при выходе из контекстного блока</td>
 </tr>
 </tbody>

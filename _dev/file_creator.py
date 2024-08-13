@@ -1,80 +1,18 @@
 import os
-import re
 
 import markdown
 import requests
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters import HtmlFormatter
-
 from _dev.data import DICT
-from _dev.utils import set_unselectable, print_progress_bar
-
-
-formatter = HtmlFormatter(style="default")
-
-
-def code_block_callback(match):
-    code_block = match.group(2)
-    language = (
-        match.group(1)
-        .strip("```")
-        .removeprefix('<pre><code class="language-')
-        .strip('">')
-    )
-    if "@" in language:
-        language, filename = language.split("@", maxsplit=1)
-    else:
-        filename = ""
-
-    if language == "":
-        _language, language = "text", "text"
-    elif language == "regexp":
-        _language = "text"
-    elif language == "csv":
-        _language = "python"
-    elif language == "python-console":
-        _language = "pycon"
-    else:
-        _language = language
-
-    lexer = get_lexer_by_name(_language, stripall=True)
-
-    highlighted_code = highlight(code_block, lexer, formatter).strip()
-
-    if _language in ("python", "pycon") and (
-        '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code
-        or '<span class="gp">&gt;&gt;&gt; </span>' in highlighted_code
-        or '<span class="o">>>></span> ' in highlighted_code
-        or '<span class="gp">>>> </span>' in highlighted_code
-    ):
-        highlighted_code = set_unselectable(highlighted_code, "\n")
-
-    copy_btn = '<button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button>'
-    download_btn = (
-        f'<button class="copy-button-2" onclick="DownloadCode(this, \'{filename}\')"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Download code</text></button>'
-        if filename
-        else ""
-    )
-    return f'<div class="code-element"><div class="lang-line"><text>{language}</text>{copy_btn}{download_btn}</div><div class="code">{highlighted_code}</div></div>'
+from _dev.utils import print_progress_bar
 
 
 def to_markup(markdown_text):
-    # Замена блоков кода на подсвеченный HTML
-    highlighted_html = re.sub(
-        r"(?si)(```[a-z+#@._\d-]*|<pre><code class=\"language-[a-z+#-]*\">)"
-        r"(.*?)"
-        r"(```|</code></pre>)",
-        code_block_callback,
-        markdown_text,
-    )
-
     # Обработка остальной разметки
     md_extensions = [
         "markdown.extensions.tables",
         "markdown.extensions.fenced_code",
     ]
-    return markdown.markdown(highlighted_html, extensions=md_extensions)
+    return markdown.markdown(markdown_text, extensions=md_extensions)
 
 
 def create_files_and_folders(dictionary, directory: str = ".", x: int = 0, y: int = 0):

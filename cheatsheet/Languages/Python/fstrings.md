@@ -53,20 +53,24 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <p>Невозможно использовать литеральную фигурную скобку <code>{</code> или <code>}</code> в качестве символа <code>fill</code>
 в форматированном строковом литерале или при использовании метода <code>str.format()</code>.</p>
 <details>
-    <summary><b>Однако можно вставить фигурную скобку с вложенным полем замены.</b></summary>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:}</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="unselectable">  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span></span>
-<span class="unselectable"><span class="w">    </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:}</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span></span>
-<span class="unselectable"><span class="w">               </span><span class="pm">^</span></span>
-<span class="unselectable"><span class="gr">SyntaxError</span>: <span class="n">f-string: single &#39;}&#39; is not allowed</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:</span><span class="se">}}</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="unselectable">  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span></span>
-<span class="unselectable"><span class="w">    </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:</span><span class="se">}}</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span></span>
-<span class="unselectable"><span class="w">                </span><span class="pm">^</span></span>
-<span class="unselectable"><span class="gr">SyntaxError</span>: <span class="n">f-string: single &#39;}&#39; is not allowed</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">1</span><span class="si">:{</span><span class="s1">&#39;}&#39;</span><span class="si">}</span><span class="s2">&gt;20</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="unselectable"><span class="go">&quot;}}}}}}}}}}}}}}}}}}}1&quot;</span>
-</span></pre></div></div></div>
+<summary><b>Однако можно вставить фигурную скобку с вложенным полем замены.</b></summary>
+
+
+<pre><code class="language-pycon">&gt;&gt;&gt; f&quot;{1:}&gt;20}&quot;
+  File &quot;&lt;stdin&gt;&quot;, line 1
+    f&quot;{1:}&gt;20}&quot;
+               ^
+SyntaxError: f-string: single '}' is not allowed
+&gt;&gt;&gt; f&quot;{1:}}&gt;20}&quot;
+  File &quot;&lt;stdin&gt;&quot;, line 1
+    f&quot;{1:}}&gt;20}&quot;
+                ^
+SyntaxError: f-string: single '}' is not allowed
+&gt;&gt;&gt; f&quot;{1:{'}'}&gt;20}&quot;
+&quot;}}}}}}}}}}}}}}}}}}}1&quot;
+</code></pre>
+
+
 </details>
 <p>Это ограничение не влияет на функцию <code>format()</code>.</p>
 <h3>Align</h3>
@@ -267,200 +271,183 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </tbody>
 </table>
 <p>Примеры простых форматных строк:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="s2">&quot;Сначала посчитай до </span><span class="si">{0}</span><span class="s2">&quot;</span>         <span class="c1"># Ссылки на первый позиционный аргумент</span>
-<span class="s2">&quot;Принеси мне </span><span class="si">{}</span><span class="s2">&quot;</span>                  <span class="c1"># Неявно ссылается на первый позиционный аргумент</span>
-<span class="s2">&quot;От </span><span class="si">{}</span><span class="s2"> до </span><span class="si">{}</span><span class="s2">&quot;</span>                     <span class="c1"># То же, что &quot;От {0} до {1}&quot;</span>
-<span class="s2">&quot;Мой квест </span><span class="si">{name}</span><span class="s2">&quot;</span>                <span class="c1"># Ссылка на ключевой аргумент «name»</span>
-<span class="s2">&quot;Масса в тоннах </span><span class="si">{0.weight}</span><span class="s2">&quot;</span>       <span class="c1"># атрибут «weight» первого позиционного аргумента</span>
-<span class="s2">&quot;Уничтожено единиц: </span><span class="si">{players[0]}</span><span class="s2">&quot;</span> <span class="c1"># Первый элемент ключевого аргумента «players».</span>
+<pre><code class="language-python">&quot;Сначала посчитай до {0}&quot;         # Ссылки на первый позиционный аргумент
+&quot;Принеси мне {}&quot;                  # Неявно ссылается на первый позиционный аргумент
+&quot;От {} до {}&quot;                     # То же, что &quot;От {0} до {1}&quot;
+&quot;Мой квест {name}&quot;                # Ссылка на ключевой аргумент «name»
+&quot;Масса в тоннах {0.weight}&quot;       # атрибут «weight» первого позиционного аргумента
+&quot;Уничтожено единиц: {players[0]}&quot; # Первый элемент ключевого аргумента «players».
 
-<span class="s2">&quot;Гарольд умный </span><span class="si">{0!s}</span><span class="s2">&quot;</span>             <span class="c1"># Сначала вызывает str() для первого аргумента</span>
-<span class="s2">&quot;Принесите святую </span><span class="si">{name!r}</span><span class="s2">&quot;</span>       <span class="c1"># Сначала вызывает repr() для первого аргумента</span>
-<span class="s2">&quot;Больше </span><span class="si">{!a}</span><span class="s2">&quot;</span>                     <span class="c1"># Сначала вызывает ascii() для первого аргумента</span>
-</pre></div></div></div>
-
+&quot;Гарольд умный {0!s}&quot;             # Сначала вызывает str() для первого аргумента
+&quot;Принесите святую {name!r}&quot;       # Сначала вызывает repr() для первого аргумента
+&quot;Больше {!a}&quot;                     # Сначала вызывает ascii() для первого аргумента
+</code></pre>
 <p>Доступ к аргументам по позиции:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{2}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;a, b, c&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>  <span class="c1"># 3.1+ python version only</span>
-<span class="unselectable"><span class="go">&quot;a, b, c&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{2}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;c, b, a&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{2}</span><span class="s2">, </span><span class="si">{1}</span><span class="s2">, </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>      <span class="c1"># unpacking argument sequence</span>
-<span class="unselectable"><span class="go">&quot;c, b, a&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{0}{1}{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;abra&quot;</span><span class="p">,</span> <span class="s2">&quot;cad&quot;</span><span class="p">)</span>   <span class="c1"># arguments indices can be repeated</span>
-<span class="unselectable"><span class="go">&quot;abracadabra&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;{0}, {1}, {2}&quot;.format(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+&quot;a, b, c&quot;
+&gt;&gt;&gt; &quot;{}, {}, {}&quot;.format(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)  # 3.1+ python version only
+&quot;a, b, c&quot;
+&gt;&gt;&gt; &quot;{2}, {1}, {0}&quot;.format(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+&quot;c, b, a&quot;
+&gt;&gt;&gt; &quot;{2}, {1}, {0}&quot;.format(*&quot;abc&quot;)      # unpacking argument sequence
+&quot;c, b, a&quot;
+&gt;&gt;&gt; &quot;{0}{1}{0}&quot;.format(&quot;abra&quot;, &quot;cad&quot;)   # arguments indices can be repeated
+&quot;abracadabra&quot;
+</code></pre>
 <p>Доступ к аргументам по имени:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Coordinates: </span><span class="si">{latitude}</span><span class="s2">, </span><span class="si">{longitude}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;37.24N&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;-115.81W&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;Coordinates: 37.24N, -115.81W&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">coord</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;37.24N&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;-115.81W&quot;</span><span class="p">}</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Coordinates: </span><span class="si">{latitude}</span><span class="s2">, </span><span class="si">{longitude}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">coord</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;Coordinates: 37.24N, -115.81W&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;Coordinates: {latitude}, {longitude}&quot;.format(latitude=&quot;37.24N&quot;, longitude=&quot;-115.81W&quot;)
+&quot;Coordinates: 37.24N, -115.81W&quot;
+&gt;&gt;&gt; coord = {&quot;latitude&quot;: &quot;37.24N&quot;, &quot;longitude&quot;: &quot;-115.81W&quot;}
+&gt;&gt;&gt; &quot;Coordinates: {latitude}, {longitude}&quot;.format(**coord)
+&quot;Coordinates: 37.24N, -115.81W&quot;
+</code></pre>
 <p>Доступ к атрибутам аргументов:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">c</span> <span class="o">=</span> <span class="mi">3</span><span class="o">-</span><span class="mi">5</span><span class="n">j</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;The complex number </span><span class="si">{0}</span><span class="s2"> is formed from the real part </span><span class="si">{0.real}</span><span class="s2"> &quot;</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="s2">&quot;and the imaginary part </span><span class="si">{0.imag}</span><span class="s2">.&quot;</span>
-<span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;The complex number 3-5j is formed from the real part 3.0 and the imaginary part -5.0.&quot;</span>
-</span></pre></div></div></div>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">return</span> <span class="s2">&quot;Point(</span><span class="si">{self.x}</span><span class="s2">, </span><span class="si">{self.y}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">str</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="unselectable"><span class="go">&quot;Point(4, 2)&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; c = 3-5j
+&gt;&gt;&gt; (
+...     &quot;The complex number {0} is formed from the real part {0.real} &quot;
+...     &quot;and the imaginary part {0.imag}.&quot;
+... ).format(c)
+&quot;The complex number 3-5j is formed from the real part 3.0 and the imaginary part -5.0.&quot;
+</code></pre>
+<pre><code class="language-pycon">&gt;&gt;&gt; class Point:
+...     def __init__(self, x, y):
+...         self.x, self.y = x, y
+...     def __str__(self):
+...         return &quot;Point({self.x}, {self.y})&quot;.format(self=self)
+...
+&gt;&gt;&gt; str(Point(4, 2))
+&quot;Point(4, 2)&quot;
+</code></pre>
 <p>Доступ к элементам аргументов:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;X: </span><span class="si">{0[0]}</span><span class="s2">;  Y: </span><span class="si">{0[1]}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="unselectable"><span class="go">&quot;X: 3;  Y: 5&quot;</span>
-</span></pre></div></div></div>
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;X: {0[0]};  Y: {0[1]}&quot;.format((3, 5))
+&quot;X: 3;  Y: 5&quot;
+</code></pre>
 <p>Замена <code>%s</code> и <code>%r</code>:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;repr() shows quotes: </span><span class="si">{!r}</span><span class="s2">; str() doesn&#39;t: </span><span class="si">{!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;test1&quot;</span><span class="p">,</span> <span class="s2">&quot;test2&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;repr() shows quotes: &#39;test1&#39;; str() doesn&#39;t: test2&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;repr() shows quotes: {!r}; str() doesn't: {!s}&quot;.format(&quot;test1&quot;, &quot;test2&quot;)
+&quot;repr() shows quotes: 'test1'; str() doesn't: test2&quot;
+</code></pre>
 <p>Выравнивание текста и указание ширины:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{:&lt;30}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;left aligned&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;left aligned                  &quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{:&gt;30}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;right aligned&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;                 right aligned&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{:^30}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;centered&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;           centered           &quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{:*^30}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;centered&quot;</span><span class="p">)</span>  <span class="c1"># use &quot;*&quot; as a fill char</span>
-<span class="unselectable"><span class="go">&quot;***********centered***********&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;{:&lt;30}&quot;.format(&quot;left aligned&quot;)
+&quot;left aligned                  &quot;
+&gt;&gt;&gt; &quot;{:&gt;30}&quot;.format(&quot;right aligned&quot;)
+&quot;                 right aligned&quot;
+&gt;&gt;&gt; &quot;{:^30}&quot;.format(&quot;centered&quot;)
+&quot;           centered           &quot;
+&gt;&gt;&gt; &quot;{:*^30}&quot;.format(&quot;centered&quot;)  # use &quot;*&quot; as a fill char
+&quot;***********centered***********&quot;
+</code></pre>
 <p>Замена <code>%+f</code>, <code>%-f</code>, и и указание знака: <code>%</code> <code>f</code></p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{:+f}</span><span class="s2">; </span><span class="si">{:+f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="c1"># show it always</span>
-<span class="unselectable"><span class="go">&quot;+3.140000; -3.140000&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{: f}</span><span class="s2">; </span><span class="si">{: f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="c1"># show a space for positive numbers</span>
-<span class="unselectable"><span class="go">&quot; 3.140000; -3.140000&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;</span><span class="si">{:-f}</span><span class="s2">; </span><span class="si">{:-f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>  <span class="c1"># show only the minus -- same as &quot;{:f}; {:f}&quot;</span>
-<span class="unselectable"><span class="go">&quot;3.140000; -3.140000&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{:-.2f}</span><span class="s2">; </span><span class="si">{:-.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;3.14; -3.14&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;{:+f}; {:+f}&quot;.format(3.14, -3.14)  # show it always
+&quot;+3.140000; -3.140000&quot;
+&gt;&gt;&gt; &quot;{: f}; {: f}&quot;.format(3.14, -3.14)  # show a space for positive numbers
+&quot; 3.140000; -3.140000&quot;
+&gt;&gt;&gt; &quot;{:-f}; {:-f}&quot;.format(3.14, -3.14)  # show only the minus -- same as &quot;{:f}; {:f}&quot;
+&quot;3.140000; -3.140000&quot;
+&gt;&gt;&gt; 
+&gt;&gt;&gt; &quot;{:-.2f}; {:-.2f}&quot;.format(3.14, -3.14)
+&quot;3.14; -3.14&quot;
+</code></pre>
 <p>Замена <code>%x</code> и <code>%o</code> преобразование значения в разные базы:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># format also supports binary numbers</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;int: </span><span class="si">{0:d}</span><span class="s2">;  hex: </span><span class="si">{0:x}</span><span class="s2">;  oct: </span><span class="si">{0:o}</span><span class="s2">;  bin: </span><span class="si">{0:b}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;int: 42;  hex: 2a;  oct: 52;  bin: 101010&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="c1"># with 0x, 0o, or 0b as prefix:</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;int: </span><span class="si">{0:d}</span><span class="s2">;  hex: </span><span class="si">{0:#x}</span><span class="s2">;  oct: </span><span class="si">{0:#o}</span><span class="s2">;  bin: </span><span class="si">{0:#b}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; # format also supports binary numbers
+&gt;&gt;&gt; &quot;int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}&quot;.format(42)
+&quot;int: 42;  hex: 2a;  oct: 52;  bin: 101010&quot;
+&gt;&gt;&gt; # with 0x, 0o, or 0b as prefix:
+&gt;&gt;&gt; &quot;int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}&quot;.format(42)
+&quot;int: 42;  hex: 0x2a;  oct: 0o52;  bin: 0b101010&quot;
+</code></pre>
 <p>Использование запятой или подчёркивания в качестве разделителя тысяч:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;1,234,567,890&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="s2">&quot;{:_}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1234567890</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;1_234_567_890&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; &quot;{:,}&quot;.format(1234567890)
+&quot;1,234,567,890&quot;
+&gt;&gt;&gt; &quot;{:_}&quot;.format(1234567890)
+&quot;1_234_567_890&quot;
+</code></pre>
 <p>Выражение процента:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">points</span><span class="p">,</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">22</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;Correct answers: </span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">points</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;Correct answers: 86.36%&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; points, total = 19, 22
+&gt;&gt;&gt; &quot;Correct answers: {:.2%}&quot;.format(points/total)
+&quot;Correct answers: 86.36%&quot;
+</code></pre>
 <p>Использование форматирования для конкретного типа:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;{:%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">58</span><span class="p">))</span>
-<span class="unselectable"><span class="go">&quot;2010-07-04 12:15:58&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; &quot;{:%Y-%m-%d %H:%M:%S}&quot;.format(datetime(2010, 7, 4, 12, 15, 58))
+&quot;2010-07-04 12:15:58&quot;
+</code></pre>
 <p>Вложенные аргументы и более сложные примеры:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">align</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="s2">&quot;&lt;^&gt;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">]):</span>
-<span class="unselectable"><span class="o">...</span> </span>   <span class="s2">&quot;{0:</span><span class="si">{fill}{align}</span><span class="s2">16}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">align</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="n">align</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="go">&quot;left&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span>
-<span class="go">&quot;^^^^^center^^^^^&quot;</span>
-<span class="go">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;right&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">octets</span> <span class="o">=</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;</span><span class="si">{:02X}{:02X}{:02X}{:02X}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">octets</span><span class="p">)</span>
-<span class="unselectable"><span class="go">&quot;C0A80001&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">int</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="unselectable"><span class="go">3232235521</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">width</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span> 
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="s2">&quot;dXob&quot;</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{0:</span><span class="si">{width}{base}</span><span class="s2">}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">()</span>
-<span class="unselectable"><span class="o">...</span> </span>
-<span class="unselectable"><span class="go">    5     5     5   101</span>
-<span class="go">    6     6     6   110</span>
-<span class="go">    7     7     7   111</span>
-<span class="go">    8     8    10  1000</span>
-<span class="go">    9     9    11  1001</span>
-<span class="go">   10     A    12  1010</span>
-<span class="go">   11     B    13  1011</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; for align, text in zip(&quot;&lt;^&gt;&quot;, [&quot;left&quot;, &quot;center&quot;, &quot;right&quot;]):
+...    &quot;{0:{fill}{align}16}&quot;.format(text, fill=align, align=align)
+...
+&quot;left&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;
+&quot;^^^^^center^^^^^&quot;
+&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;right&quot;
+&gt;&gt;&gt; octets = [192, 168, 0, 1]
+&gt;&gt;&gt; &quot;{:02X}{:02X}{:02X}{:02X}&quot;.format(*octets)
+&quot;C0A80001&quot;
+&gt;&gt;&gt; int(_, 16)
+3232235521
+&gt;&gt;&gt; width = 5
+&gt;&gt;&gt; for num in range(5,12): 
+...     for base in &quot;dXob&quot;:
+...         print(&quot;{0:{width}{base}}&quot;.format(num, base=base, width=width), end=&quot; &quot;)
+...     print()
+... 
+    5     5     5   101
+    6     6     6   110
+    7     7     7   111
+    8     8    10  1000
+    9     9    11  1001
+   10     A    12  1010
+   11     B    13  1011
+</code></pre>
 <p>Форматирование чисел:
 Для вывода количества знаков после запятой можно использовать флаг f:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;pi </span><span class="si">{</span><span class="mi">22</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">7</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="unselectable"><span class="go">&quot;pi 3.14&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; f&quot;pi {22 / 7:.2f}&quot;
+&quot;pi 3.14&quot;
+</code></pre>
 <p>Форматирование строк:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Name&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># выравнивается в лево на 10 символов</span>
-<span class="unselectable"><span class="go">&quot;NAME      &quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># выравнивается в право на 10 символов</span>
-<span class="unselectable"><span class="go">&quot;      NAME&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">^10</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># выравнивается по центру шириной 10 символов</span>
-<span class="unselectable"><span class="go">&quot;   NAME   &quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">22</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">7</span><span class="si">:</span><span class="s2">&gt;10.2f</span><span class="si">}</span><span class="s2">&quot;</span>     <span class="c1"># выравнивает в право на 10 и оставляет два знака после точки</span>
-<span class="unselectable"><span class="go">&quot;      3.14&quot;</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; name = &quot;Name&quot;
+&gt;&gt;&gt; f&quot;{name.upper():&lt;10}&quot;  # выравнивается в лево на 10 символов
+&quot;NAME      &quot;
+&gt;&gt;&gt; f&quot;{name.upper():&gt;10}&quot;  # выравнивается в право на 10 символов
+&quot;      NAME&quot;
+&gt;&gt;&gt; f&quot;{name.upper():^10}&quot;  # выравнивается по центру шириной 10 символов
+&quot;   NAME   &quot;
+&gt;&gt;&gt; f&quot;{22 / 7:&gt;10.2f}&quot;     # выравнивает в право на 10 и оставляет два знака после точки
+&quot;      3.14&quot;
+</code></pre>
 <p>Форматирование строк может быть улучшено с помощью флагов:</p>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">=^10</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># centered with 10 characters width and filled with &quot;=&quot;</span>
-<span class="unselectable"><span class="go">&quot;===NAME===&quot;</span>
-</span></pre></div></div></div>
-
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="fm">__format__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">format_spec</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">return</span> <span class="s2">&quot;Person Object&quot;</span>
-<span class="unselectable"><span class="o">...</span> </span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="n">Person</span> <span class="n">Object</span></span>
-</pre></div></div></div>
-
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">string</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span> <span class="nc">PluralFormatter</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span> <span class="nf">format_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">format_spec</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">if</span> <span class="n">format_spec</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;plural,&quot;</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="n">words</span> <span class="o">=</span> <span class="n">format_spec</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>                <span class="k">return</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="k">else</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>                <span class="k">return</span> <span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">else</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">format_field</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">format_spec</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">fmt</span> <span class="o">=</span> <span class="n">PluralFormatter</span><span class="p">()</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> {0:plural,bottle,bottles} on the wall&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">bottle_count</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">(</span><span class="n">fmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">bottle_count</span><span class="p">))</span>
-<span class="unselectable"><span class="o">...</span> </span>
-<span class="unselectable"><span class="go">99 bottles on the wall</span>
-<span class="go">3 bottles on the wall</span>
-<span class="go">2 bottles on the wall</span>
-<span class="go">1 bottle on the wall</span>
-<span class="go">0 bottles on the wall</span>
-</span></pre></div></div></div>
-
+<pre><code class="language-pycon">&gt;&gt;&gt; f&quot;{name.upper():=^10}&quot;  # centered with 10 characters width and filled with &quot;=&quot;
+&quot;===NAME===&quot;
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; class Person:
+...     def __format__(self, format_spec):
+...         return &quot;Person Object&quot;
+... 
+&gt;&gt;&gt; p = Person()
+&gt;&gt;&gt; print(f&quot;{p}&quot;)
+Person Object
+</code></pre>
+<pre><code class="language-pycon">&gt;&gt;&gt; import string
+&gt;&gt;&gt; class PluralFormatter(string.Formatter):
+...     def format_field(self, value, format_spec):
+...         if format_spec.startswith(&quot;plural,&quot;):
+...             words = format_spec.split(&quot;,&quot;)
+...             if value == 1:
+...                 return words[1]
+...             else:
+...                 return words[2]
+...         else:
+...             return super().format_field(value, format_spec)
+...
+&gt;&gt;&gt; fmt = PluralFormatter()
+&gt;&gt;&gt; msg = &quot;{0} {0:plural,bottle,bottles} on the wall&quot;
+&gt;&gt;&gt; for bottle_count in (99, 3, 2, 1, 0):
+...     print(fmt.format(msg, bottle_count))
+... 
+99 bottles on the wall
+3 bottles on the wall
+2 bottles on the wall
+1 bottle on the wall
+0 bottles on the wall
+</code></pre>
 <p>Взято из <a href="https://digitology.tech/docs/python_3/library/string.html">https://digitology.tech/docs/python_3/library/string.html</a></p>
 <h1>% strings</h1>
 <table>

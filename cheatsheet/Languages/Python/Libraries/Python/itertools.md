@@ -135,115 +135,115 @@
 </tbody>
 </table>
 <h1>Модуль itertools</h1>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">print_iterator</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">try</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>            <span class="k">break</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">()</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Генерирует бесконечный ряд чисел, начиная с start, с шагом step</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">count</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="unselectable"><span class="go">0 1 2 3 4</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Бесконечно циклит элементы в iterable</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">cycle</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="unselectable"><span class="go">1 2 3 1 2</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Генерирует все возможные перестановки элементов iterable с длиной r</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># по умолчанию длина равна длине iterable</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;5&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;3&quot;, &quot;5&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;5&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;5&quot;, &quot;3&quot;, &quot;4&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">permutations</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;) (&quot;2&quot;, &quot;1&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Генерирует все возможные комбинации элементов iterable с длиной r</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">combinations</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;) (&quot;2&quot;, &quot;3&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Генерирует все возможные комбинации элементов iterable с длиной r, с повторением элементов</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(&quot;1&quot;, &quot;1&quot;) (&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">Объединяет</span> <span class="n">несколько</span> <span class="n">итераторов</span> <span class="n">в</span> <span class="n">один</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">chain</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="unselectable"><span class="go">1 2 4 5</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Объединяет элементы из каждого итератора в кортежи</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Если итераторы разных длин, то элементы для дополнения берутся из fillvalue</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">zip_longest</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">zip_longest</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,),</span> <span class="n">fillvalue</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(1, &quot;A&quot;) (2, &quot;_&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Группирует элементы iterable по значениям функции key</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">groupby</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="unselectable"><span class="go">True [3, 4] False [0, -1]</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт элементы из iterable, начиная с start, и заканчивая stop, с шагом step</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">islice</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="gp">&gt;&gt;&gt;</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Применяет функцию function к каждому элементу iterable, который представлен в виде кортежа</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">starmap</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">starmap</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">iterable</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="gp">&gt;&gt;&gt;</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт все возможные пары (или кортежи) элементов из каждого из iterables</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># repeat определяет, сколько раз каждый итератор будет повторен</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">product</span><span class="p">((</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="unselectable"><span class="go">(&quot;A&quot;, &quot;A&quot;) (&quot;A&quot;, &quot;B&quot;) (&quot;B&quot;, &quot;A&quot;) (&quot;B&quot;, &quot;B&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт сумму (или другую комбинацию) элементов iterable, используя функцию func</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">accumulate</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># accumulate(iterable, func=operator.add)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">accumulate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="unselectable"><span class="go">1 3 6 10 15</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт элементы data, соответствующие истинным значениям selectors</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">compress</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">compress</span><span class="p">(</span><span class="s2">&quot;ABCDE&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="unselectable"><span class="go">B E</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт элементы iterable после первого элемента, для которого predicate вернёт ложное значение</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">dropwhile</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">dropwhile</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> <span class="n">iterable</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="gp">&gt;&gt;&gt;</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт элементы iterable, для которых predicate вернёт ложное значение</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">filterfalse</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">filterfalse</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="unselectable"><span class="go">1 0 1</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт пары соседних элементов из iterable</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">pairwise</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">pairwise</span><span class="p">(</span><span class="s2">&quot;ABcd12&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">AB Bc cd d1 12</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт object times раз</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Если times не указан бесконечное количество раз</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">repeat</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="unselectable"><span class="go">x x x x x</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Выдаёт элементы iterable до первого элемента, для которого predicate вернёт ложное значение</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">takewhile</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">takewhile</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> <span class="n">iterable</span><span class="p">)</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="gp">&gt;&gt;&gt;</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Возвращает n независимых итераторов</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="c1"># Каждый из которых может быть использован независимо для перебора элементов исходного iterable</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">tee</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">tee</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
-<span class="unselectable"><span class="go">[1, 2], [1, 2], [1, 2]</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-</pre></div></div></div>
+<pre><code class="language-pycon">&gt;&gt;&gt; def print_iterator(x):
+...     for i in range(5):
+...         try:
+...             print(next(x), end=&quot; &quot;)
+...         except StopIteration:
+...             break
+...     print()
+...
+&gt;&gt;&gt; # Генерирует бесконечный ряд чисел, начиная с start, с шагом step
+&gt;&gt;&gt; from itertools import count
+&gt;&gt;&gt; count(start=0, step=1)
+0 1 2 3 4
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Бесконечно циклит элементы в iterable
+&gt;&gt;&gt; from itertools import cycle
+&gt;&gt;&gt; cycle([1, 2, 3])
+1 2 3 1 2
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Генерирует все возможные перестановки элементов iterable с длиной r
+&gt;&gt;&gt; # по умолчанию длина равна длине iterable
+&gt;&gt;&gt; from itertools import permutations
+&gt;&gt;&gt; permutations(&quot;12345&quot;, r=None)
+(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;5&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;3&quot;, &quot;5&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;5&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;2&quot;, &quot;5&quot;, &quot;3&quot;, &quot;4&quot;)
+&gt;&gt;&gt; permutations(&quot;12345&quot;, r=2)
+(&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;) (&quot;2&quot;, &quot;1&quot;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Генерирует все возможные комбинации элементов iterable с длиной r
+&gt;&gt;&gt; from itertools import combinations
+&gt;&gt;&gt; combinations(&quot;12345&quot;, r=2)
+(&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;) (&quot;2&quot;, &quot;3&quot;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Генерирует все возможные комбинации элементов iterable с длиной r, с повторением элементов
+&gt;&gt;&gt; from itertools import combinations_with_replacement
+&gt;&gt;&gt; combinations_with_replacement(&quot;12345&quot;, r=2)
+(&quot;1&quot;, &quot;1&quot;) (&quot;1&quot;, &quot;2&quot;) (&quot;1&quot;, &quot;3&quot;) (&quot;1&quot;, &quot;4&quot;) (&quot;1&quot;, &quot;5&quot;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; Объединяет несколько итераторов в один
+&gt;&gt;&gt; from itertools import chain
+&gt;&gt;&gt; chain((1, 2), (4, 5))
+1 2 4 5
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Объединяет элементы из каждого итератора в кортежи
+&gt;&gt;&gt; # Если итераторы разных длин, то элементы для дополнения берутся из fillvalue
+&gt;&gt;&gt; from itertools import zip_longest
+&gt;&gt;&gt; zip_longest((1, 2), (&quot;A&quot;,), fillvalue=&quot;_&quot;)
+(1, &quot;A&quot;) (2, &quot;_&quot;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Группирует элементы iterable по значениям функции key
+&gt;&gt;&gt; from itertools import groupby
+&gt;&gt;&gt; groupby((3, 4, 0, -1), key=lambda x: x &gt; 0)
+True [3, 4] False [0, -1]
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт элементы из iterable, начиная с start, и заканчивая stop, с шагом step
+&gt;&gt;&gt; from itertools import islice
+&gt;&gt;&gt; islice(iterable, start, stop=None, step=1)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Применяет функцию function к каждому элементу iterable, который представлен в виде кортежа
+&gt;&gt;&gt; from itertools import starmap
+&gt;&gt;&gt; starmap(function, iterable)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт все возможные пары (или кортежи) элементов из каждого из iterables
+&gt;&gt;&gt; # repeat определяет, сколько раз каждый итератор будет повторен
+&gt;&gt;&gt; from itertools import product
+&gt;&gt;&gt; product((&quot;A&quot;, &quot;B&quot;), repeat=2)
+(&quot;A&quot;, &quot;A&quot;) (&quot;A&quot;, &quot;B&quot;) (&quot;B&quot;, &quot;A&quot;) (&quot;B&quot;, &quot;B&quot;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт сумму (или другую комбинацию) элементов iterable, используя функцию func
+&gt;&gt;&gt; from itertools import accumulate
+&gt;&gt;&gt; # accumulate(iterable, func=operator.add)
+&gt;&gt;&gt; accumulate([1,2,3,4,5])
+1 3 6 10 15
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт элементы data, соответствующие истинным значениям selectors
+&gt;&gt;&gt; from itertools import compress
+&gt;&gt;&gt; compress(&quot;ABCDE&quot;, (0, 1, 0, 0, 1))
+B E
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт элементы iterable после первого элемента, для которого predicate вернёт ложное значение
+&gt;&gt;&gt; from itertools import dropwhile
+&gt;&gt;&gt; dropwhile(predicate, iterable)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт элементы iterable, для которых predicate вернёт ложное значение
+&gt;&gt;&gt; from itertools import filterfalse
+&gt;&gt;&gt; filterfalse(lambda x: x &lt; 0, [1, 0, -1, 1, -1])
+1 0 1
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт пары соседних элементов из iterable
+&gt;&gt;&gt; from itertools import pairwise
+&gt;&gt;&gt; pairwise(&quot;ABcd12&quot;)
+AB Bc cd d1 12
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт object times раз
+&gt;&gt;&gt; # Если times не указан бесконечное количество раз
+&gt;&gt;&gt; from itertools import repeat
+&gt;&gt;&gt; repeat(&quot;x&quot;, 5)
+x x x x x
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Выдаёт элементы iterable до первого элемента, для которого predicate вернёт ложное значение
+&gt;&gt;&gt; from itertools import takewhile
+&gt;&gt;&gt; takewhile(predicate, iterable)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; # Возвращает n независимых итераторов
+&gt;&gt;&gt; # Каждый из которых может быть использован независимо для перебора элементов исходного iterable
+&gt;&gt;&gt; from itertools import tee
+&gt;&gt;&gt; tee([1, 2], 3)
+[1, 2], [1, 2], [1, 2]
+&gt;&gt;&gt;
+</code></pre>

@@ -4,82 +4,77 @@
 а также в угловых скобках необходимо указывать принимаемый тип данных. 
 Можно принимать один или несколько типов данных. </p>
 <p>Пример создания шаблонной функции:</p>
-<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// Указываем что это шаблон функции</span>
-<span class="c1">// Принимаем параметр value и его тип данных мы получим</span>
-<span class="c1">// также в качестве передаваемого параметра - Type1</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">funct</span><span class="w"> </span><span class="p">(</span><span class="n">Type1</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="c1">// Просто выводим это значение</span>
-<span class="p">}</span>
-</pre></div></div></div>
-
+<pre><code class="language-cpp">template &lt;typename Type1&gt; // Указываем что это шаблон функции
+// Принимаем параметр value и его тип данных мы получим
+// также в качестве передаваемого параметра - Type1
+void funct (Type1 *value) {
+    cout &lt;&lt; value; // Просто выводим это значение
+}
+</code></pre>
 <p>Для передачи нескольких типов данных стоит прописать следующее:</p>
-<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="c1">// Здесь мы получаем сразу два типа данных</span>
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Type2</span><span class="o">&gt;</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">funct</span><span class="w"> </span><span class="p">(</span><span class="n">Type1</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">Type2</span><span class="w"> </span><span class="o">*</span><span class="n">newValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// Мы можем использовать передаваемые типы в самой функции</span>
-<span class="w">    </span><span class="n">Type1</span><span class="w"> </span><span class="n">someNew</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">newValue</span><span class="p">;</span><span class="w"> </span><span class="c1">// Просто выводим значение</span>
-<span class="p">}</span>
-</pre></div></div></div>
-
+<pre><code class="language-cpp">// Здесь мы получаем сразу два типа данных
+template &lt;typename Type1, typename Type2&gt;
+void funct (Type1 *value, Type2 *newValue) {
+    // Мы можем использовать передаваемые типы в самой функции
+    Type1 someNew;
+    cout &lt;&lt; newValue; // Просто выводим значение
+}
+</code></pre>
 <p>Для вызова шаблонной функции пропишите следующее:</p>
-<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="c1">// Вызов функции с одним параметром</span>
-<span class="n">funct</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-<span class="c1">// Вызов с несколькими параметрами</span>
-<span class="n">funct</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">oneMoreValue</span><span class="p">);</span>
-</pre></div></div></div>
-
+<pre><code class="language-cpp">// Вызов функции с одним параметром
+funct&lt;double&gt;(value);
+// Вызов с несколькими параметрами
+funct&lt;char, double&gt;(value, oneMoreValue);
+</code></pre>
 <p>Шаблоны функций</p>
-<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
 
-<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+using namespace std;
 
-<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T1</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">T2</span><span class="o">&gt;</span>
-<span class="n">T2</span><span class="w"> </span><span class="n">printArr</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
-<span class="p">}</span>
+template &lt;typename T1, typename T2&gt;
+T2 printArr (const T1 * array, int i) {
+    int count = 0;
+    for (int j = 0; j &lt; i; j++) {
+        cout &lt;&lt; array[j] &lt;&lt; &quot; &quot;;
+        count++;
+    }
+    cout &lt;&lt; endl;
+    return count;
+}
 
-<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+int main(int argc, const char * argv[]) {
 
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">fSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">dSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">cSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+    const int iSize = 3, fSize = 2, dSize = 3, cSize = 5;
 
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i_arr</span><span class="p">[</span><span class="n">iSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">};</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f_arr</span><span class="p">[</span><span class="n">fSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">12.2</span><span class="p">,</span><span class="w"> </span><span class="mf">67.5</span><span class="p">};</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">d_arr</span><span class="p">[</span><span class="n">dSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">3.345</span><span class="p">,</span><span class="w"> </span><span class="mf">7.567</span><span class="p">,</span><span class="w"> </span><span class="mf">9.023</span><span class="p">};</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c_arr</span><span class="p">[</span><span class="n">cSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;HI!!&quot;</span><span class="p">};</span>
+    int i_arr[iSize] = {23, 45, 78};
+    float f_arr[fSize] = {12.2, 67.5};
+    double d_arr[dSize] = {3.345, 7.567, 9.023};
+    char c_arr[cSize] = {&quot;HI!!&quot;};
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Массив с типом данных int: &quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Количество элементов: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">printArr</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i_arr</span><span class="p">,</span><span class="w"> </span><span class="n">iSize</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Массив с типом данных float: &quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Количество элементов: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">printArr</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f_arr</span><span class="p">,</span><span class="w"> </span><span class="n">fSize</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Массив с типом данных double: &quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Количество элементов: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">printArr</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">d_arr</span><span class="p">,</span><span class="w"> </span><span class="n">dSize</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Массив с типом данных char: &quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Количество элементов: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">printArr</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c_arr</span><span class="p">,</span><span class="w"> </span><span class="n">cSize</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+    cout &lt;&lt; &quot;Массив с типом данных int: &quot;;
+    cout &lt;&lt; &quot;Количество элементов: &quot; &lt;&lt; printArr&lt;int, int&gt;(i_arr, iSize) &lt;&lt; endl;
+    cout &lt;&lt; &quot;Массив с типом данных float: &quot;;
+    cout &lt;&lt; &quot;Количество элементов: &quot; &lt;&lt; printArr&lt;float, int&gt;(f_arr, fSize) &lt;&lt; endl;
+    cout &lt;&lt; &quot;Массив с типом данных double: &quot;;
+    cout &lt;&lt; &quot;Количество элементов: &quot; &lt;&lt; printArr&lt;double, int&gt;(d_arr, dSize) &lt;&lt; endl;
+    cout &lt;&lt; &quot;Массив с типом данных char: &quot;;
+    cout &lt;&lt; &quot;Количество элементов: &quot; &lt;&lt; printArr&lt;char, int&gt;(c_arr, cSize) &lt;&lt; endl;
 
-<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div></div></div>
-
+    cin.get();
+    return 0;
+}
+</code></pre>
 <p>Обьяснение от ChatGPT:</p>
 <p>Шаблоны функций и классов в C++ - это механизм, который позволяет создавать 
 универсальные классы и функции, которые могут работать с разными типами данных. 
 Вместо того, чтобы создавать отдельную функцию или класс для каждого типа данных, 
 вы можете определить шаблон, который может использоваться с разными типами данных.</p>
 <p>Определение шаблона функции выглядит так:</p>
-<div class="code-element"><div class="lang-line"><text>cpp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<span class="n">T</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div></div></div>
-
+<pre><code class="language-cpp">template &lt;typename T&gt;
+T max(T a, T b) {
+  return (a &gt; b) ? a : b;
+}
+</code></pre>
 <p>В этом примере T является параметром шаблона, который может быть любым типом данных. 
 Когда вы вызываете функцию max с разными типами данных, компилятор создает специализированную 
 версию функции для каждого типа данных, с которым вы вызываете эту функцию.</p>

@@ -9,41 +9,37 @@ htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace"): Преобразу�
 unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.</p>
 <p>Самые часто используемые методы "webencodings" и их описание с примерами кода:</p>
 <p>decode(s, encoding="utf-8", errors="strict"): Декодирует строку "s" из указанной кодировки в Unicode.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webencodings</span>
+<pre><code class="language-python">import webencodings
 
-<span class="n">encoded_string</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82</span><span class="s2">&quot;</span>
-<span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: Привет</span>
-</pre></div></div></div>
-
+encoded_string = b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82&quot;
+decoded_string = webencodings.decode(encoded_string, encoding=&quot;utf-8&quot;)
+print(decoded_string)  # Выводит: Привет
+</code></pre>
 <p>encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webencodings</span>
+<pre><code class="language-python">import webencodings
 
-<span class="n">decoded_string</span> <span class="o">=</span> <span class="s2">&quot;Привет&quot;</span>
-<span class="n">encoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82&quot;</span>
-</pre></div></div></div>
-
+decoded_string = &quot;Привет&quot;
+encoded_string = webencodings.encode(decoded_string, encoding=&quot;utf-8&quot;)
+print(encoded_string)  # Выводит: b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82&quot;
+</code></pre>
 <p>"htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace")": Декодирует строку "s" из HTML-entities в Unicode.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webencodings</span>
+<pre><code class="language-python">import webencodings
 
-<span class="n">html_string</span> <span class="o">=</span> <span class="s2">&quot;&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;&quot;</span>
-<span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">htmldecode</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: &lt;div&gt;Hello&lt;/div&gt;</span>
-</pre></div></div></div>
-
+html_string = &quot;&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;&quot;
+decoded_string = webencodings.htmldecode(html_string)
+print(decoded_string)  # Выводит: &lt;div&gt;Hello&lt;/div&gt;
+</code></pre>
 <p>"htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace")": Преобразует строку "s" в HTML-entities.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webencodings</span>
+<pre><code class="language-python">import webencodings
 
-<span class="n">plain_string</span> <span class="o">=</span> <span class="s2">&quot;&lt;div&gt;Hello&lt;/div&gt;&quot;</span>
-<span class="n">encoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">htmlencode</span><span class="p">(</span><span class="n">plain_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: &amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</span>
-</pre></div></div></div>
-
+plain_string = &quot;&lt;div&gt;Hello&lt;/div&gt;&quot;
+encoded_string = webencodings.htmlencode(plain_string)
+print(encoded_string)  # Выводит: &amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;
+</code></pre>
 <p>unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">webencodings</span>
+<pre><code class="language-python">import webencodings
 
-<span class="n">url_encoded_string</span> <span class="o">=</span> <span class="s2">&quot;Hello%20World%21&quot;</span>
-<span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">url_encoded_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: Hello World!</span>
-</pre></div></div></div>
+url_encoded_string = &quot;Hello%20World%21&quot;
+decoded_string = webencodings.unquote(url_encoded_string)
+print(decoded_string)  # Выводит: Hello World!
+</code></pre>

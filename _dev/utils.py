@@ -1,9 +1,5 @@
 import sys
 
-from pygments import highlight
-from pygments.formatters.html import HtmlFormatter
-from pygments.lexers import get_lexer_by_name
-
 
 reserved_filenames = [
     filename
@@ -168,25 +164,8 @@ def set_unselectable(text: str, sep: str = "\n"):
 
 
 def to_table_code(lang: str, code: str):
-    formatter = HtmlFormatter(style="default")
-    lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = highlight(code, lexer, formatter).strip().replace("\n", "<br>")
-
-    if lang == "python" and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code:
-        highlighted_code = set_unselectable(highlighted_code, "<br>")
-
-    result = rf"""
-<div class="code" style="border-radius:.375rem .375rem;">
-<div class="highlight">
-<pre>
-{highlighted_code}
-</pre>
-</div>
-</div>
-""".strip().replace(
-        "\n", ""
-    )
-    return result
+    # code = code
+    return f'<pre><code class="language-{lang}">{code}</code></pre>'.replace("\n", "<br>")
 
 
 def to_table_code_py(code: str) -> str:

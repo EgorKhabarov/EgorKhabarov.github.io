@@ -1,39 +1,39 @@
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[]]</span><span class="o">*</span><span class="mi">3</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="go">3276075832448</span>
-<span class="go">3276075832448</span>
-<span class="go">3276075832448</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span>
-<span class="unselectable"><span class="go">[[1], [1], [1]]</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">b</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="go">3276075828928</span>
-<span class="go">3276075828992</span>
-<span class="go">3276075828864</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">b</span>
-<span class="unselectable"><span class="go">[[], [1], []]</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">c</span> <span class="o">=</span> <span class="p">[[]]</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<span class="unselectable"><span class="go">3276075894784</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">c</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="go">3276075894784</span>
-<span class="go">3276075894784</span>
-<span class="o">&gt;&gt;&gt; </span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">((),)</span><span class="o">*</span><span class="mi">3</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
-<span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="go">3276075830656</span>
-<span class="go">3276075830656</span>
-<span class="go">3276075830656</span>
-</span></pre></div></div></div>
+<pre><code class="language-pycon">&gt;&gt;&gt; a = [[]]*3
+&gt;&gt;&gt; for x in a:
+...     print(id(x))
+...
+3276075832448
+3276075832448
+3276075832448
+&gt;&gt;&gt; a[1].append(1)
+&gt;&gt;&gt; a
+[[1], [1], [1]]
+&gt;&gt;&gt;
+&gt;&gt;&gt; b = [[] for _ in range(3)]
+&gt;&gt;&gt; for x in b:
+...     print(id(x))
+...
+3276075828928
+3276075828992
+3276075828864
+&gt;&gt;&gt; b[1].append(1)
+&gt;&gt;&gt; b
+[[], [1], []]
+&gt;&gt;&gt;
+&gt;&gt;&gt; c = [[]]
+&gt;&gt;&gt; print(id(c[0]))
+3276075894784
+&gt;&gt;&gt; for x in (c + c):
+...     print(id(x))
+...
+3276075894784
+3276075894784
+&gt;&gt;&gt;
+&gt;&gt;&gt; d = ((),)*3
+&gt;&gt;&gt; for x in d:
+...     print(id(d))
+...
+3276075830656
+3276075830656
+3276075830656
+</code></pre>

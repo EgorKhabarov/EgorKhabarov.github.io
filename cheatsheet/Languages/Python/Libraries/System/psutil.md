@@ -32,45 +32,41 @@
 </tbody>
 </table>
 <p>psutil.cpu_percent(): Возвращает текущий процент использования CPU в виде числа от 0 до 100.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psutil</span>
+<pre><code class="language-python">import psutil
 
-<span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Текущий процент использования CPU:&quot;</span><span class="p">,</span> <span class="n">cpu_percent</span><span class="p">)</span>
-</pre></div></div></div>
-
+cpu_percent = psutil.cpu_percent()
+print(&quot;Текущий процент использования CPU:&quot;, cpu_percent)
+</code></pre>
 <p>psutil.virtual_memory(): Возвращает информацию о виртуальной памяти в виде объекта.
 Можно получить доступ к атрибутам, таким как "total" (всего памяти), "available" (доступно памяти), "used" (используется памяти) и др.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psutil</span>
+<pre><code class="language-python">import psutil
 
-<span class="n">virtual_memory</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общая доступная память:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Доступная память:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">available</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется памяти:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
-</pre></div></div></div>
-
+virtual_memory = psutil.virtual_memory()
+print(&quot;Общая доступная память:&quot;, virtual_memory.total)
+print(&quot;Доступная память:&quot;, virtual_memory.available)
+print(&quot;Используется памяти:&quot;, virtual_memory.used)
+</code></pre>
 <p>psutil.disk_usage(): Возвращает информацию об использовании дискового пространства для указанного пути в виде объекта.
 Можно получить доступ к атрибутам, таким как "total" (всего пространства),
 "used" (используется пространство), "free" (свободное пространство) и др.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psutil</span>
+<pre><code class="language-python">import psutil
 
-<span class="n">disk_usage</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общее пространство диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется пространства диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Свободное пространство диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">free</span><span class="p">)</span>
-</pre></div></div></div>
-
+disk_usage = psutil.disk_usage(&quot;/&quot;)
+print(&quot;Общее пространство диска:&quot;, disk_usage.total)
+print(&quot;Используется пространства диска:&quot;, disk_usage.used)
+print(&quot;Свободное пространство диска:&quot;, disk_usage.free)
+</code></pre>
 <p>psutil.net_io_counters(): Возвращает сетевые счетчики ввода-вывода в виде объекта.
 Можно получить доступ к атрибутам, таким как "bytes_sent" (отправленные байты), "bytes_recv" (полученные байты), "packets_sent" (отправленные пакеты) и др.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psutil</span>
+<pre><code class="language-python">import psutil
 
-<span class="n">net_io_counters</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">net_io_counters</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Отправленные байты:&quot;</span><span class="p">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_sent</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Полученные байты:&quot;</span><span class="p">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_recv</span><span class="p">)</span>
-</pre></div></div></div>
-
+net_io_counters = psutil.net_io_counters()
+print(&quot;Отправленные байты:&quot;, net_io_counters.bytes_sent)
+print(&quot;Полученные байты:&quot;, net_io_counters.bytes_recv)
+</code></pre>
 <p>psutil.process_count(): Возвращает количество текущих запущенных процессов.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psutil</span>
+<pre><code class="language-python">import psutil
 
-<span class="n">process_count</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">process_count</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Количество запущенных процессов:&quot;</span><span class="p">,</span> <span class="n">process_count</span><span class="p">)</span>
-</pre></div></div></div>
+process_count = psutil.process_count()
+print(&quot;Количество запущенных процессов:&quot;, process_count)
+</code></pre>

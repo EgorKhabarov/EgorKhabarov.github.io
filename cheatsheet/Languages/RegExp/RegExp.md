@@ -206,7 +206,7 @@
 <td><code>(?P&lt;name&gt;pattern)</code></td>
 <td>Именованная группа захвата</td>
 <td><code>My name is (?P&lt;name&gt;\w+)</code></td>
-<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><br><span class="c1"># John</span><br></pre></div></pre></div></div></td>
+<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><pre><code class="language-python">re.compile(r"My name is (?P<name>\w+)")<br>.match("My name is John")<br>.group("name")<br># John</code></pre></td>
 </tr>
 <tr>
 <td><code>(?P=name)</code></td>
@@ -243,7 +243,7 @@
 <td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
 <td>Условные выражения<br>с именованными группами</td>
 <td></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1|&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div></td>
+<td><pre><code class="language-python">&gt;&gt;&gt; re.compile(<br>&gt;&gt;&gt;     r"(?P<name1>pattern1|"<br>&gt;&gt;&gt;     r"(?P<name2>pattern2))"<br>&gt;&gt;&gt; ).match(<br>&gt;&gt;&gt;     "pattern2"<br>&gt;&gt;&gt; ).groupdict()<br>{<br>    "name1": "pattern2",<br>    "name2": "pattern2",<br>}</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -281,7 +281,7 @@
 <tr>
 <td><code>re.X</code><br><code>re.VERBOSE</code></td>
 <td><code>(?x)</code></td>
-<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><span class="p">,</span><br>   <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">,</span><br><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br><br><span class="c1"># Wrong!</span><br><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?s)</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><br><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<br><pre><code class="language-python">a = re.compile(<br>   r"""<br>\d +  # the integral part<br>\.    # the decimal point<br>\d *  # some fractional digits<br>""",<br>   re.X,<br>)<br>b = re.compile(r"\d+.\d*")<br><br># Wrong!<br>c = re.compile(<br>   r"""(?s)<br>\d +  # the integral part<br>\.    # the decimal point<br>\d *  # some fractional digits<br>"""<br>)</code></pre></td>
 </tr>
 <tr>
 <td><code>re.L</code><br><code>re.LOCALE</code></td>
@@ -400,68 +400,54 @@
 </tbody>
 </table>
 <p><br></p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
-<span class="unselectable"><span class="o">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
-<span class="unselectable"><span class="n">Некоторые</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span> <span class="n">слова</span> <span class="n">подозрительны</span><span class="p">:</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span><span class="o">.</span></span>
-</pre></div></div></div>
-
+<pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; def func(m):
+...     return f&quot;[censored({len(m[0])})]&quot;
+...
+&gt;&gt;&gt; text = &quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;
+&gt;&gt;&gt; print(re.sub(r&quot;\b[хХxX]\w*&quot;, func, text))
+Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)].
+</code></pre>
 <h1>Примеры</h1>
 <h3>Номер кредитки:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>[0-9]{13,16}
-</pre></div></div></div>
-
+<pre><code class="language-regexp">[0-9]{13,16}
+</code></pre>
 <h3>ICQ:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>([1-9])+(?:-?\d){4,}
-</pre></div></div></div>
-
+<pre><code class="language-regexp">([1-9])+(?:-?\d){4,}
+</code></pre>
 <h3>Набор из букв и цифр (латиница):</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>^[a-zA-Z0-9]+$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">^[a-zA-Z0-9]+$
+</code></pre>
 <h3>Набор из букв и цифр (латиница + кириллица):</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>^[а-яА-ЯёЁa-zA-Z0-9]+$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">^[а-яА-ЯёЁa-zA-Z0-9]+$
+</code></pre>
 <h3>Домен (например seo-zona.ru):</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
+</code></pre>
 <h3>IPv4:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
-</pre></div></div></div>
-
+<pre><code class="language-regexp">((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
+</code></pre>
 <h3>IPv6:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>((^|:)([0-9a-fA-F]{0,4})){1,8}$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">((^|:)([0-9a-fA-F]{0,4})){1,8}$
+</code></pre>
 <h3>Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква):</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
+</code></pre>
 <h3>Дата в формате YYYY-MM-DD:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
-</pre></div></div></div>
-
+<pre><code class="language-regexp">[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+</code></pre>
 <h3>Дата в формате <code>DD/MM/YYYY</code>:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
-</pre></div></div></div>
-
+<pre><code class="language-regexp">(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
+</code></pre>
 <h3>Целые числа и числа с плавающей точкой (разделитель точка):</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>\-?\d+(\.\d{0,})?
-</pre></div></div></div>
-
+<pre><code class="language-regexp">\-?\d+(\.\d{0,})?
+</code></pre>
 <h3>UUID:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
-</pre></div></div></div>
-
+<pre><code class="language-regexp">^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
+</code></pre>
 <h3>Широта или долгота:</h3>
-<div class="code-element"><div class="lang-line"><text>regexp</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>-?\d{1,3}\.\d+
-</pre></div></div></div>
-
+<pre><code class="language-regexp">-?\d{1,3}\.\d+
+</code></pre>
 <p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению.
 Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
@@ -489,11 +475,12 @@
 <li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
 </ol>
 <h3>Пример кода</h3>
-<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">atomic_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&gt;a|ab)c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">simple_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Обычная группа</span>
-<span class="unselectable"><span class="go">abc</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
-<span class="unselectable"><span class="go">None</span>
-</span></pre></div></div></div>
+<pre><code class="language-pycon">&gt;&gt;&gt; import re
+&gt;&gt;&gt; simple_group = re.compile(r&quot;(a|ab)c&quot;)
+&gt;&gt;&gt; atomic_group = re.compile(r&quot;(?&gt;a|ab)c&quot;)
+&gt;&gt;&gt; print(simple_group.search(&quot;abc&quot;).group())  # Обычная группа
+abc
+&gt;&gt;&gt; print(atomic_group.search(&quot;abc&quot;))  # Атомарная группа
+None
+
+</code></pre>

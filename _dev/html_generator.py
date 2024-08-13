@@ -25,7 +25,8 @@ def buttons(
             name = key.replace("\\", "&#x2f;") + ".md"
             text_list.append(
                 (
-                    '<button onclick="GET(\'{name}\');delAnchor();restoreCheatSheetState(\'{name2}\')" class="button unselectable" '
+                    '<button onclick="GET(\'{name}\');delAnchor();restoreCheatShee'
+                    'tState(\'{name2}\')" class="button unselectable" '
                     'vpath="{vpath}" title="{title}">{title}</button>\n'
                 ).format(
                     name=name,
@@ -99,6 +100,8 @@ def generate_index_html(cheatsheet_count: int):
         <link rel="icon" type="image/png" href="icon.png">
         <link rel="stylesheet" href="./styles.css">
         <script src="./script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"> -->
     </head>
     <body>
         <div id="cheatsheet-buttons" class="cheatsheet-buttons">

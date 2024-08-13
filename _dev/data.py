@@ -4517,6 +4517,7 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 +---+---+
 
 ```
+
 </details>
 
 ## Borders
@@ -4605,6 +4606,7 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │  |   |   |   │                   │
 └──────────────┴───────────────────┘
 ```
+
 </details>
 
 <details>
@@ -4663,8 +4665,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 | qwe | rty |   |
 |     | uio |   |
 +-----+-----+---+
-
 ```
+
 </details>
 
 
@@ -4708,8 +4710,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 | qwe | rty |   |
 |     | uio |   |
 +-----+-----+---+
-
 ```
+
 </details>
 
 
@@ -4753,8 +4755,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 ‖ qwe ‖ rty ‖   ‖
 ‖     ‖ uio ‖   ‖
 +=====+=====+===+
-
 ```
+
 </details>
 
 
@@ -4798,8 +4800,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 ‖ qwe ‖ rty ‖   ‖
 ‖     ‖ uio ‖   ‖
 +=====+=====+===+
-
 ```
+
 </details>
 
 
@@ -4843,8 +4845,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
   qwe   rty      
         uio      
  --------------- 
-
 ```
+
 </details>
 
 
@@ -4888,8 +4890,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 └─────┴─────┴───┘
-
 ```
+
 </details>
 
 
@@ -4933,8 +4935,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 └─────┴─────┴───┘
-
 ```
+
 </details>
 
 
@@ -4978,8 +4980,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 └─────┴─────┴───┘
-
 ```
+
 </details>
 
 
@@ -5023,8 +5025,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 ╰─────┴─────┴───╯
-
 ```
+
 </details>
 
 
@@ -5068,8 +5070,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 ╰─────┴─────┴───╯
-
 ```
+
 </details>
 
 
@@ -5113,8 +5115,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 ╰─────┴─────┴───╯
-
 ```
+
 </details>
 
 
@@ -5158,8 +5160,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 ┃ qwe ┃ rty ┃   ┃
 ┃     ┃ uio ┃   ┃
 ┗━━━━━┻━━━━━┻━━━┛
-
 ```
+
 </details>
 
 
@@ -5203,8 +5205,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 │ qwe │ rty │   │
 │     │ uio │   │
 └─────┴─────┴───┘
-
 ```
+
 </details>
 
 
@@ -5248,8 +5250,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 ║ qwe ║ rty ║   ║
 ║     ║ uio ║   ║
 ╚═════╩═════╩═══╝
-
 ```
+
 </details>
 
 
@@ -5293,8 +5295,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 ║ qwe ║ rty ║   ║
 ║     ║ uio ║   ║
 ╚═════╩═════╩═══╝
-
 ```
+
 </details>
 
 
@@ -5338,8 +5340,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
   qwe   rty      
         uio      
  ─────────────── 
-
 ```
+
 </details>
 
 
@@ -5371,8 +5373,8 @@ pip install -U git+https://github.com/EgorKhabarov/table2string.git@master
 |   1 |   2 | 3 |
 | qwe | rty |   |
 |     | uio |   |
-
 ```
+
 </details>
 </details>
 
@@ -9638,7 +9640,7 @@ print(decompressed_data)
                         '>>> "{}".format("1")\n"1"\n>>> "{a}".format(a="1")\n"1"'
                     ),
                     format_map=to_table_code_py(
-                        '>>> "{x} {y}".format_map(\n... {"x": 4, "y": -5}\n... )\n"4 -5"'
+                        '>>> "{x} {y}".format_map(\n...     {"x": 4, "y": -5}\n... )\n"4 -5"'
                     ),
                     join=to_table_code_py('>>> " ".join(("1", "2"))\n"1 2"'),
                     strip=to_table_code_py('>>> "   1 3\t".strip()\n"1 3"'),
@@ -10694,7 +10696,8 @@ def generator2():
 Невозможно использовать литеральную фигурную скобку `{` или `}` в качестве символа `fill`
 в форматированном строковом литерале или при использовании метода `str.format()`.
 <details>
-    <summary><b>Однако можно вставить фигурную скобку с вложенным полем замены.</b></summary>
+<summary><b>Однако можно вставить фигурную скобку с вложенным полем замены.</b></summary>
+
 ```pycon
 >>> f"{1:}>20}"
   File "<stdin>", line 1
@@ -10707,7 +10710,9 @@ SyntaxError: f-string: single '}' is not allowed
                 ^
 SyntaxError: f-string: single '}' is not allowed
 >>> f"{1:{'}'}>20}"
-"}}}}}}}}}}}}}}}}}}}1"```
+"}}}}}}}}}}}}}}}}}}}1"
+```
+
 </details>
 Это ограничение не влияет на функцию `format()`.
 

@@ -15,55 +15,48 @@
 <code>delete_cell(index)</code>: удаляет ячейку по указанному индексу.</p>
 <p>Самые часто используемые методы:</p>
 <p><code>list_notebooks()</code>: возвращает список всех блокнотов в текущем рабочем каталоге.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">list_notebooks</span>
+<pre><code class="language-python">from notebook import list_notebooks
 
-<span class="n">notebooks</span> <span class="o">=</span> <span class="n">list_notebooks</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">notebooks</span><span class="p">)</span>
-</pre></div></div></div>
-
+notebooks = list_notebooks()
+print(notebooks)
+</code></pre>
 <p><code>open_notebook(path)</code>: открывает блокнот по указанному пути.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">open_notebook</span>
+<pre><code class="language-python">from notebook import open_notebook
 
-<span class="n">notebook</span> <span class="o">=</span> <span class="n">open_notebook</span><span class="p">(</span><span class="s2">&quot;path/to/notebook.ipynb&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span>
-</pre></div></div></div>
-
+notebook = open_notebook(&quot;path/to/notebook.ipynb&quot;)
+print(notebook)
+</code></pre>
 <p><code>create_notebook()</code>: создает новый блокнот.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">create_notebook</span>
+<pre><code class="language-python">from notebook import create_notebook
 
-<span class="n">notebook</span> <span class="o">=</span> <span class="n">create_notebook</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span>
-</pre></div></div></div>
-
+notebook = create_notebook()
+print(notebook)
+</code></pre>
 <p><code>save_notebook(path)</code>: сохраняет текущий блокнот по указанному пути.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook</span> <span class="kn">import</span> <span class="n">save_notebook</span>
+<pre><code class="language-python">from notebook import save_notebook
 
-<span class="n">save_notebook</span><span class="p">(</span><span class="s2">&quot;path/to/save.ipynb&quot;</span><span class="p">)</span>
-</pre></div></div></div>
-
+save_notebook(&quot;path/to/save.ipynb&quot;)
+</code></pre>
 <p><code>list_cells()</code>: возвращает список всех ячеек в текущем блокноте.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.cells</span> <span class="kn">import</span> <span class="n">list_cells</span>
+<pre><code class="language-python">from notebook.cells import list_cells
 
-<span class="n">cells</span> <span class="o">=</span> <span class="n">list_cells</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span>
-</pre></div></div></div>
-
+cells = list_cells()
+print(cells)
+</code></pre>
 <p><code>add_code_cell()</code>: добавляет новую ячейку с кодом.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.cells</span> <span class="kn">import</span> <span class="n">add_code_cell</span>
+<pre><code class="language-python">from notebook.cells import add_code_cell
 
-<span class="n">cell</span> <span class="o">=</span> <span class="n">add_code_cell</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-</pre></div></div></div>
-
+cell = add_code_cell()
+print(cell)
+</code></pre>
 <p><code>add_markdown_cell()</code>: добавляет новую ячейку с текстом в формате Markdown.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.cells</span> <span class="kn">import</span> <span class="n">add_markdown_cell</span>
+<pre><code class="language-python">from notebook.cells import add_markdown_cell
 
-<span class="n">cell</span> <span class="o">=</span> <span class="n">add_markdown_cell</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-</pre></div></div></div>
-
+cell = add_markdown_cell()
+print(cell)
+</code></pre>
 <p><code>delete_cell(index)</code>: удаляет ячейку по указанному индексу.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.cells</span> <span class="kn">import</span> <span class="n">delete_cell</span>
+<pre><code class="language-python">from notebook.cells import delete_cell
 
-<span class="n">delete_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div></div></div>
+delete_cell(0)
+</code></pre>

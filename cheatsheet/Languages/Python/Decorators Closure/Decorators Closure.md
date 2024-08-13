@@ -1,26 +1,25 @@
 <h2>Декораторы</h2>
 <p>Специальные функции, которые позволяют модифицировать поведение других функций.
 Они часто используются для добавления нового функционала к существующим функциям без изменения их кода.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cache_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
-            <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
+<pre><code class="language-python">def cache_decorator(func):
+    cache = {}
+    def wrapper(*args, **kwargs):
+        key = f&quot;{args}:{kwargs}&quot;
+        if key not in cache:
+            cache[key] = func(*args, **kwargs)
+        return cache[key]
+    return wrapper
 
-<span class="nd">@cache_decorator</span>
-<span class="k">def</span> <span class="nf">expensive_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># дорогая расчетная функция</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+@cache_decorator
+def expensive_function(x):
+    # дорогая расчетная функция
+    return x**2
 
-<span class="nb">print</span><span class="p">(</span><span class="n">expensive_function</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># 4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">expensive_function</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># 4 (значение берется из кеша)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">expensive_function</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 9</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">expensive_function</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># 9 (значение берется из кеша)</span>
-</pre></div></div></div>
-
+print(expensive_function(2))  # 4
+print(expensive_function(2))  # 4 (значение берется из кеша)
+print(expensive_function(3))  # 9
+print(expensive_function(3))  # 9 (значение берется из кеша)
+</code></pre>
 <h2>closure (Замыкания)</h2>
 <p>Функции, которые ссылаются на переменные, определенные вне этой функции.
 Они позволяют сохранять состояние переменных между вызовами функции.
@@ -28,14 +27,14 @@
 которые возвращают новые функции с измененными параметрами.</p>
 <p>Например, следующий код создает функцию-генератор, которая возвращает
 функции, увеличивающие число на указанное значение:</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_incrementor</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">incrementor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">n</span>
-    <span class="k">return</span> <span class="n">incrementor</span>
+<pre><code class="language-python">def make_incrementor(n):
+    def incrementor(x):
+        return x + n
+    return incrementor
 
-<span class="n">plus_3</span> <span class="o">=</span> <span class="n">make_incrementor</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plus_5</span> <span class="o">=</span> <span class="n">make_incrementor</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+plus_3 = make_incrementor(3)
+plus_5 = make_incrementor(5)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">plus_3</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># 13</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">plus_5</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># 15</span>
-</pre></div></div></div>
+print(plus_3(10))  # 13
+print(plus_5(10))  # 15
+</code></pre>

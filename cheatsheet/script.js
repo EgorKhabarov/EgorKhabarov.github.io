@@ -422,9 +422,73 @@ function getAnchor() {
     return url.hash ? url.hash.slice(1) : null;
 };
 
+
+function highlightCode(code, language) {
+    try {
+        const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
+        // hljs.highlightAuto(code)
+        return hljs.highlight(code, {language: validLanguage}).value;
+    } catch (error) {
+        console.error("Ошибка при подсветке кода:", error, language, code);
+        return code;
+    }
+}
+
+
+function escapeHTML(value) {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;');
+    }
+function unescapeHTML(value) {
+    return value
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#x27;/g, "'");
+    }
+
+
+function processingHighlighting(match, p1, lang1, lang2, code, offset, string) {
+    // `match` - найденное совпадение
+    // `p1` - захваченная группа (если есть)
+    // `offset` - индекс совпадения в строке
+    // `string` - исходная строка
+    lang = lang1 || lang2;
+    if (lang === "pycon") {lang = "python";};
+    console.log("Language:", lang);
+    console.log("Code:", code);
+    code = unescapeHTML(code).replaceAll("<br>", "\n");
+    console.log("Code:", code);
+    copy_btn = '<button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button>'
+    return `<div class="code-element"><div class="lang-line"><text>${lang}</text>${copy_btn}</div><div class="code">${highlightCode(code, lang)}</div></div>`
+}
+
+
 function processingCheatSheet(element) {
+    /*
+    const regex = /(```[a-z+#@._\d-]*|<pre><code class="language-[a-z+#-]*">)(.*?)(```|</code></pre>)/sig;
+    const regex = /(```[a-z+#@._\d-]*|<pre><code class="language-[a-z+#-]*">)([\s\S]*?)(```|<\/code><\/pre>/gi;
+    const regex = /(```(?P<lang>[a-z+#@._\d-]*)|<pre><code class="language-(?P<lang>[a-z+#-]*)">)(?P<code>[\s\S]*?)(```|<\/code><\/pre>)/gi;
+    const result = text.replace(regex, (match, p1, lang1, lang2, code) => {
+        const lang = lang1 || lang2;
+        console.log("Language:", lang);
+        console.log("Code:", code);
+        return `<pre><code class="${lang}">${code}</code></pre>`;
+    });
+    */
+    const regex = /(```([a-z+#@._\d-]*)|<pre><code class="language-([a-z+#-]*)">)([\s\S]*?)(```|<\/code><\/pre>)/gi;
+
+    element.innerHTML = element.innerHTML.replace(regex, processingHighlighting);
+
     element.querySelectorAll("a").forEach(a => {
-        a.target="_blank"
+        if (!a.target) {
+            a.target="_blank"
+        }
     });
     element.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(header => {
         let id = header.textContent.trim()

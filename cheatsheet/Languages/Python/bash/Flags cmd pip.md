@@ -44,10 +44,9 @@
 </tr>
 </tbody>
 </table>
-<div class="code-element"><div class="lang-line"><text>bash</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--help
-</pre></div></div></div>
-
-<div class="code-element"><div class="lang-line"><text>text</text><button class="copy-button" onclick="copyCode(this)"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span>Usage:
+<pre><code class="language-bash">pip install --help
+</code></pre>
+<pre><code>Usage:
   pip install [options] &lt;requirement specifier&gt; [package-index-options] ...
   pip install [options] -r &lt;requirements file&gt; [package-index-options] ...
   pip install [options] [-e] &lt;vcs project url&gt; ...
@@ -68,10 +67,10 @@ Description:
 Install Options:
   -r, --requirement &lt;file&gt;    Install from the given requirements file. This option can be used multiple times.
   -c, --constraint &lt;file&gt;     Constrain versions using the given constraints file. This option can be used multiple times.
-  --no-deps                   Don&#39;t install package dependencies.
+  --no-deps                   Don't install package dependencies.
   --pre                       Include pre-release and development versions. By default, pip only finds stable versions.
   -e, --editable &lt;path/url&gt;   Install a project in editable mode (i.e. setuptools &quot;develop mode&quot;) from a local project path or a VCS url.
-  --dry-run                   Don&#39;t actually install anything, just print what would be. Can be used in combination with --ignore-installed to &#39;resolve&#39;
+  --dry-run                   Don't actually install anything, just print what would be. Can be used in combination with --ignore-installed to 'resolve'
                               the requirements.
   -t, --target &lt;dir&gt;          Install packages into &lt;dir&gt;. By default this will not replace existing files/folders in &lt;dir&gt;. Use --upgrade to replace
                               existing packages in &lt;dir&gt; with new versions.
@@ -82,9 +81,9 @@ Install Options:
                               from the running interpreter. The version can be specified using up to three dot-separated integers (e.g. &quot;3&quot; for 3.0.0,
                               &quot;3.7&quot; for 3.7.0, or &quot;3.7.3&quot;). A major-minor version can also be given as a string without dots (e.g. &quot;37&quot; for 3.7.0).
   --implementation &lt;implementation&gt;
-                              Only use wheels compatible with Python implementation &lt;implementation&gt;, e.g. &#39;pp&#39;, &#39;jy&#39;, &#39;cp&#39;,  or &#39;ip&#39;. If not specified,
-                              then the current interpreter implementation is used.  Use &#39;py&#39; to force implementation-agnostic wheels.
-  --abi &lt;abi&gt;                 Only use wheels compatible with Python abi &lt;abi&gt;, e.g. &#39;pypy_41&#39;. If not specified, then the current interpreter abi tag is
+                              Only use wheels compatible with Python implementation &lt;implementation&gt;, e.g. 'pp', 'jy', 'cp',  or 'ip'. If not specified,
+                              then the current interpreter implementation is used.  Use 'py' to force implementation-agnostic wheels.
+  --abi &lt;abi&gt;                 Only use wheels compatible with Python abi &lt;abi&gt;, e.g. 'pypy_41'. If not specified, then the current interpreter abi tag is
                               used. Use this option multiple times to specify multiple abis supported by the target interpreter. Generally you will need
                               to specify --implementation, --platform, and --python-version when using this option.
   --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%\Python on Windows. (See
@@ -135,9 +134,9 @@ Install Options:
   --root-user-action &lt;root_user_action&gt;
                               Action if pip is run as a root user [warn, ignore] (default: warn)
   --report &lt;file&gt;             Generate a JSON file describing what pip did to install the provided requirements. Can be used in combination with --dry-run
-                              and --ignore-installed to &#39;resolve&#39; the requirements. When - is used as file name it writes to stdout. When writing to
+                              and --ignore-installed to 'resolve' the requirements. When - is used as file name it writes to stdout. When writing to
                               stdout, please combine with the --quiet option to avoid mixing pip logging output with JSON output.
-  --no-clean                  Don&#39;t clean up build directories.
+  --no-clean                  Don't clean up build directories.
 
 Package Index Options:
   -i, --index-url &lt;url&gt;       Base URL of the Python Package Index (default https://pypi.org/simple). This should point to a repository compliant with PEP
@@ -145,7 +144,7 @@ Package Index Options:
   --extra-index-url &lt;url&gt;     Extra URLs of package indexes to use in addition to --index-url. Should follow the same rules as --index-url.
   --no-index                  Ignore package index (only looking at --find-links URLs instead).
   -f, --find-links &lt;url&gt;      If a URL or path to an html file, then parse for links to archives such as sdist (.tar.gz) or wheel (.whl) files. If a local
-                              path or file:// URL that&#39;s a directory, then look for archives in the directory listing. Links to VCS project URLs are not
+                              path or file:// URL that's a directory, then look for archives in the directory listing. Links to VCS project URLs are not
                               supported.
 
 General Options:
@@ -168,16 +167,16 @@ General Options:
   --timeout &lt;sec&gt;             Set the socket timeout (default 15 seconds).
   --exists-action &lt;action&gt;    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
   --trusted-host &lt;hostname&gt;   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
-  --cert &lt;path&gt;               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See &#39;SSL Certificate Verification&#39; in pip
+  --cert &lt;path&gt;               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip
                               documentation for more information.
   --client-cert &lt;path&gt;        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
   --cache-dir &lt;dir&gt;           Store the cache data in &lt;dir&gt;.
   --no-cache-dir              Disable the cache.
   --disable-pip-version-check
-                              Don&#39;t periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
+                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
   --no-color                  Suppress colored output.
   --no-python-version-warning
                               Silence deprecation warnings for upcoming unsupported Pythons.
   --use-feature &lt;feature&gt;     Enable new functionality, that may be backward incompatible.
   --use-deprecated &lt;feature&gt;  Enable deprecated functionality, that will be removed in the future.
-</pre></div></div></div>
+</code></pre>

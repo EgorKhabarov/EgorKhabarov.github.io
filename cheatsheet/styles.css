@@ -238,6 +238,13 @@ h1 h2 h3 h4 h5 h6 {flex-direction: column;}
 .nf {color:#FFC66D;} /* Название функции */
 /*.na {color:#AA4926;}  Аргумент */
 
+.hljs-keyword, .hljs-literal {color:#CC7832;}
+.hljs-string  {color:#529755!important;}
+.hljs-number  {color:#5897BB;}
+.hljs-built_in {color:#8888C6;}
+.hljs-comment {color:hsla(0,0%,100%,.5)}
+.hljs-subst {color:#CC7832;}
+
 
 
 .close-button {
