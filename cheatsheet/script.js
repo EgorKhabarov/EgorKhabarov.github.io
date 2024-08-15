@@ -183,25 +183,20 @@ function DownloadCode(button_element, filename) {
     let text = code_element.textContent
     downloadTextFile(text.split("\n").slice(1).join("\n"), filename);
 
-    let svg1 = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" ';
-    let svg2 = 'stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">';
-    let svg = svg1 + svg2;
-    delete svg1, svg2;
-
-    let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><pre>Download!</pre>';
-    let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><pre>Download code</pre>';
+    let download_html = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><pre>Download code</pre>'
+    let downloaded_html = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><pre>Download!</pre>';
 
     if (typeof button_element.innerText != "undefined") {
-         button_element.innerHTML = html1; // IE8
+         button_element.innerHTML = downloaded_html; // IE8
     } else {
-         button_element.textContent = html1; // Нормальные браузеры
+         button_element.textContent = downloaded_html; // Нормальные браузеры
     }
 
     setTimeout(function() {
         if (typeof button_element.innerText != "undefined") {
-             button_element.innerHTML = html2; // IE8
+             button_element.innerHTML = download_html; // IE8
         } else {
-             button_element.textContent = html2; // Нормальные браузеры
+             button_element.textContent = download_html; // Нормальные браузеры
         }
     }, 1000);
 }
@@ -262,7 +257,7 @@ function restoreCheatSheetState(path) {
     try {
         toggleStyleDisplayByPath(kpath);
     } catch (e) {
-        console.log("toggleStyleDisplayByPath(kpath);");
+        console.log(`toggleStyleDisplayByPath("${kpath}");`);
     }
 
     let vpath = path;
@@ -317,13 +312,19 @@ function performSearch(search_query) {
     if (results.length > 0) {
         results.forEach(element => {
             vpath = element.getAttribute("vpath");
-            text = element.textContent.trim().split(" ")[0] + " " + vpath.replace(".md", "");
-            text = text.replaceAll(" ", " ").replaceAll("/", "⁠/⁠").replaceAll("-", "⁠-⁠");
+            console.log(vpath);
+            title = removeSuffix(removeSuffix(vpath, ".md"), "/⁠index");
+
             button = document.createElement("button");
-            button.textContent = text;  //element.textContent;
+            if (showFullPathInSearchButton) {
+                button.innerHTML = element.firstElementChild.outerHTML + title;
+            } else {
+                button.innerHTML = element.innerHTML;
+            }
             button.classList.add("button");
-            button.setAttribute("onclick", "GET('"+`${vpath}`+"');restoreCheatSheetState('"+`${vpath}`+"')");
-            button.setAttribute("title", text);
+            button.setAttribute("vpath", vpath);
+            button.setAttribute("onclick", "GET(this.getAttribute(`vpath`));restoreCheatSheetState(this.getAttribute(`vpath`));delAnchor();");
+            button.setAttribute("title", title);
             searchButtonFolder.appendChild(button);
         });
     } else {
@@ -340,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const arg = decodeURIComponent(getArgumentFromUrl());
     const anchor = getAnchor();
 
-    if (arg) {
+    if (arg !== "null") {
         console.log(`Argument found: "${arg}"`);
         restoreCheatSheetState(arg);
     } else {
@@ -379,6 +380,7 @@ let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
 let ismdwn = 0;
+let showFullPathInSearchButton = true;
 
 
 function mD(event) {

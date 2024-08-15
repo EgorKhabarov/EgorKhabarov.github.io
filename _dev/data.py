@@ -1,5 +1,6 @@
 from _dev.utils import to_table_code_py, to_table_code_java, to_link, to_table_code_sql
 
+
 DICT = {
     "General": {
         "GIT": {
@@ -86,7 +87,7 @@ git add --all
 git commit -m "added new image"
 ```
 
-![GIT.png](Общее/GIT/GIT.png)
+![GIT.png](General/GIT/GIT.png)
 """,
             "gitignore": """
 | Шаблон | Примеры соответствия | Пояснение |
@@ -113,7 +114,7 @@ git commit -m "added new image"
         },
         "Паттерны проектирования": {
             "index": """
-### Порождающие паттерны <img alt="C" src="Общее/Паттерны проектирования/C.png" height="17">
+### Порождающие паттерны <img alt="C" src="General/Паттерны проектирования/C.png" height="17">
 
 Порождающие паттерны проектирования фокусируются на процессах создания объектов.
 Они помогают абстрагировать процесс инстанцирования, что может быть полезным,
@@ -121,19 +122,19 @@ git commit -m "added new image"
 Это позволяет создавать объекты более гибко и предотвращает жесткую связь между кодом и конкретными классами объектов.
 
 
-### Структурные паттерны <img alt="S" src="Общее/Паттерны проектирования/S.png" height="17">
+### Структурные паттерны <img alt="S" src="General/Паттерны проектирования/S.png" height="17">
 
 Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
 могут быть объединены для создания более крупных и гибких структур.
 Эти паттерны помогают определить отношения между компонентами и обеспечивают гибкость и масштабируемость систем.
 
-### Поведенческие паттерны <img alt="B" src="Общее/Паттерны проектирования/B.png" height="17">
+### Поведенческие паттерны <img alt="B" src="General/Паттерны проектирования/B.png" height="17">
 
 Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
 Они помогают определить, как объекты должны взаимодействовать друг с другом и как распределять ответственность между ними.
 
 
-![шаблоны.jpg](Общее/Паттерны проектирования/шаблоны.jpg)
+![шаблоны.jpg](General/Паттерны проектирования/шаблоны.jpg)
 
 Copy from [https://habr.com/ru/articles/210288/](https://habr.com/ru/articles/210288/)
 """,
@@ -672,7 +673,7 @@ IP бывают **белые и серые** (или публичные и ча�
 но не всегда удобно пользоваться десятичной записью при составлении схемы сети.
 Легче записать маску как префикс, то есть `/8`.
 
-![Таблица_масок_подсети.png](Общее/ip/Таблица_масок_подсети.png)
+![Таблица_масок_подсети.png](General/Таблица_масок_подсети.png)
 
 Адрес `127.0.0.0` – `127.255.255.255` (**loopback** – петля на себя).
 Данная сеть нужна для диагностики.
@@ -2933,7 +2934,7 @@ textwrap.TextWrapper это класс, который представляет 
                      Вы можете использовать этот класс, чтобы создать экземпляр объекта, который может быть использован для форматирования нескольких строк текста.
 """,
                     "datetime": """
-![datetime.png](Языки/Python/Библиотеки/datetime.png)
+![datetime.png](Languages/Python/Libraries/datetime.png)
 """,
                     "decimal": """
 from decimal import Decimal
@@ -9638,7 +9639,7 @@ print(decompressed_data)
                         '>>> "{}".format("1")\n"1"\n>>> "{a}".format(a="1")\n"1"'
                     ),
                     format_map=to_table_code_py(
-                        '>>> "{x} {y}".format_map(\n... {"x": 4, "y": -5}\n... )\n"4 -5"'
+                        '>>> "{x} {y}".format_map(\n...     {"x": 4, "y": -5}\n... )\n"4 -5"'
                     ),
                     join=to_table_code_py('>>> " ".join(("1", "2"))\n"1 2"'),
                     strip=to_table_code_py('>>> "   1 3\t".strip()\n"1 3"'),
@@ -11910,9 +11911,9 @@ c = re.compile(
                 ),
             ),
             "images": r"""
-![regexp.png](Языки/RegExp/regexp.png)
-![to template.png](Языки/RegExp/to template.png)
-![lookaround.png](Языки/RegExp/lookaround.png)
+![regexp.png](Languages/RegExp/regexp.png)
+![to template.png](Languages/RegExp/to template.png)
+![lookaround.png](Languages/RegExp/lookaround.png)
 """,
         },
         "Java": {
@@ -12374,7 +12375,7 @@ for (int el : arr) {
 int[][] x = { { 0, 1, 2 }, { 3, 4, 5 } };
 ```
 
-![collections.jpg](Языки/Java/collections.jpg)
+![collections.jpg](Languages/Java/collections.jpg)
 
 
 Основные коллекции
@@ -13931,15 +13932,15 @@ $abcd$st'r$abcd$
 
 [https://habr.com/ru/companies/tensor/articles/779698/](https://habr.com/ru/companies/tensor/articles/779698/)
 """,
-                "картинки": """
-![distinct.png](Языки/SQL/PostgreSQL/distinct.png)
-![is_distinct.png](Языки/SQL/PostgreSQL/is_distinct.png)
+                "Картинки": """
+![distinct.png](Languages/SQL/PostgreSQL/distinct.png)
+![is_distinct.png](Languages/SQL/PostgreSQL/is_distinct.png)
 """,
             },
             "Картинки": r"""
-![sql.png](Языки/SQL/sql.png)
-![chshpart1.jpg](Языки/SQL/chshpart1.jpg)
-![chshpart2.jpg](Языки/SQL/chshpart2.jpg)
+![sql.png](Languages/SQL/sql.png)
+![chshpart1.jpg](Languages/SQL/chshpart1.jpg)
+![chshpart2.jpg](Languages/SQL/chshpart2.jpg)
 """,
         },
         "Dockerfile": {
@@ -13975,7 +13976,7 @@ CMD ["python3", "main.py"]
 ENV BOT_TOKEN=""
 ```
 
-![docker.png](Языки/Dockerfile/docker.png)
+![docker.png](Languages/Dockerfile/docker.png)
 """,
             "RUN mkdir -p": r"""
 Команда `mkdir` используется для создания новой директории.
@@ -14701,49 +14702,49 @@ ease-in-out | cubic-Bezier
             },
             "css-img": r"""
 
-![                  background.png](Языки/CSS/images/background.png)
-![                      border.png](Языки/CSS/images/border.png)
-![                       table.png](Языки/CSS/images/table.png)
-![                    boxmodel.png](Языки/CSS/images/boxmodel.png)
-![                        font.png](Языки/CSS/images/font.png)
-![                        text.png](Языки/CSS/images/text.png)
-![ color_angles_time_frequency.png](Языки/CSS/images/color_angles_time_frequency.png)
-![                  animations.png](Языки/CSS/images/animations.png)
-![                      speech.png](Языки/CSS/images/speech.png)
-![                 transitions.png](Языки/CSS/images/transitions.png)
-![                          ui.png](Языки/CSS/images/ui.png)
-![                      column.png](Языки/CSS/images/column.png)
-![            list and markers.png](Языки/CSS/images/list and markers.png)
-![        absolute measurement.png](Языки/CSS/images/absolute measurement.png)
-![              pseudo element.png](Языки/CSS/images/pseudo element.png)
-![                pseudo class.png](Языки/CSS/images/pseudo class.png)
-![                      colors.png](Языки/CSS/images/colors.png)
-![                     outline.png](Языки/CSS/images/outline.png)
-![        relative measurement.png](Языки/CSS/images/relative measurement.png)
+![                  background.png](Languages/CSS/background.png)
+![                      border.png](Languages/CSS/border.png)
+![                       table.png](Languages/CSS/table.png)
+![                    boxmodel.png](Languages/CSS/boxmodel.png)
+![                        font.png](Languages/CSS/font.png)
+![                        text.png](Languages/CSS/text.png)
+![ color_angles_time_frequency.png](Languages/CSS/color_angles_time_frequency.png)
+![                  animations.png](Languages/CSS/animations.png)
+![                      speech.png](Languages/CSS/speech.png)
+![                 transitions.png](Languages/CSS/transitions.png)
+![                          ui.png](Languages/CSS/ui.png)
+![                      column.png](Languages/CSS/column.png)
+![            list and markers.png](Languages/CSS/list and markers.png)
+![        absolute measurement.png](Languages/CSS/absolute measurement.png)
+![              pseudo element.png](Languages/CSS/pseudo element.png)
+![                pseudo class.png](Languages/CSS/pseudo class.png)
+![                      colors.png](Languages/CSS/colors.png)
+![                     outline.png](Languages/CSS/outline.png)
+![        relative measurement.png](Languages/CSS/relative measurement.png)
 
-![              selector types.png](Языки/CSS/images/selector types.png)
-![             2d 3d transform.png](Языки/CSS/images/2d 3d transform.png)
-![           generated content.png](Языки/CSS/images/generated content.png)
-![                   hyperlink.png](Языки/CSS/images/hyperlink.png)
-![                 positioning.png](Языки/CSS/images/positioning.png)
-![                    line box.png](Языки/CSS/images/line box.png)
-![                 paged media.png](Языки/CSS/images/paged media.png)
+![              selector types.png](Languages/selector types.png)
+![             2d 3d transform.png](Languages/2d 3d transform.png)
+![           generated content.png](Languages/generated content.png)
+![                   hyperlink.png](Languages/hyperlink.png)
+![                 positioning.png](Languages/positioning.png)
+![                    line box.png](Languages/line box.png)
+![                 paged media.png](Languages/paged media.png)
 """,
             "Селекторы": r"""
-![selectors.png](Языки/CSS/css_selectors.png)
+![selectors.png](Languages/CSS/css_selectors.png)
 """,
             "Единицы измерения": """
-![css_units.png](Языки/CSS/css_units.png)
+![css_units.png](Languages/CSS/css_units.png)
 """,
         },
         "HTML": {
             "Теги": r"""
-![tags1.png](Языки/HTML/tags1.png)
-![tags2.png](Языки/HTML/tags2.png)
+![tags1.png](Languages/HTML/tags1.png)
+![tags2.png](Languages/HTML/tags2.png)
 """,
             "Символы и экранирование": r"""
-![html_character1.png](Языки/HTML/html_character1.png)
-![html_character1.png](Языки/HTML/html_character1.png)
+![html_character1.png](Languages/HTML/html_character1.png)
+![html_character1.png](Languages/HTML/html_character1.png)
 """,
             "tag input": """
 ```html
@@ -17819,25 +17820,25 @@ class Dict:
 """,
         },
         "Minecraft": {
-            "color": """
-| color name   |                                                                         | color | chat | hex code | rgb         | motd     | decimal  |
-|--------------|-------------------------------------------------------------------------|:-----:|:----:|----------|-------------|----------|----------|
-| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> |  &4   |  §4  | #AA0000  | 170 0 0     | \\u00A74 | 11141120 |
-| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> |  &c   |  §c  | #FF5555  | 255 85 85   | \\u00A7c | 16733525 |
-| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> |  &6   |  §6  | #FFAA00  | 255 170 0   | \\u00A76 | 16755200 |
-| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> |  &e   |  §e  | #FFFF55  | 255 255 85  | \\u00A7e | 16777045 |
-| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> |  &a   |  §a  | #55FF55  | 0 170 0     | \\u00A7a | 5635925  |
-| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> |  &2   |  §2  | #00AA00  | 85 255 85   | \\u00A72 | 43520    |
-| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> |  &b   |  §b  | #55FFFF  | 85 255 255  | \\u00A7b | 5636095  |
-| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> |  &3   |  §3  | #00AAAA  | 0 170 170   | \\u00A73 | 43690    |
-| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> |  &9   |  §9  | #5555FF  | 0 0 170     | \\u00A79 | 5592575  |
-| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> |  &1   |  §1  | #0000AA  | 85 85 255   | \\u00A71 | 170      |
-| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> |  &d   |  §d  | #FF55FF  | 255 85 255  | \\u00A7d | 16733695 |
-| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> |  &5   |  §5  | #AA00AA  | 170 0 170   | \\u00A75 | 11141290 |
-| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> |  &f   |  §f  | #FFFFFF  | 255 255 255 | \\u00A7f | 16777215 |
-| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> |  &7   |  §7  | #AAAAAA  | 170 170 170 | \\u00A77 | 11184810 |
-| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> |  &8   |  §8  | #555555  | 85 85 85    | \\u00A78 | 5592405  |
-| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> |  &0   |  §0  | #000000  | 0 0 0       | \\u00A70 | 0        |
+            "Color": """
+| color name   |                                                                         | color | chat | hex code | rgb           | motd       | decimal    |
+|--------------|-------------------------------------------------------------------------|:-----:|:----:|----------|---------------|------------|------------|
+| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000 | `170 0 0`     | `\\u00A74` | `11141120` |
+| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555 | `255 85 85`   | `\\u00A7c` | `16733525` |
+| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00 | `255 170 0`   | `\\u00A76` | `16755200` |
+| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55 | `255 255 85`  | `\\u00A7e` | `16777045` |
+| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55 | `0 170 0`     | `\\u00A7a` | `5635925`  |
+| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00 | `85 255 85`   | `\\u00A72` | `43520`    |
+| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF | `85 255 255`  | `\\u00A7b` | `5636095`  |
+| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA | `0 170 170`   | `\\u00A73` | `43690`    |
+| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF | `0 0 170`     | `\\u00A79` | `5592575`  |
+| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA | `85 85 255`   | `\\u00A71` | `170`      |
+| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF | `255 85 255`  | `\\u00A7d` | `16733695` |
+| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA | `170 0 170`   | `\\u00A75` | `11141290` |
+| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF | `255 255 255` | `\\u00A7f` | `16777215` |
+| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA | `170 170 170` | `\\u00A77` | `11184810` |
+| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555 | `85 85 85`    | `\\u00A78` | `5592405`  |
+| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000 | `0 0 0`       | `\\u00A70` | `0`        |
 
 |            |    |
 |------------|----|
@@ -17847,25 +17848,25 @@ class Dict:
 | hex code   | paint color and web css colors
 | decimal    | used for nbt data tags, setting potion and leather armour colors
 
-| style         | chat | motd     |
-|---------------|------|----------|
-| Obfuscated    | §k   | \\u00A7k |
-| Bold          | §l   | \\u00A7l |
-| Strikethrough | §m   | \\u00A7m |
-| Underline     | §n   | \\u00A7n |
-| Italic        | §o   | \\u00A7o |
-| Reset         | §r   | \\u00A7r |                       
+| style         | chat   | motd       |
+|---------------|--------|------------|
+| Obfuscated    | `§k`   | `\\u00A7k` |
+| Bold          | `§l`   | `\\u00A7l` |
+| Strikethrough | `§m`   | `\\u00A7m` |
+| Underline     | `§n`   | `\\u00A7n` |
+| Italic        | `§o`   | `\\u00A7o` |
+| Reset         | `§r`   | `\\u00A7r` |                       
 """,
         },
         "Alt Symbols": """
 
 | Символ | Код  |
 |-------:|:-----|
-| §      | 21   |
-| …      | 0133 |
-| ¹      | 0185 |
-| ²      | 0178 |
-| ³      | 0179 |
+| `§`    | 21   |
+| `…`    | 0133 |
+| `¹`    | 0185 |
+| `²`    | 0178 |
+| `³`    | 0179 |
 
 """,
         "Links": """
@@ -17874,11 +17875,9 @@ class Dict:
 | Описание                                | Ссылка |
 |:----------------------------------------|:-------|
 | Дорожная карта                          | [https://roadmap.sh/python](https://roadmap.sh/python) [https://roadmap.sh/backend](https://roadmap.sh/backend) [https://roadmap.sh/roadmaps](https://roadmap.sh/roadmaps) |
-| Sorting Algorithms                      | [https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm](https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm) |
-|                                         | [https://realpython.com/sorting-algorithms-python/](https://realpython.com/sorting-algorithms-python/) |
+| Sorting Algorithms                      | [https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm](https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm)<br>[https://realpython.com/sorting-algorithms-python/](https://realpython.com/sorting-algorithms-python/) |
 | логирование                             | [https://habr.com/ru/companies/wunderfund/articles/683880/](https://habr.com/ru/companies/wunderfund/articles/683880/) |
-| re                                      | [https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf](https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf) |
-|                                         | [https://www.exlab.net/files/tools/sheets/regexp/regexp.png](https://www.exlab.net/files/tools/sheets/regexp/regexp.png) |
+| re                                      | [https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf](https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf)<br>[https://www.exlab.net/files/tools/sheets/regexp/regexp.png](https://www.exlab.net/files/tools/sheets/regexp/regexp.png) |
 | Recursive Regular Expressions           | [http://www.rexegg.com/regex-recursion.html](http://www.rexegg.com/regex-recursion.html) |
 | Магические методы                       | [https://habr.com/ru/post/186608/](https://habr.com/ru/post/186608/) |
 | Unit Tests                              | [https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/](https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/) |
@@ -17891,20 +17890,15 @@ class Dict:
 
 |                                       |                                                                             |
 |:--------------------------------------|:----------------------------------------------------------------------------|
-| Алгоритм генерации судоку             | [https://habr.com/ru/articles/192102/](https://habr.com/ru/articles/192102/) |
-|                                       | [https://habr.com/ru/post/249899/](https://habr.com/ru/post/249899/) |
-|                                       | [https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html](https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html) |
-| Компиляторы и трансляторы кода Python | [https://egorovegor.ru/python-compiler-and-translator/](https://egorovegor.ru/python-compiler-and-translator/) |
-|                                       | [https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89](https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89) |
+| Алгоритм генерации судоку             | [https://habr.com/ru/articles/192102/](https://habr.com/ru/articles/192102/)<br>[https://habr.com/ru/post/249899/](https://habr.com/ru/post/249899/)<br>[https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html](https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html) |
+| Компиляторы и трансляторы кода Python | [https://egorovegor.ru/python-compiler-and-translator/](https://egorovegor.ru/python-compiler-and-translator/)<br>[https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89](https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89) |
 | N + 1 query                           |                                                                             |
 
 # C++
 
 |                |                                                                  |
 |----------------|------------------------------------------------------------------|
-| Дорожная карта | [https://habr.com/ru/specials/726724/](https://habr.com/ru/specials/726724/)                             |
-|                | [https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/](https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/) |
-|                | [https://en.cppreference.com/w/](https://en.cppreference.com/w/)                                   |
+| Дорожная карта | [https://habr.com/ru/specials/726724/](https://habr.com/ru/specials/726724/)<br>[https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/](https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/)<br>[https://en.cppreference.com/w/](https://en.cppreference.com/w/)                                   |
 
 
 # GIT GitHub
@@ -17958,10 +17952,12 @@ class Dict:
     - Поиск по всему пути или по названию файла
         - ? _Сделать кнопку, которая вызывает окно посередине экрана с настройками_
         - ? _Добавить для результатов поиска отдельную всплывашку_
+
 """,
     },
     "Shortcuts": {
-         "::link::Languages/Python/fstrings": "",
-         "::link::Languages/RegExp/RegExp": "",
+         "link-1": "Languages/Python/fstrings.md",
+         "link-2": "Languages/RegExp/RegExp.md",
+         "link-3": "Languages/Python/Libraries/index.md",
     },
 }

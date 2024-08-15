@@ -1,0 +1,665 @@
+{
+    "General": [
+        {},
+        {
+            "GIT": [
+                {},
+                {
+                    "gitignore": {},
+                    "Команды": {}
+                }
+            ],
+            "HTTP": [
+                {},
+                {
+                    "HTTР": {},
+                    "Requests": {},
+                    "Протоколы связи": {}
+                }
+            ],
+            "Парадигмы": [
+                {},
+                {
+                    "Декларативная": {},
+                    "Императивная": {}
+                }
+            ],
+            "Паттерны проектирования": [
+                {},
+                {
+                    "Поведенческие паттерны": [
+                        {},
+                        {
+                            "Chain of Responsibility (Цепочка обязанностей)": {},
+                            "Command (Команда)": {},
+                            "Interpreter (Интерпретатор)": {},
+                            "Iterator (Итератор)": {},
+                            "Mediator (Посредник)": {},
+                            "Memento (Снимок)": {},
+                            "Observer (Наблюдатель)": {},
+                            "State (Состояние)": {},
+                            "Strategy (Стратегия)": {},
+                            "Template Method (Шаблонный метод)": {},
+                            "Visitor (Посетитель)": {}
+                        }
+                    ],
+                    "Порождающие паттерны": [
+                        {},
+                        {
+                            "Abstract Factory (Абстрактная фабрика)": {},
+                            "Builder (Строитель)": {},
+                            "Factory (Фабрика)": {},
+                            "Prototype (Прототип)": {},
+                            "Singleton (Одиночка)": {}
+                        }
+                    ],
+                    "Структурные паттерны": [
+                        {},
+                        {
+                            "Adapter (Адаптер)": {},
+                            "Bridge (Мост)": {},
+                            "Composite (Компоновщик)": {},
+                            "Decorator (Декоратор)": {},
+                            "Facade (Фасад)": {},
+                            "Flyweight (Легковес)": {},
+                            "Proxy (Заместитель)": {}
+                        }
+                    ]
+                }
+            ],
+            "Google Search": {},
+            "Interpreter Compiler": {},
+            "ip": {},
+            "Networking Protocols": {},
+            "sync async": {},
+            "ООП": {},
+            "Угрозы безопасности": {}
+        }
+    ],
+    "Languages": [
+        {
+            "color": "violet"
+        },
+        {
+            "Bash": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "help": {},
+                    "Переменные окружения": {}
+                }
+            ],
+            "Cpp": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "(Введение в ООП) Классы и объекты": {},
+                    "20 Дружественные функции": {},
+                    "ChatGPT": {},
+                    "end": {},
+                    "for while": {},
+                    "if-else,switch-case": {},
+                    "rand": {},
+                    "try-catch": {},
+                    "Динамические массивы": {},
+                    "Дружественные классы": {},
+                    "Конструкторы и деструкторы": {},
+                    "Массив": {},
+                    "Массивы": {},
+                    "Математические операции": {},
+                    "Наследование классов (ООП)": {},
+                    "Операции над числами": {},
+                    "Перегрузка функций": {},
+                    "Перечисления (Enum)": {},
+                    "Работа с файлами": {},
+                    "Разное": {},
+                    "Символы и строки": {},
+                    "Строка": {},
+                    "Структуры данных": {},
+                    "Типы данных": {},
+                    "Указатели": {},
+                    "Указатели2": {},
+                    "Указатель this": {},
+                    "Функции": {},
+                    "Циклы": {},
+                    "Шаблоны классов": {},
+                    "Шаблоны функций (template)": {}
+                }
+            ],
+            "CSS": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "css-text": [
+                        {},
+                        {
+                            "absolute measurement": {},
+                            "animations": {},
+                            "Backgrounds": {},
+                            "Border": {},
+                            "boxmodel": {},
+                            "colors": {},
+                            "color_angles_time_frequency": {},
+                            "column": {},
+                            "font": {},
+                            "list and markers": {},
+                            "outlin": {},
+                            "pseudo class": {},
+                            "pseudo element": {},
+                            "relative measurement": {},
+                            "speech": {},
+                            "table": {},
+                            "text": {},
+                            "transitions": {},
+                            "ui": {}
+                        }
+                    ],
+                    "css-img": {
+                        "color": "lblue"
+                    },
+                    "Единицы измерения": {},
+                    "Селекторы": {}
+                }
+            ],
+            "Dockerfile": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "Dockerfile": {},
+                    "RUN mkdir -p": {}
+                }
+            ],
+            "HTML": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "Xpath": [
+                        {},
+                        {
+                            "Axes": {},
+                            "Expressions": {},
+                            "Functions": {},
+                            "Link": {},
+                            "More examples": {},
+                            "Predicates": {},
+                            "Selectors": {}
+                        }
+                    ],
+                    "tag a": {},
+                    "tag input": {},
+                    "Символы и экранирование": {},
+                    "Теги": {}
+                }
+            ],
+            "Java": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "java": [
+                        {},
+                        {
+                            "util": [
+                                {},
+                                {
+                                    "ArrayList": {},
+                                    "Arrays": {},
+                                    "HashMap": {},
+                                    "HashSet": {},
+                                    "LinkedList": {},
+                                    "Scanner": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Запуск": [
+                        {},
+                        {
+                            "Аргументы": {},
+                            "Запуск": {}
+                        }
+                    ],
+                    "Классы": [
+                        {},
+                        {
+                            "Методы": [
+                                {},
+                                {
+                                    "Абстрактные методы": {},
+                                    "Методы": {},
+                                    "Не статические методы": {},
+                                    "Перегруженные методы": {},
+                                    "Переопределение методов": {}
+                                }
+                            ],
+                            "interface": {},
+                            "Анонимный класс": {},
+                            "Модификатор доступа": {},
+                            "Наследование": {},
+                            "Объекты, конструкторы": {}
+                        }
+                    ],
+                    "IO": {},
+                    "try, catch, finally": {},
+                    "Генерики": {},
+                    "Исключения": {},
+                    "Логические операторы": {},
+                    "Лямбда-выражения": {},
+                    "Массив (Array)": {},
+                    "Пакеты": {},
+                    "Сериализация и десериализация объектов": {},
+                    "Типы данных": {},
+                    "Циклы": {}
+                }
+            ],
+            "JavaScript": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "for": {},
+                    "handlebar": {},
+                    "Переменные": {},
+                    "Списки": {}
+                }
+            ],
+            "LaTex": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "Элементы": {}
+                }
+            ],
+            "Python": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "bash": [
+                        {},
+                        {
+                            "Flags cmd pip": {},
+                            "Flags cmd Python": {},
+                            "IPython": {},
+                            "requirements.txt": {}
+                        }
+                    ],
+                    "Decorators Closure": [
+                        {},
+                        {
+                            "cached_property": {},
+                            "classmethod": {},
+                            "dataclass": {},
+                            "Decorators Closure": {},
+                            "final": {},
+                            "overload": {},
+                            "property": {},
+                            "staticmethod": {}
+                        }
+                    ],
+                    "Generators and lists": [
+                        {},
+                        {
+                            "for in list comprehension": {},
+                            "Multiplication of lists": {},
+                            "yield from": {}
+                        }
+                    ],
+                    "Libraries": [
+                        {
+                            "color": "green"
+                        },
+                        {
+                            "Algorithms": [
+                                {},
+                                {
+                                    "bisect": {},
+                                    "hmac": {},
+                                    "lzma": {},
+                                    "zlib": {}
+                                }
+                            ],
+                            "Data types": [
+                                {},
+                                {
+                                    "enum": {},
+                                    "graphlib": {},
+                                    "heapq": {},
+                                    "jsonpointer": {},
+                                    "jsonschema": {},
+                                    "netrc": {},
+                                    "queue": {},
+                                    "wave": {},
+                                    "xml": {}
+                                }
+                            ],
+                            "Information": [
+                                {},
+                                {
+                                    "PIL": [
+                                        {},
+                                        {
+                                            "ImageDraw.Draw": {}
+                                        }
+                                    ],
+                                    "aalib": {},
+                                    "argparse": {},
+                                    "base64": {},
+                                    "binhex": {},
+                                    "cycler": {},
+                                    "datetime": {
+                                        "color": "lblue"
+                                    },
+                                    "decimal": {},
+                                    "difflib": {},
+                                    "fractions": {},
+                                    "random": {},
+                                    "shlex": {},
+                                    "string": {},
+                                    "table2string": {},
+                                    "textwrap": {},
+                                    "xdrlib": {}
+                                }
+                            ],
+                            "Other": [
+                                {},
+                                {
+                                    "bz2": {},
+                                    "errno": {},
+                                    "gettext": {},
+                                    "js2py": {},
+                                    "linecache": {},
+                                    "locale": {},
+                                    "mailbox": {},
+                                    "mailcap": {},
+                                    "netbios": {},
+                                    "nis": {},
+                                    "nntplib": {},
+                                    "notebook": {},
+                                    "ntpath": {},
+                                    "packaging": {},
+                                    "poplib": {},
+                                    "pylab": {},
+                                    "pythoncom": {},
+                                    "quopri": {},
+                                    "rasutil": {},
+                                    "readline": {},
+                                    "regcheck": {},
+                                    "rfc3339_validator": {},
+                                    "sched": {},
+                                    "traitlets": {},
+                                    "wheel": {}
+                                }
+                            ],
+                            "Python": [
+                                {},
+                                {
+                                    "markdown": [
+                                        {},
+                                        {
+                                            "extensions": {}
+                                        }
+                                    ],
+                                    "atexit": {},
+                                    "bdb": {},
+                                    "cachetools": {},
+                                    "collections": {},
+                                    "contextlib": {},
+                                    "faulthandler": {},
+                                    "fileinput": {},
+                                    "formatter": {},
+                                    "frozenlist": {},
+                                    "functools": {},
+                                    "gast": {},
+                                    "getpass": {},
+                                    "gtts": {},
+                                    "import": {},
+                                    "itertools": {},
+                                    "keyword": {},
+                                    "logging": {},
+                                    "marshal": {},
+                                    "pstats": {},
+                                    "pyclbr": {},
+                                    "pyparsing": {},
+                                    "reprlib": {},
+                                    "rlcompleter": {},
+                                    "runpy": {},
+                                    "setuptools": {},
+                                    "tabnanny": {},
+                                    "trace": {},
+                                    "traceback": {},
+                                    "warnings": {},
+                                    "zipapp": {},
+                                    "zipfile": {},
+                                    "zipimport": {}
+                                }
+                            ],
+                            "System": [
+                                {},
+                                {
+                                    "concurrent": {},
+                                    "fcntl": {},
+                                    "filecmp": {},
+                                    "fnmatch": {},
+                                    "gc": {},
+                                    "genericpath": {},
+                                    "getopt": {},
+                                    "glob": {},
+                                    "grp": {},
+                                    "io": {},
+                                    "keyboard": {},
+                                    "multiprocessing": {},
+                                    "nt": {},
+                                    "optparse": {},
+                                    "os": {},
+                                    "posix": {},
+                                    "posixpath": {},
+                                    "psutil": {},
+                                    "pygetwindow": {},
+                                    "pymsgbox": {},
+                                    "resource": {},
+                                    "spwd": {},
+                                    "stat": {},
+                                    "subprocess": {},
+                                    "sys": {}
+                                }
+                            ],
+                            "Web": [
+                                {},
+                                {
+                                    "Django": [
+                                        {},
+                                        {
+                                            "Команды": {}
+                                        }
+                                    ],
+                                    "Flask": [
+                                        {},
+                                        {
+                                            "Типы переменных": {}
+                                        }
+                                    ],
+                                    "Jinja": [
+                                        {},
+                                        {
+                                            "Базовый синтаксис": {},
+                                            "Безопасность": {},
+                                            "Инклюды и импорт": {},
+                                            "Лучшие практики": {},
+                                            "Работа с контекстом": {},
+                                            "Управляющие структуры": {},
+                                            "Фильтры и функции": {},
+                                            "Шаблонные наследования": {}
+                                        }
+                                    ],
+                                    "bleach": {},
+                                    "certifi": {},
+                                    "grpc": {},
+                                    "rfc3986_validator": {},
+                                    "webcolors": {},
+                                    "webencodings": {}
+                                }
+                            ]
+                        }
+                    ],
+                    "Methods": [
+                        {},
+                        {
+                            "dict": {},
+                            "float": {},
+                            "int": {},
+                            "list": {},
+                            "Magic methods": {},
+                            "set": {},
+                            "str": {},
+                            "tuple": {}
+                        }
+                    ],
+                    "Built-in functions": {},
+                    "fstrings": {},
+                    "mro": {},
+                    "Type Annotations": {}
+                }
+            ],
+            "RegExp": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "images": {
+                        "color": "lblue"
+                    },
+                    "RegExp": {}
+                }
+            ],
+            "SQL": [
+                {
+                    "color": "violet"
+                },
+                {
+                    "PostgreSQL": [
+                        {},
+                        {
+                            "CREATE": {},
+                            "pg_hba.conf": {},
+                            "Картинки": {},
+                            "Типы данных": {}
+                        }
+                    ],
+                    "SQLite3": [
+                        {},
+                        {
+                            "Date And Time Format": {},
+                            "JOIN": {},
+                            "Операторы": {},
+                            "Разное": {},
+                            "Функции": {}
+                        }
+                    ],
+                    "Картинки": {
+                        "color": "lblue"
+                    }
+                }
+            ]
+        }
+    ],
+    "Other": [
+        {},
+        {
+            "Code examples": [
+                {
+                    "color": "brown"
+                },
+                {
+                    "converters": {
+                        "color": "brown"
+                    },
+                    "download telegram emoji": {
+                        "color": "brown"
+                    },
+                    "fib": {
+                        "color": "brown"
+                    },
+                    "js YouTube": {
+                        "color": "brown"
+                    },
+                    "quicksort": {
+                        "color": "brown"
+                    },
+                    "str - int": {
+                        "color": "brown"
+                    },
+                    "Минимальное максимальное число матрицы cpp": {
+                        "color": "brown"
+                    },
+                    "Определитель матрицы": {
+                        "color": "brown"
+                    },
+                    "Пирамида граф": {
+                        "color": "brown"
+                    },
+                    "словарь обращение через точку": {
+                        "color": "brown"
+                    }
+                }
+            ],
+            "File formats": [
+                {
+                    "color": "brown"
+                },
+                {
+                    "CSV": {
+                        "color": "brown"
+                    },
+                    "INI": {
+                        "color": "brown"
+                    },
+                    "JSON": {
+                        "color": "brown"
+                    },
+                    "SQLite3 to CSV": {
+                        "color": "brown"
+                    },
+                    "TinyDB (json)": {
+                        "color": "brown"
+                    },
+                    "TOML": {
+                        "color": "brown"
+                    },
+                    "Vedis db": {
+                        "color": "brown"
+                    },
+                    "XML": {
+                        "color": "brown"
+                    },
+                    "YAML": {
+                        "color": "brown"
+                    }
+                }
+            ],
+            "Minecraft": [
+                {},
+                {
+                    "Color": {}
+                }
+            ],
+            "Alt Symbols": {},
+            "Links": {},
+            "TODO": {}
+        }
+    ],
+    "Shortcuts": [
+        {},
+        {
+            "link-1": {},
+            "link-2": {},
+            "link-3": {}
+        }
+    ]
+}

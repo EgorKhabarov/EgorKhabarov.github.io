@@ -1,1 +1,1 @@
-<p><img alt="datetime.png" src="Языки/Python/Библиотеки/datetime.png" /></p>
+<p><img alt="datetime.png" src="Languages/Python/Libraries/datetime.png" /></p>

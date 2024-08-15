@@ -1,26 +1,26 @@
-<p><img alt="                  background.png" src="Языки/CSS/images/background.png" />
-<img alt="                      border.png" src="Языки/CSS/images/border.png" />
-<img alt="                       table.png" src="Языки/CSS/images/table.png" />
-<img alt="                    boxmodel.png" src="Языки/CSS/images/boxmodel.png" />
-<img alt="                        font.png" src="Языки/CSS/images/font.png" />
-<img alt="                        text.png" src="Языки/CSS/images/text.png" />
-<img alt=" color_angles_time_frequency.png" src="Языки/CSS/images/color_angles_time_frequency.png" />
-<img alt="                  animations.png" src="Языки/CSS/images/animations.png" />
-<img alt="                      speech.png" src="Языки/CSS/images/speech.png" />
-<img alt="                 transitions.png" src="Языки/CSS/images/transitions.png" />
-<img alt="                          ui.png" src="Языки/CSS/images/ui.png" />
-<img alt="                      column.png" src="Языки/CSS/images/column.png" />
-<img alt="            list and markers.png" src="Языки/CSS/images/list and markers.png" />
-<img alt="        absolute measurement.png" src="Языки/CSS/images/absolute measurement.png" />
-<img alt="              pseudo element.png" src="Языки/CSS/images/pseudo element.png" />
-<img alt="                pseudo class.png" src="Языки/CSS/images/pseudo class.png" />
-<img alt="                      colors.png" src="Языки/CSS/images/colors.png" />
-<img alt="                     outline.png" src="Языки/CSS/images/outline.png" />
-<img alt="        relative measurement.png" src="Языки/CSS/images/relative measurement.png" /></p>
-<p><img alt="              selector types.png" src="Языки/CSS/images/selector types.png" />
-<img alt="             2d 3d transform.png" src="Языки/CSS/images/2d 3d transform.png" />
-<img alt="           generated content.png" src="Языки/CSS/images/generated content.png" />
-<img alt="                   hyperlink.png" src="Языки/CSS/images/hyperlink.png" />
-<img alt="                 positioning.png" src="Языки/CSS/images/positioning.png" />
-<img alt="                    line box.png" src="Языки/CSS/images/line box.png" />
-<img alt="                 paged media.png" src="Языки/CSS/images/paged media.png" /></p>
+<p><img alt="                  background.png" src="Languages/CSS/background.png" />
+<img alt="                      border.png" src="Languages/CSS/border.png" />
+<img alt="                       table.png" src="Languages/CSS/table.png" />
+<img alt="                    boxmodel.png" src="Languages/CSS/boxmodel.png" />
+<img alt="                        font.png" src="Languages/CSS/font.png" />
+<img alt="                        text.png" src="Languages/CSS/text.png" />
+<img alt=" color_angles_time_frequency.png" src="Languages/CSS/color_angles_time_frequency.png" />
+<img alt="                  animations.png" src="Languages/CSS/animations.png" />
+<img alt="                      speech.png" src="Languages/CSS/speech.png" />
+<img alt="                 transitions.png" src="Languages/CSS/transitions.png" />
+<img alt="                          ui.png" src="Languages/CSS/ui.png" />
+<img alt="                      column.png" src="Languages/CSS/column.png" />
+<img alt="            list and markers.png" src="Languages/CSS/list and markers.png" />
+<img alt="        absolute measurement.png" src="Languages/CSS/absolute measurement.png" />
+<img alt="              pseudo element.png" src="Languages/CSS/pseudo element.png" />
+<img alt="                pseudo class.png" src="Languages/CSS/pseudo class.png" />
+<img alt="                      colors.png" src="Languages/CSS/colors.png" />
+<img alt="                     outline.png" src="Languages/CSS/outline.png" />
+<img alt="        relative measurement.png" src="Languages/CSS/relative measurement.png" /></p>
+<p><img alt="              selector types.png" src="Languages/selector types.png" />
+<img alt="             2d 3d transform.png" src="Languages/2d 3d transform.png" />
+<img alt="           generated content.png" src="Languages/generated content.png" />
+<img alt="                   hyperlink.png" src="Languages/hyperlink.png" />
+<img alt="                 positioning.png" src="Languages/positioning.png" />
+<img alt="                    line box.png" src="Languages/line box.png" />
+<img alt="                 paged media.png" src="Languages/paged media.png" /></p>

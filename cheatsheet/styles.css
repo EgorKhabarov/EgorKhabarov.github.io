@@ -30,18 +30,17 @@ a:active  {color: #6ba4e9;}
 a:visited {color: #539bf5;}
 
 /* Таблицы */
-table thead tbody tr {max-width: min-content;}
+table {width: max-content;}
 th {
-  padding: 10px 15px;
+  padding: 10px;
   background-color: #46494b;
-  max-width: min-content;
 }
 td {
   border-top: 1px solid #46494b;
-  padding: 10px 15px;
+  padding: 10px;
   background-color: #3c3f41;
-  max-width: min-content;
 }
+
 th:first-child {border-top-left-radius: .375rem;}
 th:last-child {border-top-right-radius: .375rem;}
 tr:last-child td:first-child {border-bottom-left-radius: .375rem;}
@@ -76,6 +75,21 @@ ul {
 }
 
 h1 h2 h3 h4 h5 h6 {flex-direction: column;}
+
+hr {
+  border-top-width: 4px;
+  border-bottom-width 4px
+  border-top-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  height: 1px; /* Толщина линии */
+  width: max-container; /* Ширина на всю ширину контейнера */
+  margin: 20px 0; /* Отступы сверху и снизу */
+  opacity: 1; /* Устанавливаем непрозрачность */
+  border-color: rgb(170, 170, 170); /* #393939; */
+  border-radius: 0px;
+}
 
 /* Контейнер с кнопками выбора темы */
 .cheatsheet-buttons {
@@ -306,17 +320,12 @@ h1 h2 h3 h4 h5 h6 {flex-direction: column;}
   background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/vsizegrip.png) center center no-repeat #222222;
 }
 
-hr {
-  border-top-width: 4px;
-  border-bottom-width 4px
-  border-top-style: none;
-  border-bottom-style: none;
-  border-left-style: none;
-  border-right-style: none;
-  height: 1px; /* Толщина линии */
-  width: max-container; /* Ширина на всю ширину контейнера */
-  margin: 20px 0; /* Отступы сверху и снизу */
-  opacity: 1; /* Устанавливаем непрозрачность */
-  border-color: rgb(170, 170, 170); /* #393939; */
-  border-radius: 0px;
-}
+.yellow {color: rgb(249, 197, 83);}
+.green {color: rgb(60, 194, 58);}
+.white {color: #F1F1F1;}
+.pink {color: rgb(253, 99, 148);}
+.red {color: rgb(224, 53, 52);}
+.lblue {color: rgb(132, 184, 249);}
+.dblue {color: rgb(20, 114, 248);}
+.violet {color: rgb(140, 88, 133);}
+.brown {color: rgb(131, 83, 51);}

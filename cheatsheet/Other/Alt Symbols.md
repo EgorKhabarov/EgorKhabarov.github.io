@@ -7,23 +7,23 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">§</td>
+<td style="text-align: right;"><code>§</code></td>
 <td style="text-align: left;">21</td>
 </tr>
 <tr>
-<td style="text-align: right;">…</td>
+<td style="text-align: right;"><code>…</code></td>
 <td style="text-align: left;">0133</td>
 </tr>
 <tr>
-<td style="text-align: right;">¹</td>
+<td style="text-align: right;"><code>¹</code></td>
 <td style="text-align: left;">0185</td>
 </tr>
 <tr>
-<td style="text-align: right;">²</td>
+<td style="text-align: right;"><code>²</code></td>
 <td style="text-align: left;">0178</td>
 </tr>
 <tr>
-<td style="text-align: right;">³</td>
+<td style="text-align: right;"><code>³</code></td>
 <td style="text-align: left;">0179</td>
 </tr>
 </tbody>

@@ -13,11 +13,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Sorting Algorithms</td>
-<td style="text-align: left;"><a href="https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm">https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://realpython.com/sorting-algorithms-python/">https://realpython.com/sorting-algorithms-python/</a></td>
+<td style="text-align: left;"><a href="https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm">https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm</a><br><a href="https://realpython.com/sorting-algorithms-python/">https://realpython.com/sorting-algorithms-python/</a></td>
 </tr>
 <tr>
 <td style="text-align: left;">логирование</td>
@@ -25,11 +21,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">re</td>
-<td style="text-align: left;"><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf">https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.png">https://www.exlab.net/files/tools/sheets/regexp/regexp.png</a></td>
+<td style="text-align: left;"><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf">https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf</a><br><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.png">https://www.exlab.net/files/tools/sheets/regexp/regexp.png</a></td>
 </tr>
 <tr>
 <td style="text-align: left;">Recursive Regular Expressions</td>
@@ -68,23 +60,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Алгоритм генерации судоку</td>
-<td style="text-align: left;"><a href="https://habr.com/ru/articles/192102/">https://habr.com/ru/articles/192102/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://habr.com/ru/post/249899/">https://habr.com/ru/post/249899/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html">https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html</a></td>
+<td style="text-align: left;"><a href="https://habr.com/ru/articles/192102/">https://habr.com/ru/articles/192102/</a><br><a href="https://habr.com/ru/post/249899/">https://habr.com/ru/post/249899/</a><br><a href="https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html">https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html</a></td>
 </tr>
 <tr>
 <td style="text-align: left;">Компиляторы и трансляторы кода Python</td>
-<td style="text-align: left;"><a href="https://egorovegor.ru/python-compiler-and-translator/">https://egorovegor.ru/python-compiler-and-translator/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89">https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89</a></td>
+<td style="text-align: left;"><a href="https://egorovegor.ru/python-compiler-and-translator/">https://egorovegor.ru/python-compiler-and-translator/</a><br><a href="https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89">https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89</a></td>
 </tr>
 <tr>
 <td style="text-align: left;">N + 1 query</td>
@@ -103,15 +83,7 @@
 <tbody>
 <tr>
 <td>Дорожная карта</td>
-<td><a href="https://habr.com/ru/specials/726724/">https://habr.com/ru/specials/726724/</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/">https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://en.cppreference.com/w/">https://en.cppreference.com/w/</a></td>
+<td><a href="https://habr.com/ru/specials/726724/">https://habr.com/ru/specials/726724/</a><br><a href="https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/">https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/</a><br><a href="https://en.cppreference.com/w/">https://en.cppreference.com/w/</a></td>
 </tr>
 </tbody>
 </table>
