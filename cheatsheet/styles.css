@@ -25,9 +25,11 @@ pre {
 }
 
 /* Цвета ссылок */
+a         {text-decoration: none;}
 a:link    {color: #539bf5;}
 a:active  {color: #6ba4e9;}
-a:visited {color: #539bf5;}
+a:visited {color: rgb(164, 89, 228);}
+a:hover   {text-decoration: underline;}
 
 /* Таблицы */
 table {width: max-content;}
@@ -143,7 +145,10 @@ hr {
   cursor: pointer;
 }
 .button:hover {background-color: #424242;}
-.button:active {background-color: #525252; transform: translateY(2px);}
+.button:active {
+  background-color: #525252;
+  transform: translateY(2px);
+}
 .button:focus {background-color: #999999;color: #252525;}
 
 /* Поле в котором появляется шпаргалка */

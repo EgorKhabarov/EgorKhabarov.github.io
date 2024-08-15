@@ -22,60 +22,38 @@ link = """
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
 </svg>
 """.strip()
-
-
-def get_path(meta_json, key_list: list[str], mode: str) -> dict:
-    if len(key_list) == 1:
-        if mode == "folder":
-            return meta_json[key_list[0]][0]
-        else:
-            return meta_json[key_list[0]]
-
-    *key_list, last_element = key_list
-    now_meta = meta_json
-    for key in key_list:
-        now_meta = now_meta[key][1]
-    if mode == "folder":
-        return now_meta[last_element][0]
-    return now_meta[last_element]
+default_value = {}
 
 
 def buttons(
     dictionary: dict,
     directory: str = "",
-    meta_json: dict = None,
+    metadata: dict = None,
     x: int = 0,
     y: int = 0,
 ) -> tuple[str, str, int]:
     text_list = []
     for key, value in dictionary.items():
-        print_progress_bar(x, y, "create index.html", f"{directory}\\{key}")
+        print_progress_bar(x, y, "create index.html", f"{directory}/{key}")
         title = key.replace(" ", "&nbsp;").replace("-", "&#8288;-&#8288;")
-        meta = get_path(
-            meta_json,
-            (directory.replace("\\", "/") + "/" + key.removesuffix("index")).strip("/").split("/"),
-            mode="folder" if isinstance(value, dict) else "value",
-        )
+        path = f"{directory}/{key}".replace("\\", "/").lstrip("/")
+        if isinstance(value, dict):
+            path += "/"
+        else:
+            path += ".md"
+        metadata_dict = metadata.get(path, default_value)
 
         if key.startswith("link-") and key.removeprefix("link-").isdigit():
-            vpath = value
-
-            color = meta.get("color")
+            color = metadata.get("color")
             if not color:
-                try:
-                    path = vpath.removesuffix("/index.md") if vpath.endswith("/index.md") else vpath.removesuffix(".md")
-                    try:
-                        color = get_path(meta_json, path.split("/"), mode="value").get("color")
-                    except AttributeError:
-                        color = get_path(meta_json, path.split("/"), mode="folder").get("color")
-                    if not color:
-                        raise KeyError
-                except KeyError:
-                    color = "white"
+                color = metadata.get(
+                    value.removesuffix("index.md") if value.endswith("/index.md") else value,
+                    default_value,
+                ).get("color", "white")
             svg = link.format(color=color)
-            title = vpath.removesuffix("index.md") if vpath.endswith("/index.md") else vpath.removesuffix(".md")
+            title = value.removesuffix("index.md") if value.endswith("/index.md") else value.removesuffix(".md")
             text_list.append(
-                f'<button class="button unselectable" vpath="{vpath}" '
+                f'<button class="button unselectable" vpath="{value}" '
                 f'onclick="'
                 f'GET(this.getAttribute(`vpath`));restoreCheatSheetState(this.getAttribute(`vpath`));delAnchor();'
                 f'" title="{title}">{svg}{title}</button>\n'
@@ -92,10 +70,10 @@ def buttons(
         directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict) and "index" in value:
-            val, _, x = buttons(value, key_path, meta_json, x, y)
+            val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}/"
             vpath = f"{directory_e}/{key}/index.md"
-            svg = folder.format(color=meta.get("color", "yellow"))
+            svg = folder.format(color=metadata_dict.get("color", "yellow"))
             text_list.append(
                 f'<button class="button unselectable" kpath="{kpath}" vpath="{vpath}" '
                 f'onclick="'
@@ -104,9 +82,9 @@ def buttons(
                 f'<div class="button-folder" style="display:none;">{val}</div>'
             )
         elif isinstance(value, dict):
-            val, _, x = buttons(value, key_path, meta_json, x, y)
+            val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}".strip("/")
-            svg = folder.format(color=meta.get("color", "yellow"))
+            svg = folder.format(color=metadata_dict.get("color", "yellow"))
             text_list.append(
                 f'<button class="button unselectable" kpath="{kpath}" '
                 f'onclick="'
@@ -117,7 +95,7 @@ def buttons(
         else:
             x += 1
             vpath = f"{directory_e}/{key}.md".strip("/")
-            svg = tag.format(color=meta.get("color", "white"))
+            svg = tag.format(color=metadata_dict.get("color", "white"))
             text_list.append(
                 f'<button class="button unselectable" vpath="{vpath}" '
                 f'onclick="'
@@ -127,7 +105,7 @@ def buttons(
     return "".join(text_list), directory, x
 
 
-def generate_index_html(cheatsheet_count: int, meta_json: dict):
+def generate_index_html(cheatsheet_count: int, metadata: dict):
     result = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -144,7 +122,7 @@ def generate_index_html(cheatsheet_count: int, meta_json: dict):
                 <input id="search" type="text" class="search-input unselectable" placeholder="🔎 Поиск">
             </div>
             <div id="search-button-folder" class="button-folder unselectable" style="display:none;"></div>
-            {buttons(DICT, meta_json=meta_json, y=cheatsheet_count - 1)[0]}
+            {buttons(DICT, metadata=metadata, y=cheatsheet_count - 1)[0]}
         </div>
         <div id="rpanrResize">&nbsp;</div>
         <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>

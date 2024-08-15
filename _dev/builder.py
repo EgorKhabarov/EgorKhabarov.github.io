@@ -1,6 +1,6 @@
 from time import time
 
-from _dev.json_maker import make_json
+from _dev.json_maker import make_clear_json
 
 start_time = time()  # noqa
 
@@ -42,7 +42,6 @@ for foldername, _, filenames in os.walk(folder_path):
 print()
 create_files(cheatsheet_count)
 print()
-meta_json = make_json(cheatsheet_count)
-print()
-generate_index_html(cheatsheet_count, meta_json)
+metadata = make_clear_json()
+generate_index_html(cheatsheet_count, metadata)
 print(f"\n{cheatsheet_count} cheatsheets in {time()-start_time:.2f} sec")

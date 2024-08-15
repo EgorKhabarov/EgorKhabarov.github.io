@@ -1,0 +1,119 @@
+{
+    "Languages/": {
+        "color": "violet"
+    },
+    "Languages/Bash/": {
+        "color": "violet"
+    },
+    "Languages/Cpp/": {
+        "color": "violet"
+    },
+    "Languages/CSS/": {
+        "color": "violet"
+    },
+    "Languages/Dockerfile/": {
+        "color": "violet"
+    },
+    "Languages/HTML/": {
+        "color": "violet"
+    },
+    "Languages/Java/": {
+        "color": "violet"
+    },
+    "Languages/JavaScript/": {
+        "color": "violet"
+    },
+    "Languages/LaTex/": {
+        "color": "violet"
+    },
+    "Languages/Python/": {
+        "color": "violet"
+    },
+    "Languages/RegExp/": {
+        "color": "violet"
+    },
+    "Languages/SQL/": {
+        "color": "violet"
+    },
+    "Languages/CSS/css-img.md": {
+        "color": "lblue"
+    },
+    "Languages/Python/Libraries/": {
+        "color": "green"
+    },
+    "Languages/Python/Libraries/Information/datetime.md": {
+        "color": "lblue"
+    },
+    "Languages/RegExp/images.md": {
+        "color": "lblue"
+    },
+    "Languages/SQL/PostgreSQL/Картинки.md": {
+        "color": "lblue"
+    },
+    "Languages/SQL/Картинки.md": {
+        "color": "lblue"
+    },
+    "Other/Code examples/": {
+        "color": "brown"
+    },
+    "Other/File formats/": {
+        "color": "brown"
+    },
+    "Other/Code examples/converters.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/download telegram emoji.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/fib.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/js YouTube.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/quicksort.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/str - int.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/Минимальное максимальное число матрицы cpp.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/Определитель матрицы.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/Пирамида граф.md": {
+        "color": "brown"
+    },
+    "Other/Code examples/словарь обращение через точку.md": {
+        "color": "brown"
+    },
+    "Other/File formats/CSV.md": {
+        "color": "brown"
+    },
+    "Other/File formats/INI.md": {
+        "color": "brown"
+    },
+    "Other/File formats/JSON.md": {
+        "color": "brown"
+    },
+    "Other/File formats/SQLite3 to CSV.md": {
+        "color": "brown"
+    },
+    "Other/File formats/TinyDB (json).md": {
+        "color": "brown"
+    },
+    "Other/File formats/TOML.md": {
+        "color": "brown"
+    },
+    "Other/File formats/Vedis db.md": {
+        "color": "brown"
+    },
+    "Other/File formats/XML.md": {
+        "color": "brown"
+    },
+    "Other/File formats/YAML.md": {
+        "color": "brown"
+    }
+}

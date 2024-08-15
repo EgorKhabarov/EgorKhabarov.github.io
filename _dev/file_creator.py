@@ -91,7 +91,7 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
     """
     for key, value in dictionary.items():
         key_path = os.path.join(directory, key)
-        print_progress_bar(x, y, "create cheatsheets", key_path)
+        print_progress_bar(x, y, "create cheatsheets", key_path.replace("\\", "/"))
 
         if isinstance(value, str):
             key_path += ".md"

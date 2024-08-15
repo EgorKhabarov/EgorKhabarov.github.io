@@ -1,6 +1,5 @@
 <h1>TODO</h1>
 <ul>
-<li>Якоря на <code>h</code> тегах и в <code>URL</code></li>
 <li>История поиска</li>
 <li>Параметр поиска <code>s</code> в <code>URL</code><ul>
 <li>?path</li>
@@ -12,7 +11,6 @@
 <li>?path&amp;s=query#anchor</li>
 </ul>
 </li>
-<li>Перенести микрокод из бота в <code>snippets</code></li>
 <li>Добавить настройки поиска<ul>
 <li>Регистронезависимость</li>
 <li>Регулярные выражения</li>
