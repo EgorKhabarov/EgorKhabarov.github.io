@@ -1,119 +1,512 @@
 {
-    "Languages/": {
-        "color": "violet"
-    },
-    "Languages/Bash/": {
-        "color": "violet"
-    },
-    "Languages/Cpp/": {
-        "color": "violet"
-    },
-    "Languages/CSS/": {
-        "color": "violet"
-    },
-    "Languages/Dockerfile/": {
-        "color": "violet"
-    },
-    "Languages/HTML/": {
-        "color": "violet"
-    },
-    "Languages/Java/": {
-        "color": "violet"
-    },
-    "Languages/JavaScript/": {
-        "color": "violet"
-    },
-    "Languages/LaTex/": {
-        "color": "violet"
-    },
-    "Languages/Python/": {
-        "color": "violet"
-    },
-    "Languages/RegExp/": {
-        "color": "violet"
-    },
-    "Languages/SQL/": {
-        "color": "violet"
-    },
-    "Languages/CSS/css-img.md": {
-        "color": "lblue"
-    },
-    "Languages/Python/Libraries/": {
-        "color": "green"
-    },
-    "Languages/Python/Libraries/Information/datetime.md": {
-        "color": "lblue"
-    },
-    "Languages/RegExp/images.md": {
-        "color": "lblue"
-    },
-    "Languages/SQL/PostgreSQL/Картинки.md": {
-        "color": "lblue"
-    },
-    "Languages/SQL/Картинки.md": {
-        "color": "lblue"
-    },
-    "Other/Code examples/": {
-        "color": "brown"
-    },
-    "Other/File formats/": {
-        "color": "brown"
-    },
-    "Other/Code examples/converters.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/download telegram emoji.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/fib.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/js YouTube.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/quicksort.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/str - int.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/Минимальное максимальное число матрицы cpp.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/Определитель матрицы.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/Пирамида граф.md": {
-        "color": "brown"
-    },
-    "Other/Code examples/словарь обращение через точку.md": {
-        "color": "brown"
-    },
-    "Other/File formats/CSV.md": {
-        "color": "brown"
-    },
-    "Other/File formats/INI.md": {
-        "color": "brown"
-    },
-    "Other/File formats/JSON.md": {
-        "color": "brown"
-    },
-    "Other/File formats/SQLite3 to CSV.md": {
-        "color": "brown"
-    },
-    "Other/File formats/TinyDB (json).md": {
-        "color": "brown"
-    },
-    "Other/File formats/TOML.md": {
-        "color": "brown"
-    },
-    "Other/File formats/Vedis db.md": {
-        "color": "brown"
-    },
-    "Other/File formats/XML.md": {
-        "color": "brown"
-    },
-    "Other/File formats/YAML.md": {
-        "color": "brown"
-    }
+  "Languages/": {
+    "color": "violet"
+  },
+  "Languages/Bash/": {
+    "color": "violet"
+  },
+  "Languages/Cpp/": {
+    "color": "violet"
+  },
+  "Languages/CSS/": {
+    "color": "violet"
+  },
+  "Languages/Dockerfile/": {
+    "color": "violet"
+  },
+  "Languages/HTML/": {
+    "color": "violet"
+  },
+  "Languages/Java/": {
+    "color": "violet"
+  },
+  "Languages/JavaScript/": {
+    "color": "violet"
+  },
+  "Languages/LaTex/": {
+    "color": "violet"
+  },
+  "Languages/Python/": {
+    "color": "violet"
+  },
+  "Languages/RegExp/": {
+    "color": "violet"
+  },
+  "Languages/SQL/": {
+    "color": "violet"
+  },
+  "Languages/CSS/css-img.md": {
+    "color": "lblue"
+  },
+  "Languages/Dockerfile/Dockerfile.md": {
+    "color": "lblue"
+  },
+  "Languages/Python/Libraries/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Algorithms/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Algorithms/bisect.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Algorithms/hmac.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Algorithms/lzma.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Algorithms/table2string.md": {
+    "color": "red"
+  },
+  "Languages/Python/Libraries/Algorithms/zlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/enum.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/graphlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/heapq.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/jsonpointer.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/jsonschema.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/netrc.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/queue.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/wave.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Data types/xml.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/PIL/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/aalib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/argparse.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/base64.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/binhex.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/cycler.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/datetime.md": {
+    "color": "lblue"
+  },
+  "Languages/Python/Libraries/Information/decimal.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/difflib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/fractions.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/random.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/shlex.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/string.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/textwrap.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/xdrlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/bz2.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/errno.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/gettext.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/js2py.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/linecache.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/locale.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/mailbox.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/mailcap.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/netbios.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/nis.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/nntplib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/notebook.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/ntpath.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/packaging.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/poplib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/pylab.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/pythoncom.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/quopri.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/rasutil.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/readline.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/regcheck.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/rfc3339_validator.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/sched.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/traitlets.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Other/wheel.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/markdown/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/atexit.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/bdb.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/cachetools.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/collections.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/contextlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/faulthandler.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/fileinput.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/formatter.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/frozenlist.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/functools.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/gast.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/getpass.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/gtts.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/import.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/itertools.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/keyword.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/logging.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/marshal.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/pstats.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/pyclbr.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/pyparsing.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/reprlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/rlcompleter.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/runpy.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/setuptools.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/tabnanny.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/trace.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/traceback.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/warnings.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/zipapp.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/zipfile.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/zipimport.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/markdown/extensions.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/concurrent.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/fcntl.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/filecmp.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/fnmatch.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/gc.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/genericpath.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/getopt.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/glob.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/grp.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/io.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/keyboard.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/multiprocessing.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/nt.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/optparse.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/posix.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/posixpath.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/psutil.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/pygetwindow.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/pymsgbox.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/resource.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/spwd.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/stat.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/subprocess.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/sys.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/Django/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/Flask/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/Jinja/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/bleach.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/certifi.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/grpc.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/rfc3986_validator.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/webcolors.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/webencodings.md": {
+    "color": "green"
+  },
+  "Languages/RegExp/images.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/PostgreSQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Other/Code examples/": {
+    "color": "brown"
+  },
+  "Other/File formats/": {
+    "color": "brown"
+  },
+  "Other/TODO.md": {
+    "color": "red"
+  },
+  "Other/Code examples/converters.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/download telegram emoji.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/fib.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/js YouTube.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/quicksort.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/str - int.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/Минимальное максимальное число матрицы cpp.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/Определитель матрицы.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/Пирамида граф.md": {
+    "color": "brown"
+  },
+  "Other/Code examples/словарь обращение через точку.md": {
+    "color": "brown"
+  },
+  "Other/File formats/CSV.md": {
+    "color": "brown"
+  },
+  "Other/File formats/INI.md": {
+    "color": "brown"
+  },
+  "Other/File formats/JSON.md": {
+    "color": "brown"
+  },
+  "Other/File formats/SQLite3 to CSV.md": {
+    "color": "brown"
+  },
+  "Other/File formats/TinyDB (json).md": {
+    "color": "brown"
+  },
+  "Other/File formats/TOML.md": {
+    "color": "brown"
+  },
+  "Other/File formats/Vedis db.md": {
+    "color": "brown"
+  },
+  "Other/File formats/XML.md": {
+    "color": "brown"
+  },
+  "Other/File formats/YAML.md": {
+    "color": "brown"
+  }
 }

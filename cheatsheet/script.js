@@ -283,23 +283,58 @@ function restoreCheatSheetState(path) {
 }
 
 function performSearch(search_query) {
+    if (!search_query) {return}
     console.log("Search:", search_query);
     const searchButtonFolder = document.getElementById("search-button-folder");
     const cheatsheetButtons = document.getElementById("cheatsheet-buttons");
+
     if (search_query) {
         searchButtonFolder.style.display = "block";
     } else {
         searchButtonFolder.style.display = "none"
     }
     searchButtonFolder.innerHTML = "";
+    s1Array = [];
+    let searchElement = document.getElementById("search");
 
-    const s1Array = search_query.toLowerCase().split(" ").filter(item => item !== "");
+    if (settings["settings-search-regex"]) {
+        for (el of search_query.split(" ").filter(item => item !== "")) {
+            try {
+                s1Array.push(new RegExp(el, settings["settings-search-register-independence"] ? "i" : ""));
+                searchElement.style.color = "#AFB1B3";
+            } catch (e) {
+                searchElement.style.color = "#ff0000";
+            }
+        }
+    } else {
+        searchElement.style.color = "#AFB1B3";
+        if (settings["settings-search-register-independence"]) {
+            search_query = search_query.toLowerCase()
+        };
+        s1Array = search_query.split(" ").filter(item => item !== "")
+    }
+    console.log(s1Array);
+
     function searchElements(element) {
         let results = [];
         for (el of element)
             if (el.tagName === "BUTTON" && el.getAttribute("vpath")) {
-                const s2Array = el.getAttribute("vpath").toLowerCase().replace(".md", "").split("/");
-                if (s1Array.every(ss1 => s2Array.some(ss2 => ss2.includes(ss1 ? ss1 : null)))) {
+                vpath = el.getAttribute("vpath");
+                if (settings["settings-search-register-independence"]) {
+                    vpath = vpath.toLowerCase();
+                }
+                let s2Array = vpath.replace(".md", "").split("/");
+                if (!settings["settings-search-full-path"]) {
+                    slc1 =  s2Array.slice(-1)
+                    if (slc1[0] === "index") {
+                        s2Array = s2Array.slice(-2, -1);
+                    } else {
+                        s2Array = s2Array.slice(-1);
+                    }
+                };
+                if (s1Array.every(ss1 => s2Array.some(ss2 =>
+                    settings["settings-search-regex"] ? ss2.match(ss1) : ss2.includes(ss1 ? ss1 : null)
+                ))) {
                     results.push(el);
                 }
             } else {
@@ -310,13 +345,13 @@ function performSearch(search_query) {
     results = searchElements(Array.from(cheatsheetButtons.children).slice(2));
     console.log("found", results.length, "results")
     if (results.length > 0) {
+        console.log(results.map(item => item.getAttribute("vpath")));
         results.forEach(element => {
             vpath = element.getAttribute("vpath");
-            console.log(vpath);
             title = removeSuffix(removeSuffix(vpath, ".md"), "/⁠index");
 
             button = document.createElement("button");
-            if (showFullPathInSearchButton) {
+            if (settings["settings-search-show-full-path"]) {
                 button.innerHTML = element.firstElementChild.outerHTML + title;
             } else {
                 button.innerHTML = element.innerHTML;
@@ -342,7 +377,12 @@ function saveSettings(settings) {
 
 function loadSettings() {
     const settings = localStorage.getItem("settings");
-    return settings ? JSON.parse(settings) : {};
+    return settings ? JSON.parse(settings) : {
+        "settings-search-regex": false,
+        "settings-search-register-independence": true,
+        "settings-search-full-path": true,
+        "settings-search-show-full-path": true,
+    };
 }
 
 
@@ -380,34 +420,31 @@ document.addEventListener("DOMContentLoaded", function() {
     const settingsPopup = document.getElementById("settings-popup");
     const settingsButton = document.getElementById("settings-button");
     const settingsOkButton = document.getElementById("settings-ok-button");
+    const settingsResetButton = document.getElementById("settings-reset-button");
 
-    settingsButton.addEventListener("click", () => {
-        settingsOverlay.style.display = "block";
-        settingsPopup.style.display = "block";
+    settingsButton.addEventListener("click", () => {settingsOverlay.style.display = "block";settingsPopup.style.display = "block";});
+    settingsOverlay.addEventListener("click", () => {settingsOverlay.style.display = "none";settingsPopup.style.display = "none";});
+    settingsOkButton.addEventListener("click", () => {settingsOverlay.style.display = "none";settingsPopup.style.display = "none";});
+    settingsResetButton.addEventListener("click", () => {
+        settings["settings-search-regex"] = false;
+        settings["settings-search-register-independence"] = true;
+        settings["settings-search-full-path"] = true;
+        settings["settings-search-show-full-path"] = true;
+        saveSettings(settings);
+        applySettings(settings);
+        performSearch(searchInput.value);
     });
-    settingsOkButton.addEventListener("click", () => {
-        settingsOverlay.style.display = "none";
-        settingsPopup.style.display = "none";
-    });
-    settingsOverlay.addEventListener("click", () => {
-        settingsOverlay.style.display = "none";
-        settingsPopup.style.display = "none";
-    });
+
     applySettings(settings);
-    document.getElementById("settings-search-regex").addEventListener("change", (event) => {
-        settings["settings-search-regex"] = event.target.checked;
-        console.log(`settings["settings-search-regex"] = "${event.target.checked}"`);
-        saveSettings(settings);
-    });
-    document.getElementById("settings-search-register-independence").addEventListener("change", (event) => {
-        settings["settings-search-register-independence"] = event.target.checked;
-        console.log(`settings["settings-search-register-independence"] = "${event.target.checked}"`);
-        saveSettings(settings);
-    });
-    document.getElementById("settings-search-entire-path").addEventListener("change", (event) => {
-        settings["settings-search-entire-path"] = event.target.checked;
-        console.log(`settings["settings-search-entire-path"] = "${event.target.checked}"`);
-        saveSettings(settings);
+    document.getElementById("settings-popup").childNodes.forEach((element) => {
+        if (element.tagName === "INPUT") {
+            element.addEventListener("change", (event) => {
+                settings[element.id] = event.target.checked;
+                console.log(`settings["${element.id}"] = "${event.target.checked}"`);
+                saveSettings(settings);
+                performSearch(searchInput.value);
+            });
+        }
     });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
@@ -428,7 +465,6 @@ let need_save_history = true;
 let history = {};
 let isCtrlPressed = false;
 let ismdwn = 0;
-let showFullPathInSearchButton = true;
 let settings = loadSettings();
 
 
@@ -484,7 +520,7 @@ function getAnchor() {
 
 function processingCheatSheet(element) {
     element.querySelectorAll("a").forEach(a => {
-        a.target="_blank"
+        if (!a.target) {a.target="_blank";}
     });
     element.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(header => {
         let id = header.textContent.trim()

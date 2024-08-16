@@ -1,26 +1,20 @@
 <h1>TODO</h1>
-<ul>
+<ol>
+<li>Перенести <code>metadata.json</code> в <code>cheatsheet</code>.</li>
+<li>Добавлять <code>SVG</code> с помощью <code>JavaScript</code> для уменьшения размера <code>index.html</code>.</li>
+<li>Искать подходящую библиотеку для <code>Markdown</code>.</li>
+<li>Подсвечивать нажатую кнопку постоянно, а не <code>:active</code>.</li>
+<li>Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.</li>
+<li>Сделать поисковые фишки как в <a target="_self" href="./?General/Google Search.md">Google Search</a>.</li>
 <li>История поиска</li>
-<li>Параметр поиска <code>s</code> в <code>URL</code><ul>
-<li>?path</li>
-<li>?path&amp;s=query</li>
-<li>?path#anchor</li>
-<li>?s=query</li>
-<li>?s=query#anchor</li>
-<li>#anchor</li>
-<li>?path&amp;s=query#anchor</li>
-</ul>
-</li>
-<li>Добавить настройки поиска<ul>
-<li>Регистронезависимость</li>
-<li>Регулярные выражения</li>
-<li>Поиск по всему пути или по названию файла<ul>
-<li>? <em>Сделать кнопку, которая вызывает окно посередине экрана с настройками</em></li>
-<li>? <em>Добавить для результатов поиска отдельную всплывашку</em></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Перенести <code>metadata.json</code> в <code>cheatsheet</code>. И добавлять <code>SVG</code> с помощью <code>JavaScript</code> для уменьшения размера <code>index.html</code>.
-Искать подходящую библиотеку для <code>Markdown</code>.</p>
+</ol>
+<!--
+- Параметр поиска `s` в `URL`
+    - ?path
+    - ?path&s=query
+    - ?path\#anchor
+    - ?s=query
+    - ?s=query\#anchor
+    - \#anchor
+    - ?path&s=query\#anchor
+-->

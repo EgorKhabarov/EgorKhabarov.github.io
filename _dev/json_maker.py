@@ -28,7 +28,7 @@ def make_full_json():
                 metadata[path] = old_metadata.get(path, default_value)
 
     with open("metadata.json", "w", encoding="UTF-8") as file:
-        json.dump(metadata, file, indent=4, ensure_ascii=False)
+        json.dump(metadata, file, indent=2, ensure_ascii=False)
 
     return metadata
 
@@ -49,6 +49,10 @@ def make_clear_json():
             metadata[k] = v
 
     with open("metadata.json", "w", encoding="UTF-8") as file:
-        json.dump(metadata, file, indent=4, ensure_ascii=False)
+        json.dump(metadata, file, indent=2, ensure_ascii=False)
 
     return metadata
+
+
+if __name__ == "__main__":
+    make_full_json()
