@@ -133,6 +133,18 @@ def generate_index_html(cheatsheet_count: int, metadata: dict):
             <button id="COPY"             class="control-button unselectable" style="padding-left: 12px;" onclick="copyTextFromDiv(field);changeColor(COPY)">Copy</button>
             <button id="COPY2"            class="control-button unselectable" style="padding-left: 2px;"  onclick="copyTextFromDiv2();changeColor(COPY2)">Copy selected</button>
             <button id="removeargfromurl" class="control-button unselectable" style="padding-left: 28px;" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)">/</button>
+            <button class="control-button unselectable"
+                    id="settings-button"
+                    style="padding-left: 18px;">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+            </button>
+        </div>
+        <div id="settings-overlay" class="overlay"></div>
+        <div id="settings-popup" class="popup">
+            <input type="checkbox" id="settings-search-regex"                 style="width: 13px;height: 13px;">&nbsp;Поиск по регулярным выражениям<br>
+            <input type="checkbox" id="settings-search-register-independence" style="width: 13px;height: 13px;">&nbsp;Регистронезависимость поиска<br>
+            <input type="checkbox" id="settings-search-entire-path"           style="width: 13px;height: 13px;">&nbsp;Поиск по всему пути<br>
+            <button id="settings-ok-button">Ok</button>
         </div>
     </body>
 </html>

@@ -99,7 +99,7 @@ function removeSuffix(str, suffix) {
 function GET(url) {
     url = removeSuffix(url, "index.md");
     addArgumentToUrl(url);
-    if (!url.endsWith(".md")) {
+    if (!url.endsWith(".md") && !url.endsWith(".html") && url !== "settings") {
         if (isCtrlPressed) {
             return
         }
@@ -336,11 +336,19 @@ function performSearch(search_query) {
     }
 }
 
+function saveSettings(settings) {
+    localStorage.setItem("settings", JSON.stringify(settings));
+}
+
+function loadSettings() {
+    const settings = localStorage.getItem("settings");
+    return settings ? JSON.parse(settings) : {};
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Аргументы URL
     const arg = decodeURIComponent(getArgumentFromUrl());
-    const anchor = getAnchor();
-
     if (arg !== "null") {
         console.log(`Argument found: "${arg}"`);
         restoreCheatSheetState(arg);
@@ -348,19 +356,59 @@ document.addEventListener("DOMContentLoaded", function() {
         PutHtmlText(getCheatSheat("README.html"));
     }
 
+    // Якорь
+    const anchor = getAnchor();
     if (anchor) {
         console.log(`Anchor found: "${anchor}"`);
         anchor_element = document.getElementById(anchor)
         if (anchor_element) anchor_element.scrollIntoView({block: "start"});
     }
 
+    // Поиск
     const searchInput = document.getElementById("search");
     searchInput.addEventListener("input", function() {
         performSearch(searchInput.value);
     });
 
+    // Изменялка размеров #cheatsheet-buttons и #field
     const rpanrResize = document.getElementById("rpanrResize");
-    rpanrResize.addEventListener("mousedown", mD)
+    rpanrResize.addEventListener("mousedown", mD);
+    rpanrResize.addEventListener("touchstart", mD);
+
+    // Настройки
+    const settingsOverlay = document.getElementById("settings-overlay");
+    const settingsPopup = document.getElementById("settings-popup");
+    const settingsButton = document.getElementById("settings-button");
+    const settingsOkButton = document.getElementById("settings-ok-button");
+
+    settingsButton.addEventListener("click", () => {
+        settingsOverlay.style.display = "block";
+        settingsPopup.style.display = "block";
+    });
+    settingsOkButton.addEventListener("click", () => {
+        settingsOverlay.style.display = "none";
+        settingsPopup.style.display = "none";
+    });
+    settingsOverlay.addEventListener("click", () => {
+        settingsOverlay.style.display = "none";
+        settingsPopup.style.display = "none";
+    });
+    applySettings(settings);
+    document.getElementById("settings-search-regex").addEventListener("change", (event) => {
+        settings["settings-search-regex"] = event.target.checked;
+        console.log(`settings["settings-search-regex"] = "${event.target.checked}"`);
+        saveSettings(settings);
+    });
+    document.getElementById("settings-search-register-independence").addEventListener("change", (event) => {
+        settings["settings-search-register-independence"] = event.target.checked;
+        console.log(`settings["settings-search-register-independence"] = "${event.target.checked}"`);
+        saveSettings(settings);
+    });
+    document.getElementById("settings-search-entire-path").addEventListener("change", (event) => {
+        settings["settings-search-entire-path"] = event.target.checked;
+        console.log(`settings["settings-search-entire-path"] = "${event.target.checked}"`);
+        saveSettings(settings);
+    });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
@@ -381,29 +429,41 @@ let history = {};
 let isCtrlPressed = false;
 let ismdwn = 0;
 let showFullPathInSearchButton = true;
+let settings = loadSettings();
 
 
 function mD(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение браузера
     ismdwn = 1;
     document.body.addEventListener("mousemove", mV);
     document.body.addEventListener("mouseup", end);
-};
+    document.body.addEventListener("touchmove", mV);
+    document.body.addEventListener("touchend", end);
+}
 
 function mV(event) {
-    if (ismdwn === 1) {
-        cheatsheetButtons = document.getElementById("cheatsheet-buttons");
-        cheatsheetButtons.style.flexBasis = event.clientX - 48 + "px";
-    } else {
-        end()
+    let clientX;
+    if (event.type === "mousemove" || event.type === "mouseup") {
+        clientX = event.clientX;
+    } else if (event.type === "touchmove") {
+        clientX = event.touches[0].clientX;
     }
-};
 
-const end = (e) => {
+    if (ismdwn === 1) {
+        const cheatsheetButtons = document.getElementById("cheatsheet-buttons");
+        cheatsheetButtons.style.flexBasis = clientX - 48 + "px";
+    } else {
+        end();
+    }
+}
+
+function end() {
     ismdwn = 0;
+    document.body.removeEventListener("mousemove", mV);
     document.body.removeEventListener("mouseup", end);
-    rpanrResize.removeEventListener("mousemove", mV);
-};
-
+    document.body.removeEventListener("touchmove", mV);
+    document.body.removeEventListener("touchend", end);
+}
 
 function setAnchor(anchor) {
     const url = new URL(window.location.href);
@@ -411,13 +471,11 @@ function setAnchor(anchor) {
     window.history.pushState({}, "", url.toString());
 };
 
-
 function delAnchor() {
     const url = new URL(window.location.href);
     url.hash = "";
     window.history.pushState({}, "", url.toString());
 };
-
 
 function getAnchor() {
     const url = new URL(window.location.href);
@@ -439,4 +497,11 @@ function processingCheatSheet(element) {
         header.id = id;
         header.innerHTML = `${header.innerHTML}<a class="anchor" href="#${id}"><svg class="dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg></a>`;
     });
+};
+
+function applySettings(settings) {
+    for (const [key, value] of Object.entries(settings)) {
+        const element = document.getElementById(key);
+        if (element) element.checked = value;
+    }
 };

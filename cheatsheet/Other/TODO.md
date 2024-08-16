@@ -22,3 +22,5 @@
 </ul>
 </li>
 </ul>
+<p>Перенести <code>metadata.json</code> в <code>cheatsheet</code>. И добавлять <code>SVG</code> с помощью <code>JavaScript</code> для уменьшения размера <code>index.html</code>.
+Искать подходящую библиотеку для <code>Markdown</code>.</p>

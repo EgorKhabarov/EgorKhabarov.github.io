@@ -334,3 +334,42 @@ hr {
 .dblue {color: rgb(20, 114, 248);}
 .violet {color: rgb(140, 88, 133);}
 .brown {color: rgb(131, 83, 51);}
+
+
+#settings-overlay {
+  display: none; /* Скрыть оверлей по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  z-index: 1; /* Помещает оверлей ниже всплывающего окна */
+}
+
+#settings-popup {
+  display: none; /* Скрыть всплывающее окно по умолчанию */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Центрирование */
+  padding: 20px;
+  background: #393939;
+  border: 1px solid rgb(25, 25, 25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 2; /* Помещает всплывающее окно выше оверлея */
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+}
+#settings-ok-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
