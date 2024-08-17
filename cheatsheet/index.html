@@ -2039,13 +2039,6 @@
       </svg>
       Переменные
      </button>
-     <button class="button unselectable" onclick="GET(this.getAttribute(`vpath`));delAnchor();" title="Единицы измерения" vpath="Languages/JavaScript/Единицы измерения.md">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Единицы измерения
-     </button>
      <button class="button unselectable" onclick="GET(this.getAttribute(`vpath`));delAnchor();" title="Ключевые слова для объявления переменных и констант" vpath="Languages/JavaScript/Ключевые слова для объявления переменных и констант.md">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -2212,14 +2205,14 @@
       css⁠-⁠img
      </button>
      <button class="button unselectable" onclick="GET(this.getAttribute(`vpath`));delAnchor();" title="Селекторы" vpath="Languages/CSS/Селекторы.md">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <svg aria-hidden="true" class="lblue" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
       Селекторы
      </button>
      <button class="button unselectable" onclick="GET(this.getAttribute(`vpath`));delAnchor();" title="Единицы измерения" vpath="Languages/CSS/Единицы измерения.md">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <svg aria-hidden="true" class="lblue" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
@@ -2806,50 +2799,46 @@
      </svg>
      Languages/RegExp/RegExp
     </button>
-    <button class="button unselectable" onclick="GET(this.getAttribute(`vpath`));restoreCheatSheetState(this.getAttribute(`vpath`));delAnchor();" title="Languages/Python/Libraries/" vpath="Languages/Python/Libraries/index.md">
-     <svg aria-hidden="true" class="green" fill="none" height="18" viewbox="2 0 26 24" width="20" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      </path>
-     </svg>
-     Languages/Python/Libraries/
-    </button>
    </div>
   </div>
   <div id="rpanrResize">
   </div>
   <pre class="cheatsheet-field" id="field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
   <div>
-   <button class="control-button unselectable" id="FontSizeSize" onclick="changeFontSize(field, '=')" style="padding-left: 12px;">
+   <button class="control-button unselectable" id="FontSizeSize" onclick="changeFontSize(field, '=')">
     12px
    </button>
-   <button class="control-button unselectable" onclick="changeFontSize(field, '+')" style="padding-left: 18px;">
+   <button class="control-button unselectable" onclick="changeFontSize(field, '+')">
     <svg aria-hidden="true" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="M5 12h14m-7 7V5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
      </path>
     </svg>
    </button>
-   <button class="control-button unselectable" onclick="changeFontSize(field, '-')" style="padding-left: 18px;">
+   <button class="control-button unselectable" onclick="changeFontSize(field, '-')">
     <svg aria-hidden="true" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="M5 12h14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
      </path>
     </svg>
    </button>
-   <button class="control-button unselectable" id="COPY" onclick="copyTextFromDiv(field);changeColor(COPY)" style="padding-left: 18px;">
+   <button class="control-button unselectable" id="COPY" onclick="copyTextFromDiv(field);changeColor(COPY)">
     <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
      </path>
     </svg>
    </button>
-   <button class="control-button unselectable" id="COPY2" onclick="copyTextFromDiv2();changeColor(COPY2)" style="padding-left: 2px;">
-    Copy selected
+   <button class="control-button unselectable" id="COPY2" onclick="copyTextFromDiv2();changeColor(COPY2)">
+    <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+     </path>
+    </svg>
    </button>
-   <button class="control-button unselectable" id="removeargfromurl" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)" style="padding-left: 18px;">
+   <button class="control-button unselectable" id="removeargfromurl" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)">
     <svg aria-hidden="true" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
      </path>
     </svg>
    </button>
-   <button class="control-button unselectable" id="settings-button" style="padding-left: 18px;">
+   <button class="control-button unselectable" id="settings-button">
     <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
      <path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2">
      </path>

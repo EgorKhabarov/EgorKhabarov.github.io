@@ -35,6 +35,12 @@
   "Languages/CSS/css-img.md": {
     "color": "lblue"
   },
+  "Languages/CSS/Единицы измерения.md": {
+    "color": "lblue"
+  },
+  "Languages/CSS/Селекторы.md": {
+    "color": "lblue"
+  },
   "Languages/Dockerfile/Dockerfile.md": {
     "color": "lblue"
   },

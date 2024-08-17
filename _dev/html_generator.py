@@ -127,30 +127,26 @@ def generate_index_html(cheatsheet_count: int, metadata: dict):
         <div id="rpanrResize">&nbsp;</div>
         <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
         <div>
-            <button id="FontSizeSize"     class="control-button unselectable" style="padding-left: 12px;" onclick="changeFontSize(field, '=')">12px</button>
-            <button                       class="control-button unselectable" style="padding-left: 18px;" onclick="changeFontSize(field, '+')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/></svg></button>
-            <button                       class="control-button unselectable" style="padding-left: 18px;" onclick="changeFontSize(field, '-')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/></svg></button>
-            <button id="COPY"             class="control-button unselectable" style="padding-left: 18px;" onclick="copyTextFromDiv(field);changeColor(COPY)"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg></button>
-            <button id="COPY2"            class="control-button unselectable" style="padding-left: 2px;"  onclick="copyTextFromDiv2();changeColor(COPY2)">Copy selected</button>
-            <button id="removeargfromurl" class="control-button unselectable" style="padding-left: 18px;" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/></svg></button>
-            <button class="control-button unselectable"
-                    id="settings-button"
-                    style="padding-left: 18px;">
-                <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
-            </button>
+            <button id="FontSizeSize"     class="control-button unselectable" onclick="changeFontSize(field, '=')">12px</button>
+            <button                       class="control-button unselectable" onclick="changeFontSize(field, '+')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/></svg></button>
+            <button                       class="control-button unselectable" onclick="changeFontSize(field, '-')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/></svg></button>
+            <button id="COPY"             class="control-button unselectable" onclick="copyTextFromDiv(field);changeColor(COPY)"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg></button>
+            <button id="COPY2"            class="control-button unselectable" onclick="copyTextFromDiv2();changeColor(COPY2)"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/></svg></button>
+            <button id="removeargfromurl" class="control-button unselectable" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/></svg></button>
+            <button id="settings-button"  class="control-button unselectable"><svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></button>
         </div>
         <div id="settings-overlay" class="overlay"></div>
         <div id="settings-popup" class="popup">
             <h3 style="margin-top: 0px;margin-bottom: 6px;">Search</h3>
-            <input type="checkbox" id="settings-search-regex"                 style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings-search-regex" style="width: 13px;height: 13px;">
             Поиск по регулярным выражениям<br>
             <input type="checkbox" id="settings-search-register-independence" style="width: 13px;height: 13px;">
             Регистронезависимость поиска<br>
-            <input type="checkbox" id="settings-search-full-path"       style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings-search-full-path" style="width: 13px;height: 13px;">
             Поиск по всему пути (default вкл) /<br>
             <svg width="20" height="13"></svg>
             Поиск по имени шпаргалки (выкл)<br>
-            <input type="checkbox" id="settings-search-show-full-path"        style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings-search-show-full-path" style="width: 13px;height: 13px;">
             Показывать весь путь до шпаргалки<br>
             <button id="settings-reset-button">Reset</button>
             <button id="settings-ok-button">Ok</button>

@@ -34,12 +34,12 @@ a:hover   {text-decoration: underline;}
 /* Таблицы */
 table {width: max-content;}
 th {
-  padding: 10px;
+  padding: .9em;
   background-color: #46494b;
 }
 td {
-  border-top: 1px solid #46494b;
-  padding: 10px;
+  border-top: .1em solid #46494b;
+  padding: .9em;
   background-color: #3c3f41;
 }
 
@@ -92,6 +92,8 @@ hr {
   border-color: rgb(170, 170, 170); /* #393939; */
   border-radius: 0px;
 }
+
+img {width: 55em;}
 
 /* Контейнер с кнопками выбора темы */
 .cheatsheet-buttons {
@@ -170,8 +172,9 @@ hr {
 
 /* Кнопки управления справа */
 .control-button {
-  height: 64px;
-  width: 64px;
+  width: 3em;
+  height: 3em;
+  justify-content: center;
   font-size: 1em;
   display: flex;
   align-items: center;
@@ -199,49 +202,53 @@ hr {
 
 /* Полоска вверху элемента code-element с языком и кнопкой для копирования */
 .lang-line {
-  height: max-content;
-  border-radius:.375rem .375rem .0rem .0rem;
-  display:flex;
-  align-items:center;
-  position:relative;
-  color:rgba(217,217,227,1);
-  background-color:rgba(52,53,65,1);
-  padding-left:1rem;
-  padding-right:1rem;
-  padding-bottom:.35rem;
-  padding-top:.35rem;
-  font-size:.75rem;
-  line-height:.75rem;
+  height: 1.5em;
+  border-radius: .375em .375em .0em .0em;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: rgba(217,217,227,1);
+  background-color: #393939;
+  padding-left: 1em;
+  padding-bottom: .35em;
+  padding-top: .35em;
+  gap: .1rem;
   font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
               sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 /* Кнопка для копирования кода */
-.copy-button {
-  display:flex;
-  margin-left:auto;
-  gap:.5rem;
-  background-color:rgba(52,53,65);
-  border:0;
-  color:#D9D9E3;
+.copy-code-button {
+  display: flex;
+  margin-left: auto;
+  gap: .1rem;
+  background-color: #393939;
+  border: 0;
+  color: #D9D9E3;
   cursor: pointer;
+  font-size: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
-.copy-button-2 {
+.download-code-button {
   display: flex;        /* Устанавливаем отображение элемента как flex-контейнера */
-  gap: 0.5rem;          /* Устанавливаем расстояние между дочерними элементами внутри контейнера */
-  background-color: rgba(52, 53, 65); /* Устанавливаем цвет фона кнопки с использованием RGBA (красный: 52, зеленый: 53, синий: 65, прозрачность: полная) */
+  gap: 0.1rem;          /* Устанавливаем расстояние между дочерними элементами внутри контейнера */
+  background-color: #393939; /* Устанавливаем цвет фона кнопки с использованием RGBA (красный: 52, зеленый: 53, синий: 65, прозрачность: полная) */
   border: 0;            /* Устанавливаем границу элемента (в данном случае, кнопки) */
   color: #D9D9E3;       /* Устанавливаем цвет текста кнопки */
   cursor: pointer;      /* Устанавливаем курсор мыши в виде указателя, чтобы обозначить, что элемент является интерактивным */
+  font-size: 1em;
 
+  padding-left: 0em;
+  padding-right: 1em;
 }
 
 
 /* Код */
 .code {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1em 1em 1em 1em;
   background-color: #1B1B1B;
-  border-radius:.0rem .0rem .375rem .375rem;
+  border-radius: .0em .0em .375em .375em;
   background-color: #272727;
 }
 
