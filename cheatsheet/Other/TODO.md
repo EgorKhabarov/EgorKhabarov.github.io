@@ -3,6 +3,7 @@
 <li>Перенести <code>metadata.json</code> в <code>cheatsheet</code>.</li>
 <li>Добавлять <code>SVG</code> с помощью <code>JavaScript</code> для уменьшения размера <code>index.html</code>.</li>
 <li>Искать подходящую библиотеку для <code>Markdown</code>.</li>
+<li>Оглавление. Окошко с текстовыми <code>h</code> тегами из текущей шпаргалки, прокручивает до видимости при нажатии. </li>
 <li>Подсвечивать нажатую кнопку постоянно, а не <code>:active</code>.</li>
 <li>Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.</li>
 <li>Сделать поисковые фишки как в <a target="_self" href="./?General/Google Search.md">Google Search</a>.</li>

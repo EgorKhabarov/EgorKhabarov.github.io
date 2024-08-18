@@ -4100,6 +4100,178 @@ print(string.punctuation)
 [https://python-markdown.github.io/extensions/](https://python-markdown.github.io/extensions/)
 """,
                     },
+                    "typing": """
+```python
+from typing import Any  # Любой тип
+```
+
+```python
+from typing import Literal  # Один из вариантов
+direction: Literal["ASC", "DESC"] = "DESC"
+```
+
+```python
+from typing import Union
+val: Union[int, float] = 20.8  # or 20
+```
+
+```python
+from typing import Final
+
+val: Final = 2
+val += 1  # Ошибки не произойдёт, но IDE подсветит как ошибку.
+```
+
+# Использование статической проверки типов в Python
+Интерпретатор Python по умолчанию не осуществляет проверку типов.
+Однако была создана версия интерпретатора Python – `mypy`,
+которая обеспечивает проверку типов на уровне интерпретатора.
+
+```python
+from typing import NoReturn
+# NoReturn сообщает что функция не завершается нормально.
+# Например она возбуждает исключение.
+
+def forever() -> NoReturn:
+    while True:
+        pass
+```
+
+Если это генераторная функция, то есть её тело содержит оператор `yield`, 
+для возвращаемого можно воспользоваться аннотацией `Iterable[T]`, либо `Generator[YT, ST, RT]`:
+
+```python
+def generate_two() -> Iterable[int]:
+    yield 1
+    yield "2"  # Incompatible types in "yield" (actual type "str", expected type "int")
+```
+
+```python
+from typing import Optional
+
+amount: int
+amount = None  # Incompatible types in assignment (expression has type "None", variable has type "int")
+
+price: Optional[int]
+price = None
+
+# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
+```
+
+# Предварительное объявление
+
+Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
+
+```python
+class LinkedList:
+    data: Any
+    next: LinkedList  # NameError: name 'LinkedList' is not defined
+```
+
+Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.
+
+```python
+class LinkedList:
+    data: Any
+    next: 'LinkedList'
+```
+
+Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
+
+```python
+some_variable: 'somemodule.SomeClass'
+```
+
+или
+
+```python
+from __future__ import annotations
+
+class LinkedList:
+    data: int
+    next: LinkedList
+```
+
+# Generic-типы
+
+Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
+Например, если вы пишете контейнер, который хранит однотипные данные.
+Или функцию, которая возвращает данные того же типа, что и один из аргументов.
+
+Такие типы как `List` или `Callable`, которые, мы видели раньше как раз используют механизм дженериков.
+Но кроме стандартных типов, вы можете создать свои дженерик-типы.
+Для этого надо, во-первых, завести `TypeVar` переменную,
+которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
+
+```python
+T = TypeVar("T")
+
+class LinkedList(Generic[T]):
+    data: T
+    next: "LinkedList[T]"
+
+    def __init__(self, data: T):
+        self.data = data
+
+head_int: LinkedList[int] = LinkedList(1)
+head_int.next = LinkedList(2)
+head_int.next = 2  # error: Incompatible types in assignment (expression has type "int", variable has type "LinkedList[int]")
+head_int.data += 1
+head_int.data.replace("0", "1")  # error: "int" has no attribute "replace"
+
+head_str: LinkedList[str] = LinkedList("1")
+head_str.data.replace("0", "1")
+
+head_str = LinkedList[str](1)  # error: Argument 1 to "LinkedList" has incompatible type "int"; expected "str"
+```
+
+Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
+Если требуется, дженерик может иметь любое количеством параметров: `Generic[T1, T2, T3]`.
+Также, при определении `TypeVar` вы можете ограничить допустимые типы:
+
+```python
+T2 = TypeVar("T2", int, float)
+
+class SomethingNumeric(Generic[T2]):
+    pass
+
+x = SomethingNumeric[str]()  # error: Value of type variable "T2" of "SomethingNumeric" cannot be "str"
+```
+
+# Cast
+
+Иногда анализатор статический анализатор не может корректно определить тип переменной,
+в этом случае можно использовать функцию `cast`.
+Её единственная задача — показать анализатору, что выражение имеет определённый тип.
+
+```python
+from typing import List, cast
+
+def find_first_str(a: List[object]) -> str:
+    index = next(i for i, x in enumerate(a) if isinstance(x, str))
+    return cast(str, a[index])
+```
+
+Также это может быть полезно для декораторов:
+
+```python
+MyCallable = TypeVar("MyCallable", bound=Callable)
+
+def logged(func: MyCallable) -> MyCallable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(func.__name__, args, kwargs)
+        return func(*args, **kwargs)
+
+    return cast(MyCallable, wrapper)
+
+@logged
+def mysum(a: int, b: int) -> int:
+    return a + b
+
+mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
+```
+""",
                     "itertools": """
 # Бесконечные итераторы
 
@@ -9915,6 +10087,31 @@ Traceback (most recent call last):
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 """,
+                "operator precedence": """
+Приоритетность операторов от высокой до самой низкой.
+
+| Операторы                                                    | Применение                                 |
+|--------------------------------------------------------------|--------------------------------------------|
+| `{}` `()`                                                    | Скобки (объединение)                       |
+| `f(args)`                                                    | Вызов функции                              |
+| `x[index:index]`                                             | Срез                                       |
+| `x[index]`                                                   | Получение по индексу                       |
+| `x.attribute`                                                | Ссылка на атрибут                          |
+| `**`                                                         | Возведение в степень                       |
+| `~x` `+x` `-x`                                               | Положительное, отрицательное число         |
+| `*` `/` `//` `%`                                             | Умножение, деление, остаток                |
+| `+` `—`                                                      | Сложение, вычитание                        |
+| `<<` `>>`                                                    | Сдвиг влево/вправо                         |
+| `&`                                                          | Побитовое <b>И</b>                         |
+| `^`                                                          | Побитовое <b>ИЛИ</b> <b>НЕ</b>             |
+| `|`                                                          | Побитовое <b>ИЛИ</b>                       |
+| `in` `not in` `is` `is not` `<` `<=` `>` `>=` `<>` `!=` `==` | Сравнение, принадлежность, тождественность |
+| `not`                                                        | Булево <b>НЕ</b>                           |
+| `and`                                                        | Булево <b>И</b>                            |
+| `or`                                                         | Булево <b>ИЛИ</b>                          |
+| `lambda`                                                     | Лямбда-выражение                           |
+
+""",
             },
             "Decorators Closure": {
                 "Decorators Closure": """
@@ -10642,6 +10839,558 @@ def generator2():
 ```
 """,
             },
+            "Built-in": {
+                "Built-in functions": r"""
+- slice
+- frozenset
+- memoryview
+- hasattr
+- reversed
+- &#95;&#95;import&#95;&#95;
+- staticmethod
+- setattr
+- property
+- object, 
+- locals
+- globals
+- getattr
+- complex
+- compile
+- bytearray
+- abs
+- bin
+- bytes
+- callable
+- chr
+- classmethod
+- delattr
+- dir
+- divmod
+- filter
+- oct
+- nonlocal
+
+
+## slice
+
+```python
+print([1, 2, 3, 4, 5][1:4])  # [2, 3, 4]
+print([1, 2, 3, 4, 5][slice(1, 4)])  # [2, 3, 4]
+```
+
+## frozenset
+Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.
+
+```python
+print(frozenset([1, 2, 2, 3, 4]))  # frozenset({1, 2, 3, 4})
+```
+
+## memoryview
+Доступ к буферу памяти объекта без копирования его данных.
+
+```pycon
+>>> mv = memoryview(bytearray("ABC", "UTF-8"))
+>>> mv[0]           # доступ к нулевому индексу представления памяти
+65
+>>> bytes(mv[0:2])  # создать байт из представления памяти
+b"AB"
+>>> list(mv[0:3])   # создать список из представления памяти
+[65, 66, 67]
+```
+
+## hasattr
+Для проверки наличия атрибута (метода или свойства) у объекта.
+
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+my_obj = MyClass()
+print(hasattr(my_obj, "my_attr"))  # True
+print(hasattr(my_obj, "non_existent_attr"))  # False
+```
+
+## reversed
+Для переворачивания последовательности (sequence).
+
+```python
+my_list = [1, 2, 3, 4, 5]
+reversed_list = reversed(my_list)
+print(list(reversed_list))  # [5, 4, 3, 2, 1]
+```
+
+## __import__
+Для импорта модуля во время выполнения программы.
+
+```python
+math = __import__("math")
+print(math.pi)  # 3.141592653589793
+```
+
+## staticmethod
+Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).
+
+```python
+class MyClass:
+    @staticmethod
+    def my_static_method():
+        print("This is a static method")
+
+MyClass.my_static_method()  # This is a static method
+```
+
+## setattr
+Для установки значения атрибута объекта.
+
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+my_obj = MyClass()
+setattr(my_obj, "my_attr", 43)
+print(my_obj.my_attr)  # 43
+```
+
+## property
+Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.
+
+```python
+class MyClass:
+    def __init__(self):
+        self._my_attr = 42
+
+    @property
+    def my_attr(self):
+        return self._my_attr
+
+    @my_attr.setter
+    def my_attr(self, value):
+        self._my_attr
+```
+
+## object
+Базовый класс, от которого наследуются все остальные классы в Python.
+
+```python
+class MyClass(object):
+    pass
+```
+
+## locals
+Для получения словаря с локальными переменными в текущем контексте выполнения.
+
+```python
+def my_func():
+    a = 1
+    b = 2
+    print(locals())
+
+my_func()  # {"a": 1, "b": 2}
+```
+
+## globals
+Для получения словаря с глобальными переменными в текущем модуле.
+
+```python
+my_var = 42
+print(globals())  # {"__name__": "__main__", "__doc__": None, "__package__": None, "my_var": 42, ...}
+```
+
+## getattr
+Для получения значения атрибута объекта по его имени.
+
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+print(getattr(MyClass(), "my_attr"))  # 42
+```
+
+## complex
+Для создания комплексного числа.
+
+```python
+print(complex(1, 2))  # (1+2j)
+```
+
+## compile
+Для компиляции строки с кодом Python в объект-код.
+
+```python
+exec(compile('print("Hello, world!")', "<string>", "exec"))  # Hello, world!
+```
+
+## bytearray
+Изменяемый тип данных, представляющий собой массив байтов.
+Последовательность целых чисел в диапазоне `0 ≤ X < 256`
+
+Параметр **source** можно использовать для начальной инициализации массива:
+Если source является строкой, вы также должны указать кодировку encoding и опционально **errors**
+Если source является целым числом, массив будет иметь размер **source** и инициализирован байтами со значением `0`
+Если source является объектом, то он должен поддерживать интерфейс буфера.
+Для инициализации массива байт будет использован буфер, предназначенный для чтения.
+Если **source** является итерируемым объектом, его элементами должны быть целыми числами в диапазоне `0 ≤ X < 256`.
+Этими числами и будет инициализирован массив.
+Если **source** не передан, вернет пустой **bytearray**
+
+```pycon
+>>> bytearray("Привет, Python!", "UTF-8")  
+bytearray(b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python!")
+>>> bytearray(5)
+bytearray(b"\x00\x00\x00\x00\x00")
+>>> bytearray([1, 2, 3])
+bytearray(b"\x01\x02\x03")
+```
+
+## abs
+Получения абсолютного значения числа.
+
+```python
+print(abs(-42))  # 42
+```
+
+## bin
+Получения двоичного представления числа.
+
+```python
+print(bin(42))  # 0b101010
+```
+
+## bytes
+Неизменяемый тип данных, представляющий собой массив байтов.
+
+```python
+print(bytes([1, 2, 3, 4, 5]))  # b"\x01\x02\x03\x04\x05"
+```
+
+## callable
+Является ли объект вызываемым (т.е. функцией или методом).
+
+```python
+def my_func():
+    pass
+
+class MyClass:
+    def my_method(self):
+        pass
+
+print(callable(my_func))  # True
+print(callable(MyClass().my_method))  # True
+print(callable(42))  # False
+```
+
+## chr
+Получение символа Unicode по его коду.
+
+```python
+print(chr(97))  # "a"
+```
+
+## classmethod
+Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.
+
+```python
+class MyClass:
+    my_class_attr = 42
+
+    @classmethod
+    def my_class_method(cls):
+        print(cls.my_class_attr)
+
+MyClass.my_class_method()  # 42
+```
+
+## delattr
+Удаление атрибута объекта.
+
+```python
+class MyClass:
+    my_attr = 42
+
+my_obj = MyClass()
+delattr(my_obj, "my_attr")
+print(hasattr(my_obj, "my_attr"))  # False
+```
+
+## dir
+Получение списка всех атрибутов объекта.
+
+```python
+print(dir([1, 2, 3]))  # ["__add__", "__class__", "__contains__", ...]
+```
+
+## divmod
+Получения частного и остатка от деления двух чисел.
+
+```python
+print(divmod(42, 5))  # (8, 2)
+```
+
+## filter
+Фильтрация элементов последовательности с помощью функции.
+
+```python
+print(list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5])))  # [2, 4]
+```
+
+## oct
+Получение восьмеричного представления числа.
+
+```python
+print(oct(42))  # 0o52
+```
+
+## nonlocal
+Объявление переменной из внешней области видимости внутри функции.
+
+```python
+def my_func():
+    my_var = 42
+    def inner_func():
+        nonlocal my_var
+        my_var = 43
+    inner_func()
+    print(my_var)
+
+my_func()  # 43
+```
+""",
+                "Exception": """
+```
+BaseException - базовое исключение, от которого берут начало все остальные.
+ +-- SystemExit - исключение, порождаемое функцией sys.exit при выходе из программы.
+ +-- KeyboardInterrupt - порождается при прерывании программы пользователем (обычно сочетанием клавиш Ctrl+C).
+ +-- GeneratorExit - порождается при вызове метода close объекта generator.
+ +-- Exception - а вот тут уже заканчиваются полностью системные исключения (которые лучше не трогать) и начинаются обыкновенные, с которыми можно работать.
+      +-- StopIteration - порождается встроенной функцией next, если в итераторе больше нет элементов.
+      +-- StopAsyncIteration -  порождается встроенной функцией anext, если в асинхронном итераторе больше нет элементов.
+      +-- ArithmeticError - арифметическая ошибка.
+      |    +-- FloatingPointError - порождается при неудачном выполнении операции с плавающей запятой. На практике встречается нечасто.
+      |    +-- OverflowError - возникает, когда результат арифметической операции слишком велик для представления.
+      |                        Не появляется при обычной работе с целыми числами (так как python поддерживает длинные числа), но может возникать в некоторых других случаях.
+      |    +-- ZeroDivisionError - деление на ноль.
+      +-- AssertionError - выражение в функции assert ложно.
+      +-- AttributeError - объект не имеет данного атрибута (значения или метода).
+      +-- BufferError - операция, связанная с буфером, не может быть выполнена.
+      +-- EOFError - функция наткнулась на конец файла и не смогла прочитать то, что хотела.
+      +-- ImportError - не удалось импортирование модуля или его атрибута.
+      |    +-- ModuleNotFoundError
+      +-- LookupError - некорректный индекс или ключ.
+      |    +-- IndexError - индекс не входит в диапазон элементов.
+      |    +-- KeyError - несуществующий ключ (в словаре, множестве или другом объекте).
+      +-- MemoryError - недостаточно памяти.
+      +-- NameError - не найдено переменной с таким именем.
+      |    +-- UnboundLocalError - сделана ссылка на локальную переменную в функции, но переменная не определена ранее.
+      +-- OSError - ошибка, связанная с системой.
+      |    +-- BlockingIOError - операция блокирует неблокируемый объект ввода-вывода (например, сокеты или файлы).
+      |    +-- ChildProcessError - неудача при операции с дочерним процессом.
+      |    +-- ConnectionError - базовый класс для исключений, связанных с подключениями.
+      |    |    +-- BrokenPipeError - Возникает, когда попытка записи данных в закрытый канал или сокет завершается неудачей.
+      |    |    +-- ConnectionAbortedError - Соединение неожиданно прервано до завершения.
+      |    |    +-- ConnectionRefusedError - Соединение отклонено сервером (например, порт закрыт).
+      |    |    +-- ConnectionResetError - Соединение сброшено другой стороной.
+      |    +-- FileExistsError - попытка создания файла или директории, которая уже существует.
+      |    +-- FileNotFoundError - файл или директория не существует.
+      |    +-- InterruptedError - системный вызов прерван входящим сигналом.
+      |    +-- IsADirectoryError - ожидался файл, но это директория.
+      |    +-- NotADirectoryError - ожидалась директория, но это файл.
+      |    +-- PermissionError - не хватает прав доступа.
+      |    +-- ProcessLookupError - указанного процесса не существует.
+      |    +-- TimeoutError - закончилось время ожидания.
+      +-- ReferenceError - попытка доступа к атрибуту со слабой ссылкой.
+      +-- RuntimeError - возникает, когда исключение не попадает ни под одну из других категорий.
+      |    +-- NotImplementedError - возникает, когда абстрактные методы класса требуют переопределения в дочерних классах.
+      |    +-- RecursionError - вызывается при превышении максимальной глубины рекурсии, часто из-за бесконечной рекурсии.
+      +-- SyntaxError - синтаксическая ошибка.
+      |    +-- IndentationError - неправильные отступы.
+      |         +-- TabError - смешивание в отступах табуляции и пробелов.
+      +-- SystemError - внутренняя ошибка.
+      +-- TypeError - операция применена к объекту несоответствующего типа.
+      +-- ValueError - функция получает аргумент правильного типа, но некорректного значения.
+      |    +-- UnicodeError - ошибка, связанная с кодированием / раскодированием unicode в строках.
+      |         +-- UnicodeDecodeError - исключение, связанное с кодированием unicode.
+      |         +-- UnicodeEncodeError - исключение, связанное с декодированием unicode.
+      |         +-- UnicodeTranslateError - исключение, связанное с переводом unicode.
+      +-- Warning - предупреждение.
+           +-- DeprecationWarning - предупреждает о функциях, которые устарели и будут удалены в будущей версии Python.
+           +-- PendingDeprecationWarning - предназначено для функций, которые планируется упразднить в далеком будущем.
+           +-- RuntimeWarning - предупреждает о проблемах, которые не попадают в другие категории, но все равно заслуживают внимания во время выполнения.
+           +-- SyntaxWarning - предупреждает о сомнительном синтаксисе, который может привести к неожиданному поведению.
+           +-- UserWarning - общее предупреждение для пользователей, часто используемое разработчиками для обозначения некритических проблем.
+           +-- FutureWarning - предупреждает об изменениях, которые произойдут в будущих версиях Python.
+           +-- ImportWarning - предупреждает о проблемах во время операций импорта.
+           +-- UnicodeWarning - предупреждает о проблемах с операциями, связанными с Unicode.
+           +-- BytesWarning - предупреждает о проблемах с операциями с байтами или байтовыми массивами.
+           +-- ResourceWarning - предупреждает об использовании ресурсов (например, о незакрытых файлах).
+
+
+EncodingWarning
+EnvironmentError
+IOError
+WindowsError
+```
+
+""",
+                "ExceptionGroup": """
+ExceptionGroup в Python появился в версии 3.11
+Позволяет объединять несколько исключений в одно
+
+
+### Пример 1: Создание ExceptionGroup
+
+```python
+try:
+    raise ExceptionGroup("Ошибка выполнения операций", [
+        ValueError("Некорректное значение"),
+        TypeError("Неверный тип данных"),
+        KeyError("Ключ не найден")
+    ])
+except ExceptionGroup as eg:
+    print(f"Произошло {len(eg.exceptions)} исключений:")
+    for exc in eg.exceptions:
+        print(f"- {exc.__class__.__name__}: {exc}")
+```
+
+<details>
+<summary>output</summary>
+
+```
+Произошло 3 исключений:
+- ValueError: Некорректное значение
+- TypeError: Неверный тип данных
+- KeyError: 'Ключ не найден'
+```
+
+</details>
+
+### Пример 2: Обработка отдельных исключений внутри группы
+
+```python
+try:
+    raise ExceptionGroup("Ошибка выполнения операций", [
+        ValueError("Некорректное значение"),
+        TypeError("Неверный тип данных"),
+        KeyError("Ключ не найден")
+    ])
+except* ValueError as v_errors:
+    for error in v_errors:
+        print(f"Обработан ValueError: {error}")
+except* TypeError as t_errors:
+    for error in t_errors:
+        print(f"Обработан TypeError: {error}")
+```
+
+<details>
+<summary>output</summary>
+
+```
+  | ExceptionGroup:  (3 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "<stdin>", line 2, in <module>
+    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | ValueError: Некорректное значение
+      +------------------------------------
+    |
+    | During handling of the above exception, another exception occurred:
+    |
+    | Traceback (most recent call last):
+    |   File "<stdin>", line 8, in <module>
+    | TypeError: 'ExceptionGroup' object is not iterable
+    +---------------- 2 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "<stdin>", line 2, in <module>
+    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | TypeError: Неверный тип данных
+      +------------------------------------
+    |
+    | During handling of the above exception, another exception occurred:
+    |
+    | Traceback (most recent call last):
+    |   File "<stdin>", line 11, in <module>
+    | TypeError: 'ExceptionGroup' object is not iterable
+    +---------------- 3 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "<stdin>", line 2, in <module>
+    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | KeyError: 'Ключ не найден'
+      +------------------------------------
+```
+
+</details>
+
+
+### Пример 3: Вложенные ExceptionGroup
+
+```python
+try:
+    raise ExceptionGroup("Основная группа", [
+        ExceptionGroup("Первая подгруппа", [
+            ValueError("Некорректное значение"),
+            KeyError("Ключ не найден")
+        ]),
+        TypeError("Неверный тип данных")
+    ])
+except ExceptionGroup as eg:
+    print(f"Основная группа исключений: {eg}")
+    for exc in eg.exceptions:
+        print(f"- {exc}")
+```
+
+<details>
+<summary>output</summary>
+
+```
+Основная группа исключений: Основная группа (2 sub-exceptions)
+- Первая подгруппа (2 sub-exceptions)
+- Неверный тип данных
+```
+
+</details>
+
+### Пример 4: Комбинирование и повторное создание ExceptionGroup
+
+```python
+def function_that_raises():
+    errors = []
+    try:
+        raise ValueError("Первый ValueError")
+    except ValueError as e:
+        errors.append(e)
+    
+    try:
+        raise TypeError("Первый TypeError")
+    except TypeError as e:
+        errors.append(e)
+    
+    if errors:
+        raise ExceptionGroup("Группа исключений в функции", errors)
+
+try:
+    function_that_raises()
+except ExceptionGroup as eg:
+    print(f"Обработан ExceptionGroup: {eg}")
+    for exc in eg.exceptions:
+        print(f"- {exc}")
+```
+<details>
+<summary>output</summary>
+
+```
+Обработан ExceptionGroup: Группа исключений в функции (2 sub-exceptions)
+- Первый ValueError
+- Первый TypeError
+```
+
+</details>
+""",
+            },
             "fstrings": """
 # F-Strings
 
@@ -11127,596 +11876,6 @@ Person Object
        но ни один из нулевых элементов не удовлетворяет правилам, то линеаризация не возможна.
 
 [https://habr.com/ru/articles/62203/](https://habr.com/ru/articles/62203/)
-""",
-            "operator precedence": """
-приоритетность операторов от высокой до самой низкой
-
-| Операторы                                                    | Применение                                 |
-|--------------------------------------------------------------|--------------------------------------------|
-| `{}` `()`                                                    | Скобки (объединение)                       |
-| `f(args)`                                                    | Вызов функции                              |
-| `x[index:index]`                                             | Срез                                       |
-| `x[index]`                                                   | Получение по индексу                       |
-| `x.attribute`                                                | Ссылка на атрибут                          |
-| `**`                                                         | Возведение в степень                       |
-| `~x` `+x` `-x`                                               | Положительное, отрицательное число         |
-| `*` `/` `//` `%`                                             | Умножение, деление, остаток                |
-| `+` `—`                                                      | Сложение, вычитание                        |
-| `<<` `>>`                                                    | Сдвиг влево/вправо                         |
-| `&`                                                          | Побитовое <b>И</b>                         |
-| `^`                                                          | Побитовое <b>ИЛИ</b> <b>НЕ</b>             |
-| `|`                                                          | Побитовое <b>ИЛИ</b>                       |
-| `in` `not in` `is` `is not` `<` `<=` `>` `>=` `<>` `!=` `==` | Сравнение, принадлежность, тождественность |
-| `not`                                                        | Булево <b>НЕ</b>                           |
-| `and`                                                        | Булево <b>И</b>                            |
-| `or`                                                         | Булево <b>ИЛИ</b>                          |
-| `lambda`                                                     | Лямбда-выражение                           |
-
-""",
-            "Type Annotations": """
-```python
-from typing import Any  # Любой тип
-```
-
-```python
-from typing import Literal  # Один из вариантов
-direction: Literal["ASC", "DESC"] = "DESC"
-```
-
-```python
-from typing import Union
-val: Union[int, float] = 20.8  # or 20
-```
-
-```python
-from typing import Final
-
-val: Final = 2
-val += 1  # Ошибки не произойдёт, но IDE подсветит как ошибку.
-```
-
-# Использование статической проверки типов в Python
-Интерпретатор Python по умолчанию не осуществляет проверку типов.
-Однако была создана версия интерпретатора Python – `mypy`,
-которая обеспечивает проверку типов на уровне интерпретатора.
-
-```python
-from typing import NoReturn
-# NoReturn сообщает что функция не завершается нормально.
-# Например она возбуждает исключение.
-
-def forever() -> NoReturn:
-    while True:
-        pass
-```
-
-Если это генераторная функция, то есть её тело содержит оператор `yield`, 
-для возвращаемого можно воспользоваться аннотацией `Iterable[T]`, либо `Generator[YT, ST, RT]`:
-
-```python
-def generate_two() -> Iterable[int]:
-    yield 1
-    yield "2"  # Incompatible types in "yield" (actual type "str", expected type "int")
-```
-
-```python
-from typing import Optional
-
-amount: int
-amount = None  # Incompatible types in assignment (expression has type "None", variable has type "int")
-
-price: Optional[int]
-price = None
-
-# Аннотация Optional[T] эквивалентна Union[T, None], хотя такая запись и не рекомендуется.
-```
-
-# Предварительное объявление
-
-Обычно вы не можете использовать тип до того, как он создан. Например, следующий код даже не запустится:
-
-```python
-class LinkedList:
-    data: Any
-    next: LinkedList  # NameError: name 'LinkedList' is not defined
-```
-
-Чтобы это исправить, допустимо использовать строковый литарал. В этом случае аннотации будут вычислены отложенно.
-
-```python
-class LinkedList:
-    data: Any
-    next: 'LinkedList'
-```
-
-Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
-
-```python
-some_variable: 'somemodule.SomeClass'
-```
-
-или
-
-```python
-from __future__ import annotations
-
-class LinkedList:
-    data: int
-    next: LinkedList
-```
-
-# Generic-типы
-
-Иногда необходимо сохранить информацию о типе, при этом не фиксируя его жестко.
-Например, если вы пишете контейнер, который хранит однотипные данные.
-Или функцию, которая возвращает данные того же типа, что и один из аргументов.
-
-Такие типы как `List` или `Callable`, которые, мы видели раньше как раз используют механизм дженериков.
-Но кроме стандартных типов, вы можете создать свои дженерик-типы.
-Для этого надо, во-первых, завести `TypeVar` переменную,
-которая будет атрибутом дженерика, и, во-вторых,непосредственно объявить generic-тип:
-
-```python
-T = TypeVar("T")
-
-class LinkedList(Generic[T]):
-    data: T
-    next: "LinkedList[T]"
-
-    def __init__(self, data: T):
-        self.data = data
-
-head_int: LinkedList[int] = LinkedList(1)
-head_int.next = LinkedList(2)
-head_int.next = 2  # error: Incompatible types in assignment (expression has type "int", variable has type "LinkedList[int]")
-head_int.data += 1
-head_int.data.replace("0", "1")  # error: "int" has no attribute "replace"
-
-head_str: LinkedList[str] = LinkedList("1")
-head_str.data.replace("0", "1")
-
-head_str = LinkedList[str](1)  # error: Argument 1 to "LinkedList" has incompatible type "int"; expected "str"
-```
-
-Как вы можете заметить, для generic-типов работает автоматический вывод типа параметра.
-Если требуется, дженерик может иметь любое количеством параметров: `Generic[T1, T2, T3]`.
-Также, при определении `TypeVar` вы можете ограничить допустимые типы:
-
-```python
-T2 = TypeVar("T2", int, float)
-
-class SomethingNumeric(Generic[T2]):
-    pass
-
-x = SomethingNumeric[str]()  # error: Value of type variable "T2" of "SomethingNumeric" cannot be "str"
-```
-
-# Cast
-
-Иногда анализатор статический анализатор не может корректно определить тип переменной,
-в этом случае можно использовать функцию `cast`.
-Её единственная задача — показать анализатору, что выражение имеет определённый тип.
-
-```python
-from typing import List, cast
-
-def find_first_str(a: List[object]) -> str:
-    index = next(i for i, x in enumerate(a) if isinstance(x, str))
-    return cast(str, a[index])
-```
-
-Также это может быть полезно для декораторов:
-
-```python
-MyCallable = TypeVar("MyCallable", bound=Callable)
-
-def logged(func: MyCallable) -> MyCallable:
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        print(func.__name__, args, kwargs)
-        return func(*args, **kwargs)
-
-    return cast(MyCallable, wrapper)
-
-@logged
-def mysum(a: int, b: int) -> int:
-    return a + b
-
-mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
-```
-""",
-            "Built-in functions": r"""
-- slice
-- frozenset
-- memoryview
-- hasattr
-- reversed
-- &#95;&#95;import&#95;&#95;
-- staticmethod
-- setattr
-- property
-- object, 
-- locals
-- globals
-- getattr
-- complex
-- compile
-- bytearray
-- abs
-- bin
-- bytes
-- callable
-- chr
-- classmethod
-- delattr
-- dir
-- divmod
-- filter
-- oct
-- nonlocal
-
-
-## slice
-
-```python
-print([1, 2, 3, 4, 5][1:4])  # [2, 3, 4]
-print([1, 2, 3, 4, 5][slice(1, 4)])  # [2, 3, 4]
-```
-
-## frozenset
-Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.
-
-```python
-print(frozenset([1, 2, 2, 3, 4]))  # frozenset({1, 2, 3, 4})
-```
-
-## memoryview
-Доступ к буферу памяти объекта без копирования его данных.
-
-```pycon
->>> mv = memoryview(bytearray("ABC", "UTF-8"))
->>> mv[0]           # доступ к нулевому индексу представления памяти
-65
->>> bytes(mv[0:2])  # создать байт из представления памяти
-b"AB"
->>> list(mv[0:3])   # создать список из представления памяти
-[65, 66, 67]
-```
-
-## hasattr
-Для проверки наличия атрибута (метода или свойства) у объекта.
-
-```python
-class MyClass:
-    def __init__(self):
-        self.my_attr = 42
-
-my_obj = MyClass()
-print(hasattr(my_obj, "my_attr"))  # True
-print(hasattr(my_obj, "non_existent_attr"))  # False
-```
-
-## reversed
-Для переворачивания последовательности (sequence).
-
-```python
-my_list = [1, 2, 3, 4, 5]
-reversed_list = reversed(my_list)
-print(list(reversed_list))  # [5, 4, 3, 2, 1]
-```
-
-## __import__
-Для импорта модуля во время выполнения программы.
-
-```python
-math = __import__("math")
-print(math.pi)  # 3.141592653589793
-```
-
-## staticmethod
-Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).
-
-```python
-class MyClass:
-    @staticmethod
-    def my_static_method():
-        print("This is a static method")
-
-MyClass.my_static_method()  # This is a static method
-```
-
-## setattr
-Для установки значения атрибута объекта.
-
-```python
-class MyClass:
-    def __init__(self):
-        self.my_attr = 42
-
-my_obj = MyClass()
-setattr(my_obj, "my_attr", 43)
-print(my_obj.my_attr)  # 43
-```
-
-## property
-Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.
-
-```python
-class MyClass:
-    def __init__(self):
-        self._my_attr = 42
-
-    @property
-    def my_attr(self):
-        return self._my_attr
-
-    @my_attr.setter
-    def my_attr(self, value):
-        self._my_attr
-```
-
-## object
-Базовый класс, от которого наследуются все остальные классы в Python.
-
-```python
-class MyClass(object):
-    pass
-```
-
-## locals
-Для получения словаря с локальными переменными в текущем контексте выполнения.
-
-```python
-def my_func():
-    a = 1
-    b = 2
-    print(locals())
-
-my_func()  # {"a": 1, "b": 2}
-```
-
-## globals
-Для получения словаря с глобальными переменными в текущем модуле.
-
-```python
-my_var = 42
-print(globals())  # {"__name__": "__main__", "__doc__": None, "__package__": None, "my_var": 42, ...}
-```
-
-## getattr
-Для получения значения атрибута объекта по его имени.
-
-```python
-class MyClass:
-    def __init__(self):
-        self.my_attr = 42
-
-print(getattr(MyClass(), "my_attr"))  # 42
-```
-
-## complex
-Для создания комплексного числа.
-
-```python
-print(complex(1, 2))  # (1+2j)
-```
-
-## compile
-Для компиляции строки с кодом Python в объект-код.
-
-```python
-exec(compile('print("Hello, world!")', "<string>", "exec"))  # Hello, world!
-```
-
-## bytearray
-Изменяемый тип данных, представляющий собой массив байтов.
-Последовательность целых чисел в диапазоне `0 ≤ X < 256`
-
-Параметр **source** можно использовать для начальной инициализации массива:
-Если source является строкой, вы также должны указать кодировку encoding и опционально **errors**
-Если source является целым числом, массив будет иметь размер **source** и инициализирован байтами со значением `0`
-Если source является объектом, то он должен поддерживать интерфейс буфера.
-Для инициализации массива байт будет использован буфер, предназначенный для чтения.
-Если **source** является итерируемым объектом, его элементами должны быть целыми числами в диапазоне `0 ≤ X < 256`.
-Этими числами и будет инициализирован массив.
-Если **source** не передан, вернет пустой **bytearray**
-
-```pycon
->>> bytearray("Привет, Python!", "UTF-8")  
-bytearray(b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python!")
->>> bytearray(5)
-bytearray(b"\x00\x00\x00\x00\x00")
->>> bytearray([1, 2, 3])
-bytearray(b"\x01\x02\x03")
-```
-
-## abs
-Получения абсолютного значения числа.
-
-```python
-print(abs(-42))  # 42
-```
-
-## bin
-Получения двоичного представления числа.
-
-```python
-print(bin(42))  # 0b101010
-```
-
-## bytes
-Неизменяемый тип данных, представляющий собой массив байтов.
-
-```python
-print(bytes([1, 2, 3, 4, 5]))  # b"\x01\x02\x03\x04\x05"
-```
-
-## callable
-Является ли объект вызываемым (т.е. функцией или методом).
-
-```python
-def my_func():
-    pass
-
-class MyClass:
-    def my_method(self):
-        pass
-
-print(callable(my_func))  # True
-print(callable(MyClass().my_method))  # True
-print(callable(42))  # False
-```
-
-## chr
-Получение символа Unicode по его коду.
-
-```python
-print(chr(97))  # "a"
-```
-
-## classmethod
-Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.
-
-```python
-class MyClass:
-    my_class_attr = 42
-
-    @classmethod
-    def my_class_method(cls):
-        print(cls.my_class_attr)
-
-MyClass.my_class_method()  # 42
-```
-
-## delattr
-Удаление атрибута объекта.
-
-```python
-class MyClass:
-    my_attr = 42
-
-my_obj = MyClass()
-delattr(my_obj, "my_attr")
-print(hasattr(my_obj, "my_attr"))  # False
-```
-
-## dir
-Получение списка всех атрибутов объекта.
-
-```python
-print(dir([1, 2, 3]))  # ["__add__", "__class__", "__contains__", ...]
-```
-
-## divmod
-Получения частного и остатка от деления двух чисел.
-
-```python
-print(divmod(42, 5))  # (8, 2)
-```
-
-## filter
-Фильтрация элементов последовательности с помощью функции.
-
-```python
-print(list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5])))  # [2, 4]
-```
-
-## oct
-Получение восьмеричного представления числа.
-
-```python
-print(oct(42))  # 0o52
-```
-
-## nonlocal
-Объявление переменной из внешней области видимости внутри функции.
-
-```python
-def my_func():
-    my_var = 42
-    def inner_func():
-        nonlocal my_var
-        my_var = 43
-    inner_func()
-    print(my_var)
-
-my_func()  # 43
-```
-""",
-            "Exception": """
-```
-BaseException - базовое исключение, от которого берут начало все остальные.
- +-- SystemExit - исключение, порождаемое функцией sys.exit при выходе из программы.
- +-- KeyboardInterrupt - порождается при прерывании программы пользователем (обычно сочетанием клавиш Ctrl+C).
- +-- GeneratorExit - порождается при вызове метода close объекта generator.
- +-- Exception - а вот тут уже заканчиваются полностью системные исключения (которые лучше не трогать) и начинаются обыкновенные, с которыми можно работать.
-      +-- StopIteration - порождается встроенной функцией next, если в итераторе больше нет элементов.
-      +-- StopAsyncIteration -  порождается встроенной функцией anext, если в асинхронном итераторе больше нет элементов.
-      +-- ArithmeticError - арифметическая ошибка.
-      |    +-- FloatingPointError - порождается при неудачном выполнении операции с плавающей запятой. На практике встречается нечасто.
-      |    +-- OverflowError - возникает, когда результат арифметической операции слишком велик для представления. Не появляется при обычной работе с целыми числами (так как python поддерживает длинные числа), но может возникать в некоторых других случаях.
-      |    +-- ZeroDivisionError - деление на ноль.
-      +-- AssertionError - выражение в функции assert ложно.
-      +-- AttributeError - объект не имеет данного атрибута (значения или метода).
-      +-- BufferError - операция, связанная с буфером, не может быть выполнена.
-      +-- EOFError - функция наткнулась на конец файла и не смогла прочитать то, что хотела.
-      +-- ImportError - не удалось импортирование модуля или его атрибута.
-      |    +-- ModuleNotFoundError
-      +-- LookupError - некорректный индекс или ключ.
-      |    +-- IndexError - индекс не входит в диапазон элементов.
-      |    +-- KeyError - несуществующий ключ (в словаре, множестве или другом объекте).
-      +-- MemoryError - недостаточно памяти.
-      +-- NameError - не найдено переменной с таким именем.
-      |    +-- UnboundLocalError - сделана ссылка на локальную переменную в функции, но переменная не определена ранее.
-      +-- OSError - ошибка, связанная с системой.
-      |    +-- BlockingIOError - операция блокирует неблокируемый объект ввода-вывода (например, сокеты или файлы).
-      |    +-- ChildProcessError - неудача при операции с дочерним процессом.
-      |    +-- ConnectionError - базовый класс для исключений, связанных с подключениями.
-      |    |    +-- BrokenPipeError - Возникает, когда попытка записи данных в закрытый канал или сокет завершается неудачей.
-      |    |    +-- ConnectionAbortedError - Соединение неожиданно прервано до завершения.
-      |    |    +-- ConnectionRefusedError - Соединение отклонено сервером (например, порт закрыт).
-      |    |    +-- ConnectionResetError - Соединение сброшено другой стороной.
-      |    +-- FileExistsError - попытка создания файла или директории, которая уже существует.
-      |    +-- FileNotFoundError - файл или директория не существует.
-      |    +-- InterruptedError - системный вызов прерван входящим сигналом.
-      |    +-- IsADirectoryError - ожидался файл, но это директория.
-      |    +-- NotADirectoryError - ожидалась директория, но это файл.
-      |    +-- PermissionError - не хватает прав доступа.
-      |    +-- ProcessLookupError - указанного процесса не существует.
-      |    +-- TimeoutError - закончилось время ожидания.
-      +-- ReferenceError - попытка доступа к атрибуту со слабой ссылкой.
-      +-- RuntimeError - возникает, когда исключение не попадает ни под одну из других категорий.
-      |    +-- NotImplementedError - возникает, когда абстрактные методы класса требуют переопределения в дочерних классах.
-      |    +-- RecursionError - вызывается при превышении максимальной глубины рекурсии, часто из-за бесконечной рекурсии.
-      +-- SyntaxError - синтаксическая ошибка.
-      |    +-- IndentationError - неправильные отступы.
-      |         +-- TabError - смешивание в отступах табуляции и пробелов.
-      +-- SystemError - внутренняя ошибка.
-      +-- TypeError - операция применена к объекту несоответствующего типа.
-      +-- ValueError - функция получает аргумент правильного типа, но некорректного значения.
-      |    +-- UnicodeError - ошибка, связанная с кодированием / раскодированием unicode в строках.
-      |         +-- UnicodeDecodeError - исключение, связанное с кодированием unicode.
-      |         +-- UnicodeEncodeError - исключение, связанное с декодированием unicode.
-      |         +-- UnicodeTranslateError - исключение, связанное с переводом unicode.
-      +-- Warning - предупреждение.
-           +-- DeprecationWarning - предупреждает о функциях, которые устарели и будут удалены в будущей версии Python.
-           +-- PendingDeprecationWarning - предназначено для функций, которые планируется упразднить в далеком будущем.
-           +-- RuntimeWarning - предупреждает о проблемах, которые не попадают в другие категории, но все равно заслуживают внимания во время выполнения.
-           +-- SyntaxWarning - предупреждает о сомнительном синтаксисе, который может привести к неожиданному поведению.
-           +-- UserWarning - общее предупреждение для пользователей, часто используемое разработчиками для обозначения некритических проблем.
-           +-- FutureWarning - предупреждает об изменениях, которые произойдут в будущих версиях Python, часто связанных с изменениями, несовместимыми с предыдущей версией.
-           +-- ImportWarning - предупреждает о проблемах во время операций импорта.
-           +-- UnicodeWarning - предупреждает о проблемах с операциями, связанными с Unicode.
-           +-- BytesWarning - предупреждает о проблемах с операциями с байтами или байтовыми массивами.
-           +-- ResourceWarning - предупреждает об использовании ресурсов (например, о незакрытых файлах).
-
-
-EncodingWarning
-EnvironmentError
-IOError
-WindowsError
-```
-
 """,
         },
         "RegExp": {
@@ -18083,24 +18242,24 @@ class Dict:
         },
         "Minecraft": {
             "Color": """
-| color name   |                                                                         | color | chat | hex code | rgb           | motd       | decimal    |
-|--------------|-------------------------------------------------------------------------|:-----:|:----:|----------|---------------|------------|------------|
-| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000 | `170 0 0`     | `\\u00A74` | `11141120` |
-| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555 | `255 85 85`   | `\\u00A7c` | `16733525` |
-| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00 | `255 170 0`   | `\\u00A76` | `16755200` |
-| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55 | `255 255 85`  | `\\u00A7e` | `16777045` |
-| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55 | `0 170 0`     | `\\u00A7a` | `5635925`  |
-| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00 | `85 255 85`   | `\\u00A72` | `43520`    |
-| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF | `85 255 255`  | `\\u00A7b` | `5636095`  |
-| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA | `0 170 170`   | `\\u00A73` | `43690`    |
-| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF | `0 0 170`     | `\\u00A79` | `5592575`  |
-| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA | `85 85 255`   | `\\u00A71` | `170`      |
-| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF | `255 85 255`  | `\\u00A7d` | `16733695` |
-| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA | `170 0 170`   | `\\u00A75` | `11141290` |
-| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF | `255 255 255` | `\\u00A7f` | `16777215` |
-| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA | `170 170 170` | `\\u00A77` | `11184810` |
-| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555 | `85 85 85`    | `\\u00A78` | `5592405`  |
-| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000 | `0 0 0`       | `\\u00A70` | `0`        |
+| color name   |                                                                         | color | chat | hex code  | rgb           | motd       | decimal    |
+|--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|------------|------------|
+| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\\u00A74` | `11141120` |
+| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555` | `255 85 85`   | `\\u00A7c` | `16733525` |
+| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00` | `255 170 0`   | `\\u00A76` | `16755200` |
+| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55` | `255 255 85`  | `\\u00A7e` | `16777045` |
+| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55` | `0 170 0`     | `\\u00A7a` | `5635925`  |
+| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00` | `85 255 85`   | `\\u00A72` | `43520`    |
+| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF` | `85 255 255`  | `\\u00A7b` | `5636095`  |
+| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA` | `0 170 170`   | `\\u00A73` | `43690`    |
+| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF` | `0 0 170`     | `\\u00A79` | `5592575`  |
+| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA` | `85 85 255`   | `\\u00A71` | `170`      |
+| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF` | `255 85 255`  | `\\u00A7d` | `16733695` |
+| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA` | `170 0 170`   | `\\u00A75` | `11141290` |
+| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF` | `255 255 255` | `\\u00A7f` | `16777215` |
+| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA` | `170 170 170` | `\\u00A77` | `11184810` |
+| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\\u00A78` | `5592405`  |
+| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\\u00A70` | `0`        |
 
 |            |    |
 |------------|----|
@@ -18200,10 +18359,11 @@ class Dict:
 1. Перенести `metadata.json` в `cheatsheet`.
 2. Добавлять `SVG` с помощью `JavaScript` для уменьшения размера `index.html`.
 3. Искать подходящую библиотеку для `Markdown`.
-4. Подсвечивать нажатую кнопку постоянно, а не `:active`.
-5. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
-6. Сделать поисковые фишки как в {google_link}.
-7. История поиска
+4. Оглавление. Окошко с текстовыми `h` тегами из текущей шпаргалки, прокручивает до видимости при нажатии. 
+5. Подсвечивать нажатую кнопку постоянно, а не `:active`.
+6. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
+7. Сделать поисковые фишки как в {google_link}.
+8. История поиска
 
 <!--
 - Параметр поиска `s` в `URL`

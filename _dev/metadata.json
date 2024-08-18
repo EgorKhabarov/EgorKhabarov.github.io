@@ -320,6 +320,9 @@
   "Languages/Python/Libraries/Python/traceback.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/typing.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/warnings.md": {
     "color": "green"
   },
