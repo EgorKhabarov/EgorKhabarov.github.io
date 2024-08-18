@@ -40,9 +40,14 @@
 
 <h2>memoryview</h2>
 <p>Доступ к буферу памяти объекта без копирования его данных.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-code-button" onclick="copyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><pre>Copy code</pre></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">my_bytes</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">memoryview</span><span class="p">(</span><span class="n">my_bytes</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 2</span>
-</pre></div></div></div>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-code-button" onclick="copyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><pre>Copy code</pre></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">))</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># доступ к нулевому индексу представления памяти</span>
+<span class="unselectable"><span class="go">65</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytes</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># создать байт из представления памяти</span>
+<span class="unselectable"><span class="go">b&quot;AB&quot;</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">list</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># создать список из представления памяти</span>
+<span class="unselectable"><span class="go">[65, 66, 67]</span>
+</span></pre></div></div></div>
 
 <h2>hasattr</h2>
 <p>Для проверки наличия атрибута (метода или свойства) у объекта.</p>
@@ -146,9 +151,23 @@
 </pre></div></div></div>
 
 <h2>bytearray</h2>
-<p>Изменяемый тип данных, представляющий собой массив байтов.</p>
-<div class="code-element"><div class="lang-line"><text>python</text><button class="copy-code-button" onclick="copyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><pre>Copy code</pre></button></div><div class="code"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># bytearray(b&quot;\x01\x02\x03\x04\x05&quot;)</span>
-</pre></div></div></div>
+<p>Изменяемый тип данных, представляющий собой массив байтов.
+Последовательность целых чисел в диапазоне <code>0 ≤ X &lt; 256</code></p>
+<p>Параметр <strong>source</strong> можно использовать для начальной инициализации массива:
+Если source является строкой, вы также должны указать кодировку encoding и опционально <strong>errors</strong>
+Если source является целым числом, массив будет иметь размер <strong>source</strong> и инициализирован байтами со значением <code>0</code>
+Если source является объектом, то он должен поддерживать интерфейс буфера.
+Для инициализации массива байт будет использован буфер, предназначенный для чтения.
+Если <strong>source</strong> является итерируемым объектом, его элементами должны быть целыми числами в диапазоне <code>0 ≤ X &lt; 256</code>.
+Этими числами и будет инициализирован массив.
+Если <strong>source</strong> не передан, вернет пустой <strong>bytearray</strong></p>
+<div class="code-element"><div class="lang-line"><text>pycon</text><button class="copy-code-button" onclick="copyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><pre>Copy code</pre></button></div><div class="code"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">bytearray</span><span class="p">(</span><span class="s2">&quot;Привет, Python!&quot;</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>  
+<span class="unselectable"><span class="go">bytearray(b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python!&quot;)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="unselectable"><span class="go">bytearray(b&quot;\x00\x00\x00\x00\x00&quot;)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytearray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="unselectable"><span class="go">bytearray(b&quot;\x01\x02\x03&quot;)</span>
+</span></pre></div></div></div>
 
 <h2>abs</h2>
 <p>Получения абсолютного значения числа.</p>
