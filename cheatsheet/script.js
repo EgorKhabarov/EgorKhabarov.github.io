@@ -62,7 +62,7 @@ function changeColor(element) {
 }
 
 /*Вставить шпаргалку*/
-function PutHtmlText(html) {
+function PutHtmlText(html, title="") {
     if (!html) {
         html = '<img alt="404.png" src="404.png">'
     }
@@ -75,6 +75,7 @@ function PutHtmlText(html) {
     }
     FieldElement.scrollTo(0, 0);
     processingCheatSheet(FieldElement);
+    changeTitle(title);
 }
 
 /*Взять нужную шпаргалку по пути*/
@@ -123,7 +124,7 @@ function GET(url) {
         cheatsheet = getCheatSheat(url);
         console.log(`GET "${url}"`)
     }
-    PutHtmlText(cheatsheet);
+    PutHtmlText(cheatsheet, getPathFilename(url));
 }
 
 function copyCode(button_element) {
@@ -233,6 +234,15 @@ function getPathWithoutFilename(filePath) {
     const lastSlashIndex = filePath.lastIndexOf("/");
     if (lastSlashIndex !== -1) {
         return filePath.substring(0, lastSlashIndex);
+    }
+   return "";
+}
+
+function getPathFilename(filePath) {
+    filePath = decodeURIComponent(filePath).trim("/");
+    const lastSlashIndex = filePath.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(lastSlashIndex + 1);
     }
    return "";
 }
@@ -397,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Argument found: "${arg}"`);
         restoreCheatSheetState(arg);
     } else {
-        PutHtmlText(getCheatSheat("README.html"));
+        PutHtmlText(getCheatSheat("README.html"), "README.md");
     }
 
     // Якорь
@@ -545,3 +555,12 @@ function applySettings(settings) {
         if (element) element.checked = value;
     }
 };
+
+function changeTitle(title) {
+    console.log(`title: "${title}"`);
+    result = "Шпаргалка";
+    if (title) {
+        result += ": " + title;
+    }
+    document.getElementsByTagName("title")[0].textContent = result;
+}
