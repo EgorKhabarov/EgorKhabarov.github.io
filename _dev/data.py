@@ -17549,7 +17549,7 @@ with open("config.jsonl", "r", encoding="UTF-8") as file:
     for line in file:
         print(json.loads(line))
 ```
-""" + to_link("Other/Форматы файлов/TinyDB (json)"),
+""" + to_link("Other/File formats/TinyDB (json)"),
             "YAML": """
 # YAML - Ain't Markup Language
 
@@ -17844,7 +17844,7 @@ users_table.update({"age": 26}, user_query.name == "John")
 # Удаление записи по условию (например, по имени)
 users_table.remove(user_query.name == "John")
 ```
-""",
+""" + to_link("Other/File formats/JSON"),
         },
         "Code examples": {
             "Пирамида граф": """
@@ -18364,6 +18364,9 @@ class Dict:
 6. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
 7. Сделать поисковые фишки как в {google_link}.
 8. История поиска
+
+Поменять в метадате color на classList
+Пофиксить поиск `Nothing found` убирать при пустом запросе.
 
 <!--
 - Параметр поиска `s` в `URL`

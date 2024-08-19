@@ -9,6 +9,8 @@
 <li>Сделать поисковые фишки как в <a target="_self" href="./?General/Google Search.md">Google Search</a>.</li>
 <li>История поиска</li>
 </ol>
+<p>Поменять в метадате color на classList
+Пофиксить поиск <code>Nothing found</code> убирать при пустом запросе.</p>
 <!--
 - Параметр поиска `s` в `URL`
     - ?path

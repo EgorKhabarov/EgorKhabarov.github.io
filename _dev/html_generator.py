@@ -53,10 +53,7 @@ def buttons(
             svg = link.format(color=color)
             title = value.removesuffix("index.md") if value.endswith("/index.md") else value.removesuffix(".md")
             text_list.append(
-                f'<button class="button unselectable" vpath="{value}" '
-                f'onclick="'
-                f'GET(this.getAttribute(`vpath`));restoreCheatSheetState(this.getAttribute(`vpath`));delAnchor();'
-                f'" title="{title}">{svg}{title}</button>\n'
+                f'<button vpath="{value}" onclick="onclickLinkButton(this);" title="{title}">{svg}{title}</button>\n'
             )
             continue
 
@@ -71,35 +68,30 @@ def buttons(
 
         if isinstance(value, dict) and "index" in value:
             val, _, x = buttons(value, key_path, metadata, x, y)
-            kpath = f"{directory_e}/{key}/"
+            kpath = f"{directory_e}/{key}".strip("/")
             vpath = f"{directory_e}/{key}/index.md"
             svg = folder.format(color=metadata_dict.get("color", "yellow"))
             text_list.append(
-                f'<button class="button unselectable" kpath="{kpath}" vpath="{vpath}" '
-                f'onclick="'
-                f'GET(this.getAttribute(`vpath`));toggleDisplay(this.nextElementSibling);delAnchor();'
-                f'" title="{title}">{svg}{title}</button>'
-                f'<div class="button-folder" style="display:none;">{val}</div>'
+                f'<button kpath="{kpath}" vpath="{vpath}" '
+                f'onclick="onclickFolderCheatSheetButton(this);" title="{title}">{svg}{title}</button>'
+                f'<div class="button_folder" style="display:none;">{val}</div>'
             )
         elif isinstance(value, dict):
             val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}".strip("/")
             svg = folder.format(color=metadata_dict.get("color", "yellow"))
             text_list.append(
-                f'<button class="button unselectable" kpath="{kpath}" '
-                f'onclick="'
-                f'toggleDisplay(this.nextElementSibling);'
-                f'" title="{title}">{svg}{title}</button>'  
-                f'<div class="button-folder" style="display:none;">{val}</div>'
+                f'<button kpath="{kpath}" '
+                f'onclick="onclickFolderButton(this)" title="{title}">{svg}{title}</button>'  
+                f'<div class="button_folder" style="display:none;">{val}</div>'
             )
         else:
             x += 1
             vpath = f"{directory_e}/{key}.md".strip("/")
             svg = tag.format(color=metadata_dict.get("color", "white"))
             text_list.append(
-                f'<button class="button unselectable" vpath="{vpath}" '
-                f'onclick="'
-                f'GET(this.getAttribute(`vpath`));delAnchor();'
+                f'<button vpath="{vpath}" '
+                f'onclick="onclickCheatSheetButton(this);'
                 f'" title="{title}">{svg}{title}</button>\n'
             )
     return "".join(text_list), directory, x
@@ -117,39 +109,40 @@ def generate_index_html(cheatsheet_count: int, metadata: dict):
         <script src="./script.js"></script>
     </head>
     <body>
-        <div id="cheatsheet-buttons" class="cheatsheet-buttons">
-            <div class="search-container">
-                <input id="search" type="text" class="search-input unselectable" placeholder="🔎 Поиск">
+        <div id="cheatsheet_buttons">
+            <div class="search_container">
+                <input id="search_input" type="text" class="search_input unselectable" placeholder="🔎 Поиск">
             </div>
-            <div id="search-button-folder" class="button-folder unselectable" style="display:none;"></div>
+            <div id="search_button_folder" class="button_folder unselectable" style="display:none;"></div>
             {buttons(DICT, metadata=metadata, y=cheatsheet_count - 1)[0]}
         </div>
         <div id="rpanrResize">&nbsp;</div>
-        <pre id="field" class="cheatsheet-field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
-        <div>
-            <button id="FontSizeSize"     class="control-button unselectable" onclick="changeFontSize(field, '=')">12px</button>
-            <button                       class="control-button unselectable" onclick="changeFontSize(field, '+')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/></svg></button>
-            <button                       class="control-button unselectable" onclick="changeFontSize(field, '-')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/></svg></button>
-            <button id="COPY"             class="control-button unselectable" onclick="copyTextFromDiv(field);changeColor(COPY)"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg></button>
-            <button id="COPY2"            class="control-button unselectable" onclick="copyTextFromDiv2();changeColor(COPY2)"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/></svg></button>
-            <button id="removeargfromurl" class="control-button unselectable" onclick="removeArgumentFromUrl();delAnchor();window.location.reload();changeColor(removeargfromurl)"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/></svg></button>
-            <button id="settings-button"  class="control-button unselectable"><svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></button>
+        <pre id="cheatsheet_field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
+        <div id="cheatsheet_control_buttons">
+            <button onclick="removeArgumentFromUrl();delAnchor();window.location.reload();">
+                <!-- <img src="icon.png" width="24" height="24"/> -->
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/></svg>
+            </button>
+            <button id="font_size_button" onclick="changeFontSize('=')">12px</button>
+            <button onclick="changeFontSize('+')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/></svg></button>
+            <button onclick="changeFontSize('-')"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/></svg></button>
+            <button id="settings_button"><svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></button>
         </div>
-        <div id="settings-overlay" class="overlay"></div>
-        <div id="settings-popup" class="popup">
+        <div id="settings_overlay" class="overlay"></div>
+        <div id="settings_popup" class="popup">
             <h3 style="margin-top: 0px;margin-bottom: 6px;">Search</h3>
-            <input type="checkbox" id="settings-search-regex" style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings_search_regex" style="width: 13px;height: 13px;">
             Поиск по регулярным выражениям<br>
-            <input type="checkbox" id="settings-search-register-independence" style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings_search_register_independence" style="width: 13px;height: 13px;">
             Регистронезависимость поиска<br>
-            <input type="checkbox" id="settings-search-full-path" style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings_search_full_path" style="width: 13px;height: 13px;">
             Поиск по всему пути (default вкл) /<br>
             <svg width="20" height="13"></svg>
             Поиск по имени шпаргалки (выкл)<br>
-            <input type="checkbox" id="settings-search-show-full-path" style="width: 13px;height: 13px;">
+            <input type="checkbox" id="settings_search_show_full_path" style="width: 13px;height: 13px;">
             Показывать весь путь до шпаргалки<br>
-            <button id="settings-reset-button">Reset</button>
-            <button id="settings-ok-button">Ok</button>
+            <button id="settings_reset_button">Reset</button>
+            <button id="settings_ok_button">Ok</button>
         </div>
     </body>
 </html>
