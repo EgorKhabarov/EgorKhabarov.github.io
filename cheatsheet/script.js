@@ -28,8 +28,6 @@ function setDisplayBlock(element) {
     }
 }
 function DisplayCheatSheet(vpath) {
-    delAnchor();
-
     isFolderCheatSheet = vpath.endsWith("/");
     vpath = isFolderCheatSheet ? vpath + "index.md" : removeSuffix(vpath, "/");
     kpath = getPathWithoutFilename(vpath);
@@ -39,11 +37,13 @@ function DisplayCheatSheet(vpath) {
 
     // Раскрываем все родительские папки
     element = document.querySelector(`[kpath="${kpath}"]`);
-    setDisplayBlock(element.nextElementSibling) // Раскрываем папку с шпаргалкой
-    parent = element.parentElement;
-    while (parent) {
-        setDisplayBlock(parent);
-        parent = parent.parentElement;
+    if (element) {
+        setDisplayBlock(element.nextElementSibling) // Раскрываем папку с шпаргалкой
+        parent = element.parentElement;
+        while (parent) {
+            setDisplayBlock(parent);
+            parent = parent.parentElement;
+        }
     }
 
     velement = document.querySelector(`[vpath="${vpath}"]`);
@@ -395,6 +395,90 @@ function processingCheatSheet() {
         header.id = id;
         header.innerHTML = `${header.innerHTML}<a class="anchor" href="#${id}"><svg style="width: .6em;height: .9em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg></a>`;
     });
+
+    if (h_elements.length !== 0) {
+        cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
+        h_list = document.createElement("div");
+        h_list.id = "h_list";
+        h_elements.forEach(header => {
+            h_num = Number(header.tagName[1]);
+            color = {
+                1: "rgb(255,   0,   0)",
+                2: "rgb(250, 115,   0)",
+                3: "rgb(255, 250,   0)",
+                4: "rgb(  0, 255,   0)",
+                5: "rgb(  0, 160, 245)",
+                6: "rgb(221,   0, 242)",
+            }[h_num];
+            indent = {
+                1: "",
+                2: "&nbsp;",
+                3: "&nbsp;&nbsp;",
+                4: "&nbsp;&nbsp;&nbsp;",
+                5: "&nbsp;&nbsp;&nbsp;&nbsp;",
+                6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+            }[h_num];
+            pre_element = document.createElement("pre");
+            //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"
+            pre_element.innerHTML = `${indent}<span style="color: ${color}">${header.tagName}</span>&nbsp;<span class="h_list_sel">${header.textContent}</span>`;
+            pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"})`);
+            h_list.appendChild(pre_element);
+        });
+        cheatsheet_field.appendChild(h_list);
+
+        function f1 () {
+            h_list_button.style.borderTopLeftRadius = "0";
+            h_list_button.style.borderBottomLeftRadius = "0";
+            h_list_button.style.backgroundColor = "rgb(25, 25, 25)";
+            h_list.style.display = "block";
+            h_list.style.borderTopRightRadius = "0";
+        }
+        function f2 () {
+            h_list_button.style.borderTopLeftRadius = "";
+            h_list_button.style.borderBottomLeftRadius = "";
+            h_list_button.style.backgroundColor = "#525252";
+            h_list.style.display = "none";
+            h_list.style.borderBottomRightRadius = "";
+        }
+        function f3 () {
+            if (h_list_button.getAttribute("state") === "on") {
+                h_list_button.addEventListener("mouseover", f1);
+                h_list_button.addEventListener("mouseout", f2);
+                h_list       .addEventListener("mouseover", f1);
+                h_list       .addEventListener("mouseout", f2);
+
+                h_list_button.addEventListener("touchstart", f1);
+                h_list_button.addEventListener("touchend", f2);
+                h_list       .addEventListener("touchstart", f1);
+                h_list       .addEventListener("touchend", f2);
+
+                h_list_button.setAttribute("state", "off");
+            } else {
+                h_list_button.style.borderTopLeftRadius = "0";
+                h_list_button.style.borderBottomLeftRadius = "0";
+                h_list_button.style.backgroundColor = "rgb(25, 25, 25)";
+                h_list.style.display = "block";
+                h_list.style.borderTopRightRadius = "0";
+
+                h_list_button.removeEventListener("mouseover", f1);
+                h_list_button.removeEventListener("mouseout", f2);
+                h_list       .removeEventListener("mouseover", f1);
+                h_list       .removeEventListener("mouseout", f2);
+
+                h_list_button.removeEventListener("touchstart", f1);
+                h_list_button.removeEventListener("touchend", f2);
+                h_list       .removeEventListener("touchstart", f1);
+                h_list       .removeEventListener("touchend", f2);
+
+                h_list_button.setAttribute("state", "on");
+            }
+        }
+        h_list_button.addEventListener("mouseover", f1);
+        h_list_button.addEventListener("mouseout", f2);
+        h_list.addEventListener("mouseover", f1);
+        h_list.addEventListener("mouseout", f2);
+        h_list_button.addEventListener("click", f3);
+    }
 };
 
 /* onclick */
@@ -496,11 +580,36 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+
+    document.getElementById("fullscreen_button").addEventListener("click", function() {
+        if (!document.fullscreenElement) {
+            // Входим в полноэкранный режим
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        } else {
+            // Выходим из полноэкранного режима
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+        }
+    });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
 document.addEventListener("click", function(event) {
-    console.log(event.target, event.target.id);
     if (event.target.tagName === "CODE") {
         const tempInput = document.createElement("input");
         document.body.appendChild(tempInput);

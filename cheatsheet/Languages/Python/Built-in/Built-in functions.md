@@ -1,33 +1,3 @@
-<ul>
-<li>slice</li>
-<li>frozenset</li>
-<li>memoryview</li>
-<li>hasattr</li>
-<li>reversed</li>
-<li>&#95;&#95;import&#95;&#95;</li>
-<li>staticmethod</li>
-<li>setattr</li>
-<li>property</li>
-<li>object, </li>
-<li>locals</li>
-<li>globals</li>
-<li>getattr</li>
-<li>complex</li>
-<li>compile</li>
-<li>bytearray</li>
-<li>abs</li>
-<li>bin</li>
-<li>bytes</li>
-<li>callable</li>
-<li>chr</li>
-<li>classmethod</li>
-<li>delattr</li>
-<li>dir</li>
-<li>divmod</li>
-<li>filter</li>
-<li>oct</li>
-<li>nonlocal</li>
-</ul>
 <h2>slice</h2>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># [2, 3, 4]</span>
 <span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">][</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>  <span class="c1"># [2, 3, 4]</span>
@@ -67,7 +37,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">reversed_list</span><span class="p">))</span>  <span class="c1"># [5, 4, 3, 2, 1]</span>
 </pre></div></div></div>
 
-<h2><strong>import</strong></h2>
+<h2>&#95;&#95;import&#95;&#95;</h2>
 <p>Для импорта модуля во время выполнения программы.</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code"><div class="highlight"><pre><span></span><span class="n">math</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;math&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># 3.141592653589793</span>

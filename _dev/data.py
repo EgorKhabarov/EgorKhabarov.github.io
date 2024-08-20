@@ -10841,35 +10841,6 @@ def generator2():
             },
             "Built-in": {
                 "Built-in functions": r"""
-- slice
-- frozenset
-- memoryview
-- hasattr
-- reversed
-- &#95;&#95;import&#95;&#95;
-- staticmethod
-- setattr
-- property
-- object, 
-- locals
-- globals
-- getattr
-- complex
-- compile
-- bytearray
-- abs
-- bin
-- bytes
-- callable
-- chr
-- classmethod
-- delattr
-- dir
-- divmod
-- filter
-- oct
-- nonlocal
-
 
 ## slice
 
@@ -10920,7 +10891,7 @@ reversed_list = reversed(my_list)
 print(list(reversed_list))  # [5, 4, 3, 2, 1]
 ```
 
-## __import__
+## &#95;&#95;import&#95;&#95;
 Для импорта модуля во время выполнения программы.
 
 ```python

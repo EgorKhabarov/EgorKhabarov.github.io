@@ -40,7 +40,11 @@ body {
 }
 /* Кнопки выбора темы */
 #cheatsheet_buttons button {
-  @extend .unselectable;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   min-width: 184px;
   max-width: 1000px;
   width: max-content;
@@ -81,7 +85,6 @@ body {
 
   flex-grow: 0;
   flex-shrink: 1;
-  position: relative
 }
 
 /* Контейнер с кнопками управления */
@@ -91,7 +94,11 @@ body {
   flex-direction: column;
 }
 #cheatsheet_control_buttons button {
-  @extend .unselectable;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   width: 3em;
   height: 3em;
   min-height: 45px;
@@ -382,3 +389,58 @@ hr {
 #settings_ok_button:hover, #settings-reset-button:hover {background-color: #424242;}
 #settings_ok_button:active, #settings-reset-button:active {background-color: #323232;}
 
+
+#h_list_button {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border: 1px solid #2B2B2B;
+  border-radius: 10px;
+  background-color: #525252;
+  color: #AFB1B3;
+  cursor: pointer;
+
+  position: absolute;
+  margin-left: auto;
+  top: 16px;
+  right: 88px;
+}
+
+#h_list {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  background-color: rgb(25, 25, 25);
+  max-height: 40%;
+  min-height: 4rem;
+  max-width: 15rem;
+  font-size: 1rem;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 2em;
+  padding-bottom: 1em;
+  border-radius: 0.6rem;
+  flex-direction: row;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  display: none;
+  position: absolute;
+  top: 17px;
+  right: 124px;
+}
+#h_list::-webkit-scrollbar {display: none;}
+
+.h_list_sel:hover {
+    color: rgb(120, 120, 120);
+}
