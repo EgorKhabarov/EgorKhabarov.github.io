@@ -14,7 +14,7 @@ from _dev.utils import set_unselectable, print_progress_bar
 formatter = HtmlFormatter(style="default")
 
 
-def code_block_callback(match):
+def code_block_callback(match: re.Match) -> str:
     code_block = match.group(2)
     language = (
         match.group(1)
@@ -59,17 +59,29 @@ def code_block_callback(match):
         if filename
         else ""
     )
-    return f'<div class="code_element"><div class="lang_line"><text>{language}</text>{copy_btn}{download_btn}</div><div class="code">{highlighted_code}</div></div>'
+    return f'<div class="code_element"><div class="lang_line"><text>{language}</text>{copy_btn}{download_btn}</div><div class="code language-{_language}">{highlighted_code}</div></div>'
 
 
-def to_markup(markdown_text):
+def wikilink_func(match: re.Match) -> str:
+    path = match.group(1)
+    cheatsheet_name = path.rsplit("/", 1)[-1].removesuffix(".md")
+    return f'<a target="_self" href="?{path}" class="wikilink">{cheatsheet_name}</a>'
+
+
+def to_markup(markdown_text: str):
+    # WikiLinks
+    highlighted_html = re.sub(
+        r"\[\[([\w/(). -]+)]]",
+        wikilink_func,
+        markdown_text
+    )
     # Замена блоков кода на подсвеченный HTML
     highlighted_html = re.sub(
         r"(?si)(```[a-z+#@._\d-]*|<pre><code class=\"language-[a-z+#-]*\">)"
         r"(.*?)"
         r"(```|</code></pre>)",
         code_block_callback,
-        markdown_text,
+        highlighted_html,
     )
 
     # Обработка остальной разметки

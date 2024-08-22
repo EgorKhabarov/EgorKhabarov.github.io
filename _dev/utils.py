@@ -201,12 +201,6 @@ def to_table_code_sql(code: str) -> str:
     return to_table_code("sql", code)
 
 
-def to_link(path: str) -> str:
-    path = path.removesuffix(".md")
-    filename = path.rsplit("/", 1)[-1]
-    return f'<a target="_self" href="./?{path}.md">{filename}</a>'
-
-
 def check_dict_keys(d: dict, c: int = 0) -> bool | int:
     for k, v in d.items():
         print_progress_bar(c, 0, "counting cheatsheets", k)

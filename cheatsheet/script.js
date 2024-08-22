@@ -400,6 +400,8 @@ function processingCheatSheet() {
         cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
         h_list = document.createElement("div");
         h_list.id = "h_list";
+        min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
+
         h_elements.forEach(header => {
             h_num = Number(header.tagName[1]);
             color = {
@@ -412,11 +414,11 @@ function processingCheatSheet() {
             }[h_num];
             indent = {
                 1: "",
-                2: "&nbsp;",
-                3: "&nbsp;&nbsp;",
-                4: "&nbsp;&nbsp;&nbsp;",
-                5: "&nbsp;&nbsp;&nbsp;&nbsp;",
-                6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+                2: "&nbsp;".substring((min_header * 6) - 6),
+                3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
+                4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+                5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+                6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
             }[h_num];
             pre_element = document.createElement("pre");
             //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"

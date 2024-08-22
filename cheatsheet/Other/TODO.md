@@ -6,7 +6,7 @@
 <li>Оглавление. Окошко с текстовыми <code>h</code> тегами из текущей шпаргалки, прокручивает до видимости при нажатии. </li>
 <li>Подсвечивать нажатую кнопку постоянно, а не <code>:active</code>.</li>
 <li>Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.</li>
-<li>Сделать поисковые фишки как в <a target="_self" href="./?General/Google Search.md">Google Search</a>.</li>
+<li>Сделать поисковые фишки как в <a target="_self" href="?General/Google Search.md" class="wikilink">Google Search</a>.</li>
 <li>История поиска</li>
 </ol>
 <p>Поменять в метадате color на classList

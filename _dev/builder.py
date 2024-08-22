@@ -31,11 +31,11 @@ def g(path_: str):
 for foldername, _, filenames in os.walk(folder_path):
     for filename in filenames:
         if filename.endswith(".md"):
-            x += 1
             path = os.path.join(foldername, filename)
             try:
                 g(path)
             except KeyError:
+                x += 1
                 print_progress_bar(x, cheatsheet_count, "delete cheatsheet", path)
                 os.remove(path)
 

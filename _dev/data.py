@@ -1,4 +1,4 @@
-from _dev.utils import to_table_code_py, to_table_code_java, to_link, to_table_code_sql
+from _dev.utils import to_table_code_py, to_table_code_java, to_table_code_sql
 
 
 DICT = {
@@ -12075,6 +12075,30 @@ Person Object
 -?\d{{1,3}}\.\d+
 ```
 
+## Пример атомарной группы
+
+Возьмем выражение `(?>a|ab)c` и строку `abc`:
+
+1. Сначала регулярное выражение пытается сопоставить `a` внутри атомарной группы `(?>a|ab)`.
+2. После успешного совпадения с `a`, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.
+3. Затем выражение пытается сопоставить `c`, что не удается, потому что следующий символ `b`.
+4. В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить `ab` вместо `a`.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.
+
+### Пример кода
+
+```pycon
+>>> import re
+>>> simple_group = re.compile(r"(a|ab)c")
+>>> atomic_group = re.compile(r"(?>a|ab)c")
+>>> print(simple_group.search("abc").group())  # Обычная группа
+abc
+>>> print(atomic_group.search("abc"))  # Атомарная группа
+None
+```
+
+
+# Бэктрекинг
+
 **Бэктрекинг (backtracking)** — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению.
 Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.
@@ -12095,27 +12119,14 @@ Person Object
 4. Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему `b`, теперь пробует совпадение с `c`: `abbc`.
 5. Теперь шаблон пытается сопоставить `d` после `abbc`. Строка заканчивается на `d`, и совпадение успешно завершается.
 
-### Пример атомарной группы
+# Особенности в разных языках
 
-Возьмем выражение `(?>a|ab)c` и строку `abc`:
+## Java
 
-1. Сначала регулярное выражение пытается сопоставить `a` внутри атомарной группы `(?>a|ab)`.
-2. После успешного совпадения с `a`, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.
-3. Затем выражение пытается сопоставить `c`, что не удается, потому что следующий символ `b`.
-4. В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить `ab` вместо `a`.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.
+### && ^
+`[\w&&[^_]]` - Любой символ, подходящий под `\w`, кроме `_`.
 
-### Пример кода
 
-```pycon
->>> import re
->>> simple_group = re.compile(r"(a|ab)c")
->>> atomic_group = re.compile(r"(?>a|ab)c")
->>> print(simple_group.search("abc").group())  # Обычная группа
-abc
->>> print(atomic_group.search("abc"))  # Атомарная группа
-None
-
-```
 
 """.format(
                 capture_group=to_table_code_py(
@@ -12278,9 +12289,35 @@ public class HashMapExample {
 ```
 """,
                 },
+                "math": {
+                    "BigInteger и BigDecimal": """
+
+""",
+                },
             },
-            "Запуск": {
-                "Запуск": """
+            "Built-in": {
+                "String": """
+
+""",
+                "Integer": """
+
+""",
+                "Character": """
+```java
+int x = 65535;
+System.out.println(Character.charCount(x)); // 1
+x = 65536;
+System.out.println(Character.charCount(x)); // 2
+```
+""",
+                "StringBuilder от StringBuffer": """
+
+StringBuffer synchronized // заставляет ждать остальные потоки
+""",
+            },
+            "Core": {
+                "Запуск": {
+                    "Запуск": """
 Независимо от того, какую операционную систему вы используете, **Linux**, **Mac** или **Windows**,
 если на вашем компьютере установлен **JDK** **(Java Development Kit)**,
 вы можете в консоли набрать следующие команды чтобы скомпилировать и запустить программу:
@@ -12318,11 +12355,13 @@ java Main // так правильно
 java Main.class // так неправильно
 ```
 
+# .jar
+
 ```bash
 jar cf main.jar Main.class
 ```
 """,
-                "Аргументы": """
+                    "Аргументы": """
 # Аргументы
 
 В главном классе нашей программы есть метод public static void main(...), который в качестве аргумента принимает массив String[] args.
@@ -12348,191 +12387,98 @@ java Main arg0 arg1 arg2
 
 ```
 """,
-            },
-            "Типы данных": """
-|         |                                                                    |          |                                                                    |
-|---------|--------------------------------------------------------------------|----------|--------------------------------------------------------------------|
-| byte    | Число                                                              | 1 байт   | -128<br>127<br>`2**7`                                              |
-| short   | Число                                                              | 2 байта  | -32 768<br>32 767<br>`2**15`                                       |
-| int     | Число                                                              | 4 байта  | -2 147 483 648<br>2 147 483 647<br>`2**31`                         |
-| long    | Число                                                              | 8 байтов | –9 223 372 036 854 775 808<br>9 223 372 036 854 775 807<br>`2**63` |
-| float   | Число с плавающей точкой                                           | 4 байта  | -3.4\\*1038<br>3.4\\*1038                                          |
-| double  | Число с плавающей точкой                                           | 8 байтов | ±4.9\\*10-324<br>±1.8\\*10308                                      |
-| char    | Символ                                                             | 2 байта  |                                                                    |
-| boolean | true или false                                                     | 1 байт   |                                                                    |
-| String  | Текст. В двойных кавычках можно сохранить одно или множество слов. |          |                                                                    |
+                },
+                "Типы данных": """
+|           |                          |          |                                                                    |
+|-----------|--------------------------|----------|--------------------------------------------------------------------|
+| `byte`    | Число                    | 1 байт   | -128<br>127<br>`2**7`                                              |
+| `short`   | Число                    | 2 байта  | -32 768<br>32 767<br>`2**15`                                       |
+| `int`     | Число                    | 4 байта  | -2 147 483 648<br>2 147 483 647<br>`2**31`                         |
+| `long`    | Число                    | 8 байтов | –9 223 372 036 854 775 808<br>9 223 372 036 854 775 807<br>`2**63` |
+| `float`   | Число с плавающей точкой | 4 байта  | -3.4\\*1038<br>3.4\\*1038                                          |
+| `double`  | Число с плавающей точкой | 8 байтов | ±4.9\\*10-324<br>±1.8\\*10308                                      |
+| `boolean` | `true` или `false`       | 1 байт   |                                                                    |
+| `char`    | Один символ `'a'`        | 2 байта  |                                                                    |
+| `String`  | Текст `"Text"`           |          |                                                                    |
+
+String – не примитив
 
 ```java
-int n;
-n = 5;
-
-// or
-
-int n = 5;
-```
-
-```java
-//Чтобы объявить число с плавающей точкой, используйте следующий синтаксис:
-
 double d = 4.5;
 d = 3.0;
-// Если вы хотите использовать float, то:
-
 float f = (float) 4.5;
-// Или:
-
-float f = 4.5f
-(f – более короткий способ объявить float)
+f = 4.5f; // (f – более короткий способ объявить float)
 ```
 
 ```java
 char c = 'g';
-
-// String – не примитив. Это реальный тип. Вот несколько способов использования строки:
-
-// Создание строки с помощью конструктора
-
 String s1 = new String("Who let the dogs out?");
-// С помощью двойных кавычек (” “).
-
 String s2 = "Who who who who!";
-// В Java присутсвует конкатенация (объединение) строк при помощи оператора +.
-
 String s3 = s1 + s2;
 // В Java нет перегрузки операторов!
 // Оператор + определен только для строк,
 // вы никогда не увидите его с другими объектами, только с примитивами.
-
 int num = 5;
 String s = "I have " + num + " cookies";
-// Заметьте, что кавычки с примитивами не используются.
-```
-
-
-```java
-boolean b = false;
-b = true;
-
-boolean toBe = false;
-b = toBe || !toBe;
-if (b) {
-    System.out.println(toBe);
-}
-// Оператор || это логическое “или”.
-
-// А например, такой код не будет работать по причине несовместимости типов:
-
-int children = 0;
-b = children;  // Не будет работать, требуется boolean, а найден int
-if (children) {  // Не будет работать, требуется boolean, а найден int
-    // Не будет работать, требуется boolean, а найден int
-}
 ```
 """,
-            "Логические операторы": """
-```java
-int a = 4;
-int b = 5;
-boolean result;
-result = a < b;  // истина
-result = a > b;  // ложь
-result = a <= 4; // меньше или равно - истина
-result = b >= 6;  // больше или равно - ложь
-result = a == b;  // равно - ложь
-result = a != b;  // неравно - истина
-result = a > b || a < b;  // логическое ИЛИ - истина
-result = 3 < a && a < 6;  // логическое И - истина
-result = !result;  // Логическое НЕ - ложь
-```
+                "Логические операторы": """
+`||` **ИЛИ**
+`&&` **И**
+`!` **НЕ**
 
-# Оператор ? :
+# ==
 
-if – else в одну строку – с помощью оператора `? :`
+Сравнивает **ссылки** на объекты, если используется с объектами.
+Для примитивных типов данных (`int`, `char`, `boolean`, и т. д.) сравнивает **значения**.
 
-```java
 
-int a = 4;
-int result = a == 4 ? 1 : 8;
-// result будет равен 1
-// Или обычная форма записи:
-int result;
-if (a == 4) {
-    result = 1;
-} else {
-    result = 8;
-}
-```
+# equals
 
-# Операторы `==` и `equals`
-
-Оператор `==` работает немного по-другому на объектах, нежели на примитивах.
-Когда вы используем объекты и хотите проверить, равны ли они,
-оператор `==` скажет что они равны, только если объекты одинаковы,
-но если вы хотите проверить их на логическое соответствие, используйте метод `equals`.
-
-```java
-String a = new String("Wow");
-String b = new String("Wow");
-String sameA = a;
-
-boolean r1 = a == b;      // Ложь, так как a и b не один и тот же объект
-boolean r2 = a.equals(b); // Истина, так как a и b логически равны
-boolean r3 = a == sameA;  // Истина, так как a и sameA действительно один и тот же объект
-```
+Определён в классе `Object`, и сравнивает **содержимое** объектов.
+Стандартная реализация `equals()` в классе `Object` сравнивает **ссылки**,
+но многие классы (например, `String`, `Integer`, и т. д.) переопределяют этот метод для сравнения значений.
 
 # switch case
 
 ```java
 int x = 23;
-switch (x) { // Проверяем переменную x
-    case 1: // Если переменная будет равна 1, то здесь сработает код
-        // Может быть множество строк, а не только одна
+switch (x) {
+    case 1:
         System.out.print ("Переменная равна 1");
-        break; // Указываем конец для кода для этой проверки
-    case 56: // Если переменная будет равна 56, то здесь сработает код
-        // Может быть множество строк, а не только одна
+        break;
+    case 56:
         System.out.print ("Переменная равна 56");
-        break; // Указываем конец для кода для этой проверки
-    
-    // По аналогии таких проверок может быть множество
-    // Также можно добавить проверку, которая сработает в случае
-    // если все остальные проверки не сработают
+        break;
     default:
-        System.out.print ("Что-то другое");
-        break; // Можно и не ставить, так как это последние условие
+        System.out.print("Что-то другое");
 }
 ```
 """,
-            "Циклы": """
+                "Циклы": """
 # for
 
-Цикл for состоит из трех секций:
-
 ```java
-for (int i = 0; i < 3; i++) {}
+for (int i = 0; i < 3; i++) {} // Цикл будет работать 3 раза
 ```
+1. Выполняется один раз, когда мы входим в цикл.
+2. Проверяет логическое условие.
+В первый раз запускается сразу после первой секции,
+и выполняется каждый раз, пока условие верно, вызывая третью секцию.
+3. Выполняется каждый раз при выполнении цикла.
 
-Первая секция выполняется один раз, когда мы входим в цикл.
-Вторая секция проверяет логическое условие.
-  В первый раз запускается сразу после первой секции,
-  и выполняется каждый раз, пока условие верно, вызывая третью секцию.
-Третья секция выполняется каждый раз при выполнении цикла.
-
-Таким образом, цикл будет работать 3 раза.
-
-Мы можем опустить первую и третью секции цикла (как бы странно это ни выглядело), и цикл все еще будет работать:
-
-```java
-for (;i < 5;) {}
-```
 
 # while
-
 ```java
 while (condition) {}
+```
 
-// Если мы хотим, чтобы цикл всегда выполнял по крайней мере одно действие, мы можем использовать do-while:
 
+# do while
+
+Всегда выполнит по крайне мере одно действие
+
+```java
 do {
 
 } while(condition);
@@ -12540,47 +12486,33 @@ do {
 
 # foreach
 
-Другая версия `for`, это `foreach`.
-Но в Java решили не добавлять новое ключевое слово `each`.
-Ключевое слово, которое мы используем, все еще `for`,
-но когда мы хотим выполнить действия над элементами массива, делаем так:
-
 ```java
-int[] arr = {2, 0, 1, 3};
-
+int[] arr = {1, 2, 3, 4};
 for (int el : arr) {
     System.out.println(el);
 }
 ```
-
-Это была короткая версия, эквивалентная следующей записи:
-
+==
 ```java
-int[] arr = {1, 9, 9, 5};
+int[] arr = {1, 2, 3, 4};
 for (int i = 0; i < arr.length; i++) {
     int el = arr[i];
     System.out.println(el);
 }
 ```
 
-Заметьте, что, если вы хотите использовать индекс элемента в цикле,
-Вы должны использовать более длинную версию и не можете использовать `foreach`.
-
 # break and continue
 
 **break** останавливает цикл и переходит к оператору, следующему за ним.
 **continue** остановит текущую итерацию и переместится в следующую.
 """,
-            "Массив (Array)": """
+                "Массив (Array)": """
 
 - **`Массив (array)`** — это структура данных фиксированного размера
 - **`Список (list)`** — это интерфейс в Java, который представляет динамическую структуру данных, размер которой может изменяться.
 
 
 ```java
-// Создание пустого массива
-char[] stroka;
-// Или
 int numbers[];
 numbers = new int[10];
 
@@ -12626,10 +12558,12 @@ for (int el : arr) {
 int[][] x = { { 0, 1, 2 }, { 3, 4, 5 } };
 ```
 
+# Стандартные коллекции
+
 ![collections.jpg](Languages/Java/collections.jpg)
 
 
-Основные коллекции
+## Основные коллекции
 Помимо главного интерфейса Collection есть три других главных формата:
 
 - `List` - коллекция для создания массивов данных, где индексами являются числа (0, 1, 2 и так далее);
@@ -12687,6 +12621,188 @@ Hello
 3.14
 ```
 """,
+                "try, catch, finally": """
+```java
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;  // Это вызовет ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка деления на ноль: " + e.getMessage());
+        } finally {
+            System.out.println("Блок finally выполняется всегда.");
+        }
+    }
+}
+```
+
+# try-with-resources
+
+```java
+try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+## Без круглых скобочек
+
+```java
+BufferedReader reader = null;
+try {
+    reader = new BufferedReader(new FileReader("file.txt"));
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    if (reader != null) {
+        try {
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+""",
+                "Исключения": """
+В языке Java все исключения являются объектами и могут быть вызваны не только системой,
+но и создаваться самим разработчиком.
+Исключения делятся на несколько классов, которые имеют общего предка — класс `Throwable`.
+Его потомками являются подклассы `Exception` и `Error`.
+Исключения (**`Exceptions`**) являются результатом проблем в программе, которые в принципе решаемы и предсказуемы.
+Например, произошло деление на ноль в целых числах.
+
+Ошибки (**`Errors`**) представляют собой более серьёзные проблемы, которые, согласно спецификации `Java`,
+не следует пытаться обрабатывать в собственной программе, поскольку они связаны с проблемами уровня `JVM`.
+Например, исключения такого рода возникают, если закончилась память, доступная виртуальной машине.
+
+В Java все исключения делятся на три типа: **контролируемые исключения** (**`checked`**)
+и **неконтролируемые исключения** (**`unchecked`**), к которым относятся ошибки (**`Errors`**)
+и исключения времени выполнения (**`RuntimeExceptions`**, потомок класса **`Exception`**).
+
+Контролируемые исключения представляют собой ошибки, которые можно и нужно обрабатывать в программе,
+к этому типу относятся все потомки класса **`Exception`** (кроме **`RuntimeException`**).
+
+```java
+// CustomException.java
+public class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+// CustomExceptionExample.java
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            throw new CustomException("Это собственное исключение!");
+        } catch (CustomException e) {
+            System.out.println("Поймано исключение: " + e.getMessage());
+        }
+    }
+}
+```
+""",
+                "Лямбда-выражения": """
+```java
+(parameters) -> expression
+```
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
+
+        // Использование лямбда-выражения для вывода элементов списка
+        list.forEach(item -> System.out.println(item));
+    }
+}
+```
+```java
+List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
+list.forEach(System.out::println);
+```
+""",
+                "Method reference": """
+# :: method reference
+
+Указание на метод без его вызова.
+""",
+                "Пакеты": """
+```java
+package some_name;
+```
+```java
+import java.util.Arrays;
+```
+```java
+import java.util.*;
+```
+""",
+                "Генерики": """
+### Параметризованные типы
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericsExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("Hello");
+        list.add("World");
+
+        for (String item : list) {
+            System.out.println(item);
+        }
+    }
+}
+```
+
+### Ограничения генериков
+
+```java
+// Ограничение по типу
+public class BoundedGenericsExample {
+    public static <T extends Number> void printNumber(T number) {
+        System.out.println(number);
+    }
+
+    public static void main(String[] args) {
+        printNumber(10);         // Integer
+        printNumber(10.5);       // Double
+        // printNumber("Hello"); // Ошибка компиляции
+    }
+}
+```
+
+### Использование нескольких ограничений
+
+```java
+// Класс с несколькими ограничениями
+public class MultipleBoundsExample {
+    public static <T extends Number & Comparable<T>> void printComparable(T value) {
+        System.out.println(value);
+    }
+
+    public static void main(String[] args) {
+        printComparable(10);   // Integer
+        printComparable(10.5); // Double
+    }
+}
+```
+""",
+            },
             "Классы": {
                 "Объекты, конструкторы": """
 Этот класс определяет точку с координатами `X` и `Y`.
@@ -12747,13 +12863,15 @@ p.y = 6;
 ```
 """,
                 "Модификатор доступа": """
-|           |                                                                                        |
-|-----------|----------------------------------------------------------------------------------------|
-| public    | Доступен из другого класса                                                             |
-| private   | Доступен только внутри класса                                                          |
-| protected | Доступен внутри класса и классов наследников                                           |
-| abstract  | Запрещает создавать экземпляры класса. Несовместим с final.                            |
-| final     | Запрещает изменять значение или иметь наследников для классов. Несовместим с abstract. |
+|             |                                                                                          |
+|-------------|------------------------------------------------------------------------------------------|
+| `default`   | `public` внутри `package`                                                                |
+| `public`    | Доступен из другого класса                                                               |
+| `private`   | Доступен только внутри класса                                                            |
+| `protected` | Доступен внутри класса и классов наследников                                             |
+| `abstract`  | Запрещает создавать экземпляры класса. Несовместим с `final` и `static`.                 |
+| `final`     | Запрещает изменять значение или иметь наследников для классов. Несовместим с `abstract`. |
+| `static`    | Статичный метод                                                                          |
 """,
                 "Методы": {
                     "Методы": """
@@ -13018,107 +13136,6 @@ public interface ILights {
 
 """,
             },
-            "try, catch, finally": """
-```java
-public class ExceptionExample {
-    public static void main(String[] args) {
-        try {
-            int result = 10 / 0;  // Это вызовет ArithmeticException
-        } catch (ArithmeticException e) {
-            System.out.println("Ошибка деления на ноль: " + e.getMessage());
-        } finally {
-            System.out.println("Блок finally выполняется всегда.");
-        }
-    }
-}
-```
-
-# try-with-resources
-
-```java
-try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
-    String line;
-    while ((line = reader.readLine()) != null) {
-        System.out.println(line);
-    }
-} catch (IOException e) {
-    e.printStackTrace();
-}
-```
-
-## Без круглых скобочек
-
-```java
-BufferedReader reader = null;
-try {
-    reader = new BufferedReader(new FileReader("file.txt"));
-    String line;
-    while ((line = reader.readLine()) != null) {
-        System.out.println(line);
-    }
-} catch (IOException e) {
-    e.printStackTrace();
-} finally {
-    if (reader != null) {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-""",
-            "Пакеты": """
-```java
-package some_name;
-```
-```java
-import java.util.Arrays;
-```
-```java
-import java.util.*;
-```
-""",
-            "Исключения": """
-В языке Java все исключения являются объектами и могут быть вызваны не только системой,
-но и создаваться самим разработчиком.
-Исключения делятся на несколько классов, которые имеют общего предка — класс `Throwable`.
-Его потомками являются подклассы `Exception` и `Error`.
-Исключения (**`Exceptions`**) являются результатом проблем в программе, которые в принципе решаемы и предсказуемы.
-Например, произошло деление на ноль в целых числах.
-
-Ошибки (**`Errors`**) представляют собой более серьёзные проблемы, которые, согласно спецификации `Java`,
-не следует пытаться обрабатывать в собственной программе, поскольку они связаны с проблемами уровня `JVM`.
-Например, исключения такого рода возникают, если закончилась память, доступная виртуальной машине.
-
-В Java все исключения делятся на три типа: **контролируемые исключения** (**`checked`**)
-и **неконтролируемые исключения** (**`unchecked`**), к которым относятся ошибки (**`Errors`**)
-и исключения времени выполнения (**`RuntimeExceptions`**, потомок класса **`Exception`**).
-
-Контролируемые исключения представляют собой ошибки, которые можно и нужно обрабатывать в программе,
-к этому типу относятся все потомки класса **`Exception`** (кроме **`RuntimeException`**).
-
-```java
-// CustomException.java
-public class CustomException extends Exception {
-    public CustomException(String message) {
-        super(message);
-    }
-}
-
-// CustomExceptionExample.java
-public class CustomExceptionExample {
-    public static void main(String[] args) {
-        try {
-            throw new CustomException("Это собственное исключение!");
-        } catch (CustomException e) {
-            System.out.println("Поймано исключение: " + e.getMessage());
-        }
-    }
-}
-```
-""",
             "IO": """
 ## File
 
@@ -13182,145 +13199,43 @@ public class FileWriterExample {
 }
 ```
 """,
-            "Сериализация и десериализация объектов": """
-# Сериализация и десериализация объектов
-
-### Создание сериализуемого класса
-
+            "Snippets": {
+                "snippet 1": """
 ```java
-import java.io.Serializable;
+import java.util.function.Consumer;
 
-public class Person implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private String name;
-    private int age;
+class Example {
+    int print = 1;
+    // String print = "qwe"; // Variable 'print' is already defined in the scope
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public void print(int x) {
+        System.out.println(x);
     }
-
-    @Override
-    public String toString() {
-        return "Person{name='" + name + "', age=" + age + "}";
+    public void print(String x) {
+        System.out.println(x);
     }
 }
-```
 
-
-### Сериализация объекта
-
-```java
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-
-public class SerializationExample {
+public class Main {
     public static void main(String[] args) {
-        Person person = new Person("Alice", 30);
+        Example example = new Example();
+        System.out.println(example.print);
+        example.print(23);
+        example.print("qwerty");
 
-        try (FileOutputStream fos = new FileOutputStream("person.ser");
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(person);
-        } catch (IOException e) {
-            System.out.println("Произошла ошибка: " + e.getMessage());
-        }
+        int Int = example.print;
+        System.out.println(Int);
+
+        Consumer<Integer> printInt = example::print;
+        printInt.accept(23);
+
+        Consumer<String> printString = example::print;
+        printString.accept("qwerty");
     }
 }
 ```
-
-
-### Десериализация объекта
-
-```java
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-
-public class DeserializationExample {
-    public static void main(String[] args) {
-        try (FileInputStream fis = new FileInputStream("person.ser");
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-            Person person = (Person) ois.readObject();
-            System.out.println(person);
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Произошла ошибка: " + e.getMessage());
-        }
-    }
-}
-```
-""",
-            "Генерики": """
-### Параметризованные типы
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class GenericsExample {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("Hello");
-        list.add("World");
-
-        for (String item : list) {
-            System.out.println(item);
-        }
-    }
-}
-```
-
-### Ограничения генераков
-
-```java
-// Ограничение по типу
-public class BoundedGenericsExample {
-    public static <T extends Number> void printNumber(T number) {
-        System.out.println(number);
-    }
-
-    public static void main(String[] args) {
-        printNumber(10);         // Integer
-        printNumber(10.5);       // Double
-        // printNumber("Hello"); // Ошибка компиляции
-    }
-}
-```
-
-### Использование нескольких ограничений
-
-```java
-// Класс с несколькими ограничениями
-public class MultipleBoundsExample {
-    public static <T extends Number & Comparable<T>> void printComparable(T value) {
-        System.out.println(value);
-    }
-
-    public static void main(String[] args) {
-        printComparable(10);  // Integer
-        printComparable(10.5); // Double
-    }
-}
-```
-""",
-            "Лямбда-выражения": """
-```java
-(parameters) -> expression
-```
-```java
-import java.util.Arrays;
-import java.util.List;
-
-public class LambdaExample {
-    public static void main(String[] args) {
-        List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
-
-        // Использование лямбда-выражения для вывода элементов списка
-        list.forEach(item -> System.out.println(item));
-    }
-}
-```
-""",
+"""
+            },
         },
         "SQL": {
             "SQLite3": {
@@ -13450,7 +13365,7 @@ The available modifiers are as follows.
 Например, если у нас есть таблица с четырьмя строками и одним столбцом, содержащим числа `10`, `20`, `30` и `40`,
 то среднее значение будет равно `25`.
 Это можно посчитать, суммируя все числа `(10 + 20 + 30 + 40)`
-и деля полученный результат (`100`) на количество чисел (`4`), что даст `25`.
+и деля полученный результат `100` на количество чисел `4`, что даст `25`.
 
 
 # Оконные функции
@@ -14037,7 +13952,7 @@ SELECT '1970-01-01 00:00:00'::timestamp + 1704067200 * '1 second'::interval;
 -- 2024-01-01 00:00:00 - ... и обратно
 ```
 
-Во временном значении можно использовать часовой пояс (`with time zone`)
+Во временном значении можно использовать часовой пояс `with time zone`
 или указывать сохраняемую точность (`timestamp(0)` означает хранение "до секунд").
 
 # Логический тип
@@ -14106,8 +14021,8 @@ net start postgresql-x64-16
 | hostnossl                | Противоположен `hostssl`. Подключения по `TCP/IP` без шифрования `SSL`. |
 | база                     | - `all` - все базы данных<br>- `sameuser` - имя запрашиваемой базы данных совпадает с именем запрашиваемого пользователя<br>- `samerole` - запрашиваемый пользователь должен быть членом роли с таким же именем, как и у запрашиваемой базы данных.<br>  (`samegroup` — это устаревший, но допустимый вариант значения `samerole`.)<br>  Суперпользователи не становятся членами роли автоматически из-за `samerole`,<br>  а только если они являются явными членами роли, прямо или косвенно, и не только из-за того, что они суперпользователи.<br>- `replication` - если запрашивается подключение для физической репликации (для таких подключений не выбирается какая-то конкретная база данных).<br>Любое другое значение воспринимается как имя определённой базы `Postgres Pro`.<br>Несколько имён баз данных можно указать, разделяя их запятыми.<br>Файл, содержащий имена баз данных, можно указать, поставив знак `@` в начале его имени. |
 | пользователь             | - `all` - все пользователи.<br>  Имя группы начинается с `+`.<br>  (В `Postgres Pro` нет никакой разницы между пользователем и группой; знак + означает «совпадение любых ролей,<br>   которые прямо или косвенно являются членами роли», тогда как имя без знака `+` является подходящим только для этой конкретной роли.)<br>  Суперпользователь рассматривается как член роли, только если он явно является членом этой роли, прямо или косвенно,<br>  а не только потому, что он является суперпользователем.<br>Несколько имён пользователей можно указать, разделяя их запятыми.<br>Файл, содержащий имена пользователей, можно указать, поставив знак `@` в начале его имени. |
-| адрес                    | ip/mask<br>- `all` - любой IP-адрес<br>- `samehost` - любые IP-адреса данного сервера- <br>- `samenet` - любой адрес любой подсети, к которой сервер подключён напрямую<br><br>Имени, начинающееся с точки (`.`), соответствует суффиксу актуального имени узла.<br>Так, `.example.com` будет соответствовать `foo.example.com` (а не только `example.com`).<br>Это поле применимо только к записям `host`, `hostssl` и `hostnossl`. |
-| метод-аутентификации     | - `trust` - Разрешает безусловное подключение.<br>  Этот метод позволяет тому, кто может подключиться к серверу с базой данных `Postgres Pro`,<br>  войти под любым желаемым пользователем `Postgres Pro` без введения пароля и без какой-либо другой аутентификации. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-TRUST)<br>- `reject` - Отклоняет подключение безусловно.<br>  Полезна для «фильтрации» некоторых серверов группы, например, строка `reject` может отклонить попытку подключения одного компьютера,<br>  при этом следующая строка позволяет подключиться остальным компьютерам в той же сети.<br>- `scram-sha-256` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `md5` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256` или `MD5`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `password` Требует для аутентификации введения клиентом незашифрованного пароля.<br>  Поскольку пароль посылается простым текстом через сеть, такой способ не стоит использовать, если сеть не вызывает доверия. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `gss` Для аутентификации пользователя использует `GSSAPI`. Этот способ доступен только для подключений по `TCP/IP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#GSSAPI-AUTH)<br>- `sspi` Для аутентификации пользователя использует `SSPI`. Способ доступен только для `Windows`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#SSPI-AUTH)<br>- `ident` Получает имя пользователя операционной системы клиента, связываясь с сервером `Ident`,<br>  и проверяет, соответствует ли оно имени пользователя базы данных.<br>  Аутентификация ident может использоваться только для подключений по `TCP/IP`.<br>  Для локальных подключений применяется аутентификация peer. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-IDENT)<br>- `peer` Получает имя пользователя операционной системы клиента из операционной системы и проверяет,<br>  соответствует ли оно имени пользователя запрашиваемой базы данных.<br>  Доступно только для локальных подключений. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PEER)<br>- `ldap` Проводит аутентификацию, используя сервер `LDAP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-LDAP)<br>- `radius` Проводит аутентификацию, используя сервер `RADIUS`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-RADIUS)<br>- `cert` Проводит аутентификацию, используя клиентский сертификат `SSL`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-CERT)<br>- `pam` Проводит аутентификацию, используя службу подключаемых модулей аутентификации (`PAM`), предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PAM)<br>- `bsd` Проводит аутентификацию, используя службу аутентификации `BSD`, предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-BSD) |
+| адрес                    | ip/mask<br>- `all` - любой IP-адрес<br>- `samehost` - любые IP-адреса данного сервера- <br>- `samenet` - любой адрес любой подсети, к которой сервер подключён напрямую<br><br>Имени, начинающееся с точки `.`, соответствует суффиксу актуального имени узла.<br>Так, `.example.com` будет соответствовать `foo.example.com` (а не только `example.com`).<br>Это поле применимо только к записям `host`, `hostssl` и `hostnossl`. |
+| метод-аутентификации     | - `trust` - Разрешает безусловное подключение.<br>  Этот метод позволяет тому, кто может подключиться к серверу с базой данных `Postgres Pro`,<br>  войти под любым желаемым пользователем `Postgres Pro` без введения пароля и без какой-либо другой аутентификации. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-TRUST)<br>- `reject` - Отклоняет подключение безусловно.<br>  Полезна для «фильтрации» некоторых серверов группы, например, строка `reject` может отклонить попытку подключения одного компьютера,<br>  при этом следующая строка позволяет подключиться остальным компьютерам в той же сети.<br>- `scram-sha-256` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `md5` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256` или `MD5`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `password` Требует для аутентификации введения клиентом незашифрованного пароля.<br>  Поскольку пароль посылается простым текстом через сеть, такой способ не стоит использовать, если сеть не вызывает доверия. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `gss` Для аутентификации пользователя использует `GSSAPI`. Этот способ доступен только для подключений по `TCP/IP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#GSSAPI-AUTH)<br>- `sspi` Для аутентификации пользователя использует `SSPI`. Способ доступен только для `Windows`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#SSPI-AUTH)<br>- `ident` Получает имя пользователя операционной системы клиента, связываясь с сервером `Ident`,<br>  и проверяет, соответствует ли оно имени пользователя базы данных.<br>  Аутентификация ident может использоваться только для подключений по `TCP/IP`.<br>  Для локальных подключений применяется аутентификация peer. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-IDENT)<br>- `peer` Получает имя пользователя операционной системы клиента из операционной системы и проверяет,<br>  соответствует ли оно имени пользователя запрашиваемой базы данных.<br>  Доступно только для локальных подключений. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PEER)<br>- `ldap` Проводит аутентификацию, используя сервер `LDAP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-LDAP)<br>- `radius` Проводит аутентификацию, используя сервер `RADIUS`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-RADIUS)<br>- `cert` Проводит аутентификацию, используя клиентский сертификат `SSL`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-CERT)<br>- `pam` Проводит аутентификацию, используя службу подключаемых модулей аутентификации `PAM`, предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PAM)<br>- `bsd` Проводит аутентификацию, используя службу аутентификации `BSD`, предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-BSD) |
 | параметры-аутентификации | `имя=значение`<br>`clientcert` можно задать в любой записи hostssl.<br>Если он равен `1`, клиент должен представить подходящий (доверенный) сертификат `SSL`,<br>в дополнение к другим требованиям метода проверки подлинности. |
 
 
@@ -15071,7 +14986,7 @@ ease-in-out | cubic-Bezier
 | Пиксели                   | `px`        | Абсолютная    | Определяет размер в пикселях.                                                       |
 | Проценты                  | `%`         | Относительная | Определяет размер относительно размера родительского элемента.                      |
 | Эм                        | `em`        | Относительная | Определяет размер относительно размера шрифта родительского элемента.               |
-| Корень Эм                 | `rem`       | Относительная | Определяет размер относительно размера шрифта корневого элемента (`<html>`).        |
+| Корень Эм                 | `rem`       | Относительная | Определяет размер относительно размера шрифта корневого элемента `<html>`.          |
 | Вьюпорт Ширина            | `vw`        | Относительная | Определяет размер относительно ширины вьюпорта (1% от ширины окна).                 |
 | Вьюпорт Высота            | `vh`        | Относительная | Определяет размер относительно высоты вьюпорта (1% от высоты окна).                 |
 | Вьюпорт Ширина (Минимум)  | `vmin`      | Относительная | Определяет размер относительно минимального значения ширины или высоты вьюпорта.    |
@@ -17520,7 +17435,9 @@ with open("config.jsonl", "r", encoding="UTF-8") as file:
     for line in file:
         print(json.loads(line))
 ```
-""" + to_link("Other/File formats/TinyDB (json)"),
+
+[[Other/File formats/TinyDB (json).md]]
+""",
             "YAML": """
 # YAML - Ain't Markup Language
 
@@ -17815,7 +17732,9 @@ users_table.update({"age": 26}, user_query.name == "John")
 # Удаление записи по условию (например, по имени)
 users_table.remove(user_query.name == "John")
 ```
-""" + to_link("Other/File formats/JSON"),
+
+[[Other/File formats/JSON.md]]
+""",
         },
         "Code examples": {
             "Пирамида граф": """
@@ -18333,7 +18252,7 @@ class Dict:
 4. Оглавление. Окошко с текстовыми `h` тегами из текущей шпаргалки, прокручивает до видимости при нажатии. 
 5. Подсвечивать нажатую кнопку постоянно, а не `:active`.
 6. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
-7. Сделать поисковые фишки как в {google_link}.
+7. Сделать поисковые фишки как в [[General/Google Search.md]].
 8. История поиска
 
 Поменять в метадате color на classList
@@ -18349,9 +18268,7 @@ class Dict:
     - \\#anchor
     - ?path&s=query\\#anchor
 -->
-""".format(
-            google_link=to_link("General/Google Search.md"),
-        ),
+""",
     },
     "Shortcuts": {
          "link-1": "Languages/Python/fstrings.md",

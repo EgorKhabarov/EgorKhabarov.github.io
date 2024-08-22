@@ -129,6 +129,7 @@ a:link    {color: #539bf5;}
 a:active  {color: #6ba4e9;}
 a:visited {color: rgb(164, 89, 228);}
 a:hover   {text-decoration: underline;}
+.wikilink:visited {color: #539bf5;}
 
 /* Таблицы */
 table {width: max-content;}
@@ -279,6 +280,8 @@ hr {
 .nf {color:#FFC66D;} /* Название функции */
 /*.na {color:#AA4926;}  Аргумент */
 
+.language-java .kt {color:#CC7832;}
+
 
 .unselectable {
   -moz-user-select: none;
@@ -422,7 +425,6 @@ hr {
 
   background-color: rgb(25, 25, 25);
   max-height: 40%;
-  min-height: 4rem;
   max-width: 15rem;
   font-size: 1rem;
   padding-top: 1em;
