@@ -125,6 +125,25 @@
 </tr>
 </tbody>
 </table>
+<h1>General</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Управляющие символы</td>
+<td><a href="https://ru.wikipedia.org/wiki/Управляющие_символы">https://ru.wikipedia.org/wiki/Управляющие_символы</a></td>
+</tr>
+<tr>
+<td>Каретная нотация</td>
+<td><a href="https://ru.wikipedia.org/wiki/Каретная_нотация">https://ru.wikipedia.org/wiki/Каретная_нотация</a></td>
+</tr>
+</tbody>
+</table>
 <h1>Downloads</h1>
 <table>
 <thead>

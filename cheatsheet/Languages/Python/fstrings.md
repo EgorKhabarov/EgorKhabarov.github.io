@@ -32,16 +32,20 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">!s</td>
+<td style="text-align: center;"><code>!s</code></td>
 <td>str()</td>
 </tr>
 <tr>
-<td style="text-align: center;">!r</td>
+<td style="text-align: center;"><code>!r</code></td>
 <td>repr()</td>
 </tr>
 <tr>
-<td style="text-align: center;">!a</td>
+<td style="text-align: center;"><code>!a</code></td>
 <td>ascii()</td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>!e</code></td>
+<td><strong>Python 3.12</strong></td>
 </tr>
 </tbody>
 </table>
@@ -79,15 +83,15 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><strong>&lt;</strong></td>
+<td style="text-align: center;"><strong><code>&lt;</code></strong></td>
 <td>Выравнивает поле по левому краю в доступном пространстве<br><strong>По умолчанию для большинства объектов</strong></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>&gt;</strong></td>
+<td style="text-align: center;"><strong><code>&gt;</code></strong></td>
 <td>Принудительно выравнивает поле по правому краю в доступном пространстве<br><strong>По умолчанию для чисел</strong></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>^</strong></td>
+<td style="text-align: center;"><strong><code>^</code></strong></td>
 <td>Центрирует поле в доступном пространстве</td>
 </tr>
 </tbody>
@@ -103,15 +107,15 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><strong>+</strong></td>
+<td style="text-align: center;"><strong><code>+</code></strong></td>
 <td>Указывает, что знак должен использоваться как для положительных, так и для отрицательных чисел.</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>-</strong></td>
+<td style="text-align: center;"><strong><code>-</code></strong></td>
 <td>Указывает, что знак следует использовать только для отрицательных чисел<br><strong>Поведение по умолчанию</strong>.</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>=</strong></td>
+<td style="text-align: center;"><strong><code>=</code></strong></td>
 <td>Принудительно размещает заполнение после знака (если есть), но перед цифрами.<br>Это используется для печати полей в форме <code>+000000120</code>.<br>Этот параметр выравнивания действителен только для числовых типов.<br>Он становится значением по умолчанию для чисел, когда <code>0</code> непосредственно предшествует ширине поля.</td>
 </tr>
 <tr>
@@ -186,31 +190,31 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><strong>b</strong></td>
+<td style="text-align: center;"><strong><code>b</code></strong></td>
 <td>Двоичный формат</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>c</strong></td>
+<td style="text-align: center;"><strong><code>c</code></strong></td>
 <td>Преобразует целое число в соответствующий символ Юникода перед печатью</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>d</strong></td>
+<td style="text-align: center;"><strong><code>d</code></strong></td>
 <td>Десятичное целое число</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>o</strong></td>
+<td style="text-align: center;"><strong><code>o</code></strong></td>
 <td>Восьмеричный формат</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>x</strong></td>
+<td style="text-align: center;"><strong><code>x</code></strong></td>
 <td>Шестнадцатеричный формат. Использует строчные буквы для цифр выше <code>9</code></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>X</strong></td>
+<td style="text-align: center;"><strong><code>X</code></strong></td>
 <td>Шестнадцатеричный формат. Использует прописные буквы для цифр выше <code>9</code></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>n</strong></td>
+<td style="text-align: center;"><strong><code>n</code></strong></td>
 <td>Число. Это то же самое, что и <code>d</code>, за исключением того,<br>что для вставки соответствующих символов-разделителей чисел он использует текущую настройку локали.</td>
 </tr>
 <tr>
@@ -229,35 +233,35 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><strong>e</strong></td>
+<td style="text-align: center;"><strong><code>e</code></strong></td>
 <td>Научная нотация.<br>Для заданной точности <code>p</code> форматирует число в <strong>экспоненциальном представлении</strong> с буквой «<code>e</code>», отделяющей <strong><code>p</code> цифр коэффициента</strong> от экспоненты.<br>Коэффициент состоит из одной цифры перед и после десятичной точки, всего <code>p + 1</code> значащих цифр.<br>Если точность не указана, используется точность <strong>6 цифр</strong> после десятичной точки для <code>float</code><br>и отображаются все цифры коэффициентов для <code>Decimal</code>.<br>Если после десятичной точки нет цифр, десятичная точка также удаляется,<br>если не используется опция <code>#</code></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>E</strong></td>
+<td style="text-align: center;"><strong><code>E</code></strong></td>
 <td>Научная нотация.<br>То же, что и <code>e</code>, за исключением того, что в качестве символа-разделителя используется заглавная буква «<code>E</code>»</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>f</strong></td>
+<td style="text-align: center;"><strong><code>f</code></strong></td>
 <td>Запись с фиксированной точкой.<br>Для заданной точности <code>p</code> форматирует число как десятичное с точностью <code>p</code> цифр после десятичной точки.<br>Если точность не указана, используется точность <strong>6 цифр</strong> после десятичной точки для <code>float</code><br>и используется точность, достаточно большая для отображения всех цифр коэффициентов для <code>Decimal</code>.<br>Если после десятичной точки нет цифр, десятичная точка также удаляется,<br>если не используется опция <code>#</code></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: center;"><strong><code>F</code></strong></td>
 <td>Представление с фиксированной точкой.<br>То же, что и <code>f</code>, но преобразует <code>nan</code> в <code>NAN</code> и <code>inf</code> в <code>INF</code></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>g</strong></td>
+<td style="text-align: center;"><strong><code>g</code></strong></td>
 <td>Общий формат.<br>Для заданной точности <code>p &gt;= 1</code> округляет число до <code>p</code> значащих цифр и затем форматирует результат либо в формате с фиксированной точкой,<br>либо в научном представлении, в зависимости от его величины.<br><br>Точные правила следующие: предположим, что результат отформатирован с типом представления <code>e</code> и <code>p-1</code> точности, будет с exp экспонентой.<br>Затем, если <code>m &lt;= exp &lt; p</code>, где <code>m</code> равно <code>-4</code> для <code>floats</code> и <code>-6</code> для <code>Decimals</code>,<br>число форматируется с типом представления <code>f</code> и точностью <code>p-1-exp</code>.<br>В противном случае номер форматируется с помощью <code>e</code> типа представления и <code>p-1</code> точности.<br>В обоих случаях из значащего удаляются незначительные конечные нули, а десятичная точка также удаляется, если после неё нет оставшихся цифр,<br>если не используется опция <code>#</code>.<br><br>Без указания точности использует точность <strong><code>6</code> значащих цифр</strong> для <code>float</code>.<br>Для <code>Decimal</code> коэффициент результата формируется из цифр коэффициента значения;<br>экспоненциальная нотация используется для значений, меньших, чем <code>1e-6</code> по абсолютной величине, и значений,<br>в которых разряд наименее значащей цифры больше 1, а в противном случае используется нотация с фиксированной точкой.<br><br>Положительные и отрицательные бесконечности, положительный и отрицательный ноль и <code>nan</code>,<br>форматируются как <code>inf</code>, <code>-inf</code>, <code>0</code>, <code>-0</code> и <code>nan</code> соответственно, независимо от точности</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>G</strong></td>
+<td style="text-align: center;"><strong><code>G</code></strong></td>
 <td>Общий формат.<br>То же, что и <code>g</code>, за исключением переключения на <code>E</code>, если число становится слишком большим.<br>Представления бесконечности и <code>NaN</code> также в верхнем регистре.</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>n</strong></td>
+<td style="text-align: center;"><strong><code>n</code></strong></td>
 <td>Номер.<br>Это то же самое, что и <code>g</code>, за исключением того, что он использует текущую настройку локали<br>для вставки соответствующих символов разделителя чисел.</td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>%</strong></td>
+<td style="text-align: center;"><strong><code>%</code></strong></td>
 <td>Процент.<br><strong>Умножает число на <code>100</code> и отображает в фиксированном <code>f</code> формате</strong>, за которым следует знак процента.</td>
 </tr>
 <tr>

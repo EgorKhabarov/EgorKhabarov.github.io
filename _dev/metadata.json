@@ -1,4 +1,10 @@
 {
+  "Shortcuts/": {
+    "folder-open": true
+  },
+  "Shortcuts/Java/": {
+    "folder-open": true
+  },
   "Languages/Bash/": {
     "color": "violet"
   },

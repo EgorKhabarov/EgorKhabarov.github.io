@@ -5,6 +5,20 @@ function removeSuffix(str, suffix) {
   }
   return str;
 }
+function escapeHTML(text) {
+    const map = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+        "`": "&#96;",
+        "/": "&#x2F;"
+    };
+    return text.replace(/[&<>"'/`]/g, function(match) {
+        return map[match];
+    });
+}
 
 /* Style */
 function changeActiveButton(element) {
@@ -48,6 +62,11 @@ function DisplayCheatSheet(vpath) {
 
     velement = document.querySelector(`[vpath="${vpath}"]`);
     if (!velement) {
+        if (isFolderCheatSheet) {
+            element.scrollIntoView({block: "start"});
+            cheatsheet_buttons.scrollLeft -= 200;
+            return PutHtmlText(generateDirectoryLink(kpath));
+        }
         return PutHtmlText();
     }
 
@@ -124,7 +143,7 @@ function changeTitle(title) {
 
 /* Path */
 function getPathWithoutFilename(filePath) {
-    filePath = decodeURIComponent(filePath);
+    filePath = decodeURIComponent(filePath).trim("/");
     if (filePath.endsWith("/")) {
         return filePath
     }
@@ -378,6 +397,37 @@ function GET(url) {
     PutHtmlText(cheatsheet);
 }
 
+/* Сгенерировать ссылки по директории */
+function generateDirectoryLink(kpath) {
+    link_list = Array.from(
+        document.querySelector(`[kpath="${kpath}"]`).nextElementSibling.children
+    ).filter(element => {
+        return element.tagName === "BUTTON";
+    }).map(button => {
+        text = button.textContent.trim();
+        svg = button.children[0].outerHTML;
+        button_vpath = button.getAttribute("vpath");
+        button_kpath = button.getAttribute("kpath");
+        link = button_vpath;
+
+        if (!button_vpath) {
+            link = button_kpath + "/";
+        }
+        return `<div style="display: flex;align-items: center;">${svg}<a target="_self" href="?${link}">${text}</a></div>`; // ${svg}${text} // button.innerHTML
+    });
+
+    console.log(kpath);
+    navigation = "";
+    prev_path = getPathWithoutFilename(kpath);
+    if (prev_path) {
+        navigation = `<a target="_self" style="display: flex;align-items: center;" href="?${prev_path}/"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" viewBox="0 0 24 24">
+<path fill-rule="evenodd" d="M13.729 5.575c1.304-1.074 3.27-.146 3.27 1.544v9.762c0 1.69-1.966 2.618-3.27 1.544l-5.927-4.881a2 2 0 0 1 0-3.088l5.927-4.88Z" clip-rule="evenodd"/>
+</svg>${getPathFilename(prev_path)}</a><br>
+`
+    }
+    return navigation + link_list.join("<br>"); // `"${kpath}"`
+}
+
 /* Markdown */
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
@@ -515,7 +565,6 @@ function onclickLinkButton(element) {
 
     DisplayCheatSheet(vpath);
     changeTitle(getPathFilename(vpath));
-    GET(vpath);
 }
 function onclickSearchButton(element) {
     delAnchor();
@@ -524,7 +573,6 @@ function onclickSearchButton(element) {
 
     DisplayCheatSheet(vpath);
     changeTitle(getPathFilename(vpath));
-    GET(vpath);
     performSearch(true);
 
 }

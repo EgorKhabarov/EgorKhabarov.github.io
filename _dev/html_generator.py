@@ -41,10 +41,11 @@ def buttons(
             path += "/"
         else:
             path += ".md"
-        metadata_dict = metadata.get(path, default_value)
+
+        current_metadata = metadata.get(path, default_value)
 
         if key.startswith("link-") and key.removeprefix("link-").isdigit():
-            color = metadata.get("color")
+            color = current_metadata.get("color")
             if not color:
                 color = metadata.get(
                     value.removesuffix("index.md") if value.endswith("/index.md") else value,
@@ -70,25 +71,27 @@ def buttons(
             val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}".strip("/")
             vpath = f"{directory_e}/{key}/index.md"
-            svg = folder.format(color=metadata_dict.get("color", "yellow"))
+            svg = folder.format(color=current_metadata.get("color", "yellow"))
+            display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(
                 f'<button kpath="{kpath}" vpath="{vpath}" '
                 f'onclick="onclickFolderCheatSheetButton(this);" title="{title}">{svg}{title}</button>'
-                f'<div class="button_folder" style="display:none;">{val}</div>'
+                f'<div class="button_folder" style="display:{display};">{val}</div>'
             )
         elif isinstance(value, dict):
             val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}".strip("/")
-            svg = folder.format(color=metadata_dict.get("color", "yellow"))
+            svg = folder.format(color=current_metadata.get("color", "yellow"))
+            display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(
                 f'<button kpath="{kpath}" '
                 f'onclick="onclickFolderButton(this)" title="{title}">{svg}{title}</button>'  
-                f'<div class="button_folder" style="display:none;">{val}</div>'
+                f'<div class="button_folder" style="display:{display};">{val}</div>'
             )
         else:
             x += 1
             vpath = f"{directory_e}/{key}.md".strip("/")
-            svg = tag.format(color=metadata_dict.get("color", "white"))
+            svg = tag.format(color=current_metadata.get("color", "white"))
             text_list.append(
                 f'<button vpath="{vpath}" '
                 f'onclick="onclickCheatSheetButton(this);'
