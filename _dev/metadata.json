@@ -263,6 +263,9 @@
   "Languages/Python/Libraries/Python/fileinput.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/abc.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/formatter.md": {
     "color": "green"
   },

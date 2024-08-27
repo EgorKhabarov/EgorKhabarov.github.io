@@ -65,14 +65,14 @@ def code_block_callback(match: re.Match) -> str:
 
 def wikilink_func(match: re.Match) -> str:
     path = match.group(1)
-    cheatsheet_name = path.rsplit("/", 1)[-1].removesuffix(".md")
+    cheatsheet_name = path.rsplit("/", 1)[-1].removesuffix(".md").replace("%20", " ")
     return f'<a target="_self" href="?{path}" class="wikilink">{cheatsheet_name}</a>'
 
 
 def to_markup(markdown_text: str):
     # WikiLinks
     highlighted_html = re.sub(
-        r"\[\[([\w/(). -]+)]]",
+        r"\[\[([^]]+)]]",
         wikilink_func,
         markdown_text
     )

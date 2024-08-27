@@ -1,21 +1,25 @@
-<p><a href="https://ru.wikipedia.org/wiki/Design_Patterns">https://ru.wikipedia.org/wiki/Design_Patterns</a></p>
+<h1>Паттерны проектирования</h1>
 <h3>Порождающие паттерны <img alt="C" src="General/Паттерны проектирования/C.png" height="17"></h3>
-<p><a href="https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования</a>
-Порождающие паттерны проектирования фокусируются на процессах создания объектов.
+<p>Порождающие паттерны проектирования фокусируются на процессах создания объектов.
 Они помогают абстрагировать процесс инстанцирования, что может быть полезным,
 когда конкретный процесс создания объекта должен быть отделён от его использования.
 Это позволяет создавать объекты более гибко и предотвращает жесткую связь между кодом и конкретными классами объектов.</p>
 <h3>Структурные паттерны <img alt="S" src="General/Паттерны проектирования/S.png" height="17"></h3>
-<p><a href="https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования</a>
-Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
+<p>Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
 могут быть объединены для создания более крупных и гибких структур.
 Эти паттерны помогают определить отношения между компонентами и обеспечивают гибкость и масштабируемость систем.</p>
 <h3>Поведенческие паттерны <img alt="B" src="General/Паттерны проектирования/B.png" height="17"></h3>
-<p><a href="https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования</a>
-Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
+<p>Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
 Они помогают определить, как объекты должны взаимодействовать друг с другом и как распределять ответственность между ними.</p>
-<p><img alt="шаблоны.jpg" src="General/Паттерны проектирования/шаблоны.jpg" /></p>
-<p>Copy from <a href="https://habr.com/ru/articles/210288/">https://habr.com/ru/articles/210288/</a></p>
+<p><img alt="patterns.png" src="General/Паттерны проектирования/patterns.png" /></p>
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/Design_Patterns">https://ru.wikipedia.org/wiki/Design_Patterns</a><ul>
+<li><a href="https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования">https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования</a></li>
+</ul>
+</li>
+</ul>
 <h1>ChatGPT Promt</h1>
 <div class="code_element"><div class="lang_line"><text>markdown</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-markdown"><div class="highlight"><pre><span></span>Я буду тебе писать название паттерна проектирования, а ты будешь максимально кратко объяснять его в виде шпаргалки с примерами кода.
 По шаблону:
@@ -31,3 +35,103 @@
 
 Заменяй только то что находится в &lt;&gt;
 </pre></div></div></div>
+
+<h1>patterns_image_generator.py</h1>
+<details><summary>code</summary>
+
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `patterns_image_generator.py`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># pip install pillow</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span><span class="p">,</span> <span class="n">ImageFont</span>
+
+
+<span class="n">color</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;orange&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">254</span><span class="p">,</span> <span class="mi">203</span><span class="p">,</span> <span class="mi">158</span><span class="p">),</span>
+    <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">153</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">252</span><span class="p">),</span>
+    <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">207</span><span class="p">,</span> <span class="mi">252</span><span class="p">,</span> <span class="mi">157</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="n">pattern_color</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">[</span><span class="s2">&quot;orange&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">[</span><span class="s2">&quot;green&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Singleton (Одиночка)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Factory (Фабрика)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Abstract Factory (Абстрактная фабрика)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Builder (Строитель)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Prototype (Прототип)&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;S&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Adapter (Адаптер)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Bridge (Мост)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Composite (Компоновщик)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Decorator (Декоратор)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Facade (Фасад)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Flyweight (Легковес)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Proxy (Заместитель)&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Chain of Responsibility (Цепочка обязанностей)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Command (Команда)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Interpreter (Интерпретатор)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Iterator (Итератор)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Mediator (Посредник)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Memento (Снимок)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Observer (Наблюдатель)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;State (Состояние)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Strategy (Стратегия)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Template Method (Шаблонный метод)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Visitor (Посетитель)&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+<span class="n">indent</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">border</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">rectangle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">text_x_indent</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">*</span> <span class="mf">0.4</span>
+<span class="n">text_y_indent</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">now_x</span> <span class="o">=</span> <span class="n">indent</span>
+<span class="n">now_y</span> <span class="o">=</span> <span class="n">indent</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="s2">&quot;arial&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+
+<span class="n">image_x</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span>
+    <span class="n">rectangle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">indent</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="n">font</span><span class="o">.</span><span class="n">getbbox</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">pattern_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">pattern_list</span> <span class="ow">in</span> <span class="n">pattern</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">image_y</span> <span class="o">=</span> <span class="n">indent</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">pattern_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">pattern_list</span> <span class="ow">in</span> <span class="n">pattern</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">rectangle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">indent</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_x</span><span class="p">,</span> <span class="n">image_y</span><span class="p">),</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">)</span>
+<span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">pattern_type</span><span class="p">,</span> <span class="n">pattern_list</span> <span class="ow">in</span> <span class="n">pattern</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">pattern_list</span><span class="p">:</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">now_x</span><span class="p">,</span> <span class="n">now_y</span><span class="p">,</span> <span class="n">now_x</span> <span class="o">+</span> <span class="n">rectangle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">now_y</span> <span class="o">+</span> <span class="n">rectangle</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="n">pattern_color</span><span class="p">[</span><span class="n">pattern_type</span><span class="p">],</span>
+            <span class="n">outline</span><span class="o">=</span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">border</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">now_x</span> <span class="o">+</span> <span class="n">indent</span> <span class="o">+</span> <span class="n">text_x_indent</span><span class="p">,</span> <span class="n">now_y</span> <span class="o">+</span> <span class="n">text_y_indent</span><span class="p">),</span>
+            <span class="n">pattern_type</span><span class="p">,</span>
+            <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">now_x</span> <span class="o">+</span> <span class="n">rectangle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">indent</span><span class="p">,</span> <span class="n">now_y</span> <span class="o">+</span> <span class="n">text_y_indent</span><span class="p">),</span>
+            <span class="n">pattern</span><span class="p">,</span>
+            <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">draw</span><span class="o">.</span><span class="n">point</span><span class="p">((</span><span class="n">now_x</span><span class="p">,</span> <span class="n">now_y</span><span class="p">),</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">)</span>
+        <span class="n">now_y</span> <span class="o">+=</span> <span class="n">rectangle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">indent</span>
+
+    <span class="n">now_y</span> <span class="o">=</span> <span class="n">indent</span>
+    <span class="n">now_x</span> <span class="o">+=</span> <span class="n">rectangle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">indent</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">font</span><span class="o">.</span><span class="n">getbbox</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">pattern_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))[</span><span class="mi">2</span><span class="p">]</span>
+
+
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;patterns.png&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;PNG&quot;</span><span class="p">)</span>
+</pre></div></div></div>
+
+</details>

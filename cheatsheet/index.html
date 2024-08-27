@@ -11,6 +11,8 @@
   </script>
  </head>
  <body>
+  <style id="settings_css">
+  </style>
   <div id="cheatsheet_buttons">
    <div class="search_container">
     <input class="search_input unselectable" id="search_input" placeholder="🔎 Поиск" type="text"/>
@@ -251,6 +253,13 @@
        Visitor (Посетитель)
       </button>
      </div>
+     <button onclick="onclickCheatSheetButton(this);" title="Антипаттерны" vpath="General/Паттерны проектирования/Антипаттерны.md">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      Антипаттерны
+     </button>
     </div>
     <button kpath="General/HTTP" onclick="onclickFolderButton(this)" title="HTTP">
      <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1013,6 +1022,13 @@
         </svg>
         fileinput
        </button>
+       <button onclick="onclickCheatSheetButton(this);" title="abc" vpath="Languages/Python/Libraries/Python/abc.md">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        abc
+       </button>
       </div>
       <button kpath="Languages/Python/Libraries/Algorithms" onclick="onclickFolderButton(this)" title="Algorithms">
        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1550,6 +1566,13 @@
        </svg>
        Flags cmd pip
       </button>
+      <button onclick="onclickCheatSheetButton(this);" title="venv" vpath="Languages/Python/bash/venv.md">
+       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       venv
+      </button>
       <button onclick="onclickCheatSheetButton(this);" title="requirements.txt" vpath="Languages/Python/bash/requirements.txt.md">
        <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -1623,6 +1646,13 @@
         </path>
        </svg>
        ExceptionGroup
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="metaclass" vpath="Languages/Python/Built-in/metaclass.md">
+       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       metaclass
       </button>
      </div>
      <button onclick="onclickCheatSheetButton(this);" title="fstrings" vpath="Languages/Python/fstrings.md">
@@ -2998,6 +3028,12 @@
      </path>
     </svg>
    </button>
+   <button onclick="copy(decodeURIComponent(window.location.href).replaceAll(' ', '%20'))">
+    <svg aria-hidden="true" fill="none" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+     </path>
+    </svg>
+   </button>
   </div>
   <div class="overlay" id="settings_overlay">
   </div>
@@ -3021,6 +3057,11 @@
    <input id="settings_search_show_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
    Показывать весь путь до шпаргалки
    <br/>
+   <br/>
+   <h3 style="margin-top: 0px;margin-bottom: 6px;">
+    CSS
+   </h3>
+   <textarea id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings)" rows="4"></textarea>
    <button id="settings_reset_button">
     Reset
    </button>

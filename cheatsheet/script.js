@@ -88,6 +88,7 @@ function loadSettings() {
         "settings_search_register_independence": true,
         "settings_search_full_path": true,
         "settings_search_show_full_path": true,
+        "settings_css": "",
     };
 }
 function saveSettings(settings) {
@@ -101,12 +102,13 @@ function applySettings(settings) {
         const element = document.getElementById(key);
         if (element) element.checked = value;
     }
+    settings_css_textarea.value = settings.settings_css || "";
 }
 
 /* Anchor */
 function getAnchor() {
     const url = new URL(window.location.href);
-    return url.hash ? url.hash.slice(1) : null;
+    return url.hash ? decodeURIComponent(url.hash.slice(1)) : null;
 }
 function delAnchor() {
     const url = new URL(window.location.href);
@@ -167,6 +169,14 @@ function getPathFilename(filePath) {
 }
 
 /* Copy Download Code */
+function copy(text) {
+    const textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    textarea.value = text;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+}
 function CopyCode(button_element) {
     let code_element = button_element.parentElement.parentElement.lastElementChild;
 
@@ -177,12 +187,7 @@ function CopyCode(button_element) {
             element => element.remove()
         );
     }
-    const textarea = document.createElement("textarea");
-    document.body.appendChild(textarea);
-    textarea.value = pre_element.textContent;
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
+    copy(pre_element.textContent);
 
     let svg = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">'
     let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text>Copied!</text>';
@@ -590,14 +595,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (anchor) {
         console.log(`Anchor found: "${anchor}"`);
         anchor_element = document.getElementById(anchor);
-        console.log(anchor_element);
-        console.log(anchor_element.scrollIntoView);
         if (anchor_element) {
-            console.log(document.getElementById("chatgpt-promt"));
             anchor_element.scrollIntoView({block: "start"});
-            setTimeout(function() {
-                anchor_element.scrollIntoView({block: "start"});
-            }, 500);
         }
     }
 
@@ -619,13 +618,15 @@ document.addEventListener("DOMContentLoaded", function() {
         settings["settings_search_register_independence"] = true;
         settings["settings_search_full_path"] = true;
         settings["settings_search_show_full_path"] = true;
+        // settings["settings_css"] = "";
         saveSettings(settings);
         applySettings(settings);
         performSearch(searchInput.value);
     });
 
     applySettings(settings);
-    settings_popup.childNodes.forEach((element) => {
+    settings_css.innerHTML = settings.settings_css;
+    settings_popup.childNodes.forEach(element => {
         if (element.tagName === "INPUT") {
             element.addEventListener("change", (event) => {
                 settings[element.id] = event.target.checked;
@@ -636,7 +637,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    font_size_button.addEventListener("wheel", (event) => {
+    font_size_button.addEventListener("wheel", event => {
         if (event.deltaY < 0) {
             changeFontSize("+");
         }

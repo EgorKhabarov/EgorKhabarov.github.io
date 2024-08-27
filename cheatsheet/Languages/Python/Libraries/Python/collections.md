@@ -25,8 +25,8 @@
 <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># обращаемся к полям кортежа по имени</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># выведет 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># выведет 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># 2</span>
 </pre></div></div></div>
 
 <p>deque:</p>
@@ -41,11 +41,11 @@
 <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># удаляем элементы из очереди</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># выведет 3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">popleft</span><span class="p">())</span>  <span class="c1"># выведет 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">popleft</span><span class="p">())</span>  <span class="c1"># 1</span>
 
 <span class="c1"># выводим оставшиеся элементы в очереди</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># выведет deque([2])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># deque([2])</span>
 </pre></div></div></div>
 
 <p>Counter:</p>
@@ -55,10 +55,10 @@
 <span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s2">&quot;hello, world&quot;</span><span class="p">)</span>
 
 <span class="c1"># выводим количество вхождений каждого символа</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># выведет Counter({&quot;l&quot;: 3, &quot;o&quot;: 2, &quot;e&quot;: 1, &quot;h&quot;: 1, &quot;,&quot;: 1, &quot; &quot;: 1, &quot;w&quot;: 1, &quot;r&quot;: 1, &quot;d&quot;: 1})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># Counter({&quot;l&quot;: 3, &quot;o&quot;: 2, &quot;e&quot;: 1, &quot;h&quot;: 1, &quot;,&quot;: 1, &quot; &quot;: 1, &quot;w&quot;: 1, &quot;r&quot;: 1, &quot;d&quot;: 1})</span>
 
 <span class="c1"># выводим наиболее часто встречающиеся символы</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># выведет [(&quot;l&quot;, 3), (&quot;o&quot;, 2)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># [(&quot;l&quot;, 3), (&quot;o&quot;, 2)]</span>
 </pre></div></div></div>
 
 <p>OrderedDict:</p>
@@ -75,7 +75,6 @@
 <span class="c1"># выводим элементы в порядке их добавления</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="c1"># выведет:</span>
 <span class="c1"># a 1</span>
 <span class="c1"># b 2</span>
 <span class="c1"># c 3</span>
@@ -93,7 +92,7 @@
 <span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span>
 
 <span class="c1"># выводим словарь</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># выведет defaultdict(&lt;class &quot;int&quot;&gt;, {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># defaultdict(&lt;class &quot;int&quot;&gt;, {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3})</span>
 </pre></div></div></div>
 
 <p>ChainMap:</p>
@@ -107,17 +106,17 @@
 <span class="n">d</span> <span class="o">=</span> <span class="n">ChainMap</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
 
 <span class="c1"># выводим элементы словаря</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">])</span>  <span class="c1"># выведет 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>  <span class="c1"># выведет 2 (из d1, так как b в d1 появился раньше, чем в d2)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># выведет 4 (из d2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">])</span>  <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>  <span class="c1"># 2 (из d1, так как b в d1 появился раньше, чем в d2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># 4 (из d2)</span>
 
 <span class="c1"># создаем новый словарь и добавляем его в цепочку</span>
 <span class="n">d3</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">new_child</span><span class="p">(</span><span class="n">d3</span><span class="p">)</span>
 
 <span class="c1"># выводим элементы словаря</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># выведет 5 (из d3, так как он добавлен в цепочку позже, чем d2)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">])</span>  <span class="c1"># выведет 6 (из d3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># 5 (из d3, так как он добавлен в цепочку позже, чем d2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">])</span>  <span class="c1"># 6 (из d3)</span>
 </pre></div></div></div>
 
 <p>UserDict:</p>
@@ -130,7 +129,7 @@
 <span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="c1"># выводим элементы словаря</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># выведет {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>  <span class="c1"># {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}</span>
 </pre></div></div></div>
 
 <p>UserList:</p>
@@ -143,7 +142,7 @@
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="c1"># выводим элементы списка</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>  <span class="c1"># выведет [1, 2, 3, 4]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4]</span>
 </pre></div></div></div>
 
 <p>UserString:</p>
@@ -156,5 +155,5 @@
 <span class="n">s</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
 <span class="c1"># выводим строку</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># выведет HELLO, WORLD</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># HELLO, WORLD</span>
 </pre></div></div></div>

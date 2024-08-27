@@ -234,6 +234,6 @@ def print_progress_bar(x: int, y: int, name: str, text: str = None):
         arrow = arrow[:bar_length]
     text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
     sys.stdout.write(
-        f"\r[{arrow:<{bar_length}}][{name:<20}][{int(progress * 100):>3}%] >>> {text: <100}"
+        f"\r[{arrow:<{bar_length}}][{name:<20}][{int(progress * 100):>3}%][{x:>3}/{y:>3}] >>> {text: <100}"
     )
     sys.stdout.flush()
