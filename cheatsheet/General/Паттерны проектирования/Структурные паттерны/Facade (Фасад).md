@@ -10,14 +10,17 @@
     <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executing instructions&quot;</span><span class="p">)</span>
 
+
 <span class="k">class</span> <span class="nc">Memory</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading data from </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">HardDrive</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lba</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reading </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2"> bytes from LBA </span><span class="si">{</span><span class="n">lba</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="s2">&quot;data&quot;</span>
+
 
 <span class="k">class</span> <span class="nc">ComputerFacade</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -31,7 +34,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 
-<span class="c1"># Использование</span>
+
 <span class="n">computer</span> <span class="o">=</span> <span class="n">ComputerFacade</span><span class="p">()</span>
 <span class="n">computer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="c1"># Freezing CPU</span>
+<span class="c1"># Reading 4096 bytes from LBA 1024</span>
+<span class="c1"># Loading data from 0 to data</span>
+<span class="c1"># Jumping to 0</span>
+<span class="c1"># Executing instructions</span>
 </pre></div></div></div>

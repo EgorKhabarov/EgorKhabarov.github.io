@@ -91,8 +91,8 @@ Install Options:
                               the Python documentation for site.USER_BASE for full details.)
   --root &lt;dir&gt;                Install everything relative to this alternate root directory.
   --prefix &lt;dir&gt;              Installation prefix where lib, bin and other top-level folders are placed. Note that the resulting installation may contain
-                              scripts and other resources which reference the Python interpreter of pip, and not that of ``--prefix``. See also the
-                              ``--python`` option if the intention is to install packages into another (possibly pip-free) environment.
+                              scripts and other resources which reference the Python interpreter of pip, and not that of &#x60;&#x60;--prefix&#x60;&#x60;. See also the
+                              &#x60;&#x60;--python&#x60;&#x60; option if the intention is to install packages into another (possibly pip-free) environment.
   --src &lt;dir&gt;                 Directory to check out editable projects into. The default in a virtualenv is &quot;&lt;venv path&gt;/src&quot;. The default for global
                               installs is &quot;&lt;current dir&gt;/src&quot;.
   -U, --upgrade               Upgrade all specified packages to the newest available version. The handling of dependencies depends on the upgrade-strategy

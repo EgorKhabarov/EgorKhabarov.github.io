@@ -5,13 +5,16 @@
     <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
+
 <span class="k">class</span> <span class="nc">Line</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering a line&quot;</span><span class="p">)</span>
 
+
 <span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering a rectangle&quot;</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">GraphicGroup</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -24,11 +27,13 @@
         <span class="k">for</span> <span class="n">graphic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graphics</span><span class="p">:</span>
             <span class="n">graphic</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 
-<span class="c1"># Использование</span>
+
 <span class="n">group</span> <span class="o">=</span> <span class="n">GraphicGroup</span><span class="p">()</span>
 <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Line</span><span class="p">())</span>
 <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">())</span>
 <span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Line</span><span class="p">())</span>
-
 <span class="n">group</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="c1"># Rendering a line</span>
+<span class="c1"># Rendering a rectangle</span>
+<span class="c1"># Rendering a line</span>
 </pre></div></div></div>

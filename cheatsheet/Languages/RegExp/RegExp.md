@@ -18,15 +18,15 @@
 </tr>
 <tr>
 <td><code>\d</code></td>
-<td>Любая цифра</td>
+<td>Любая цифра ≈<code>[0-9]</code></td>
 </tr>
 <tr>
 <td><code>\D</code></td>
-<td>Любой символ, кроме цифры</td>
+<td>Любой символ, кроме цифры ≈<code>[^0-9]</code></td>
 </tr>
 <tr>
 <td><code>\s</code></td>
-<td>Любой пробельный символ (пробел, табуляция, конец строки и т.п.)</td>
+<td>Любой пробельный символ (пробел, табуляция, конец строки и т.п.) ≈<code>[ \f\n\r\t\v]</code></td>
 </tr>
 <tr>
 <td><code>\S</code></td>
@@ -41,87 +41,13 @@
 <td>Любая не-буква, не-цифра и не подчёркивание</td>
 </tr>
 <tr>
-<td><code>[..]</code></td>
-<td>Один из символов в скобках, а также любой символ из диапазона <code>a-b</code> <code>[0-9]</code> <code>[0-9A-Fa-f]</code></td>
+<td><code>[ ]</code></td>
+<td>Один из символов в скобках, а также любой символ из диапазона <code>a-z</code> <code>0-9</code><br>Буква <code>ё</code> не включается в общий диапазон букв!<br>Если нужен минус, его нужно указать последним или первым<br>Внутри скобок нужно экранировать только <code>]</code> и <code>\</code></td>
 </tr>
 <tr>
-<td><code>[^..]</code></td>
-<td>Любой символ, кроме перечисленных <code>[^&gt;]</code></td>
+<td><code>[^ ]</code></td>
+<td>Любой символ, кроме перечисленных</td>
 </tr>
-<tr>
-<td><code>\d</code>≈<code>[0-9]</code><br><code>\D</code>≈<code>[^0-9]</code><br><code>\w</code>≈<code>[0-9a-zA-Zа-яА-ЯёЁ]</code><br><code>\s</code>≈<code>[ \f\n\r\t\v]</code></td>
-<td>Буква <code>ё</code> не включается в общий диапазон букв!<br>Вообще говоря, в <code>\d</code> включается всё, что в юникоде помечено как «цифра», а в <code>\w</code> — как буква</td>
-</tr>
-<tr>
-<td><code>[abc-], [-1]</code></td>
-<td>Если нужен минус, его нужно указать последним или первым</td>
-</tr>
-<tr>
-<td><code>[*[(+\\\]\t]</code></td>
-<td>Внутри скобок нужно экранировать только <code>]</code> и <code>\</code></td>
-</tr>
-<tr>
-<td><code>\b</code></td>
-<td>Начало или конец слова (слева пусто или не-буква, справа буква и наоборот).<br>В отличие от предыдущих соответствует позиции, а не символу</td>
-</tr>
-<tr>
-<td><code>\B</code></td>
-<td>Не граница слова: либо и слева, и справа буквы, либо и слева, и справа <strong>НЕ</strong> буквы</td>
-</tr>
-</tbody>
-</table>
-<h1>Повторения</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{n}</code></td>
-<td>Ровно n повторений</td>
-</tr>
-<tr>
-<td><code>{m,n}</code></td>
-<td>От m до n повторений включительно</td>
-</tr>
-<tr>
-<td><code>{m,}</code></td>
-<td>Не менее m повторений</td>
-</tr>
-<tr>
-<td><code>{,n}</code></td>
-<td>Не более n повторений</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>Ноль или одно вхождение, синоним <code>{0,1}</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>Ноль или более, синоним <code>{0,}</code></td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>Одно или более, синоним <code>{1,}</code></td>
-</tr>
-<tr>
-<td><code>*?</code> <code>+?</code> <code>??</code> <code>{m,n}?</code><br><code>{,n}?</code> <code>{m,}?</code></td>
-<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
-</tr>
-</tbody>
-</table>
-<h1>Начало &amp; конец</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
 <tr>
 <td><code>^</code></td>
 <td>Начало всего текста или начало строчки текста, если <code>flags=re.MULTILINE</code></td>
@@ -148,6 +74,51 @@
 </tr>
 </tbody>
 </table>
+<h1>Квантификаторы</h1>
+<p>Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
+группы символов или класса символов, находящихся в регулярном выражении перед ним.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{n}</code></td>
+<td>Ровно <code>n</code> повторений</td>
+</tr>
+<tr>
+<td><code>{m,n}</code></td>
+<td>От <code>m</code> до <code>n</code> повторений включительно</td>
+</tr>
+<tr>
+<td><code>{m,}</code></td>
+<td>Не менее <code>m</code> повторений</td>
+</tr>
+<tr>
+<td><code>{,n}</code></td>
+<td>Не более <code>n</code> повторений</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Ноль или одно вхождение, синоним <code>{0,1}</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Ноль или более, синоним <code>{0,}</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Одно или более, синоним <code>{1,}</code></td>
+</tr>
+<tr>
+<td><code>*?</code> <code>+?</code> <code>??</code><br><code>{m,n}?</code> <code>{,n}?</code> <code>{m,}?</code></td>
+<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
+</tr>
+</tbody>
+</table>
 <h1>Условные выражения</h1>
 <table>
 <thead>
@@ -163,28 +134,60 @@
 <td><code>(?=.)</code></td>
 <td>Позитивный просмотр вперёд</td>
 <td><code>Людовик(?=XVI)</code></td>
-<td>ЛюдовикXV, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVI, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
+<td>ЛюдовикXV, <mark style="background-color: #999999">Людовик</mark>XVI, <mark style="background-color: #999999">Людовик</mark>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
 </tr>
 <tr>
 <td><code>(?!.)</code></td>
 <td>Негативный просмотр вперёд</td>
 <td><code>Людовик(?!XVI)</code></td>
-<td><span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL</td>
+<td><mark style="background-color: #999999">Людовик</mark>XV, ЛюдовикXVI, ЛюдовикXVIII, <mark style="background-color: #999999">Людовик</mark>LXVII, <mark style="background-color: #999999">Людовик</mark>XXL</td>
 </tr>
 <tr>
 <td><code>(?&lt;=.)</code></td>
 <td>Позитивный просмотр назад<br>Длина шаблона должна быть фиксированной</td>
 <td><code>(?&lt;=Сергей )Иванов</code></td>
-<td>Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов</td>
+<td>Сергей <mark style="background-color: #999999">Иванов</mark>, Игорь Иванов</td>
 </tr>
 <tr>
 <td><code>(?&lt;!.)</code></td>
 <td>Негативный просмотр назад</td>
 <td><code>(?&lt;!Сергей )Иванов</code></td>
-<td>Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span></td>
+<td>Сергей Иванов, Игорь <mark style="background-color: #999999">Иванов</mark></td>
 </tr>
 </tbody>
 </table>
+<h2>Выполнить операции в зависимости от того, была ли захвачена определенная группа.</h2>
+<p>Формат условного выражения:</p>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(?(condition)true-regex|false-regex)
+</pre></div></div></div>
+
+<ul>
+<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы).</li>
+<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно.</li>
+<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально).</li>
+</ul>
+<h3>Примеры</h3>
+<h4>Проверка наличия захваченной группы</h4>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)?(?(1)b|c)
+</pre></div></div></div>
+
+<ul>
+<li><code>a</code> — необязательная группа.</li>
+<li><code>b</code> — применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена).</li>
+<li><code>c</code> — применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена).</li>
+</ul>
+<p>Совпадение: <code>ab</code> или <code>c</code>.</p>
+<h4>Условные выражения с несколькими группами</h4>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
+</pre></div></div></div>
+
+<ul>
+<li><code>a</code> — первая группа.</li>
+<li>Если группа 1 захвачена, проверяется <code>b</code>.</li>
+<li>Если группа 1 не захвачена, проверяется <code>c</code>.</li>
+<li><code>d</code> — необязательная группа, которая захватывается, если предыдущий шаблон совпал.</li>
+</ul>
+<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code>.</p>
 <h1>Группы захвата</h1>
 <table>
 <thead>
@@ -200,19 +203,31 @@
 <td><code>(?:pattern)</code></td>
 <td>Незахватывающая группа</td>
 <td><code>(?:abc|def)</code></td>
-<td>123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456</td>
+<td>123 <mark style="background-color: #999999">abc</mark> 456</td>
+</tr>
+<tr>
+<td><code>(pattern)</code></td>
+<td>Неименованная группа захвата</td>
+<td><code>(123)</code></td>
+<td>0<mark style="background-color: #999999">123</mark>4<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;0(123)4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;01234&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 123</span><br><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 123</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 01234</span><br><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 01234</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># 01234</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>\1</code></td>
+<td>Неименованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы<br>по номеру порядка их появления в регулярном выражении</td>
+<td><code>(\d+)-\1</code></td>
+<td>1 <mark style="background-color: #999999">1-1</mark> <mark style="background-color: #999999">123-123</mark></td>
 </tr>
 <tr>
 <td><code>(?P&lt;name&gt;pattern)</code></td>
 <td>Именованная группа захвата</td>
 <td><code>My name is (?P&lt;name&gt;\w+)</code></td>
-<td>My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><br><span class="c1"># John</span><br></pre></div></pre></div></div></td>
+<td>My name is <mark style="background-color: #999999">John</mark><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span> \<br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>  <span class="c1"># John</span><br><span class="n">m</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>        <span class="c1"># John</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>(?P=name)</code></td>
 <td>Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени</td>
 <td><code>(?P&lt;word&gt;\w+)\s+(?P=word)</code></td>
-<td><span style="background-color: #999999; color: #FFFFFF">hello hello</span></td>
+<td><mark style="background-color: #999999">hello hello</mark></td>
 </tr>
 </tbody>
 </table>
@@ -231,13 +246,13 @@
 <td><code>(?&gt;pattern)</code></td>
 <td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала.</td>
 <td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад.</td>
-<td><span style="background-color: #999999; color: #FFFFFF">1234</span></td>
+<td><mark style="background-color: #999999">1234</mark></td>
 </tr>
 <tr>
 <td><code>(?R)</code> или <code>(?0)</code></td>
 <td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя.</td>
 <td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
-<td><span style="background-color: #999999; color: #FFFFFF">(a(b)c)</span></td>
+<td><mark style="background-color: #999999">(a(b)c)</mark></td>
 </tr>
 <tr>
 <td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
@@ -478,6 +493,8 @@
 <span class="unselectable"><span class="go">abc</span>
 <span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
 <span class="unselectable"><span class="go">None</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;ac&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="unselectable"><span class="go">ac</span>
 </span></pre></div></div></div>
 
 <h1>Бэктрекинг</h1>

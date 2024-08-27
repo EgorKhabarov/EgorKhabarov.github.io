@@ -1,0 +1,42 @@
+<h1>Memento (Снимок)</h1>
+<p><strong>Описание</strong>: Позволяет сохранять и восстанавливать внутреннее состояние объекта без раскрытия его реализации.</p>
+<p><strong>Когда использовать</strong>: Когда нужно сохранить состояние объекта и при необходимости восстановить его позже, не нарушая инкапсуляции.</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Memento</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="k">def</span> <span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+
+<span class="k">class</span> <span class="nc">Originator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="k">def</span> <span class="nf">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="k">def</span> <span class="nf">create_memento</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Memento</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">restore_memento</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memento</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">memento</span><span class="o">.</span><span class="n">get_state</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Caretaker</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mementos</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add_memento</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memento</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mementos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">memento</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_memento</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mementos</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+
+<span class="n">originator</span> <span class="o">=</span> <span class="n">Originator</span><span class="p">(</span><span class="s2">&quot;State1&quot;</span><span class="p">)</span>
+<span class="n">caretaker</span> <span class="o">=</span> <span class="n">Caretaker</span><span class="p">()</span>
+<span class="n">caretaker</span><span class="o">.</span><span class="n">add_memento</span><span class="p">(</span><span class="n">originator</span><span class="o">.</span><span class="n">create_memento</span><span class="p">())</span>
+<span class="n">originator</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="s2">&quot;State2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">originator</span><span class="o">.</span><span class="n">_state</span><span class="p">)</span>  <span class="c1"># State2</span>
+<span class="n">originator</span><span class="o">.</span><span class="n">restore_memento</span><span class="p">(</span><span class="n">caretaker</span><span class="o">.</span><span class="n">get_memento</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">originator</span><span class="o">.</span><span class="n">_state</span><span class="p">)</span>  <span class="c1"># State1</span>
+</pre></div></div></div>

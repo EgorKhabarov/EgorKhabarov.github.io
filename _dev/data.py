@@ -136,8 +136,11 @@ ssh-add ~/.ssh/id_rsa
         },
         "Паттерны проектирования": {
             "index": """
+[https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns)
+
 ### Порождающие паттерны <img alt="C" src="General/Паттерны проектирования/C.png" height="17">
 
+[https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования](https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования)
 Порождающие паттерны проектирования фокусируются на процессах создания объектов.
 Они помогают абстрагировать процесс инстанцирования, что может быть полезным,
 когда конкретный процесс создания объекта должен быть отделён от его использования.
@@ -146,12 +149,14 @@ ssh-add ~/.ssh/id_rsa
 
 ### Структурные паттерны <img alt="S" src="General/Паттерны проектирования/S.png" height="17">
 
+[https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования](https://ru.wikipedia.org/wiki/Структурные_шаблоны_проектирования)
 Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
 могут быть объединены для создания более крупных и гибких структур.
 Эти паттерны помогают определить отношения между компонентами и обеспечивают гибкость и масштабируемость систем.
 
 ### Поведенческие паттерны <img alt="B" src="General/Паттерны проектирования/B.png" height="17">
 
+[https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования](https://ru.wikipedia.org/wiki/Поведенческие_шаблоны_проектирования)
 Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
 Они помогают определить, как объекты должны взаимодействовать друг с другом и как распределять ответственность между ними.
 
@@ -159,6 +164,24 @@ ssh-add ~/.ssh/id_rsa
 ![шаблоны.jpg](General/Паттерны проектирования/шаблоны.jpg)
 
 Copy from [https://habr.com/ru/articles/210288/](https://habr.com/ru/articles/210288/)
+
+# ChatGPT Promt
+
+````markdown
+Я буду тебе писать название паттерна проектирования, а ты будешь максимально кратко объяснять его в виде шпаргалки с примерами кода.
+По шаблону:
+# <Название шаблона на английском языке> (<Перевод названия на русском языке>)
+
+**Описание**: <Описание>
+
+**Когда использовать**: <Когда использовать>
+
+```python
+<Короткий пример кода объясняющий работу паттерна>
+```
+
+Заменяй только то что находится в <>
+````
 """,
             "Порождающие паттерны": {
                 "Singleton (Одиночка)": """
@@ -170,7 +193,6 @@ Copy from [https://habr.com/ru/articles/210288/](https://habr.com/ru/articles/21
 **Когда использовать:** Когда нужно ограничить создание объекта одним экземпляром,
 например, для логгера, подключения к базе данных, конфигурационного объекта.
 
-**Пример реализации:**
 ```python
 class Singleton:
     _instance = None
@@ -201,13 +223,16 @@ class Car:
     def drive(self):
         raise NotImplementedError
 
+
 class ElectricCar(Car):
     def drive(self):
         return "Driving an electric car"
 
+
 class PetrolCar(Car):
     def drive(self):
         return "Driving a petrol car"
+
 
 class CarFactory:
     @staticmethod
@@ -221,8 +246,45 @@ class CarFactory:
 ```
 """,
                 "Abstract Factory (Абстрактная фабрика)": """
-Abstract Factory предоставляет интерфейс для создания семейства взаимосвязанных объектов без указания их конкретных классов.
+# Abstract Factory (Абстрактная фабрика)
 
+**Описание**: Предоставляет интерфейс для создания семейств связанных объектов без указания их конкретных классов.
+
+**Когда использовать**: Когда нужно создавать семейства объектов, которые должны использоваться вместе.
+
+```python
+class AbstractProductA:
+    def do_something(self):
+        pass
+
+class ConcreteProductA1(AbstractProductA):
+    def do_something(self):
+        return "Product A1"
+
+class ConcreteProductA2(AbstractProductA):
+    def do_something(self):
+        return "Product A2"
+
+class AbstractFactory:
+    def create_product_a(self):
+        pass
+
+class ConcreteFactory1(AbstractFactory):
+    def create_product_a(self):
+        return ConcreteProductA1()
+
+class ConcreteFactory2(AbstractFactory):
+    def create_product_a(self):
+        return ConcreteProductA2()
+
+factory1 = ConcreteFactory1()
+product_a1 = factory1.create_product_a()
+print(product_a1.do_something())  # Product A1
+
+factory2 = ConcreteFactory2()
+product_a2 = factory2.create_product_a()
+print(product_a2.do_something())  # Product A2
+```
 """,
                 "Builder (Строитель)": """
 ### Builder (Строитель)
@@ -239,6 +301,7 @@ class House:
 
     def __str__(self):
         return f"Walls: {self.walls}, Roof: {self.roof}, Doors: {self.doors}"
+
 
 class HouseBuilder:
     def __init__(self):
@@ -259,110 +322,94 @@ class HouseBuilder:
     def get_house(self):
         return self.house
 
-# Использование
+
 builder = HouseBuilder()
 house = builder.build_walls("Brick walls").build_roof("Tile roof").build_doors("Wooden doors").get_house()
 print(house)
 ```
 """,
                 "Prototype (Прототип)": """
-### Prototype (Прототип)
+# Prototype (Прототип)
 
-Паттерн Прототип позволяет копировать объекты, не зависимо от их конкретных классов.
-Это особенно полезно, когда создание нового объекта требует сложной или дорогостоящей инициализации.
+**Описание**: Позволяет создавать новые объекты путем копирования существующих экземпляров (прототипов).
+
+**Когда использовать**: Когда создание объектов дорогое или сложное, а также когда нужно избежать повторного выполнения инициализационного кода.
 
 ```python
 import copy
 
+
 class Prototype:
+    def __init__(self, value):
+        self.value = value
+
     def clone(self):
         return copy.deepcopy(self)
 
-class ConcretePrototype(Prototype):
-    def __init__(self, attribute):
-        self.attribute = attribute
 
-    def __str__(self):
-        return f"ConcretePrototype with attribute: {self.attribute}"
-
-# Использование
-prototype = ConcretePrototype("Initial value")
+prototype = Prototype(42)
 clone = prototype.clone()
-clone.attribute = "Changed value"
-print(prototype)
-print(clone)
+print(clone.value)  # 42
 ```
 """,
             },
             "Структурные паттерны": {
                 "Adapter (Адаптер)": """
-## Adapter (Адаптер)
+# Adapter (Адаптер)
 
-**Описание:** Преобразует интерфейс одного класса в интерфейс другого, который ожидает клиент.
-Позволяет классам с несовместимыми интерфейсами работать вместе.
+**Описание**: Позволяет объектам с несовместимыми интерфейсами работать вместе, преобразуя интерфейс одного объекта в интерфейс, ожидаемый другим.
 
-**Когда использовать:** Когда необходимо использовать существующий класс, но его интерфейс не соответствует нужному.
+**Когда использовать**: Когда нужно использовать существующий класс с несовместимым интерфейсом.
 
-**Пример реализации:**
 ```python
 class Adaptee:
     def specific_request(self):
-        return "specific request"
+        return "Adaptee behavior"
 
-class Target:
-    def request(self):
-        pass
-
-class Adapter(Target):
+class Adapter:
     def __init__(self, adaptee):
         self._adaptee = adaptee
 
     def request(self):
-        return f"Adapter: {self._adaptee.specific_request()}"
+        return self._adaptee.specific_request()
 
 adaptee = Adaptee()
 adapter = Adapter(adaptee)
-print(adapter.request())  # Вывод: "Adapter: specific request"
+print(adapter.request())  # Adaptee behavior
 ```
 """,
                 "Bridge (Мост)": """
-### Bridge (Мост)
+# Bridge (Мост)
 
-Паттерн Мост используется для разделения абстракции и её реализации, позволяя изменять их независимо.
-Это достигается использованием интерфейсов или абстрактных классов.
+**Описание**: Разделяет абстракцию и реализацию, позволяя изменять их независимо друг от друга.
+
+**Когда использовать**: Когда нужно разделить абстракцию и реализацию для независимой модификации и избежать жесткой связанности.
 
 ```python
-class DrawingAPI:
-    def draw_circle(self, x, y, radius):
+class Implementation:
+    def operation(self):
         pass
 
-class DrawingAPI1(DrawingAPI):
-    def draw_circle(self, x, y, radius):
-        print(f"API1.circle at ({x}, {y}), radius {radius}")
+class ConcreteImplementationA(Implementation):
+    def operation(self):
+        return "Implementation A"
 
-class DrawingAPI2(DrawingAPI):
-    def draw_circle(self, x, y, radius):
-        print(f"API2.circle at ({x}, {y}), radius {radius}")
+class ConcreteImplementationB(Implementation):
+    def operation(self):
+        return "Implementation B"
 
-class Circle:
-    def __init__(self, x, y, radius, drawing_api):
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.drawing_api = drawing_api
+class Abstraction:
+    def __init__(self, implementation):
+        self._implementation = implementation
 
-    def draw(self):
-        self.drawing_api.draw_circle(self.x, self.y, self.radius)
+    def execute(self):
+        return self._implementation.operation()
 
-    def scale(self, factor):
-        self.radius *= factor
+abstraction_a = Abstraction(ConcreteImplementationA())
+abstraction_b = Abstraction(ConcreteImplementationB())
 
-# Использование
-circle1 = Circle(1, 2, 3, DrawingAPI1())
-circle1.draw()
-
-circle2 = Circle(5, 7, 11, DrawingAPI2())
-circle2.draw()
+print(abstraction_a.execute())  # Implementation A
+print(abstraction_b.execute())  # Implementation B
 ```
 """,
                 "Composite (Компоновщик)": """
@@ -376,13 +423,16 @@ class Graphic:
     def render(self):
         pass
 
+
 class Line(Graphic):
     def render(self):
         print("Rendering a line")
 
+
 class Rectangle(Graphic):
     def render(self):
         print("Rendering a rectangle")
+
 
 class GraphicGroup(Graphic):
     def __init__(self):
@@ -395,13 +445,15 @@ class GraphicGroup(Graphic):
         for graphic in self.graphics:
             graphic.render()
 
-# Использование
+
 group = GraphicGroup()
 group.add(Line())
 group.add(Rectangle())
 group.add(Line())
-
 group.render()
+# Rendering a line
+# Rendering a rectangle
+# Rendering a line
 ```
 """,
                 "Decorator (Декоратор)": """
@@ -411,15 +463,16 @@ group.render()
 
 **Когда использовать:** Когда нужно добавлять дополнительные функциональности объектам без изменения их класса.
 
-**Пример реализации:**
 ```python
 class Component:
     def operation(self):
         pass
 
+
 class ConcreteComponent(Component):
     def operation(self):
         return "ConcreteComponent"
+
 
 class Decorator(Component):
     def __init__(self, component):
@@ -428,9 +481,10 @@ class Decorator(Component):
     def operation(self):
         return f"Decorator({self._component.operation()})"
 
+
 component = ConcreteComponent()
 decorated = Decorator(component)
-print(decorated.operation())  # Вывод: "Decorator(ConcreteComponent)"
+print(decorated.operation())  # "Decorator(ConcreteComponent)"
 ```
 """,
                 "Facade (Фасад)": """
@@ -449,14 +503,17 @@ class CPU:
     def execute(self):
         print("Executing instructions")
 
+
 class Memory:
     def load(self, position, data):
         print(f"Loading data from {position} to {data}")
+
 
 class HardDrive:
     def read(self, lba, size):
         print(f"Reading {size} bytes from LBA {lba}")
         return "data"
+
 
 class ComputerFacade:
     def __init__(self):
@@ -470,96 +527,558 @@ class ComputerFacade:
         self.cpu.jump(0)
         self.cpu.execute()
 
-# Использование
+
 computer = ComputerFacade()
 computer.start()
+# Freezing CPU
+# Reading 4096 bytes from LBA 1024
+# Loading data from 0 to data
+# Jumping to 0
+# Executing instructions
 ```
 """,
-                "Flyweight (Легковес)": """""",
-                "Proxy (Заместитель)": """""",
+                "Flyweight (Легковес)": """
+# Flyweight (Легковес)
+
+**Описание**: Оптимизация использования памяти за счёт разделения общих данных между множеством объектов.
+
+**Когда использовать**: Когда нужно создать много мелких объектов, которые имеют общие части данных.
+
+```python
+class Flyweight:
+    def __init__(self, shared_state):
+        self.shared_state = shared_state
+
+class FlyweightFactory:
+    def __init__(self):
+        self._flyweights = {}
+
+    def get_flyweight(self, shared_state):
+        if shared_state not in self._flyweights:
+            self._flyweights[shared_state] = Flyweight(shared_state)
+        return self._flyweights[shared_state]
+
+factory = FlyweightFactory()
+flyweight1 = factory.get_flyweight("shared")
+flyweight2 = factory.get_flyweight("shared")
+print(flyweight1 is flyweight2)  # True
+```
+""",
+                "Proxy (Заместитель)": """
+# Proxy (Заместитель)
+
+**Описание**: Представляет собой объект-заместитель, который контролирует доступ к другому объекту.
+
+**Когда использовать**: Когда нужно управлять доступом к объекту, например, для ленивой инициализации, контроля доступа или логирования.
+
+```python
+class RealSubject:
+    def request(self):
+        return "RealSubject: Handling request."
+
+class Proxy:
+    def __init__(self, real_subject):
+        self._real_subject = real_subject
+
+    def request(self):
+        print("Proxy: Checking access before forwarding request.")
+        return self._real_subject.request()
+
+real_subject = RealSubject()
+proxy = Proxy(real_subject)
+print(proxy.request())
+# Proxy: Checking access before forwarding request.
+# RealSubject: Handling request.
+```
+""",
             },
             "Поведенческие паттерны": {
-                "Chain of Responsibility (Цепочка обязанностей)": """""",
-                "Command (Команда)": """""",
-                "Interpreter (Интерпретатор)": """""",
-                "Iterator (Итератор)": """""",
-                "Mediator (Посредник)": """""",
-                "Memento (Снимок)": """""",
-                "Observer (Наблюдатель)": """
-## Observer (Наблюдатель)
+                "Chain of Responsibility (Цепочка обязанностей)": """
+# Chain of Responsibility (Цепочка обязанностей)
 
-**Описание:** Определяет зависимость **один-ко-многим** между объектами таким образом,
-что при **изменении состояния одного объекта все зависимые объекты уведомляются и обновляются автоматически**.
+**Описание**: Позволяет передавать запрос по цепочке обработчиков, где каждый обработчик решает, обработать запрос или передать следующему.
 
-**Когда использовать:** Когда изменение состояния одного объекта должно привести к изменению состояния других объектов,
-например, в системах событий или уведомлений.
+**Когда использовать**: Когда нужно передавать запрос последовательно через ряд обработчиков, не определяя явно, какой обработчик его обработает.
 
-**Пример реализации:**
 ```python
+class Handler:
+    def __init__(self, successor=None):
+        self._successor = successor
+
+    def handle(self, request):
+        if self._successor:
+            return self._successor.handle(request)
+        return None
+
+class ConcreteHandlerA(Handler):
+    def handle(self, request):
+        if request == "A":
+            return "Handled by A"
+        return super().handle(request)
+
+class ConcreteHandlerB(Handler):
+    def handle(self, request):
+        if request == "B":
+            return "Handled by B"
+        return super().handle(request)
+
+
+handler = ConcreteHandlerA(ConcreteHandlerB())
+print(handler.handle("A"))  # Handled by A
+print(handler.handle("B"))  # Handled by B
+print(handler.handle("C"))  # None
+```
+""",
+                "Command (Команда)": """
+# Command (Команда)
+
+**Описание**: Инкапсулирует запрос как объект, позволяя параметризовать объекты с различными запросами, ставить запросы в очередь или делать их отменяемыми.
+
+**Когда использовать**: Когда нужно отделить вызов операции от объекта, который её выполняет, или когда требуется логировать, отменять и повторять операции.
+
+```python
+class Command:
+    def execute(self):
+        pass
+
+class Light:
+    def turn_on(self):
+        return "Light is on"
+
+class LightOnCommand(Command):
+    def __init__(self, light):
+        self._light = light
+
+    def execute(self):
+        return self._light.turn_on()
+
+class RemoteControl:
+    def __init__(self, command):
+        self._command = command
+
+    def press_button(self):
+        return self._command.execute()
+
+
+light = Light()
+command = LightOnCommand(light)
+remote = RemoteControl(command)
+print(remote.press_button())  # Light is on
+```
+""",
+                "Interpreter (Интерпретатор)": """
+# Interpreter (Интерпретатор)
+
+**Описание**: Определяет грамматику языка и интерпретирует предложения в этом языке.
+
+**Когда использовать**: Когда нужно анализировать и исполнять предложения в специфическом языке или грамматике.
+
+```python
+class Expression:
+    def interpret(self, context):
+        pass
+
+class Number(Expression):
+    def __init__(self, value):
+        self.value = value
+
+    def interpret(self, context):
+        return self.value
+
+class Add(Expression):
+    def __init__(self, left, right):
+        self.left = left
+        self.right = right
+
+    def interpret(self, context):
+        return self.left.interpret(context) + self.right.interpret(context)
+
+
+context = {}
+expr = Add(Number(3), Number(4))
+print(expr.interpret(context))  # 7
+```
+""",
+                "Iterator (Итератор)": """
+# Iterator (Итератор)
+
+**Описание**: Предоставляет способ последовательного доступа ко всем элементам коллекции без раскрытия её внутреннего представления.
+
+**Когда использовать**: Когда нужно последовательно обойти элементы коллекции без раскрытия её внутренней структуры.
+
+```python
+class Iterator:
+    def __init__(self, collection):
+        self._collection = collection
+        self._index = 0
+
+    def has_next(self):
+        return self._index < len(self._collection)
+
+    def next(self):
+        if self.has_next():
+            value = self._collection[self._index]
+            self._index += 1
+            return value
+        raise StopIteration
+
+
+collection = [1, 2, 3]
+iterator = Iterator(collection)
+
+while iterator.has_next():
+    print(iterator.next())  # 1 2 3
+```
+""",
+                "Mediator (Посредник)": """
+# Mediator (Посредник)
+
+**Описание**: Определяет объект, инкапсулирующий взаимодействие между наборами объектов, чтобы предотвратить их прямую связь.
+
+**Когда использовать**: Когда нужно уменьшить связанность между объектами и централизовать управление их взаимодействием.
+
+```python
+class Mediator:
+    def notify(self, sender, event):
+        pass
+
+class ConcreteMediator(Mediator):
+    def __init__(self, component1, component2):
+        self._component1 = component1
+        self._component2 = component2
+        self._component1.mediator = self
+        self._component2.mediator = self
+
+    def notify(self, sender, event):
+        if sender == self._component1 and event == "event1":
+            return self._component2.do_action()
+        elif sender == self._component2 and event == "event2":
+            return self._component1.do_action()
+
+class Component:
+    def __init__(self):
+        self.mediator = None
+
+    def do_action(self):
+        return "Action performed"
+
+    def trigger(self, event):
+        return self.mediator.notify(self, event)
+
+
+component1 = Component()
+component2 = Component()
+mediator = ConcreteMediator(component1, component2)
+print(component1.trigger("event1"))  # Action performed
+print(component2.trigger("event2"))  # Action performed
+```
+""",
+                "Memento (Снимок)": """
+# Memento (Снимок)
+
+**Описание**: Позволяет сохранять и восстанавливать внутреннее состояние объекта без раскрытия его реализации.
+
+**Когда использовать**: Когда нужно сохранить состояние объекта и при необходимости восстановить его позже, не нарушая инкапсуляции.
+
+```python
+class Memento:
+    def __init__(self, state):
+        self._state = state
+
+    def get_state(self):
+        return self._state
+
+class Originator:
+    def __init__(self, state):
+        self._state = state
+
+    def set_state(self, state):
+        self._state = state
+
+    def create_memento(self):
+        return Memento(self._state)
+
+    def restore_memento(self, memento):
+        self._state = memento.get_state()
+
+class Caretaker:
+    def __init__(self):
+        self._mementos = []
+
+    def add_memento(self, memento):
+        self._mementos.append(memento)
+
+    def get_memento(self, index):
+        return self._mementos[index]
+
+
+originator = Originator("State1")
+caretaker = Caretaker()
+caretaker.add_memento(originator.create_memento())
+originator.set_state("State2")
+print(originator._state)  # State2
+originator.restore_memento(caretaker.get_memento(0))
+print(originator._state)  # State1
+```
+""",
+                "Observer (Наблюдатель)": """
+# Observer (Наблюдатель)
+
+**Описание**: Определяет зависимость один ко многим между объектами,
+так что при изменении состояния одного объекта все зависимые объекты уведомляются и обновляются автоматически.
+
+**Когда использовать**: Когда изменение состояния одного объекта требует обновления других объектов,
+и вы не хотите, чтобы объекты были жестко связаны.
+
+```python
+class Observer:
+    def update(self, message):
+        pass
+
+class ConcreteObserver(Observer):
+    def update(self, message):
+        print(f"Received message: {message}")
+
 class Subject:
     def __init__(self):
         self._observers = []
 
-    def attach(self, observer):
+    def add_observer(self, observer):
         self._observers.append(observer)
 
-    def detach(self, observer):
+    def remove_observer(self, observer):
         self._observers.remove(observer)
 
-    def notify(self):
+    def notify_observers(self, message):
         for observer in self._observers:
-            observer.update()
+            observer.update(message)
 
-class ConcreteObserver:
-    def update(self):
-        print("Observer updated")
 
 subject = Subject()
-observer = ConcreteObserver()
-subject.attach(observer)
-subject.notify()  # Вывод: "Observer updated"
+subject.add_observer(ConcreteObserver())
+subject.add_observer(ConcreteObserver())
+subject.notify_observers("Hello Observers!")
+# Received message: Hello Observers!
+# Received message: Hello Observers!
 ```
 """,
-                "State (Состояние)": """""",
-                "Strategy (Стратегия)": """
-## Strategy (Стратегия)
+                "State (Состояние)": """
+# State (Состояние)
 
-**Описание:** Определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми.
-Позволяет изменять алгоритм независимо от клиентов, которые им пользуются.
+**Описание**: Позволяет объекту изменять своё поведение в зависимости от внутреннего состояния, меняя свой класс.
 
-**Когда использовать:** Когда у вас есть несколько схожих алгоритмов,
-и необходимо переключаться между ними в зависимости от условий.
+**Когда использовать**: Когда объект может находиться в одном из нескольких состояний, и поведение объекта меняется в зависимости от его состояния.
 
-**Пример реализации:**
 ```python
-class Strategy:
-    def execute(self, data):
-        raise NotImplementedError
+class State:
+    def handle(self, context):
+        pass
 
-class ConcreteStrategyA(Strategy):
-    def execute(self, data):
-        return sorted(data)
+class ConcreteStateA(State):
+    def handle(self, context):
+        context.state = ConcreteStateB()
+        print("Transition to ConcreteStateB")
 
-class ConcreteStrategyB(Strategy):
-    def execute(self, data):
-        return sorted(data, reverse=True)
+class ConcreteStateB(State):
+    def handle(self, context):
+        context.state = ConcreteStateA()
+        print("Transition to ConcreteStateA")
 
 class Context:
-    def __init__(self, strategy: Strategy):
-        self._strategy = strategy
+    def __init__(self, state):
+        self.state = state
 
-    def do_some_business_logic(self, data):
-        return self._strategy.execute(data)
+    def request(self):
+        self.state.handle(self)
 
-context = Context(ConcreteStrategyA())
-print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [1, 2, 3]
 
-context = Context(ConcreteStrategyB())
-print(context.do_some_business_logic([3, 1, 2]))  # Вывод: [3, 2, 1]
+context = Context(ConcreteStateA())
+context.request()  # Transition to ConcreteStateB
+context.request()  # Transition to ConcreteStateA
 ```
 """,
-                "Template Method (Шаблонный метод)": """""",
-                "Visitor (Посетитель)": """""",
+                "Strategy (Стратегия)": """
+# Strategy (Стратегия)
+
+**Описание**: Определяет семейство алгоритмов, инкапсулирует их и делает их взаимозаменяемыми.
+
+**Когда использовать**: Когда нужно выбрать один из нескольких алгоритмов на этапе выполнения программы.
+
+```python
+class Strategy:
+    def execute(self, a, b):
+        pass
+
+class AddStrategy(Strategy):
+    def execute(self, a, b):
+        return a + b
+
+class MultiplyStrategy(Strategy):
+    def execute(self, a, b):
+        return a * b
+
+class Context:
+    def __init__(self, strategy):
+        self.strategy = strategy
+
+    def execute_strategy(self, a, b):
+        return self.strategy.execute(a, b)
+
+
+context = Context(AddStrategy())
+print(context.execute_strategy(5, 3))  # 8
+
+context = Context(MultiplyStrategy())
+print(context.execute_strategy(5, 3))  # 15
+```
+""",
+                "Template Method (Шаблонный метод)": """
+# Template Method (Шаблонный метод)
+
+**Описание**: Определяет скелет алгоритма, позволяя подклассам переопределять некоторые шаги, не изменяя структуру алгоритма.
+
+**Когда использовать**: Когда нужно задать общий алгоритм, но позволить подклассам изменять отдельные шаги.
+
+```python
+class AbstractClass:
+    def template_method(self):
+        self.step_one()
+        self.step_two()
+
+    def step_one(self):
+        pass
+
+    def step_two(self):
+        pass
+
+class ConcreteClass(AbstractClass):
+    def step_one(self):
+        print("Step One Implemented")
+
+    def step_two(self):
+        print("Step Two Implemented")
+
+
+obj = ConcreteClass()
+obj.template_method()
+# Step One Implemented
+# Step Two Implemented
+```
+""",
+                "Visitor (Посетитель)": """
+# Visitor (Посетитель)
+
+**Описание**: Позволяет добавлять новые операции к объектам без изменения их классов.
+Определяет операцию, которая может быть выполнена для каждого элемента структуры объектов.
+
+**Когда использовать**: Когда нужно выполнять операции над элементами структуры объектов, не изменяя сами элементы.
+
+```python
+class Element:
+    def accept(self, visitor):
+        pass
+
+class Visitor:
+    def visit_concrete_element_a(self, element):
+        pass
+
+    def visit_concrete_element_b(self, element):
+        pass
+
+class ConcreteElementA(Element):
+    def accept(self, visitor):
+        visitor.visit_concrete_element_a(self)
+
+class ConcreteElementB(Element):
+    def accept(self, visitor):
+        visitor.visit_concrete_element_b(self)
+
+class ConcreteVisitor(Visitor):
+    def visit_concrete_element_a(self, element):
+        return "Visited ConcreteElementA"
+
+    def visit_concrete_element_b(self, element):
+        return "Visited ConcreteElementB"
+
+
+element_a = ConcreteElementA()
+element_b = ConcreteElementB()
+visitor = ConcreteVisitor()
+
+print(visitor.visit_concrete_element_a(element_a))  # Visited ConcreteElementA
+print(visitor.visit_concrete_element_b(element_b))  # Visited ConcreteElementB
+```
+
+## Example
+
+Предположим, у нас есть разные типы документов: PDFDocument и WordDocument.
+Мы хотим добавить операцию экспорта в разные форматы (например, в HTML), не изменяя сами классы документов.
+
+```python
+from abc import ABC, abstractmethod
+
+
+class Document(ABC):
+    @abstractmethod
+    def accept(self, visitor):
+        pass
+
+class PDFDocument(Document):
+    def accept(self, visitor):
+        visitor.visit_pdf(self)
+
+    def pdf_specific_operation(self):
+        return "PDF content"
+
+class WordDocument(Document):
+    def accept(self, visitor):
+        visitor.visit_word(self)
+
+    def word_specific_operation(self):
+        return "Word content"
+
+class Visitor(ABC):
+    @abstractmethod
+    def visit_pdf(self, pdf_doc):
+        pass
+
+    @abstractmethod
+    def visit_word(self, word_doc):
+        pass
+
+class ExportToHTMLVisitor(Visitor):
+    def visit_pdf(self, pdf_doc):
+        content = pdf_doc.pdf_specific_operation()
+        print(f"Exporting PDF to HTML: {content}")
+
+    def visit_word(self, word_doc):
+        content = word_doc.word_specific_operation()
+        print(f"Exporting Word to HTML: {content}")
+
+
+pdf_doc = PDFDocument()
+word_doc = WordDocument()
+
+visitor = ExportToHTMLVisitor()
+
+pdf_doc.accept(visitor)
+word_doc.accept(visitor)
+```
+
+
+### Как это работает на практике:
+
+- **Минимальные изменения в классах объектов**: Единственное, что требуется добавить в классы, — это метод `accept`.
+Это небольшое изменение открывает возможность для множества новых операций (посетителей). Все остальное остается неизменным.
+Это ограничение паттерна: чтобы объект мог взаимодействовать с посетителем,
+он должен поддерживать механизм "принятия" посетителя через метод `accept`.
+- **Легкость добавления новых операций**: Если требуется добавить новую операцию, нужно просто создать нового посетителя,
+реализующего эту операцию. Сами классы объектов при этом не меняются.
+Это и есть суть паттерна `Visitor` — отделение алгоритма от структуры данных.
+
+Это позволяет разделить ответственность: сами классы объектов отвечают за свои данные и базовое поведение, 
+а все дополнительные операции выносятся в посетителей.
+""",
             },
         },
         "HTTP": {
@@ -829,7 +1348,7 @@ CSRF-атаки заставляют пользователя выполнять
         "Python": {
             "Libraries": {
                 "index": """
-# <span style="color:#b82e2e">Внимание! Все шпаргалки сгенерированы с помощью <b><u>ChatGPT 3.5</u></b></span>
+# =={color:#b82e2e;background-color: inherit;}Внимание! Все шпаргалки сгенерированы с помощью <b><u>ChatGPT 3.5</u></b>==
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101" height="20" role="img" aria-label="ChatGPT: 3.5"><title>ChatGPT: 3.5</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="101" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="74" height="20" fill="#555"/><rect x="74" width="27" height="20" fill="#007ec6"/><rect width="101" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg=="/><text aria-hidden="true" x="465" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="470">ChatGPT</text><text x="465" y="140" transform="scale(.1)" fill="#fff" textLength="470">ChatGPT</text><text aria-hidden="true" x="865" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="170">3.5</text><text x="865" y="140" transform="scale(.1)" fill="#fff" textLength="170">3.5</text></g></svg>
 
@@ -11883,75 +12402,108 @@ Person Object
 
 # Обозначения
 
-|                                                                                     |                                                                                                                                                  |
-|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| `.`                                                                                 | Один любой символ, кроме новой строки `\n`.                                                                                                      |
-| `\d`                                                                                | Любая цифра                                                                                                                                      |
-| `\D`                                                                                | Любой символ, кроме цифры                                                                                                                        |
-| `\s`                                                                                | Любой пробельный символ (пробел, табуляция, конец строки и т.п.)                                                                                 |
-| `\S`                                                                                | Любой не пробельный символ                                                                                                                       |
-| `\w`                                                                                | Любая буква (то, что может быть частью слова), а также цифры и `_`                                                                               |
-| `\W`                                                                                | Любая не-буква, не-цифра и не подчёркивание                                                                                                      |
-| `[..]`                                                                              | Один из символов в скобках, а также любой символ из диапазона `a-b` `[0-9]` `[0-9A-Fa-f]`                                                        |
-| `[^..]`                                                                             | Любой символ, кроме перечисленных `[^>]`                                                                                                         |
-| `\d`≈`[0-9]`<br>`\D`≈`[^0-9]`<br>`\w`≈`[0-9a-zA-Zа-яА-ЯёЁ]`<br>`\s`≈`[ \f\n\r\t\v]` | Буква `ё` не включается в общий диапазон букв!<br>Вообще говоря, в `\d` включается всё, что в юникоде помечено как «цифра», а в `\w` — как буква |
-| `[abc-], [-1]`                                                                      | Если нужен минус, его нужно указать последним или первым                                                                                         |
-| `[*[(+\\\]\t]`                                                                      | Внутри скобок нужно экранировать только `]` и `\`                                                                                                |
-| `\b`                                                                                | Начало или конец слова (слева пусто или не-буква, справа буква и наоборот).<br>В отличие от предыдущих соответствует позиции, а не символу       |
-| `\B`                                                                                | Не граница слова: либо и слева, и справа буквы, либо и слева, и справа **НЕ** буквы                                                              |
+|        |                                                                                   |
+|--------|-----------------------------------------------------------------------------------|
+| `.`    | Один любой символ, кроме новой строки `\n`.                                       |
+| `\d`   | Любая цифра ≈`[0-9]`                                                               |
+| `\D`   | Любой символ, кроме цифры ≈`[^0-9]`                                               |
+| `\s`   | Любой пробельный символ (пробел, табуляция, конец строки и т.п.) ≈`[ \f\n\r\t\v]` |
+| `\S`   | Любой не пробельный символ                                                        |
+| `\w`   | Любая буква (то, что может быть частью слова), а также цифры и `_`                |
+| `\W`   | Любая не-буква, не-цифра и не подчёркивание                                       |
+| `[ ]`  | Один из символов в скобках, а также любой символ из диапазона `a-z` `0-9`<br>Буква `ё` не включается в общий диапазон букв!<br>Если нужен минус, его нужно указать последним или первым<br>Внутри скобок нужно экранировать только `]` и `\` |
+| `[^ ]` | Любой символ, кроме перечисленных                                                |
+| `^`    | Начало всего текста или начало строчки текста, если `flags=re.MULTILINE`          |
+| `$`    | Конец всего текста или конец строчки текста, если `flags=re.MULTILINE`            |
+| `\A`   | Строго начало всего текста                                                        |
+| `\Z`   | Строго конец всего текста                                                         |
+| `\b`   | Начало или конец слова (слева пусто или не-буква, справа буква и наоборот)        |
+| `\B`   | Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы   |
 
 
-# Повторения
+# Квантификаторы
 
-|                                                  |                                                                                                                                                                                   |
-|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `{{n}}`                                          | Ровно n повторений                                                                                                                                                                |
-| `{{m,n}}`                                        | От m до n повторений включительно                                                                                                                                                 |
-| `{{m,}}`                                         | Не менее m повторений                                                                                                                                                             |
-| `{{,n}}`                                         | Не более n повторений                                                                                                                                                             |
-| `?`                                              | Ноль или одно вхождение, синоним `{{0,1}}`                                                                                                                                        |
-| `*`                                              | Ноль или более, синоним `{{0,}}`                                                                                                                                                  |
-| `+`                                              | Одно или более, синоним `{{1,}}`                                                                                                                                                  |
-| `*?` `+?` `??` `{{m,n}}?`<br>`{{,n}}?` `{{m,}}?` | По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление `?` делает их ленивыми, они захватывают минимально возможное число символов. |
+Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
+группы символов или класса символов, находящихся в регулярном выражении перед ним.
 
-
-# Начало & конец
-
-|      |                                                                                 |
-|------|---------------------------------------------------------------------------------|
-| `^`  | Начало всего текста или начало строчки текста, если `flags=re.MULTILINE`        |
-| `$`  | Конец всего текста или конец строчки текста, если `flags=re.MULTILINE`          |
-| `\A` | Строго начало всего текста                                                      |
-| `\Z` | Строго конец всего текста                                                       |
-| `\b` | Начало или конец слова (слева пусто или не-буква, справа буква и наоборот)      |
-| `\B` | Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы |
+|                                                  |                                            |
+|--------------------------------------------------|--------------------------------------------|
+| `{{n}}`                                          | Ровно `n` повторений                       |
+| `{{m,n}}`                                        | От `m` до `n` повторений включительно      |
+| `{{m,}}`                                         | Не менее `m` повторений                    |
+| `{{,n}}`                                         | Не более `n` повторений                    |
+| `?`                                              | Ноль или одно вхождение, синоним `{{0,1}}` |
+| `*`                                              | Ноль или более, синоним `{{0,}}`           |
+| `+`                                              | Одно или более, синоним `{{1,}}`           |
+| `*?` `+?` `??`<br>`{{m,n}}?` `{{,n}}?` `{{m,}}?` | По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление `?` делает их ленивыми, они захватывают минимально возможное число символов. |
 
 
 # Условные выражения
 
 | Условное выражение |                                                                      | Регулярка            | Соответствие                                                                                                                                                                                                                                               |
 |--------------------|----------------------------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `(?=.)`            | Позитивный просмотр вперёд                                           | `Людовик(?=XVI)`     | ЛюдовикXV, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVI, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL                                                                |
-| `(?!.)`            | Негативный просмотр вперёд                                           | `Людовик(?!XVI)`     | <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>LXVII, <span style="background-color: #999999; color: #FFFFFF">Людовик</span>XXL |
-| `(?<=.)`           | Позитивный просмотр назад<br>Длина шаблона должна быть фиксированной | `(?<=Сергей )Иванов` | Сергей <span style="background-color: #999999; color: #FFFFFF">Иванов</span>, Игорь Иванов                                                                                                                                                                 |
-| `(?<!.)`           | Негативный просмотр назад                                            | `(?<!Сергей )Иванов` | Сергей Иванов, Игорь <span style="background-color: #999999; color: #FFFFFF">Иванов</span>                                                                                                                                                                 |
+| `(?=.)`            | Позитивный просмотр вперёд                                           | `Людовик(?=XVI)`     | ЛюдовикXV, =={{background-color: #999999}}Людовик==XVI, =={{background-color: #999999}}Людовик==XVIII, ЛюдовикLXVII, ЛюдовикXXL                                                                |
+| `(?!.)`            | Негативный просмотр вперёд                                           | `Людовик(?!XVI)`     | =={{background-color: #999999}}Людовик==XV, ЛюдовикXVI, ЛюдовикXVIII, =={{background-color: #999999}}Людовик==LXVII, =={{background-color: #999999}}Людовик==XXL |
+| `(?<=.)`           | Позитивный просмотр назад<br>Длина шаблона должна быть фиксированной | `(?<=Сергей )Иванов` | Сергей =={{background-color: #999999}}Иванов==, Игорь Иванов                                                                                                                                                                 |
+| `(?<!.)`           | Негативный просмотр назад                                            | `(?<!Сергей )Иванов` | Сергей Иванов, Игорь =={{background-color: #999999}}Иванов==                                                                                                                                                                 |
+
+## Выполнить операции в зависимости от того, была ли захвачена определенная группа.
+
+Формат условного выражения:
+
+```regexp
+(?(condition)true-regex|false-regex)
+```
+
+- `condition`: Условие, которое проверяется. Обычно это номер группы захвата (например, `1` для первой группы).
+- `true-regex`: Регулярное выражение, которое применяется, если условие истинно.
+- `false-regex`: Регулярное выражение, которое применяется, если условие ложно (опционально).
+
+### Примеры
+
+#### Проверка наличия захваченной группы
+
+```regexp
+(a)?(?(1)b|c)
+```
+
+- `a` — необязательная группа.
+- `b` — применяется, если `a` присутствует (т.е., если группа 1 захвачена).
+- `c` — применяется, если `a` отсутствует (т.е., если группа 1 не захвачена).
+
+Совпадение: `ab` или `c`.
+
+#### Условные выражения с несколькими группами
+
+```regexp
+(a)(?(1)b|c)(d)?
+```
+
+- `a` — первая группа.
+- Если группа 1 захвачена, проверяется `b`.
+- Если группа 1 не захвачена, проверяется `c`.
+- `d` — необязательная группа, которая захватывается, если предыдущий шаблон совпал.
+
+Совпадение: `abd` или `cd` или `ab` или `c`.
 
 
 # Группы захвата
 
-| Группа захвата      | Название                                                                                | Регулярка                   | Соответствие                                                                                      |
-|---------------------|-----------------------------------------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------|
-| `(?:pattern)`       | Незахватывающая группа                                                                  | `(?:abc|def)`               | 123 <span style="background-color: #999999; color: #FFFFFF">abc</span> 456                        |
-| `(?P<name>pattern)` | Именованная группа захвата                                                              | `My name is (?P<name>\w+)`  | My name is <span style="background-color: #999999; color: #FFFFFF">John</span><br>{capture_group} |
-| `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени | `(?P<word>\w+)\s+(?P=word)` | <span style="background-color: #999999; color: #FFFFFF">hello hello</span>                        |
+| Группа захвата      | Название                                                                                | Регулярка                   | Соответствие                                                                                            |
+|---------------------|-----------------------------------------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------|
+| `(?:pattern)`       | Незахватывающая группа                                                                  | `(?:abc|def)`               | 123 =={{background-color: #999999}}abc== 456                              |
+| `(pattern)`         | Неименованная группа захвата                                                            | `(123)`                     | 0=={{background-color: #999999}}123==4<br>{unnamed_capture_group}               |
+| `\1`                | Неименованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы<br>по номеру порядка их появления в регулярном выражении |  `(\d+)-\1`                  | 1 =={{background-color: #999999}}1-1== =={{background-color: #999999}}123-123== |
+| `(?P<name>pattern)` | Именованная группа захвата                                                              | `My name is (?P<name>\w+)`  | My name is =={{background-color: #999999}}John==<br>{named_capture_group} |
+| `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени | `(?P<word>\w+)\s+(?P=word)` | =={{background-color: #999999}}hello hello==                              |
 
 
 # Другое
 
 | Паттерн                                   | Название | Регулярка |   |
 |-------------------------------------------|----------|-----------|---|
-| `(?>pattern)`                             | Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала. | `(?>\d{{3}})\d`<br>Эта конструкция сначала пытается<br>сопоставить `\d{{3}}`, а затем `\d`.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад. | <span style="background-color: #999999; color: #FFFFFF">1234</span> |
-| `(?R)` или `(?0)`                         | Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя. | `\((?:[^()]+|(?R))*\)`<br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br>`re.error: unknown extension ?R at position 13` | <span style="background-color: #999999; color: #FFFFFF">(a(b)c)</span> |
+| `(?>pattern)`                             | Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала. | `(?>\d{{3}})\d`<br>Эта конструкция сначала пытается<br>сопоставить `\d{{3}}`, а затем `\d`.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад. | =={{background-color: #999999}}1234== |
+| `(?R)` или `(?0)`                         | Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя. | `\((?:[^()]+|(?R))*\)`<br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br>`re.error: unknown extension ?R at position 13` | =={{background-color: #999999}}(a(b)c)== |
 | `(?P<name1>pattern1|(?P<name2>pattern2))` | Условные выражения<br>с именованными группами |  | {conditional_expressions_with_named_groups} |
 
 
@@ -12117,6 +12669,8 @@ Person Object
 abc
 >>> print(atomic_group.search("abc"))  # Атомарная группа
 None
+>>> print(atomic_group.search("ac").group())
+ac
 ```
 
 
@@ -12152,11 +12706,19 @@ None
 
 
 """.format(
-                capture_group=to_table_code_py(
-                    're.compile(r"My name is (?P<name>\\w+)")\n'
+                unnamed_capture_group=to_table_code_py(
+                    'm = re.compile(r"0(123)4").match("01234")\n'
+                    'm.group(1)  # 123\n'
+                    'm[1]        # 123\n'
+                    'm.group(0)  # 01234\n'
+                    'm[0]        # 01234\n'
+                    'm.group()   # 01234'
+                ),
+                named_capture_group=to_table_code_py(
+                    'm = re.compile(r"My name is (?P<name>\\w+)") \\\n'
                     '.match("My name is John")\n'
-                    '.group("name")\n'
-                    "# John"
+                    'm.group("name")  # John\n'
+                    'm["name"]        # John'
                 ),
                 conditional_expressions_with_named_groups=to_table_code_py(
                     """
@@ -13078,8 +13640,7 @@ Shape является базовым классом, от которого на
 
 ```java
 public class Shape {
-    public double area ()
-    {
+    public double area () {
         return 0;   
     }
 }
@@ -17182,8 +17743,7 @@ nums2 = nums1;          // ошибка
 
 ```cpp
 #include <iostream>
-int main()
-{
+int main() {
     int numbers[4] = { 1,2,3,4 };
     int size = sizeof(numbers) / sizeof(numbers[0]);
     for (int i = 0; i < size; i++)
@@ -17196,8 +17756,7 @@ int main()
 
 ```cpp
 #include <iostream>
-int main()
-{
+int main() {
     int numbers[4] = { 1,2,3,4 };
     for (int number : numbers)              //(или можно спользовать auto number)
         std::cout << number << std::endl;
@@ -18042,8 +18601,7 @@ print(linalg.det(m))
 
 using namespace std;
 
-int main()
-{
+int main() {
     int rows = 3;
     int cols = 4;
     srand(time(NULL));
@@ -18356,6 +18914,7 @@ class Dict:
 |-------|----------|
 | Управляющие символы | [https://ru.wikipedia.org/wiki/Управляющие_символы](https://ru.wikipedia.org/wiki/Управляющие_символы) |
 | Каретная нотация    | [https://ru.wikipedia.org/wiki/Каретная_нотация](https://ru.wikipedia.org/wiki/Каретная_нотация)       |
+| Па́ттерны проектирования<br>Design Patterns | [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns) |
 
 # Downloads
 
@@ -18397,6 +18956,71 @@ class Dict:
     - ?s=query\\#anchor
     - \\#anchor
     - ?path&s=query\\#anchor
+-->
+""",
+        "Markdown": """
+
+&#x2a;&#x2a;Bold&#x2a;&#x2a; - **Bold**
+
+&#x5f;&#x5f;Italic&#x5f;&#x5f; - __Italic__
+
+&#x60;text&#x60; - `text`
+
+&#x7c;&#x7c;text&#x7c;&#x7c; - ||text||
+
+&#x7e;&#x7e;text&#x7e;&#x7e; - ~~text~~
+
+&#x3d;&#x3d;mark&#x3d;&#x3d; - ==mark==
+
+&#x3d;&#x3d;&#x7b;color:red;background-color:inherit;&#x7d;mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
+
+```pre
+code
+```
+
+````pre
+```pre
+code
+```
+````
+
+`````pre
+````pre
+```pre
+code
+```
+````
+`````
+
+```table
+| c1 | c2 |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+```
+
+| c1 | c2 |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+
+```table
+|    |    |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+```
+
+|    |    |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+
+<!--
+> blockquote
+>> blockquote
+>>> blockquote
+> blockquote
 -->
 """,
     },

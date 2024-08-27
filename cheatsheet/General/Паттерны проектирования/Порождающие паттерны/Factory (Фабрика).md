@@ -8,13 +8,16 @@
     <span class="k">def</span> <span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
+
 <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Driving an electric car&quot;</span>
 
+
 <span class="k">class</span> <span class="nc">PetrolCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Driving a petrol car&quot;</span>
+
 
 <span class="k">class</span> <span class="nc">CarFactory</span><span class="p">:</span>
     <span class="nd">@staticmethod</span>

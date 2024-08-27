@@ -63,9 +63,13 @@ function DisplayCheatSheet(vpath) {
     velement = document.querySelector(`[vpath="${vpath}"]`);
     if (!velement) {
         if (isFolderCheatSheet) {
-            element.scrollIntoView({block: "start"});
+            if (element) {
+                element.scrollIntoView({block: "start"});
+            }
             cheatsheet_buttons.scrollLeft -= 200;
-            return PutHtmlText(generateDirectoryLink(kpath));
+            PutHtmlText(generateDirectoryLink(kpath));
+            addArgumentToUrl(kpath+"/");
+            return
         }
         return PutHtmlText();
     }
@@ -184,18 +188,10 @@ function CopyCode(button_element) {
     let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text>Copied!</text>';
     let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text>';
 
-    if (typeof button_element.innerText != "undefined") {
-         button_element.innerHTML = html1; // IE8
-    } else {
-         button_element.textContent = html1; // Нормальные браузеры
-    }
+    button_element.innerHTML = html1;
 
     setTimeout(function() {
-        if (typeof button_element.innerText != "undefined") {
-             button_element.innerHTML = html2; // IE8
-        } else {
-             button_element.textContent = html2; // Нормальные браузеры
-        }
+        button_element.innerHTML = html2;
     }, 1000);
 }
 function DownloadCode(button_element, filename) {
@@ -213,18 +209,10 @@ function DownloadCode(button_element, filename) {
     let download_html = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text>'
     let downloaded_html = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><text>Download!</text>';
 
-    if (typeof button_element.innerText != "undefined") {
-         button_element.innerHTML = downloaded_html; // IE8
-    } else {
-         button_element.textContent = downloaded_html; // Нормальные браузеры
-    }
+    button_element.innerHTML = downloaded_html;
 
     setTimeout(function() {
-        if (typeof button_element.innerText != "undefined") {
-             button_element.innerHTML = download_html; // IE8
-        } else {
-             button_element.textContent = download_html; // Нормальные браузеры
-        }
+        button_element.innerHTML = download_html;
     }, 1000);
 }
 
@@ -233,6 +221,7 @@ function changeFontSize(action) {
     let currentSize = parseFloat(getComputedStyle(cheatsheet_field).fontSize);
 
     if (action === "+") {
+        if (currentSize > 100) return
         cheatsheet_field.style.fontSize = (currentSize + 2) + "px";
         currentSize += 2
     } else if (action === "-") {
@@ -244,11 +233,7 @@ function changeFontSize(action) {
         currentSize = 12
     }
 
-    if (typeof font_size_button.innerText != "undefined") {
-        font_size_button.innerText = currentSize + "px"; // IE8-
-    } else {
-        font_size_button.textContent = currentSize + "px"; // Нормальные браузеры
-    }
+    font_size_button.textContent = `${currentSize}px`;
 }
 
 /* Search */
@@ -358,11 +343,7 @@ function PutHtmlText(html) {
         html = '<img alt="404.png" src="404.png">';
     }
 
-    if (typeof cheatsheet_field.innerText != "undefined") {
-        cheatsheet_field.innerHTML = html; // IE8-
-    } else {
-        cheatsheet_field.textContent = html; // Нормальные браузеры
-    }
+    cheatsheet_field.innerHTML = html;
     cheatsheet_field.scrollTo(0, 0);
     processingCheatSheet();
 }
@@ -400,7 +381,7 @@ function GET(url) {
 /* Сгенерировать ссылки по директории */
 function generateDirectoryLink(kpath) {
     link_list = Array.from(
-        document.querySelector(`[kpath="${kpath}"]`).nextElementSibling.children
+        kpath !== "" ? document.querySelector(`[kpath="${kpath}"]`).nextElementSibling.children : Array.from(cheatsheet_buttons.children).slice(2)
     ).filter(element => {
         return element.tagName === "BUTTON";
     }).map(button => {
@@ -419,10 +400,12 @@ function generateDirectoryLink(kpath) {
     console.log(kpath);
     navigation = "";
     prev_path = getPathWithoutFilename(kpath);
-    if (prev_path) {
+    console.log(`prev_path "${prev_path}"`);
+    console.log(`kpath "${kpath}"`);
+    if (prev_path || kpath) {
         navigation = `<a target="_self" style="display: flex;align-items: center;" href="?${prev_path}/"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" viewBox="0 0 24 24">
 <path fill-rule="evenodd" d="M13.729 5.575c1.304-1.074 3.27-.146 3.27 1.544v9.762c0 1.69-1.966 2.618-3.27 1.544l-5.927-4.881a2 2 0 0 1 0-3.088l5.927-4.88Z" clip-rule="evenodd"/>
-</svg>${getPathFilename(prev_path)}</a><br>
+</svg>${prev_path || "/"}</a><br>
 `
     }
     return navigation + link_list.join("<br>"); // `"${kpath}"`
@@ -431,7 +414,20 @@ function generateDirectoryLink(kpath) {
 /* Markdown */
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
-        if (!a.target) {a.target="_blank";}
+        if (!a.target) {
+            a.target="_blank";
+        }
+    });
+    cheatsheet_field.querySelectorAll("thead").forEach(thead => {
+        if (thead.textContent.trim() == "") {
+            thead.remove();
+        }
+    });
+    cheatsheet_field.querySelectorAll("blockquote").forEach(blockquote => {
+        console.log(blockquote, blockquote.textContent.length);
+        if (blockquote.textContent.length > 100) {
+            blockquote.setAttribute("expandable", "")
+        }
     });
     h_elements = cheatsheet_field.querySelectorAll("h1, h2, h3, h4, h5, h6");
     h_elements.forEach(header => {
@@ -584,6 +580,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (arg !== "null") {
         console.log(`Argument found: "${arg}"`);
         DisplayCheatSheet(arg);
+        changeTitle(getPathFilename(arg))
     } else {
         PutHtmlText(getCheatSheet("README.html"));
     }
@@ -592,8 +589,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const anchor = getAnchor();
     if (anchor) {
         console.log(`Anchor found: "${anchor}"`);
-        anchor_element = document.getElementById(anchor)
-        if (anchor_element) anchor_element.scrollIntoView({block: "start"});
+        anchor_element = document.getElementById(anchor);
+        console.log(anchor_element);
+        console.log(anchor_element.scrollIntoView);
+        if (anchor_element) {
+            console.log(document.getElementById("chatgpt-promt"));
+            anchor_element.scrollIntoView({block: "start"});
+            setTimeout(function() {
+                anchor_element.scrollIntoView({block: "start"});
+            }, 500);
+        }
     }
 
     // Поиск
@@ -628,6 +633,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 saveSettings(settings);
                 performSearch();
             });
+        }
+    });
+
+    font_size_button.addEventListener("wheel", (event) => {
+        if (event.deltaY < 0) {
+            changeFontSize("+");
+        }
+        else if (event.deltaY > 0) {
+            changeFontSize("-");
         }
     });
 

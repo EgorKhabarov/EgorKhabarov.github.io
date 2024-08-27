@@ -142,6 +142,10 @@
 <td>Каретная нотация</td>
 <td><a href="https://ru.wikipedia.org/wiki/Каретная_нотация">https://ru.wikipedia.org/wiki/Каретная_нотация</a></td>
 </tr>
+<tr>
+<td>Па́ттерны проектирования<br>Design Patterns</td>
+<td><a href="https://ru.wikipedia.org/wiki/Design_Patterns">https://ru.wikipedia.org/wiki/Design_Patterns</a></td>
+</tr>
 </tbody>
 </table>
 <h1>Downloads</h1>

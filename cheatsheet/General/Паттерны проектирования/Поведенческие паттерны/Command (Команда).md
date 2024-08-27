@@ -1,0 +1,31 @@
+<h1>Command (Команда)</h1>
+<p><strong>Описание</strong>: Инкапсулирует запрос как объект, позволяя параметризовать объекты с различными запросами, ставить запросы в очередь или делать их отменяемыми.</p>
+<p><strong>Когда использовать</strong>: Когда нужно отделить вызов операции от объекта, который её выполняет, или когда требуется логировать, отменять и повторять операции.</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Command</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Light</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Light is on&quot;</span>
+
+<span class="k">class</span> <span class="nc">LightOnCommand</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_light</span> <span class="o">=</span> <span class="n">light</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">RemoteControl</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_command</span> <span class="o">=</span> <span class="n">command</span>
+
+    <span class="k">def</span> <span class="nf">press_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_command</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+
+<span class="n">light</span> <span class="o">=</span> <span class="n">Light</span><span class="p">()</span>
+<span class="n">command</span> <span class="o">=</span> <span class="n">LightOnCommand</span><span class="p">(</span><span class="n">light</span><span class="p">)</span>
+<span class="n">remote</span> <span class="o">=</span> <span class="n">RemoteControl</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">remote</span><span class="o">.</span><span class="n">press_button</span><span class="p">())</span>  <span class="c1"># Light is on</span>
+</pre></div></div></div>
