@@ -1,106 +1,106 @@
 <table>
 <thead>
 <tr>
-<th><strong>Синтаксис</strong></th>
-<th><strong>Описание</strong></th>
-<th><strong>Пример использования</strong></th>
+<th>Синтаксис</th>
+<th>Описание</th>
+<th>Пример использования</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>" "</td>
-<td>Поиск точного выражения</td>
-<td>"лучшие рестораны Москвы"</td>
+<td><code>""</code></td>
+<td>Поиск точного совпадения</td>
+<td><code>"лучшие рестораны Москвы"</code></td>
 </tr>
 <tr>
-<td>-</td>
+<td><code>-</code></td>
 <td>Исключение слова или фразы</td>
-<td>рецепты пасты -томат или -"томат"</td>
+<td><code>рецепты пасты -томат или -"томат"</code></td>
 </tr>
 <tr>
-<td>site:</td>
+<td><code>site:</code></td>
 <td>Поиск на определенном сайте</td>
-<td>вакансии site:example.com</td>
+<td><code>вакансии site:example.com</code></td>
 </tr>
 <tr>
-<td>intitle:</td>
+<td><code>intitle:</code></td>
 <td>Поиск слов в заголовках</td>
-<td>intitle:"как сделать сайт"</td>
+<td><code>intitle:"как сделать сайт"</code></td>
 </tr>
 <tr>
-<td>filetype:</td>
+<td><code>filetype:</code></td>
 <td>Поиск файлов определенного типа</td>
-<td>резюме filetype:pdf</td>
+<td><code>резюме filetype:pdf</code></td>
 </tr>
 <tr>
-<td>OR</td>
+<td><code>OR</code></td>
 <td>Поиск по нескольким вариантам слов или фраз</td>
-<td>"кошки" OR "собаки"</td>
+<td><code>"кошки" OR "собаки"</code></td>
 </tr>
 <tr>
-<td>*</td>
+<td><code>*</code></td>
 <td>Замена неизвестных или пропущенных слов</td>
-<td>"лучший * в мире"</td>
+<td><code>"лучший * в мире"</code></td>
 </tr>
 <tr>
-<td>..</td>
+<td><code>..</code></td>
 <td>Поиск в диапазоне чисел</td>
-<td>смартфоны $300..$500</td>
+<td><code>смартфоны $300..$500</code></td>
 </tr>
 <tr>
-<td>define:</td>
+<td><code>define:</code></td>
 <td>Быстрый поиск определения слова</td>
-<td>define:алгоритм</td>
+<td><code>define:алгоритм</code></td>
 </tr>
 <tr>
-<td>related:</td>
+<td><code>related:</code></td>
 <td>Поиск сайтов, похожих на указанный</td>
-<td>related:nytimes.com</td>
+<td><code>related:nytimes.com</code></td>
 </tr>
 <tr>
-<td>cache:</td>
+<td><code>cache:</code></td>
 <td>Просмотр кэша страницы</td>
-<td>cache:example.com</td>
+<td><code>cache:example.com</code></td>
 </tr>
 <tr>
-<td>inurl:</td>
+<td><code>inurl:</code></td>
 <td>Поиск слов в URL</td>
-<td>inurl:блог</td>
+<td><code>inurl:блог</code></td>
 </tr>
 <tr>
-<td>allintitle:</td>
+<td><code>allintitle:</code></td>
 <td>Поиск всех слов в заголовке</td>
-<td>allintitle:как создать блог</td>
+<td><code>allintitle:как создать блог</code></td>
 </tr>
 <tr>
-<td>around(X)</td>
+<td><code>around(X)</code></td>
 <td>Поиск слов, находящихся на расстоянии X слов друг от друга</td>
-<td>"искусственный интеллект" AROUND(5) "будущее"</td>
+<td><code>"искусственный интеллект" AROUND(5) "будущее"</code></td>
 </tr>
 <tr>
-<td>info:</td>
+<td><code>info:</code></td>
 <td>Поиск информации о сайте</td>
-<td>info:example.com</td>
+<td><code>info:example.com</code></td>
 </tr>
 <tr>
-<td>weather:</td>
+<td><code>weather:</code></td>
 <td>Поиск погоды в конкретном месте</td>
-<td>weather:Москва</td>
+<td><code>weather:Москва</code></td>
 </tr>
 <tr>
-<td>stocks:</td>
+<td><code>stocks:</code></td>
 <td>Поиск информации о котировках акций</td>
-<td>stocks:AAPL</td>
+<td><code>stocks:AAPL</code></td>
 </tr>
 <tr>
-<td>map:</td>
+<td><code>map:</code></td>
 <td>Поиск карты местности</td>
-<td>map:Париж</td>
+<td><code>map:Париж</code></td>
 </tr>
 <tr>
-<td>movie:</td>
+<td><code>movie:</code></td>
 <td>Поиск информации о фильмах</td>
-<td>movie:Inception</td>
+<td><code>movie:Inception</code></td>
 </tr>
 </tbody>
 </table>
