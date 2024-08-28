@@ -123,6 +123,10 @@
 <td>codepen.io</td>
 <td><a href="https://codepen.io/">https://codepen.io/</a></td>
 </tr>
+<tr>
+<td>svgrepo.com</td>
+<td><a href="https://www.svgrepo.com/">https://www.svgrepo.com/</a></td>
+</tr>
 </tbody>
 </table>
 <h1>General</h1>

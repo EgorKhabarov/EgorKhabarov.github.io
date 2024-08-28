@@ -149,7 +149,7 @@ def generate_index_html(cheatsheet_count: int, metadata: dict):
             <input type="checkbox" id="settings_search_show_full_path" style="width: 13px;height: 13px;">
             Показывать весь путь до шпаргалки<br><br>
             <h3 style="margin-top: 0px;margin-bottom: 6px;">CSS</h3>
-            <textarea id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings)" rows="4"></textarea>
+            <textarea id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings)" rows="7"></textarea>
             <button id="settings_reset_button">Reset</button>
             <button id="settings_ok_button">Ok</button>
         </div>
