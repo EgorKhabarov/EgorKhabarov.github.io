@@ -22,7 +22,6 @@ body {
 /* Контейнер с кнопками выбора темы */
 #cheatsheet_buttons {
   display: flex;
-  flex-direction: row;
   border: 0px solid;
   /*border-radius: 10px 0px 0px 10px;*/
   background-color: #191919;
