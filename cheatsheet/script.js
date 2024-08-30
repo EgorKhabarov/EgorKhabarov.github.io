@@ -451,6 +451,12 @@ function processingCheatSheet() {
         cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
         h_list = document.createElement("div");
         h_list.id = "h_list";
+
+        // pre_element = document.createElement("pre");
+        // pre_element.innerHTML = `<span style="color: rgb(255, 0, 0);">H1</span>&nbsp;<span class="h_list_sel"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg></span>`;
+        // pre_element.setAttribute("onclick", "cheatsheet_field.scrollTo(0, 0);");
+        // h_list.appendChild(pre_element);
+
         min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
 
         h_elements.forEach(header => {

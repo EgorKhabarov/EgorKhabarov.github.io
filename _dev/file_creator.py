@@ -72,7 +72,7 @@ def wikilink_func(match: re.Match) -> str:
 def to_markup(markdown_text: str):
     # WikiLinks
     highlighted_html = re.sub(
-        r"\[\[([^]]+)]]",
+        r"\[\[([^\n\]]+)]]",
         wikilink_func,
         markdown_text
     )
