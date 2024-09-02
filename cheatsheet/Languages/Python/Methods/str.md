@@ -153,7 +153,7 @@
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1231&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;_23_&quot;</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
-<td style="text-align: left;">str.split((sep=" ", maxsplit=-1))</td>
+<td style="text-align: left;">str.split(sep=" ", maxsplit=-1)</td>
 <td style="text-align: left;">Возвращает список подстрок,<br>разделенных по <code>sep</code> до <code>maxsplit</code> раз</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1 3&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span><br><span class="unselectable"><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
 </tr>

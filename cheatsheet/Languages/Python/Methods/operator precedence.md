@@ -49,15 +49,15 @@
 </tr>
 <tr>
 <td><code>&amp;</code></td>
-<td>Побитовое <b>И</b></td>
+<td>Побитовое <strong>И</strong></td>
 </tr>
 <tr>
 <td><code>^</code></td>
-<td>Побитовое <b>ИЛИ</b> <b>НЕ</b></td>
+<td>Побитовое <strong>ИЛИ</strong> <strong>НЕ</strong></td>
 </tr>
 <tr>
 <td><code>|</code></td>
-<td>Побитовое <b>ИЛИ</b></td>
+<td>Побитовое <strong>ИЛИ</strong></td>
 </tr>
 <tr>
 <td><code>in</code> <code>not in</code> <code>is</code> <code>is not</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;&gt;</code> <code>!=</code> <code>==</code></td>
@@ -65,15 +65,15 @@
 </tr>
 <tr>
 <td><code>not</code></td>
-<td>Булево <b>НЕ</b></td>
+<td>Булево <strong>НЕ</strong></td>
 </tr>
 <tr>
 <td><code>and</code></td>
-<td>Булево <b>И</b></td>
+<td>Булево <strong>И</strong></td>
 </tr>
 <tr>
 <td><code>or</code></td>
-<td>Булево <b>ИЛИ</b></td>
+<td>Булево <strong>ИЛИ</strong></td>
 </tr>
 <tr>
 <td><code>lambda</code></td>

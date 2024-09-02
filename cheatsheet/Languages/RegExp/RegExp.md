@@ -258,7 +258,7 @@
 <td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
 <td>Условные выражения<br>с именованными группами</td>
 <td></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1|&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1\&#x7c;&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div></td>
 </tr>
 </tbody>
 </table>
@@ -320,11 +320,10 @@
 </tr>
 </tbody>
 </table>
-<p>Группы-модификаторы можно объединять в одну группу: <code>(?i-sm)</code>.
-Такая группа включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>.
-Если использование модификаторов требуется только в пределах группы, то нужный шаблон
-указывается внутри группы после модификаторов и после двоеточия.
-Например, <b><code>(?-i)(?i:tv)set</code></b> найдёт <b><code>TVset</code></b>, но не <b><code>TVSET</code></b>.</p>
+<h3>Использование модификаторов</h3>
+<p>Можно объединять в одну группу: <code>(?i-sm)</code> (включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>)
+Если требуется только в пределах группы, то шаблон после двоеточия.
+Например, <code>(?-i)(?i:A)bc</code> найдёт <code>abc</code> и <code>Abc</code>, но не <code>ABC</code>.</p>
 <h1>Команды</h1>
 <table>
 <thead>

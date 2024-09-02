@@ -170,7 +170,7 @@ def set_unselectable(text: str, sep: str = "\n"):
 def to_table_code(lang: str, code: str):
     formatter = HtmlFormatter(style="default")
     lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = highlight(code, lexer, formatter).strip().replace("\n", "<br>")
+    highlighted_code = highlight(code, lexer, formatter).strip().replace("\n", "<br>").replace("|", "&#x7c;")
 
     if lang == "python" and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code:
         highlighted_code = set_unselectable(highlighted_code, "<br>")
