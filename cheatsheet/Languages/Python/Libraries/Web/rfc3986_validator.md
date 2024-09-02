@@ -16,7 +16,7 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com&quot;</span>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="n">validate</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>  <span class="c1"># Выводит True, если URL действителен</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_valid</span><span class="p">)</span>  <span class="c1"># True, если URL действителен</span>
 </pre></div></div></div>
 
 <p>get_host(url: str) -&gt; str:
@@ -25,7 +25,7 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com/path&quot;</span>
 <span class="n">host</span> <span class="o">=</span> <span class="n">get_host</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>  <span class="c1"># Выводит &quot;www.example.com&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>  <span class="c1"># &quot;www.example.com&quot;</span>
 </pre></div></div></div>
 
 <p>get_path(url: str) -&gt; str:
@@ -34,5 +34,5 @@ get_fragment(url: str) -&gt; str: Извлекает и возвращает ф�
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.example.com/path&quot;</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">get_path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># Выводит &quot;/path&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># &quot;/path&quot;</span>
 </pre></div></div></div>

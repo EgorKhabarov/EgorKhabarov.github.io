@@ -22,7 +22,7 @@ auto: Декоратор, который автоматически присва
     <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># Выводит &quot;RED&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># &quot;RED&quot;</span>
 </pre></div></div></div>
 
 <p>Enum.value: Возвращает значение элемента перечисления.</p>
@@ -33,7 +33,7 @@ auto: Декоратор, который автоматически присва
     <span class="n">GREEN</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">BLUE</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Выводит 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># 1</span>
 </pre></div></div></div>
 
 <p>Flag: Базовый класс для создания перечислений с битовыми флагами.</p>
@@ -45,5 +45,5 @@ auto: Декоратор, который автоматически присва
     <span class="n">EXECUTE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 
 <span class="n">user_permissions</span> <span class="o">=</span> <span class="n">Permissions</span><span class="o">.</span><span class="n">READ</span> <span class="o">|</span> <span class="n">Permissions</span><span class="o">.</span><span class="n">WRITE</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">user_permissions</span><span class="p">)</span>  <span class="c1"># Выводит &lt;Permissions.READ|WRITE: 3&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user_permissions</span><span class="p">)</span>  <span class="c1"># &lt;Permissions.READ|WRITE: 3&gt;</span>
 </pre></div></div></div>

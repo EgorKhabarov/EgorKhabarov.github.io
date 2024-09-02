@@ -160,7 +160,7 @@ td > code {background-color: #676767;color: #b8b8b8;}
 th > code {background-color: #676767;color: #b8b8b8;}
 
 code {
-  padding: 0.1em 0.3em 0.1em 0.3em;
+  padding: 0.1em 0.3em;
   overflow-y:auto;
   border-radius: 0.5em;
   background-color: #474747;
@@ -172,7 +172,7 @@ code:active {background-color: #373737;}
 
 blockquote {
   background-color: #525252;
-  padding: 0px 1em 0px 1em;
+  padding: 0px 1em;
   border-radius: 0.5em;
   margin-left: 0px;
   margin-right: auto;
@@ -271,7 +271,7 @@ hr {
 
 /* Код */
 .code {
-  padding: 1em 1em 1em 1em;
+  padding: 1em;
   background-color: #1B1B1B;
   border-radius: .0em .0em .375em .375em;
   background-color: #272727;
@@ -445,10 +445,8 @@ hr {
   max-height: 40%;
   max-width: 15rem;
   font-size: 1rem;
-  padding-top: 1em;
-  padding-left: 1em;
+  padding: 1em;
   padding-right: 2em;
-  padding-bottom: 1em;
   border-radius: 0.6rem;
   flex-direction: row;
   overflow-y: auto;

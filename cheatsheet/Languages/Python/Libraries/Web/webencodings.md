@@ -13,7 +13,7 @@ unquote(qstring, encoding="utf-8", errors="replace"): Декодирует ст�
 
 <span class="n">encoded_string</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82</span><span class="s2">&quot;</span>
 <span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: Привет</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Привет</span>
 </pre></div></div></div>
 
 <p>encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.</p>
@@ -21,7 +21,7 @@ unquote(qstring, encoding="utf-8", errors="replace"): Декодирует ст�
 
 <span class="n">decoded_string</span> <span class="o">=</span> <span class="s2">&quot;Привет&quot;</span>
 <span class="n">encoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82&quot;</span>
 </pre></div></div></div>
 
 <p>"htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace")": Декодирует строку "s" из HTML-entities в Unicode.</p>
@@ -29,7 +29,7 @@ unquote(qstring, encoding="utf-8", errors="replace"): Декодирует ст�
 
 <span class="n">html_string</span> <span class="o">=</span> <span class="s2">&quot;&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;&quot;</span>
 <span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">htmldecode</span><span class="p">(</span><span class="n">html_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: &lt;div&gt;Hello&lt;/div&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># &lt;div&gt;Hello&lt;/div&gt;</span>
 </pre></div></div></div>
 
 <p>"htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace")": Преобразует строку "s" в HTML-entities.</p>
@@ -37,7 +37,7 @@ unquote(qstring, encoding="utf-8", errors="replace"): Декодирует ст�
 
 <span class="n">plain_string</span> <span class="o">=</span> <span class="s2">&quot;&lt;div&gt;Hello&lt;/div&gt;&quot;</span>
 <span class="n">encoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">htmlencode</span><span class="p">(</span><span class="n">plain_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: &amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>  <span class="c1"># &amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</span>
 </pre></div></div></div>
 
 <p>unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.</p>
@@ -45,5 +45,5 @@ unquote(qstring, encoding="utf-8", errors="replace"): Декодирует ст�
 
 <span class="n">url_encoded_string</span> <span class="o">=</span> <span class="s2">&quot;Hello%20World%21&quot;</span>
 <span class="n">decoded_string</span> <span class="o">=</span> <span class="n">webencodings</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">url_encoded_string</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Выводит: Hello World!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>  <span class="c1"># Hello World!</span>
 </pre></div></div></div>

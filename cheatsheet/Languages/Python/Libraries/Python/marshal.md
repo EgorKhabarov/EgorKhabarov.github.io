@@ -20,7 +20,7 @@
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">marshal</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Вывод: {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}</span>
 </pre></div></div></div>
 
 <p><code>dumps(obj)</code> - Возвращает сериализованное представление объекта <code>obj</code> в виде строки.</p>
@@ -41,5 +41,5 @@
 <span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">marshal</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Вывод: {&quot;Hello!&quot;: {&quot;x&quot;: &quot;y&quot;, &quot;result&quot;: None, &quot;float&quot;: 0.0}}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># {&quot;Hello!&quot;: {&quot;x&quot;: &quot;y&quot;, &quot;result&quot;: None, &quot;float&quot;: 0.0}}</span>
 </pre></div></div></div>

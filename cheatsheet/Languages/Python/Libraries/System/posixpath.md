@@ -15,7 +15,7 @@
 
 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/home/user/example.txt&quot;</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">posixpath</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>  <span class="c1"># Выводит: example.txt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>  <span class="c1"># example.txt</span>
 </pre></div></div></div>
 
 <p><code>dirname(path)</code>: Возвращает имя директории из заданного пути.</p>
@@ -23,7 +23,7 @@
 
 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/home/user/example.txt&quot;</span>
 <span class="n">directory</span> <span class="o">=</span> <span class="n">posixpath</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>  <span class="c1"># Выводит: /home/user</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>  <span class="c1"># /home/user</span>
 </pre></div></div></div>
 
 <p><code>isabs(path)</code>: Проверяет, является ли заданный путь абсолютным.</p>
@@ -31,5 +31,5 @@
 
 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/home/user/example.txt&quot;</span>
 <span class="n">is_absolute</span> <span class="o">=</span> <span class="n">posixpath</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">is_absolute</span><span class="p">)</span>  <span class="c1"># Выводит: True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_absolute</span><span class="p">)</span>  <span class="c1"># True</span>
 </pre></div></div></div>

@@ -266,6 +266,9 @@
   "Languages/Python/Libraries/Python/abc.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/inspect.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/formatter.md": {
     "color": "green"
   },

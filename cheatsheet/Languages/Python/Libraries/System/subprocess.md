@@ -1,77 +1,224 @@
-<p>Библиотека subprocess в Python используется для запуска новых процессов, подключения к существующим процессам, 
-выполнения команд в командной строке и многого другого. 
-Вот несколько примеров использования этой библиотеки:</p>
-<p>Запуск команды в командной строке</p>
+<p>Библиотека <code>subprocess</code> в Python используется для запуска новых процессов, выполнения команд в системе,
+а также для управления стандартными потоками ввода, вывода и ошибок.
+Эта библиотека предоставляет мощный интерфейс для взаимодействия с внешними процессами.</p>
+<h1>Основные функции</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+<th>Пример использования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subprocess.run()</code></td>
+<td>Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта <code>CompletedProcess</code>.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.Popen()</code></td>
+<td>Запускает новый процесс и возвращает объект <code>Popen</code>,<br>который можно использовать для взаимодействия с процессом.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.call()</code></td>
+<td>Выполняет команду и возвращает код завершения процесса.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">return_code</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.check_call()</code></td>
+<td>Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.check_output()</code></td>
+<td>Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.getoutput()</code></td>
+<td>Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>subprocess.getstatusoutput()</code></td>
+<td>Выполняет команду и возвращает кортеж (код завершения, вывод).</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">status</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getstatusoutput</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2>Класс Popen</h2>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Описание</th>
+<th>Пример использования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Popen.poll()</code></td>
+<td>Проверяет завершился ли процесс.<br>Возвращает код завершения или <code>None</code>, если процесс ещё выполняется.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.wait()</code></td>
+<td>Ожидает завершения процесса и возвращает код завершения.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">return_code</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.communicate()</code></td>
+<td>Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.terminate()</code></td>
+<td>Посылает процессу сигнал <code>SIGTERM</code>, запрашивая его завершение.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.kill()</code></td>
+<td>Принудительно завершает процесс, посылая сигнал <code>SIGKILL</code>.</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.stdin</code></td>
+<td>Стандартный поток ввода процесса (если установлен <code>stdin=subprocess.PIPE</code>).</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;data&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.stdout</code></td>
+<td>Стандартный поток вывода процесса (если установлен <code>stdout=subprocess.PIPE</code>).</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+<tr>
+<td><code>Popen.stderr</code></td>
+<td>Стандартный поток ошибок процесса (если установлен <code>stderr=subprocess.PIPE</code>).</td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">error_output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+</tr>
+</tbody>
+</table>
+<h2>Управление потоками ввода-вывода</h2>
+<p>Пример взаимодействия с процессом через потоки ввода-вывода:</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;grep&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">],</span>
+    <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+<span class="p">)</span>
+
+<span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;text</span><span class="se">\n</span><span class="s2">pattern</span><span class="se">\n</span><span class="s2">another line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;pattern\n&quot;</span>
 </pre></div></div></div>
 
-<p>В этом примере мы использовали метод run для выполнения команды ls -l в командной строке. 
-Опция capture_output=True заставляет метод сохранять вывод команды, а опция text=True указывает, что мы ожидаем текстовый вывод.</p>
-<p>Запуск команды с переменными окружения</p>
+<h1>Примеры использования</h1>
+<h3>Простой запуск команды</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="n">env</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;MYVAR&quot;</span><span class="p">:</span> <span class="s2">&quot;myvalue&quot;</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;env&quot;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-<span class="n">В</span> <span class="n">этом</span> <span class="n">примере</span> <span class="n">мы</span> <span class="n">использовали</span> <span class="n">опцию</span> <span class="n">env</span> <span class="n">для</span> <span class="n">установки</span> <span class="n">переменной</span> <span class="n">окружения</span> <span class="n">MYVAR</span> 
-<span class="n">со</span> <span class="n">значением</span> <span class="n">myvalue</span> <span class="n">и</span> <span class="n">выполнения</span> <span class="n">команды</span> <span class="n">env</span><span class="p">,</span> <span class="n">которая</span> <span class="n">отображает</span> <span class="n">все</span> <span class="n">переменные</span> <span class="n">окружения</span><span class="o">.</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>
 </pre></div></div></div>
 
-<p>Запуск процесса в фоновом режиме</p>
+<h3>Получение вывода команды</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;myscript.py&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;Hello, World!\n&quot;</span>
 </pre></div></div></div>
 
-<p>Этот пример запускает скрипт myscript.py в фоновом режиме.</p>
-<p>Подключение к существующему процессу</p>
+<h3>Проверка кода завершения</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="s2">&quot;user@remotehost&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-
-<span class="n">stdin_data</span> <span class="o">=</span> <span class="s2">&quot;ls</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="n">process</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stdin_data</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-
-<span class="n">stdout_data</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stdout_data</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;false&quot;</span><span class="p">])</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Процесс завершился с ошибкой: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>Этот пример подключается к удаленному хосту по SSH и выполняет команду ls. 
-Мы используем метод write для передачи данных в стандартный ввод процесса, а метод readline для чтения данных из его стандартного вывода.</p>
-<p>Запуск команды с аргументами</p>
+<h3>Запуск процесса с передачей данных на ввод</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;example.txt&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;wc&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;cat&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Hello, World!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;Hello, World!\n&quot;</span>
 </pre></div></div></div>
 
-<p>В этом примере мы использовали метод run для выполнения команды wc -l example.txt в командной строке. 
-Мы передали аргументы команды в виде списка. </p>
-<p>Получение кода возврата команды</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;nonexistent&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
-</pre></div></div></div>
-
-<p>В этом примере мы попытались выполнить команду ls nonexistent, которая должна завершиться с ошибкой, 
-потому что файла nonexistent не существует. 
-Мы использовали атрибут returncode объекта CompletedProcess, 
-который содержит код возврата команды. 
-В данном случае он равен 1, что означает ошибку.</p>
-<p>Запуск команды с использованием shell</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;echo &quot;Hello, world!&quot;&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div></div></div>
-
-<p>В этом примере мы использовали опцию shell=True, чтобы выполнить команду echo "Hello, world!" через оболочку. 
-Результат выводится на экран.</p>
-<p>Запуск команды с заданием текущей директории</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="s2">&quot;/tmp&quot;</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-</pre></div></div></div>
-
-<p>В этом примере мы использовали опцию cwd для выполнения команды ls в директории /tmp. 
-Результат выводится на экран.</p>
+<h1>Исключения</h1>
+<table>
+<thead>
+<tr>
+<th>Исключение</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subprocess.CalledProcessError</code></td>
+<td>Вызывается, если процесс завершился с ненулевым кодом возврата.</td>
+</tr>
+<tr>
+<td><code>subprocess.TimeoutExpired</code></td>
+<td>Вызывается, если процесс не завершился в течение указанного времени (используется с <code>timeout</code>).</td>
+</tr>
+<tr>
+<td><code>subprocess.SubprocessError</code></td>
+<td>Базовое исключение для всех исключений, связанных с <code>subprocess</code>.</td>
+</tr>
+</tbody>
+</table>
+<h1>Полезные параметры</h1>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stdin</code></td>
+<td>Определяет источник стандартного ввода процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект).</td>
+</tr>
+<tr>
+<td><code>stdout</code></td>
+<td>Определяет место, куда будет направлен стандартный вывод процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект).</td>
+</tr>
+<tr>
+<td><code>stderr</code></td>
+<td>Определяет место, куда будет направлен стандартный поток ошибок процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект).</td>
+</tr>
+<tr>
+<td><code>shell</code></td>
+<td>Если <code>True</code>, команда будет выполнена через оболочку (shell). Будьте осторожны, так как это может быть небезопасно.</td>
+</tr>
+<tr>
+<td><code>cwd</code></td>
+<td>Устанавливает текущий рабочий каталог для процесса.</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>Определяет переменные окружения для процесса.</td>
+</tr>
+<tr>
+<td><code>universal_newlines</code></td>
+<td>Если <code>True</code>, ввод-вывод будет интерпретироваться как текст (строки), а не байты.</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>Определяет максимальное время ожидания завершения процесса, после чего будет вызвано исключение <code>TimeoutExpired</code>.</td>
+</tr>
+</tbody>
+</table>
+<h1>Советы по безопасности</h1>
+<ol>
+<li><strong>Избегайте использования <code>shell=True</code></strong>, особенно с данными, полученными от пользователя, так как это может привести к уязвимостям типа <code>shell injection</code>.</li>
+<li><strong>Используйте абсолютные пути</strong> к командам для повышения безопасности и предсказуемости поведения скрипта.</li>
+<li><strong>Управляйте таймаутами</strong> для долгих процессов с помощью параметра <code>timeout</code>.</li>
+</ol>
+<h1>Полезные ссылки</h1>
+<ul>
+<li><a href="https://docs.python.org/3/library/subprocess.html">Официальная документация</a></li>
+<li><a href="https://realpython.com/python-subprocess/">Real Python - Guide to Subprocess</a></li>
+</ul>

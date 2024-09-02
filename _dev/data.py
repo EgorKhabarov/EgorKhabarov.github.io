@@ -1939,9 +1939,79 @@ import os
 print([f.path for f in os.scandir("my_dir") if f.is_dir()])
 ```
 """,
-                    "sys": r'''
-sys.argv содержит список аргументов командной строки, переданных скрипту. 
-Первый элемент списка (sys.argv[0]) является именем скрипта:
+                    "sys": r"""
+Этот модуль предоставляет доступ к некоторым объектам, используемым или поддерживаемым
+интерпретатором, и к функциям, которые тесно взаимодействуют с интерпретатором.
+
+# Динамические объекты
+
+|                  |                                                                            |
+|------------------|----------------------------------------------------------------------------|
+| `argv`           | Аргументы командной строки<br>`argv[0]` — путь к скрипту, если он известен |
+| `path`           | Путь поиска модуля<br>`path[0]` — каталог скрипта, иначе `""`              |
+| `modules`        | Словарь загруженных модулей                                                |
+| `displayhook`    | Вызывается для отображения результатов в интерактивном сеансе              |
+| `excepthook`     | Вызывается для обработки любого неперехваченного исключения, отличного от `SystemExit`<br>Чтобы настроить печать в интерактивном сеансе или установить пользовательский<br>обработчик исключений верхнего уровня, назначьте другие функции для замены этих. |
+| `stdin`          | Стандартный объект входного файла<br>`input()`                             |
+| `stdout`         | Стандартный объект выходного файла<br>`print()`                            |
+| `stderr`         | Стандартный объект ошибки; используется для сообщений об ошибках<br>Назначая им другие объекты файлов (или объекты, которые ведут себя как файлы),<br>можно перенаправить весь ввод-вывод интерпретатора. |
+| `last_type`      | Тип последнего неперехваченного исключения                                 |
+| `last_value`     | Значение последнего неперехваченного исключения                            |
+| `last_traceback` | Трассировка последнего неперехваченного исключения<br>Эти три доступны только в интерактивном сеансе после того, как<br>трассировка была напечатана. |
+
+# Статические объекты
+
+|                                  |                                                                           |
+|----------------------------------|---------------------------------------------------------------------------|
+| `builtin_module_names`           | Кортеж имен модулей, встроенных в этот интерпретатор                      |
+| `copyright`                      | Уведомление об авторских правах, относящееся к этому интерпретатору       |
+| `exec_prefix`                    | Префикс, используемый для поиска машинно-специфической библиотеки Python  |
+| `executable`                     | Абсолютный путь к исполняемому двоичному файлу интерпретатора Python      |
+| `float_info`                     | Именованный кортеж с информацией о реализации `float`.                    |
+| `float_repr_style`               | Строка, указывающая стиль вывода `repr()` для `float`                     |
+| `hash_info`                      | Именованный кортеж с информацией о хеш-алгоритме.                         |
+| `hexversion`                     | Информация о версии, закодированная как одно целое число                  |
+| `implementation`                 | Информация о реализации Python.                                           |
+| `int_info`                       | Именованный кортеж с информацией о реализации `int`.                      |
+| `maxsize`                        | Наибольшая поддерживаемая длина контейнеров.                              |
+| `maxunicode`                     | Значение наибольшей кодовой точки `Unicode`                               |
+| `platform`                       | Идентификатор платформы                                                   |
+| `prefix`                         | Префикс, используемый для поиска библиотеки Python                        |
+| `thread_info`                    | Именованный кортеж с информацией о реализации потока.                     |
+| `version`                        | Версия этого интерпретатора в виде строки                                 |
+| `version_info`                   | Информация о версии в виде именованного кортежа                           |
+| `dllhandle`                      | **[только для Windows]** целочисленный дескриптор библиотеки `DLL Python` |
+| `winver`                         | **[только для Windows]** номер версии библиотеки `DLL Python`             |
+| `_enablelegacywindowsfsencoding` | **[только для Windows]**                                                  |
+| `__stdin__`                      | Исходный `stdin`<br>**не трогать!**                                       |
+| `__stdout__`                     | Исходный `stdout`<br>**не трогать!**                                      |
+| `__stderr__`                     | Исходный `stderr`<br>**не трогать!**                                      |
+| `__displayhook__`                | Исходный `displayhook`<br>**не трогать!**                                 |
+| `__excepthook__`                 | Исходный `excepthook`<br>**не трогать!**                                  |
+
+# Функции
+
+|                       |                                                                       |
+|-----------------------|-----------------------------------------------------------------------|
+| `displayhook()`       | Вывести объект на экран и сохранить его в `builtins._`                |
+| `excepthook()`        | Вывести исключение и его трассировку в `sys.stderr`                   |
+| `exception()`         | Вернуть активное исключение текущего потока                           |
+| `exc_info()`          | Вернуть информацию об активном исключении текущего потока             |
+| `exit()`              | Выйти из интерпретатора, вызвав `SystemExit`                          |
+| `getdlopenflags()`    | Вернуть флаги, которые будут использоваться для вызовов `dlopen()`    |
+| `getprofile()`        | Получить глобальную функцию профилирования                            |
+| `getrefcount()`       | Вернуть счетчик ссылок для объекта (плюс один :-)                     |
+| `getrecursionlimit()` | Вернуть максимальную глубину рекурсии для интерпретатора              |
+| `getsizeof()`         | Вернуть размер объекта в байтах                                       |
+| `gettrace()`          | Получить глобальную функцию трассировки отладки                       |
+| `setdlopenflags()`    | Установить флаги, которые будут использоваться для вызовов `dlopen()` |
+| `setprofile()`        | Установить глобальную функцию профилирования                          |
+| `setrecursionlimit()` | Установить макс. глубина рекурсии для интерпретатора                  |
+| `settrace()`          | Установить глобальную функцию трассировки отладки                     |
+
+## Примеры
+
+### argv
 
 ```python
 import sys
@@ -1953,23 +2023,7 @@ print(sys.argv[1])  # arg1
 print(sys.argv[2])  # arg2
 ```
 
-sys.exit() завершает выполнение программы. 
-Можно передать код возврата, который будет использован в качестве кода завершения:
-
-```python
-import sys
-
-# Завершаем программу с кодом 0
-sys.exit(0)
-
-# Завершаем программу с кодом ошибки 1
-sys.exit(1)
-```
-
-sys.stdin - стандартный поток ввода
-sys.stdout - стандартный поток вывода
-sys.stderr - стандартный поток ошибок. 
-Эти потоки могут быть перенаправлены в файлы или другие потоки ввода/вывода:
+### stdin, stdout, stderr
 
 ```python
 import sys
@@ -1984,7 +2038,7 @@ sys.stdout.write("Hello, world!\n")
 sys.stderr.write("Error occurred\n")
 ```
 
-sys.platform содержит строку, которая идентифицирует операционную систему, на которой запущена программа:
+### platform
 
 ```python
 import sys
@@ -1997,26 +2051,19 @@ elif sys.platform == "darwin":
     print("MacOS")
 ```
 
-sys.getsizeof() возвращает размер объекта в байтах:
+### getsizeof
 
 ```python
 import sys
 
 a = [1, 2, 3]
-print(sys.getsizeof(a))  # 88
+print(sys.getsizeof(a))  # 88 размер объекта в байтах
 ```
-
-
-
-
-sys.path содержит список путей, в которых Python ищет модули:
 
 ```python
 import sys
 
 print(sys.path)
-
-"""
 [
     "", 
     "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip", 
@@ -2025,143 +2072,7 @@ print(sys.path)
     "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311", 
     "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages"
 ]
-"""
 ```
-
-sys.getdefaultencoding() возвращает кодировку по умолчанию, используемую для строк в Python:
-
-```python
-import sys
-
-print(sys.getdefaultencoding())  # utf-8
-```
-
-sys.getfilesystemencoding() возвращает кодировку, используемую файловой системой:
-
-```python
-import sys
-
-print(sys.getfilesystemencoding())  # utf-8
-```
-
-sys.getwindowsversion() возвращает информацию о версии Windows, если программа запущена в Windows:
-
-```python
-import sys
-
-if sys.platform == "win32":
-    print(sys.getwindowsversion())
-
-"""sys.getwindowsversion(major=10, minor=0, build=19044, platform=2, service_pack="")"""
-```
-
-sys.version содержит строку, которая содержит информацию о версии Python:
-
-```python
-import sys
-
-print(sys.version)
-
-"""3.11.2 (tags/v3.11.2:878ead1, Feb  7 2023, 16:38:35) [MSC v.1934 64 bit (AMD64)]"""
-```
-
-sys.modules содержит словарь, содержащий все импортированные модули:
-
-```python
-import sys
-import math
-
-print(sys.modules["math"])  # <module 'math' (built-in)>
-```
-
-
-
-
-
-
-
-
-
-
-
-
-sys.maxsize содержит максимальное значение целого числа, которое может быть использовано в Python:
-
-```python
-import sys
-
-print(sys.maxsize)  # 9223372036854775807
-```
-
-sys.float_info содержит информацию о типе float в Python:
-
-```python
-import sys
-
-print(sys.float_info)
-
-"""sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)"""
-```
-
-sys.stdin.isatty(), sys.stdout.isatty(), sys.stderr.isatty()
-sys.stdin.isatty(), sys.stdout.isatty(), и sys.stderr.isatty() возвращают True, 
-если соответствующий поток является терминальным устройством (tty):
-
-```python
-import sys
-
-if sys.stdin.isatty():
-    print("stdin is a tty")
-else:
-    print("stdin is not a tty")
-
-if sys.stdout.isatty():
-    print("stdout is a tty")
-else:
-    print("stdout is not a tty")
-
-if sys.stderr.isatty():
-    print("stderr is a tty")
-else:
-    print("stderr is not a tty")
-```
-
-sys.getrecursionlimit() возвращает текущий предел рекурсии Python. sys.setrecursionlimit() устанавливает предел рекурсии Python:
-
-```python
-import sys
-
-print(sys.getrecursionlimit())  # 1000
-
-sys.setrecursionlimit(3000)
-```
-
-sys.settrace() устанавливает функцию обратного вызова для отслеживания исполнения кода Python:
-
-```python
-import sys
-
-def trace_calls(frame, event, arg):
-    if event == "call":
-        print(frame.f_code.co_name)
-
-    return trace_calls
-
-sys.settrace(trace_calls)
-
-def my_function():
-    print("Hello, world!")
-
-my_function()
-
-sys.settrace(None)
-```
-
-
-
-
-
-sys.exc_info() возвращает кортеж из трех значений, представляющих текущее исключение, если оно присутствует:
 
 ```python
 import sys
@@ -2173,114 +2084,144 @@ def divide(x, y):
         print(sys.exc_info())
 
 divide(1, 0)
+# (<class "ZeroDivisionError">, ZeroDivisionError("division by zero"), <traceback object>)
 ```
-''',
-                    "subprocess": r"""
-Библиотека subprocess в Python используется для запуска новых процессов, подключения к существующим процессам, 
-выполнения команд в командной строке и многого другого. 
-Вот несколько примеров использования этой библиотеки:
-
-Запуск команды в командной строке
-
-```python
-import subprocess
-
-print(subprocess.run(["ls", "-l"], capture_output=True, text=True).stdout)
-```
-
-В этом примере мы использовали метод run для выполнения команды ls -l в командной строке. 
-Опция capture_output=True заставляет метод сохранять вывод команды, а опция text=True указывает, что мы ожидаем текстовый вывод.
-
-Запуск команды с переменными окружения
-
-```python
-import subprocess
-
-env = {"MYVAR": "myvalue"}
-print(subprocess.run(["env"], env=env, capture_output=True, text=True).stdout)
-В этом примере мы использовали опцию env для установки переменной окружения MYVAR 
-со значением myvalue и выполнения команды env, которая отображает все переменные окружения.
-```
-
-Запуск процесса в фоновом режиме
-
-```python
-import subprocess
-
-subprocess.Popen(["python", "myscript.py"])
-```
-
-Этот пример запускает скрипт myscript.py в фоновом режиме.
-
-Подключение к существующему процессу
-
-```python
-import subprocess
-
-process = subprocess.Popen(["ssh", "user@remotehost"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-
-stdin_data = "ls\n"
-process.stdin.write(stdin_data.encode())
-
-stdout_data = process.stdout.readline()
-print(stdout_data)
-```
-
-Этот пример подключается к удаленному хосту по SSH и выполняет команду ls. 
-Мы используем метод write для передачи данных в стандартный ввод процесса, а метод readline для чтения данных из его стандартного вывода.
-
-
-
-
-
-Запуск команды с аргументами
-
-```python
-import subprocess
-
-filename = "example.txt"
-print(subprocess.run(["wc", "-l", filename], capture_output=True, text=True).stdout)
-```
-
-В этом примере мы использовали метод run для выполнения команды wc -l example.txt в командной строке. 
-Мы передали аргументы команды в виде списка. 
-
-Получение кода возврата команды
-
-```python
-import subprocess
-
-print(subprocess.run(["ls", "nonexistent"], capture_output=True, text=True).returncode)
-```
-
-В этом примере мы попытались выполнить команду ls nonexistent, которая должна завершиться с ошибкой, 
-потому что файла nonexistent не существует. 
-Мы использовали атрибут returncode объекта CompletedProcess, 
-который содержит код возврата команды. 
-В данном случае он равен 1, что означает ошибку.
-
-Запуск команды с использованием shell
-
-```python
-import subprocess
-
-print(subprocess.run('echo "Hello, world!"', shell=True, capture_output=True, text=True).stdout)
-```
-
-В этом примере мы использовали опцию shell=True, чтобы выполнить команду echo "Hello, world!" через оболочку. 
-Результат выводится на экран.
-
-Запуск команды с заданием текущей директории
-
-```python
-import subprocess
-
-print(subprocess.run(["ls"], cwd="/tmp", capture_output=True, text=True).stdout)
-```
-
-В этом примере мы использовали опцию cwd для выполнения команды ls в директории /tmp. 
-Результат выводится на экран.
 """,
+                    "subprocess": r"""
+Библиотека `subprocess` в Python используется для запуска новых процессов, выполнения команд в системе,
+а также для управления стандартными потоками ввода, вывода и ошибок.
+Эта библиотека предоставляет мощный интерфейс для взаимодействия с внешними процессами.
+
+# Основные функции
+
+| Функция                        | Описание                                                                                                           | Пример использования         |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------|------------------------------|
+| `subprocess.run()`             | Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта `CompletedProcess`.        | {subprocess_run}             |
+| `subprocess.Popen()`           | Запускает новый процесс и возвращает объект `Popen`,<br>который можно использовать для взаимодействия с процессом. | {subprocess_Popen}           |
+| `subprocess.call()`            | Выполняет команду и возвращает код завершения процесса.                                                            | {subprocess_call}            |
+| `subprocess.check_call()`      | Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой.                                     | {subprocess_check_call}      |
+| `subprocess.check_output()`    | Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение.              | {subprocess_check_output}    |
+| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия. | {subprocess_getoutput}       |
+| `subprocess.getstatusoutput()` | Выполняет команду и возвращает кортеж (код завершения, вывод).                                                     | {subprocess_getstatusoutput} |
+
+## Класс Popen
+
+| Метод                 | Описание                                                                                                    | Пример использования |
+|-----------------------|-------------------------------------------------------------------------------------------------------------|----------------------|
+| `Popen.poll()`        | Проверяет завершился ли процесс.<br>Возвращает код завершения или `None`, если процесс ещё выполняется.     | {popen_poll}         |
+| `Popen.wait()`        | Ожидает завершения процесса и возвращает код завершения.                                                    | {popen_wait}         |
+| `Popen.communicate()` | Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок. | {popen_communicate}  |
+| `Popen.terminate()`   | Посылает процессу сигнал `SIGTERM`, запрашивая его завершение.                                              | {popen_terminate}    |
+| `Popen.kill()`        | Принудительно завершает процесс, посылая сигнал `SIGKILL`.                                                  | {popen_kill}         |
+| `Popen.stdin`         | Стандартный поток ввода процесса (если установлен `stdin=subprocess.PIPE`).                                 | {popen_stdin}        |
+| `Popen.stdout`        | Стандартный поток вывода процесса (если установлен `stdout=subprocess.PIPE`).                               | {popen_stdout}       |
+| `Popen.stderr`        | Стандартный поток ошибок процесса (если установлен `stderr=subprocess.PIPE`).                               | {popen_stderr}       |
+
+## Управление потоками ввода-вывода
+
+Пример взаимодействия с процессом через потоки ввода-вывода:
+
+```python
+import subprocess
+
+process = subprocess.Popen(
+    ["grep", "pattern"],
+    stdin=subprocess.PIPE,
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE
+)
+
+stdout, stderr = process.communicate(input=b"text\npattern\nanother line\n")
+print(stdout.decode())  # "pattern\n"
+```
+
+# Примеры использования
+
+### Простой запуск команды
+```python
+import subprocess
+
+subprocess.run(["ls", "-l"])
+```
+
+### Получение вывода команды
+```python
+import subprocess
+
+print(subprocess.check_output(["echo", "Hello, World!"]).decode())  # "Hello, World!\n"
+```
+
+### Проверка кода завершения
+```python
+import subprocess
+
+try:
+  subprocess.check_call(["false"])
+except subprocess.CalledProcessError as e:
+  print(f"Процесс завершился с ошибкой: {{e.returncode}}")
+```
+
+### Запуск процесса с передачей данных на ввод
+```python
+import subprocess
+
+process = subprocess.Popen(["cat"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+stdout, _ = process.communicate(input=b"Hello, World!\n")
+print(stdout.decode())  # "Hello, World!\n"
+```
+
+# Исключения
+
+| Исключение                      | Описание                                                                                        |
+|---------------------------------|-------------------------------------------------------------------------------------------------|
+| `subprocess.CalledProcessError` | Вызывается, если процесс завершился с ненулевым кодом возврата.                                 |
+| `subprocess.TimeoutExpired`     | Вызывается, если процесс не завершился в течение указанного времени (используется с `timeout`). |
+| `subprocess.SubprocessError`    | Базовое исключение для всех исключений, связанных с `subprocess`.                               |
+
+# Полезные параметры
+
+| Параметр             | Описание                                                                                                                             |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `stdin`              | Определяет источник стандартного ввода процесса (например, `subprocess.PIPE`, `None`, или файловый объект).                          |
+| `stdout`             | Определяет место, куда будет направлен стандартный вывод процесса (например, `subprocess.PIPE`, `None`, или файловый объект).        |
+| `stderr`             | Определяет место, куда будет направлен стандартный поток ошибок процесса (например, `subprocess.PIPE`, `None`, или файловый объект). |
+| `shell`              | Если `True`, команда будет выполнена через оболочку (shell). Будьте осторожны, так как это может быть небезопасно.                   |
+| `cwd`                | Устанавливает текущий рабочий каталог для процесса.                                                                                  |
+| `env`                | Определяет переменные окружения для процесса.                                                                                        |
+| `universal_newlines` | Если `True`, ввод-вывод будет интерпретироваться как текст (строки), а не байты.                                                     |
+| `timeout`            | Определяет максимальное время ожидания завершения процесса, после чего будет вызвано исключение `TimeoutExpired`.                    |
+
+# Советы по безопасности
+
+1. **Избегайте использования `shell=True`**, особенно с данными, полученными от пользователя, так как это может привести к уязвимостям типа `shell injection`.
+2. **Используйте абсолютные пути** к командам для повышения безопасности и предсказуемости поведения скрипта.
+3. **Управляйте таймаутами** для долгих процессов с помощью параметра `timeout`.
+
+# Полезные ссылки
+
+- [Официальная документация](https://docs.python.org/3/library/subprocess.html)
+- [Real Python - Guide to Subprocess](https://realpython.com/python-subprocess/)
+
+""".format(
+                        subprocess_run=to_table_code_py('result = subprocess.run(["ls", "-l"])'),
+                        subprocess_Popen=to_table_code_py('process = subprocess.Popen(["ls", "-l"])'),
+                        subprocess_call=to_table_code_py('return_code = subprocess.call(["ls", "-l"])'),
+                        subprocess_check_call=to_table_code_py('subprocess.check_call(["ls", "-l"])'),
+                        subprocess_check_output=to_table_code_py('output = subprocess.check_output(["ls", "-l"])'),
+                        subprocess_getoutput=to_table_code_py('output = subprocess.getoutput("ls -l")'),
+                        subprocess_getstatusoutput=to_table_code_py(
+                            'status, output = subprocess.getstatusoutput("ls -l")'
+                        ),
+                        popen_poll=to_table_code_py("status = process.poll()"),
+                        popen_wait=to_table_code_py("return_code = process.wait()"),
+                        popen_communicate=to_table_code_py("stdout, stderr = process.communicate(input_data)"),
+                        popen_terminate=to_table_code_py("process.terminate()"),
+                        popen_kill=to_table_code_py("process.kill()"),
+                        popen_stdin=to_table_code_py('process.stdin.write(b"data")'),
+                        popen_stdout=to_table_code_py("output = process.stdout.read()"),
+                        popen_stderr=to_table_code_py("error_output = process.stderr.read()"),
+
+                    ),
                     "multiprocessing": r"""
 Библиотека "multiprocessing" используется в Python для поддержки параллельного выполнения кода, основанного на процессах.
 Она предоставляет возможность создания и управления процессами, а также обмена данными между ними.
@@ -2434,23 +2375,103 @@ if keyboard.is_pressed("A"):  # Проверка, нажата ли клавиш
 ```
 """,
                     "fnmatch": r"""
-Библиотека "fnmatch" используется в Python для сопоставления и фильтрации строк с использованием шаблонов, основанных на грамматике восходящих преобразований.
-Вот таблица методов модуля "fnmatch" и их краткие описания:
+Библиотека `fnmatch` в Python используется для работы с шаблонами файловых имен, основанными на Unix shell-подобном синтаксисе.
+Она позволяет легко сопоставлять строки с шаблонами, которые включают такие символы, как `*`, `?`, и `[]`.
 
-Метод                     | Описание
--------------------------|-------------------------------------
-fnmatch(name, pattern)   | Сопоставляет имя файла с заданным шаблоном.
-filter(names, pattern)   | Фильтрует список имен файлов, оставляя только те, которые соответствуют заданному шаблону.
-translate(pattern)       | Преобразует заданный шаблон во внутренний формат, используемый для сопоставления.
+# Основные функции и их описание
 
-Вот список наиболее часто используемых методов "fnmatch", их краткое описание и небольшой код, демонстрирующий их работу:
+| Функция                 | Описание                                                                                                         | Пример использования  |
+|-------------------------|------------------------------------------------------------------------------------------------------------------|-----------------------|
+| `fnmatch.fnmatch()`     | Сопоставляет строку с шаблоном.<br>Регистро**зависимо** на Unix и регистро**независимо** на Windows.             | {fnmatch_fnmatch}     |
+| `fnmatch.fnmatchcase()` | Сопоставляет строку с шаблоном с учетом регистра на всех платформах.                                             | {fnmatch_fnmatchcase} |
+| `fnmatch.filter()`      | Фильтрует список строк, оставляя только те, которые соответствуют шаблону.                                       | {fnmatch_filter}      |
+| `fnmatch.translate()`   | Преобразует шаблон в регулярное выражение,<br>которое можно использовать с `re` для более сложных сопоставлений. | {fnmatch_translate}   |
 
-Метод                  | Описание                                | Пример использования
------------------------|-----------------------------------------|--------------------------------------
-fnmatch(name, pattern) | Сопоставляет имя файла с шаблоном.      | fnmatch("example.txt", "*.txt")  # True
-filter(names, pattern) | Фильтрует список имен файлов.           | filter(["file1.txt", "file2.py"], "*.txt")  # ["file1.txt"]
-translate(pattern)     | Преобразует шаблон во внутренний формат.| translate("*.txt")  # "[A-Za-z0-9]+\.txt$"
-""",
+# Специальные символы в шаблонах
+
+| Символ    | Описание                                                                                                                                  | Пример                                                              |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| `*`       | Соответствует любой строке (включая пустую).                                                                                              | `"*.txt"` соответствует `"file.txt"` и `"a.txt"`                    |
+| `?`       | Соответствует любому одному символу.                                                                                                      | `"file?.txt"` соответствует `"file1.txt"`, но не `"file12.txt"`     |
+| `[seq]`   | Соответствует любому символу из `seq`.<br>Например, `[abc]` соответствует `a`, `b`, или `c`.                                              | `"file[0-9].txt"` соответствует `"file1.txt"`, но не `"file12.txt"` |
+| `[!seq]`  | Соответствует любому символу, который **не** входит в `seq`.<br>Например, `[!abc]` соответствует любому символу, кроме `a`, `b`, или `c`. | `"file[!0-9].txt"` соответствует `"fileA.txt"`, но не `"file1.txt"` |
+
+# Примеры использования
+
+### Сопоставление строки с шаблоном
+```python
+import fnmatch
+
+print(fnmatch.fnmatch("data.csv", "*.csv"))  # True
+print(fnmatch.fnmatch("data.txt", "*.csv"))  # False
+```
+
+### Сопоставление с учетом регистра
+```python
+import fnmatch
+
+print(fnmatch.fnmatchcase("Data.CSV", "*.csv"))  # False
+print(fnmatch.fnmatchcase("Data.CSV", "*.CSV"))  # True
+```
+
+### Фильтрация списка файлов
+```python
+import fnmatch
+
+files = ["data1.csv", "data2.txt", "data3.csv"]
+csv_files = fnmatch.filter(files, "*.csv")
+print(csv_files)  # ["data1.csv", "data3.csv"]
+```
+
+### Использование с регулярными выражениями
+```python
+import fnmatch
+import re
+
+pattern = fnmatch.translate("*.txt")
+print(pattern)  # (?s:.*\.txt)\Z
+
+regex = re.compile(pattern)
+print(regex.match("file.txt"))  # <re.Match object; span=(0, 8), match='file.txt'>
+print(regex.match("file.csv"))  # None
+```
+
+## Примечания
+
+- На Unix-системах функции `fnmatch()` и `fnmatchcase()` работают **с учетом регистра**, а на Windows они **регистронезависимы**.
+Однако `fnmatchcase()` **всегда учитывает регистр**, независимо от платформы.
+- Используйте `fnmatch.translate()` для сложных сопоставлений, которые требуют регулярных выражений.
+
+# Полезные примеры
+
+### Сопоставление с шаблоном для нескольких расширений
+```python
+import fnmatch
+
+files = ["report.doc", "data.csv", "image.png", "script.py"]
+docs = fnmatch.filter(files, "*.[dc][so][cv]")
+print(docs)  # ["report.doc", "data.csv"]
+```
+
+### Фильтрация скрытых файлов (начинающихся с точки)
+```python
+import fnmatch
+
+files = [".bashrc", "data.csv", ".gitignore", "script.py"]
+hidden_files = fnmatch.filter(files, ".*")
+print(hidden_files)  # [".bashrc", ".gitignore"]
+```
+
+# Полезные ссылки
+
+- [Официальная документация](https://docs.python.org/3/library/fnmatch.html)
+- [Real Python - Guide to Filename Matching](https://realpython.com/lessons/filename-matching/)
+""".format(
+                        fnmatch_fnmatch=to_table_code_py('fnmatch.fnmatch("foo.txt", "*.txt")'),
+                        fnmatch_fnmatchcase=to_table_code_py('fnmatch.fnmatchcase("Foo.txt", "*.TXT")'),
+                        fnmatch_filter=to_table_code_py('fnmatch.filter(["foo.txt", "bar.py"], "*.txt")'),
+                        fnmatch_translate=to_table_code_py('pattern = fnmatch.translate("*.txt")'),
+                    ),
                     "resource": r"""
 Библиотека "resource" в Python используется для доступа и управления системными ресурсами, такими как время CPU, память и дескрипторы файлов.
 
@@ -2774,7 +2795,7 @@ import posixpath
 
 path = "/home/user/example.txt"
 filename = posixpath.basename(path)
-print(filename)  # Выводит: example.txt
+print(filename)  # example.txt
 ```
 
 `dirname(path)`: Возвращает имя директории из заданного пути.
@@ -2784,7 +2805,7 @@ import posixpath
 
 path = "/home/user/example.txt"
 directory = posixpath.dirname(path)
-print(directory)  # Выводит: /home/user
+print(directory)  # /home/user
 ```
 
 `isabs(path)`: Проверяет, является ли заданный путь абсолютным.
@@ -2794,7 +2815,7 @@ import posixpath
 
 path = "/home/user/example.txt"
 is_absolute = posixpath.isabs(path)
-print(is_absolute)  # Выводит: True
+print(is_absolute)  # True
 ```
 """,
                     "genericpath": r"""
@@ -3479,7 +3500,7 @@ print(json_obj)  # {"age": 30}
 q = Queue()
 q.put(1)
 q.put(2)
-print(q.qsize())  # Вывод: 2
+print(q.qsize())  # 2
 ```
 
 **get()** Удаляет и возвращает первый элемент из очереди.
@@ -3488,14 +3509,14 @@ print(q.qsize())  # Вывод: 2
 q = Queue()
 q.put(1)
 q.put(2)
-print(q.get())  # Вывод: 1
+print(q.get())  # 1
 ```
 
 **empty()** Проверяет, пуста ли очередь.
 
 ```python
 q = Queue()
-print(q.empty())  # Вывод: True
+print(q.empty())  # True
 ```
 """,
                     "enum": r"""
@@ -3531,7 +3552,7 @@ class Color(Enum):
     GREEN = 2
     BLUE = 3
 
-print(Color.RED.name)  # Выводит "RED"
+print(Color.RED.name)  # "RED"
 ```
 
 Enum.value: Возвращает значение элемента перечисления.
@@ -3543,7 +3564,7 @@ class Color(Enum):
     GREEN = 2
     BLUE = 3
 
-print(Color.RED.value)  # Выводит 1
+print(Color.RED.value)  # 1
 ```
 
 Flag: Базовый класс для создания перечислений с битовыми флагами.
@@ -3556,7 +3577,7 @@ class Permissions(Flag):
     EXECUTE = auto()
 
 user_permissions = Permissions.READ | Permissions.WRITE
-print(user_permissions)  # Выводит <Permissions.READ|WRITE: 3>
+print(user_permissions)  # <Permissions.READ|WRITE: 3>
 ```
 """,
                     "heapq": r"""
@@ -3878,19 +3899,19 @@ from fractions import Fraction
 from fractions import Fraction
 
 # создание дроби с помощью числителя и знаменателя
-print(Fraction(3, 4))    # вывод: 3/4
+print(Fraction(3, 4))    # 3/4
 
 # создание дроби из вещественного числа
-print(Fraction(0.5))    # вывод: 1/2
+print(Fraction(0.5))    # 1/2
 
 # арифметические операции с дробями
-print(Fraction(1, 4) + Fraction(1, 2))    # вывод: 3/4
+print(Fraction(1, 4) + Fraction(1, 2))    # 3/4
 
 # конвертирование дроби в вещественное число
-print(float(Fraction(3, 4)))    # вывод: 0.75
+print(float(Fraction(3, 4)))    # 0.75
 
 # конвертирование дроби в строку
-print(str(Fraction(3, 4)))    # вывод: "3/4"
+print(str(Fraction(3, 4)))    # "3/4"
 ```
 
 Класс Fraction может быть полезен в тех случаях, когда требуется более точный 
@@ -3910,7 +3931,7 @@ Fraction
 ```python
 from fractions import Fraction
 
-print(Fraction(3, 4) + Fraction(1, 2))  # выводит 5/4
+print(Fraction(3, 4) + Fraction(1, 2))  # 5/4
 ```
 
 gcd
@@ -3920,7 +3941,7 @@ gcd
 ```python
 from fractions import gcd
 
-print(gcd(6, 9))  # выводит 3
+print(gcd(6, 9))  # 3
 ```
 
 lcm
@@ -3929,7 +3950,7 @@ lcm
 ```python
 from fractions import lcm
 
-print(lcm(6, 9))  # выводит 18
+print(lcm(6, 9))  # 18
 ```
 
 limit_denominator
@@ -3939,7 +3960,7 @@ limit_denominator
 ```python
 from fractions import Fraction
 
-print(Fraction(7, 12).limit_denominator(5))  # выводит 3/5
+print(Fraction(7, 12).limit_denominator(5))  # 3/5
 ```
 
 Fraction.from_float
@@ -3949,7 +3970,7 @@ Fraction.from_float
 ```python
 from fractions import Fraction
 
-print(Fraction.from_float(0.5))  # выводит 1/2
+print(Fraction.from_float(0.5))  # 1/2
 ```
 
 Fraction.from_decimal
@@ -3958,7 +3979,7 @@ Fraction.from_decimal
 ```python
 from fractions import Fraction
 
-print(Fraction.from_decimal("0.75"))  # выводит 3/4
+print(Fraction.from_decimal("0.75"))  # 3/4
 ```
 
 is_integer
@@ -3967,8 +3988,8 @@ is_integer
 ```python
 from fractions import Fraction
 
-print(Fraction(3, 2).is_integer())  # выводит False
-print(Fraction(6, 4).is_integer())  # выводит True
+print(Fraction(3, 2).is_integer())  # False
+print(Fraction(6, 4).is_integer())  # True
 ```
 
 Fraction.as_integer_ratio
@@ -3978,7 +3999,7 @@ Fraction.as_integer_ratio
 ```python
 from fractions import Fraction
 
-print(Fraction(5, 15).as_integer_ratio())  # выводит (1, 3)
+print(Fraction(5, 15).as_integer_ratio())  # (1, 3)
 ```
 
 Fraction.from_ratio
@@ -3987,7 +4008,7 @@ Fraction.from_ratio
 ```python
 from fractions import Fraction
 
-print(Fraction.from_ratio(5, 15))  # выводит 1/3
+print(Fraction.from_ratio(5, 15))  # 1/3
 ```
 
 Fraction.limit_denominator(max_denominator=1000000): 
@@ -3998,7 +4019,7 @@ Fraction.limit_denominator(max_denominator=1000000):
 ```python
 from fractions import Fraction
 
-print(Fraction(3, 4).limit_denominator(10))  # выводит 1/1
+print(Fraction(3, 4).limit_denominator(10))  # 1/1
 ```
 
 Fraction.from_jedec
@@ -4007,7 +4028,7 @@ Fraction.from_jedec
 ```python
 from fractions import Fraction
 
-print(Fraction.from_jedec("1/2"))  # выводит 1/2
+print(Fraction.from_jedec("1/2"))  # 1/2
 ```
 
 Fraction.from_tuple
@@ -4016,7 +4037,7 @@ Fraction.from_tuple
 ```python
 from fractions import Fraction
 
-print(Fraction.from_tuple((3, 4)))  # выводит 3/4
+print(Fraction.from_tuple((3, 4)))  # 3/4
 ```
 """,
                     "difflib": r'''
@@ -6409,8 +6430,8 @@ iskeyword():
 ```python
 import keyword
 
-print(keyword.iskeyword("if"))  # Вывод: True
-print(keyword.iskeyword("hello"))  # Вывод: False
+print(keyword.iskeyword("if"))  # True
+print(keyword.iskeyword("hello"))  # False
 ```
 
 iskeyword(): Позволяет проверить, является ли строка ключевым словом Python.
@@ -6652,7 +6673,7 @@ import marshal
 
 with open("data.bin", "rb") as file:
     data = marshal.load(file)
-    print(data)  # Вывод: {"name": "John", "age": 30}
+    print(data)  # {"name": "John", "age": 30}
 ```
 
 `dumps(obj)` - Возвращает сериализованное представление объекта `obj` в виде строки.
@@ -6675,7 +6696,7 @@ serialized = (
 )
 
 data = marshal.loads(serialized)
-print(data)  # Вывод: {"Hello!": {"x": "y", "result": None, "float": 0.0}}
+print(data)  # {"Hello!": {"x": "y", "result": None, "float": 0.0}}
 ```
 """,
                     "formatter": r"""
@@ -6700,17 +6721,17 @@ pdf_format: Включает методы для форматирования т
 format_text(text, format): Форматирует указанный текст с использованием заданного формата.
 
 formatted_text = formatter.format_text("Привет, мир!", "жирный")
-print(formatted_text)  # Выводит текст "Привет, мир!" в жирном формате.
+print(formatted_text)  # "Привет, мир!" в жирном формате.
 
 stylize_text(text, style): Применяет заданный стиль к указанному тексту.
 
 stylized_text = formatter.stylize_text("Привет, мир!", "красный")
-print(stylized_text)  # Выводит текст "Привет, мир!" в красном цвете.
+print(stylized_text)  # "Привет, мир!" в красном цвете.
 
 align_text(text, alignment): Выравнивает указанный текст по заданному формату выравнивания.
 
 aligned_text = formatter.align_text("Привет, мир!", "правый")
-print(aligned_text)  # Выводит текст "Привет, мир!" справа выровненным.
+print(aligned_text)  # "Привет, мир!" справа выровненным.
 
 Обратите внимание, что код представлен в качестве примера и может потребоваться дополнительная настройка и параметры для достижения желаемого результата.
 """,
@@ -7127,6 +7148,208 @@ print(concrete_instance.my_property)  # Property value
 ```
 
 Абстрактный метод в `ABC` не имеет реализации и должен быть переопределён в дочернем классе.
+""",
+                    "inspect": r"""
+# inspect
+
+- Проверка типов объектов `ismodule()`, `isclass()`, `ismethod()`, `isfunction()`, `isgeneratorfunction()`,
+`isgenerator()`, `istraceback()`, `isframe()`, `iscode()`, `isbuiltin()`, `isroutine()`
+- Получение членов объекта, удовлетворяющих заданному условию - `getmembers()`
+<br>
+- Поиск исходного кода объекта - `getfile()`, `getsourcefile()`, `getsource()`
+- Получение документации по объекту - `getdoc()`, `getcomments()`
+- Определение модуля, из которого поступил объект - `getmodule()`
+- Упорядочивание классов таким образом, чтобы они представляли их иерархию - `getclasstree()`
+<br>
+- Получение информации об аргументах функции - `getargvalues()`, `getcallargs()`
+- То же самое, с поддержкой функций Python 3 - `getfullargspec()`
+- Форматирование спецификации аргумента - `formatargvalues()`
+- Получение информации о кадрах - `getouterframes()`, `getinnerframes()`
+- Получение текущего кадра стека - `currentframe()`
+- Получение информации о кадрах в стеке или в трассировке - `stack()`, `trace()`
+<br>
+- Получить объект Signature для вызываемого - `signature()`
+<br>
+- Безопасно вычислить аннотации объекта - `get_annotations()`
+
+# \_\_all\_\_
+
+| **Название**                 | **Описание**                                                                                                                             |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `ArgInfo`                    | Класс, представляющий информацию об аргументах функции.                                                                                  |
+| `Arguments`                  | Класс, описывающий аргументы функции, включая позиционные, ключевые и их значения по умолчанию.                                          |
+| `Attribute`                  | Класс для описания атрибутов объекта, используемый внутри библиотеки `inspect`.                                                          |
+| `BlockFinder`                | Внутренний класс для поиска блоков кода в исходном файле.                                                                                |
+| `BoundArguments`             | Класс, представляющий привязанные аргументы функции после вызова.                                                                        |
+| `CORO_CLOSED`                | Константа, указывающая, что корутина закрыта.                                                                                            |
+| `CORO_CREATED`               | Константа, указывающая, что корутина создана, но еще не запущена.                                                                        |
+| `CORO_RUNNING`               | Константа, указывающая, что корутина в процессе выполнения.                                                                              |
+| `CORO_SUSPENDED`             | Константа, указывающая, что корутина приостановлена.                                                                                     |
+| `CO_ASYNC_GENERATOR`         | Флаг состояния объекта кода, указывающий, что это асинхронный генератор.                                                                 |
+| `CO_COROUTINE`               | Флаг состояния объекта кода, указывающий, что это корутина.                                                                              |
+| `CO_GENERATOR`               | Флаг состояния объекта кода, указывающий, что это генератор.                                                                             |
+| `CO_ITERABLE_COROUTINE`      | Флаг состояния объекта кода, указывающий, что это итерируемая корутина.                                                                  |
+| `CO_NESTED`                  | Флаг состояния объекта кода, указывающий, что функция является вложенной.                                                                |
+| `CO_NEWLOCALS`               | Флаг состояния объекта кода, указывающий, что функция использует новые локальные переменные.                                             |
+| `CO_NOFREE`                  | Флаг состояния объекта кода, указывающий, что функция не использует свободные переменные.                                                |
+| `CO_OPTIMIZED`               | Флаг состояния объекта кода, указывающий, что функция оптимизирована.                                                                    |
+| `CO_VARARGS`                 | Флаг состояния объекта кода, указывающий,<br>что функция принимает произвольное количество позиционных аргументов (*args).               |
+| `CO_VARKEYWORDS`             | Флаг состояния объекта кода, указывающий,<br>что функция принимает произвольное количество именованных аргументов (**kwargs).            |
+| `ClassFoundException`        | Исключение, возникающее при поиске класса в дереве наследования.                                                                         |
+| `ClosureVars`                | Класс, представляющий закрытые переменные функции (closure variables).                                                                   |
+| `EndOfBlock`                 | Класс, обозначающий конец блока кода при анализе исходного файла.                                                                        |
+| `FrameInfo`                  | Класс, представляющий информацию о фрейме стека вызовов (файл, строка, функция и т.д.).                                                  |
+| `FullArgSpec`                | Класс, представляющий полную спецификацию аргументов функции,<br>включая позиционные, ключевые, аргументы с дефолтными значениями и т.д. |
+| `GEN_CLOSED`                 | Константа, указывающая, что генератор закрыт.                                                                                            |
+| `GEN_CREATED`                | Константа, указывающая, что генератор создан, но еще не запущен.                                                                         |
+| `GEN_RUNNING`                | Константа, указывающая, что генератор в процессе выполнения.                                                                             |
+| `GEN_SUSPENDED`              | Константа, указывающая, что генератор приостановлен.                                                                                     |
+| `Parameter`                  | Класс, представляющий отдельный параметр функции, включая его имя, тип и значение по умолчанию.                                          |
+| `Signature`                  | Класс, представляющий сигнатуру функции, включая параметры и возвращаемое значение.                                                      |
+| `TPFLAGS_IS_ABSTRACT`        | Константа флага, указывающая, что класс является абстрактным.                                                                            |
+| `Traceback`                  | Класс, представляющий трассировку исключения (стек вызовов) в момент возникновения исключения.                                           |
+| `classify_class_attrs`       | Функция для классификации атрибутов класса на методы, поля и т.д.                                                                        |
+| `cleandoc`                   | Функция для очистки строковой документации от лишних отступов и пустых строк.                                                            |
+| `currentframe`               | Функция, возвращающая текущий фрейм стека вызовов.                                                                                       |
+| `findsource`                 | Функция для поиска исходного кода объекта (функции, класса и т.д.).                                                                      |
+| `formatannotation`           | Функция для форматирования аннотаций типов.                                                                                              |
+| `formatannotationrelativeto` | Функция для форматирования аннотаций типов относительно указанного модуля.                                                               |
+| `formatargvalues`            | Функция для форматирования значений аргументов функции.                                                                                  |
+| `get_annotations`            | Функция для получения аннотаций типов объекта.                                                                                           |
+| `getabsfile`                 | Функция для получения абсолютного пути к файлу, в котором определен объект.                                                              |
+| `getargs`                    | Устаревшая функция для получения имен аргументов функции (используйте `getfullargspec` или `signature`).                                 |
+| `getargvalues`               | Функция для получения значений аргументов в текущем фрейме.                                                                              |
+| `getattr_static`             | Функция для статического получения атрибута объекта без вызова<br>`__getattr__` и других динамических механизмов доступа к атрибутам.    |
+| `getblock`                   | Внутренняя функция для получения блока кода из исходного файла.                                                                          |
+| `getcallargs`                | Функция для получения соответствия между аргументами<br>и параметрами функции при вызове с конкретными аргументами.                      |
+| `getclasstree`               | Функция для построения дерева наследования классов.                                                                                      |
+| `getclosurevars`             | Функция для получения закрытых переменных функции (closure).                                                                             |
+| `getcomments`                | Функция для получения комментариев,<br>предшествующих определению объекта (функции, класса и т.д.).                                      |
+| `getcoroutinelocals`         | Функция для получения локальных переменных корутины.                                                                                     |
+| `getcoroutinestate`          | Функция для получения текущего состояния корутины.                                                                                       |
+| `getdoc`                     | Функция для получения строки документации объекта.                                                                                       |
+| `getfile`                    | Функция для получения имени файла, в котором определен объект.                                                                           |
+| `getframeinfo`               | Функция для получения информации о фрейме стека вызовов.                                                                                 |
+| `getfullargspec`             | Функция для получения полной спецификации аргументов функции.                                                                            |
+| `getgeneratorlocals`         | Функция для получения локальных переменных генератора.                                                                                   |
+| `getgeneratorstate`          | Функция для получения текущего состояния генератора.                                                                                     |
+| `getinnerframes`             | Функция для получения всех внутренних фреймов стека вызовов.                                                                             |
+| `getlineno`                  | Функция для получения номера строки, где определен объект.                                                                               |
+| `getmembers`                 | Функция для получения всех членов объекта<br>(атрибутов, методов и т.д.) с возможностью фильтрации.                                      |
+| `getmembers_static`          | Внутренняя функция для статического получения членов объекта.                                                                            |
+| `getmodule`                  | Функция для получения модуля, в котором определен объект.                                                                                |
+| `getmodulename`              | Функция для получения имени модуля по пути к файлу.                                                                                      |
+| `getmro`                     | Функция для получения метода разрешения порядка (MRO) для класса.                                                                        |
+| `getouterframes`             | Функция для получения всех внешних фреймов стека вызовов.                                                                                |
+| `getsource`                  | Функция для получения исходного кода объекта (функции, класса и т.д.).                                                                   |
+| `getsourcefile`              | Функция для получения исходного файла объекта.                                                                                           |
+| `getsourcelines`             | Функция для получения исходного кода объекта<br>в виде списка строк и номера начальной строки.                                           |
+| `indentsize`                 | Внутренняя функция для определения размера отступа в исходном коде.                                                                      |
+| `isabstract`                 | Функция для проверки, является ли класс абстрактным.                                                                                     |
+| `isasyncgen`                 | Функция для проверки, является ли объект асинхронным генератором.                                                                        |
+| `isasyncgenfunction`         | Функция для проверки, является ли объект функцией асинхронного генератора.                                                               |
+| `isawaitable`                | Функция для проверки, можно ли ожидать<br>объект (поддерживает `__await__` или является корутиной).                                      |
+| `isbuiltin`                  | Функция для проверки, является ли объект встроенной функцией или методом.                                                                |
+| `isclass`                    | Функция для проверки, является ли объект классом.                                                                                        |
+| `iscode`                     | Функция для проверки, является ли объект объектом кода (`code object`).                                                                  |
+| `iscoroutine`                | Функция для проверки, является ли объект корутиной.                                                                                      |
+| `iscoroutinefunction`        | Функция для проверки, является ли объект функцией корутиной.                                                                             |
+| `isdatadescriptor`           | Функция для проверки, является ли объект дескриптором данных.                                                                            |
+| `isframe`                    | Функция для проверки, является ли объект фреймом стека вызовов.                                                                          |
+| `isfunction`                 | Функция для проверки, является ли объект функцией.                                                                                       |
+| `isgenerator`                | Функция для проверки, является ли объект генератором.                                                                                    |
+| `isgeneratorfunction`        | Функция для проверки, является ли объект функцией генератора.                                                                            |
+| `isgetsetdescriptor`         | Функция для проверки, является ли объект дескриптором getset.                                                                            |
+| `ismemberdescriptor`         | Функция для проверки, является ли объект дескриптором члена класса.                                                                      |
+| `ismethod`                   | Функция для проверки, является ли объект методом.                                                                                        |
+| `ismethoddescriptor`         | Функция для проверки, является ли объект дескриптором метода.                                                                            |
+| `ismethodwrapper`            | Функция для проверки, является ли объект оберткой метода.                                                                                |
+| `ismodule`                   | Функция для проверки, является ли объект модулем.                                                                                        |
+| `isroutine`                  | Функция для проверки, является ли объект вызываемой рутиной (функцией или методом).                                                      |
+| `istraceback`                | Функция для проверки, является ли объект трассировкой исключения (`traceback object`).                                                   |
+| `signature`                  | Функция для получения сигнатуры функции или метода.                                                                                      |
+| `stack`                      | Функция для получения текущего стека вызовов в виде списка `FrameInfo`.                                                                  |
+| `trace`                      | Функция для трассировки выполнения кода,<br>вызывающая заданную функцию для каждого фрейма стека.                                        |
+| `unwrap`                     | Функция для получения оригинальной функции, удаляя все декораторы.                                                                       |
+| `walktree`                   | Внутренняя функция для обхода дерева наследования классов.                                                                               |
+
+#### Примечание
+
+- **Константы состояния корутин и генераторов** (`CORO_*`, `GEN_*`, `CO_*`)
+используются для определения текущего состояния корутин и генераторов.
+- **Внутренние классы и функции** (например, `BlockFinder`, `walktree`)
+обычно используются внутри библиотеки `inspect`
+и не предназначены для прямого использования пользователями.
+- **Функции для работы с аргументами и сигнатурами** (`getfullargspec`, `signature`, `getcallargs`)
+позволяют детально анализировать параметры функций и методы их вызова.
+- **Функции проверки типов объектов** (`isclass`, `isfunction`, `ismethod` и т.д.)
+полезны для динамического анализа объектов во время выполнения программы.
+- **Функции для получения исходного кода и документации** (`getsource`, `getdoc`, `findsource`)
+позволяют извлекать информацию о коде для целей отладки или генерации документации.
+- **Функции работы со стеком вызовов** (`currentframe`, `stack`, `getframeinfo`)
+полезны для отладки и анализа выполнения программы.
+
+# Примеры
+
+`import inspect`
+
+### getmembers
+
+```python
+class MyClass:
+  def method1(self):
+      pass
+
+  def method2(self):
+      pass
+
+inspect.getmembers(MyClass, inspect.isfunction)
+# [("method1", <function MyClass.method1>), ("method2", <function MyClass.method2>)]
+```
+
+### signature
+
+```python
+def my_function(a, b=10, *args, **kwargs):
+  pass
+
+sig = inspect.signature(my_function)
+print(sig)  # <Signature (a, b=10, *args, **kwargs)>
+print(sig.parameters)
+# mappingproxy(OrderedDict([
+#     ("a", <Parameter "a">),
+#     ("b", <Parameter "b=10">),
+#     ("args", <Parameter "*args">),
+#     ("kwargs", <Parameter "**kwargs">)
+# ]))
+```
+
+### stack
+
+```python
+def function_a():
+    function_b()
+
+def function_b():
+    stack = inspect.stack()  # Получение информации о стеке
+    for frame in stack:
+        print(f"Function {frame.function} at line {frame.lineno} in {frame.filename}")
+
+function_a()
+```
+
+### currentframe
+
+```python
+frame = inspect.currentframe()  # Получение текущего фрейма
+print(f"Current frame at line {frame.f_lineno} in {frame.f_code.co_filename}")
+```
+
+# Полезные ссылки
+
+- [Официальная документация](https://docs.python.org/3/library/inspect.html)
+- [PEP 362 - Подписи вызовов](https://www.python.org/dev/peps/pep-0362/)
+- [Real Python - Inspect Module](https://realpython.com/python-inspect-module/)
 """,
                 },
                 "Algorithms": {
@@ -8974,7 +9197,7 @@ import webencodings
 
 encoded_string = b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
 decoded_string = webencodings.decode(encoded_string, encoding="utf-8")
-print(decoded_string)  # Выводит: Привет
+print(decoded_string)  # Привет
 ```
 
 encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.
@@ -8984,7 +9207,7 @@ import webencodings
 
 decoded_string = "Привет"
 encoded_string = webencodings.encode(decoded_string, encoding="utf-8")
-print(encoded_string)  # Выводит: b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
+print(encoded_string)  # b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
 ```
 
 "htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace")": Декодирует строку "s" из HTML-entities в Unicode.
@@ -8994,7 +9217,7 @@ import webencodings
 
 html_string = "&lt;div&gt;Hello&lt;/div&gt;"
 decoded_string = webencodings.htmldecode(html_string)
-print(decoded_string)  # Выводит: <div>Hello</div>
+print(decoded_string)  # <div>Hello</div>
 ```
 
 "htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace")": Преобразует строку "s" в HTML-entities.
@@ -9004,7 +9227,7 @@ import webencodings
 
 plain_string = "<div>Hello</div>"
 encoded_string = webencodings.htmlencode(plain_string)
-print(encoded_string)  # Выводит: &lt;div&gt;Hello&lt;/div&gt;
+print(encoded_string)  # &lt;div&gt;Hello&lt;/div&gt;
 ```
 
 unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.
@@ -9014,7 +9237,7 @@ import webencodings
 
 url_encoded_string = "Hello%20World%21"
 decoded_string = webencodings.unquote(url_encoded_string)
-print(decoded_string)  # Выводит: Hello World!
+print(decoded_string)  # Hello World!
 ```
 """,
                     "certifi": r"""
@@ -9102,7 +9325,7 @@ from rfc3986_validator import validate
 
 url = "https://www.example.com"
 is_valid = validate(url)
-print(is_valid)  # Выводит True, если URL действителен
+print(is_valid)  # True, если URL действителен
 ```
 
 get_host(url: str) -> str:
@@ -9113,7 +9336,7 @@ from rfc3986_validator import get_host
 
 url = "https://www.example.com/path"
 host = get_host(url)
-print(host)  # Выводит "www.example.com"
+print(host)  # "www.example.com"
 ```
 
 get_path(url: str) -> str:
@@ -9124,7 +9347,7 @@ from rfc3986_validator import get_path
 
 url = "https://www.example.com/path"
 path = get_path(url)
-print(path)  # Выводит "/path"
+print(path)  # "/path"
 ```
 """,
                     "grpc": r"""
@@ -9317,28 +9540,28 @@ delete()        | Удаляет переменную JavaScript.
 eval_js(): Исполняет переданный JavaScript-код и возвращает его результат.
 
 ```python
-print(eval_js("1 + 2"))  # Выводит: 3
+print(eval_js("1 + 2"))  # 3
 ```
 
 call(): Вызывает функцию JavaScript и передает ей аргументы.
 
 ```python
 js_function = js2py.eval_js("function add(a, b) { return a + b; }")
-print(call(js_function, 2, 3))  # Выводит: 5
+print(call(js_function, 2, 3))  # 5
 ```
 
 set(): Устанавливает значение переменной JavaScript.
 
 ```python
 set("x", 10)
-print(eval_js("x"))  # Выводит: 10
+print(eval_js("x"))  # 10
 ```
 
 get(): Получает значение переменной JavaScript.
 
 ```python
 eval_js("var message = 'Hello, world!'")
-print(get("message"))  # Выводит: Hello, world!
+print(get("message"))  # Hello, world!
 ```
 
 delete(): Удаляет переменную JavaScript.
@@ -9346,7 +9569,7 @@ delete(): Удаляет переменную JavaScript.
 ```python
 eval_js("var x = 5;")
 delete("x")
-print(eval_js("x"))  # Выводит: undefined
+print(eval_js("x"))  # undefined
 ```
 """,
                     "pylab": r"""
@@ -13214,7 +13437,7 @@ Person Object
 - `true-regex`: Регулярное выражение, которое применяется, если условие истинно.
 - `false-regex`: Регулярное выражение, которое применяется, если условие ложно (опционально).
 
-### Примеры
+### Примеры условных выражений
 
 #### Проверка наличия захваченной группы
 
@@ -13278,7 +13501,7 @@ Person Object
 | `re.DEBUG`                |        | Отображение отладочной информации о скомпилированном выражении. |
 | `re.NOFLAG`               |        | С версии 3.11. |
 
-### Использование модификаторов
+## Использование модификаторов
 
 Можно объединять в одну группу: `(?i-sm)` (включает режим `i` и выключает режимы `s` и `m`)
 Если требуется только в пределах группы, то шаблон после двоеточия.
@@ -19734,21 +19957,28 @@ class Dict:
     - ?path&s=query\\#anchor
 -->
 """,
-        "Markdown": """
+        "Markdown": r"""
 
-&#x2a;&#x2a;Bold&#x2a;&#x2a; - **Bold**
+\*Italic\* - *Italic*
+\_Italic\_ - _Italic_
 
-&#x5f;&#x5f;Italic&#x5f;&#x5f; - __Italic__
+\*\*Bold\*\* - **Bold**
+\_\_Bold\_\_ - __Bold__
 
-&#x60;text&#x60; - `text`
+\*\*\*Bold & Italic\*\*\* - ***Bold & Italic***
+\_\_\_Bold & Italic\_\_\_ - ___Bold & Italic___
+\*\*\_Bold & Italic\_\*\* - **_Bold & Italic_**
+\_\*\*Bold & Italic\*\*\_ - _**Bold & Italic**_
 
-&#x7c;&#x7c;text&#x7c;&#x7c; - ||text||
+\`text\` - `text`
+
+\|\|text\|\| - ||text||
 
 &#x7e;&#x7e;text&#x7e;&#x7e; - ~~text~~
 
 &#x3d;&#x3d;mark&#x3d;&#x3d; - ==mark==
 
-&#x3d;&#x3d;&#x7b;color:red;background-color:inherit;&#x7d;mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
+&#x3d;&#x3d;{color:red;background-color:inherit;}mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
 
 ```pre
 code
