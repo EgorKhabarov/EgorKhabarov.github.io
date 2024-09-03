@@ -2,9 +2,6 @@
   "Shortcuts/": {
     "folder-open": true
   },
-  "Shortcuts/Java/": {
-    "folder-open": true
-  },
   "Languages/Bash/": {
     "color": "violet"
   },
@@ -242,6 +239,9 @@
   "Languages/Python/Libraries/Python/markdown/": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/abc.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/atexit.md": {
     "color": "green"
   },
@@ -261,15 +261,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/fileinput.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Python/abc.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Python/inspect.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Python/operator.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/formatter.md": {
@@ -293,6 +284,9 @@
   "Languages/Python/Libraries/Python/importlib.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/inspect.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/itertools.md": {
     "color": "green"
   },
@@ -303,6 +297,9 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/marshal.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/operator.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/pstats.md": {
@@ -353,13 +350,13 @@
   "Languages/Python/Libraries/Python/markdown/extensions.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/os/": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/concurrent.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/fcntl.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/signal.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/filecmp.md": {
@@ -398,15 +395,6 @@
   "Languages/Python/Libraries/System/optparse.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/os/": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/os/os.stat.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/os/os.path.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/posix.md": {
     "color": "green"
   },
@@ -425,6 +413,9 @@
   "Languages/Python/Libraries/System/resource.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/signal.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/spwd.md": {
     "color": "green"
   },
@@ -435,6 +426,12 @@
     "color": "green"
   },
   "Languages/Python/Libraries/System/sys.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os/os.path.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os/os.stat.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/Django/": {
@@ -538,5 +535,8 @@
   },
   "Other/File formats/YAML.md": {
     "color": "brown"
+  },
+  "Shortcuts/Java/": {
+    "folder-open": true
   }
 }
