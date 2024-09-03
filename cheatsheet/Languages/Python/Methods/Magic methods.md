@@ -582,12 +582,12 @@
 <tr>
 <td><code>def __getattribute__(self, item):</code></td>
 <td>value = self.<code>__getattribute__</code>("attr")</td>
-<td>Возвращает значение атрибута объекта</td>
+<td>Возвращает значение атрибута объекта<br><strong>Управляет всеми запросами атрибутов</strong></td>
 </tr>
 <tr>
 <td><code>def __getattr__(self, item):</code></td>
 <td>value = self.<code>__getattr__</code>("attr")</td>
-<td>Вызывается при обращении<br>к несуществующему атрибуту объекта</td>
+<td>Вызывается при обращении<br>к несуществующему атрибуту объекта<br><strong>Когда <code>__getattribute__</code> не находит атрибут</strong></td>
 </tr>
 <tr>
 <td><code>def __await__(self):</code></td>

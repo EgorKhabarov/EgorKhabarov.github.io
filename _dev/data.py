@@ -11233,8 +11233,8 @@ print(decompressed_data)
 | `def __getinitargs__(self):`            | args = self.`__getinitargs__()`                      | Кортеж аргументов для использования при создании объекта                         |
 | `def __set_name__(self, owner, name):`  | {__set_name__}                                       | Вызывается при установке имени атрибута в классе                                 |
 | `def __getnewargs__(self):`             | args = self.`__getnewargs__()`                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
-| `def __getattribute__(self, item):`     | value = self.`__getattribute__`("attr")              | Возвращает значение атрибута объекта                                             |
-| `def __getattr__(self, item):`          | value = self.`__getattr__`("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта                   |
+| `def __getattribute__(self, item):`     | value = self.`__getattribute__`("attr")              | Возвращает значение атрибута объекта<br>**Управляет всеми запросами атрибутов**  |
+| `def __getattr__(self, item):`          | value = self.`__getattr__`("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта<br>**Когда `__getattribute__` не находит атрибут** |
 | `def __await__(self):`                  | `await` self                                         | Возвращает объект, поддерживающий асинхронное ожидание                           |
 | `def __set__(self, instance, value):`   | instance.attr = value                                | Устанавливает значение атрибута в экземпляре класса                              |
 | `def __class_getitem__(cls, item):`     | item_type = MyGenericClass.`__class_getitem__`(Item) | Обобщенный тип объекта                                                           |
