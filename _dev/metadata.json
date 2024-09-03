@@ -269,6 +269,9 @@
   "Languages/Python/Libraries/Python/inspect.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/operator.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/formatter.md": {
     "color": "green"
   },
@@ -287,7 +290,7 @@
   "Languages/Python/Libraries/Python/gtts.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Python/import.md": {
+  "Languages/Python/Libraries/Python/importlib.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/itertools.md": {
@@ -356,6 +359,9 @@
   "Languages/Python/Libraries/System/fcntl.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/signal.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/filecmp.md": {
     "color": "green"
   },
@@ -392,7 +398,13 @@
   "Languages/Python/Libraries/System/optparse.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/os.md": {
+  "Languages/Python/Libraries/System/os/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os/os.stat.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os/os.path.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/posix.md": {

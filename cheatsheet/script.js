@@ -419,7 +419,7 @@ function generateDirectoryLink(kpath) {
 /* Markdown */
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
-        if (!a.target) {
+        if (!a.target && !a.getAttribute("href")[0] === "#") {
             a.target="_blank";
         }
     });

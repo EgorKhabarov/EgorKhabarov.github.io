@@ -1639,306 +1639,332 @@ https://img.shields.io/badge/ChatGPT-3.5-blue?logo=openai
 -->
 """,
                 "System": {
-                    "io": """
-Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
-
-io.StringIO() - создание в памяти строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-stream.seek(0)
-print(stream.read())  # Hello, world!
-```
-
-io.BytesIO() - создание в памяти потока байт.
-
-```python
-import io
-
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-stream.seek(0)
-print(stream.read())  # b"Hello, world!"
-```
-
-io.open() - открытие файла в нужном режиме.
-
-```python
-import io
-
-with io.open("example.txt", "w") as f:
-    f.write("Hello, world!")
-
-with io.open("example.txt", "r") as f:
-    print(f.read())  # Hello, world!
-```
-
-io.TextIOWrapper() - обертка для текстовых потоков.
-
-```python
-import io
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Привет, мир!")
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Привет, мир!
-```
-
-io.BufferedWriter() - буферизированный записывающий поток.
-
-```python
-import io
-
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedWriter(f)
-    writer.write(b"Hello, world!")
-
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
-```
-
-io.BufferedReader() - буферизированный читающий поток.
-
-```python
-import io
-
-with io.open("example.txt", "wb") as f:
-    f.write(b"Hello, world!")
-
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
-```
-
-io.FileIO() - создание потока для работы с файлом в бинарном режиме.
-
-```python
-import io
-
-with io.FileIO("example.txt", "w") as f:
-    f.write(b"Hello, world!")
-
-with io.FileIO("example.txt", "r") as f:
-    print(f.read())  # b"Hello, world!"
-```
-
-io.TextIOBase() - базовый класс для всех текстовых потоков.
-
-```python
-import io
-
-class UpperTextIO(io.TextIOBase):
-    def __init__(self, stream):
-        self._stream = stream
-
-    def write(self, text):
-        self._stream.write(text.upper())
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    upper_wrapper = UpperTextIO(wrapper)
-    upper_wrapper.write("hello, world!")
-    wrapper.flush()
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # HELLO, WORLD!
-```
-
-io.StringIO.getvalue() - получение содержимого из строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-print(stream.getvalue())  # Hello, world!
-```
-
-io.BytesIO.getvalue() - получение содержимого из потока байт.
-
-```python
-import io
-
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-print(stream.getvalue())  # b"Hello, world!"
-```
-
-io.TextIOWrapper.detach() - отсоединение потока от обертки.
-
-```python
-import io
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Hello, world!")
-    stream = wrapper.detach()
-    stream.write(b"!!!")
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Hello, world!!!
-```
-
-io.BufferedRandom() - буферизированный поток с произвольным доступом.
-
-```python
-import io
-
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedRandom(f)
-    writer.write(b"Hello, world!")
-    writer.flush()
-    writer.seek(-6, io.SEEK_CUR)
-    writer.write(b"Python!")
-
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, Python!"
-```
-""",
-                    "os": """
-Получение информации о текущей директории:
-
-```python
-import os
-
-print(os.getcwd())
-```
-
-Создание директории:
-
-```python
-import os
-
-os.mkdir("new_dir")
-```
-
-Удаление директории:
-
-```python
-import os
-
-os.rmdir("dir_to_remove")
-```
-
-Проверка наличия файла или директории:
-
-```python
-import os
-
-if os.path.exists("file.txt"):
-    print("File exists!")
-
-if os.path.exists("dir"):
-    print("Directory exists!")
-```
-
-
-Получение списка файлов в директории:
-```python
-import os
-
-files = os.listdir("my_dir")
-for file in files:
-    print(file)
-```
-
-Переименование файла или директории:
-
-```python
-import os
-
-os.rename("old_file.txt", "new_file.txt")
-```
-
-Удаление файла:
-
-```python
-import os
-
-os.remove("file_to_remove.txt")
-```
-
-Получение информации о файле:
-
-```python
-import os
-
-file_stat = os.stat("file.txt")
-
-print("Size of file:", file_stat.st_size)
-print("Last accessed time:", file_stat.st_atime)
-```
-
-Проверка, является ли путь директорией или файлом:
-
-```python
-import os
-
-if os.path.isfile("my_file.txt"):
-    print("This is a file!")
-
-if os.path.isdir("my_file.txt"):
-    print("This is a directory!")
-```
-
-Получение имени файла из пути:
-
-```python
-import os
-
-print(os.path.basename("/my_dir/my_file.txt"))
-```
-
-Получение пути к директории из пути к файлу:
-
-```python
-import os
-
-print(os.path.dirname("/my_dir/my_file.txt"))
-```
-
-Получение абсолютного пути:
-
-```python
-import os
-
-print(os.path.abspath("my_dir/my_file.txt"))
-```
-
-Объединение путей:
-
-```python
-import os
-
-print(os.path.join("/my_dir", "my_file.txt"))
-```
-
-Получение расширения файла:
-
-```python
-import os
-
-print(os.path.splitext("my_file.txt")[1])
-```
-
-Получение списка всех поддиректорий в директории:
-
+                    "os": {
+                        "index": r"""
+# Работа с файлами и директориями
+
+| Функция/Атрибут                     | Описание                                                                                            |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `os.listdir(".")`                   | Возвращает список файлов и директорий в указанном каталоге.                                         |
+| `os.scandir(path=".")`              | Возвращает итератор `DirEntry`, который предоставляет информацию<br>о файлах и директориях в директории `path`.<br>Более выгодный аналог `os.listdir` |
+| `os.walk(".")`                      | Рекурсивно обходит файлы в дереве директорий                                                        |
+| `os.getcwd()`                       | Возвращает текущий рабочий каталог                                                                  |
+| `os.chdir(path)`                    | Изменяет текущий рабочий каталог на указанный                                                       |
+| `os.mkdir(path, mode=0o777)`        | Создает новую директорию с указанным путем и правами доступа                                        |
+| `os.makedirs(path, exist_ok=True)`  | Рекурсивно создает директории, включая промежуточные                                                |
+| `os.removedirs(path)`               | Удаляет директории рекурсивно.                                                                      |
+| `os.remove(path)`                   | Удаляет файл по указанному пути                                                                     |
+| `os.rmdir(path)`                    | Удаляет пустую директорию                                                                           |
+| `os.rename(src, dst)`               | Переименовывает файл или директорию                                                                 |
+| `os.replace(src, dst)`              | Перемещает файл или директорию на новое место. Если целевой путь существует, он будет заменен       |
+| `os.urandom(n)`                     | Возвращает `n` байт случайных данных, пригодных для использования в криптографии.                   |
+| `os.unlink(path)`                   | Удаляет файл по указанному пути (аналог `os.remove`).                                               |
+| `os.symlink(src, dst)`              | Создает символическую ссылку на файл или директорию (только Unix)                                   |
+| `os.stat(path)`                     | [[Languages/Python/Libraries/System/os/os.stat.md]] Возвращает информацию о пути (например, размер, время последней модификации).                |
+| `os.lstat(path)`                    | То же, что и `os.stat`, но не разыменовывает символические ссылки                                   |
+| `os.path`                           | [[Languages/Python/Libraries/System/os/os.path.md]] Содержит функции для работы с путями, такие как `join`, `split`, `isfile`, `isdir` |
+
+# Управление процессами
+
+| Функция/Атрибут            | Описание                                                                                                                                           |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `os.system(command)`       | Выполняет команду в оболочке и возвращает код завершения                                                                                           |
+| `os.popen(command)`        | Выполняет команду в оболочке и возвращает объект файла, связанный с потоком вывода                                                                 |
+| `os.kill(pid, sig)`        | Отправляет сигнал процессу с указанным идентификатором (PID) и [[Languages/Python/Libraries/System/signal.md]]<br>`os.kill(12345, signal.SIGTERM)` |
+| `os._exit(n)`              | Немедленно завершает выполнение текущего процесса с указанным кодом возврата                                                                       |
+| `os.waitpid(pid, options)` | Ожидает завершения процесса с указанным идентификатором (PID) и возвращает его код завершения и статус                                             |
+| `os.fork()`                | Создает новый процесс путем форкинга текущего (только для Unix)                                                                                    |
+| `os.execv(path, args)`     | Заменяет текущий процесс новым процессом, указанным в path                                                                                         |
+| `os.abort()`               | Немедленно завершает процесс сгенерировав сигнатуру `SIGABRT`                                                                                      |
+| `os.getpid()`             | Возвращает идентификатор текущего процесса                                                                                                          |
+| `os.getppid()`            | Возвращает идентификатор родительского процесса                                                                                                     |
+
+# Работа с файловыми дескрипторами
+
+| Функция/Атрибут                    | Описание                                                                                                                    |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `os.open(path, flags, mode=0o777)` | Открывает файл и возвращает файловый дескриптор. `flags` определяет режим открытия (например, `os.O_RDONLY`, `os.O_WRONLY`) |
+| `os.close(fd)`                     | Закрывает файловый дескриптор `fd`                                                                                          |
+| `os.read(fd, n)`                   | Читает до `n` байт из файла, связанного с файловым дескриптором `fd`                                                        |
+| `os.write(fd, str)`                | Записывает строку в файл, связанный с файловым дескриптором `fd`                                                            |
+| `os.lseek(fd, pos, how)`           | Перемещает указатель чтения/записи в файл, связанный с файловым дескриптором `fd`. `how` определяет начало перемещения      |
+| `os.fsync(fd)`                     | Принудительно записывает все изменения, сделанные в файле, связанный с файловым дескриптором `fd`                           |
+| `os.dup(fd)`                       | Дублирует файловый дескриптор `fd`                                                                                          |
+| `os.dup2(fd, fd2)`                 | Дублирует файловый дескриптор `fd` в `fd2`                                                                                  |
+
+# Функции для работы с файловыми системами
+
+| Функция                    | Описание                                                     |
+|----------------------------|--------------------------------------------------------------|
+| `os.fsencode("filename")`  | Кодирует имя файла в системную кодировку                     |
+| `os.fsdecode(b"filename")` | Декодирует имя файла из системной кодировки                  |
+| `os.get_exec_path()`       | Возвращает список путей для поиска исполняемых файлов        |
+| `os.fdopen(fd, mode)`      | Открывает файловый объект, связанный с файловым дескриптором |
+
+# Атрибуты, связанные с путями и разделителями
+
+| Атрибут      | Описание                                                                                                             |
+|--------------|----------------------------------------------------------------------------------------------------------------------|
+| `os.altsep`  | Альтернативный разделитель пути. Используется, если он поддерживается ОС. В Windows это `/` вместо `\`               |
+| `os.curdir`  | Строка, представляющая текущую директорию. Обычно это `.`                                                            |
+| `os.pardir`  | Строка, представляющая родительскую директорию. Обычно это `..`                                                      |
+| `os.sep`     | Строка, представляющая разделитель пути, используемый в операционной системе. В Windows это `\`, в Unix — `/`        |
+| `os.pathsep` | Строка, разделяющая компоненты в переменных среды, таких как `PATH`. В Windows это `;`, в Unix — `:`                 |
+| `os.linesep` | Строка, представляющая разделитель строк, используемый в операционной системе. В Windows это `\r\n`, в Unix — `\n`   |
+| `os.defpath` | Стандартный `PATH`, используемый если переменная окружения `PATH` не установлена                                     |
+| `os.extsep`  | Разделитель расширения файлов. В большинстве ОС это `.`                                                              |
+| `os.devnull` | Путь к специальному файлу, который отбрасывает все записанные в него данные (`/dev/null` на UNIX и `NUL` на Windows) |
+
+# Информация о системе и среде выполнения
+
+| Атрибут/Функция                | Описание                                                                                   |
+|--------------------------------|--------------------------------------------------------------------------------------------|
+| `os.name`                      | Имя операционной системы. Например, `posix` для Unix-подобных систем, `nt` для Windows     |
+| `os.getenv(key, default=None)` | Возвращает значение переменной окружения или значение по умолчанию                         |
+| `os.environ`                   | Словарь, содержащий переменные окружения                                                   |
+| `os.getlogin()`                | Возвращает имя пользователя, вошедшего в систему                                           |
+| `os.getpid()`                  | Возвращает идентификатор текущего процесса                                                 |
+| `os.getppid()`                 | Возвращает идентификатор родительского процесса                                            |
+| `os.cpu_count()`               | Возвращает количество процессоров в системе                                                |
+| `os.uname()`                   | Возвращает информацию о системе, такую как имя системы, имя узла и версию ОС (только Unix) |
+| `os.putenv(key, value)`        | Устанавливает значение переменной окружения **(не рекомендуется)**                         |
+| `os.unsetenv(key)`             | Удаляет переменную окружения **(не рекомендуется)**                                        |
+
+# Константы для работы с правами доступа и процессами
+
+| Константа          | Описание                                                                                                 |
+|--------------------|----------------------------------------------------------------------------------------------------------|
+| `os.F_OK`          | Проверка на существование файла (используется в `os.access`)                                             |
+| `os.R_OK`          | Проверка на возможность чтения файла (используется в `os.access`)                                        |
+| `os.W_OK`          | Проверка на возможность записи в файл (используется в `os.access`)                                       |
+| `os.X_OK`          | Проверка на возможность выполнения файла (используется в `os.access`)                                    |
+| `os.EX_OK`         | Статус выхода для успешного выполнения команды (обычно 0)                                                |
+| `os.O_RDONLY`      | Открытие файла только для чтения                                                                         |
+| `os.O_WRONLY`      | Открытие файла только для записи                                                                         |
+| `os.O_RDWR`        | Открытие файла для чтения и записи                                                                       |
+| `os.O_CREAT`       | Создание файла, если он не существует                                                                    |
+| `os.O_EXCL`        | Используется с `O_CREAT`, чтобы убедиться, что операция создания не завершится, если файл уже существует |
+| `os.O_TRUNC`       | Очищает файл при его открытии, если он существует.                                                       |
+| `os.O_APPEND`      | Добавление данных в конец файла                                                                          |
+| `os.O_BINARY`      | Открытие файла в бинарном режиме (Windows)                                                               |
+| `os.O_TEXT`        | Открытие файла в текстовом режиме (Windows)                                                              |
+| `os.O_TEMPORARY`   | Открытие временного файла (Windows)                                                                      |
+| `os.O_SHORT_LIVED` | Указание, что файл будет существовать недолго (Windows)                                                  |
+| `os.O_SEQUENTIAL`  | Указание, что файл будет читаться последовательно (Windows)                                              |
+| `os.O_RANDOM`      | Указание, что файл будет читаться в произвольном порядке (Windows)                                       |
+| `os.P_NOWAIT`      | Дочерний процесс запускается, но родительский процесс продолжает выполнение (используется в `os.spawnv`) |
+| `os.P_WAIT`        | Родительский процесс ожидает завершения дочернего процесса (используется в `os.spawnv`)                  |
+| `os.P_DETACH`      | Дочерний процесс отделяется от родителя и не может получить доступ к его оконному интерфейсу (Windows)   |
+
+# Управление файловыми дескрипторами
+
+| Переменная    | Описание                                            |
+|---------------|-----------------------------------------------------|
+| `os.SEEK_SET` | Смещение для начала файла (значение `0`)            |
+| `os.SEEK_CUR` | Смещение для текущей позиции в файле (значение `1`) |
+| `os.SEEK_END` | Смещение для конца файла (значение `2`)             |
+
+## Примеры использования
+
+### Получение списка всех поддиректорий в директории:
 ```python
 import os
 
 print([f.path for f in os.scandir("my_dir") if f.is_dir()])
 ```
+
+### Работа с файловыми путями
+```pycon
+>>> import os
+>>>
+>>> path = "/path/to/file.txt"
+>>> print("Базовое имя файла:", os.path.basename(path))
+Базовое имя файла: file.txt
+>>> print("Директория:", os.path.dirname(path))
+Директория: /path/to
+>>> print("Существует ли файл:", os.path.exists(path))
+Существует ли файл: False
+```
+
+### Работа с файлами
+```python
+import os
+
+fd = os.open("example.txt", os.O_CREAT | os.O_WRONLY)
+os.write(fd, b"Hello, World!")
+os.close(fd)
+```
+
+### Чтение и запись через файловый дескриптор
+```python
+import os
+
+fd = os.open("file.txt", os.O_RDWR | os.O_CREAT)
+os.write(fd, b"Hello, World!")
+os.lseek(fd, 0, os.SEEK_SET)
+print(os.read(fd, 12))
+os.close(fd)
+```
+
+### Выполнение системной команды и получение результата
+```python
+import os
+
+stream = os.popen("ls")
+output = stream.read()
+print(output)
+```
+
+### Получение случайных данных
+```pycon
+>>> import os
+>>>
+>>> random_bytes = os.urandom(16)
+>>> print("Случайные байты:", random_bytes)
+Случайные байты: b"U\x1c\x9a\xec\x80E!\xc2\xdaR\x03\xab\xb8\x19\xe0\xa4"
+```
+
+```python
+import os
+
+with os.scandir("directory") as it:
+    for entry in it:
+        print(entry.name, entry.is_file(), entry.is_dir())
+```
+
+### Выполнение команды в оболочке
+```python
+import os
+
+os.system("echo Hello, World!")
+```
+
+### Работа с путями
+```python
+import os
+
+print("Разделитель путей:", os.sep)
+print("Разделитель расширений:", os.extsep)
+print("Путь к devnull:", os.devnull)
+```
+
+### Создание и удаление директорий
+```python
+import os
+
+os.makedirs("example_dir/subdir")
+os.removedirs("example_dir/subdir")
+```
+
+# Полезные ссылки
+- [Официальная документация](https://docs.python.org/3/library/os.html)
+- [Real Python - How to Use Python’s os and subprocess Modules](https://realpython.com/python-os-module/)
+- [Real Python - Working with Files in Python](https://realpython.com/working-with-files-in-python/)
+
 """,
+                        "os.path": """
+
+| Функция/Метод                | Описание                                                             | Пример                                   |
+|------------------------------|----------------------------------------------------------------------|------------------------------------------|
+| `os.path.basename(path)`     | Возвращает имя файла из пути.                                        | `os.path.basename("/path/to/file.txt")`  |
+| `os.path.dirname(path)`      | Возвращает путь к директории без имени файла.                        | `os.path.dirname("/path/to/file.txt")`   |
+| `os.path.split(path)`        | Разделяет путь на кортеж `(dirname, basename)`.                      | `os.path.split("/path/to/file.txt")`     |
+| `os.path.splitext(path)`     | Разделяет путь на кортеж `(root, ext)` с корнем и расширением файла. | `os.path.splitext("/path/to/file.txt")`  |
+| `os.path.join(path, *paths)` | Соединяет компоненты пути в единый путь.                             | `os.path.join("path", "to", "file.txt")` |
+| `os.path.abspath(path)`      | Преобразует путь в абсолютный путь.                                  | `os.path.abspath("file.txt")`            |
+| `os.path.realpath(path)`     | Возвращает канонический путь, учитывая символические ссылки.         | `os.path.realpath("symlink")`            |
+| `os.path.exists(path)`       | Проверяет, существует ли путь.                                       | `os.path.exists("file.txt")`             |
+| `os.path.isfile(path)`       | Проверяет, является ли путь файлом.                                  | `os.path.isfile("file.txt")`             |
+| `os.path.isdir(path)`        | Проверяет, является ли путь директорией.                             | `os.path.isdir("directory")`             |
+| `os.path.getsize(path)`      | Возвращает размер файла в байтах.                                    | `os.path.getsize("file.txt")`            |
+| `os.path.abspath(path)`      | Возвращает абсолютный путь.                                          | `os.path.abspath("file.txt")`            |
+
+""",
+                        "os.stat": """
+Функция `os.stat()` используется для получения информации о файле или каталоге по его пути.
+Она возвращает объект `os.stat_result`, который содержит различные атрибуты, описывающие состояние файла.
+
+# Синтаксис
+```python
+os.stat(path, *, dir_fd=None, follow_symlinks=True)
+```
+
+# Параметры
+- `path` - Путь к файлу или директории. Может быть как абсолютным, так и относительным
+- `dir_fd` - Дескриптор каталога; если задан, `path` интерпретируется как относительный путь относительно этого каталога
+- `follow_symlinks` - Указывает, нужно ли следовать символическим ссылкам
+
+# Возвращаемый объект `os.stat_result`
+Результат вызова `os.stat()` — объект `os.stat_result`, который является кортежем с именованными полями:
+
+| Атрибут    | Описание                                                         | **Пример значения** |
+|------------|------------------------------------------------------------------|---------------------|
+| `st_mode`  | Флаг режима файла, включая тип файла и права доступа             | `33188` (файл)      |
+| `st_ino`   | Номер inode (индексного дескриптора) файла                       | `12345678`          |
+| `st_dev`   | Идентификатор устройства, на котором расположен файл             | `2049`              |
+| `st_nlink` | Количество жестких ссылок на файл                                | `1`                 |
+| `st_uid`   | Идентификатор пользователя (UID) владельца файла                 | `1000`              |
+| `st_gid`   | Идентификатор группы (GID) владельца файла                       | `1000`              |
+| `st_size`  | Размер файла в байтах                                            | `1024`              |
+| `st_atime` | Время последнего доступа к файлу в секундах с начала эпохи Unix  | `1609459200.0`      |
+| `st_mtime` | Время последней модификации файла в секундах с начала эпохи Unix | `1609459200.0`      |
+| `st_ctime` | Время изменения метаданных файла или создания файла (на Windows) | `1609459200.0`      |
+
+## Пример использования
+```python
+import os
+import time
+
+
+stat_info = os.stat("example.txt")
+
+print(f"Размер файла: {stat_info.st_size} байт")
+print(f"Последний доступ: {time.ctime(stat_info.st_atime)}")
+print(f"Последняя модификация: {time.ctime(stat_info.st_mtime)}")
+print(f"Права доступа: {oct(stat_info.st_mode)}")
+```
+
+# Полезные функции для анализа `st_mode`
+Флаг `st_mode` может содержать информацию о правах доступа и типе файла.
+Для упрощения анализа можно использовать следующие функции из модуля [[Languages/Python/Libraries/System/stat.md]]:
+
+- `stat.S_ISDIR(mode)` - Проверяет, является ли файл директорией
+- `stat.S_ISREG(mode)` - Проверяет, является ли файл обычным файлом
+- `stat.S_IMODE(mode)` - Возвращает права доступа в формате `0777`
+
+## Пример использования функций из `stat`
+```python
+import os
+import stat
+
+path = "example.txt"
+stat_info = os.stat(path)
+
+if stat.S_ISDIR(stat_info.st_mode):
+    print(f"{path} — это директория.")
+elif stat.S_ISREG(stat_info.st_mode):
+    print(f"{path} — это обычный файл.")
+else:
+    print(f"{path} — это другой тип файла.")
+
+print(f"Права доступа: {oct(stat.S_IMODE(stat_info.st_mode))}")
+
+print("Size of file:", stat_info.st_size)
+print("Last accessed time:", stat_info.st_atime)
+```
+
+
+### Частые применения
+1. Проверка размера файла — чтобы убедиться, что файл не пустой или не превышает определенного размера
+2. Проверка прав доступа — для проверки или изменения прав доступа перед выполнением операций над файлом
+3. Анализ времени изменения файла — для выполнения действий на основе того, как давно файл был изменен
+
+# Полезные ссылки
+- [Официальная документация os.stat](https://docs.python.org/3/library/os.html#os.stat)
+- [Документация модуля stat](https://docs.python.org/3/library/stat.html)
+
+""",
+                    },
                     "sys": r"""
 Этот модуль предоставляет доступ к некоторым объектам, используемым или поддерживаемым
 интерпретатором, и к функциям, которые тесно взаимодействуют с интерпретатором.
@@ -2472,6 +2498,26 @@ print(hidden_files)  # [".bashrc", ".gitignore"]
                         fnmatch_filter=to_table_code_py('fnmatch.filter(["foo.txt", "bar.py"], "*.txt")'),
                         fnmatch_translate=to_table_code_py('pattern = fnmatch.translate("*.txt")'),
                     ),
+                    "glob": r"""
+Библиотека "glob" предназначена для поиска файлов с использованием шаблонов и расширений в заданном каталоге.
+
+Методы модуля "glob" и их краткое описание:
+
+glob.glob(pathname): Возвращает список всех путей, соответствующих заданному шаблону.
+glob.escape(pathname): Экранирует все специальные символы в заданном пути, чтобы они были интерпретированы как обычные символы.
+
+Пример кода для демонстрации работы метода glob.glob():
+
+```python
+import glob
+
+files = glob.glob("*.txt")
+print(files)
+```
+
+В этом примере метод glob.glob("*.txt") ищет все файлы с расширением ".txt" в текущем каталоге и возвращает
+список путей к этим файлам, который затем выводится на экран.
+""",
                     "resource": r"""
 Библиотека "resource" в Python используется для доступа и управления системными ресурсами, такими как время CPU, память и дескрипторы файлов.
 
@@ -2514,26 +2560,6 @@ import resource
 limits = (2, resource.RLIM_INFINITY)
 resource.setrlimit(resource.RLIMIT_CPU, limits)
 ```
-""",
-                    "glob": r"""
-Библиотека "glob" предназначена для поиска файлов с использованием шаблонов и расширений в заданном каталоге.
-
-Методы модуля "glob" и их краткое описание:
-
-glob.glob(pathname): Возвращает список всех путей, соответствующих заданному шаблону.
-glob.escape(pathname): Экранирует все специальные символы в заданном пути, чтобы они были интерпретированы как обычные символы.
-
-Пример кода для демонстрации работы метода glob.glob():
-
-```python
-import glob
-
-files = glob.glob("*.txt")
-print(files)
-```
-
-В этом примере метод glob.glob("*.txt") ищет все файлы с расширением ".txt" в текущем каталоге и возвращает
-список путей к этим файлам, который затем выводится на экран.
 """,
                     "posix": r"""
 Библиотека "posix" в Python используется для взаимодействия с функциями и операциями,
@@ -2584,21 +2610,19 @@ print(os.listdir("/path/to/directory"))
 Библиотека "stat" в Python используется для работы с информацией о файловой системе,
 такой как атрибуты файла, права доступа и временные метки.
 
-Методы модуля "stat" и его подмодулей:
+|                     |                                                    |
+|---------------------|----------------------------------------------------|
+| stat.S_ISDIR(mode)  | Проверяет, является ли файл директорией            |
+| stat.S_ISREG(mode)  | Проверяет, является ли файл обычным файлом         |
+| stat.S_ISLNK(mode)  | Проверяет, является ли файл символической ссылкой  |
+| stat.S_ISSOCK(mode) | Проверяет, является ли файл сокетом                |
+| stat.S_ISFIFO(mode) | Проверяет, является ли файл каналом FIFO           |
+| stat.S_ISBLK(mode)  | Проверяет, является ли файл блочным устройством    |
+| stat.S_ISCHR(mode)  | Проверяет, является ли файл символьным устройством |
+| stat.S_IMODE(mode)  | Возвращает режим доступа к файлу                   |
+| stat.S_IFMT(mode)   | Возвращает тип файла и режим доступа               |
 
-stat.S_ISDIR(mode): Проверяет, является ли файл директорией.
-stat.S_ISREG(mode): Проверяет, является ли файл обычным файлом.
-stat.S_ISLNK(mode): Проверяет, является ли файл символической ссылкой.
-stat.S_ISSOCK(mode): Проверяет, является ли файл сокетом.
-stat.S_ISFIFO(mode): Проверяет, является ли файл каналом FIFO.
-stat.S_ISBLK(mode): Проверяет, является ли файл блочным устройством.
-stat.S_ISCHR(mode): Проверяет, является ли файл символьным устройством.
-stat.S_IMODE(mode): Возвращает режим доступа к файлу.
-stat.S_IFMT(mode): Возвращает тип файла и режим доступа.
-
-Самые часто используемые методы:
-
-stat.S_ISDIR(mode): Проверяет, является ли файл директорией.
+### Примеры
 
 ```python
 import os
@@ -2606,37 +2630,18 @@ import stat
 
 file_path = "path/to/file.txt"
 file_stat = os.stat(file_path)
+
 if stat.S_ISDIR(file_stat.st_mode):
     print("File is a directory")
 else:
     print("File is not a directory")
-```
 
-stat.S_ISREG(mode): Проверяет, является ли файл обычным файлом.
-
-
-```python
-import os
-import stat
-
-file_path = "path/to/file.txt"
-file_stat = os.stat(file_path)
 if stat.S_ISREG(file_stat.st_mode):
     print("File is a regular file")
 else:
     print("File is not a regular file")
-```
 
-stat.S_IMODE(mode): Возвращает режим доступа к файлу.
-
-```python
-import os
-import stat
-
-file_path = "path/to/file.txt"
-file_stat = os.stat(file_path)
-file_mode = stat.S_IMODE(file_stat.st_mode)
-print("File mode:", file_mode)
+print("File mode:", stat.S_IMODE(file_stat.st_mode))
 ```
 """,
                     "getopt": r"""
@@ -3315,6 +3320,320 @@ command = fcntl.F_GETFL  # Получить флаги управления фа
 flags = fcntl.fcntl(file_descriptor, command, 0)
 print(flags)
 file_descriptor.close()
+```
+""",
+                    "signal": """
+Библиотека `signal` позволяет работать с сигналами в Unix-подобных операционных системах.
+Сигналы — это уведомления, которые операционная система посылает процессам для того,
+чтобы сообщить о каких-либо событиях (например, о завершении работы, прерывании и т.д.).
+
+- **Сигнал** — сообщение, посылаемое операционной системой процессу для уведомления о каком-либо событии.
+- **Обработчик сигнала** — функция, которая вызывается, когда процесс получает сигнал.
+
+| Сигнал           | Описание                           | Действие по умолчанию |
+|------------------|------------------------------------|-----------------------|
+| `signal.SIGINT`  | Прерывание (обычно `CTRL+C`)       | Завершение процесса   |
+| `signal.SIGTERM` | Завершение процесса                | Завершение процесса   |
+| `signal.SIGKILL` | Принудительное завершение процесса | Завершение процесса   |
+| `signal.SIGALRM` | Таймер истек                       | Завершение процесса   |
+| `signal.SIGHUP`  | Обрыв связи                        | Завершение процесса   |
+| `signal.SIGUSR1` | Пользовательский сигнал 1          | Завершение процесса   |
+| `signal.SIGUSR2` | Пользовательский сигнал 2          | Завершение процесса   |
+
+> **Примечание:** Сигнал `SIGKILL` нельзя перехватить или игнорировать.
+
+# Установка обработчика сигнала
+
+Для установки обработчика используется функция `signal.signal()`:
+
+```python
+def handler(signum, frame):
+    print(f"Сигнал {signum} получен")
+
+signal.signal(signal.SIGINT, handler)
+```
+
+- `signum`: номер сигнала.
+- `frame`: текущее состояние стека (можно игнорировать).
+
+# Игнорирование сигналов
+
+Сигнал можно игнорировать, установив обработчик в `signal.SIG_IGN`:
+
+```python
+signal.signal(signal.SIGINT, signal.SIG_IGN)
+```
+
+# Восстановление стандартного обработчика
+
+```python
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+```
+
+# Отправка сигналов процессу
+
+Для отправки сигнала процессу используется функция [[Languages/Python/Libraries/System/os/]]`.kill()`:
+
+```python
+import os
+os.kill(os.getpid(), signal.SIGTERM)
+```
+
+- `os.getpid()` возвращает ID текущего процесса.
+- `signal.SIGTERM` — сигнал завершения.
+
+# Работа с таймерами
+
+Функция `signal.alarm()` устанавливает таймер, который отправляет сигнал `SIGALRM` после указанного времени:
+
+```python
+signal.alarm(5)  # Через 5 секунд процесс получит сигнал SIGALRM
+```
+
+- `signal.alarm(0)` отменяет таймер.
+
+# Ожидание сигнала
+
+Функция `signal.pause()` блокирует выполнение программы до получения сигнала:
+
+```python
+signal.pause()  # Ожидание сигнала
+```
+
+## Пример использования
+
+```python
+import signal
+import time
+
+# Обработчик сигнала
+def handler(signum, frame):
+    print(f"Сигнал {signum} получен. Прерывание программы.")
+
+# Устанавливаем обработчик для SIGINT
+signal.signal(signal.SIGINT, handler)
+
+print("Программа работает. Нажмите Ctrl+C для прерывания.")
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("Программа завершена.")
+
+```
+
+Этот пример перехватывает сигнал `SIGINT` (`Ctrl+C`) и выполняет пользовательский обработчик,
+который выводит сообщение о получении сигнала.
+
+# Часто используемые функции
+
+| Функция                          | Описание                                                                 |
+|----------------------------------|--------------------------------------------------------------------------|
+| `signal.signal(signum, handler)` | Устанавливает обработчик для сигнала                                     |
+| `signal.getsignal(signum)`       | Возвращает текущий обработчик сигнала                                    |
+| `signal.pause()`                 | Останавливает выполнение до получения сигнала                            |
+| `signal.alarm(seconds)`          | Устанавливает таймер для отправки сигнала `SIGALRM` через заданное время |
+| `signal.setitimer()`             | Устанавливает высокоточный таймер и отправляет сигнал                    |
+| `signal.siginterrupt()`          | Устанавливает, должен ли системный вызов быть прерван сигналом           |
+
+## Пример работы с таймером
+
+```python
+import signal
+
+def timeout_handler(signum, frame):
+    print("Таймер истек!")
+
+# Устанавливаем обработчик для SIGALRM
+signal.signal(signal.SIGALRM, timeout_handler)
+
+# Устанавливаем таймер на 5 секунд
+signal.alarm(5)
+
+print("Ожидание сигнала...")
+
+# Ожидание сигнала
+signal.pause()
+```
+
+Этот пример устанавливает таймер на 5 секунд и ждет его истечения.
+Когда таймер истекает, вызывается обработчик `timeout_handler`.
+
+## Полезные замечания
+
+1. **Обработчики сигналов**: Старайтесь минимизировать выполнение кода в обработчиках сигналов,
+так как они могут быть вызваны в любой момент, что может привести к непредсказуемому поведению.
+2. **Портируемость**: Библиотека `signal` доступна только в Unix-подобных системах (Linux, macOS).
+На Windows поддерживаются лишь некоторые функции, такие как `signal.SIGINT`.
+3. **Сигналы и потоки**: Сигналы обрабатываются в главном потоке. Если ваш процесс использует несколько потоков,
+убедитесь, что обработка сигналов не нарушает работу приложения.
+
+""",
+                    "io": """
+Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+
+io.StringIO() - создание в памяти строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+stream.seek(0)
+print(stream.read())  # Hello, world!
+```
+
+io.BytesIO() - создание в памяти потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+stream.seek(0)
+print(stream.read())  # b"Hello, world!"
+```
+
+io.open() - открытие файла в нужном режиме.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    f.write("Hello, world!")
+
+with io.open("example.txt", "r") as f:
+    print(f.read())  # Hello, world!
+```
+
+io.TextIOWrapper() - обертка для текстовых потоков.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Привет, мир!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Привет, мир!
+```
+
+io.BufferedWriter() - буферизированный записывающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedWriter(f)
+    writer.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.BufferedReader() - буферизированный читающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    f.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.FileIO() - создание потока для работы с файлом в бинарном режиме.
+
+```python
+import io
+
+with io.FileIO("example.txt", "w") as f:
+    f.write(b"Hello, world!")
+
+with io.FileIO("example.txt", "r") as f:
+    print(f.read())  # b"Hello, world!"
+```
+
+io.TextIOBase() - базовый класс для всех текстовых потоков.
+
+```python
+import io
+
+class UpperTextIO(io.TextIOBase):
+    def __init__(self, stream):
+        self._stream = stream
+
+    def write(self, text):
+        self._stream.write(text.upper())
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    upper_wrapper = UpperTextIO(wrapper)
+    upper_wrapper.write("hello, world!")
+    wrapper.flush()
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # HELLO, WORLD!
+```
+
+io.StringIO.getvalue() - получение содержимого из строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+print(stream.getvalue())  # Hello, world!
+```
+
+io.BytesIO.getvalue() - получение содержимого из потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+print(stream.getvalue())  # b"Hello, world!"
+```
+
+io.TextIOWrapper.detach() - отсоединение потока от обертки.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Hello, world!")
+    stream = wrapper.detach()
+    stream.write(b"!!!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Hello, world!!!
+```
+
+io.BufferedRandom() - буферизированный поток с произвольным доступом.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedRandom(f)
+    writer.write(b"Hello, world!")
+    writer.flush()
+    writer.seek(-6, io.SEEK_CUR)
+    writer.write(b"Python!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, Python!"
 ```
 """,
                 },
@@ -5300,255 +5619,320 @@ x x x x x
 ```
 """,
                     "collections": """
-Модуль collections в Python содержит различные удобные классы для работы с коллекциями (наборами объектов).
-Некоторые из классов в модуле collections:
+Библиотека `collections` предоставляет специализированные контейнерные типы данных,
+которые расширяют стандартные структуры, такие как списки, кортежи и словари.
+Эти структуры данных помогают сделать код более читабельным и эффективным.
 
-namedtuple - это класс-фабрика для создания именованных кортежей, которые представляют собой 
-             неизменяемые объекты, похожие на обычные кортежи, но каждый элемент имеет уникальное имя.
+| Контейнер                          | Описание                                                                                                                                |
+|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `Counter`                          | Счетчик, который предназначен для подсчета хэшируемых объектов.<br>Возвращает словарь, где ключи — объекты, а значения — их количество. |
+| `defaultdict`                      | Словарь, который автоматически создает значение по умолчанию<br>для несуществующих ключей при первом обращении к ним.                   |
+| `OrderedDict`                      | Словарь, который сохраняет порядок добавления элементов.                                                                                |
+| `namedtuple()`                     | Создает подклассы кортежей с именованными полями,<br>что позволяет обращаться к элементам по имени.                                     |
+| `deque`                            | Двусторонняя очередь, которая поддерживает добавление<br>и удаление элементов с обоих концов с высокой производительностью.             |
+| `ChainMap`                         | Объединяет несколько словарей или других отображений в одно,<br>обеспечивая единый вид для поиска и изменения данных.                   |
+| `UserDict` `UserList` `UserString` | Классы для создания пользовательских словарей,<br>списков и строк с возможностью переопределения их поведения.                          |
 
-deque - это двусторонняя очередь, которая позволяет эффективно добавлять и удалять элементы как с начала, так и с конца.
+# Counter
 
-Counter - это класс, который позволяет подсчитывать количество каждого элемента в последовательности.
-          Возвращает словарь, где каждый ключ представляет элемент последовательности, а значение - количество его вхождений в последовательность.
+Подкласс словаря, который предназначен для подсчета хэша объектов (например, слов, символов и т.д.).
+Он подсчитывает количество вхождений каждого элемента.
 
-OrderedDict - это словарь, который запоминает порядок вставки элементов.
-              Позволяет итерироваться по элементам в порядке, в котором они были добавлены в словарь.
+| Функция/Метод                               | Описание                                                                                                | Пример                             |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------|
+| `Counter()`                                 | Создает объект `Counter`.                                                                               | `counter = Counter("abracadabra")` |
+| `Counter().elements()`                      | Возвращает итератор по элементам, каждый из которых<br>повторяется столько раз, сколько он встречается. | `list(counter.elements())`         |
+| `Counter().most_common([n])`                | Возвращает n самых распространенных элементов и их количество.                                          | `counter.most_common(2)`           |
+| `Counter().subtract([iterable-or-mapping])` | Вычитает элементы, как и `update`, но уменьшает количество.                                             | `counter.subtract("abcd")`         |
+| `Counter().update([iterable-or-mapping])`   | Увеличивает счетчик для элементов из `iterable` или другого `Counter`.                                  | `counter.update("abc")`            |
 
-defaultdict - это словарь, который возвращает значение по умолчанию, если ключ отсутствует.
-              При создании defaultdict необходимо указать функцию, которая будет вызываться для возврата значения по умолчанию. 
-              Этот класс часто используется для создания словарей с дефолтным значением или для группировки элементов по какому-то признаку.
-
-ChainMap - это класс, который позволяет объединить несколько словарей в один.
-           Он предоставляет удобный способ комбинирования нескольких словарей в один, без необходимости копирования элементов.
-
-UserDict - это класс, который предоставляет интерфейс словаря, но позволяет наследоваться для создания собственных классов словарей.
-           Он может быть использован для создания словарей с дополнительной логикой или специальным поведением.
-
-Эти классы облегчают работу с коллекциями в Python и уменьшают необходимость писать большой и сложный код для выполнения стандартных задач.
-
-
-namedtuple:
-
-```python
-from collections import namedtuple
-
-# создаем именованный кортеж Point
-Point = namedtuple("Point", ["x", "y"])
-
-# создаем экземпляр кортежа
-p = Point(1, 2)
-
-# обращаемся к полям кортежа по имени
-print(p.x)  # 1
-print(p.y)  # 2
-```
-
-deque:
-
-```python
-from collections import deque
-
-# создаем пустую двустороннюю очередь
-d = deque()
-
-# добавляем элементы в очередь
-d.append(1)
-d.append(2)
-d.append(3)
-
-# удаляем элементы из очереди
-print(d.pop())  # 3
-print(d.popleft())  # 1
-
-# выводим оставшиеся элементы в очереди
-print(d)  # deque([2])
-```
-
-Counter:
 
 ```python
 from collections import Counter
 
-# создаем счетчик
-c = Counter("hello, world")
+counter = Counter("abracadabra")
+print(counter)  # Counter({"a": 5, "b": 2, "r": 2, "c": 1, "d": 1})
 
-# выводим количество вхождений каждого символа
-print(c)  # Counter({"l": 3, "o": 2, "e": 1, "h": 1, ",": 1, " ": 1, "w": 1, "r": 1, "d": 1})
-
-# выводим наиболее часто встречающиеся символы
-print(c.most_common(2))  # [("l", 3), ("o", 2)]
+# Выводим наиболее часто встречающиеся символы
+print(counter.most_common(2))  # [("a", 5), ("b", 2)]
+print(list(counter.elements()))  # ["a", "a", "a", "a", "a", "b", "b", "r", "r", "c", "d"]
 ```
 
-OrderedDict:
+# defaultdict
 
-```python
-from collections import OrderedDict
+Подкласс словаря, который вызывает функцию для отсутствующих ключей и использует её результат в качестве значения по умолчанию.
 
-# создаем упорядоченный словарь
-d = OrderedDict()
-
-# добавляем элементы в словарь
-d["a"] = 1
-d["b"] = 2
-d["c"] = 3
-
-# выводим элементы в порядке их добавления
-for k, v in d.items():
-    print(k, v)
-# a 1
-# b 2
-# c 3
-```
-
-defaultdict:
+| Функция/Метод                  | Описание                                  | Пример                 |
+|--------------------------------|-------------------------------------------|------------------------|
+| `defaultdict(default_factory)` | Создает словарь с значением по умолчанию. | `d = defaultdict(int)` |
 
 ```python
 from collections import defaultdict
 
-# создаем словарь с дефолтным значением 0
 d = defaultdict(int)
-
-# добавляем элементы в словарь
 d["a"] += 1
-d["b"] += 2
-d["c"] += 3
-
-# выводим словарь
-print(d)  # defaultdict(<class "int">, {"a": 1, "b": 2, "c": 3})
+print(d)  # defaultdict(<class "int">, {"a": 1})
 ```
 
-ChainMap:
+# OrderedDict
+
+Подкласс словаря, который запоминает порядок добавления элементов.
+
+| Функция/Метод                | Описание                                                 | Пример                |
+|------------------------------|----------------------------------------------------------|-----------------------|
+| `OrderedDict()`              | Создает упорядоченный словарь.                           | `od = OrderedDict()`  |
+| `move_to_end(key, last=True)`| Перемещает элемент с заданным ключом в конец или начало. | `od.move_to_end("a")` |
+| `popitem(last=True)`         | Удаляет и возвращает элемент с конца или начала.         | `od.popitem()`        |
+
+```python
+from collections import OrderedDict
+
+od = OrderedDict()
+od["a"] = 1
+od["b"] = 2
+od["c"] = 3
+print(od)  # OrderedDict([("a", 1), ("b", 2), ("c", 3)])
+```
+
+# namedtuple
+
+[Фабрика классов](?General/Паттерны%20проектирования/Порождающие%20паттерны/Factory%20(Фабрика).md), которая создает подклассы кортежа с именованными полями.
+
+| Функция/Метод                       | Описание                                            | Пример                               |
+|-------------------------------------|-----------------------------------------------------|--------------------------------------|
+| `namedtuple(typename, field_names)` | Создает новый тип кортежа с именами полей.          | `Point = namedtuple("Point", "x y")` |
+| `_replace(**kwargs)`                | Возвращает новый экземпляр, заменив указанные поля. | `p._replace(x=10)`                   |
+
+```python
+from collections import namedtuple
+
+Point = namedtuple("Point", ["x", "y"])
+p = Point(10, 20)
+print(p)    # Point(x=10, y=20)
+print(p.x)  # 10
+print(p.y)  # 20
+```
+
+# deque
+
+Двусторонняя очередь, которая обеспечивает быстрый доступ и добавление элементов с обоих концов.
+
+| Функция/Метод   | Описание                               | Пример             |
+|-----------------|----------------------------------------|--------------------|
+| `append(x)`     | Добавляет элемент в конец.             | `dq.append(1)`     |
+| `appendleft(x)` | Добавляет элемент в начало.            | `dq.appendleft(1)` |
+| `pop()`         | Удаляет и возвращает элемент с конца.  | `dq.pop()`         |
+| `popleft()`     | Удаляет и возвращает элемент с начала. | `dq.popleft()`     |
+| `rotate(n)`     | Вращает очередь на `n` шагов.          | `dq.rotate(1)`     |
+
+```python
+from collections import deque
+
+dq = deque([1, 2, 3])
+dq.append(4)
+dq.appendleft(0)
+print(dq)  # deque([0, 1, 2, 3, 4])
+dq.pop()
+dq.popleft()
+print(dq)  # deque([1, 2, 3])
+```
+
+# ChainMap
+
+Объединяет несколько словарей или других отображений в одно логическое целое. 
+
+| Функция/Метод       | Описание                                                    | Пример                        |
+|---------------------|-------------------------------------------------------------|-------------------------------|
+| `ChainMap(*maps)`   | Создает новый `ChainMap` из указанных отображений.          | `cm = ChainMap(dict1, dict2)` |
+| `new_child(m=None)` | Возвращает новый `ChainMap` с m как новой первичной картой. | `cm.new_child({"c": 3})`      |
 
 ```python
 from collections import ChainMap
 
-# создаем два словаря
 d1 = {"a": 1, "b": 2}
 d2 = {"b": 3, "c": 4}
 
-# объединяем словари в цепочку
 d = ChainMap(d1, d2)
+print(d)  # ChainMap({"a": 1, "b": 2}, {"b": 3, "c": 4})
 
-# выводим элементы словаря
 print(d["a"])  # 1
 print(d["b"])  # 2 (из d1, так как b в d1 появился раньше, чем в d2)
 print(d["c"])  # 4 (из d2)
 
-# создаем новый словарь и добавляем его в цепочку
 d3 = {"c": 5, "d": 6}
 d = d.new_child(d3)
 
-# выводим элементы словаря
 print(d["c"])  # 5 (из d3, так как он добавлен в цепочку позже, чем d2)
 print(d["d"])  # 6 (из d3)
 ```
 
+# UserDict, UserList, UserString
 
-UserDict:
+Эти классы предоставляют возможность создания пользовательских классов,
+наследуемых от словаря, списка и строки соответственно, с возможностью переопределения их поведения.
+
+| Класс        | Описание                                              | Пример                             |
+|--------------|-------------------------------------------------------|------------------------------------|
+| `UserDict`   | Базовый класс для создания пользовательских словарей. | `class MyDict(UserDict): pass`     |
+| `UserList`   | Базовый класс для создания пользовательских списков.  | `class MyList(UserList): pass`     |
+| `UserString` | Базовый класс для создания пользовательских строк.    | `class MyString(UserString): pass` |
 
 ```python
-from collections import UserDict
+from collections import UserDict, UserList, UserString
 
-# создаем пользовательский словарь
 d = UserDict({"a": 1, "b": 2})
-
-# добавляем элементы в словарь
 d["c"] = 3
-
-# выводим элементы словаря
 print(d)  # {"a": 1, "b": 2, "c": 3}
-```
 
-UserList:
-
-```python
-from collections import UserList
-
-# создаем пользовательский список
 l = UserList([1, 2, 3])
-
-# добавляем элементы в список
 l.append(4)
-
-# выводим элементы списка
 print(l)  # [1, 2, 3, 4]
-```
 
-UserString:
-
-```python
-from collections import UserString
-
-# создаем пользовательскую строку
 s = UserString("hello, world")
+print(s.upper())  # HELLO, WORLD
 
-# изменяем строку
-s.data = s.data.upper()
 
-# выводим строку
-print(s)  # HELLO, WORLD
+class MyDict(UserDict):
+    def __setitem__(self, key, value):
+        print(f"Setting {key} to {value}")
+        super().__setitem__(key, value)
+
+
+md = MyDict()
+md["a"] = 1  # Setting a to 1
 ```
+
+# Полезные ссылки
+- [Официальная документация](https://docs.python.org/3/library/collections.html)
+- [Real Python - Advanced Python Collections](https://realpython.com/python-collections-module/)
+
 """,
                     "functools": '''
-partial(func, *args, **kwargs)              возвращает новую функцию, которая является копией исходной функции func, 
-                                            но с некоторыми аргументами, переданными как *args и **kwargs, заранее заданными.
+`functools` - Утилиты для работы с функциями, упрощая их применение, создание и комбинирование
 
-reduce(func, iterable[, initializer])       применяет функцию func к первым двум элементам последовательности iterable, 
-                                            затем применяет func к результату и следующему элементу, и так далее, пока не будет обработан весь список. 
-                                            Если указан initializer, он используется как первый элемент в последовательности.
+| Функция/Атрибут          | Описание                                                                                                                                                                        | Пример использования                                             |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| `partial()`              | Создает новую функцию с частично фиксированными аргументами,<br>позволяя упростить вызов функции с заранее определенными аргументами                                            | `double = partial(multiply, y=2)`                                |
+| `reduce()`               | Последовательно применяет функцию, принимающую два аргумента,<br>к элементам последовательности, сводя их к одному результату                                                   | `result = reduce(lambda x, y: x + y, numbers)`                   |
+| `lru_cache()`            | Декоратор для кэширования результатов функции,<br>что помогает избежать повторных вычислений при одинаковых входных данных                                                      | `@lru_cache(maxsize=None)`                                       |
+| `wraps()`                | Декоратор, сохраняющий метаданные оригинальной функции<br>(например, `__name__`, `__doc__`) при использовании декораторов                                                       | `@wraps(func)`                                                   |
+| `total_ordering()`       | Класс-декоратор, который автоматически добавляет все методы сравнения<br>(`<`, `<=`, `>`, `>=`), если определены `__eq__`<br>и один из (`__lt__`, `__le__`, `__gt__`, `__ge__`) | `@total_ordering`                                                |
+| `cmp_to_key()`           | Преобразует функцию сравнения старого стиля в функцию,<br>возвращающую ключ для сортировки<br>(например, для использования в `sorted()` или `min()`)                            | `sorted_data = sorted(data, key=cmp_to_key(compare))`            |
+| `cache()`                | Декоратор для кэширования результатов функции,<br>аналогичный `lru_cache`, но без ограничений на размер кэша                                                                    | `@cache`                                                         |
+| `update_wrapper()`       | Обновляет метаданные функции-декоратора,<br>чтобы они соответствовали оригинальной функции                                                                                      | `update_wrapper(wrapper, wrapped)`                               |
+| `partialmethod()`        | Позволяет создавать методы с частично<br>фиксированными аргументами для использования в классах                                                                                 | `partialmethod(func, arg1, arg2)`                                |
+| `singledispatch()`       | Декоратор, который преобразует функцию<br>в обобщенную функцию с поддержкой однотипного диспетчеризации,<br>позволяя создавать перегрузки для разных типов аргументов           | `@singledispatch`                                                |
+| `singledispatchmethod()` | Версия `singledispatch`, предназначенная<br>для использования в классах как метод, а не как функция                                                                             | `@singledispatchmethod`                                          |
+| `cached_property()`      | Декоратор, который превращает метод класса в свойство,<br>кэшируемое после первого вычисления                                                                                   | `@cached_property`                                               |
+| `WRAPPER_ASSIGNMENTS`    | Список атрибутов, которые копируются<br>из оригинальной функции в функцию-декоратор                                                                                             | По умолчанию: `__module__` `__name__`<br>`__qualname__` `__doc__` `__annotations__` |
+| `WRAPPER_UPDATES`        | Список атрибутов, которые обновляются<br>из оригинальной функции в функцию-декоратор                                                                                            | По умолчанию: `__dict__`                                     |
 
-cache(func)                                 декоратор, который кэширует результаты вызовов функции func с одинаковыми аргументами, чтобы избежать повторных вычислений.
 
-wraps(wrapped[, assigned[, updated]])       декоратор, который копирует информацию об исходной функции wrapped в декорированную функцию. 
-                                            Это позволяет сохранить метаданные, такие как имя функции, документацию и атрибуты.
-
-total_ordering(cls)                         декоратор, который автоматически генерирует методы сравнения объектов 
-                                            для класса cls на основе определения методов __eq__() и __lt__().
-
-cmp_to_key(func)                            преобразует функцию func для использования в функциях сортировки. 
-                                            Функция func(a, b) должна возвращать число, которое указывает порядок элементов a и b.
-
-partialmethod(func, *args, **kwargs)        возвращает частичный метод, который может быть вызван как метод экземпляра класса. 
-                                            Аргумент func должен быть методом класса.
-
-lru_cache                                   декоратор реализует механизм кеширования результатов функции с помощью алгоритма "Least Recently Used" (LRU).
-
-partial(func, *args, **kwargs)  
-Возвращает новую функцию, которая является копией исходной функции func, 
-но с некоторыми аргументами, переданными как *args и **kwargs, заранее заданными.
-
+# partial
+Создает новую функцию с частично фиксированными аргументами
+Удобно для переиспользования функций с предустановленными параметрами
 ```python
 from functools import partial
 
-def power(base, exponent)
-    return base ** exponent
+def multiply(x, y):
+    return x * y
 
-# Создаем функцию возведения в квадрат, используя partial
-square = partial(power, exponent=2)
-
-# Вызываем функции
-print(square(2))  # 4
-print(square(3))  # 9
+# `y` всегда равен 2
+print(partial(multiply, y=2)(5))  # 10
 ```
 
-reduce(func, iterable[, initializer]) 
-Применяет функцию func к первым двум элементам последовательности iterable, затем применяет func к результату и следующему элементу, 
-и так далее, пока не будет обработан весь список. Если указан initializer, он используется как первый элемент в последовательности.
-
+# reduce
+Последовательно применяет функцию, принимающую два аргумента,
+к элементам последовательности, сводя их к одному результату
 ```python
 from functools import reduce
 
 numbers = [1, 2, 3, 4, 5]
-
-# Найдем произведение всех чисел в списке
-product = reduce(lambda x, y: x*y, numbers)
-
-print(product)  # 120
+print(reduce(lambda x, y: x + y, numbers))  # 15
 ```
 
-cache(func): 
-Декоратор, который кэширует результаты вызовов функции func с одинаковыми аргументами, чтобы избежать повторных вычислений.
+# lru_cache
+Кэширует результаты функции, улучшая производительность за счет предотвращения повторных вычислений
+С ограничением на количество сохраненных значений
+Это полезно для оптимизации рекурсивных функций
+```python
+from functools import lru_cache
 
+@lru_cache(maxsize=None)
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+@lru_cache(maxsize=128)
+def factorial(n):
+    return n * factorial(n-1) if n else 1
+
+print(fibonacci(10))  # 55
+print(factorial(5))  # 120
+```
+
+# wraps
+Используется для создания декораторов, которые сохраняют метаданные декорируемой функции
+```python
+from functools import wraps
+
+def my_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f"Вызов функции {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def greet(name):
+    """Приветствие пользователя"""
+    return f"Hello, {name}!"
+
+print(greet("Alice"))  # "Hello, Alice!"
+print(greet.__name__)  # "greet"
+print(greet.__doc__)   # "Приветствие пользователя"
+```
+
+# total_ordering
+Класс-декоратор, который добавляет методы сравнения (`<`, `<=`, `>`, `>=`) к классу,
+если определены `__eq__` и один из (`__lt__`, `__le__`, `__gt__`, `__ge__`)
+```python
+from functools import total_ordering
+
+@total_ordering
+class Number:
+    def __init__(self, value):
+        self.value = value
+    
+    def __eq__(self, other):
+        return self.value == other.value
+    
+    def __lt__(self, other):
+        return self.value < other.value
+
+n1 = Number(1)
+n2 = Number(2)
+
+print(n1 < n2)  # True
+print(n1 > n2)  # False
+```
+
+# cmp_to_key
+Преобразует функцию сравнения старого стиля в функцию, возвращающую ключ для сортировки
+```python
+from functools import cmp_to_key
+
+def compare(x, y):
+    return x - y
+
+sorted_list = sorted([5, 3, 6, 2, 1], key=cmp_to_key(compare))
+print(sorted_list)  # [1, 2, 3, 5, 6]
+```
+
+# cache
+Декоратор, который кэширует результаты вызовов функции `func`
+с одинаковыми аргументами, чтобы избежать повторных вычислений
 ```python
 from functools import cache
 
@@ -5559,146 +5943,134 @@ def factorial(n):
     else:
         return n * factorial(n-1)
 
+@cache
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
 print(factorial(5))  # 120
+print(fibonacci(10))  # 55
 ```
 
-wraps(wrapped[, assigned[, updated]]) 
-Декоратор, который копирует информацию об исходной функции wrapped в декорированную функцию. 
-Это позволяет сохранить метаданные, такие как имя функции, документацию и атрибуты.
-| сохраняет имя и документацию функции так как обычный декоратор заменяет собой функцию
+# update_wrapper
+Обновляет метаданные функции-декоратора, чтобы они соответствовали оригинальной функции
 
 ```python
-from functools import wraps
+from functools import update_wrapper
 
 def my_decorator(func):
-    @wraps(func)
     def wrapper(*args, **kwargs):
-        print("Calling function:", func.__name__)
+        print("До вызова функции")
         return func(*args, **kwargs)
-    return wrapper
+    return update_wrapper(wrapper, func)
 
 @my_decorator
 def my_function():
-    """This is my function."""
-    print("Hello, World!")
+    print("Выполнение функции")
 
-print(my_function.__name__)  # my_function
-print(my_function.__doc__)   # This is my function.
+my_function()  # Выводит: До вызова функции Выполнение функции
 ```
 
-```pycon
->>> def dec(f):
-...     def w(x, y):
-...         return f(x, y)
-...     return w
-...
->>> @dec
-... def foo(x, y):
-...     """comment"""
-...     return x + y
-...
->>> foo
-<function dec.<locals>.w at 0x00000182FB1982C0>
->>> foo.__name__
-"w"
->>> from functools import wraps
->>> def dec(f):
-...     @wraps(f)
-...     def w(x, y):
-...         return f(x, y)
-...     return w
-...
->>> @dec
-... def foo(x, y):
-...     """comment"""
-...     return x + y
-...
->>> foo
-<function foo at 0x00000182FB198400>
->>> foo.__name__
-"foo"
->>>
-```
-
-total_ordering(cls) 
-Декоратор, который автоматически генерирует методы сравнения объектов 
-для класса cls на основе определения методов __eq__() и __lt__().
+# partialmethod
+Аналог `partial`, но используется для создания методов с частично фиксированными аргументами
 
 ```python
-from functools import total_ordering
+from functools import partialmethod
 
-@total_ordering
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-    def __eq__(self, other):
-        return self.age == other.age
+class MyClass:
+    def multiply(self, x, y):
+        return x * y
+    
+    double = partialmethod(multiply, y=2)
 
-    def __lt__(self, other):
-        return self.age < other.age
-
-person1 = Person("Alice", 25)
-person2 = Person("Bob", 30)
-
-print(person1 == person2)  # False
-print(person1 != person2)  # True
-print(person1 < person2)   # True
-print(person1 > person2)   # False
+obj = MyClass()
+print(obj.double(5))  # 10
 ```
 
-cmp_to_key(cmp) 
-Преобразует функцию сравнения cmp в ключ-функцию, которая может быть использована для сортировки объектов. 
-Эта функция полезна, когда необходимо отсортировать список объектов с использованием пользовательской функции сравнения.
+# singledispatch
+Позволяет создавать обобщенные функции с поддержкой
+однотипного диспетчеризации (перегрузки) на основе типа первого аргумента
 
 ```python
-from functools import cmp_to_key
+from functools import singledispatch
 
-def my_cmp(a, b):
-    if a < b:
-        return -1
-    elif a > b:
-        return 1
-    else:
-        return 0
+@singledispatch
+def process(value):
+    print(f"Обработка объекта: {value}")
 
-numbers = [4, 2, 7, 1, 3]
+@process.register(int)
+def _(value):
+    print(f"Обработка целого числа: {value}")
 
-sorted_numbers = sorted(numbers, key=cmp_to_key(my_cmp))
+@process.register(str)
+def _(value):
+    print(f"Обработка строки: {value}")
 
-print(sorted_numbers)  # [1, 2, 3, 4, 7]
+process(10)   # Обработка целого числа: 10
+process("hi") # Обработка строки: hi
 ```
 
-
-
-
-
-lru_cache — это декоратор в модуле functools в Python, который реализует 
-механизм кеширования результатов функции с помощью алгоритма "Least Recently Used" (LRU).
-
-LRU-кеширование позволяет сохранять недавно использованные результаты функции в кеше, 
-чтобы повторно использовать их при последующих вызовах функции с теми же параметрами. 
-Когда кеш заполнен до определенной максимальной величины, самые редко используемые 
-элементы будут удалены из кеша, чтобы освободить место для новых элементов.
-
-Для использования lru_cache необходимо импортировать модуль functools и применить декоратор @functools.lru_cache() к функции, 
-которую нужно кешировать. Опционально можно передать в декоратор максимальное количество 
-элементов в кеше (maxsize). Если параметр не задан, по умолчанию используется maxsize=128.
-
-Например, вот как можно использовать lru_cache для кеширования результата функции fibonacci(n):
+# singledispatchmethod
+То же самое, что `singledispatch`, но используется как метод класса
 
 ```python
-from functools import lru_cache
+from functools import singledispatchmethod
 
-@lru_cache(maxsize=128)
-def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
+class Processor:
+    @singledispatchmethod
+    def process(self, value):
+        print(f"Обработка объекта: {value}")
+
+    @process.register(int)
+    def _(self, value):
+        print(f"Обработка целого числа: {value}")
+
+    @process.register(str)
+    def _(self, value):
+        print(f"Обработка строки: {value}")
+
+processor = Processor()
+processor.process(10)   # Обработка целого числа: 10
+processor.process("hi") # Обработка строки: hi
 ```
 
-Этот код создает кеш для fibonacci с максимальным размером 128 элементов. 
-При вызове fibonacci(n) для любого n, результат будет сохранен в кеше. 
-При повторном вызове fibonacci(n) с тем же n, результат будет возвращен из кеша без повторного вычисления.
+# cached_property
+Позволяет кэшировать результат вычислений метода и использовать его как свойство.
+Значение вычисляется только один раз
+
+```python
+from functools import cached_property
+
+class MyClass:
+    @cached_property
+    def heavy_computation(self):
+        print("Выполняется вычисление...")
+        return 42
+
+obj = MyClass()
+print(obj.heavy_computation)  # Выполняется вычисление ... 42
+print(obj.heavy_computation)  # 42 (вычисление не выполняется повторно)
+```
+
+# WRAPPER_ASSIGNMENTS
+Это кортеж, определяющий, какие атрибуты копируются из оригинальной функции в декорированную
+По умолчанию копируются атрибуты: `__module__`, `__name__`, `__qualname__`, `__doc__`, `__annotations__`
+
+# WRAPPER_UPDATES
+Это кортеж, определяющий, какие атрибуты обновляются в декорированной функции
+По умолчанию обновляется `__dict__`
+
+
+# Частые применения
+1. Оптимизация работы с функциями — использование `partial()` и `lru_cache()` для ускорения работы с часто вызываемыми функциями
+2. Создание декораторов — с сохранением метаданных функции с помощью `wraps()`
+3. Упрощение сравнения — автоматическое добавление методов сравнения с `total_ordering()`
+
+# Полезные ссылки
+- [Официальная документация](https://docs.python.org/3/library/functools.html)
+- [Real Python - Guide to Python’s functools Module](https://realpython.com/python-functools/)
+
 ''',
                     "cachetools": """
 Библиотека "cachetools" используется для кэширования в Python.
@@ -5934,7 +6306,7 @@ setup(
 )
 ```
 """,
-                    "import": """
+                    "importlib": """
 ```pycon
 >>> def im():
 ...     import math
@@ -7350,6 +7722,103 @@ print(f"Current frame at line {frame.f_lineno} in {frame.f_code.co_filename}")
 - [Официальная документация](https://docs.python.org/3/library/inspect.html)
 - [PEP 362 - Подписи вызовов](https://www.python.org/dev/peps/pep-0362/)
 - [Real Python - Inspect Module](https://realpython.com/python-inspect-module/)
+""",
+                    "operator": """
+Библиотека `operator` в Python предоставляет функции, которые соответствуют основным операциям,
+таким как арифметические, логические, сравнения и работа с атрибутами, элементами и срезами.
+Эти функции полезны для повышения читабельности и производительности кода, особенно
+при использовании в функциях высшего порядка, таких как `map()`, `filter()` и `reduce()`.
+
+# Арифметические операции
+
+| Функция                   | Описание            | Пример                            |
+|---------------------------|---------------------|-----------------------------------|
+| `operator.add(a, b)`      | Возвращает `a + b`  | `operator.add(2, 3)` => `5`       |
+| `operator.sub(a, b)`      | Возвращает `a - b`  | `operator.sub(5, 3)` => `2`       |
+| `operator.mul(a, b)`      | Возвращает `a * b`  | `operator.mul(2, 3)` => `6`       |
+| `operator.truediv(a, b)`  | Возвращает `a / b`  | `operator.truediv(7, 2)` => `3.5` |
+| `operator.floordiv(a, b)` | Возвращает `a // b` | `operator.floordiv(7, 2)` => `3`  |
+| `operator.mod(a, b)`      | Возвращает `a % b`  | `operator.mod(7, 2)` => `1`       |
+| `operator.pow(a, b)`      | Возвращает `a ** b` | `operator.pow(2, 3)` => `8`       |
+| `operator.neg(a)`         | Возвращает `-a`     | `operator.neg(5)` => `-5`         |
+| `operator.pos(a)`         | Возвращает `+a`     | `operator.pos(-5)` => `-5`        |
+| `operator.abs(a)`         | Возвращает `abs(a)` | `operator.abs(-5)` => `5`         |
+
+# Логические операции
+
+| Функция               | Описание                    | Пример                                  |
+|-----------------------|-----------------------------|-----------------------------------------|
+| `operator.and_(a, b)` | Логическое **И**: `a & b`   | `operator.and_(True, False)` => `False` |
+| `operator.or_(a, b)`  | Логическое **ИЛИ**: `a | b` | `operator.or_(True, False)` => `True`   |
+| `operator.xor(a, b)`  | Логическое **XOR**: `a ^ b` | `operator.xor(True, False)` => `True`   |
+| `operator.not_(a)`    | Логическое **НЕ**: `not a`  | `operator.not_(True)` => `False`        |
+
+# Сравнения
+
+| Функция                 | Описание                | Пример                                  |
+|-------------------------|-------------------------|-----------------------------------------|
+| `operator.eq(a, b)`     | Возвращает `a == b`     | `operator.eq(2, 2)` => `True`           |
+| `operator.ne(a, b)`     | Возвращает `a != b`     | `operator.ne(2, 3)` => `True`           |
+| `operator.lt(a, b)`     | Возвращает `a < b`      | `operator.lt(2, 3)` => `True`           |
+| `operator.le(a, b)`     | Возвращает `a <= b`     | `operator.le(2, 2)` => `True`           |
+| `operator.gt(a, b)`     | Возвращает `a > b`      | `operator.gt(3, 2)` => `True`           |
+| `operator.ge(a, b)`     | Возвращает `a >= b`     | `operator.ge(3, 2)` => `True`           |
+| `operator.is_(a, b)`    | Возвращает `a is b`     | `operator.is_(a, b)` => `True/False`    |
+| `operator.is_not(a, b)` | Возвращает `a is not b` | `operator.is_not(a, b)` => `True/False` |
+
+# Операции с последовательностями
+
+| Функция                       | Описание                                                   | Пример                                                    |
+|-------------------------------|------------------------------------------------------------|-----------------------------------------------------------|
+| `operator.concat(a, b)`       | Соединяет две последовательности                           | `operator.concat([1, 2], [3, 4])` => `[1, 2, 3, 4]`       |
+| `operator.contains(a, b)`     | Проверяет, содержится ли `b` в `a`                         | `operator.contains([1, 2, 3], 2)` => `True`               |
+| `operator.countOf(a, b)`      | Возвращает количество вхождений `b` в `a`                  | `operator.countOf([1, 2, 2, 3], 2)` => `2`                |
+| `operator.indexOf(a, b)`      | Возвращает индекс первого вхождения `b` в `a`              | `operator.indexOf([1, 2, 3], 2)` => `1`                   |
+| `operator.itemgetter(*items)` | Возвращает функцию, которая извлекает элементы по индексам | `f = operator.itemgetter(1, 2); f([1, 2, 3])` => `(2, 3)` |
+
+# Операции с атрибутами и элементами
+
+| Функция                       | Описание                                                   | Пример                                                    |
+|-------------------------------|------------------------------------------------------------|-----------------------------------------------------------|
+| `operator.attrgetter(attr)`   | Возвращает функцию, которая извлекает атрибут `attr`       | `f = operator.attrgetter("name"); f(obj)` => `"name"`     |
+| `operator.itemgetter(*items)` | Возвращает функцию, которая извлекает элементы по индексам | `f = operator.itemgetter(1, 2); f([1, 2, 3])` => `(2, 3)` |
+| `operator.setitem(a, b, c)`   | Устанавливает значение `c` элементу `b` в `a`              | `operator.setitem(my_dict, "key", "value")`               |
+| `operator.delitem(a, b)`      | Удаляет элемент `b` из `a`                                 | `operator.delitem(my_dict, "key")`                        |
+| `operator.getitem(a, b)`      | Извлекает элемент `b` из `a`                               | `operator.getitem(my_list, 0)` => `1`                     |
+
+# Работа с срезами
+
+| Функция                               | Описание                                        | Пример                                              |
+|---------------------------------------|-------------------------------------------------|-----------------------------------------------------|
+| `operator.index(a)`                   | Возвращает индекс `a`                           | `operator.index([1, 2, 3], 2)` => `1`               |
+| `operator.getslice(a, start, end)`    | Возвращает срез списка от `start` до `end`      | `operator.getslice([1, 2, 3, 4], 1, 3)` => `[2, 3]` |
+| `operator.setslice(a, start, end, b)` | Заменяет срез списка от `start` до `end` на `b` | `operator.setslice(my_list, 1, 3, [7, 8])`          |
+| `operator.delslice(a, start, end)`    | Удаляет срез списка от `start` до `end`         | `operator.delslice(my_list, 1, 3)`                  |
+
+# Примеры использования
+
+### Применение функций `operator` в `map()`
+```python
+import operator
+
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(operator.pow, numbers, [2] * len(numbers)))
+print(squared)  # [1, 4, 9, 16, 25]
+```
+
+### Использование `itemgetter` для сортировки списка словарей
+```python
+import operator
+
+students = [
+  {"name": "Alice", "age": 25},
+  {"name": "Bob", "age": 20},
+  {"name": "Charlie", "age": 23},
+]
+sorted_students = sorted(students, key=operator.itemgetter("age"))
+print(sorted_students)
+# [{"name": "Bob", "age": 20}, {"name": "Charlie", "age": 23}, {"name": "Alice", "age": 25}]
+```
 """,
                 },
                 "Algorithms": {
@@ -11502,31 +11971,6 @@ KeyError: 145
 """
                     ),
                 ),
-                "operator precedence": """
-Приоритетность операторов от высокой до самой низкой.
-
-| Операторы                                                    | Применение                                 |
-|--------------------------------------------------------------|--------------------------------------------|
-| `{}` `()`                                                    | Скобки (объединение)                       |
-| `f(args)`                                                    | Вызов функции                              |
-| `x[index:index]`                                             | Срез                                       |
-| `x[index]`                                                   | Получение по индексу                       |
-| `x.attribute`                                                | Ссылка на атрибут                          |
-| `**`                                                         | Возведение в степень                       |
-| `~x` `+x` `-x`                                               | Положительное, отрицательное число         |
-| `*` `/` `//` `%`                                             | Умножение, деление, остаток                |
-| `+` `—`                                                      | Сложение, вычитание                        |
-| `<<` `>>`                                                    | Сдвиг влево/вправо                         |
-| `&`                                                          | Побитовое **И**                         |
-| `^`                                                          | Побитовое **ИЛИ** **НЕ**             |
-| `|`                                                          | Побитовое **ИЛИ**                       |
-| `in` `not in` `is` `is not` `<` `<=` `>` `>=` `<>` `!=` `==` | Сравнение, принадлежность, тождественность |
-| `not`                                                        | Булево **НЕ**                           |
-| `and`                                                        | Булево **И**                            |
-| `or`                                                         | Булево **ИЛИ**                          |
-| `lambda`                                                     | Лямбда-выражение                           |
-
-""",
             },
             "Decorators Closure": {
                 "Decorators Closure": """
@@ -12881,6 +13325,31 @@ print(a is b)  # True
 ```
 ''',
             },
+            "operator precedence": """
+Приоритетность операторов от высокой до самой низкой.
+
+| Операторы                                                    | Применение                                 |
+|--------------------------------------------------------------|--------------------------------------------|
+| `{}` `()`                                                    | Скобки (объединение)                       |
+| `f(args)`                                                    | Вызов функции                              |
+| `x[index:index]`                                             | Срез                                       |
+| `x[index]`                                                   | Получение по индексу                       |
+| `x.attribute`                                                | Ссылка на атрибут                          |
+| `**`                                                         | Возведение в степень                       |
+| `~x` `+x` `-x`                                               | Положительное, отрицательное число         |
+| `*` `/` `//` `%`                                             | Умножение, деление, остаток                |
+| `+` `—`                                                      | Сложение, вычитание                        |
+| `<<` `>>`                                                    | Сдвиг влево/вправо                         |
+| `&`                                                          | Побитовое **И**                            |
+| `^`                                                          | Побитовое **ИЛИ** **НЕ**                   |
+| `|`                                                          | Побитовое **ИЛИ**                          |
+| `in` `not in` `is` `is not` `<` `<=` `>` `>=` `<>` `!=` `==` | Сравнение, принадлежность, тождественность |
+| `not`                                                        | Булево **НЕ**                              |
+| `and`                                                        | Булево **И**                               |
+| `or`                                                         | Булево **ИЛИ**                             |
+| `lambda`                                                     | Лямбда-выражение                           |
+
+""",
             "fstrings": """
 # F-Strings
 
