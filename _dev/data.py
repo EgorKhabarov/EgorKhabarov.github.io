@@ -5463,159 +5463,210 @@ mysum(a=1)  # error: Missing positional argument "b" in call to "mysum"
 ```
 """,
                     "itertools": """
-# Бесконечные итераторы
+# Основные функции и атрибуты
 
-| Функция               | Пример         | Результат  |
-|-----------------------|----------------|------------|
-| count(start, [step])  | count(3, 2)    | 3 5 7 9…   |
-| cycle(p)              | cycle("ABC")   | A B С А В… |
-| repeat(elem [,n])     | repeat("x", 5) | x x x x x  |
-
-# Итераторы, которые завершаются на самой короткой последовательности
-
-| Функция                                | Пример                                          | Результат                 |
-|----------------------------------------|-------------------------------------------------|---------------------------|
-| accumulate(p [,func])                  | accumulate([1,2,3,4,5])                         | 1 3 6 10 15               |
-| chain(p, q)                            | chain("ABC", "DE")                              | A B C D E                 |
-| chain.from_iterable(p)                 | chain.from_iterable(["ABC", "DE"])              | A B C D E                 |
-| compress(data, selectors)              | compress("ABCDE", (0, 1, 0, 0, 1))              | B E                       |
-| dropwhile(pred, seq)                   | dropwhile(lambda x: x < 0, [1, 0, -1, 1, -1])   | 1 0 -1 1 -1               |
-| filterfalse(pred, seq)                 | filterfalse(lambda x: x < 0, [1, 0, -1, 1, -1]) | 1 0 1                     |
-| groupby(iterable[, key])               | groupby((3, 4, 0, -1), key=lambda x: x > 0)     | True [3, 4] False [0, -1] | 
-| islice(seq, [start,] stop [, step])    | islice("ABCDEFGH", 1, 6, 2)                     | B D F                     |
-| pairwise(iterable)                     | pairwise("ABcd12")                              | AB Bc cd d1 12            |
-| starmap(func, seq)                     | starmap(operator.mul, ((1, 2), (3, 4)))         | 2 12                      |
-| takewhile(pred, seq)                   | takewhile(lambda x: x < 0, [1, 0, -1, 1, -1])   |                           |
-| tee(it, n)                             | tee([1, 2], 3)                                  | [1, 2], [1, 2], [1, 2]    |
-| zip_longest(p, q, …[, fillvalue=None]) | zip_longest((1, 2), ("A",), fillvalue="_")      | (1, "A") (2, "_")         |
+| Функция/Атрибут                   | Описание                                                                                                                                          |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `accumulate()`                    | Возвращает итератор, который вычисляет частичные суммы<br>(или другие накопленные функции, если указана) от переданного итератора                 |
+| `chain()`                         | Принимает несколько итераторов и возвращает один итератор,<br>объединяющий все их элементы последовательно                                        |
+| `combinations()`                  | Возвращает все возможные комбинации заданной длины из элементов итератора (без повторений)                                                        |
+| `combinations_with_replacement()` | Возвращает все возможные комбинации с повторениями заданной длины из элементов итератора                                                          |
+| `compress()`                      | Возвращает элементы из первого итератора,<br>где соответствующий элемент из второго итератора (маски) истинный                                    |
+| `count()`                         | Возвращает итератор, который генерирует последовательность чисел,<br>начиная с `start` (по умолчанию 0) с шагом `step` (по умолчанию 1)           |
+| `cycle()`                         | Бесконечно повторяет элементы переданного итератора                                                                                               |
+| `dropwhile()`                     | Возвращает элементы из итератора, начиная с первого элемента,<br>для которого условие становится ложным                                           |
+| `filterfalse()`                   | Возвращает элементы итератора, для которых условие ложно (противоположно `filter`)                                                                |
+| `groupby()`                       | Группирует элементы последовательности по ключу (или значению функции).<br>Возвращает итератор с парами `(ключ, группа)`                          |
+| `islice()`                        | Возвращает срез итератора (аналогично `slice()` для списков)                                                                                      |
+| `pairwise()`                      | Выдаёт пары соседних элементов из `iterable`                                                                                                      |
+| `permutations()`                  | Возвращает все возможные перестановки заданной длины (или длины итератора)                                                                        |
+| `product()`                       | Возвращает декартово произведение входных итераторов (все возможные комбинации)                                                                   |
+| `repeat()`                        | Повторяет переданный элемент `object` бесконечно или заданное количество раз `times`                                                              |
+| `starmap()`                       | Применяет функцию к каждому элементу итератора, передавая элементы<br>как аргументы по позициям (аналогично `map()`, но с распаковкой аргументов) |
+| `takewhile()`                     | Возвращает элементы из итератора до тех пор, пока условие истинно                                                                                 |
+| `tee()`                           | Разделяет итератор на заданное количество независимых копий                                                                                       |
+| `zip_longest()`                   | Объединяет элементы из нескольких итераторов, заполняя отсутствующие значения `fillvalue`                                                         |
 
 
-# Комбинаторные итераторы
+# accumulate
+Возвращает итератор, который вычисляет частичные суммы (или другие накопленные функции).
+```python
+from itertools import accumulate
 
-| Функция                             | Пример                                  | Результат                                                         |
-|-------------------------------------|-----------------------------------------|-------------------------------------------------------------------|
-| product(p, q, …[, repeat=1])        | product(("A", "B"), repeat=2)           | (A, A) (A, B) (B A) (B B)                                         |
-| permutations(p[, r])                | permutations(("a", "b", "c"), 2)        | ("a", "b") ("a", "c") ("b", "a") ("b", "c") ("c", "a") ("c", "b") |
-| combinations(p, r)                  | combinations("ABC", 2)                  | ("A", "B") ("A", "C") ("B", "C")                                  |
-| combinations_with_replacement(p, r) | combinations_with_replacement("ABC", 2) | ("A", "A") ("A", "B") ("A", "C") ("B", "B") ("B", "C") ("C", "C") |
+print(list(accumulate([1, 2, 3, 4])))
+# [1, 3, 6, 10]
+```
 
+# chain
+Объединяет несколько итераторов в один.
+```python
+from itertools import chain
 
+print(list(chain("ABC", "DEF")))
+# ["A", "B", "C", "D", "E", "F"]
+```
 
+# combinations
+Возвращает все возможные комбинации заданной длины без повторений.
+```python
+from itertools import combinations
 
-# Модуль itertools
+print(list(combinations("ABC", 2)))
+# [("A", "B"), ("A", "C"), ("B", "C")]
+```
 
-```pycon
->>> def print_iterator(x):
-...     for i in range(5):
-...         try:
-...             print(next(x), end=" ")
-...         except StopIteration:
-...             break
-...     print()
-...
->>> # Генерирует бесконечный ряд чисел, начиная с start, с шагом step
->>> from itertools import count
->>> count(start=0, step=1)
-0 1 2 3 4
->>>
->>> # Бесконечно циклит элементы в iterable
->>> from itertools import cycle
->>> cycle([1, 2, 3])
-1 2 3 1 2
->>>
->>> # Генерирует все возможные перестановки элементов iterable с длиной r
->>> # по умолчанию длина равна длине iterable
->>> from itertools import permutations
->>> permutations("12345", r=None)
-("1", "2", "3", "4", "5") ("1", "2", "3", "5", "4") ("1", "2", "4", "3", "5") ("1", "2", "4", "5", "3") ("1", "2", "5", "3", "4")
->>> permutations("12345", r=2)
-("1", "2") ("1", "3") ("1", "4") ("1", "5") ("2", "1")
->>>
->>> # Генерирует все возможные комбинации элементов iterable с длиной r
->>> from itertools import combinations
->>> combinations("12345", r=2)
-("1", "2") ("1", "3") ("1", "4") ("1", "5") ("2", "3")
->>>
->>> # Генерирует все возможные комбинации элементов iterable с длиной r, с повторением элементов
->>> from itertools import combinations_with_replacement
->>> combinations_with_replacement("12345", r=2)
-("1", "1") ("1", "2") ("1", "3") ("1", "4") ("1", "5")
->>>
->>> Объединяет несколько итераторов в один
->>> from itertools import chain
->>> chain((1, 2), (4, 5))
-1 2 4 5
->>>
->>> # Объединяет элементы из каждого итератора в кортежи
->>> # Если итераторы разных длин, то элементы для дополнения берутся из fillvalue
->>> from itertools import zip_longest
->>> zip_longest((1, 2), ("A",), fillvalue="_")
-(1, "A") (2, "_")
->>>
->>> # Группирует элементы iterable по значениям функции key
->>> from itertools import groupby
->>> groupby((3, 4, 0, -1), key=lambda x: x > 0)
-True [3, 4] False [0, -1]
->>>
->>> # Выдаёт элементы из iterable, начиная с start, и заканчивая stop, с шагом step
->>> from itertools import islice
->>> islice(iterable, start, stop=None, step=1)
-...
->>>
->>> # Применяет функцию function к каждому элементу iterable, который представлен в виде кортежа
->>> from itertools import starmap
->>> starmap(function, iterable)
-...
->>>
->>> # Выдаёт все возможные пары (или кортежи) элементов из каждого из iterables
->>> # repeat определяет, сколько раз каждый итератор будет повторен
->>> from itertools import product
->>> product(("A", "B"), repeat=2)
-("A", "A") ("A", "B") ("B", "A") ("B", "B")
->>>
->>> # Выдаёт сумму (или другую комбинацию) элементов iterable, используя функцию func
->>> from itertools import accumulate
->>> # accumulate(iterable, func=operator.add)
->>> accumulate([1,2,3,4,5])
-1 3 6 10 15
->>>
->>> # Выдаёт элементы data, соответствующие истинным значениям selectors
->>> from itertools import compress
->>> compress("ABCDE", (0, 1, 0, 0, 1))
-B E
->>>
->>> # Выдаёт элементы iterable после первого элемента, для которого predicate вернёт ложное значение
->>> from itertools import dropwhile
->>> dropwhile(predicate, iterable)
-...
->>>
->>> # Выдаёт элементы iterable, для которых predicate вернёт ложное значение
->>> from itertools import filterfalse
->>> filterfalse(lambda x: x < 0, [1, 0, -1, 1, -1])
-1 0 1
->>>
->>> # Выдаёт пары соседних элементов из iterable
->>> from itertools import pairwise
->>> pairwise("ABcd12")
-AB Bc cd d1 12
->>>
->>> # Выдаёт object times раз
->>> # Если times не указан бесконечное количество раз
->>> from itertools import repeat
->>> repeat("x", 5)
-x x x x x
->>>
->>> # Выдаёт элементы iterable до первого элемента, для которого predicate вернёт ложное значение
->>> from itertools import takewhile
->>> takewhile(predicate, iterable)
-...
->>>
->>> # Возвращает n независимых итераторов
->>> # Каждый из которых может быть использован независимо для перебора элементов исходного iterable
->>> from itertools import tee
->>> tee([1, 2], 3)
-[1, 2], [1, 2], [1, 2]
->>>
+# combinations_with_replacement
+Возвращает все возможные комбинации заданной длины с повторениями.
+```python
+from itertools import combinations_with_replacement
+
+print(list(combinations_with_replacement("AB", 2)))
+# [("A", "A"), ("A", "B"), ("B", "B")]
+```
+
+# compress
+Возвращает элементы из первого итератора, где соответствующий элемент из второго итератора истинный.
+```python
+from itertools import compress
+
+print(list(compress("ABCDEF", [1, 0, 1, 0, 1, 0])))
+# ["A", "C", "E"]
+```
+
+# count
+Создает бесконечный итератор, который начинает с заданного числа и увеличивается на заданный шаг.
+```python
+from itertools import count
+
+for i in count(10, 2):
+    if i > 20:
+        break
+    print(i)
+# 10, 12, 14, 16, 18, 20
+```
+
+# cycle
+Бесконечно повторяет элементы из итератора.
+```python
+from itertools import cycle
+
+counter = 0
+for item in cycle("AB"):
+    if counter >= 6:
+        break
+    print(item)  # A, B, A, B, A, B
+    counter += 1
+```
+
+# dropwhile
+Пропускает элементы, пока условие истинно, затем возвращает оставшиеся элементы.
+```python
+from itertools import dropwhile
+
+print(list(dropwhile(lambda x: x < 5, [1, 4, 6, 7])))
+# [6, 7]
+```
+
+# filterfalse
+Возвращает элементы итератора, для которых условие ложно.
+```python
+from itertools import filterfalse
+
+print(list(filterfalse(lambda x: x % 2, range(10))))
+# [0, 2, 4, 6, 8]
+```
+
+# groupby
+Группирует элементы по ключу. Возвращает итератор с парами `(ключ, группа)`.
+```python
+from itertools import groupby
+
+for key, group in groupby("AAAABBBCCDA"):
+    print(key, list(group))
+# A ["A", "A", "A", "A"]
+# B ["B", "B", "B"]
+# C ["C", "C"]
+# D ["D"]
+# A ["A"]
+```
+
+# islice
+Возвращает срез итератора.
+```python
+from itertools import islice
+
+print(list(islice(range(10), 2, 8, 2)))  # [2, 4, 6]
+```
+
+# pairwise
+```python
+from itertools import pairwise
+
+print(list(pairwise("ABcd12")))
+# [("A", "B"), ("B", "c"), ("c", "d"), ("d", "1"), ("1", "2")]
+```
+
+# permutations
+Возвращает все возможные перестановки заданной длины.
+```python
+from itertools import permutations
+
+print(list(permutations("ABC", 2)))
+# [("A", "B"), ("A", "C"), ("B", "A"), ("B", "C"), ("C", "A"), ("C", "B")]
+```
+
+# product
+Возвращает декартово произведение входных итераторов.
+```python
+from itertools import product
+
+print(list(product("AB", "12")))
+# [("A", "1"), ("A", "2"), ("B", "1"), ("B", "2")]
+```
+
+# repeat
+Повторяет указанный элемент бесконечно или заданное количество раз.
+```python
+from itertools import repeat
+
+for i in repeat(10, 3):
+    print(i)
+# 10, 10, 10
+```
+
+# starmap
+Применяет функцию к каждому элементу итератора, распаковывая элементы как аргументы.
+```python
+from itertools import starmap
+
+print(list(starmap(pow, [(2, 5), (3, 2), (10, 3)])))  # [32, 9, 1000]
+```
+
+# takewhile
+Возвращает элементы из итератора до тех пор, пока условие истинно.
+```python
+from itertools import takewhile
+
+print(list(takewhile(lambda x: x < 5, [1, 4, 6, 7])))  # [1, 4]
+```
+
+# tee
+Создает несколько независимых копий одного итератора.
+```python
+from itertools import tee
+
+it1, it2 = tee(range(5), 2)
+print(list(it1))  # [0, 1, 2, 3, 4]
+print(list(it2))  # [0, 1, 2, 3, 4]
+```
+
+# zip_longest
+Объединяет элементы из нескольких итераторов, заполняя отсутствующие значения `fillvalue`.
+```python
+from itertools import zip_longest
+
+print(list(zip_longest("AB", "12", fillvalue="-")))
+# [("A", "1"), ("B", "2")]
 ```
 """,
                     "collections": """
@@ -5969,7 +6020,7 @@ def my_decorator(func):
 def my_function():
     print("Выполнение функции")
 
-my_function()  # Выводит: До вызова функции Выполнение функции
+my_function()  # До вызова функции Выполнение функции
 ```
 
 # partialmethod
@@ -6073,48 +6124,166 @@ print(obj.heavy_computation)  # 42 (вычисление не выполняет
 
 ''',
                     "cachetools": """
-Библиотека "cachetools" используется для кэширования в Python.
-Он предоставляет различные механизмы кэширования для повышения производительности.
-вашего кода, сохраняя и извлекая данные из памяти вместо выполнения
-дорогостоящие вычисления или доступ к внешним ресурсам.
+| Класс/Функция             | Описание                                                                                         |
+|---------------------------|--------------------------------------------------------------------------------------------------|
+| `Cache`                   | Базовый класс для всех кэшей. Не используется напрямую, а служит основой для других типов кэшей. |
+| `FIFOCache(maxsize)`      | Кэш с алгоритмом замещения **FIFO** (First In, First Out).                                       |
+| `LFUCache(maxsize)`       | Кэш с алгоритмом замещения **LFU** (Least Frequently Used).                                      |
+| `LRUCache(maxsize)`       | Кэш с алгоритмом замещения **LRU** (Least Recently Used).                                        |
+| `MRUCache(maxsize)`       | Кэш с алгоритмом замещения **MRU** (Most Recently Used).                                         |
+| `RRCache(maxsize)`        | Кэш с случайным замещением (Random Replacement).                                                 |
+| `TLRUCache(maxsize, ttl)` | Кэш с временным ограничением и алгоритмом замещения **LRU** (Time-aware Least Recently Used).    |
+| `TTLCache(maxsize, ttl)`  | Кэш с временным ограничением (**Time-to-Live**) и алгоритмом замещения **LRU**.                  |
+| `cached(cache)`           | Декоратор для кэширования возвращаемого значения функции.                                        |
+| `cachedmethod(cache)`     | Декоратор для кэширования возвращаемого значения метода класса.                                  |
 
+# Cache
+Базовый класс для всех кэшей.
+Он не используется напрямую, но служит основой для других классов,
+предоставляя основные методы для работы с кэшем.
 
-Вот таблица, суммирующая основные методы и подмодули модуля «cachetools»:
+# FIFOCache
+Использует алгоритм **FIFO** (First In, First Out).
+Когда кэш заполняется, самый старый элемент удаляется, чтобы освободить место для нового.
+```python
+from cachetools import FIFOCache
 
-Название | Описание
-------|------
-Cache | Основной класс для создания и управления кэшами.
-LRUCache | Реализация кэша, основанная на алгоритме наименее недавно использованного (LRU).
-TTLCache | Реализация кэша с истечением срока жизни (TTL) для кэшированных элементов.
-LFUCache | Реализация кэша, основанная на наименее часто используемом алгоритме (LFU).
-RRCache | Реализация кэша, основанная на алгоритме случайной замены (RR).
-HashedCache | Реализация кэша, использующая хеш-функцию для распределения элементов по нескольким субкэшам.
+cache = FIFOCache(maxsize=3)
+cache["a"] = 1
+cache["b"] = 2
+cache["c"] = 3
 
-Вот некоторые из наиболее распространенных методов библиотеки «cachetools»:
+print(cache)  # FIFOCache([("a", 1), ("b", 2), ("c", 3)])
 
-Название метода | Описание
-------|------
-get(key) | Извлекает значение, связанное с указанным ключом, из кэша.
-set(key, value) | Сохраняет значение в кеше с указанным ключом.
-pop(key) | Удаляет элемент с указанным ключом из кэша и возвращает его значение.
-clear() | Очищает все элементы из кэша.
-keys() | Возвращает список всех ключей в кеше.
+cache["d"] = 4
+print(cache)  # FIFOCache([("b", 2), ("c", 3), ("d", 4)])
+```
 
-Вот небольшой фрагмент кода, демонстрирующий использование метода get:
+# LFUCache
+Использует алгоритм **LFU** (Least Frequently Used).
+Наименее часто используемые элементы удаляются первыми при необходимости освобождения места.
+```python
+from cachetools import LFUCache
 
+cache = LFUCache(maxsize=2)
+cache["a"] = 1
+cache["b"] = 2
+
+cache["a"]  # Доступ к элементу увеличивает счетчик использования
+cache["c"] = 3  # Удаляет "b", так как он использовался реже
+
+print(cache)  # LFUCache([("a", 1), ("c", 3)])
+```
+
+# LRUCache
+Использует алгоритм **LRU** (Least Recently Used).
+Наименее недавно используемые элементы удаляются первыми.
 ```python
 from cachetools import LRUCache
 
-# Создайте LRUCache с максимальным размером 100
-cache = LRUCache(maxsize=100)
+cache = LRUCache(maxsize=2)
+cache["a"] = 1
+cache["b"] = 2
 
-# Устанавливаем значение в кеше
-cache.set("key", "value")
+cache["a"]  # Доступ к элементу делает его "самым недавно использованным"
+cache["c"] = 3  # Удаляет "b", так как он был использован давнее всего
 
-# Получаем значение из кеша
-cached_value = cache.get("key")
+print(cache)  # LRUCache([("a", 1), ("c", 3)])
+```
 
-print(cached_value)  # "value"
+# MRUCache
+Использует алгоритм **MRU** (Most Recently Used).
+Самый недавно использованный элемент удаляется первым при необходимости освобождения места.
+```python
+from cachetools import MRUCache
+
+cache = MRUCache(maxsize=2)
+cache["a"] = 1
+cache["b"] = 2
+
+cache["a"]  # Доступ к элементу делает его "самым недавно использованным"
+cache["c"] = 3  # Удаляет "a", так как он был использован последним
+
+print(cache)  # MRUCache([("b", 2), ("c", 3)])
+```
+
+# RRCache
+Использует случайное замещение (Random Replacement).
+Элементы удаляются случайным образом, когда кэш заполняется.
+```python
+from cachetools import RRCache
+
+cache = RRCache(maxsize=2)
+cache["a"] = 1
+cache["b"] = 2
+cache["c"] = 3
+
+print(cache)  # Один из элементов ("a" или "b") будет удален случайным образом
+```
+
+# TLRUCache
+Сочетает в себе временное ограничение (`ttl`) и алгоритм **LRU**.
+Элементы удаляются либо при истечении времени жизни, либо по принципу **LRU**.
+```python
+from cachetools import TLRUCache
+import time
+
+cache = TLRUCache(maxsize=2, ttl=5)
+cache["a"] = 1
+time.sleep(6)  # Ждем 6 секунд
+cache["b"] = 2
+
+print(cache)  # "a" будет удален, так как его TTL истек
+```
+
+# TTLCache
+Кэш с временным ограничением (Time-to-Live) и алгоритмом **LRU**.
+Элементы удаляются либо по истечению времени жизни (`ttl`), либо по принципу **LRU**, если кэш переполнен.
+```python
+from cachetools import TTLCache
+import time
+
+cache = TTLCache(maxsize=2, ttl=5)
+cache["a"] = 1
+time.sleep(6)  # Ждем 6 секунд
+cache["b"] = 2
+
+print(cache)  # "a" будет удален, так как его TTL истек
+```
+
+# cached
+Декоратор, который используется для кэширования возвращаемого значения функции.
+Он может использовать любой из предоставленных кэшей.
+```python
+from cachetools import cached, LRUCache
+
+cache = LRUCache(maxsize=2)
+
+@cached(cache)
+def get_value(x):
+    return x * 2
+
+print(get_value(2))  # Вычисляет и кэширует результат
+print(get_value(2))  # Возвращает кэшированный результат
+```
+
+# cachedmethod
+Декоратор для кэширования возвращаемого значения метода класса.
+Декоратор позволяет задать кэш на уровне экземпляра класса.
+```python
+from cachetools import cachedmethod, LRUCache
+
+class MyClass:
+    def __init__(self):
+        self._cache = LRUCache(maxsize=2)
+
+    @cachedmethod(cache=lambda self: self._cache)
+    def get_value(self, x):
+        return x * 2
+
+obj = MyClass()
+print(obj.get_value(2))  # Вычисляет и кэширует результат
+print(obj.get_value(2))  # Возвращает кэшированный результат
 ```
 """,
                     "contextlib": """
@@ -12624,6 +12793,111 @@ pip freeze --local > requirements.txt
 | `%%python`         | Выполняет код Python в ячейке.                                                              | `%%python`<br>`print("Hello, Python!")`                                                           |
 | `%%svg`            | Размечает содержимое ячейки как `SVG` (Scalable Vector Graphics).                           | `%%svg`<br>`<svg height="100" width="100"> ... </svg>`                                            |
 
+""",
+                "File formats": """
+# Основные форматы файлов
+
+| Формат файла | Описание                                                                                                                                                                   |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.py`        | Основной исходный файл Python. Интерпретируются Python напрямую                                                                                                            |
+| `.pyi`       | Файлы с аннотациями типов (типовыми подсказками). Используются для статического анализа кода и проверки типов                                                              |
+| `.pyc`       | Скомпилированные файлы Python.<br>Генерируются автоматически при импорте `.py` файлов.<br>Эти файлы содержат байт-код, который интерпретируется виртуальной машиной Python |
+| `.pyo`       | **Устаревший** формат для скомпилированных файлов с оптимизацией.<br>В новых версиях Python не используется, заменён на `.pyc` с флагом оптимизации                        |
+| `.pyw`       | Аналог `.py`, но используется для запуска Python-скриптов на Windows без открытия консольного окна                                                                         |
+| `.pyz`       | Сжатые архивы, содержащие Python-программу в формате `ZIP`.<br>Используются для упрощённого распространения и запуска Python-программ                                      |
+| `.pyd`       | Файлы расширений Python для `Windows` (аналог `.so` на Linux).<br>Это динамически загружаемые библиотеки, написанные на `C` или `C++` и используемые в Python              |
+| `.pxd`       | Заголовочные файлы для `Cython`, аналог `.h` файлов в `C`/`C++`.<br>Используются для объявления C-функций и структур, которые могут быть использованы в Cython-коде        |
+| `.pyx`       | Исходные файлы для Cython, расширение Python.<br>Эти файлы компилируются в C-код и могут использоваться для повышения производительности Python-программ                   |
+
+# .py
+Содержат исходный код на языке Python
+Они могут включать определения функций, классов, переменных и другие конструкции, поддерживаемые Python
+Эти файлы интерпретируются напрямую интерпретатором Python
+
+```python@script.py
+# script.py
+def hello_world():
+    print("Hello, World!")
+```
+
+Этот файл можно запустить командой `python script.py` в командной строке
+
+# .pyi
+Используются для добавления аннотаций типов к Python-коду
+Эти файлы позволяют статическим анализаторам кода (например, `MyPy`)
+проверять корректность типов без выполнения самого кода
+
+```python@module.pyi
+# module.pyi
+def hello_world() -> None: ...
+```
+
+Этот файл используется только для типизации и не выполняется непосредственно
+
+# .pyc
+Содержат скомпилированный байт-код Python, который создаётся автоматически при импорте `.py` файлов
+Этот байт-код интерпретируется виртуальной машиной Python и ускоряет выполнение программы
+
+Когда вы импортируете модуль `import script`, Python автоматически создаёт файл `script.pyc` в директории `__pycache__`.
+
+# .pyo
+Использовались в старых версиях Python (до `3.5`) для хранения скомпилированного байт-кода с включенной оптимизацией
+В новых версиях Python этот формат заменён на `.pyc` с флагом оптимизации
+
+# .pyw
+Аналогичны `.py`, но предназначены для запуска скриптов на `Windows` без открытия консольного окна
+Обычно используются для создания графических приложений на Python
+
+```python@script.pyw
+# script.pyw
+import tkinter as tk
+
+root = tk.Tk()
+label = tk.Label(root, text="Hello, World!")
+label.pack()
+root.mainloop()
+```
+Запуск `script.pyw` на Windows не откроет консольное окно
+
+# .pyz
+ZIP-архивы, которые могут содержать Python-программы
+Они позволяют упаковать несколько модулей и пакетов в один файл для удобства распространения и выполнения
+
+Вы можете создать `.pyz` файл с помощью утилиты [[Languages/Python/Libraries/Python/zipapp.md]]
+
+```bash
+python -m zipapp my_app -o my_app.pyz
+```
+
+Запуск `python my_app.pyz` выполнит программу, упакованную в архив
+
+# .pyd
+Динамически загружаемые библиотеки (`DLL`),
+написанные на `C` или `C++` и используемые как модули Python
+Они позволяют использовать высокопроизводительный код, написанный на других языках
+
+Вы можете создать `.pyd` файл, используя компилятор `C` или `C++` с поддержкой `Python API`
+
+# .pxd
+Используются в `Cython` для объявления C-функций и структур, которые будут использоваться в Cython-коде
+Они аналогичны `.h` файлам в `C`/`C++`
+```cython@header.pxd
+# header.pxd
+cdef extern from "math.h":
+    double sin(double x)
+```
+
+# .pyx
+Содержат исходный код на Cython, который представляет собой надстройку над Python,
+позволяющую компилировать код в `C` для повышения производительности.
+
+```cython@module.pyx
+# module.pyx
+def sin_cos(double x):
+    return sin(x), cos(x)
+```
+
+Этот файл можно скомпилировать в `C` и подключить как модуль в Python.
 """,
             },
             "Generators and lists": {

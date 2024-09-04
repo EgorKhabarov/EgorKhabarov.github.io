@@ -212,7 +212,7 @@
 <span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Выполнение функции&quot;</span><span class="p">)</span>
 
-<span class="n">my_function</span><span class="p">()</span>  <span class="c1"># Выводит: До вызова функции Выполнение функции</span>
+<span class="n">my_function</span><span class="p">()</span>  <span class="c1"># До вызова функции Выполнение функции</span>
 </pre></div></div></div>
 
 <h1>partialmethod</h1>

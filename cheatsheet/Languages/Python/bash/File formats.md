@@ -1,0 +1,115 @@
+<h1>Основные форматы файлов</h1>
+<table>
+<thead>
+<tr>
+<th>Формат файла</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.py</code></td>
+<td>Основной исходный файл Python. Интерпретируются Python напрямую</td>
+</tr>
+<tr>
+<td><code>.pyi</code></td>
+<td>Файлы с аннотациями типов (типовыми подсказками). Используются для статического анализа кода и проверки типов</td>
+</tr>
+<tr>
+<td><code>.pyc</code></td>
+<td>Скомпилированные файлы Python.<br>Генерируются автоматически при импорте <code>.py</code> файлов.<br>Эти файлы содержат байт-код, который интерпретируется виртуальной машиной Python</td>
+</tr>
+<tr>
+<td><code>.pyo</code></td>
+<td><strong>Устаревший</strong> формат для скомпилированных файлов с оптимизацией.<br>В новых версиях Python не используется, заменён на <code>.pyc</code> с флагом оптимизации</td>
+</tr>
+<tr>
+<td><code>.pyw</code></td>
+<td>Аналог <code>.py</code>, но используется для запуска Python-скриптов на Windows без открытия консольного окна</td>
+</tr>
+<tr>
+<td><code>.pyz</code></td>
+<td>Сжатые архивы, содержащие Python-программу в формате <code>ZIP</code>.<br>Используются для упрощённого распространения и запуска Python-программ</td>
+</tr>
+<tr>
+<td><code>.pyd</code></td>
+<td>Файлы расширений Python для <code>Windows</code> (аналог <code>.so</code> на Linux).<br>Это динамически загружаемые библиотеки, написанные на <code>C</code> или <code>C++</code> и используемые в Python</td>
+</tr>
+<tr>
+<td><code>.pxd</code></td>
+<td>Заголовочные файлы для <code>Cython</code>, аналог <code>.h</code> файлов в <code>C</code>/<code>C++</code>.<br>Используются для объявления C-функций и структур, которые могут быть использованы в Cython-коде</td>
+</tr>
+<tr>
+<td><code>.pyx</code></td>
+<td>Исходные файлы для Cython, расширение Python.<br>Эти файлы компилируются в C-код и могут использоваться для повышения производительности Python-программ</td>
+</tr>
+</tbody>
+</table>
+<h1>.py</h1>
+<p>Содержат исходный код на языке Python
+Они могут включать определения функций, классов, переменных и другие конструкции, поддерживаемые Python
+Эти файлы интерпретируются напрямую интерпретатором Python</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `script.py`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># script.py</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div></div></div>
+
+<p>Этот файл можно запустить командой <code>python script.py</code> в командной строке</p>
+<h1>.pyi</h1>
+<p>Используются для добавления аннотаций типов к Python-коду
+Эти файлы позволяют статическим анализаторам кода (например, <code>MyPy</code>)
+проверять корректность типов без выполнения самого кода</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `module.pyi`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># module.pyi</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</pre></div></div></div>
+
+<p>Этот файл используется только для типизации и не выполняется непосредственно</p>
+<h1>.pyc</h1>
+<p>Соержат скомпилированный байт-код Python, который создаётся автоматически при импорте <code>.py</code> файлов
+Этот байт-код интерпретируется виртуальной машиной Python и ускоряет выполнение программы</p>
+<p>Когда вы импортируете модуль <code>import script</code>, Python автоматически создаёт файл <code>script.pyc</code> в директории <code>__pycache__</code>.</p>
+<h1>.pyo</h1>
+<p>Использовались в старых версиях Python (до <code>3.5</code>) для хранения скомпилированного байт-кода с включенной оптимизацией
+В новых версиях Python этот формат заменён на <code>.pyc</code> с флагом оптимизации</p>
+<h1>.pyw</h1>
+<p>Аналогичны <code>.py</code>, но предназначены для запуска скриптов на <code>Windows</code> без открытия консольного окна
+Обычно используются для создания графических приложений на Python</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `script.pyw`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># script.pyw</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div></div></div>
+<p>Запуск <code>script.pyw</code> на Windows не откроет консольное окно</p>
+<h1>.pyz</h1>
+<p>ZIP-архивы, которые могут содержать Python-программы
+Они позволяют упаковать несколько модулей и пакетов в один файл для удобства распространения и выполнения</p>
+<p>Вы можете создать <code>.pyz</code> файл с помощью утилиты <a target="_self" href="?Languages/Python/Libraries/Python/zipapp.md" class="wikilink">zipapp</a></p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>zipapp<span class="w"> </span>my_app<span class="w"> </span>-o<span class="w"> </span>my_app.pyz
+</pre></div></div></div>
+
+<p>Запуск <code>python my_app.pyz</code> выполнит программу, упакованную в архив</p>
+<h1>.pyd</h1>
+<p>Динамически загружаемые библиотеки (<code>DLL</code>),
+написанные на <code>C</code> или <code>C++</code> и используемые как модули Python
+Они позволяют использовать высокопроизводительный код, написанный на других языках</p>
+<p>Вы можете создать <code>.pyd</code> файл, используя компилятор <code>C</code> или <code>C++</code> с поддержкой <code>Python API</code></p>
+<h1>.pxd</h1>
+<p>Используются в <code>Cython</code> для объявления C-функций и структур, которые будут использоваться в Cython-коде
+Они аналогичны <code>.h</code> файлам в <code>C</code>/<code>C++</code></p>
+<div class="code_element"><div class="lang_line"><text>cython</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `header.pxd`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-cython"><div class="highlight"><pre><span></span><span class="c"># header.pxd</span>
+<span class="k">cdef</span> <span class="kr">extern</span> <span class="k">from</span> <span class="s">&quot;math.h&quot;</span><span class="p">:</span>
+    <span class="n">double</span> <span class="n">sin</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h1>.pyx</h1>
+<p>Содержат исходный код на Cython, который представляет собой надстройку над Python,
+позволяющую компилировать код в <code>C</code> для повышения производительности.</p>
+<div class="code_element"><div class="lang_line"><text>cython</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `module.pyx`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text></button></div><div class="code language-cython"><div class="highlight"><pre><span></span><span class="c"># module.pyx</span>
+<span class="k">def</span> <span class="nf">sin_cos</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div></div></div>
+
+<p>Этот файл можно скомпилировать в <code>C</code> и подключить как модуль в Python.</p>
