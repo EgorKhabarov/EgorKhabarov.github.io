@@ -1,0 +1,1 @@
+<p><a href="?Other/Links.md#go">Go cheatsheet</a></p>

@@ -680,3 +680,43 @@
 </tr>
 </tbody>
 </table>
+<h1>Примеры</h1>
+<h2>__class_getitem__</h2>
+<p>Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами <code>generics</code>.
+Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code>.</p>
+<h3>Обобщённые классы (Generics)</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Класс вызван с параметром: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span>
+
+<span class="n">MyClass</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+</pre></div></div></div>
+
+<h3>Пример для создания обобщённых классов</h3>
+<p><code>__class_getitem__</code> часто используется в таких библиотеках,
+как <code>typing</code>, для создания обобщённых <code>generics</code> классов.</p>
+<h4>Пример реализации собственного Generic-класса:</h4>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyGeneric</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">]&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>  <span class="c1"># MyGeneric[int]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span>  <span class="c1"># MyGeneric[str]</span>
+</pre></div></div></div>
+
+<h3>Зачем нужен <code>__class_getitem__</code>?</h3>
+<ol>
+<li><strong>Работа с аннотациями типов.</strong> Он упрощает создание обобщённых классов, таких как <code>List[int]</code>
+или <code>Dict[str, int]</code>, поддерживая работу с типами в библиотеках, связанных с проверкой типов.</li>
+<li><strong>Интерфейсы для собственных классов.</strong> Если вы создаёте классы, которые должны поддерживать функциональность,
+связанную с типами или шаблонами, метод <code>__class_getitem__</code> позволит вам реализовать подобную логику.</li>
+<li><strong>Гибкость.</strong> Он позволяет передавать классу параметры,
+которые могут управлять тем, как класс себя ведёт или что возвращает.</li>
+</ol>
+<p><code>__class_getitem__</code> может работать в связке с другими магическими методами для более сложных конструкций.
+Например, его можно использовать вместе с методами <code>__getitem__</code>, <code>__setitem__</code>
+для создания классов, которые поддерживают индексацию и динамическое изменение поведения.</p>
+<p>Магический метод <code>__class_getitem__</code> — это мощный инструмент для работы с обобщёнными типами и аннотациями.
+С его помощью можно реализовывать гибкие и типизированные API,
+которые позволяют делать код более понятным и удобным для сопровождения.</p>

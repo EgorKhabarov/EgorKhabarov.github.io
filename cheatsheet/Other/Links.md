@@ -87,6 +87,21 @@
 </tr>
 </tbody>
 </table>
+<h1>Go</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go cheatsheet</td>
+<td><a href="https://devhints.io/go">https://devhints.io/go</a></td>
+</tr>
+</tbody>
+</table>
 <h1>GIT GitHub</h1>
 <table>
 <thead>
