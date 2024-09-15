@@ -14,6 +14,9 @@
   "Languages/Dockerfile/": {
     "color": "violet"
   },
+  "Languages/Go/": {
+    "color": "violet"
+  },
   "Languages/HTML/": {
     "color": "violet"
   },
@@ -24,9 +27,6 @@
     "color": "violet"
   },
   "Languages/LaTex/": {
-    "color": "violet"
-  },
-  "Languages/Go/": {
     "color": "violet"
   },
   "Languages/Python/": {
@@ -146,7 +146,13 @@
   "Languages/Python/Libraries/Information/fractions.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Information/math.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Information/random.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/rich.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/shlex.md": {
@@ -245,6 +251,9 @@
   "Languages/Python/Libraries/Python/abc.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/ast.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/atexit.md": {
     "color": "green"
   },
@@ -300,6 +309,9 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/marshal.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/mypy.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/operator.md": {
