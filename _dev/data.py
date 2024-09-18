@@ -1677,6 +1677,121 @@ CSRF-атаки заставляют пользователя выполнять
         "Encodings": """
 ![encoding.png](General/encoding.png)
 """,
+        "Big O Notation": """
+**O-нотация** (Big O Notation) — это математическая нотация, которая описывает поведение алгоритмов
+с точки зрения их **асимптотической сложности**.
+Она используется для оценки времени выполнения и потребляемой памяти в зависимости от размера входных данных.
+
+# Важные понятия
+
+- **Размер входных данных (n)**: Количество элементов, которые обрабатывает алгоритм.
+- **Время выполнения**: Количество операций, выполняемых алгоритмом по мере увеличения входных данных.
+- **Худший случай**: Сценарий, при котором алгоритм выполняется дольше всего.
+- **Оценка сверху**: O-нотация всегда показывает верхнюю границу времени выполнения (или использования памяти) алгоритма.
+
+# Основные классы сложности
+
+| О-нотация      | Сложность                   | Описание                                                                               | Пример                                  |
+|----------------|-----------------------------|----------------------------------------------------------------------------------------|-----------------------------------------|
+| **O(1)**       | **Константная**             | Время выполнения не зависит от размера входных данных                                  | Доступ к элементу массива по индексу    |
+| **O(log n)**   | **Логарифмическая**         | Время выполнения увеличивается логарифмически<br>по отношению к размеру входных данных | Бинарный поиск                          |
+| **O(n)**       | **Линейная**                | Время выполнения растет линейно<br>с увеличением размера входных данных                | Линейный поиск в массиве                |
+| **O(n log n)** | **Линейно-логарифмическая** | Увеличивается быстрее, чем O(n),<br>но медленнее, чем квадратичная                     | Быстрая сортировка, сортировка слиянием |
+| **O(n²)**      | **Квадратичная**            | Время выполнения растет пропорционально<br>квадрату размера входных данных             | Сортировка пузырьком, вставками         |
+| **O(2^n)**     | **Экспоненциальная**        | Время выполнения удваивается<br>при увеличении размера входных данных                  | Решение задачи о рюкзаке (brute force)  |
+| **O(n!)**      | **Факториальная**           | Время выполнения увеличивается<br>на факториал от размера входных данных               | Полный перебор перестановок             |
+
+# Графическое представление
+
+- **O(1)**: Время выполнения не изменяется с ростом входных данных.
+- **O(log n)**: Время выполнения увеличивается медленно, даже для больших n.
+- **O(n)**: Линейное увеличение времени с увеличением входных данных.
+- **O(n log n)**: Увеличение времени между O(n) и O(n²).
+- **O(n²)**: Резкое увеличение времени при росте n.
+- **O(2^n)**: Экспоненциальный рост, быстро становится неприемлемым для больших n.
+
+# Примеры алгоритмов с различной сложностью
+
+| О-нотация   | Пример алгоритма                                                   |
+|-------------|--------------------------------------------------------------------|
+| **O(1)**    | Доступ к элементу массива по индексу                               |
+| **O(log n)**| Бинарный поиск в отсортированном массиве                           |
+| **O(n)**    | Линейный поиск в неотсортированном массиве                         |
+| **O(n log n)**| Быстрая сортировка, сортировка слиянием                           |
+| **O(n²)**   | Сортировка пузырьком, вложенные циклы                             |
+| **O(2^n)**  | Полный перебор всех возможных решений задачи (например, рюкзак)    |
+| **O(n!)**   | Полный перебор перестановок                                        |
+
+## Примеры кода с разной сложностью
+
+### O(1) — Константная сложность
+```python
+def get_first_element(arr):
+    return arr[0]
+```
+Доступ к первому элементу списка выполняется за постоянное время, независимо от длины списка.
+
+### O(n) — Линейная сложность
+```python
+def find_element(arr, target):
+    for item in arr:
+        if item == target:
+            return True
+    return False
+```
+Здесь мы просматриваем каждый элемент списка, так что время выполнения пропорционально количеству элементов.
+
+### O(log n) — Логарифмическая сложность (пример бинарного поиска)
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return True
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return False
+```
+Каждое деление массива пополам уменьшает количество элементов в два раза, что приводит к логарифмическому времени выполнения.
+
+### O(n²) — Квадратичная сложность
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+```
+Здесь два вложенных цикла, каждый из которых зависит от размера списка, что приводит к квадратичной сложности.
+
+# Амортизированная сложность
+
+Иногда сложность оценивается как амортизированная.
+Например, добавление элемента в динамический массив обычно выполняется за O(1),
+но при увеличении массива операция копирования выполняется за O(n).
+Однако, средняя сложность добавления элемента остается O(1) из-за редкости таких операций копирования.
+
+# Резюме
+
+| О-нотация    | Описание                                           |
+|--------------|----------------------------------------------------|
+| `O(1)`       | Быстро и эффективно, лучший случай                 |
+| `O(log n)`   | Очень эффективно для больших наборов данных        |
+| `O(n)`       | Умеренно эффективно                                |
+| `O(n log n)` | Хорошо для сортировок и некоторых сложных операций |
+| `O(n²)`      | Подходит для небольших наборов данных              |
+| `O(2^n)`     | Только для очень малых наборов данных              |
+| `O(n!)`      | Крайне неэффективно, только для учебных задач      |
+
+# image
+
+<img alt="BigONotation.png", src="General/BigONotation.png">
+
+""",
     },
     "Languages": {
         "Python": {
@@ -5862,6 +5977,239 @@ console.print(md)
 - **Ограничение по ширине**: Вывод данных с ограничением по ширине консоли.
 
 ''',
+                    "peewee": """
+### Шпаргалка по библиотеке Peewee
+
+**Peewee** — это простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
+которая позволяет взаимодействовать с базами данных через Python-классы и объекты.
+
+```bash
+pip install peewee
+```
+
+# Подключение
+
+Peewee поддерживает разные базы данных: `SQLite`, `MySQL`, `PostgreSQL` и т.д.
+
+### SQLite
+```python
+from peewee import SqliteDatabase
+
+db = SqliteDatabase("my_database.db")
+```
+
+### PostgreSQL
+```python
+from peewee import PostgresqlDatabase
+
+db = PostgresqlDatabase("my_database", user="username", password="password", host="localhost", port=5432)
+```
+
+### MySQL
+```python
+from peewee import MySQLDatabase
+
+db = MySQLDatabase("my_database", user="username", password="password", host="localhost", port=3306)
+```
+
+# Определение моделей
+```python
+from peewee import Model, CharField, IntegerField
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+class User(BaseModel):
+    username = CharField(unique=True)
+    age = IntegerField()
+```
+
+# Создание таблиц
+```python
+db.connect()
+db.create_tables([User])
+```
+
+# Добавление записей
+```python
+# Создание записи
+user = User.create(username="john", age=30)
+
+# Или создание объекта и сохранение через метод save
+user = User(username="doe", age=25)
+user.save()
+```
+
+# Поиск записей
+### Получение всех записей
+```python
+users = User.select()
+for user in users:
+    print(user.username, user.age)
+```
+
+### Фильтрация записей
+```python
+john = User.get(User.username == "john")
+```
+
+### Фильтрация с использованием условий
+```python
+adults = User.select().where(User.age >= 18)
+```
+
+### Получение первой записи
+```python
+first_user = User.select().first()
+```
+
+# Обновление записей
+```python
+# Обновление записи через объект
+user = User.get(User.username == "john")
+user.age = 31
+user.save()
+
+# Обновление записи через метод update
+User.update(age=32).where(User.username == "john").execute()
+```
+
+# Удаление записей
+
+```python
+# Удаление записи через объект
+user = User.get(User.username == "john")
+user.delete_instance()
+
+# Удаление записи через метод delete
+User.delete().where(User.username == "john").execute()
+```
+
+# Связи между моделями
+### Один ко многим (ForeignKeyField)
+```python
+from peewee import ForeignKeyField
+
+class Blog(BaseModel):
+    title = CharField()
+    content = CharField()
+    author = ForeignKeyField(User, backref="blogs")
+
+# Пример создания блога, связанного с пользователем
+user = User.get(User.username == "doe")
+blog = Blog.create(title="My First Blog", content="Hello, world!", author=user)
+```
+
+### Многие ко многим
+Для реализации отношений «многие ко многим» создается промежуточная таблица:
+```python
+class Tag(BaseModel):
+    name = CharField(unique=True)
+
+class BlogTag(BaseModel):
+    blog = ForeignKeyField(Blog)
+    tag = ForeignKeyField(Tag)
+```
+
+# Построение запросов
+### Сортировка
+```python
+# Сортировка по возрасту
+users = User.select().order_by(User.age.desc())
+```
+
+### Лимит и смещение
+```python
+# Ограничение количества записей
+limited_users = User.select().limit(10)
+```
+
+### Группировка
+```python
+# Группировка и подсчет количества
+from peewee import fn
+
+user_counts = User.select(fn.COUNT(User.id)).group_by(User.age)
+```
+
+# Транзакции
+Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию.
+```python
+with db.atomic():
+    User.create(username="alice", age=23)
+    User.create(username="bob", age=35)
+```
+
+### Пример построения структуры базы данных
+Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги.
+```python
+import datetime
+from peewee import Model, CharField, TextField, ForeignKeyField, DateTimeField, SqliteDatabase
+
+db = SqliteDatabase("blog.db")
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+class User(BaseModel):
+    username = CharField(unique=True)
+    password = CharField()
+
+class Blog(BaseModel):
+    title = CharField()
+    content = TextField()
+    pub_date = DateTimeField(default=datetime.datetime.now)
+    author = ForeignKeyField(User, backref="blogs")
+
+class Comment(BaseModel):
+    blog = ForeignKeyField(Blog, backref="comments")
+    user = ForeignKeyField(User, backref="comments")
+    content = TextField()
+    pub_date = DateTimeField(default=datetime.datetime.now)
+
+class Tag(BaseModel):
+    name = CharField(unique=True)
+
+class BlogTag(BaseModel):
+    blog = ForeignKeyField(Blog, backref="tags")
+    tag = ForeignKeyField(Tag, backref="blogs")
+
+# Создание таблиц
+db.connect()
+db.create_tables([User, Blog, Comment, Tag, BlogTag])
+
+# Пример создания записи
+user = User.create(username="john_doe", password="password123")
+blog = Blog.create(title="My Blog Post", content="This is my first post", author=user)
+comment = Comment.create(blog=blog, user=user, content="Nice post!")
+tag = Tag.create(name="Python")
+BlogTag.create(blog=blog, tag=tag)
+```
+
+# Пагинация
+```python
+def paginate(query, page, page_size=10):
+    return query.paginate(page, page_size)
+
+# Получение первой страницы с 10 записями
+first_page = paginate(User.select(), 1, 10)
+```
+
+# Миграции
+Для изменения структуры базы данных рекомендуется использовать миграции.
+В Peewee для этого есть библиотека `playhouse.migrate`
+```python
+from playhouse.migrate import *
+
+migrator = SqliteMigrator(db)
+
+# Добавление нового поля в таблицу User
+migrate(migrator.add_column("user", "email", CharField(null=True)))
+```
+
+""",
                 },
                 "Python": {
                     "markdown": {
@@ -5888,6 +6236,841 @@ console.print(md)
 | WikiLinks                      | `wikilinks`    | `markdown.extensions.wikilinks`    |
 
 [https://python-markdown.github.io/extensions/](https://python-markdown.github.io/extensions/)
+""",
+                    },
+                    "doctests": {
+                        "doctests": '''
+```python
+def add(a, b):
+    """
+    Возвращает сумму двух чисел.
+
+    >>> add(2, 3)
+    5
+    >>> add(0, 0)
+    0
+    >>> add(-1, 1)
+    0
+    """
+    return a + b
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+```
+
+# Основные функции и методы
+
+| Функция/Метод                      | Описание                                                                       |
+|------------------------------------|--------------------------------------------------------------------------------|
+| `doctest.testmod()`                | Тестирует текущий модуль, ищет и выполняет doctests, написанные в docstring.   |
+| `doctest.run_docstring_examples()` | Запускает примеры doctest для указанной функции или объекта.                   |
+| `doctest.ELLIPSIS`                 | Разрешает использование "..." в примерах для пропуска некоторых частей вывода. |
+| `doctest.FAIL_FAST`                | Прекращает выполнение тестов после первой ошибки.                              |
+| `doctest.IGNORE_EXCEPTION_DETAIL`  | Игнорирует различия в деталях ошибок при проверке исключений.                  |
+
+### Пример с исключением и использованием опций
+
+```python
+def divide(a, b):
+    """
+    Делит число a на b.
+
+    Пример:
+    >>> divide(4, 2)
+    2.0
+    >>> divide(4, 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+    """
+    return a / b
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(optionflags=doctest.ELLIPSIS)
+```
+
+# Как запускать
+
+### Через код
+Включить `doctest.testmod()` в своем коде.
+
+### Через командную строку
+Ключ `-v` (verbose) выводит подробные результаты выполнения тестов.
+```bash
+python -m doctest -v your_script.py
+```
+
+### Пример с обработкой ошибок
+
+```python
+def safe_divide(a, b):
+    """
+    Делит a на b, возвращает 0, если деление на 0.
+
+    >>> safe_divide(4, 2)
+    2.0
+    >>> safe_divide(4, 0)
+    0
+    """
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return 0
+```
+''',
+                        "comments": '''
+# Специальные комментарии в Doctests
+
+### ELLIPSIS
+`# doctest: +ELLIPSIS`
+Позволяет использовать "..." для обозначения пропущенных частей вывода.
+
+### IGNORE_EXCEPTION_DETAIL
+`# doctest: +IGNORE_EXCEPTION_DETAIL`
+Игнорирует детали сообщений об ошибках (например, игнорируется описание ошибки, остаётся только её тип).
+```python
+def raise_error():
+    """
+    Игнорирование деталей исключения:
+    
+    >>> raise_error()
+    Traceback (most recent call last):
+      ...
+    ZeroDivisionError
+    # doctest: +IGNORE_EXCEPTION_DETAIL
+    """
+    raise ZeroDivisionError("division by zero")
+```
+
+### SKIP
+`# doctest: +SKIP`
+Пропускает выполнение конкретного теста.
+
+### NORMALIZE_WHITESPACE
+`# doctest: +NORMALIZE_WHITESPACE`
+Игнорирует различия в пробелах (например, различия в количестве пробелов или табуляций).
+```python
+def whitespace_example():
+    """
+    Пример с игнорированием пробелов:
+    
+    >>> whitespace_example()
+    'text with    spaces'
+    # doctest: +NORMALIZE_WHITESPACE
+    """
+    return 'text with    spaces'
+```
+
+### FAIL_FAST
+`# doctest: +FAIL_FAST`
+Прекращает тестирование при первой неудаче.
+```python
+def fail_fast_example():
+    """
+    Пример с быстрой ошибкой:
+    
+    >>> fail_fast_example()  # doctest: +FAIL_FAST
+    100
+    """
+    return 50
+```
+
+### REPORT_NDIFF
+`# doctest: +REPORT_NDIFF`
+Показывает различия между выводом теста и ожидаемым результатом с использованием стиля `ndiff`
+который даёт более подробный отчёт о различиях.
+```python
+def diff_report():
+    """
+    Пример с подробным отчетом:
+    
+    >>> diff_report()
+    'Hello World'
+    # doctest: +REPORT_NDIFF
+    """
+    return 'Hello world'
+```
+
+### REPORT_ONLY_FIRST_FAILURE
+`# doctest: +REPORT_ONLY_FIRST_FAILURE`
+Показывает только первый неудачный тест (остальные ошибки игнорируются).
+```python
+def report_only_first():
+    """
+    Пример с отчетом только о первой неудаче:
+    
+    >>> report_only_first()  # doctest: +REPORT_ONLY_FIRST_FAILURE
+    100
+    """
+    return 50
+```
+
+### ALLOW_UNICODE
+`# doctest: +ALLOW_UNICODE`
+Разрешает различия между байтовыми строками и строками Юникода в результатах тестов.
+```python
+def allow_unicode():
+    """
+    Пример с поддержкой Unicode:
+    
+    >>> allow_unicode()
+    'тест'
+    # doctest: +ALLOW_UNICODE
+    """
+    return 'тест'
+```
+
+### ALLOW_BYTES
+`# doctest: +ALLOW_BYTES`
+Разрешает сравнивать строки с байтовыми строками.
+```python
+def allow_bytes():
+    """
+    Пример с байтовыми строками:
+    
+    >>> allow_bytes()
+    b'hello'
+    # doctest: +ALLOW_BYTES
+    """
+    return b'hello'
+```
+
+### FLOAT_CMP
+`# doctest: +FLOAT_CMP`
+Игнорирует незначительные различия при сравнении чисел с плавающей точкой (например, различия в точности).
+```python
+def float_cmp_example():
+    """
+    Пример с сравнением чисел с плавающей точкой:
+    
+    >>> float_cmp_example()
+    0.3333333333333333
+    # doctest: +FLOAT_CMP
+    """
+    return 1 / 3
+```
+
+### ALL
+`# doctest: -ALL`
+Отключает все флаги, которые были активированы до этого момента.
+```python
+def disable_all_flags():
+    """
+    Пример с отключением всех флагов:
+
+    >>> disable_all_flags()
+    42
+    # doctest: +SKIP
+    >>> disable_all_flags()  # doctest: -ALL
+    42
+    """
+    return 42
+```
+
+# Дополнительные специальные комментарии
+- `# doctest: +REQUIRES("module")` — Пропускает тест, если указанный модуль не установлен.
+```python
+def requires_module():
+    """
+    Пример с проверкой наличия модуля:
+    
+    >>> requires_module()  # doctest: +REQUIRES("non_existent_module")
+    """
+    return 42
+```
+
+## Комбинирование специальных комментариев
+Вы можете комбинировать несколько флагов в одном тесте, разделяя их запятыми:
+
+```python
+def combined_flags():
+    """
+    Пример с несколькими флагами:
+
+    >>> combined_flags()
+    'This is a long string ...'
+    # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+    """
+    return 'This is a long string with unnecessary    spaces'
+```
+
+## Запуск doctest с флагами
+Вы можете запускать doctests с этими флагами через командную строку или внутри кода:
+```bash
+python -m doctest -v your_script.py
+```
+
+Или программно:
+```python
+import doctest
+doctest.testmod(optionflags=doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE)
+```
+
+''',
+                    },
+                    "tkinter": {
+                        "tkinter": """
+**Tkinter** — это стандартная библиотека Python для создания графических пользовательских интерфейсов (GUI).
+Она проста в использовании и подходит для создания небольших приложений с интерфейсом.
+
+Tkinter является встроенной библиотекой в Python, поэтому обычно не требует установки. Для проверки правильности установки можно запустить:
+
+```bash
+python -m tkinter
+```
+
+# Основные компоненты
+
+## Основное окно (root)
+
+Пример создания главного окна приложения
+```python
+import tkinter as tk
+
+root = tk.Tk()
+root.title("My App")
+root.geometry("400x300")  # Установка размеров окна
+root.mainloop()  # Запуск цикла обработки событий
+```
+
+## Виджеты (Widgets)
+
+Tkinter предоставляет множество виджетов для создания интерфейса
+
+| Виджет        | Описание                      | Пример использования                              |
+|---------------|-------------------------------|---------------------------------------------------|
+| `Label`       | Текстовая метка               | `label = tk.Label(root, text="Hello, Tkinter!")`  |
+| `Button`      | Кнопка                        | `button = tk.Button(root, text="Click Me")`       |
+| `Entry`       | Однострочное текстовое поле   | `entry = tk.Entry(root)`                          |
+| `Text`        | Многострочное текстовое поле  | `text = tk.Text(root)`                            |
+| `Checkbutton` | Флажок                        | `check = tk.Checkbutton(root, text="Check me")`   |
+| `Radiobutton` | Переключатель                 | `radio = tk.Radiobutton(root, text="Option 1")`   |
+| `Listbox`     | Список элементов              | `listbox = tk.Listbox(root)`                      |
+| `Scale`       | Ползунок                      | `scale = tk.Scale(root, from_=0, to=100)`         |
+| `Menu`        | Меню                          | Создается для окна или других виджетов            |
+| `Canvas`      | Холст для рисования графики   | `canvas = tk.Canvas(root, width=400, height=300)` |
+| `Frame`       | Контейнер для других виджетов | `frame = tk.Frame(root)`                          |
+| `Scrollbar`   | Полоса прокрутки              | `scrollbar = tk.Scrollbar(root)`                  |
+
+### Пример использования нескольких виджетов
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+label = tk.Label(root, text="Enter your name:")
+label.pack()
+
+entry = tk.Entry(root)
+entry.pack()
+
+button = tk.Button(root, text="Submit", command=lambda: print(entry.get()))
+button.pack()
+
+root.mainloop()
+```
+
+## Обработчики событий
+
+Для того чтобы связывать события, такие как нажатие кнопки, с действиями в коде,
+используется параметр `command` для кнопок и других элементов
+
+Пример с обработкой нажатия кнопки
+```python
+def on_button_click():
+    print("Button clicked!")
+
+button = tk.Button(root, text="Click Me", command=on_button_click)
+button.pack()
+```
+
+## Организация виджетов
+
+Tkinter предоставляет три метода для управления расположением виджетов: `pack`, `grid`, и `place`
+
+### Метод `pack()`
+
+Простой метод для последовательного размещения виджетов сверху вниз или слева направо
+```python
+label.pack(side="top")
+button.pack(side="bottom")
+```
+
+### Метод `grid()`
+
+Позволяет размещать виджеты в виде таблицы, указывая строки и столбцы
+```python
+label.grid(row=0, column=0)
+entry.grid(row=0, column=1)
+button.grid(row=1, column=1)
+```
+
+### Метод `place()`
+
+Точный контроль над позицией виджета по координатам (x, y)
+```python
+button.place(x=50, y=100)
+```
+
+## Окна сообщений
+
+Tkinter предоставляет модули для отображения окон сообщений
+
+```python
+from tkinter import messagebox
+
+# Сообщение об ошибке
+messagebox.showerror("Error", "Something went wrong!")
+
+# Сообщение с подтверждением
+messagebox.askquestion("Confirm", "Are you sure?")
+```
+
+## Меню
+
+Меню можно добавить к главному окну с помощью виджета `Menu`
+
+```python
+menubar = tk.Menu(root)
+
+# Создаем меню "File"
+file_menu = tk.Menu(menubar, tearoff=0)
+file_menu.add_command(label="New")
+file_menu.add_command(label="Open")
+file_menu.add_command(label="Save")
+file_menu.add_separator()
+file_menu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=file_menu)
+
+# Устанавливаем меню в окно
+root.config(menu=menubar)
+```
+
+## Работа с графикой (Canvas)
+
+`Canvas` позволяет рисовать простые графические элементы: линии, овалы, прямоугольники, текст и изображения.
+
+```python
+canvas = tk.Canvas(root, width=400, height=300)
+canvas.pack()
+
+# Рисование прямоугольника
+canvas.create_rectangle(50, 50, 150, 150, fill="blue")
+
+# Рисование круга
+canvas.create_oval(200, 50, 300, 150, fill="green")
+
+# Рисование текста
+canvas.create_text(200, 200, text="Hello, Canvas", font=("Arial", 20))
+```
+
+## Полоса прокрутки (Scrollbar)
+
+Полосы прокрутки могут быть добавлены к элементам `Listbox`, `Text`, или `Canvas`
+
+Пример добавления полосы прокрутки к текстовому полю
+```python
+scrollbar = tk.Scrollbar(root)
+scrollbar.pack(side="right", fill="y")
+
+text = tk.Text(root, yscrollcommand=scrollbar.set)
+text.pack(side="left", fill="both")
+
+scrollbar.config(command=text.yview)
+```
+
+# Примеры
+### Простое приложение
+
+Создадим простое приложение для ввода текста и кнопки, которая выводит этот текст в консоль
+
+```python
+import tkinter as tk
+
+def show_text():
+    text = entry.get()
+    print(f"You entered: {text}")
+
+root = tk.Tk()
+root.title("Simple App")
+
+label = tk.Label(root, text="Enter some text:")
+label.pack()
+
+entry = tk.Entry(root)
+entry.pack()
+
+button = tk.Button(root, text="Submit", command=show_text)
+button.pack()
+
+root.mainloop()
+```
+
+### Калькулятор
+
+```python
+import tkinter as tk
+
+def on_click(event):
+    text = event.widget.cget("text")
+    if text == "=":
+        try:
+            result = eval(screen.get())
+            screen.set(result)
+        except:
+            screen.set("Error")
+    elif text == "C":
+        screen.set("")
+    else:
+        current = screen.get()
+        screen.set(current + text)
+
+root = tk.Tk()
+root.geometry("400x600")
+root.title("Calculator")
+
+screen = tk.StringVar()
+entry = tk.Entry(root, textvar=screen, font="Arial 20", bd=10, relief="sunken")
+entry.pack(fill="both", ipadx=8, padx=10, pady=10)
+
+buttons = [
+    ["7", "8", "9", "/"],
+    ["4", "5", "6", "*"],
+    ["1", "2", "3", "-"],
+    ["C", "0", "=", "+"]
+]
+
+for row in buttons:
+    frame = tk.Frame(root)
+    frame.pack()
+    for btn in row:
+        button = tk.Button(frame, text=btn, font="Arial 18", padx=10, pady=10)
+        button.pack(side="left", fill="both", expand=True)
+        button.bind("<Button-1>", on_click)
+
+root.mainloop()
+```
+
+""",
+                        "Методы": """
+Ниже представлена таблица методов для некоторых основных виджетов библиотеки **Tkinter**.
+В этой таблице собраны общие и специфические методы для каждого виджета.
+
+# Общие методы для большинства виджетов
+
+| Метод                     | Описание                                                                      | Пример использования                 |
+|---------------------------|-------------------------------------------------------------------------------|--------------------------------------|
+| `pack()`                  | Размещает виджет на родительском виджете с помощью менеджера геометрии "pack" | `widget.pack()`                      |
+| `grid()`                  | Размещает виджет с помощью менеджера геометрии "grid"                         | `widget.grid(row=0, column=0)`       |
+| `place()`                 | Размещает виджет с помощью менеджера геометрии "place"                        | `widget.place(x=50, y=50)`           |
+| `config()` / `configure()`| Позволяет изменить параметры виджета после его создания                       | `widget.config(bg='red')`            |
+| `bind(event, handler)`    | Привязывает событие к виджету (например, щелчок мышью или нажатие клавиши)    | `widget.bind("<Button-1>", handler)` |
+| `cget(option)`            | Возвращает текущее значение указанного параметра виджета                      | `widget.cget('text')`                |
+| `destroy()`               | Уничтожает виджет                                                             | `widget.destroy()`                   |
+
+### Button
+
+| Метод      | Описание                                           | Пример использования |
+|------------|----------------------------------------------------|----------------------|
+| `flash()`  | Временно изменяет цвет кнопки (редко используется) | `button.flash()`     |
+| `invoke()` | Программно вызывает команду, связанную с кнопкой   | `button.invoke()`    |
+
+### Label
+
+| Метод          | Описание             | Пример использования               |
+|----------------|----------------------|------------------------------------|
+| `config(text)` | Изменяет текст метки | `label.config(text="Новый текст")` |
+
+### Entry
+
+| Метод                | Описание                                  | Пример использования       |
+|----------------------|-------------------------------------------|----------------------------|
+| `get()`              | Возвращает текущий текст в поле ввода     | `entry.get()`              |
+| `delete(start, end)` | Удаляет текст от позиции `start` до `end` | `entry.delete(0, 'end')`   |
+| `insert(index, text)`| Вставляет текст в указанную позицию       | `entry.insert(0, "Текст")` |
+
+### Text
+
+| Метод                 | Описание                                 | Пример использования          |
+|-----------------------|------------------------------------------|-------------------------------|
+| `get(start, end)`     | Возвращает текст из указанного диапазона | `text.get("1.0", 'end')`      |
+| `insert(index, text)` | Вставляет текст в указанную позицию      | `text.insert('1.0', "Текст")` |
+| `delete(start, end)`  | Удаляет текст из указанного диапазона    | `text.delete("1.0", 'end')`   |
+
+### Canvas
+
+| Метод                | Описание                | Пример использования                          |
+|----------------------|-------------------------|-----------------------------------------------|
+| `create_line()`      | Создает линию на холсте | `canvas.create_line(0, 0, 200, 100)`          |
+| `create_rectangle()` | Создает прямоугольник   | `canvas.create_rectangle(50, 50, 150, 150)`   |
+| `create_oval()`      | Создает овал (или круг) | `canvas.create_oval(50, 50, 150, 150)`        |
+| `create_text()`      | Создает текст на холсте | `canvas.create_text(100, 100, text="Привет")` |
+
+### Listbox
+
+| Метод                 | Описание                                  | Пример использования             |
+|-----------------------|-------------------------------------------|----------------------------------|
+| `insert(index, item)` | Вставляет элемент в список                | `listbox.insert(END, "Элемент")` |
+| `delete(start, end)`  | Удаляет элемент или диапазон элементов    | `listbox.delete(0, END)`         |
+| `get(start, end)`     | Возвращает элементы в указанном диапазоне | `listbox.get(0, END)`            |
+
+### Checkbutton
+
+| Метод        | Описание                               | Пример использования     |
+|--------------|----------------------------------------|--------------------------|
+| `select()`   | Отмечает чекбокс                       | `checkbutton.select()`   |
+| `deselect()` | Снимает отметку с чекбокса             | `checkbutton.deselect()` |
+| `toggle()`   | Переключает текущее состояние чекбокса | `checkbutton.toggle()`   |
+
+### Radiobutton
+
+| Метод      | Описание             | Пример использования   |
+|------------|----------------------|------------------------|
+| `select()` | Выбирает радиокнопку | `radiobutton.select()` |
+
+### Scale
+
+| Метод        | Описание                             | Пример использования |
+|--------------|--------------------------------------|----------------------|
+| `get()`      | Возвращает текущее значение ползунка | `scale.get()`        |
+| `set(value)` | Устанавливает значение ползунка      | `scale.set(50)`      |
+
+### Spinbox
+
+| Метод        | Описание                         | Пример использования |
+|--------------|----------------------------------|----------------------|
+| `get()`      | Возвращает текущее значение      | `spinbox.get()`      |
+| `set(value)` | Устанавливает значение спинбокса | `spinbox.set(10)`    |
+
+### Menu
+
+| Метод             | Описание                                  | Пример использования             |
+|-------------------|-------------------------------------------|----------------------------------|
+| `add_command()`   | Добавляет пункт меню                      | `menu.add_command(label="Файл")` |
+| `add_separator()` | Добавляет разделитель между пунктами меню | `menu.add_separator()`           |
+
+### Message
+
+| Метод          | Описание                          | Пример использования                     |
+|----------------|-----------------------------------|------------------------------------------|
+| `config(text)` | Устанавливает текст для сообщения | `message.config(text="Текст сообщения")` |
+
+""",
+                        "config": """
+# Общие опции для большинства виджетов
+
+| Опция               | Описание                                                                                        | Пример использования                |
+|---------------------|-------------------------------------------------------------------------------------------------|-------------------------------------|
+| `background` / `bg` | Цвет фона виджета                                                                               | `widget.config(bg="red")`           |
+| `foreground` / `fg` | Цвет текста или содержимого виджета                                                             | `widget.config(fg="blue")`          |
+| `font`              | Шрифт текста виджета                                                                            | `widget.config(font=("Arial", 12))` |
+| `height`            | Высота виджета. Может быть в пикселях или в строках (для текстовых виджетов)                    | `widget.config(height=2)`           |
+| `width`             | Ширина виджета. Может быть в пикселях или в символах (для текстовых виджетов)                   | `widget.config(width=20)`           |
+| `padx`              | Внутренний отступ по горизонтали (в пикселях)                                                   | `widget.config(padx=10)`            |
+| `pady`              | Внутренний отступ по вертикали (в пикселях)                                                     | `widget.config(pady=5)`             |
+| `relief`            | Стиль границы виджета: `flat`, `sunken`, `raised`, `groove`, `ridge`                            | `widget.config(relief="sunken")`    |
+| `cursor`            | Курсор, который отображается при наведении на виджет                                            | `widget.config(cursor="hand2")`     |
+| `state`             | Состояние виджета: `normal`, `disabled`, `active`                                               | `widget.config(state="disabled")`   |
+| `takefocus`         | Указывает, может ли виджет принимать фокус при перемещении по элементам интерфейса с клавиатуры | `widget.config(takefocus=True)`     |
+
+## Button, Checkbutton, Radiobutton, Label
+
+| Опция      | Описание                                                                                 | Пример использования                 |
+|------------|------------------------------------------------------------------------------------------|--------------------------------------|
+| `text`     | Текст, отображаемый на виджете                                                           | `button.config(text="Click me")`     |
+| `image`    | Изображение, отображаемое на виджете                                                     | `button.config(image=my_image)`      |
+| `compound` | Расположение текста относительно изображения: `top`, `bottom`, `left`, `right`, `center` | `button.config(compound="left")`     |
+| `command`  | Функция, вызываемая при нажатии на кнопку                                                | `button.config(command=my_function)` |
+| `justify`  | Выравнивание текста: `left`, `center`, `right`                                           | `label.config(justify="left")`       |
+
+## Entry
+
+| Опция             | Описание                                                             | Пример использования                          |
+|-------------------|----------------------------------------------------------------------|-----------------------------------------------|
+| `show`            | Замена вводимых символов на указанный символ (например, для паролей) | `entry.config(show="*")`                      |
+| `validate`        | Тип валидации: `focus`, `focusin`, `focusout`, `key`, или `none`     | `entry.config(validate="key")`                |
+| `validatecommand` | Функция, вызываемая при валидации ввода                              | `entry.config(validatecommand=my_validation)` |
+| `invalidcommand`  | Функция, вызываемая при неудачной валидации                          | `entry.config(invalidcommand=my_invalid)`     |
+
+## Text
+
+| Опция      | Описание                                             | Пример использования            |
+|------------|------------------------------------------------------|---------------------------------|
+| `wrap`     | Определяет перенос текста: `none`, `char`, `word`    | `text.config(wrap="word")`      |
+| `spacing1` | Интервал перед первой строкой параграфа (в пикселях) | `text.config(spacing1=5)`       |
+| `spacing2` | Интервал между строками в параграфе                  | `text.config(spacing2=2)`       |
+| `spacing3` | Интервал после последней строки параграфа            | `text.config(spacing3=5)`       |
+| `state`    | Состояние виджета: `normal`, `disabled`              | `text.config(state="disabled")` |
+
+## Listbox
+
+| Опция         | Описание                                                           | Пример использования                      |
+|---------------|--------------------------------------------------------------------|-------------------------------------------|
+| `selectmode`  | Режим выбора элементов: `browse`, `single`, `multiple`, `extended` | `listbox.config(selectmode="multiple")`   |
+| `activestyle` | Стиль выделения активного элемента: `dotbox`, `underline`, `none`  | `listbox.config(activestyle="underline")` |
+
+## Scale
+
+| Опция          | Описание                                                    | Пример использования                |
+|----------------|-------------------------------------------------------------|-------------------------------------|
+| `from_`        | Начальное значение шкалы                                    | `scale.config(from_=0)`             |
+| `to`           | Конечное значение шкалы                                     | `scale.config(to=100)`              |
+| `orient`       | Ориентация шкалы: `horizontal`, `vertical`                  | `scale.config(orient="horizontal")` |
+| `length`       | Длина шкалы (в пикселях)                                    | `scale.config(length=200)`          |
+| `tickinterval` | Интервал между отметками на шкале                           | `scale.config(tickinterval=10)`     |
+| `resolution`   | Шаг изменения значения                                      | `scale.config(resolution=0.1)`      |
+| `showvalue`    | Отображать ли текущее значение на шкале: `True` или `False` | `scale.config(showvalue=True)`      |
+
+## Canvas
+
+| Опция            | Описание                                  | Пример использования                           |
+|------------------|-------------------------------------------|------------------------------------------------|
+| `scrollregion`   | Указывает область для прокрутки на холсте | `canvas.config(scrollregion=(0, 0, 500, 500))` |
+| `xscrollcommand` | Команда для горизонтальной прокрутки      | `canvas.config(xscrollcommand=x_scroll.set)`   |
+| `yscrollcommand` | Команда для вертикальной прокрутки        | `canvas.config(yscrollcommand=y_scroll.set)`   |
+
+## Menu
+
+| Опция     | Описание                            | Пример использования         |
+|-----------|-------------------------------------|------------------------------|
+| `tearoff` | Определяет, можно ли открепить меню | `menu.config(tearoff=False)` |
+
+## Checkbutton, Radiobutton
+
+| Опция         | Описание                                                                           | Пример использования                    |
+|---------------|------------------------------------------------------------------------------------|-----------------------------------------|
+| `variable`    | Переменная, связанная с состоянием чекбокса/радиокнопки                            | `checkbutton.config(variable=var)`      |
+| `value`       | Значение, устанавливаемое переменной при выборе кнопки                             | `radiobutton.config(value=1)`           |
+| `indicatoron` | Определяет, будет ли отображаться индикатор (круг или квадрат): `True` или `False` | `checkbutton.config(indicatoron=False)` |
+
+## Frame
+
+| Опция                 | Описание                               | Пример использования                       |
+|-----------------------|----------------------------------------|--------------------------------------------|
+| `borderwidth`         | Ширина границы фрейма (в пикселях).    | `frame.config(borderwidth=2)`              |
+| `highlightbackground` | Цвет фона рамки при отсутствии фокуса. | `frame.config(highlightbackground="blue")` |
+| `highlightcolor`      | Цвет рамки при получении фокуса.       | `frame.config(highlightcolor="green")`     |
+| `highlightthickness`  | Толщина рамки (в пикселях).            | `frame.config(highlightthickness=2)`       |
+
+### Пример использования нескольких параметров
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+button = tk.Button(root, text="Click me", bg="lightblue", fg="white", font=("Arial", 16))
+button.pack(padx=10, pady=10)
+
+entry = tk.Entry(root, show="*", font=("Courier", 12), width=30)
+entry.pack(padx=10, pady=10)
+
+label = tk.Label(root, text
+
+="Hello, Tkinter!", relief="sunken", width=20)
+label.pack(padx=10, pady=10)
+
+root.mainloop()
+```
+
+Эти параметры помогут тонко настраивать виджеты в интерфейсах на базе `Tkinter`.
+""",
+                        "Вёрстка": """
+Вёрстка в Tkinter строится с помощью трех основных менеджеров размещения виджетов
+
+**`pack()`** — базовый менеджер для вертикального или горизонтального размещения виджетов
+**`grid()`** — позволяет создавать таблицы, размещая виджеты по строкам и столбцам
+**`place()`** — предоставляет возможность абсолютного позиционирования с указанием координат
+
+### pack()
+Метод `pack()` размещает виджеты по порядку: сверху вниз или слева направо (по умолчанию сверху вниз)
+Можно использовать параметры для управления тем, как виджеты растягиваются и заполняют доступное пространство
+
+#### Основные параметры
+- `side` — указывает, с какой стороны будет размещен виджет. Возможные значения: `top`, `bottom`, `left`, `right`
+- `fill` — задает, как виджет будет растягиваться: по горизонтали (`x`), вертикали (`y`), или по обеим осям (`both`)
+- `expand` — если `True`, виджет будет занимать доступное пространство при расширении окна
+- `padx` и `pady` — задают отступы вокруг виджета по горизонтали и вертикали
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+btn1 = tk.Button(root, text="Button 1")
+btn1.pack(side="top", fill="x", padx=10, pady=10)
+
+btn2 = tk.Button(root, text="Button 2")
+btn2.pack(side="left", fill="y")
+
+btn3 = tk.Button(root, text="Button 3")
+btn3.pack(side="right", expand=True)
+
+root.mainloop()
+```
+
+### grid()
+Метод `grid()` позволяет размещать виджеты в сетке, указывая строки (`row`) и столбцы (`column`)
+Это мощный инструмент для создания сложных интерфейсов с более контролируемым расположением элементов
+
+#### Основные параметры
+- `row` — строка, в которой будет расположен виджет (нумерация с 0)
+- `column` — столбец, в котором будет расположен виджет (нумерация с 0)
+- `columnspan` — сколько столбцов должен занимать виджет
+- `rowspan` — сколько строк должен занимать виджет
+- `padx` и `pady` — отступы внутри ячеек по горизонтали и вертикали
+- `sticky` — позволяет растягивать виджет по сторонам света: `n`, `s`, `e`, `w`. Например, `sticky="nsew"` растягивает виджет во все стороны
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+label1 = tk.Label(root, text="Label 1")
+label1.grid(row=0, column=0, padx=10, pady=10)
+
+label2 = tk.Label(root, text="Label 2")
+label2.grid(row=0, column=1, sticky="ew")
+
+label3 = tk.Label(root, text="Label 3")
+label3.grid(row=1, column=0, columnspan=2, sticky="ew")
+
+root.mainloop()
+```
+
+### place()
+Метод `place()` дает возможность размещать виджеты, указывая точные координаты
+Это более низкоуровневый способ управления расположением, где можно контролировать каждую позицию
+
+#### Основные параметры
+- `x` и `y` — задают координаты верхнего левого угла виджета относительно окна
+- `relx` и `rely` — задают относительные координаты (от 0 до 1) для размещения виджета по ширине и высоте окна
+- `width` и `height` — задают фиксированную ширину и высоту виджета
+- `relwidth` и `relheight` — задают относительную ширину и высоту (от 0 до 1) относительно окна
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+btn1 = tk.Button(root, text="Button 1")
+btn1.place(x=50, y=100, width=200, height=50)
+
+btn2 = tk.Button(root, text="Button 2")
+btn2.place(relx=0.5, rely=0.5, anchor="center")
+
+root.mainloop()
+```
+
+### Когда использовать разные менеджеры
+
+- **`pack()`**, когда нужно просто разместить виджеты один за другим.
+- **`grid()`** подходит для более сложных макетов с табличным размещением (например, формы).
+- **`place()`** полезен, если нужно точное позиционирование, но обычно это менее гибкий способ, чем другие.
+
 """,
                     },
                     "typing": """
@@ -21037,6 +22220,232 @@ echo %MY_VAR% >> my_file.txt
 Это добавит значение переменной в конец файла `my_file.txt`, если файл уже существует. 
 Если файл не существует, то он будет создан и в него будет записано значение переменной.
 """,
+            "Bash": """
+# Bash
+
+
+| Команда | Описание                                        | Пример использования                                     |
+|---------|-------------------------------------------------|----------------------------------------------------------|
+| `echo`  | Вывод текста в консоль                          | `echo "Hello, World!"`                                   |
+| `cd`    | Переход в директорию                            | `cd /path/to/directory`                                  |
+| `pwd`   | Вывод текущей директории                        | `pwd`                                                    |
+| `ls`    | Список файлов и директорий                      | `ls -l` (подробный список с правами доступа)             |
+| `cp`    | Копирование файлов и директорий                 | `cp source.txt destination.txt`                          |
+| `mv`    | Перемещение или переименование файла/директории | `mv oldname.txt newname.txt`                             |
+| `rm`    | Удаление файлов или директорий                  | `rm file.txt` (удаление файла), `rm -r dir` (директория) |
+| `mkdir` | Создание новой директории                       | `mkdir new_directory`                                    |
+| `touch` | Создание пустого файла                          | `touch newfile.txt`                                      |
+| `cat`   | Вывод содержимого файла                         | `cat file.txt`                                           |
+| `man`   | Документация по команде (man pages)             | `man ls` (документация по `ls`)                          |
+
+# Переменные
+
+```bash
+my_var="Hello"  # (без пробелов вокруг `=`)
+echo $my_var  # "Hello"
+```
+
+# Условия и операторы
+
+```bash
+if [ условие ]; then
+    # код, если условие истинно
+else
+    # код, если условие ложно
+fi
+```
+
+```bash
+if [ -f "file.txt" ]; then
+    echo "Файл существует"
+else
+    echo "Файл не существует"
+fi
+```
+
+### Операторы сравнения
+- `-f` — существует ли файл
+- `-d` — существует ли директория
+- `-z` — пустая ли строка
+- `=` — равенство строк
+- `-lt`, `-gt`, `-eq` — меньше, больше, равно для чисел
+
+# Циклы
+
+```bash
+for var in {1..5}; do
+    echo $var
+done
+```
+```bash
+while [ условие ]; do
+    # действия
+done
+```
+
+```bash
+counter=0
+while [ $counter -lt 3 ]; do
+    echo "Counter: $counter"
+    counter=$((counter + 1))
+done
+```
+
+# Функции
+
+```bash
+function имя_функции() {
+    # тело функции
+}
+```
+
+```bash
+function greet() {
+    echo "Привет, $1!"
+}
+
+greet "Мир"  # Выведет "Привет, Мир!"
+```
+
+# Перенаправление ввода/вывода
+
+### >
+Перенаправление вывода в файл (перезаписывает файл).
+```bash
+echo "Текст" > output.txt
+```
+
+### >>
+Перенаправление вывода в файл (добавляет к файлу).
+```bash
+echo "Еще текст" >> output.txt
+```
+
+### <
+Перенаправление ввода из файла.
+```bash
+cat < input.txt
+```
+
+### 2>
+Перенаправление ошибок в файл.
+```bash
+ls несуществующий_файл 2> errors.txt
+```
+
+### &>
+Перенаправление как стандартного вывода, так и ошибок.
+```bash
+команда &> output_and_errors.txt
+```
+
+# Пайплайн (Pipeline)
+
+Пайплайн используется для передачи вывода одной команды как ввода другой команды
+```bash
+cat file.txt | grep "pattern"
+```
+
+# Аргументы командной строки
+
+- `$0` — имя скрипта.
+- `$1`, `$2`, ..., `$N` — аргументы командной строки.
+- `$#` — количество аргументов.
+- `$@` — все аргументы.
+
+Пример скрипта, который выводит все аргументы:
+```bash
+#!/bin/bash
+echo "Имя скрипта: $0"
+echo "Первый аргумент: $1"
+echo "Количество аргументов: $#"
+```
+
+# Массивы
+
+### Создание массива
+```bash
+my_array=(one two three)
+```
+
+### Доступ к элементам массива
+```bash
+echo ${my_array[0]}  # Первый элемент
+```
+
+### Все элементы массива
+```bash
+echo ${my_array[@]}
+```
+
+# Специальные символы
+
+| Символ  | Описание                                                                             |
+|---------|--------------------------------------------------------------------------------------|
+| `#`     | Комментарий                                                                          |
+| `;`     | Разделение нескольких команд на одной строке                                         |
+| `&&`    | Логическое И (следующая команда выполняется, если предыдущая завершилась успешно)    |
+| `||`    | Логическое ИЛИ (следующая команда выполняется, если предыдущая завершилась неудачно) |
+| `&`     | Запуск команды в фоновом режиме                                                      |
+| `` ` `` | Выполнение команды и подстановка её результата                                       |
+
+# Управление процессами
+
+- **Запуск команды в фоне**: `command &`
+- **Просмотр всех процессов**: `ps`
+- **Завершение процесса**: `kill PID`
+
+# Пример
+
+```bash
+#!/bin/bash
+
+# Этот скрипт приветствует пользователя
+echo "Как вас зовут?"
+read name
+echo "Привет, $name!"
+
+# Проверка наличия файла
+if [ -f "example.txt" ]; then
+    echo "Файл example.txt существует."
+else
+    echo "Файл example.txt не найден."
+fi
+
+# Цикл по списку
+for i in {1..5}; do
+    echo "Цикл номер $i"
+done
+```
+
+# Полезные команды
+
+- `grep` — Поиск текста в файле
+```bash
+grep "pattern" file.txt
+```
+
+- `find` — Поиск файлов и директорий
+```bash
+find /path -name "*.txt"
+```
+
+- `chmod` — Изменение прав доступа к файлу
+```bash
+chmod +x script.sh  # Сделать файл исполняемым
+```
+
+- `tar` — Архивация файлов
+```bash
+tar -cvf archive.tar directory/
+```
+
+- `curl` — Запросы по HTTP
+```bash
+curl http://example.com
+```
+
+""",
         },
         "LaTex": {
             "Элементы": r"""
@@ -21887,6 +23296,25 @@ class Dict:
 | Reset         | `§r`   | `\\u00A7r` |                       
 """,
         },
+        "ChatGPT": {
+            "Шпаргалки": """
+Обычная шпаргалка
+```
+Напиши максимально подробную и структурированную шпаргалку по теме, которую я тебе напишу.
+Используй таблицы и код если этого требует тема.
+```
+
+```
+Напиши максимально подробную и структурированную шпаргалку по теме, которую я тебе напишу.
+Используй таблицы и код если этого требует тема. 
+Если это например python библиотека то старайся использовать __all__ или dir() из библиотеки
+чтобы по порядку описать все функции и константы.
+```
+
+[Промт для паттернов проектирования](?General/Паттерны%20проектирования/#chatgpt-promt)
+
+""",
+        },
         "Alt Symbols": """
 
 | Символ | Код  |
@@ -21924,6 +23352,13 @@ class Dict:
 | N + 1 query                           |                                                                             |
 
 
+# Java
+
+|   |   |
+|---|---|
+| Android Components | [https://m2.material.io/components?platform=android](https://m2.material.io/components?platform=android)
+
+
 # C++
 
 |                |                                                                  |
@@ -21948,11 +23383,13 @@ class Dict:
 
 # HTML
 
-|             |                                                            |
-|-------------|------------------------------------------------------------|
-| SVG         | [https://flowbite.com/icons/](https://flowbite.com/icons/) |
-| codepen.io  | [https://codepen.io/](https://codepen.io/)                 |
-| svgrepo.com | [https://www.svgrepo.com/](https://www.svgrepo.com/)       |
+|             |                                                                  |
+|-------------|------------------------------------------------------------------|
+| SVG         | [https://flowbite.com/icons/](https://flowbite.com/icons/)       |
+| codepen.io  | [https://codepen.io/](https://codepen.io/)                       |
+| svgrepo.com | [https://www.svgrepo.com/](https://www.svgrepo.com/)             |
+| SVG         | [https://fonts.google.com/icons](https://fonts.google.com/icons) |
+| font        | [https://fonts.google.com/](https://fonts.google.com/)           |
 
 
 # General
@@ -21962,6 +23399,9 @@ class Dict:
 | Управляющие символы | [https://ru.wikipedia.org/wiki/Управляющие_символы](https://ru.wikipedia.org/wiki/Управляющие_символы) |
 | Каретная нотация    | [https://ru.wikipedia.org/wiki/Каретная_нотация](https://ru.wikipedia.org/wiki/Каретная_нотация)       |
 | Па́ттерны проектирования<br>Design Patterns | [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns) |
+| ASCII | [https://ru.wikipedia.org/wiki/ASCII](https://ru.wikipedia.org/wiki/ASCII) |
+| ANSI Escape Code | [https://en.wikipedia.org/wiki/ANSI_escape_code](https://en.wikipedia.org/wiki/ANSI_escape_code) |
+| ANSI Command Line | [https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html) |
 
 # Downloads
 

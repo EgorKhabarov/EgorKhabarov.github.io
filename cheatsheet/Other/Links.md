@@ -72,6 +72,21 @@
 </tr>
 </tbody>
 </table>
+<h1>Java</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Android Components</td>
+<td><a href="https://m2.material.io/components?platform=android">https://m2.material.io/components?platform=android</a></td>
+</tr>
+</tbody>
+</table>
 <h1>C++</h1>
 <table>
 <thead>
@@ -142,6 +157,14 @@
 <td>svgrepo.com</td>
 <td><a href="https://www.svgrepo.com/">https://www.svgrepo.com/</a></td>
 </tr>
+<tr>
+<td>SVG</td>
+<td><a href="https://fonts.google.com/icons">https://fonts.google.com/icons</a></td>
+</tr>
+<tr>
+<td>font</td>
+<td><a href="https://fonts.google.com/">https://fonts.google.com/</a></td>
+</tr>
 </tbody>
 </table>
 <h1>General</h1>
@@ -164,6 +187,18 @@
 <tr>
 <td>Па́ттерны проектирования<br>Design Patterns</td>
 <td><a href="https://ru.wikipedia.org/wiki/Design_Patterns">https://ru.wikipedia.org/wiki/Design_Patterns</a></td>
+</tr>
+<tr>
+<td>ASCII</td>
+<td><a href="https://ru.wikipedia.org/wiki/ASCII">https://ru.wikipedia.org/wiki/ASCII</a></td>
+</tr>
+<tr>
+<td>ANSI Escape Code</td>
+<td><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedia.org/wiki/ANSI_escape_code</a></td>
+</tr>
+<tr>
+<td>ANSI Command Line</td>
+<td><a href="https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html">https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html</a></td>
 </tr>
 </tbody>
 </table>

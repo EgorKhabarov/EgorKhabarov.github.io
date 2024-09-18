@@ -149,6 +149,9 @@
   "Languages/Python/Libraries/Information/math.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Information/peewee.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Information/random.md": {
     "color": "green"
   },
@@ -245,7 +248,13 @@
   "Languages/Python/Libraries/Other/wheel.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Python/doctests/": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Python/markdown/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Python/tkinter/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/abc.md": {

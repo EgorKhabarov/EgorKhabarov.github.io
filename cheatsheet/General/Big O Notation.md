@@ -1,0 +1,196 @@
+<p><strong>O-нотация</strong> (Big O Notation) — это математическая нотация, которая описывает поведение алгоритмов
+с точки зрения их <strong>асимптотической сложности</strong>.
+Она используется для оценки времени выполнения и потребляемой памяти в зависимости от размера входных данных.</p>
+<h1>Важные понятия</h1>
+<ul>
+<li><strong>Размер входных данных (n)</strong>: Количество элементов, которые обрабатывает алгоритм.</li>
+<li><strong>Время выполнения</strong>: Количество операций, выполняемых алгоритмом по мере увеличения входных данных.</li>
+<li><strong>Худший случай</strong>: Сценарий, при котором алгоритм выполняется дольше всего.</li>
+<li><strong>Оценка сверху</strong>: O-нотация всегда показывает верхнюю границу времени выполнения (или использования памяти) алгоритма.</li>
+</ul>
+<h1>Основные классы сложности</h1>
+<table>
+<thead>
+<tr>
+<th>О-нотация</th>
+<th>Сложность</th>
+<th>Описание</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O(1)</strong></td>
+<td><strong>Константная</strong></td>
+<td>Время выполнения не зависит от размера входных данных</td>
+<td>Доступ к элементу массива по индексу</td>
+</tr>
+<tr>
+<td><strong>O(log n)</strong></td>
+<td><strong>Логарифмическая</strong></td>
+<td>Время выполнения увеличивается логарифмически<br>по отношению к размеру входных данных</td>
+<td>Бинарный поиск</td>
+</tr>
+<tr>
+<td><strong>O(n)</strong></td>
+<td><strong>Линейная</strong></td>
+<td>Время выполнения растет линейно<br>с увеличением размера входных данных</td>
+<td>Линейный поиск в массиве</td>
+</tr>
+<tr>
+<td><strong>O(n log n)</strong></td>
+<td><strong>Линейно-логарифмическая</strong></td>
+<td>Увеличивается быстрее, чем O(n),<br>но медленнее, чем квадратичная</td>
+<td>Быстрая сортировка, сортировка слиянием</td>
+</tr>
+<tr>
+<td><strong>O(n²)</strong></td>
+<td><strong>Квадратичная</strong></td>
+<td>Время выполнения растет пропорционально<br>квадрату размера входных данных</td>
+<td>Сортировка пузырьком, вставками</td>
+</tr>
+<tr>
+<td><strong>O(2^n)</strong></td>
+<td><strong>Экспоненциальная</strong></td>
+<td>Время выполнения удваивается<br>при увеличении размера входных данных</td>
+<td>Решение задачи о рюкзаке (brute force)</td>
+</tr>
+<tr>
+<td><strong>O(n!)</strong></td>
+<td><strong>Факториальная</strong></td>
+<td>Время выполнения увеличивается<br>на факториал от размера входных данных</td>
+<td>Полный перебор перестановок</td>
+</tr>
+</tbody>
+</table>
+<h1>Графическое представление</h1>
+<ul>
+<li><strong>O(1)</strong>: Время выполнения не изменяется с ростом входных данных.</li>
+<li><strong>O(log n)</strong>: Время выполнения увеличивается медленно, даже для больших n.</li>
+<li><strong>O(n)</strong>: Линейное увеличение времени с увеличением входных данных.</li>
+<li><strong>O(n log n)</strong>: Увеличение времени между O(n) и O(n²).</li>
+<li><strong>O(n²)</strong>: Резкое увеличение времени при росте n.</li>
+<li><strong>O(2^n)</strong>: Экспоненциальный рост, быстро становится неприемлемым для больших n.</li>
+</ul>
+<h1>Примеры алгоритмов с различной сложностью</h1>
+<table>
+<thead>
+<tr>
+<th>О-нотация</th>
+<th>Пример алгоритма</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O(1)</strong></td>
+<td>Доступ к элементу массива по индексу</td>
+</tr>
+<tr>
+<td><strong>O(log n)</strong></td>
+<td>Бинарный поиск в отсортированном массиве</td>
+</tr>
+<tr>
+<td><strong>O(n)</strong></td>
+<td>Линейный поиск в неотсортированном массиве</td>
+</tr>
+<tr>
+<td><strong>O(n log n)</strong></td>
+<td>Быстрая сортировка, сортировка слиянием</td>
+</tr>
+<tr>
+<td><strong>O(n²)</strong></td>
+<td>Сортировка пузырьком, вложенные циклы</td>
+</tr>
+<tr>
+<td><strong>O(2^n)</strong></td>
+<td>Полный перебор всех возможных решений задачи (например, рюкзак)</td>
+</tr>
+<tr>
+<td><strong>O(n!)</strong></td>
+<td>Полный перебор перестановок</td>
+</tr>
+</tbody>
+</table>
+<h2>Примеры кода с разной сложностью</h2>
+<h3>O(1) — Константная сложность</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_first_element</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div></div></div>
+<p>Доступ к первому элементу списка выполняется за постоянное время, независимо от длины списка.</p>
+<h3>O(n) — Линейная сложность</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_element</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div></div></div>
+<p>Здесь мы просматриваем каждый элемент списка, так что время выполнения пропорционально количеству элементов.</p>
+<h3>O(log n) — Логарифмическая сложность (пример бинарного поиска)</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div></div></div>
+<p>Каждое деление массива пополам уменьшает количество элементов в два раза, что приводит к логарифмическому времени выполнения.</p>
+<h3>O(n²) — Квадратичная сложность</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div></div></div>
+<p>Здесь два вложенных цикла, каждый из которых зависит от размера списка, что приводит к квадратичной сложности.</p>
+<h1>Амортизированная сложность</h1>
+<p>Иногда сложность оценивается как амортизированная.
+Например, добавление элемента в динамический массив обычно выполняется за O(1),
+но при увеличении массива операция копирования выполняется за O(n).
+Однако, средняя сложность добавления элемента остается O(1) из-за редкости таких операций копирования.</p>
+<h1>Резюме</h1>
+<table>
+<thead>
+<tr>
+<th>О-нотация</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O(1)</code></td>
+<td>Быстро и эффективно, лучший случай</td>
+</tr>
+<tr>
+<td><code>O(log n)</code></td>
+<td>Очень эффективно для больших наборов данных</td>
+</tr>
+<tr>
+<td><code>O(n)</code></td>
+<td>Умеренно эффективно</td>
+</tr>
+<tr>
+<td><code>O(n log n)</code></td>
+<td>Хорошо для сортировок и некоторых сложных операций</td>
+</tr>
+<tr>
+<td><code>O(n²)</code></td>
+<td>Подходит для небольших наборов данных</td>
+</tr>
+<tr>
+<td><code>O(2^n)</code></td>
+<td>Только для очень малых наборов данных</td>
+</tr>
+<tr>
+<td><code>O(n!)</code></td>
+<td>Крайне неэффективно, только для учебных задач</td>
+</tr>
+</tbody>
+</table>
+<h1>image</h1>
+<p><img alt="BigONotation.png", src="General/BigONotation.png"></p>
