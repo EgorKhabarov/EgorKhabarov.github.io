@@ -200,6 +200,10 @@
 <td>ANSI Command Line</td>
 <td><a href="https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html">https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html</a></td>
 </tr>
+<tr>
+<td>ANSI Escape Code GitHub gist</td>
+<td><a href="https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797">https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797</a></td>
+</tr>
 </tbody>
 </table>
 <h1>Downloads</h1>

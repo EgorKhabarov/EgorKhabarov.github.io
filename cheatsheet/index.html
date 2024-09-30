@@ -297,6 +297,20 @@
       </svg>
       Протоколы связи
      </button>
+     <button onclick="onclickCheatSheetButton(this);" title="Заголовки" vpath="General/HTTP/Заголовки.md">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      Заголовки
+     </button>
+     <button onclick="onclickCheatSheetButton(this);" title="Ответы" vpath="General/HTTP/Ответы.md">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      Ответы
+     </button>
     </div>
     <button kpath="General/Парадигмы" onclick="onclickFolderButton(this)" title="Парадигмы">
      <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -831,6 +845,13 @@
         </svg>
         peewee
        </button>
+       <button onclick="onclickCheatSheetButton(this);" title="pony" vpath="Languages/Python/Libraries/Information/pony.md">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        pony
+       </button>
       </div>
       <button kpath="Languages/Python/Libraries/Python" onclick="onclickFolderButton(this)" title="Python">
        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1182,6 +1203,50 @@
         </svg>
         mypy
        </button>
+       <button onclick="onclickCheatSheetButton(this);" title="unittest" vpath="Languages/Python/Libraries/Python/unittest.md">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        unittest
+       </button>
+       <button onclick="onclickCheatSheetButton(this);" title="unittest.mock" vpath="Languages/Python/Libraries/Python/unittest.mock.md">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        unittest.mock
+       </button>
+       <button onclick="onclickCheatSheetButton(this);" title="curses" vpath="Languages/Python/Libraries/Python/curses.md">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        curses
+       </button>
+       <button kpath="Languages/Python/Libraries/Python/dis" onclick="onclickFolderButton(this)" title="dis">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+         </path>
+        </svg>
+        dis
+       </button>
+       <div class="button_folder" style="display:none;">
+        <button onclick="onclickCheatSheetButton(this);" title="dis" vpath="Languages/Python/Libraries/Python/dis/dis.md">
+         <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         dis
+        </button>
+        <button onclick="onclickCheatSheetButton(this);" title="byte code" vpath="Languages/Python/Libraries/Python/dis/byte code.md">
+         <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         byte code
+        </button>
+       </div>
       </div>
       <button kpath="Languages/Python/Libraries/Algorithms" onclick="onclickFolderButton(this)" title="Algorithms">
        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1746,6 +1811,13 @@
         </path>
        </svg>
        File formats
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="setup.py &amp; pyproject.toml" vpath="Languages/Python/bash/setup.py &amp; pyproject.toml.md">
+       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       setup.py &amp; pyproject.toml
       </button>
      </div>
      <button kpath="Languages/Python/Generators and lists" onclick="onclickFolderButton(this)" title="Generators and lists">
@@ -2872,6 +2944,13 @@
       </svg>
       Указатели2
      </button>
+     <button onclick="onclickCheatSheetButton(this);" title="malloc" vpath="Languages/Cpp/malloc.md">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      malloc
+     </button>
     </div>
     <button kpath="Languages/Bash" onclick="onclickFolderButton(this)" title="Bash">
      <svg aria-hidden="true" class="violet" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -2901,6 +2980,13 @@
        </path>
       </svg>
       Bash
+     </button>
+     <button onclick="onclickCheatSheetButton(this);" title="ANSI" vpath="Languages/Bash/ANSI.md">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      ANSI
      </button>
     </div>
     <button kpath="Languages/LaTex" onclick="onclickFolderButton(this)" title="LaTex">
