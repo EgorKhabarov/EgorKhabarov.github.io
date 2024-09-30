@@ -62,13 +62,13 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 
 <span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;your_library_name&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;your_library_name&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
     <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">(),</span>
     <span class="n">install_requires</span><span class="o">=</span><span class="p">[],</span>  <span class="c1"># Список зависимостей</span>
     <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s1">&#39;your-command=your_module:main_function&#39;</span><span class="p">,</span>  <span class="c1"># команда для консоли = модуль:функция</span>
+        <span class="s2">&quot;console_scripts&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;your-command=your_module:main_function&quot;</span><span class="p">,</span>  <span class="c1"># команда для консоли = модуль:функция</span>
         <span class="p">],</span>
     <span class="p">},</span>
 <span class="p">)</span>
@@ -91,7 +91,7 @@
 
 <span class="k">[options.entry_points]</span>
 <span class="na">console_scripts</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="na">your-command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">your_module:main_function</span>
+<span class="na">your-command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">your_module:main_function</span>
 </pre></div></div></div>
 
 <h3>pyproject.toml</h3>
