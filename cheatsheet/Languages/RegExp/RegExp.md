@@ -14,7 +14,7 @@
 <tbody>
 <tr>
 <td><code>.</code></td>
-<td>Один любой символ, кроме новой строки <code>\n</code>.</td>
+<td>Один любой символ, кроме новой строки <code>\n</code></td>
 </tr>
 <tr>
 <td><code>\d</code></td>
@@ -115,7 +115,7 @@
 </tr>
 <tr>
 <td><code>*?</code> <code>+?</code> <code>??</code><br><code>{m,n}?</code> <code>{,n}?</code> <code>{m,}?</code></td>
-<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов.</td>
+<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов</td>
 </tr>
 </tbody>
 </table>
@@ -244,13 +244,13 @@
 <tbody>
 <tr>
 <td><code>(?&gt;pattern)</code></td>
-<td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала.</td>
-<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад.</td>
+<td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала</td>
+<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад</td>
 <td><mark style="background-color: #999999">1234</mark></td>
 </tr>
 <tr>
 <td><code>(?R)</code> или <code>(?0)</code></td>
-<td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя.</td>
+<td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя</td>
 <td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
 <td><mark style="background-color: #999999">(a(b)c)</mark></td>
 </tr>
@@ -276,7 +276,7 @@
 <tr>
 <td><code>re.A</code><br><code>re.ASCII</code></td>
 <td><code>(?a)</code></td>
-<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII.</td>
+<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII</td>
 </tr>
 <tr>
 <td><code>re.I</code><br><code>re.IGNORECASE</code></td>
@@ -301,22 +301,22 @@
 <tr>
 <td><code>re.L</code><br><code>re.LOCALE</code></td>
 <td><code>(?L)</code></td>
-<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов.</td>
+<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов</td>
 </tr>
 <tr>
 <td><code>re.U</code><br><code>re.UNICODE</code></td>
 <td></td>
-<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости.</td>
+<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости</td>
 </tr>
 <tr>
 <td><code>re.DEBUG</code></td>
 <td></td>
-<td>Отображение отладочной информации о скомпилированном выражении.</td>
+<td>Отображение отладочной информации о скомпилированном выражении</td>
 </tr>
 <tr>
 <td><code>re.NOFLAG</code></td>
 <td></td>
-<td>С версии 3.11.</td>
+<td>С версии 3.11</td>
 </tr>
 </tbody>
 </table>
@@ -335,39 +335,39 @@
 <tbody>
 <tr>
 <td>re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет совпадение в начале строки.</td>
+<td>Ищет совпадение в начале строки</td>
 </tr>
 <tr>
 <td>re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет первое совпадение в строке.</td>
+<td>Ищет первое совпадение в строке</td>
 </tr>
 <tr>
 <td>re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
-<td>Возвращает список всех непересекающихся совпадений в строке.</td>
+<td>Возвращает список всех непересекающихся совпадений в строке</td>
 </tr>
 <tr>
 <td>re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
-<td>Возвращает итератор по всем совпадениям в строке.</td>
+<td>Возвращает итератор по всем совпадениям в строке</td>
 </tr>
 <tr>
 <td>re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
-<td>Заменяет совпадения в строке на указанный текст.</td>
+<td>Заменяет совпадения в строке на указанный текст</td>
 </tr>
 <tr>
 <td>re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
-<td>То же, что и <code>re.sub()</code>, но также возвращает количество замен.</td>
+<td>То же, что и <code>re.sub()</code>, но также возвращает количество замен</td>
 </tr>
 <tr>
 <td>re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
-<td>Разбивает строку по шаблону и возвращает список строк.</td>
+<td>Разбивает строку по шаблону и возвращает список строк</td>
 </tr>
 <tr>
 <td>re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Проверяет, полностью ли строка соответствует шаблону.</td>
+<td>Проверяет, полностью ли строка соответствует шаблону</td>
 </tr>
 <tr>
 <td>re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0       <br>) -&gt; Pattern[AnyStr]</td>
-<td>Компилирует регулярное выражение в объект регулярного выражения.</td>
+<td>Компилирует регулярное выражение в объект регулярного выражения</td>
 </tr>
 </tbody>
 </table>
@@ -381,35 +381,35 @@
 <tbody>
 <tr>
 <td>re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет совпадение в начале строки.</td>
+<td>Ищет совпадение в начале строки</td>
 </tr>
 <tr>
 <td>re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет первое совпадение в строке.</td>
+<td>Ищет первое совпадение в строке</td>
 </tr>
 <tr>
 <td>re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
-<td>Возвращает список всех непересекающихся совпадений в строке.</td>
+<td>Возвращает список всех непересекающихся совпадений в строке</td>
 </tr>
 <tr>
 <td>re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
-<td>Возвращает итератор по всем совпадениям в строке.</td>
+<td>Возвращает итератор по всем совпадениям в строке</td>
 </tr>
 <tr>
 <td>re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
-<td>Заменяет совпадения в строке на указанный текст.</td>
+<td>Заменяет совпадения в строке на указанный текст</td>
 </tr>
 <tr>
 <td>re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
-<td>То же, что и <code>re.compile(...).sub()</code>, но также возвращает количество замен.</td>
+<td>То же, что и <code>re.compile(...).sub()</code>, но также возвращает количество замен</td>
 </tr>
 <tr>
 <td>re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
-<td>Разбивает строку по шаблону и возвращает список строк.</td>
+<td>Разбивает строку по шаблону и возвращает список строк</td>
 </tr>
 <tr>
 <td>re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Проверяет, полностью ли строка соответствует шаблону.</td>
+<td>Проверяет, полностью ли строка соответствует шаблону</td>
 </tr>
 </tbody>
 </table>

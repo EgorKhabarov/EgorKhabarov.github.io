@@ -265,7 +265,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>AUTO</code> or <code>AUTO_AUTO</code> or <code>*</code> or <code>**</code></td>
-<td style="text-align: left;">Alignment depends on the type. If this is a number and there are no line breaks in this cell, then align to the right; otherwise, align to the left.</td>
+<td style="text-align: left;">Alignment depends on the type. If this is a number and there are no line breaks in this cell, then align to the right; otherwise, align to the left</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>LEFT</code> or <code>LEFT_LEFT</code> or <code>&lt;</code> or <code>&lt;&lt;</code></td>
@@ -289,11 +289,11 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>CENTER_LEFT</code> or <code>^&lt;</code></td>
-<td style="text-align: left;">The first line is aligned to the center, and the remaining lines are aligned to the left of the first line.</td>
+<td style="text-align: left;">The first line is aligned to the center, and the remaining lines are aligned to the left of the first line</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>CENTER_RIGHT</code> or <code>^&gt;</code></td>
-<td style="text-align: left;">The first line is aligned to the center, and the remaining lines are aligned to the right of the first line.</td>
+<td style="text-align: left;">The first line is aligned to the center, and the remaining lines are aligned to the right of the first line</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>RIGHT_LEFT</code> or <code>&gt;&lt;</code></td>

@@ -323,22 +323,22 @@
 <tbody>
 <tr>
 <td><code>borderwidth</code></td>
-<td>Ширина границы фрейма (в пикселях).</td>
+<td>Ширина границы фрейма (в пикселях)</td>
 <td><code>frame.config(borderwidth=2)</code></td>
 </tr>
 <tr>
 <td><code>highlightbackground</code></td>
-<td>Цвет фона рамки при отсутствии фокуса.</td>
+<td>Цвет фона рамки при отсутствии фокуса</td>
 <td><code>frame.config(highlightbackground="blue")</code></td>
 </tr>
 <tr>
 <td><code>highlightcolor</code></td>
-<td>Цвет рамки при получении фокуса.</td>
+<td>Цвет рамки при получении фокуса</td>
 <td><code>frame.config(highlightcolor="green")</code></td>
 </tr>
 <tr>
 <td><code>highlightthickness</code></td>
-<td>Толщина рамки (в пикселях).</td>
+<td>Толщина рамки (в пикселях)</td>
 <td><code>frame.config(highlightthickness=2)</code></td>
 </tr>
 </tbody>

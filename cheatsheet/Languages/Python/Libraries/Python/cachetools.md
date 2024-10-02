@@ -8,43 +8,43 @@
 <tbody>
 <tr>
 <td><code>Cache</code></td>
-<td>Базовый класс для всех кэшей. Не используется напрямую, а служит основой для других типов кэшей.</td>
+<td>Базовый класс для всех кэшей. Не используется напрямую, а служит основой для других типов кэшей</td>
 </tr>
 <tr>
 <td><code>FIFOCache(maxsize)</code></td>
-<td>Кэш с алгоритмом замещения <strong>FIFO</strong> (First In, First Out).</td>
+<td>Кэш с алгоритмом замещения <strong>FIFO</strong> (First In, First Out)</td>
 </tr>
 <tr>
 <td><code>LFUCache(maxsize)</code></td>
-<td>Кэш с алгоритмом замещения <strong>LFU</strong> (Least Frequently Used).</td>
+<td>Кэш с алгоритмом замещения <strong>LFU</strong> (Least Frequently Used)</td>
 </tr>
 <tr>
 <td><code>LRUCache(maxsize)</code></td>
-<td>Кэш с алгоритмом замещения <strong>LRU</strong> (Least Recently Used).</td>
+<td>Кэш с алгоритмом замещения <strong>LRU</strong> (Least Recently Used)</td>
 </tr>
 <tr>
 <td><code>MRUCache(maxsize)</code></td>
-<td>Кэш с алгоритмом замещения <strong>MRU</strong> (Most Recently Used).</td>
+<td>Кэш с алгоритмом замещения <strong>MRU</strong> (Most Recently Used)</td>
 </tr>
 <tr>
 <td><code>RRCache(maxsize)</code></td>
-<td>Кэш с случайным замещением (Random Replacement).</td>
+<td>Кэш с случайным замещением (Random Replacement)</td>
 </tr>
 <tr>
 <td><code>TLRUCache(maxsize, ttl)</code></td>
-<td>Кэш с временным ограничением и алгоритмом замещения <strong>LRU</strong> (Time-aware Least Recently Used).</td>
+<td>Кэш с временным ограничением и алгоритмом замещения <strong>LRU</strong> (Time-aware Least Recently Used)</td>
 </tr>
 <tr>
 <td><code>TTLCache(maxsize, ttl)</code></td>
-<td>Кэш с временным ограничением (<strong>Time-to-Live</strong>) и алгоритмом замещения <strong>LRU</strong>.</td>
+<td>Кэш с временным ограничением (<strong>Time-to-Live</strong>) и алгоритмом замещения <strong>LRU</strong></td>
 </tr>
 <tr>
 <td><code>cached(cache)</code></td>
-<td>Декоратор для кэширования возвращаемого значения функции.</td>
+<td>Декоратор для кэширования возвращаемого значения функции</td>
 </tr>
 <tr>
 <td><code>cachedmethod(cache)</code></td>
-<td>Декоратор для кэширования возвращаемого значения метода класса.</td>
+<td>Декоратор для кэширования возвращаемого значения метода класса</td>
 </tr>
 </tbody>
 </table>

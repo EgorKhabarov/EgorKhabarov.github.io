@@ -11,31 +11,31 @@
 <tbody>
 <tr>
 <td><code>Counter</code></td>
-<td>Счетчик, который предназначен для подсчета хэшируемых объектов.<br>Возвращает словарь, где ключи — объекты, а значения — их количество.</td>
+<td>Счетчик, который предназначен для подсчета хэшируемых объектов.<br>Возвращает словарь, где ключи — объекты, а значения — их количество</td>
 </tr>
 <tr>
 <td><code>defaultdict</code></td>
-<td>Словарь, который автоматически создает значение по умолчанию<br>для несуществующих ключей при первом обращении к ним.</td>
+<td>Словарь, который автоматически создает значение по умолчанию<br>для несуществующих ключей при первом обращении к ним</td>
 </tr>
 <tr>
 <td><code>OrderedDict</code></td>
-<td>Словарь, который сохраняет порядок добавления элементов.</td>
+<td>Словарь, который сохраняет порядок добавления элементов</td>
 </tr>
 <tr>
 <td><code>namedtuple()</code></td>
-<td>Создает подклассы кортежей с именованными полями,<br>что позволяет обращаться к элементам по имени.</td>
+<td>Создает подклассы кортежей с именованными полями,<br>что позволяет обращаться к элементам по имени</td>
 </tr>
 <tr>
 <td><code>deque</code></td>
-<td>Двусторонняя очередь, которая поддерживает добавление<br>и удаление элементов с обоих концов с высокой производительностью.</td>
+<td>Двусторонняя очередь, которая поддерживает добавление<br>и удаление элементов с обоих концов с высокой производительностью</td>
 </tr>
 <tr>
 <td><code>ChainMap</code></td>
-<td>Объединяет несколько словарей или других отображений в одно,<br>обеспечивая единый вид для поиска и изменения данных.</td>
+<td>Объединяет несколько словарей или других отображений в одно,<br>обеспечивая единый вид для поиска и изменения данных</td>
 </tr>
 <tr>
 <td><code>UserDict</code> <code>UserList</code> <code>UserString</code></td>
-<td>Классы для создания пользовательских словарей,<br>списков и строк с возможностью переопределения их поведения.</td>
+<td>Классы для создания пользовательских словарей,<br>списков и строк с возможностью переопределения их поведения</td>
 </tr>
 </tbody>
 </table>
@@ -53,27 +53,27 @@
 <tbody>
 <tr>
 <td><code>Counter()</code></td>
-<td>Создает объект <code>Counter</code>.</td>
+<td>Создает объект <code>Counter</code></td>
 <td><code>counter = Counter("abracadabra")</code></td>
 </tr>
 <tr>
 <td><code>Counter().elements()</code></td>
-<td>Возвращает итератор по элементам, каждый из которых<br>повторяется столько раз, сколько он встречается.</td>
+<td>Возвращает итератор по элементам, каждый из которых<br>повторяется столько раз, сколько он встречается</td>
 <td><code>list(counter.elements())</code></td>
 </tr>
 <tr>
 <td><code>Counter().most_common([n])</code></td>
-<td>Возвращает n самых распространенных элементов и их количество.</td>
+<td>Возвращает n самых распространенных элементов и их количество</td>
 <td><code>counter.most_common(2)</code></td>
 </tr>
 <tr>
 <td><code>Counter().subtract([iterable-or-mapping])</code></td>
-<td>Вычитает элементы, как и <code>update</code>, но уменьшает количество.</td>
+<td>Вычитает элементы, как и <code>update</code>, но уменьшает количество</td>
 <td><code>counter.subtract("abcd")</code></td>
 </tr>
 <tr>
 <td><code>Counter().update([iterable-or-mapping])</code></td>
-<td>Увеличивает счетчик для элементов из <code>iterable</code> или другого <code>Counter</code>.</td>
+<td>Увеличивает счетчик для элементов из <code>iterable</code> или другого <code>Counter</code></td>
 <td><code>counter.update("abc")</code></td>
 </tr>
 </tbody>
@@ -101,7 +101,7 @@
 <tbody>
 <tr>
 <td><code>defaultdict(default_factory)</code></td>
-<td>Создает словарь с значением по умолчанию.</td>
+<td>Создает словарь с значением по умолчанию</td>
 <td><code>d = defaultdict(int)</code></td>
 </tr>
 </tbody>
@@ -126,17 +126,17 @@
 <tbody>
 <tr>
 <td><code>OrderedDict()</code></td>
-<td>Создает упорядоченный словарь.</td>
+<td>Создает упорядоченный словарь</td>
 <td><code>od = OrderedDict()</code></td>
 </tr>
 <tr>
 <td><code>move_to_end(key, last=True)</code></td>
-<td>Перемещает элемент с заданным ключом в конец или начало.</td>
+<td>Перемещает элемент с заданным ключом в конец или начало</td>
 <td><code>od.move_to_end("a")</code></td>
 </tr>
 <tr>
 <td><code>popitem(last=True)</code></td>
-<td>Удаляет и возвращает элемент с конца или начала.</td>
+<td>Удаляет и возвращает элемент с конца или начала</td>
 <td><code>od.popitem()</code></td>
 </tr>
 </tbody>
@@ -163,12 +163,12 @@
 <tbody>
 <tr>
 <td><code>namedtuple(typename, field_names)</code></td>
-<td>Создает новый тип кортежа с именами полей.</td>
+<td>Создает новый тип кортежа с именами полей</td>
 <td><code>Point = namedtuple("Point", "x y")</code></td>
 </tr>
 <tr>
 <td><code>_replace(**kwargs)</code></td>
-<td>Возвращает новый экземпляр, заменив указанные поля.</td>
+<td>Возвращает новый экземпляр, заменив указанные поля</td>
 <td><code>p._replace(x=10)</code></td>
 </tr>
 </tbody>
@@ -195,27 +195,27 @@
 <tbody>
 <tr>
 <td><code>append(x)</code></td>
-<td>Добавляет элемент в конец.</td>
+<td>Добавляет элемент в конец</td>
 <td><code>dq.append(1)</code></td>
 </tr>
 <tr>
 <td><code>appendleft(x)</code></td>
-<td>Добавляет элемент в начало.</td>
+<td>Добавляет элемент в начало</td>
 <td><code>dq.appendleft(1)</code></td>
 </tr>
 <tr>
 <td><code>pop()</code></td>
-<td>Удаляет и возвращает элемент с конца.</td>
+<td>Удаляет и возвращает элемент с конца</td>
 <td><code>dq.pop()</code></td>
 </tr>
 <tr>
 <td><code>popleft()</code></td>
-<td>Удаляет и возвращает элемент с начала.</td>
+<td>Удаляет и возвращает элемент с начала</td>
 <td><code>dq.popleft()</code></td>
 </tr>
 <tr>
 <td><code>rotate(n)</code></td>
-<td>Вращает очередь на <code>n</code> шагов.</td>
+<td>Вращает очередь на <code>n</code> шагов</td>
 <td><code>dq.rotate(1)</code></td>
 </tr>
 </tbody>
@@ -244,12 +244,12 @@
 <tbody>
 <tr>
 <td><code>ChainMap(*maps)</code></td>
-<td>Создает новый <code>ChainMap</code> из указанных отображений.</td>
+<td>Создает новый <code>ChainMap</code> из указанных отображений</td>
 <td><code>cm = ChainMap(dict1, dict2)</code></td>
 </tr>
 <tr>
 <td><code>new_child(m=None)</code></td>
-<td>Возвращает новый <code>ChainMap</code> с m как новой первичной картой.</td>
+<td>Возвращает новый <code>ChainMap</code> с m как новой первичной картой</td>
 <td><code>cm.new_child({"c": 3})</code></td>
 </tr>
 </tbody>
@@ -287,17 +287,17 @@
 <tbody>
 <tr>
 <td><code>UserDict</code></td>
-<td>Базовый класс для создания пользовательских словарей.</td>
+<td>Базовый класс для создания пользовательских словарей</td>
 <td><code>class MyDict(UserDict): pass</code></td>
 </tr>
 <tr>
 <td><code>UserList</code></td>
-<td>Базовый класс для создания пользовательских списков.</td>
+<td>Базовый класс для создания пользовательских списков</td>
 <td><code>class MyList(UserList): pass</code></td>
 </tr>
 <tr>
 <td><code>UserString</code></td>
-<td>Базовый класс для создания пользовательских строк.</td>
+<td>Базовый класс для создания пользовательских строк</td>
 <td><code>class MyString(UserString): pass</code></td>
 </tr>
 </tbody>

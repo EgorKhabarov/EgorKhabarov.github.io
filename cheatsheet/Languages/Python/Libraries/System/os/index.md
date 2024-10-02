@@ -9,7 +9,7 @@
 <tbody>
 <tr>
 <td><code>os.listdir(".")</code></td>
-<td>Возвращает список файлов и директорий в указанном каталоге.</td>
+<td>Возвращает список файлов и директорий в указанном каталоге</td>
 </tr>
 <tr>
 <td><code>os.scandir(path=".")</code></td>
@@ -37,7 +37,7 @@
 </tr>
 <tr>
 <td><code>os.removedirs(path)</code></td>
-<td>Удаляет директории рекурсивно.</td>
+<td>Удаляет директории рекурсивно</td>
 </tr>
 <tr>
 <td><code>os.remove(path)</code></td>
@@ -57,11 +57,11 @@
 </tr>
 <tr>
 <td><code>os.urandom(n)</code></td>
-<td>Возвращает <code>n</code> байт случайных данных, пригодных для использования в криптографии.</td>
+<td>Возвращает <code>n</code> байт случайных данных, пригодных для использования в криптографии</td>
 </tr>
 <tr>
 <td><code>os.unlink(path)</code></td>
-<td>Удаляет файл по указанному пути (аналог <code>os.remove</code>).</td>
+<td>Удаляет файл по указанному пути (аналог <code>os.remove</code>)</td>
 </tr>
 <tr>
 <td><code>os.symlink(src, dst)</code></td>
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td><code>os.stat(path)</code></td>
-<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.stat.md" class="wikilink">os.stat</a> Возвращает информацию о пути (например, размер, время последней модификации).</td>
+<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.stat.md" class="wikilink">os.stat</a> Возвращает информацию о пути (например, размер, время последней модификации)</td>
 </tr>
 <tr>
 <td><code>os.lstat(path)</code></td>
@@ -351,7 +351,7 @@
 </tr>
 <tr>
 <td><code>os.O_TRUNC</code></td>
-<td>Очищает файл при его открытии, если он существует.</td>
+<td>Очищает файл при его открытии, если он существует</td>
 </tr>
 <tr>
 <td><code>os.O_APPEND</code></td>

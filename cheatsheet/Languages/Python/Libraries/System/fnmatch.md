@@ -12,22 +12,22 @@
 <tbody>
 <tr>
 <td><code>fnmatch.fnmatch()</code></td>
-<td>Сопоставляет строку с шаблоном.<br>Регистро<strong>зависимо</strong> на Unix и регистро<strong>независимо</strong> на Windows.</td>
+<td>Сопоставляет строку с шаблоном.<br>Регистро<strong>зависимо</strong> на Unix и регистро<strong>независимо</strong> на Windows</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;*.txt&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>fnmatch.fnmatchcase()</code></td>
-<td>Сопоставляет строку с шаблоном с учетом регистра на всех платформах.</td>
+<td>Сопоставляет строку с шаблоном с учетом регистра на всех платформах</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatchcase</span><span class="p">(</span><span class="s2">&quot;Foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;*.TXT&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>fnmatch.filter()</code></td>
-<td>Фильтрует список строк, оставляя только те, которые соответствуют шаблону.</td>
+<td>Фильтрует список строк, оставляя только те, которые соответствуют шаблону</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;bar.py&quot;</span><span class="p">],</span> <span class="s2">&quot;*.txt&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>fnmatch.translate()</code></td>
-<td>Преобразует шаблон в регулярное выражение,<br>которое можно использовать с <code>re</code> для более сложных сопоставлений.</td>
+<td>Преобразует шаблон в регулярное выражение,<br>которое можно использовать с <code>re</code> для более сложных сопоставлений</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;*.txt&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 </tbody>
@@ -44,22 +44,22 @@
 <tbody>
 <tr>
 <td><code>*</code></td>
-<td>Соответствует любой строке (включая пустую).</td>
+<td>Соответствует любой строке (включая пустую)</td>
 <td><code>"*.txt"</code> соответствует <code>"file.txt"</code> и <code>"a.txt"</code></td>
 </tr>
 <tr>
 <td><code>?</code></td>
-<td>Соответствует любому одному символу.</td>
+<td>Соответствует любому одному символу</td>
 <td><code>"file?.txt"</code> соответствует <code>"file1.txt"</code>, но не <code>"file12.txt"</code></td>
 </tr>
 <tr>
 <td><code>[seq]</code></td>
-<td>Соответствует любому символу из <code>seq</code>.<br>Например, <code>[abc]</code> соответствует <code>a</code>, <code>b</code>, или <code>c</code>.</td>
+<td>Соответствует любому символу из <code>seq</code>.<br>Например, <code>[abc]</code> соответствует <code>a</code>, <code>b</code>, или <code>c</code></td>
 <td><code>"file[0-9].txt"</code> соответствует <code>"file1.txt"</code>, но не <code>"file12.txt"</code></td>
 </tr>
 <tr>
 <td><code>[!seq]</code></td>
-<td>Соответствует любому символу, который <strong>не</strong> входит в <code>seq</code>.<br>Например, <code>[!abc]</code> соответствует любому символу, кроме <code>a</code>, <code>b</code>, или <code>c</code>.</td>
+<td>Соответствует любому символу, который <strong>не</strong> входит в <code>seq</code>.<br>Например, <code>[!abc]</code> соответствует любому символу, кроме <code>a</code>, <code>b</code>, или <code>c</code></td>
 <td><code>"file[!0-9].txt"</code> соответствует <code>"fileA.txt"</code>, но не <code>"file1.txt"</code></td>
 </tr>
 </tbody>

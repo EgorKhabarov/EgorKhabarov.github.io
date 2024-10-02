@@ -11,23 +11,23 @@
 <tbody>
 <tr>
 <td><strong>init</strong>()</td>
-<td>Инициализирует новый объект frozenlist.</td>
+<td>Инициализирует новый объект frozenlist</td>
 </tr>
 <tr>
 <td><strong>contains</strong>()</td>
-<td>Проверяет наличие элемента в списке.</td>
+<td>Проверяет наличие элемента в списке</td>
 </tr>
 <tr>
 <td><strong>getitem</strong>()</td>
-<td>Получает элемент списка по индексу.</td>
+<td>Получает элемент списка по индексу</td>
 </tr>
 <tr>
 <td><strong>len</strong>()</td>
-<td>Возвращает количество элементов в списке.</td>
+<td>Возвращает количество элементов в списке</td>
 </tr>
 <tr>
 <td>copy()</td>
-<td>Возвращает копию frozenlist.</td>
+<td>Возвращает копию frozenlist</td>
 </tr>
 </tbody>
 </table>

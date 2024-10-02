@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td><code>git remote add origin https://github.com/username/repo.git</code></td>
-<td>Команда, которой устанавливается подключение<br>к удаленному серверу и <code>git</code> репозиторию, размещающемуся на нем.</td>
+<td>Команда, которой устанавливается подключение<br>к удаленному серверу и <code>git</code> репозиторию, размещающемуся на нем</td>
 </tr>
 <tr>
 <td><code>git push -u origin master</code></td>

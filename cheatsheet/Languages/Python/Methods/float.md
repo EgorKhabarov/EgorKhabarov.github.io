@@ -9,12 +9,12 @@
 <tbody>
 <tr>
 <td>float.as_integer_ratio</td>
-<td>Возвращает кортеж, представляющий рациональное число,<br>близкое к данному целому числу.</td>
+<td>Возвращает кортеж, представляющий рациональное число,<br>близкое к данному целому числу</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td>float.conjugate</td>
-<td>Возвращает сопряженное комплексное число.</td>
+<td>Возвращает сопряженное комплексное число</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><br><span class="unselectable"><span class="mf">10.5</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
@@ -29,7 +29,7 @@
 </tr>
 <tr>
 <td>float.imag</td>
-<td>Возвращает мнимую часть комплексного числа.</td>
+<td>Возвращает мнимую часть комплексного числа</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">imag</span><br><span class="unselectable"><span class="mf">0.0</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
@@ -39,7 +39,7 @@
 </tr>
 <tr>
 <td>float.real</td>
-<td>Возвращает действительную часть комплексного числа.</td>
+<td>Возвращает действительную часть комплексного числа</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.0</span><span class="o">.</span><span class="n">real</span><br><span class="unselectable"><span class="mf">10.0</span></span><br></pre></div></pre></div></div></td>
 </tr>
 </tbody>

@@ -9,19 +9,19 @@
 <tbody>
 <tr>
 <td>aalib.AsciiArt</td>
-<td>Создает объект AsciiArt для конвертации изображений в ASCII-графику.</td>
+<td>Создает объект AsciiArt для конвертации изображений в ASCII-графику</td>
 </tr>
 <tr>
 <td>AsciiArt.render(image)</td>
-<td>Преобразует изображение в ASCII-графику.</td>
+<td>Преобразует изображение в ASCII-графику</td>
 </tr>
 <tr>
 <td>AsciiArt.render_to_memory(image)</td>
-<td>Возвращает ASCII-графику в виде строки.</td>
+<td>Возвращает ASCII-графику в виде строки</td>
 </tr>
 <tr>
 <td>AsciiArt.save(filename, image)</td>
-<td>Сохраняет ASCII-графику в файл.</td>
+<td>Сохраняет ASCII-графику в файл</td>
 </tr>
 </tbody>
 </table>

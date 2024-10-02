@@ -51,22 +51,22 @@
 <tbody>
 <tr>
 <td>gc.collect()</td>
-<td>Принудительно запускает сборку мусора.</td>
+<td>Принудительно запускает сборку мусора</td>
 <td>gc.collect()</td>
 </tr>
 <tr>
 <td>gc.get_threshold()</td>
-<td>Возвращает текущие пороги сборки мусора.</td>
+<td>Возвращает текущие пороги сборки мусора</td>
 <td>threshold = gc.get_threshold()</td>
 </tr>
 <tr>
 <td>gc.set_threshold(threshold)</td>
-<td>Устанавливает пороги сборки мусора.</td>
+<td>Устанавливает пороги сборки мусора</td>
 <td>gc.set_threshold(700, 10, 10)</td>
 </tr>
 <tr>
 <td>gc.get_count()</td>
-<td>Возвращает количество сборок мусора, проведенных до сих пор.</td>
+<td>Возвращает количество сборок мусора, проведенных до сих пор</td>
 <td>count = gc.get_count()</td>
 </tr>
 </tbody>

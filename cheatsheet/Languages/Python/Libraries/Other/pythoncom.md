@@ -12,27 +12,27 @@
 <tbody>
 <tr>
 <td>CoInitialize</td>
-<td>Инициализирует библиотеку COM.</td>
+<td>Инициализирует библиотеку COM</td>
 </tr>
 <tr>
 <td>CoUninitialize</td>
-<td>Завершает работу с библиотекой COM.</td>
+<td>Завершает работу с библиотекой COM</td>
 </tr>
 <tr>
 <td>CoCreateInstance</td>
-<td>Создает экземпляр COM-объекта.</td>
+<td>Создает экземпляр COM-объекта</td>
 </tr>
 <tr>
 <td>PyCom_RegisterUnknownHandler</td>
-<td>Регистрирует обработчик для неизвестных COM-объектов.</td>
+<td>Регистрирует обработчик для неизвестных COM-объектов</td>
 </tr>
 <tr>
 <td>CLSIDToClassMap</td>
-<td>Карта соответствия CLSID и классов COM.</td>
+<td>Карта соответствия CLSID и классов COM</td>
 </tr>
 <tr>
 <td>IIDToInterfaceMap</td>
-<td>Карта соответствия IID и интерфейсов COM.</td>
+<td>Карта соответствия IID и интерфейсов COM</td>
 </tr>
 </tbody>
 </table>

@@ -56,12 +56,12 @@
 <tbody>
 <tr>
 <td><code>spwd.getspnam(name)</code></td>
-<td>Возвращает информацию о пользователе по его имени.</td>
+<td>Возвращает информацию о пользователе по его имени</td>
 <td><code>user_info = spwd.getspnam("john")</code></td>
 </tr>
 <tr>
 <td><code>spwd.getspall()</code></td>
-<td>Возвращает список всех пользователей в системе.</td>
+<td>Возвращает список всех пользователей в системе</td>
 <td><code>users = spwd.getspall()</code></td>
 </tr>
 </tbody>

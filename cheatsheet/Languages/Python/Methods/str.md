@@ -9,7 +9,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;">str.capitalize()</td>
-<td style="text-align: left;">Переводит первую букву в верхний, а остальные в нижний регистр.</td>
+<td style="text-align: left;">Переводит первую букву в верхний, а остальные в нижний регистр</td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;capitalize&quot;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;Capitalize&quot;</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
@@ -159,7 +159,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">str.splitlines(keepends=False)</td>
-<td style="text-align: left;">Разделяет строку по <code>\n</code>.<br>Не удаляет разделители, если <code>keepends=True</code>.</td>
+<td style="text-align: left;">Разделяет строку по <code>\n</code>.<br>Не удаляет разделители, если <code>keepends=True</code></td>
 <td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;1 3</span><span class="se">\n</span><span class="s2">4&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span><br><span class="unselectable"><span class="p">[</span><span class="s2">&quot;1 3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
