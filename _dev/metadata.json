@@ -56,6 +56,9 @@
   "Languages/Python/Libraries/Data types/": {
     "color": "green"
   },
+  "Languages/Python/Libraries/GUI/": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Information/": {
     "color": "green"
   },
@@ -111,6 +114,12 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Data types/xml.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/GUI/PyQT5/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/GUI/tkinter/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/PIL/": {
@@ -255,9 +264,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/markdown/": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Python/tkinter/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/abc.md": {
