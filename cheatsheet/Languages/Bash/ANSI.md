@@ -306,27 +306,30 @@
 </tr>
 </tbody>
 </table>
-<p><code>\033]0;Новое название консоли\007</code> - изменить название консоли</p>
-<p>ESC<code>[?1049h</code>: Включить альтернативный экранный буфер.
-Это часто используется в текстовых редакторах, чтобы предоставить пользователю чистый экран для работы.
-ESC<code>[?1049l</code>: Отключить альтернативный экранный буфер и вернуть содержимое основного экрана.</p>
-<p>Коды для управления отображением
-ESC<code>[?1h</code>: Включить режим "прямой печати". Некоторые терминалы могут обрабатывать это по-разному.
-ESC<code>[?1l</code>: Отключить режим "прямой печати".</p>
-<p>ESC<code>[1;32;40m</code> устанавливает жирный зеленый текст на черном фоне.
-ESC<code>[3;5;7m</code>: Вы можете комбинировать несколько атрибутов, чтобы, например, сделать текст жирным, с курсивом и инверсным цветом.
-ESC<code>[0;31;47m</code>: Это сброс всех атрибутов и установка красного текста на белом фоне.</p>
-<p>ESC<code>[X</code>: Удаление символа в позиции курсора (может работать по-разному в зависимости от терминала).
-ESC<code>[P</code>: Удаление символа, на который указывает курсор.</p>
-<p><code>ESC]8;;&lt;URL&gt;ESC\</code>: Создаёт кликабельную ссылку</p>
+<ul>
+<li>ESC<code>[?1049h</code> Включить альтернативный экранный буфер.
+Это часто используется в текстовых редакторах, чтобы предоставить пользователю чистый экран для работы.</li>
+<li>ESC<code>[?1049l</code> Отключить альтернативный экранный буфер и вернуть содержимое основного экрана.</li>
+<li>ESC<code>[?1h</code> Включить режим "прямой печати". Некоторые терминалы могут обрабатывать это по-разному.</li>
+<li>ESC<code>[?1l</code> Отключить режим "прямой печати".</li>
+<li>ESC<code>[1;32;40m</code> устанавливает жирный зеленый текст на черном фоне.</li>
+<li>ESC<code>[3;5;7m</code> Вы можете комбинировать несколько атрибутов, чтобы,
+например, сделать текст жирным, с курсивом и инверсным цветом.</li>
+<li>ESC<code>[0;31;47m</code> Это сброс всех атрибутов и установка красного текста на белом фоне.</li>
+<li>ESC<code>[X</code> Удаление символа в позиции курсора (может работать по-разному в зависимости от терминала).</li>
+<li>ESC<code>[P</code> Удаление символа, на который указывает курсор.</li>
+<li><code>\007</code> Это код звукового сигнала (bell). При его использовании терминал издает звук.</li>
+<li><code>\033[39m</code> Этот код сбрасывает цвет текста к цвету по умолчанию.
+Если цвет текста был изменён, он вернётся к стандартному цвету терминала.</li>
+<li>ESC<code>]0;Title\007</code> Устанавливает заголовок окна терминала.</li>
+<li>ESC<code>]8;;&lt;URL&gt;ESC\</code> Создаёт кликабельную ссылку</li>
+</ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\033]8;;http://example.com\033\\Click Here\033]8;;\033\\&quot;</span>
 </pre></div></div></div>
 
-<p><code>ESC]0;Title\007</code>: Устанавливает заголовок окна терминала.</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\033]0;My Terminal Window\007&quot;</span>
 </pre></div></div></div>
-<p><code>\007</code>: Это код звукового сигнала (bell). При его использовании терминал издает звук.
-<code>\033[39m</code>: Этот код сбрасывает цвет текста к цвету по умолчанию. Если цвет текста был изменён, он вернётся к стандартному цвету терминала.</p>
+
 <p><code>Alt-f</code> - Переместить одно слово вправо
 <code>Alt-b</code> - Переместить одно слово влево
 <code>Alt-Backspace</code> - Удалить одно слово слева</p>
