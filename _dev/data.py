@@ -2066,6 +2066,109 @@ os.removedirs("example_dir/subdir")
 - [Real Python - Working with Files in Python](https://realpython.com/working-with-files-in-python/)
 
 """,
+                        "os 2": """
+Вот шпаргалка по основным атрибутам и функциям из библиотеки **`os`** Python.
+Это один из модулей, который предоставляет интерфейс к операционной системе
+и поддерживает множество системных вызовов.
+
+# Основные классы
+
+| Класс      | Описание                                                                                                 |
+|------------|----------------------------------------------------------------------------------------------------------|
+| `DirEntry` | Объект, представляющий запись в каталоге. Используется в `os.scandir()` для повышения производительности |
+| `PathLike` | Протокол, поддерживающий объекты, которые могут быть использованы как пути                               |
+
+# Константы
+
+| Константа              | Описание                                                                         |
+|------------------------|----------------------------------------------------------------------------------|
+| `EX_OK`                | Код успешного завершения программы                                               |
+| `F_OK`                 | Флаг, указывающий, что нужно проверять существование файла (для `os.access()`)   |
+| `O_APPEND`             | Открыть файл для добавления в конец                                              |
+| `O_CREAT`              | Создать файл, если он не существует                                              |
+| `O_EXCL`               | В сочетании с `O_CREAT` вызывает ошибку, если файл уже существует                |
+| `O_RDONLY`             | Открыть файл только для чтения                                                   |
+| `O_WRONLY`             | Открыть файл только для записи                                                   |
+| `O_RDWR`               | Открыть файл для чтения и записи                                                 |
+| `P_WAIT`               | Приостанавливает выполнение до завершения дочернего процесса                     |
+| `P_NOWAIT`             | Не ожидает завершения дочернего процесса (неблокирующий режим)                   |
+| `SEEK_SET`             | Начать чтение или запись с начала файла                                          |
+| `SEEK_CUR`             | Начать с текущей позиции в файле                                                 |
+| `SEEK_END`             | Начать с конца файла                                                             |
+| `R_OK`, `W_OK`, `X_OK` | Проверка прав на чтение, запись, выполнение файла (используется в `os.access()`) |
+
+# Работа с файлами и директориями
+
+| Функция            | Описание                                                              |
+|--------------------|-----------------------------------------------------------------------|
+| `chdir(path)`      | Изменить текущий рабочий каталог на `path`                            |
+| `getcwd()`         | Возвращает текущий рабочий каталог в виде строки                      |
+| `listdir(path)`    | Возвращает список файлов и директорий в каталоге `path`               |
+| `mkdir(path)`      | Создаёт новую директорию по пути `path`                               |
+| `makedirs(name)`   | Создаёт директорию по указанному пути, включая промежуточные каталоги |
+| `remove(path)`     | Удаляет файл по пути `path`                                           |
+| `removedirs(name)` | Удаляет директорию и все промежуточные каталоги, если они пусты       |
+| `rename(src, dst)` | Переименовывает файл или директорию с `src` на `dst`                  |
+| `rmdir(path)`      | Удаляет пустую директорию                                             |
+| `scandir(path)`    | Возвращает итератор `DirEntry` объектов для каталога `path`           |
+| `stat(path)`       | Возвращает информацию о файле или каталоге по пути `path`             |
+| `walk(top)`        | Рекурсивно обходит дерево каталогов, начиная с `top`                  |
+
+# Работа с процессами
+
+| Функция                     | Описание                                                              |
+|-----------------------------|-----------------------------------------------------------------------|
+| `getpid()`                  | Возвращает идентификатор текущего процесса                            |
+| `getppid()`                 | Возвращает идентификатор родительского процесса                       |
+| `kill(pid, sig)`            | Отправляет сигнал процессу с идентификатором `pid`                    |
+| `system(command)`           | Выполняет команду в системной оболочке                                |
+| `popen(command)`            | Открывает канал для выполнения команды `command` в системной оболочке |
+| `waitpid(pid, options)`     | Ожидает завершения дочернего процесса                                 |
+
+# Работа с правами доступа
+
+| Функция              | Описание                                                                                            |
+|----------------------|-----------------------------------------------------------------------------------------------------|
+| `chmod(path, mode)`  | Изменяет права доступа к файлу или каталогу                                                         |
+| `access(path, mode)` | Проверяет, можно ли получить доступ к файлу или каталогу по пути `path` с указанными правами `mode` |
+
+# Работа с окружением
+
+| Функция              | Описание                                                      |
+|----------------------|---------------------------------------------------------------|
+| `environ`            | Переменные окружения, представленные в виде словаря           |
+| `getenv(key)`        | Возвращает значение переменной окружения `key`                |
+| `putenv(key, value)` | Устанавливает переменную окружения `key` со значением `value` |
+| `unsetenv(key)`      | Удаляет переменную окружения `key`                            |
+
+# Разное
+
+| Функция                   | Описание                                                                           |
+|---------------------------|------------------------------------------------------------------------------------|
+| `urandom(n)`              | Возвращает случайную строку байт длиной `n`, используя системный источник энтропии |
+| `cpu_count()`             | Возвращает количество процессоров в системе                                        |
+| `startfile(path)`         | Открывает файл с помощью программы, связанной с его типом (только Windows)         |
+| `add_dll_directory(path)` | Добавляет каталог, в котором могут быть найдены библиотеки DLL (только Windows)    |
+
+# Флаги открытия файлов (для функции `open()`)
+
+| Флаг       | Описание                            |
+|------------|-------------------------------------|
+| `O_APPEND` | Добавление данных в конец файла     |
+| `O_CREAT`  | Создать файл, если он не существует |
+| `O_RDONLY` | Открыть файл только для чтения      |
+| `O_WRONLY` | Открыть файл только для записи      |
+| `O_RDWR`   | Открыть файл для чтения и записи    |
+
+# Системные вызовы и управление процессами
+
+| Функция                 | Описание                                                     |
+|-------------------------|--------------------------------------------------------------|
+| `spawnl()`, `spawnle()` | Создают новый процесс и исполняют программу в новом процессе |
+| `spawnv()`, `spawnve()` | Варианты с передачей аргументов в виде списка                |
+| `execl()`, `execle()`   | Выполняют программу, заменяя текущий процесс на новый        |
+
+""",
                         "os.path": """
 
 | Функция/Метод                | Описание                                                            | Пример                                   |
@@ -5915,39 +6018,47 @@ print(unpacked_value)
 Для полного списка методов и их подробного описания рекомендуется обратиться к официальной документации Python.
 """,
                     "string": r"""
-Библиотека "string" в Python предоставляет набор методов для работы со строками.
-Она обеспечивает функциональность для манипуляции и обработки текстовых данных.
+|                   |                                                                                       |
+|-------------------|---------------------------------------------------------------------------------------|
+| `ascii_letters`   | Содержит все буквы алфавита в верхнем и нижнем регистрах                              |
+| `ascii_lowercase` | Содержит все буквы алфавита в нижнем регистре                                         |
+| `ascii_uppercase` | Содержит все буквы алфавита в верхнем регистре                                        |
+| `capwords`        |                                                                                       |
+| `digits`          | Содержит все цифры от 0 до 9                                                          |
+| `hexdigits`       | Содержит все шестнадцатеричные цифры (от 0 до 9 и от A до F)                          |
+| `octdigits`       | Содержит все восьмеричные цифры (от 0 до 7)                                           |
+| `printable`       | Содержит все печатные символы (буквы, цифры, символы пунктуации и пробельные символы) |
+| `punctuation`     | Содержит символы пунктуации                                                           |
+| `whitespace`      | Содержит пробельные символы (пробел, табуляция, новая строка и т.д.)                  |
+| `Formatter`       |                                                                                       |
+| `Template`        | A string class for supporting $-substitutions                                         |
 
-Название метода           | Описание
-   --------------------------|---------------------------------------------------------------
-   `string.ascii_letters`     | Содержит все буквы алфавита в верхнем и нижнем регистрах.
-   `string.ascii_lowercase`  | Содержит все буквы алфавита в нижнем регистре.
-   `string.ascii_uppercase`  | Содержит все буквы алфавита в верхнем регистре.
-   `string.digits`            | Содержит все цифры от 0 до 9.
-   `string.hexdigits`         | Содержит все шестнадцатеричные цифры (от 0 до 9 и от A до F).
-   `string.octdigits`         | Содержит все восьмеричные цифры (от 0 до 7).
-   `string.punctuation`       | Содержит символы пунктуации.
-   `string.printable`         | Содержит все печатные символы (буквы, цифры, символы пунктуации и пробельные символы).
-   `string.whitespace`        | Содержит пробельные символы (пробел, табуляция, новая строка и т.д.).
 
-
-`string.ascii_letters`: Возвращает все буквы алфавита в верхнем и нижнем регистрах.
-
-```python
-import string
-print(string.ascii_letters)
-```
-`string.digits`: Возвращает все цифры от 0 до 9.
-
-```python
-import string
-print(string.digits)
-```
-`string.punctuation`: Возвращает символы пунктуации.
-
-```python
-import string
-print(string.punctuation)
+```pycon
+>>> string.ascii_lowercase
+"abcdefghijklmnopqrstuvwxyz"
+>>> string.ascii_uppercase
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+>>> string.ascii_letters  # ascii_lowercase + ascii_uppercase
+"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+>>> string.capwords("text text text")
+"Text Text Text"
+>>> string.digits
+"0123456789"
+>>> string.hexdigits
+digits + "abcdef" + "ABCDEF"
+>>> string.octdigits
+"01234567"
+>>> string.printable  # digits + ascii_letters + punctuation + whitespace
+"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c"
+>>> string.punctuation
+"!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+>>> string.whitespace  # " \t\n\r\v\f"
+" \t\n\r\x0b\x0c"
+>>> string.Formatter
+<class 'string.Formatter'>
+>>> string.Template
+<class 'string.Template'>
 ```
 """,
                     "rich": r'''
@@ -7615,6 +7726,8 @@ print(obj.double(5))  # 10
 # singledispatch
 Позволяет создавать обобщенные функции с поддержкой
 однотипного диспетчеризации (перегрузки) на основе типа первого аргумента
+
+[[Languages/Python/Decorators Closure/singledispatch.md]]
 
 ```python
 from functools import singledispatch
@@ -16308,33 +16421,107 @@ MyClass.foo(5)    # 5
 MyClass().foo(6)  # 6
 ```
 """,
-                "overload": """
-`@overload` - это декоратор в Python, который используется для определения перегрузки метода внутри класса. 
-Перегрузка метода - это механизм, позволяющий определить несколько версий метода с разными параметрами. 
-При вызове метода, интерпретатор Python выберет версию метода, которая соответствует переданным аргументам.
+                "overload": r"""
+# @overload
+Декоратор `@overload` позволяет описывать разные варианты вызова функций с конкретными типами параметров,
+но его следует использовать вместе с одной фактической реализацией функции.
 
 ```python
 from typing import overload
 
-class MyClass:
+class Calculator:
     @overload
-    def my_method(self, arg1: int) -> int:
-        pass
-
+    def operate(self, a: int) -> int: ...
+    
     @overload
-    def my_method(self, arg1: str) -> str:
-        pass
+    def operate(self, a: str) -> str: ...
+    
+    def operate(self, a):
+        if isinstance(a, int):
+            return a * 2
+        elif isinstance(a, str):
+            return a.upper()
 
-    def my_method(self, arg1):
-        if isinstance(arg1, int):
-            return arg1 * 2
-        elif isinstance(arg1, str):
-            return arg1.upper()
+calc = Calculator()
+print(calc.operate(10))    # 20
+print(calc.operate("abc")) # ABC
+```
 
+## \_\_init\_\_
 
-obj = MyClass()
-print(obj.my_method(2))        # 4
-print(obj.my_method("hello"))  # HELLO
+```python
+from typing import overload
+
+class Person:
+    @overload
+    def __init__(self, name: str): ...
+    
+    @overload
+    def __init__(self, age: int): ...
+
+    def __init__(self, arg):
+        if isinstance(arg, str):
+            self.name = arg
+            self.age = None
+        elif isinstance(arg, int):
+            self.age = arg
+            self.name = None
+
+p1 = Person("Alice")
+p2 = Person(30)
+```
+""",
+                "singledispatch": """
+# @singledispatch
+`@singledispatch` позволяет перегружать функцию по типу первого аргумента.
+Он полезен для функций, работающих с разными типами данных.
+
+[[Languages/Python/Libraries/Python/functools.md]]
+
+```python
+from functools import singledispatch
+
+@singledispatch
+def process(arg):
+    print(f"Unsupported type: {type(arg)}")
+
+@process.register(int)
+def _(arg: int):
+    print(f"Integer: {arg * 2}")
+
+@process.register(str)
+def _(arg: str):
+    print(f"String: {arg.upper()}")
+
+process(10)       # Integer: 20
+process("hello")  # String: HELLO
+```
+## @singledispatch для методов
+
+Чтобы использовать `@singledispatch` с методами, нужно добавить дополнительный декоратор
+[@staticmethod](?Languages/Python/Decorators%20Closure/staticmethod.md) или [@classmethod](?Languages/Python/Decorators%20Closure/classmethod.md), чтобы метод не принимал первый параметр `self`.
+
+```python
+from functools import singledispatch
+
+class Processor:
+    @singledispatch
+    @staticmethod
+    def process(arg):
+        print(f"Unsupported type: {type(arg)}")
+
+    @process.register(int)
+    @staticmethod
+    def _(arg: int):
+        print(f"Processing integer: {arg * 2}")
+
+    @process.register(str)
+    @staticmethod
+    def _(arg: str):
+        print(f"Processing string: {arg.upper()}")
+
+Processor.process(10)       # Processing integer: 20
+Processor.process("hello")  # Processing string: HELLO
 ```
 """,
                 "final": """
