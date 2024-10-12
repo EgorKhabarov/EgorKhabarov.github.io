@@ -1,3 +1,4 @@
+<!--{% raw %}-->
 <p><strong>Шаблонный движок</strong>: <code>Jinja3</code> — это шаблонный движок для <code>Python</code>,
 который помогает отделить логику приложения от представления.
 Это достигается за счет использования шаблонов для генерации HTML (или других текстовых форматов),
@@ -75,3 +76,4 @@
 <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;Hello {{ name }}!&quot;</span><span class="p">)</span>
 <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="sa">u</span><span class="s2">&quot;Hello John Doe!&quot;</span>
 </pre></div></div></div>
+<!--{% endraw %}-->
