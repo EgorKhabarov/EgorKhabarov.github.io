@@ -1749,15 +1749,15 @@ CSRF-атаки заставляют пользователя выполнять
 
 # Примеры алгоритмов с различной сложностью
 
-| О-нотация   | Пример алгоритма                                                   |
-|-------------|--------------------------------------------------------------------|
-| **O(1)**    | Доступ к элементу массива по индексу                               |
-| **O(log n)**| Бинарный поиск в отсортированном массиве                           |
-| **O(n)**    | Линейный поиск в неотсортированном массиве                         |
-| **O(n log n)**| Быстрая сортировка, сортировка слиянием                           |
-| **O(n²)**   | Сортировка пузырьком, вложенные циклы                             |
-| **O(2^n)**  | Полный перебор всех возможных решений задачи (например, рюкзак)    |
-| **O(n!)**   | Полный перебор перестановок                                        |
+| О-нотация      | Пример алгоритма                                                |
+|----------------|-----------------------------------------------------------------|
+| **O(1)**       | Доступ к элементу массива по индексу                            |
+| **O(log n)**   | Бинарный поиск в отсортированном массиве                        |
+| **O(n)**       | Линейный поиск в неотсортированном массиве                      |
+| **O(n log n)** | Быстрая сортировка, сортировка слиянием                         |
+| **O(n²)**      | Сортировка пузырьком, вложенные циклы                           |
+| **O(2^n)**     | Полный перебор всех возможных решений задачи (например, рюкзак) |
+| **O(n!)**      | Полный перебор перестановок                                     |
 
 ## Примеры кода с разной сложностью
 
@@ -1827,6 +1827,179 @@ def bubble_sort(arr):
 # image
 
 <img alt="BigONotation.png", src="General/BigONotation.png">
+
+""",
+        "Бинарные операторы": """
+Бинарные операторы и создание флагов в Python
+
+# Бинарные операторы
+
+Бинарные операторы работают с числами на уровне битов.
+Они позволяют выполнять операции на двоичных представлениях целых чисел, манипулируя отдельными битами.
+
+Основные бинарные операторы
+|                     |      |                                                                                                                                   |
+|---------------------|------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **И**               | `&`  | Возвращает 1, если оба соответствующих бита — 1                                                                                   |
+| **ИЛИ**             | `|`  | Возвращает 1, если хотя бы один из соответствующих битов — 1                                                                      |
+| **ИСКЛЮЧАЮЩАЯ ИЛИ** | `^`  | Возвращает 1, если один из соответствующих битов — 1, но не оба                                                                   |
+| Отрицание           | `~`  | Инвертирует каждый бит числа (включая знак)                                                                                       |
+| Сдвиг влево         | `<<` | Сдвигает биты числа влево, добавляя справа нули                                                                                   |
+| Сдвиг вправо        | `>>` | Сдвигает биты числа вправо, заполняя левую часть нулями<br>(или единицами для отрицательных чисел в зависимости от представления) |
+
+### Пример использования бинарных операторов
+
+```python
+a = 0b1100  # Число 12 в двоичном формате
+b = 0b1010  # Число 10 в двоичном формате
+
+# Побитовая И
+c = a & b  # 0b1000 -> 8
+
+# Побитовая ИЛИ
+d = a | b  # 0b1110 -> 14
+
+# Побитовая исключающая ИЛИ
+e = a ^ b  # 0b0110 -> 6
+
+# Сдвиг влево
+f = a << 2  # 0b110000 -> 48
+
+# Сдвиг вправо
+g = a >> 2  # 0b0011 -> 3
+```
+
+## Создание флагов с помощью бинарных операторов
+
+Флаги в программировании часто используются для установки нескольких состояний в одном числе,
+используя каждый бит как отдельный индикатор.
+Для этого применяют **битовые маски** и бинарные операторы.
+
+### Флаги доступа к файлу
+Представим, что у нас есть система с несколькими правами доступа: чтение, запись и исполнение.
+Эти права можно представить как биты:
+
+- Чтение (1-й бит): `0b001` (или `1`)
+- Запись (2-й бит): `0b010` (или `2`)
+- Исполнение (3-й бит): `0b100` (или `4`)
+
+Мы можем комбинировать их с помощью бинарных операторов
+
+```python
+# Флаги доступа
+READ = 0b001    # Чтение
+WRITE = 0b010   # Запись
+EXECUTE = 0b100 # Исполнение
+
+# Установка прав чтения и записи
+permissions = READ | WRITE  # 0b011 -> 3
+
+# Проверка прав чтения
+can_read = permissions & READ != 0  # True, т.к. чтение разрешено
+
+# Проверка прав записи
+can_write = permissions & WRITE != 0  # True, т.к. запись разрешена
+
+# Проверка прав исполнения
+can_execute = permissions & EXECUTE != 0  # False, т.к. исполнение не разрешено
+
+# Добавление прав исполнения
+permissions |= EXECUTE  # Теперь 0b111 -> 7
+
+# Снятие прав записи
+permissions &= ~WRITE  # Теперь 0b101 -> 5
+```
+
+### enum.Flag
+
+В Python начиная с версии 3.6 можно использовать класс `Flag` из модуля `enum`,
+чтобы создать флаги с более понятным интерфейсом
+
+```python
+from enum import Flag, auto
+
+class Permissions(Flag):
+    READ = auto()
+    WRITE = auto()
+    EXECUTE = auto()
+
+# Установка флагов
+permissions = Permissions.READ | Permissions.WRITE
+
+# Проверка флагов
+print(Permissions.READ in permissions)    # True
+print(Permissions.EXECUTE in permissions) # False
+
+# Добавление флага
+permissions |= Permissions.EXECUTE
+```
+
+`auto()` в `enum.Flag` автоматически назначает уникальные битовые значения каждому флагу
+
+""",
+        "Cron": """
+# Format
+
+```
+Min  Hour Day  Mon  Weekday
+*    *    *    *    *  command to be executed
+┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)
+```
+
+# Operators
+
+|     |                            |
+|-----|----------------------------|
+| `*` | All values                 |
+| `,` | Separate individual values |
+| `-` | A range of values          |
+| `/` | Divide a value into steps  |
+
+
+# Crontab
+
+```
+# Adding tasks easily
+echo "@reboot echo hi" | crontab
+
+# Open in editor - optional for another user
+crontab -e [-u user]
+
+# List tasks - optional for another user
+crontab -l [-u user]
+
+# Delete crontab file - optional for another user
+crontab -r [-u user]
+```
+
+# Special strings
+
+|             |                                        |
+|-------------|----------------------------------------|
+| `@reboot`   | Every rebot                            |
+| `@hourly`   | Once every hour - same as `0 * * * *`  |
+| `@daily`    | Once every day - same as `0 0 * * *`   |
+| `@midnight` | Once every midnight - same as `@daily` |
+| `@weekly`   | Once every week - same as `0 0 * * 0`  |
+| `@monthly`  | Once every month - same as `0 0 1 * *` |
+| `@yearly`   | Once every year - same as `0 0 1 1 *`  |
+
+
+# Examples
+
+|                |                             |
+|----------------|-----------------------------|
+| `0 * * * *`    | Every hour                  |
+| `*/15 * * * *` | Every 15 mins               |
+| `0 */2 * * *`  | Every 2 hours               |
+| `0 18 * * 0-6` | Every week Mon-Sat at 6pm   |
+| `10 2 * * 6,7` | Every Sat and Sun on 2:10am |
+| `0 0 * * 0`    | Every Sunday midnight       |
 
 """,
     },
@@ -12392,11 +12565,89 @@ def func(name: type):
 **Шаблонный движок**: `Jinja3` — это шаблонный движок для `Python`,
 который помогает отделить логику приложения от представления.
 Это достигается за счет использования шаблонов для генерации HTML (или других текстовых форматов),
-что позволяет легко изменять внешний вид и структуру выходных данных без изменения логики кода.
+что позволяет легко изменять внешний вид и структуру выходных данных без изменения логики кода
 
 **Переменные**: В `Jinja3` переменные используются для динамической вставки данных в шаблон.
 Они обозначаются двойными фигурными скобками `{{ variable }}`
-и могут содержать любые данные, переданные из контекста рендеринга.
+и могут содержать любые данные, переданные из контекста рендеринга
+
+# Basic usage
+```jinja
+- variable x has content: {{ x }}
+- expression: {{ x + 1 }}
+- escaped for HTML: {{ x | e }}
+```
+
+# Control structures
+```jinja
+{% for x in range(5) %}
+    {% if x % 2 == 0 %}
+        {{ x }} is even!
+    {% else %}
+        {{ x }} is odd!
+    {% endif %}
+{% endfor %}
+```
+
+# Whitespace trimming
+```jinja
+these are
+{{ "three" }}
+lines.
+
+this is conc
+{{- "at" -}}
+enated.
+```
+
+# Special blocks
+```jinja
+{% filter e %}
+{% raw %}
+    This is a raw block where {{nothing is evaluated}}
+    {% not even this %}
+    and <html is escaped> too with "e" filter
+{% endraw %}
+{% endfilter %}
+
+{% macro myfunc(x) %}
+    this is a reusable macro, with arguments: {{x}}
+{% endmacro %}
+
+{{ myfunc(42) }}
+
+{#
+this is a comment
+#}
+```
+
+# Inheritance
+```jinja@shared.html
+<html>
+  <head>
+    <title>{%block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header><h1>{% block title %}{% endblock %}</h1></header>
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>
+```
+
+```jinja@home.html
+{% extends "shared.html" %}
+{% block title %}Welcome to my site{% endblock %}
+{% block content %}
+This is the body
+{% endblock %}
+```
+
+# Basic usage
+```python
+from jinja2 import Template
+template = Template("Hello {{ name }}!")
+template.render(name="John Doe") == u"Hello John Doe!"
+```
 """,
                         "Базовый синтаксис": """
 ### Базовый синтаксис
@@ -18833,6 +19084,186 @@ c = re.compile(
         "Java": {
             "java": {
                 "util": {
+                    "function": {
+                        "index": """
+```java
+import java.util.function.*;
+```
+
+```java
+import java.util.function.*; 
+
+public class MyClass { 
+    public static void main(String[] args) { 
+        MyClass.test( n -> n * 2, 10 ); 
+    } 
+    public static void test( 
+        Function<Integer, Integer> f, int x) { 
+        System.out.println(f.apply(x)); 
+    } 
+}
+```
+
+- `Function<T, R>` `R apply(T t)`
+    - `UnaryOperator<T>` `T apply(T t)`
+    - `IntUnaryOperator` `int applyAsInt(int x)`
+    - `LongUnaryOperator` `long applyAsLong(long x)`
+    - `DoubleUnaryOperator` `double applyAsDouble(double x)`
+    - `IntFunction<R>` `R apply(int x)`
+    - `LongFunction<R>` `R apply(long x)`
+    - `DoubleFunction<R>` `R apply(double x)`
+    - `ToIntFunction<T>` `int applyAsInt(T x)`
+        - `LongToIntFunction` `int applyAsInt(long x)`
+        - `DoubleToIntFunction` `int applyAsInt(double x)`
+    - `ToLongFunction<T>` `long applyAsLong(T x)`
+        - `IntToLongFunction` `long applyAsLong(int x)`
+        - `DoubleToLongFunction` `long applyAsLong(double x)`
+    - `ToDoubleFunction<T>` `double applyAsDouble(T x)`
+        - `IntToDoubleFunction` `double applyAsDouble(int x)`
+        - `LongToDoubleFunction` `double applyAsDouble(long x)`
+    - `BiFunction<T, U, R>` `R apply(T t, U u)`
+        - `ToIntBiFunction<T, U>` `int applyAsInt(T t, U u)`
+        - `ToLongBiFunction<T, U>` `long applyAsLong(T t, U u)`
+        - `ToDoubleBiFunction<T, U>` `double applyAsDouble(T t, U u)`
+        - `BinaryOperator<T>` `T apply(T t, T u)`
+            - `IntBinaryOperator` `int applyAsInt(int x, int y)`
+            - `LongBinaryOperator` `long applyAsLong(long x, long y)`
+            - `DoubleBinaryOperator` `double applyAsDouble(double x, double y)`
+- `Predicate<T>` `boolean test(T t)`
+    - `IntPredicate` `boolean test(int x)`
+    - `LongPredicate` `boolean test(long x)`
+    - `DoublePredicate` `boolean test(double x)`
+- `BiPredicate<T, U>` `boolean test(T t, U u)`
+- `Consumer<T>` `void accept(T t)`
+    - `IntConsumer` `void accept(int x)`
+    - `LongConsumer` `void accept(long x)`
+    - `DoubleConsumer` `void accept(double x)`
+- `BiConsumer<T, U>` `void accept(T t, U u)`
+    - `ObjIntConsumer<T>` `void accept(T t, int y)`
+    - `ObjLongConsumer<T>` `void accept(T t, long y)`
+    - `ObjDoubleConsumer<T>` `void accept(T t, double y)`
+- `Supplier<T>` `T get()`
+    - `BooleanSupplier` `boolean getAsBoolean()`
+    - `IntSupplier` `int getAsInt()`
+    - `LongSupplier` `long getAsLong()`
+    - `DoubleSupplier` `double getAsDouble()`
+
+""",
+                        "BiFunction": """
+# `BiFunction<T, U, R>`
+`R apply(T t, U u)`
+Просуммируем два числа и вернем результат
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test( (a, b) -> a + b, 10, 20 ); // 30
+    }
+    public static void test(
+        BiFunction<Integer, Integer, Integer> f, int x, int y) {
+        System.out.println(f.apply(x, y));
+    }
+}
+```
+В этом случае метод принимает два параметра, поэтому круглые скобки нужно указать обязательно, как и в случае отсутствия параметров
+`(a, b) -> a + b`
+""",
+                        "Predicate": """
+# `Predicate<T>`
+`boolean test(T t)`
+Напишем проверку неравенства целого числа нулю
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test( n -> n != 0, 10 ); // true
+        MyClass.test( n -> n != 0, 0 ); // false
+    }
+    public static void test(Predicate<Integer> f, int x) {
+        System.out.println(f.test(x));
+    }
+}
+```
+""",
+                        "BiPredicate": """
+# `BiPredicate<T, U>`
+`boolean test(T t, U u)`
+Проверим числа на равенство
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test( (a, b) -> a == b, 10, 10 ); // true
+        MyClass.test( (a, b) -> a == b, 10, 20 ); // false
+    }
+    public static void test(BiPredicate<Integer, Integer> f, int x, int y) {
+        System.out.println(f.test(x, y));
+    }
+}
+```
+""",
+                        "Consumer": """
+# `Consumer<T>`
+`void accept(T t)`
+Выведем значение любого объекта в окно консоли
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test((obj) -> System.out.println(obj), 10); // 10
+        MyClass.test((obj) -> System.out.println(obj), 50); // 50
+    }
+    public static void test(Consumer<Object> f, Object obj) {
+        f.accept(obj);
+    }
+}
+```
+""",
+                        "BiConsumer": """
+# `BiConsumer<T, U>`
+`void accept(T t, U u)`
+Просуммируем два числа и выведем результат в окно консоли
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test((a, b) -> System.out.println(a + b), 10, 15); // 25
+    }
+    public static void test(BiConsumer<Integer, Integer> f, int x, int y) {
+        f.accept(x, y);
+    }
+}
+```
+""",
+                        "Supplier": """
+# `Supplier<T>`
+`T get()`
+Вернем случайное целое число от 0 до 100 включительно
+```java
+import java.util.Random;
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        MyClass.test(
+            () -> {
+                Random r = new Random();
+                return r.nextInt(101);
+            }
+        );
+    }
+    public static void test(Supplier<Integer> f) {
+        System.out.println(f.get());
+    }
+}
+```
+""",
+                    },
                     "Scanner": """
 ```java
 import java.util.Scanner;
@@ -19490,11 +19921,147 @@ public class LambdaExample {
 List<String> list = Arrays.asList("Apple", "Banana", "Cherry");
 list.forEach(System.out::println);
 ```
+
+Тело метода состоит из одного выражения, поэтому фигурные скобки не указываются.
+Кроме того, в этом случае нет оператора `return`.
+Возвращается результат выполнения выражения `n * 2`.
+Мы можем явно указать фигурные скобки, но тогда необходимо явно указать и оператор `return`,
+а также точку с запятой в конце инструкции
+```java
+(n) -> { return n * 2; }
+```
+При желании мы можем указать несколько инструкций, разделяя их точками с запятой
+```java
+(n) -> {
+    n = n * 2;
+    return n;
+}
+```
+
+
+# Область видимости лямбда-выражений
+Внутри лямбда-выражения мы имеем доступ
+- К константам, объявленным внутри метода, содержащего лямбда-выражение.
+При условии, что константа объявлена до лямбда-выражения.
+Внутри лямбда-выражения изменить значение константы нельзя
+- К локальным переменным, объявленным внутри метода, содержащего лямбда-выражение, которые не меняют своего значения после инициализации.
+При условии, что локальная переменная объявлена до лямбда-выражения.
+Внутри лямбда-выражения изменить значение такой переменной нельзя
+- К статическим методам
+- К статическим переменным класса, а также к константам класса.
+Внутри лямбда-выражения можно изменить значение статической переменной класса
+- К полям и методам экземпляра, если лямбда-выражение создается внутри обычного метода.
+Внутри лямбда-выражения можно изменить значение поля.
+
+Обратите внимание: значение поля (и значение статической переменной класса) будет соответствовать значению на момент вызова,
+а не на момент создания лямбда-выражения.
+Если вы хотите сохранить значение поля на момент создания, то следует присвоить значение поля локальной переменной.
+
+
+```java
+import java.util.function.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+        A obj = new A();
+        obj.print();
+    }
+}
+
+class A {
+    public static int sx = 40;
+    public static final int MY_CONST = 50;
+    private int cy = 125;
+
+    public void print() {
+        int x = 10;
+        final int y = 20;
+        // Сохранение текущего значения
+        int cy_tmp = this.cy;
+        int sx_tmp = A.sx;
+        // x = 1; // Так нельзя!
+        // Создание лямбда-выражения
+        Function<Integer, Integer> f = n -> {
+            // cy_tmp - значение this.cy на момент создания лямбды
+            // this.cy - значение на момент вызова лямбды
+            System.out.println(cy_tmp); // 125
+            System.out.println(this.cy); // 10
+            Интерфейсы 317
+            System.out.println(sx_tmp); // 40
+            System.out.println(A.sx); // 50
+            // n = n + z; // Нельзя! z не определена
+            // x = 1; // Нельзя! x - константа
+            A.sx += 10; // Изменение статической переменной
+            this.cy += 5; // Изменение поля
+            A.test(); // Доступ к статическому методу
+            this.echo(); // Доступ к обычному методу
+            return n + x + y + A.sx + MY_CONST + this.cy;
+        };
+        int z = 2; // К этой переменной нет доступа
+        this.cy = 10; // Изменение значения после создания лямбды
+        A.sx = 50;
+        System.out.println(f.apply(10)); // Вызов лямбда-выражения
+    }
+    public void echo() {
+        System.out.println("echo()");
+    }
+    public static void test() {
+        System.out.println("test()");
+    }
+}
+```
+
 """,
                 "Method reference": """
 # :: method reference
 
 Указание на метод без его вызова.
+
+
+```java
+public class MyClass {
+    public static void main(String[] args) {
+        MyButton button = new MyButton();
+        A a = new A();
+        button.reg(a::printOnClick); // Передаем ссылку на метод
+        for (int i = 0; i < 5; i++) {
+            button.click(); // Генерируем нажатие
+            try {
+                Thread.sleep(1000); // Имитация ожидания
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
+        }
+    }
+}
+
+interface IClick {
+    void onClick();
+}
+
+class A {
+     private int x = 10;
+     public void printOnClick() {
+        System.out.println("Нажата кнопка. x = " + this.x);
+        this.x++;
+     }
+}
+
+class MyButton {
+    private IClick ic = null;
+        public void reg(IClick ic) { // Регистрация обработчика
+        this.ic = ic;
+    }
+    public void click() { // Нажатие кнопки
+        if (this.ic != null)
+        this.ic.onClick();
+    }
+}
+```
+
+
 """,
                 "Пакеты": """
 ```java
@@ -19654,6 +20221,24 @@ p.y = 6;
 | `abstract`  | Запрещает создавать экземпляры класса. Несовместим с `final` и `static`                 |
 | `final`     | Запрещает изменять значение или иметь наследников для классов. Несовместим с `abstract` |
 | `static`    | Статичный метод                                                                         |
+
+
+Вот краткая таблица с модификаторами доступа в Java, показывающая, где могут быть доступны поля, методы и классы.
+
+| Модификатор доступа                           | Внутри класса | Внутри пакета | В подклассе (даже в другом пакете) | Везде (вне пакета) |
+|-----------------------------------------------|---------------|---------------|------------------------------------|--------------------|
+| `private`                                     | ✅            | ❌           | ❌                                 | ❌                 |
+| `default` (package-private, без модификатора) | ✅            | ✅           | ❌                                 | ❌                 |
+| `protected`                                   | ✅            | ✅           | ✅                                 | ❌                 |
+| `public`                                      | ✅            | ✅           | ✅                                 | ✅                 |
+
+### Описание
+- `private`: Доступен только внутри самого класса.
+- `default` (без модификатора): Доступен внутри класса и всех классов того же пакета (package-private).
+- `protected`: Доступен в том же пакете и в наследниках, даже если наследник находится в другом пакете.
+- `public`: Доступен везде, в том числе и за пределами пакета.
+
+Эти модификаторы используются для контроля видимости и инкапсуляции в коде, чтобы ограничить доступ к данным и методам там, где это нужно.
 """,
                 "Методы": {
                     "Методы": """
@@ -19923,6 +20508,103 @@ public class ClassName implements InterfaceName, Interface2Name {
 - Методы `public abstract`
 - Поля `public final static`
 
+# Статические константы
+
+Помимо сигнатур методов, в блоке интерфейса можно создавать общедоступные статические константы.
+Так как создать допускается только статические константы, ключевые слова `static` и `final` обычно не указываются
+Константы просто наследуются классом и доступны через название класса или через название интерфейса
+
+# Статические методы
+
+Внутри блока интерфейса можно определить статические методы с реализацией.
+Такие методы доступны внутри блока интерфейса, а также через название интерфейса.
+Переопределить такие методы внутри класса **нельзя**, и через экземпляр класса или название класса они **недоступны**
+
+```java
+interface IStatic {
+    static void test() {
+        print();
+    }
+
+    static void print() {
+        System.out.println("Привет");
+    }
+}
+
+class K implements IStatic {
+    public K() {
+        IStatic.test();
+    }
+}
+
+public class MyClass {
+    public static void main(String[] args) {
+        K k = new K(); // Привет
+        IStatic.print(); // Привет
+    }
+}
+```
+
+# Методы по умолчанию
+
+Позволяет добавить новый метод и сразу реализовать блок с кодом
+Классы могут переопределить метод по умолчанию
+Метод по умолчанию объявляется с помощью ключевого слова `default`
+
+```java
+interface IDefault {
+    default void print() {
+        System.out.println("Привет");
+    }
+}
+
+class L implements IDefault {
+    
+}
+
+class M implements IDefault {
+    @Override
+    public void print() {
+        System.out.println("Прощай");
+    }
+}
+
+public class MyClass {
+    public static void main(String[] args) {
+        L obj = new L();
+        obj.print(); // Привет
+        M obj2 = new M();
+        obj2.print(); // Прощай
+    }
+}
+```
+
+## Коллизия имён
+
+```java
+interface IDefault2 {
+    default void print() {
+        System.out.println("Привет, Вася");
+    }
+}
+
+class N implements IDefault, IDefault2 {
+    @Override
+    public void print() {
+        IDefault.super.print();
+        IDefault2.super.print();
+    }
+}
+
+public class MyClass {
+    public static void main(String[] args) {
+        N obj = new N();
+        obj.print(); // Привет
+                     // Привет, Вася
+    }
+}
+```
+
 
 ### Example
 
@@ -19959,6 +20641,22 @@ public class Main {
 `abstract` методы не могут быть `static`
 
 Может иметь конструктор
+""",
+            },
+            "Annotations": {
+                "@FunctionalInterface": """
+Лямбда-выражение можно использовать только совместно с функциональными интерфейсами.
+Функциональный интерфейс — это интерфейс, описывающий только один метод, который необходимо переопределить.
+Внутри такого интерфейса могут быть методы по умолчанию с реализацией, статические методы и статические константы.
+Чтобы явно определить функциональный интерфейс, перед объявлением следует указать аннотацию
+```java
+@FunctionalInterface
+```
+Она не является обязательной, но позволит избежать различных ошибок — например, добавления объявлений дополнительных абстрактных методов.
+
+Java 8 существует целый пакет, содержащий множество готовых функциональных интерфейсов
+[java.util.function](?Languages/Java/java/util/function/)
+
 """,
             },
             "IO": """
@@ -20061,6 +20759,11 @@ public class Main {
 ```
 """
             },
+        },
+        "Kotlin": {
+            "index": """
+[https://devhints.io/kotlin](https://devhints.io/kotlin)
+""",
         },
         "SQL": {
             "SQLite3": {
@@ -24583,20 +25286,28 @@ ESC`[48;2;{r};{g};{b}m`
 
 # Cursor
 
-|                  |                                  |                                                        |
-|------------------|----------------------------------|--------------------------------------------------------|
-| Up               | ESC`[{n}A`                       |                                                        |
-| Down             | ESC`[{n}B`                       |                                                        |
-| Right            | ESC`[{n}C`                       |                                                        |
-| Left             | ESC`[{n}D`                       |                                                        |
-| Next Line        | ESC`[{n}E`                       | Перемещает курсор к началу линий линии вниз            | 
-| Prev Line        | ESC`[{n}F`                       | Перемещает курсор к началу линий линии вниз            | 
-| Set Position     | ESC`[{n};{m}H`<br>ESC`[{n};{m}f` | Перемещает курсор в столбец строки                     |
-| Set Column       | ESC`[{n}G`                       | Перемещает курсор в указанный столбец в текущей строке |
-| Save Position    | ESC`[s`                          | Сохранить текущую позицию курсора                      |
-| Restore Position | ESC`[u`                          | Восстановить сохраненную позицию курсора               |
-| Hide Cursor      | ESC`[?25l`                       |                                                        |
-| Show Cursor      | ESC`[?25h`                       |                                                        |
+|                      |                                  |                                                        |
+|----------------------|----------------------------------|--------------------------------------------------------|
+| Up                   | ESC`[{n}A`                       |                                                        |
+| Down                 | ESC`[{n}B`                       |                                                        |
+| Right                | ESC`[{n}C`                       |                                                        |
+| Left                 | ESC`[{n}D`                       |                                                        |
+| Next Line            | ESC`[{n}E`                       | Перемещает курсор к началу линий линии вниз            | 
+| Prev Line            | ESC`[{n}F`                       | Перемещает курсор к началу линий линии вниз            | 
+| Set Position         | ESC`[{n};{m}H`<br>ESC`[{n};{m}f` | Перемещает курсор в столбец строки                     |
+| Set Column           | ESC`[{n}G`                       | Перемещает курсор в указанный столбец в текущей строке |
+| Save Position        | ESC`[s`                          | Сохранить текущую позицию курсора                      |
+| Restore Position     | ESC`[u`                          | Восстановить сохраненную позицию курсора               |
+| Hide Cursor          | ESC`[?25l`                       |                                                        |
+| Show Cursor          | ESC`[?25h`                       |                                                        |
+| Shift + Up           | ESC`[{n};2A`                     |                                                        |
+| Shift + Down         | ESC`[{n};2B`                     |                                                        |
+| Shift + Right        | ESC`[{n};2C`                     |                                                        |
+| Shift + Left         | ESC`[{n};2D`                     |                                                        |
+| Ctrl + Shift + Up    | ESC`[{n};6A`                     |                                                        |
+| Ctrl + Shift + Down  | ESC`[{n};6B`                     |                                                        |
+| Ctrl + Shift + Right | ESC`[{n};6C`                     |                                                        |
+| Ctrl + Shift + Left  | ESC`[{n};6D`                     |                                                        |
 
 # Deletion
 
@@ -24853,6 +25564,81 @@ echo -e "\033]0;My Terminal Window\007"
     </tr>
   </tbody>
 </table>
+""",
+            "Curl": """
+[https://devhints.io/curl](https://devhints.io/curl)
+
+# Options
+```
+-o <file>    # --output: write to file
+-u user:pass # --user: Authentication
+-v           # --verbose
+-vv          # Even more verbose
+-s           # --silent: don't show progress meter or errors
+-S           # --show-error: when used with --silent (-sS), show errors but no progress meter
+-i           # --include: Include the HTTP-header in the output
+-I           # --head: headers only
+```
+
+# Request
+```
+-X POST          # --request
+-L               # follow link if page redirects
+-F               # --form: HTTP POST data for multipart/form-data
+```
+
+# Data
+```
+-d 'data'    # --data: HTTP post data, URL encoded (eg, status="Hello")
+-d @file     # --data via file
+-G           # --get: send -d data via get
+```
+
+# Headers
+```
+-A <str>         # --user-agent
+-b name=val      # --cookie
+-b FILE          # --cookie
+-H "X-Foo: y"    # --header
+--compressed     # use deflate/gzip
+```
+
+# SSL
+```
+    --cacert <file>
+    --capath <dir>
+-E, --cert <cert>     # --cert: Client cert file
+    --cert-type       # der/pem/eng
+-k, --insecure        # for self-signed certs
+```
+
+# Examples
+```bash
+# Post data:
+curl -d password=x http://x.com/y
+```
+
+```bash
+# Auth/data:
+curl -u user:pass -d status="Hello" http://twitter.com/statuses/update.xml
+```
+
+```bash
+# multipart file upload
+curl -v --include --form key1=value1 --form upload=@localfilename URL
+```
+
+```bash
+# multipart form: send data from text field and upload file
+curl -F person=anonymous -F secret=@file.txt http://example.com/submit.cgi
+```
+
+```bash
+# Use Curl to Check if a remote resource is available
+# details: https://matthewsetter.com/check-if-file-is-available-with-curl/
+curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarball.gz
+```
+
 """,
         },
         "LaTex": {

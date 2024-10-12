@@ -282,6 +282,46 @@
 <td>ESC<code>[?25h</code></td>
 <td></td>
 </tr>
+<tr>
+<td>Shift + Up</td>
+<td>ESC<code>[{n};2A</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Shift + Down</td>
+<td>ESC<code>[{n};2B</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Shift + Right</td>
+<td>ESC<code>[{n};2C</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Shift + Left</td>
+<td>ESC<code>[{n};2D</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Up</td>
+<td>ESC<code>[{n};6A</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Down</td>
+<td>ESC<code>[{n};6B</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Right</td>
+<td>ESC<code>[{n};6C</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Shift + Left</td>
+<td>ESC<code>[{n};6D</code></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <h1>Deletion</h1>
