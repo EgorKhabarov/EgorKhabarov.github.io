@@ -1,5 +1,5 @@
-<p>Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов. 
-Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического 
+<p>Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов.
+Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического
 генерирования справочной информации и сообщений об ошибках.</p>
 <p>Вот несколько примеров использования библиотеки argparse в Python:
 Простой скрипт</p>
@@ -121,7 +121,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">num1</span> <span class="o">/</span> <span class="n">args</span><span class="o">.</span><span class="n">num2</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>Для запуска скрипта нужно использовать команду: </p>
+<p>Для запуска скрипта нужно использовать команду:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>--help
 </pre></div></div></div>
 
@@ -188,7 +188,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>Для запуска скрипта нужно использовать команду: </p>
+<p>Для запуска скрипта нужно использовать команду:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>script.py<span class="w"> </span>command_a<span class="w"> </span><span class="m">5</span>
 </pre></div></div></div>
 

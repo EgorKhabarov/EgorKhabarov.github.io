@@ -134,7 +134,7 @@
 <span class="sd">?                                                          ^</span>
 
 <span class="sd">+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
-<span class="sd">?                                                          ^^       </span>
+<span class="sd">?                                                          ^^</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div></div></div>
 
@@ -196,6 +196,6 @@
 <span class="sd">?                                                          ^</span>
 
 <span class="sd">&lt;span style=&quot;color:green&quot;&gt;+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&lt;/span&gt;</span>
-<span class="sd">?                                                          ^^                                         </span>
+<span class="sd">?                                                          ^^</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div></div></div>

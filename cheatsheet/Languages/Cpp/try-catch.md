@@ -4,16 +4,16 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">variable</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// Проверяем делитель на ноль</span>
 <span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="mi">277</span><span class="p">;</span><span class="w"> </span><span class="c1">// Запускаем исключение и передаем в него параметр</span>
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Здесь отлавливаем переданную ошибку</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Нам очень повезло!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Нам удалось избежать ошибки с индексом &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; - на 0 делить нельзя!&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div></div></div>
 
-<p>В коде выше представлен очень простой пример использования исключений. 
+<p>В коде выше представлен очень простой пример использования исключений.
 Не обращайте внимание на его простоту, так как главное это рассмотреть общую конструкцию блока try catch.</p>
-<p>При использовании такой конструкции, какая бы ошибка не получилась в ходе программы 
+<p>При использовании такой конструкции, какая бы ошибка не получилась в ходе программы
 сама программа работать не перестанет и пользователь не получить плохой опыт в её использовании.</p>
-<p>Если необходимо отследить несколько классов с ошибками, то можно добавить несколько 
+<p>Если необходимо отследить несколько классов с ошибками, то можно добавить несколько
 блоков catch. Все они добавляются друг под другом точно также как в условных операторах.</p>

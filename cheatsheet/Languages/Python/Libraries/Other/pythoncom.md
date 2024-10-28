@@ -48,7 +48,7 @@ CoUninitialize(): Завершает работу с библиотекой COM,
 <span class="c1"># Идентификатор класса для Excel</span>
 <span class="n">clsid</span> <span class="o">=</span> <span class="s2">&quot;{00024500-0000-0000-C000-000000000046}&quot;</span>
 
-<span class="c1"># Создание экземпляра объекта Excel </span>
+<span class="c1"># Создание экземпляра объекта Excel</span>
 <span class="n">excel</span> <span class="o">=</span> <span class="n">pythoncom</span><span class="o">.</span><span class="n">CoCreateInstance</span><span class="p">(</span><span class="n">clsid</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pythoncom</span><span class="o">.</span><span class="n">CLSCTX_SERVER</span><span class="p">)</span>
 
 <span class="c1"># Вывод версии Excel</span>

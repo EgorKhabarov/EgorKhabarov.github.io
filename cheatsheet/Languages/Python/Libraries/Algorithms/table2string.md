@@ -10,7 +10,7 @@
 <a href="https://github.com/python/mypy"><img alt="mypy checked" src="https://img.shields.io/badge/mypy-checked-blue" /></a>
 <a href="https://github.com/astral-sh/ruff"><img alt="Linting: Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json" /></a></p>
 <h2>Convert table to string</h2>
-<p>While there are several libraries available for converting tables to strings in Python, none seemed to meet my specific requirements. </p>
+<p>While there are several libraries available for converting tables to strings in Python, none seemed to meet my specific requirements.</p>
 <ul>
 <li><strong>Line Break Support</strong>: Easily include line breaks within cells for enhanced readability.</li>
 <li><strong>Subtable Support</strong>: Easily include a table within a table for a more flexible presentation.</li>

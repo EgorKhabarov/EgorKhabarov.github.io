@@ -1,6 +1,6 @@
 <p>from decimal import Decimal</p>
-<p>Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double. 
-Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений. 
+<p>Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double.
+Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений.
 Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.</p>
 <p>Класс Decimal
 Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i</p>
@@ -54,7 +54,7 @@
 <span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.555&quot;</span><span class="p">)</span>
 
 <span class="c1"># Округление до двух знаков с округлением до ближайшего</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 10.56    </span>
+<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 10.56</span>
 
 <span class="c1"># Округление до двух знаков с округлением в меньшую сторону</span>
 <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_FLOOR</span><span class="p">)</span>  <span class="c1"># 10.55</span>

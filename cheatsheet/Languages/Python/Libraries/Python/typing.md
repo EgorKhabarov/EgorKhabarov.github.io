@@ -28,7 +28,7 @@
         <span class="k">pass</span>
 </pre></div></div></div>
 
-<p>Если это генераторная функция, то есть её тело содержит оператор <code>yield</code>, 
+<p>Если это генераторная функция, то есть её тело содержит оператор <code>yield</code>,
 для возвращаемого можно воспользоваться аннотацией <code>Iterable[T]</code>, либо <code>Generator[YT, ST, RT]</code>:</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_two</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
     <span class="k">yield</span> <span class="mi">1</span>

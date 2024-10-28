@@ -1,8 +1,8 @@
-<p>Шаблоны функций, а также шаблоны классов в языке C++ это мощные технологии, 
+<p>Шаблоны функций, а также шаблоны классов в языке C++ это мощные технологии,
 что позволяют создавать шаблонные конструкции и далее при передачи данных передавать как значения, так и типы данных.</p>
-<p>Для создания шаблонной функции необходимо использовать ключевое слово template, 
-а также в угловых скобках необходимо указывать принимаемый тип данных. 
-Можно принимать один или несколько типов данных. </p>
+<p>Для создания шаблонной функции необходимо использовать ключевое слово template,
+а также в угловых скобках необходимо указывать принимаемый тип данных.
+Можно принимать один или несколько типов данных.</p>
 <p>Пример создания шаблонной функции:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Type1</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// Указываем что это шаблон функции</span>
 <span class="c1">// Принимаем параметр value и его тип данных мы получим</span>
@@ -69,9 +69,9 @@
 </pre></div></div></div>
 
 <p>Обьяснение от ChatGPT:</p>
-<p>Шаблоны функций и классов в C++ - это механизм, который позволяет создавать 
-универсальные классы и функции, которые могут работать с разными типами данных. 
-Вместо того, чтобы создавать отдельную функцию или класс для каждого типа данных, 
+<p>Шаблоны функций и классов в C++ - это механизм, который позволяет создавать
+универсальные классы и функции, которые могут работать с разными типами данных.
+Вместо того, чтобы создавать отдельную функцию или класс для каждого типа данных,
 вы можете определить шаблон, который может использоваться с разными типами данных.</p>
 <p>Определение шаблона функции выглядит так:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
@@ -80,6 +80,6 @@
 <span class="p">}</span>
 </pre></div></div></div>
 
-<p>В этом примере T является параметром шаблона, который может быть любым типом данных. 
-Когда вы вызываете функцию max с разными типами данных, компилятор создает специализированную 
+<p>В этом примере T является параметром шаблона, который может быть любым типом данных.
+Когда вы вызываете функцию max с разными типами данных, компилятор создает специализированную
 версию функции для каждого типа данных, с которым вы вызываете эту функцию.</p>

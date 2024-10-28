@@ -1,5 +1,5 @@
 <h1>F-Strings</h1>
-<p><strong>F-строки</strong> - это новый способ форматирования строк в Python 3.6 и выше. 
+<p><strong>F-строки</strong> - это новый способ форматирования строк в Python 3.6 и выше.
 Они позволяют встраивать выражения Python внутри строк посредством указания их в <code>{}</code> внутри строки, заключенной в <code>f</code>.</p>
 <blockquote>
 <p>replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"</p>
@@ -148,9 +148,9 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <p>Если явное выравнивание не задано, то перед полем <code>width</code> нулевым <code>0</code> символом
 включается знаковое заполнение нулями для числовых типов.
 Это эквивалентно <code>fill</code> символу <code>0</code> с типом alignment <code>=</code>.</p>
-<p>Точность представляет собой десятичное целое число , указывающее, сколько цифр должно отображаться после десятичной 
-точки для типов представления <code>f</code> и <code>F</code>, или до и после десятичной точки для типов представления <code>g</code> или <code>G</code>. 
-Для типов строкового представления поле указывает максимальный размер поля, другими словами, сколько символов 
+<p>Точность представляет собой десятичное целое число , указывающее, сколько цифр должно отображаться после десятичной
+точки для типов представления <code>f</code> и <code>F</code>, или до и после десятичной точки для типов представления <code>g</code> или <code>G</code>.
+Для типов строкового представления поле указывает максимальный размер поля, другими словами, сколько символов
 будет использовано из содержимого поля. Точность не допускается для целочисленных типов представления .</p>
 <h3>Precision</h3>
 <p>Десятичное число, указывающее, сколько цифр должно отображаться после десятичной точки
@@ -395,7 +395,7 @@ type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n"
 <span class="o">&gt;&gt;&gt; </span></span><span class="nb">int</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 <span class="unselectable"><span class="go">3232235521</span>
 <span class="o">&gt;&gt;&gt; </span></span><span class="n">width</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span> 
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="s2">&quot;dXob&quot;</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{0:</span><span class="si">{width}{base}</span><span class="s2">}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="nb">print</span><span class="p">()</span>

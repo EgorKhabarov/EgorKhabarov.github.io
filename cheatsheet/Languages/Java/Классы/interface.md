@@ -1,13 +1,13 @@
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">InterfaceName</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span>
+
 <span class="p">}</span>
 </pre></div></div></div>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">InterfaceName</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Interface2Name</span><span class="p">,</span><span class="w"> </span><span class="n">Interface3Name</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span>
+
 <span class="p">}</span>
 </pre></div></div></div>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ClassName</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InterfaceName</span><span class="p">,</span><span class="w"> </span><span class="n">Interface2Name</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span>
+
 <span class="p">}</span>
 </pre></div></div></div>
 
@@ -58,7 +58,7 @@
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">L</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">IDefault</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span>
+
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">M</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">IDefault</span><span class="w"> </span><span class="p">{</span>
