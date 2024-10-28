@@ -245,3 +245,4 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="colors.png" src="Other/Minecraft/colors.png" /></p>
