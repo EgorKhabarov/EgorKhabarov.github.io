@@ -88,7 +88,7 @@
 
 <h1>Полезные функции для анализа <code>st_mode</code></h1>
 <p>Флаг <code>st_mode</code> может содержать информацию о правах доступа и типе файла.
-Для упрощения анализа можно использовать следующие функции из модуля <a target="_self" href="?Languages/Python/Libraries/System/stat.md" class="wikilink">stat</a>:</p>
+Для упрощения анализа можно использовать следующие функции из модуля <a target="_self" href="?Languages/Python/Libraries/System/stat" class="wikilink">stat</a>:</p>
 <ul>
 <li><code>stat.S_ISDIR(mode)</code> - Проверяет, является ли файл директорией</li>
 <li><code>stat.S_ISREG(mode)</code> - Проверяет, является ли файл обычным файлом</li>

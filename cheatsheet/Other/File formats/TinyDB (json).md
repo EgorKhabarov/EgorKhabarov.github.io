@@ -20,4 +20,4 @@
 <span class="n">users_table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p><a target="_self" href="?Other/File formats/JSON.md" class="wikilink">JSON</a></p>
+<p><a target="_self" href="?Other/File formats/JSON" class="wikilink">JSON</a></p>

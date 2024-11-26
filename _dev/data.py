@@ -2078,24 +2078,24 @@ https://img.shields.io/badge/ChatGPT-3.5-blue?logo=openai
 | `os.urandom(n)`                     | Возвращает `n` байт случайных данных, пригодных для использования в криптографии                                                                      |
 | `os.unlink(path)`                   | Удаляет файл по указанному пути (аналог `os.remove`)                                                                                                  |
 | `os.symlink(src, dst)`              | Создает символическую ссылку на файл или директорию (только Unix)                                                                                     |
-| `os.stat(path)`                     | [[Languages/Python/Libraries/System/os/os.stat.md]] Возвращает информацию о пути (например, размер, время последней модификации)                      |
+| `os.stat(path)`                     | [[Languages/Python/Libraries/System/os/os.stat]] Возвращает информацию о пути (например, размер, время последней модификации)                         |
 | `os.lstat(path)`                    | То же, что и `os.stat`, но не разыменовывает символические ссылки                                                                                     |
-| `os.path`                           | [[Languages/Python/Libraries/System/os/os.path.md]] Содержит функции для работы с путями, такие как `join`, `split`, `isfile`, `isdir`                |
+| `os.path`                           | [[Languages/Python/Libraries/System/os/os.path]] Содержит функции для работы с путями, такие как `join`, `split`, `isfile`, `isdir`                   |
 
 # Управление процессами
 
-| Функция/Атрибут            | Описание                                                                                                                                           |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `os.system(command)`       | Выполняет команду в оболочке и возвращает код завершения                                                                                           |
-| `os.popen(command)`        | Выполняет команду в оболочке и возвращает объект файла, связанный с потоком вывода                                                                 |
-| `os.kill(pid, sig)`        | Отправляет сигнал процессу с указанным идентификатором (PID) и [[Languages/Python/Libraries/System/signal.md]]<br>`os.kill(12345, signal.SIGTERM)` |
-| `os._exit(n)`              | Немедленно завершает выполнение текущего процесса с указанным кодом возврата                                                                       |
-| `os.waitpid(pid, options)` | Ожидает завершения процесса с указанным идентификатором (PID) и возвращает его код завершения и статус                                             |
-| `os.fork()`                | Создает новый процесс путем форкинга текущего (только для Unix)                                                                                    |
-| `os.execv(path, args)`     | Заменяет текущий процесс новым процессом, указанным в path                                                                                         |
-| `os.abort()`               | Немедленно завершает процесс сгенерировав сигнатуру `SIGABRT`                                                                                      |
-| `os.getpid()`             | Возвращает идентификатор текущего процесса                                                                                                          |
-| `os.getppid()`            | Возвращает идентификатор родительского процесса                                                                                                     |
+| Функция/Атрибут            | Описание                                                                                                                                        |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `os.system(command)`       | Выполняет команду в оболочке и возвращает код завершения                                                                                        |
+| `os.popen(command)`        | Выполняет команду в оболочке и возвращает объект файла, связанный с потоком вывода                                                              |
+| `os.kill(pid, sig)`        | Отправляет сигнал процессу с указанным идентификатором (PID) и [[Languages/Python/Libraries/System/signal]]<br>`os.kill(12345, signal.SIGTERM)` |
+| `os._exit(n)`              | Немедленно завершает выполнение текущего процесса с указанным кодом возврата                                                                    |
+| `os.waitpid(pid, options)` | Ожидает завершения процесса с указанным идентификатором (PID) и возвращает его код завершения и статус                                          |
+| `os.fork()`                | Создает новый процесс путем форкинга текущего (только для Unix)                                                                                 |
+| `os.execv(path, args)`     | Заменяет текущий процесс новым процессом, указанным в path                                                                                      |
+| `os.abort()`               | Немедленно завершает процесс сгенерировав сигнатуру `SIGABRT`                                                                                   |
+| `os.getpid()`             | Возвращает идентификатор текущего процесса                                                                                                       |
+| `os.getppid()`            | Возвращает идентификатор родительского процесса                                                                                                  |
 
 # Работа с файловыми дескрипторами
 
@@ -2447,7 +2447,7 @@ print(f"Права доступа: {oct(stat_info.st_mode)}")
 
 # Полезные функции для анализа `st_mode`
 Флаг `st_mode` может содержать информацию о правах доступа и типе файла.
-Для упрощения анализа можно использовать следующие функции из модуля [[Languages/Python/Libraries/System/stat.md]]:
+Для упрощения анализа можно использовать следующие функции из модуля [[Languages/Python/Libraries/System/stat]]:
 
 - `stat.S_ISDIR(mode)` - Проверяет, является ли файл директорией
 - `stat.S_ISREG(mode)` - Проверяет, является ли файл обычным файлом
@@ -7645,7 +7645,7 @@ print(od)  # OrderedDict([("a", 1), ("b", 2), ("c", 3)])
 
 # namedtuple
 
-[Фабрика классов](?General/Паттерны%20проектирования/Порождающие%20паттерны/Factory%20(Фабрика).md), которая создает подклассы кортежа с именованными полями.
+[Фабрика классов](?General/Паттерны%20проектирования/Порождающие%20паттерны/Factory%20(Фабрика)), которая создает подклассы кортежа с именованными полями.
 
 | Функция/Метод                       | Описание                                           | Пример                               |
 |-------------------------------------|----------------------------------------------------|--------------------------------------|
@@ -7941,7 +7941,7 @@ print(obj.double(5))  # 10
 Позволяет создавать обобщенные функции с поддержкой
 однотипного диспетчеризации (перегрузки) на основе типа первого аргумента
 
-[[Languages/Python/Decorators Closure/singledispatch.md]]
+[[Languages/Python/Decorators Closure/singledispatch]]
 
 ```python
 from functools import singledispatch
@@ -16770,7 +16770,7 @@ p2 = Person(30)
 `@singledispatch` позволяет перегружать функцию по типу первого аргумента.
 Он полезен для функций, работающих с разными типами данных.
 
-[[Languages/Python/Libraries/Python/functools.md]]
+[[Languages/Python/Libraries/Python/functools]]
 
 ```python
 from functools import singledispatch
@@ -16793,7 +16793,7 @@ process("hello")  # String: HELLO
 ## @singledispatch для методов
 
 Чтобы использовать `@singledispatch` с методами, нужно добавить дополнительный декоратор
-[@staticmethod](?Languages/Python/Decorators%20Closure/staticmethod.md) или [@classmethod](?Languages/Python/Decorators%20Closure/classmethod.md), чтобы метод не принимал первый параметр `self`.
+[@staticmethod](?Languages/Python/Decorators%20Closure/staticmethod) или [@classmethod](?Languages/Python/Decorators%20Closure/classmethod), чтобы метод не принимал первый параметр `self`.
 
 ```python
 from functools import singledispatch
@@ -17091,7 +17091,7 @@ python -m venv venv
 deactivate
 ```
 
-### Установка пакетов в окружении из [[Languages/Python/bash/requirements.txt.md]]
+### Установка пакетов в окружении из [[Languages/Python/bash/requirements.txt]]
 
 ```bash
 pip install -r requirements.txt
@@ -17335,7 +17335,7 @@ root.mainloop()
 ZIP-архивы, которые могут содержать Python-программы
 Они позволяют упаковать несколько модулей и пакетов в один файл для удобства распространения и выполнения
 
-Вы можете создать `.pyz` файл с помощью утилиты [[Languages/Python/Libraries/Python/zipapp.md]]
+Вы можете создать `.pyz` файл с помощью утилиты [[Languages/Python/Libraries/Python/zipapp]]
 
 ```bash
 python -m zipapp my_app -o my_app.pyz
@@ -17523,7 +17523,7 @@ your-command = "your_module:main_function"
 
 ### Дополнительные шаги
 
-Создание [виртуального окружения](?Languages/Python/bash/venv.md)
+Создание [виртуального окружения](?Languages/Python/bash/venv)
 ```bash
 python -m venv env
 source env/bin/activate  # Linux/MacOS
@@ -17531,7 +17531,7 @@ source env/bin/activate  # Linux/MacOS
 ```
 
 Установка проекта локально для разработки
-[pip Флаги](?Languages/Python/bash/Flags%20cmd%20pip.md)
+[pip Флаги](?Languages/Python/bash/Flags%20cmd%20pip)
 ```bash
 pip install -e .
 ```
@@ -18218,7 +18218,7 @@ print(obj.hello())  # Hello, world!
 ```
 
 
-### Пример [[General/Паттерны%20проектирования/Порождающие%20паттерны/Singleton%20(Одиночка).md]] с использованием метакласса
+### Пример [[General/Паттерны%20проектирования/Порождающие%20паттерны/Singleton%20(Одиночка)]] с использованием метакласса
 
 ```python
 class SingletonMeta(type):
@@ -26066,7 +26066,7 @@ curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarb
         },
         "Go": {
             "devhints.io": """
-[Go cheatsheet](?Other/Links.md#go)
+[Go cheatsheet](?Other/Links#go)
 """,
         },
     },
@@ -26130,7 +26130,7 @@ with open("config.jsonl", "r", encoding="UTF-8") as file:
         print(json.loads(line))
 ```
 
-[[Other/File formats/TinyDB (json).md]]
+[[Other/File formats/TinyDB (json)]]
 """,
             "YAML": """
 # YAML - Ain't Markup Language
@@ -26427,7 +26427,7 @@ users_table.update({"age": 26}, user_query.name == "John")
 users_table.remove(user_query.name == "John")
 ```
 
-[[Other/File formats/JSON.md]]
+[[Other/File formats/JSON]]
 """,
         },
         "Code examples": {
@@ -27067,7 +27067,7 @@ Runner.instance_.tRex.setJumpVelocity(10)
 4. Оглавление. Окошко с текстовыми `h` тегами из текущей шпаргалки, прокручивает до видимости при нажатии.
 5. Подсвечивать нажатую кнопку постоянно, а не `:active`.
 6. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
-7. Сделать поисковые фишки как в [[General/Google Search.md]].
+7. Сделать поисковые фишки как в [[General/Google Search]].
 8. История поиска
 
 Поменять в метадате color на classList
@@ -27157,8 +27157,8 @@ code
 """,
     },
     "Shortcuts": {
-        "link-1": "Languages/Python/fstrings.md",
-        "link-2": "Languages/RegExp/RegExp.md",
+        "link-1": "Languages/Python/fstrings",
+        "link-2": "Languages/RegExp/RegExp",
         "Java": {
             "link-3": "Languages/Java/",
             "link-4": "Languages/Java/Классы/",

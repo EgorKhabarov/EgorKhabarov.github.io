@@ -86,7 +86,7 @@
 <h1>.pyz</h1>
 <p>ZIP-архивы, которые могут содержать Python-программы
 Они позволяют упаковать несколько модулей и пакетов в один файл для удобства распространения и выполнения</p>
-<p>Вы можете создать <code>.pyz</code> файл с помощью утилиты <a target="_self" href="?Languages/Python/Libraries/Python/zipapp.md" class="wikilink">zipapp</a></p>
+<p>Вы можете создать <code>.pyz</code> файл с помощью утилиты <a target="_self" href="?Languages/Python/Libraries/Python/zipapp" class="wikilink">zipapp</a></p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>zipapp<span class="w"> </span>my_app<span class="w"> </span>-o<span class="w"> </span>my_app.pyz
 </pre></div></div></div>
 

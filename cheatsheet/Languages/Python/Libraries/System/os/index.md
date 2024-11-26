@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td><code>os.stat(path)</code></td>
-<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.stat.md" class="wikilink">os.stat</a> Возвращает информацию о пути (например, размер, время последней модификации)</td>
+<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.stat" class="wikilink">os.stat</a> Возвращает информацию о пути (например, размер, время последней модификации)</td>
 </tr>
 <tr>
 <td><code>os.lstat(path)</code></td>
@@ -77,7 +77,7 @@
 </tr>
 <tr>
 <td><code>os.path</code></td>
-<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.path.md" class="wikilink">os.path</a> Содержит функции для работы с путями, такие как <code>join</code>, <code>split</code>, <code>isfile</code>, <code>isdir</code></td>
+<td><a target="_self" href="?Languages/Python/Libraries/System/os/os.path" class="wikilink">os.path</a> Содержит функции для работы с путями, такие как <code>join</code>, <code>split</code>, <code>isfile</code>, <code>isdir</code></td>
 </tr>
 </tbody>
 </table>
@@ -100,7 +100,7 @@
 </tr>
 <tr>
 <td><code>os.kill(pid, sig)</code></td>
-<td>Отправляет сигнал процессу с указанным идентификатором (PID) и <a target="_self" href="?Languages/Python/Libraries/System/signal.md" class="wikilink">signal</a><br><code>os.kill(12345, signal.SIGTERM)</code></td>
+<td>Отправляет сигнал процессу с указанным идентификатором (PID) и <a target="_self" href="?Languages/Python/Libraries/System/signal" class="wikilink">signal</a><br><code>os.kill(12345, signal.SIGTERM)</code></td>
 </tr>
 <tr>
 <td><code>os._exit(n)</code></td>

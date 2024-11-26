@@ -1,1 +1,1 @@
-<p>Languages/Python/fstrings.md</p>
+<p>Languages/Python/fstrings</p>

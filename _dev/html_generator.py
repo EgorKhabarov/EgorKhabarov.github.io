@@ -39,8 +39,6 @@ def buttons(
         print_progress_bar(x, y, "create index.html", path)
         if isinstance(value, dict):
             path += "/"
-        else:
-            path += ".md"
 
         current_metadata = metadata.get(path, default_value)
 
@@ -49,11 +47,11 @@ def buttons(
             color = current_metadata.get("color")
             if not color:
                 color = metadata.get(
-                    value.removesuffix("index.md") if value.endswith("/index.md") else value,
+                    value.removesuffix("index") if value.endswith("/index") else value,
                     default_value,
                 ).get("color", "white")
             svg = link.format(color=color)
-            title = value.removesuffix("index.md") if value.endswith("/index.md") else value.removesuffix(".md")
+            title = value.removesuffix("index") if value.endswith("/index") else value.removesuffix("")
             text_list.append(
                 f'<button vpath="{value}" onclick="onclickLinkButton(this);" title="{title}">{svg}{title}</button>\n'
             )
@@ -71,7 +69,7 @@ def buttons(
         if isinstance(value, dict) and "index" in value:
             val, _, x = buttons(value, key_path, metadata, x, y)
             kpath = f"{directory_e}/{key}".strip("/")
-            vpath = f"{directory_e}/{key}/index.md"
+            vpath = f"{directory_e}/{key}/index"
             svg = folder.format(color=current_metadata.get("color", "yellow"))
             display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(
@@ -91,7 +89,7 @@ def buttons(
             )
         else:
             x += 1
-            vpath = f"{directory_e}/{key}.md".strip("/")
+            vpath = f"{directory_e}/{key}".lstrip("/")
             svg = tag.format(color=current_metadata.get("color", "white"))
             text_list.append(
                 f'<button vpath="{vpath}" '

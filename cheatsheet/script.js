@@ -43,7 +43,7 @@ function setDisplayBlock(element) {
 }
 function DisplayCheatSheet(vpath) {
     isFolderCheatSheet = vpath.endsWith("/");
-    vpath = isFolderCheatSheet ? vpath + "index.md" : removeSuffix(vpath, "/");
+    vpath = isFolderCheatSheet ? vpath + "index" : removeSuffix(vpath, "/");
     kpath = getPathWithoutFilename(vpath);
 
     console.log(`vpath = "${vpath}"`);
@@ -281,7 +281,7 @@ function performSearch(empty) {
                 if (settings["settings_search_register_independence"]) {
                     vpath = vpath.toLowerCase();
                 }
-                let s2Array = vpath.replace(".md", "").split("/");
+                let s2Array = vpath.split("/");
                 if (!settings["settings_search_full_path"]) {
                     slc1 =  s2Array.slice(-1)
                     if (slc1[0] === "index") {
@@ -306,7 +306,7 @@ function performSearch(empty) {
         console.log(results.map(item => item.getAttribute("vpath")));
         results.forEach(element => {
             vpath = element.getAttribute("vpath");
-            title = removeSuffix(removeSuffix(vpath, ".md"), "/⁠index");
+            title = removeSuffix(vpath, "/⁠index");
 
             button = document.createElement("button");
             if (settings["settings_search_show_full_path"]) {
@@ -355,18 +355,18 @@ function PutHtmlText(html) {
 
 /* Получить и разместить шпаргалку по пути */
 function GET(url) {
-    url = removeSuffix(url, "index.md");
+    url = removeSuffix(url, "index");
     addArgumentToUrl(url);
-    if (!url.endsWith(".md") && !url.endsWith(".html")) {
+    if (url.endsWith("/")) {
         if (isCtrlPressed) {
             return
         }
-        url += "index.md";
+        url += "index";
     }
 
     if (need_save_history) {
         if (!(url in history)) {
-            cs = getCheatSheet(url);
+            cs = getCheatSheet(url+".md");
             if (cs) {
                 history[url] = cs
             }

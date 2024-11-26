@@ -1,7 +1,7 @@
 <h1>@singledispatch</h1>
 <p><code>@singledispatch</code> позволяет перегружать функцию по типу первого аргумента.
 Он полезен для функций, работающих с разными типами данных.</p>
-<p><a target="_self" href="?Languages/Python/Libraries/Python/functools.md" class="wikilink">functools</a></p>
+<p><a target="_self" href="?Languages/Python/Libraries/Python/functools" class="wikilink">functools</a></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">singledispatch</span>
 
 <span class="nd">@singledispatch</span>
@@ -21,7 +21,7 @@
 </pre></div></div></div>
 <h2>@singledispatch для методов</h2>
 <p>Чтобы использовать <code>@singledispatch</code> с методами, нужно добавить дополнительный декоратор
-<a href="?Languages/Python/Decorators%20Closure/staticmethod.md">@staticmethod</a> или <a href="?Languages/Python/Decorators%20Closure/classmethod.md">@classmethod</a>, чтобы метод не принимал первый параметр <code>self</code>.</p>
+<a href="?Languages/Python/Decorators%20Closure/staticmethod">@staticmethod</a> или <a href="?Languages/Python/Decorators%20Closure/classmethod">@classmethod</a>, чтобы метод не принимал первый параметр <code>self</code>.</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">singledispatch</span>
 
 <span class="k">class</span> <span class="nc">Processor</span><span class="p">:</span>
