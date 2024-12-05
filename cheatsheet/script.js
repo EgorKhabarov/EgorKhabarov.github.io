@@ -366,7 +366,7 @@ function GET(url) {
 
     if (need_save_history) {
         if (!(url in history)) {
-            cs = getCheatSheet(url+".md");
+            cs = getCheatSheet(url+fileSuffix);
             if (cs) {
                 history[url] = cs
             }
@@ -697,6 +697,7 @@ let history = {};
 let isCtrlPressed = false;
 let ismdwn = 0;
 let settings = loadSettings();
+let fileSuffix = ".html";
 
 
 /* rpanrResize */
