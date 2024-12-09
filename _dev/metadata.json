@@ -20,10 +20,10 @@
   "Languages/Java/": {
     "color": "violet"
   },
-  "Languages/Kotlin/": {
+  "Languages/JavaScript/": {
     "color": "violet"
   },
-  "Languages/JavaScript/": {
+  "Languages/Kotlin/": {
     "color": "violet"
   },
   "Languages/LaTex/": {
@@ -57,6 +57,9 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Data types/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/DataBases/": {
     "color": "green"
   },
   "Languages/Python/Libraries/GUI/": {
@@ -119,6 +122,15 @@
   "Languages/Python/Libraries/Data types/xml": {
     "color": "green"
   },
+  "Languages/Python/Libraries/DataBases/peewee": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/DataBases/pony": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/DataBases/SQLAlchemy": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/GUI/PyQT5/": {
     "color": "green"
   },
@@ -156,12 +168,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Information/math": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Information/peewee": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Information/pony": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/random": {

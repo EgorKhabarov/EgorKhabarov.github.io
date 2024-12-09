@@ -2048,7 +2048,7 @@ crontab -r [-u user]
         "Python": {
             "Libraries": {
                 "index": """
-# =={color:#b82e2e;background-color: inherit;}Внимание! Все шпаргалки сгенерированы с помощью <b><u>ChatGPT 3.5</u></b>==
+# =={color:#b82e2e;background-color: inherit;}Внимание! Все шпаргалки сгенерированы с помощью <b><u>ChatGPT</u></b>==
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="101" height="20" role="img" aria-label="ChatGPT: 3.5"><title>ChatGPT: 3.5</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="101" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="74" height="20" fill="#555"/><rect x="74" width="27" height="20" fill="#007ec6"/><rect width="101" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZXNtb2tlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg=="/><text aria-hidden="true" x="465" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="470">ChatGPT</text><text x="465" y="140" transform="scale(.1)" fill="#fff" textLength="470">ChatGPT</text><text aria-hidden="true" x="865" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="170">3.5</text><text x="865" y="140" transform="scale(.1)" fill="#fff" textLength="170">3.5</text></g></svg>
 
@@ -4359,101 +4359,173 @@ q = Queue()
 print(q.empty())  # True
 ```
 """,
-                    "enum": """
-В Python, **enum** — это класс, используемый для создания перечислений (enumerations),
-который представляет собой набор символических имен, связанных с уникальными значениями.
-Модуль `enum` был добавлен в Python 3.4 и предоставляет несколько полезных типов для создания перечислений.
+                    "enum": r"""
+## Классы
+| Элемент            | Описание                                                                              |
+|--------------------|---------------------------------------------------------------------------------------|
+| `Enum`             | Базовый класс для создания перечислений                                               |
+| `IntEnum`          | Подкласс `Enum`, значения должны быть целыми числами `int`                            |
+| `StrEnum`          | Подкласс `Enum`, значения должны быть строками `str` (Начиная с _Python 3.11_)        |
+| `Flag`             | Класс для битовых флагов. Позволяет комбинировать значения с помощью битовых операций |
+| `IntFlag`          | Подкласс `Flag`, значения должны быть целыми числами `int`                            |
 
-# Основные элементы
+## Функции и атрибуты
+| Элемент            | Описание                                                                                |
+|--------------------|-----------------------------------------------------------------------------------------|
+| `auto()`           | Функция для автоматической генерации значений перечисления                              |
+| `unique()`         | Декоратор, который гарантирует, что все элементы перечисления имеют уникальные значения |
+| `EnumMeta`         | Метакласс для создания перечислений                                                     |
+| `Enum.__members__` | Возвращает словарь, содержащий все члены перечисления в порядке их определения          |
+| `Enum.__name__`    | Возвращает имя перечисления                                                             |
+| `Enum.value`       | Возвращает значение элемента перечисления                                               |
+| `Enum.name`        | Возвращает имя элемента перечисления                                                    |
 
-- **Enum**: Базовый класс для создания перечислений.
-- **IntEnum**: Перечисления, значения которых — целые числа.
-- **Flag**: Используется для создания битовых флагов, где элементы могут быть комбинированы с помощью побитовых операций.
-- **IntFlag**: То же, что и `Flag`, но значения также являются целыми числами.
-
-### Пример использования Enum
-
-```python
-from enum import Enum
-
-class Color(Enum):
-    RED = 1
-    GREEN = 2
-    BLUE = 3
-
-# Доступ к элементам перечисления
-print(Color.RED)          # Color.RED
-print(Color.RED.name)     # "RED"
-print(Color.RED.value)    # 1
+### Enum
+Создание перечисления с именованными константами
+```pycon
+>>> from enum import Enum
+>>>
+>>> class Color(Enum):
+...     RED = 1
+...     GREEN = 2
+...     BLUE = 3
+...
+>>> print(Color.RED)
+Color.RED
+>>> print(Color.RED.name)
+RED
+>>> print(Color.RED.value)
+1
 ```
 
-### Пример использования IntEnum
-
-```python
-from enum import IntEnum
-
-class Status(IntEnum):
-    OK = 200
-    NOT_FOUND = 404
-    SERVER_ERROR = 500
-
-# IntEnum позволяет использовать его как целое число
-print(Status.OK + 1)  # 201
+### IntEnum
+Перечисление с целочисленными значениями
+```pycon
+>>> from enum import IntEnum
+>>>
+>>> class Status(IntEnum):
+...     ACTIVE = 1
+...     INACTIVE = 0
+...
+>>> print(Status.ACTIVE == 1)
+True
+>>> print(Status.INACTIVE + 1)
+1
 ```
 
-### Пример использования Flag и IntFlag
-
-```python
-from enum import Flag, IntFlag
-
-class Permission(Flag):
-    READ = 1
-    WRITE = 2
-    EXECUTE = 4
-
-# Комбинирование флагов с помощью побитовых операций
-perm = Permission.READ | Permission.WRITE
-print(perm)  # Permission.READ|WRITE
-
-# IntFlag пример
-class Options(IntFlag):
-    OPTION1 = 1
-    OPTION2 = 2
-    OPTION3 = 4
-
-opt = Options.OPTION1 | Options.OPTION3
-print(opt)  # Options.OPTION1|OPTION3
+### StrEnum _(Python 3.11+)_
+Перечисление со строковыми значениями
+```pycon
+>>> from enum import StrEnum
+>>>
+>>> class Role(StrEnum):
+...     ADMIN = "admin"
+...     USER = "user"
+...
+>>> print(Role.ADMIN.value, Role.ADMIN.value == "admin")
+admin True
+>>> print(Role.USER, Role.USER == "user")
+user True
 ```
 
-### Методы и свойства перечислений
+### Flag
+Битовые флаги
+```pycon
+>>> from enum import Flag, auto
+>>>
+>>> class Permission(Flag):
+...     READ = auto()
+...     WRITE = auto()
+...     EXECUTE = auto()
+...
+>>> combined = Permission.READ | Permission.WRITE
+>>> print(combined)
+Permission.READ|WRITE
+>>> print(combined & Permission.READ)
+Permission.READ
+```
 
-| Метод/Свойство     | Описание                                                                                   |
-|--------------------|--------------------------------------------------------------------------------------------|
-| `.name`            | Возвращает имя элемента перечисления                                                       |
-| `.value`           | Возвращает значение элемента перечисления                                                  |
-| `Enum(value)`      | Позволяет получить элемент перечисления по его значению                                    |
-| `list(Enum)`       | Возвращает список всех элементов перечисления                                              |
-| `Enum.__members__` | Возвращает словарь всех членов перечисления, где ключи — имена, а значения — сами элементы |
-| `.auto()`          | Используется для автоматического назначения значений элементов. (Введен в Python 3.6)      |
+### IntFlag
+Битовые флаги с целыми числами
+```pycon
+>>> from enum import IntFlag
+>>>
+>>> class Options(IntFlag):
+...     OPTION1 = 1
+...     OPTION2 = 2
+...     OPTION3 = 4
+...
+>>> combo = Options.OPTION1 | Options.OPTION3
+>>> print(combo, combo == Options.OPTION1 | Options.OPTION3)
+5 True
+```
 
-### Пример с использованием `auto()`
+### auto()
+Автоматическая генерация значений
+```pycon
+>>> from enum import Enum, auto
+>>>
+>>> class State(Enum):
+...     START = auto()
+...     STOP = auto()
+...     PAUSE = auto()
+...
+>>> print(list(State))
+[<State.START: 1>, <State.STOP: 2>, <State.PAUSE: 3>]
+```
 
+### unique()
+`@unique` гарантирует отсутствие дубликатов значений
 ```python
-from enum import Enum, auto
+>>> from enum import Enum, unique
+>>>
+>>> @unique
+... class Shape(Enum):
+...     CIRCLE = 1
+...     SQUARE = 2
+...
+>>> @unique
+... class Shape(Enum):
+...     CIRCLE = 1
+...     SQUARE = 1
+...
+ValueError: duplicate values found in <enum 'Shape'>: SQUARE -> CIRCLE
+```
 
-class Animal(Enum):
-    DOG = auto()
-    CAT = auto()
-    LION = auto()
+### .\_\_members\_\_
+Работа с элементами перечисления
+```pycon
+>>> from enum import Enum
+>>>
+>>> class Fruits(Enum):
+...     APPLE = 1
+...     ORANGE = 2
+...
+>>> print(Fruits.__members__)
+{'APPLE': <Fruits.APPLE: 1>, 'ORANGE': <Fruits.ORANGE: 2>}
+```
 
-print(list(Animal))  # [<Animal.DOG: 1>, <Animal.CAT: 2>, <Animal.LION: 3>]
+### EnumMeta
+Пример работы с метаклассом
+```pycon
+>>> from enum import Enum, EnumMeta
+>>>
+>>> class MyEnumMeta(EnumMeta):
+...     def __contains__(cls, item):
+...         return item in cls._value2member_map_
+...
+>>> class Colors(Enum, metaclass=MyEnumMeta):
+...     RED = 1
+...     BLUE = 2
+...
+>>> print(1 in Colors)
+True
+>>> print(3 in Colors)
+False
 ```
 
 ### Пользовательские методы и свойства
-
-Перечисления могут содержать методы и дополнительные свойства.
-Вот пример перечисления с пользовательскими методами:
-
+Перечисления могут содержать методы и дополнительные свойства
 ```python
 from enum import Enum
 
@@ -4473,9 +4545,7 @@ print(Day.SATURDAY.is_weekend())  # True
 ```
 
 ### Перегрузка операторов
-
-Можно перегружать операторы в перечислениях:
-
+Можно перегружать операторы в перечислениях
 ```python
 from enum import IntEnum
 
@@ -4490,51 +4560,19 @@ class Level(IntEnum):
 print(Level.HIGH >= Level.MEDIUM)  # True
 ```
 
-### Поддержка итерации
-
-```python
-for color in Color:
-    print(color)
-# Color.RED
-# Color.GREEN
-# Color.BLUE
-```
-
 ### Ошибки при работе с Enum
 
-- **ValueError**: Возникает, если обратиться к несуществующему значению.
-
-```python
-print(Color(10))  # ValueError: 10 is not a valid Color
+- `ValueError` Возникает, если обратиться к несуществующему значению ```python
+print(Color(10))     # ValueError: 10 is not a valid Color
 ```
-
-- **AttributeError**: Возникает при обращении к несуществующему члену перечисления.
-
-```python
+- `AttributeError` Возникает при обращении к несуществующему члену перечисления ```python
 print(Color.YELLOW)  # AttributeError: YELLOW
 ```
 
 ### Особенности использования
 
-- **Перечисления неизменяемы**: Невозможно присваивать новые значения или изменять существующие.
-- **Перечисления можно использовать как ключи словарей**, так как они неизменяемы и хешируемы.
-
-```python
-status_codes = {
-    Status.OK: "Success",
-    Status.NOT_FOUND: "Not Found",
-    Status.SERVER_ERROR: "Internal Server Error"
-}
-
-print(status_codes[Status.OK])  # "Success"
-```
-
-### Итоги
-
-- **Enum** — базовый класс для создания перечислений.
-- **IntEnum** — перечисления, которые также могут использоваться как целые числа.
-- **Flag и IntFlag** — позволяют создавать флаги, которые можно комбинировать с помощью побитовых операций.
-- Перечисления могут содержать пользовательские методы и перегружать операторы.
+- **Перечисления неизменяемы**: Невозможно присваивать новые значения или изменять существующие
+- **Перечисления можно использовать как ключи словарей**, так как они неизменяемы и хешируемы
 
 """,
                     "heapq": r"""
@@ -6456,435 +6494,6 @@ console.print(md)
 - **Ограничение по ширине**: Вывод данных с ограничением по ширине консоли.
 
 ''',
-                    "peewee": """
-### Шпаргалка по библиотеке Peewee
-
-**Peewee** — это простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
-которая позволяет взаимодействовать с базами данных через Python-классы и объекты.
-
-```bash
-pip install peewee
-```
-
-# Подключение
-
-Peewee поддерживает разные базы данных: `SQLite`, `MySQL`, `PostgreSQL` и т.д.
-
-### SQLite
-```python
-from peewee import SqliteDatabase
-
-db = SqliteDatabase("my_database.db")
-```
-
-### PostgreSQL
-```python
-from peewee import PostgresqlDatabase
-
-db = PostgresqlDatabase("my_database", user="username", password="password", host="localhost", port=5432)
-```
-
-### MySQL
-```python
-from peewee import MySQLDatabase
-
-db = MySQLDatabase("my_database", user="username", password="password", host="localhost", port=3306)
-```
-
-# Определение моделей
-```python
-from peewee import Model, CharField, IntegerField
-
-class BaseModel(Model):
-    class Meta:
-        database = db
-
-class User(BaseModel):
-    username = CharField(unique=True)
-    age = IntegerField()
-```
-
-# Создание таблиц
-```python
-db.connect()
-db.create_tables([User])
-```
-
-# Добавление записей
-```python
-# Создание записи
-user = User.create(username="john", age=30)
-
-# Или создание объекта и сохранение через метод save
-user = User(username="doe", age=25)
-user.save()
-```
-
-# Поиск записей
-### Получение всех записей
-```python
-users = User.select()
-for user in users:
-    print(user.username, user.age)
-```
-
-### Фильтрация записей
-```python
-john = User.get(User.username == "john")
-```
-
-### Фильтрация с использованием условий
-```python
-adults = User.select().where(User.age >= 18)
-```
-
-### Получение первой записи
-```python
-first_user = User.select().first()
-```
-
-# Обновление записей
-```python
-# Обновление записи через объект
-user = User.get(User.username == "john")
-user.age = 31
-user.save()
-
-# Обновление записи через метод update
-User.update(age=32).where(User.username == "john").execute()
-```
-
-# Удаление записей
-
-```python
-# Удаление записи через объект
-user = User.get(User.username == "john")
-user.delete_instance()
-
-# Удаление записи через метод delete
-User.delete().where(User.username == "john").execute()
-```
-
-# Связи между моделями
-### Один ко многим (ForeignKeyField)
-```python
-from peewee import ForeignKeyField
-
-class Blog(BaseModel):
-    title = CharField()
-    content = CharField()
-    author = ForeignKeyField(User, backref="blogs")
-
-# Пример создания блога, связанного с пользователем
-user = User.get(User.username == "doe")
-blog = Blog.create(title="My First Blog", content="Hello, world!", author=user)
-```
-
-### Многие ко многим
-Для реализации отношений «многие ко многим» создается промежуточная таблица:
-```python
-class Tag(BaseModel):
-    name = CharField(unique=True)
-
-class BlogTag(BaseModel):
-    blog = ForeignKeyField(Blog)
-    tag = ForeignKeyField(Tag)
-```
-
-# Построение запросов
-### Сортировка
-```python
-# Сортировка по возрасту
-users = User.select().order_by(User.age.desc())
-```
-
-### Лимит и смещение
-```python
-# Ограничение количества записей
-limited_users = User.select().limit(10)
-```
-
-### Группировка
-```python
-# Группировка и подсчет количества
-from peewee import fn
-
-user_counts = User.select(fn.COUNT(User.id)).group_by(User.age)
-```
-
-# Транзакции
-Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию.
-```python
-with db.atomic():
-    User.create(username="alice", age=23)
-    User.create(username="bob", age=35)
-```
-
-### Пример построения структуры базы данных
-Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги.
-```python
-import datetime
-from peewee import Model, CharField, TextField, ForeignKeyField, DateTimeField, SqliteDatabase
-
-db = SqliteDatabase("blog.db")
-
-class BaseModel(Model):
-    class Meta:
-        database = db
-
-class User(BaseModel):
-    username = CharField(unique=True)
-    password = CharField()
-
-class Blog(BaseModel):
-    title = CharField()
-    content = TextField()
-    pub_date = DateTimeField(default=datetime.datetime.now)
-    author = ForeignKeyField(User, backref="blogs")
-
-class Comment(BaseModel):
-    blog = ForeignKeyField(Blog, backref="comments")
-    user = ForeignKeyField(User, backref="comments")
-    content = TextField()
-    pub_date = DateTimeField(default=datetime.datetime.now)
-
-class Tag(BaseModel):
-    name = CharField(unique=True)
-
-class BlogTag(BaseModel):
-    blog = ForeignKeyField(Blog, backref="tags")
-    tag = ForeignKeyField(Tag, backref="blogs")
-
-# Создание таблиц
-db.connect()
-db.create_tables([User, Blog, Comment, Tag, BlogTag])
-
-# Пример создания записи
-user = User.create(username="john_doe", password="password123")
-blog = Blog.create(title="My Blog Post", content="This is my first post", author=user)
-comment = Comment.create(blog=blog, user=user, content="Nice post!")
-tag = Tag.create(name="Python")
-BlogTag.create(blog=blog, tag=tag)
-```
-
-# Пагинация
-```python
-def paginate(query, page, page_size=10):
-    return query.paginate(page, page_size)
-
-# Получение первой страницы с 10 записями
-first_page = paginate(User.select(), 1, 10)
-```
-
-# Миграции
-Для изменения структуры базы данных рекомендуется использовать миграции.
-В Peewee для этого есть библиотека `playhouse.migrate`
-```python
-from playhouse.migrate import *
-
-migrator = SqliteMigrator(db)
-
-# Добавление нового поля в таблицу User
-migrate(migrator.add_column("user", "email", CharField(null=True)))
-```
-
-""",
-                    "pony": """
-# Pony ORM
-
-**Pony ORM** — это объектно-реляционная модель (ORM) для Python,
-которая позволяет работать с базами данных, используя генераторы выражений Python вместо SQL-запросов.
-Pony ORM поддерживает такие базы данных, как `SQLite`, `MySQL`, `PostgreSQL`, `Oracle`.
-
-```bash
-pip install pony
-```
-
-# Создание структуры
-
-Для работы с Pony ORM, необходимо создать объекты классов, которые будут связаны с таблицами базы данных.
-Используется класс `Database` для управления подключениями и класс `Entity` для создания моделей.
-
-# Пример создания
-
-```python
-from pony.orm import Database, Required, Set
-
-db = Database()
-
-class Author(db.Entity):
-    name = Required(str)
-    books = Set("Book")
-
-class Book(db.Entity):
-    title = Required(str)
-    author = Required(Author)
-
-db.bind(provider="sqlite", filename=":memory:")
-db.generate_mapping(create_tables=True)
-```
-
-# Взаимодействие с базой данных
-
-После создания структуры базы данных, можно добавлять, изменять, удалять и извлекать данные,
-используя методы Pony ORM и генераторы выражений.
-
-### Добавление данных
-
-```python
-from pony.orm import db_session
-
-with db_session:
-    author = Author(name="J.K. Rowling")
-    book = Book(title="Harry Potter and the Philosopher's Stone", author=author)
-```
-
-### Извлечение данных
-
-```python
-with db_session:
-    books = Book.select(lambda b: b.author.name == "J.K. Rowling")
-    for book in books:
-        print(book.title)
-```
-
-### Обновление данных
-
-```python
-with db_session:
-    book = Book.get(title="Harry Potter and the Philosopher's Stone")
-    book.title = "Harry Potter and the Sorcerer's Stone"
-```
-
-### Удаление данных
-
-```python
-with db_session:
-    book = Book.get(title="Harry Potter and the Sorcerer's Stone")
-    book.delete()
-```
-
-### Генераторы выражений (Query Expressions)
-
-Pony ORM позволяет использовать Python выражения для фильтрации, сортировки и выборки данных.
-Это делает код более читабельным и легким в написании.
-
-```python
-with db_session:
-    books = select(b for b in Book if "Harry Potter" in b.title)
-    for book in books:
-        print(book.title)
-```
-
-# Отношения между сущностями
-
-Pony ORM поддерживает различные типы отношений между сущностями
-
-### **Один-ко-многим (One-to-Many)**:
-Пример был показан выше, где один автор может написать несколько книг (отношение `Author -> Book`).
-
-### **Многие-ко-многим (Many-to-Many)**:
-Пример создания связи между студентами и курсами, которые они могут посещать.
-
-```python
-class Student(db.Entity):
-    name = Required(str)
-    courses = Set("Course")
-
-class Course(db.Entity):
-    name = Required(str)
-    students = Set(Student)
-```
-
-### **Один-к-одному (One-to-One)**
-Связь между студентом и его личным профилем.
-
-```python
-class Profile(db.Entity):
-    student = Required("Student")
-    bio = Required(str)
-
-class Student(db.Entity):
-    name = Required(str)
-    profile = Required(Profile)
-```
-
-# Транзакции
-
-Pony ORM автоматически управляет транзакциями через контекстный менеджер `db_session`.
-Все операции, выполняемые в рамках `db_session`, происходят в одной транзакции.
-Pony ORM автоматически коммитит или откатывает транзакцию в зависимости от результата выполнения.
-
-```python
-from pony.orm import db_session
-
-with db_session:
-    author = Author(name="George Orwell")
-    book = Book(title="1984", author=author)
-```
-
-# Кэширование
-
-Pony ORM кэширует объекты в рамках одной сессии `db_session`.
-Это значит, что повторные запросы за одним и тем же объектом
-в рамках одной сессии не будут обращаться к базе данных.
-
-```python
-with db_session:
-    author1 = Author.get(name="George Orwell")
-    author2 = Author.get(name="George Orwell")
-    print(author1 is author2)  # True
-```
-
-### Пример полной работы с базой данных
-
-```python
-from pony.orm import Database, Required, Set, db_session, select
-
-db = Database()
-
-class Author(db.Entity):
-    name = Required(str)
-    books = Set("Book")
-
-class Book(db.Entity):
-    title = Required(str)
-    author = Required(Author)
-
-# Привязка базы данных к SQLite
-db.bind(provider="sqlite", filename="library.sqlite", create_db=True)
-db.generate_mapping(create_tables=True)
-
-# Добавление данных
-with db_session:
-    author = Author(name="George Orwell")
-    book1 = Book(title="1984", author=author)
-    book2 = Book(title="Animal Farm", author=author)
-
-# Извлечение данных
-with db_session:
-    books = select(b for b in Book if b.author.name == "George Orwell")
-    for book in books:
-        print(f"{book.title} by {book.author.name}")
-
-# Обновление данных
-with db_session:
-    book = Book.get(title="1984")
-    book.title = "Nineteen Eighty-Four"
-
-# Удаление данных
-with db_session:
-    book = Book.get(title="Animal Farm")
-    book.delete()
-```
-
-# Особенности работы с Pony ORM
-
-- **Ленивая загрузка**: Pony ORM автоматически загружает связанные данные только тогда, когда они необходимы.
-- **Оптимизация запросов**: Генераторы выражений оптимизируются в SQL-запросы, что обеспечивает производительность.
-- **Поддержка сложных запросов**: Можно выполнять сложные SQL-запросы с использованием привычных Python-выражений.
-
-""",
                     "numpy": """
 ![numpy.py](Languages/Python/Libraries/Information/numpy.png)
 """,
@@ -12601,6 +12210,11 @@ def func(name: type):
 ```
 """,
                     },
+                    "FastAPI": {
+                        "index": """
+[RoadMap](https://solvit.space/roadmaps/fastapi-interactive)
+""",
+                    },
                     "Jinja": {
                         "index": """
 <!--{% raw %}-->
@@ -14134,6 +13748,530 @@ if __name__ == "__main__":
 ```
 """,
                     },
+                },
+                "DataBases": {
+                    "SQLAlchemy": """
+```bash
+# SQLAlchemy
+pip install sqlalchemy
+
+# MySQL
+pip install pymysql
+# PostgreSQL
+pip install psycopg2
+```
+
+```python
+"sqlite:///example.db"
+"mysql+pymysql://<user>:<password>@<host>/<database>"
+"postgresql+psycopg2://<user>:<password>@<host>/<database>"
+```
+
+```bash
+# SQLAlchemy
+pip install sqlalchemy[asyncio]
+
+# SQLite
+pip install aiosqlite
+# MySQL
+pip install aiomysql
+# PostgreSQL
+pip install asyncpg
+```
+
+```python
+"sqlite+aiosqlite:///example.db"
+"mysql+aiomysql://<user>:<password>@<host>/<database>"
+"postgresql+asyncpg://<user>:<password>@<host>/<database>"
+```
+
+```python
+from contextlib import contextmanager
+
+from sqlalchemy import create_engine, text, Engine
+from sqlalchemy.orm import sessionmaker, Session
+
+from config import SQLITE_DATABASE_URL
+
+
+sqlite_engine: Engine = create_engine(SQLITE_DATABASE_URL, echo=False)
+new_sqlite_session_func = sessionmaker(bind=sqlite_engine, expire_on_commit=False)
+
+
+@contextmanager
+def get_sqlite_session() -> Session:
+    with new_sqlite_session_func() as sqlite_session:
+        yield sqlite_session
+
+
+def get_item(item_id: int) -> list:
+    with get_sqlite_session() as session:
+        result = session.execute(
+            text("SELECT * FROM items WHERE item_id = :item_id"),
+            {"item_id": item_id},
+        )
+        return result.fetchone()
+
+```
+
+```python
+from contextlib import asynccontextmanager
+
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncEngine
+
+from config import SQLITE_DATABASE_URL
+
+
+sqlite_engine: AsyncEngine = create_async_engine(SQLITE_DATABASE_URL, echo=False)
+new_sqlite_async_session_func = async_sessionmaker(sqlite_engine, expire_on_commit=False)
+
+
+@asynccontextmanager
+async def get_sqlite_session():
+    async with new_sqlite_async_session_func() as sqlite_session:
+        yield sqlite_session
+
+
+async def get_item(item_id: int) -> list:
+    async with get_sqlite_session() as session:
+        result = await session.execute(
+            text("SELECT * FROM items WHERE item_id = :item_id"),
+            {"item_id": item_id},
+        )
+        return result.fetchone()
+
+```
+""",
+                    "peewee": """
+### Шпаргалка по библиотеке Peewee
+
+**Peewee** — это простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
+которая позволяет взаимодействовать с базами данных через Python-классы и объекты.
+
+```bash
+pip install peewee
+```
+
+# Подключение
+
+Peewee поддерживает разные базы данных: `SQLite`, `MySQL`, `PostgreSQL` и т.д.
+
+### SQLite
+```python
+from peewee import SqliteDatabase
+
+db = SqliteDatabase("my_database.db")
+```
+
+### PostgreSQL
+```python
+from peewee import PostgresqlDatabase
+
+db = PostgresqlDatabase("my_database", user="username", password="password", host="localhost", port=5432)
+```
+
+### MySQL
+```python
+from peewee import MySQLDatabase
+
+db = MySQLDatabase("my_database", user="username", password="password", host="localhost", port=3306)
+```
+
+# Определение моделей
+```python
+from peewee import Model, CharField, IntegerField
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+class User(BaseModel):
+    username = CharField(unique=True)
+    age = IntegerField()
+```
+
+# Создание таблиц
+```python
+db.connect()
+db.create_tables([User])
+```
+
+# Добавление записей
+```python
+# Создание записи
+user = User.create(username="john", age=30)
+
+# Или создание объекта и сохранение через метод save
+user = User(username="doe", age=25)
+user.save()
+```
+
+# Поиск записей
+### Получение всех записей
+```python
+users = User.select()
+for user in users:
+    print(user.username, user.age)
+```
+
+### Фильтрация записей
+```python
+john = User.get(User.username == "john")
+```
+
+### Фильтрация с использованием условий
+```python
+adults = User.select().where(User.age >= 18)
+```
+
+### Получение первой записи
+```python
+first_user = User.select().first()
+```
+
+# Обновление записей
+```python
+# Обновление записи через объект
+user = User.get(User.username == "john")
+user.age = 31
+user.save()
+
+# Обновление записи через метод update
+User.update(age=32).where(User.username == "john").execute()
+```
+
+# Удаление записей
+
+```python
+# Удаление записи через объект
+user = User.get(User.username == "john")
+user.delete_instance()
+
+# Удаление записи через метод delete
+User.delete().where(User.username == "john").execute()
+```
+
+# Связи между моделями
+### Один ко многим (ForeignKeyField)
+```python
+from peewee import ForeignKeyField
+
+class Blog(BaseModel):
+    title = CharField()
+    content = CharField()
+    author = ForeignKeyField(User, backref="blogs")
+
+# Пример создания блога, связанного с пользователем
+user = User.get(User.username == "doe")
+blog = Blog.create(title="My First Blog", content="Hello, world!", author=user)
+```
+
+### Многие ко многим
+Для реализации отношений «многие ко многим» создается промежуточная таблица:
+```python
+class Tag(BaseModel):
+    name = CharField(unique=True)
+
+class BlogTag(BaseModel):
+    blog = ForeignKeyField(Blog)
+    tag = ForeignKeyField(Tag)
+```
+
+# Построение запросов
+### Сортировка
+```python
+# Сортировка по возрасту
+users = User.select().order_by(User.age.desc())
+```
+
+### Лимит и смещение
+```python
+# Ограничение количества записей
+limited_users = User.select().limit(10)
+```
+
+### Группировка
+```python
+# Группировка и подсчет количества
+from peewee import fn
+
+user_counts = User.select(fn.COUNT(User.id)).group_by(User.age)
+```
+
+# Транзакции
+Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию.
+```python
+with db.atomic():
+    User.create(username="alice", age=23)
+    User.create(username="bob", age=35)
+```
+
+### Пример построения структуры базы данных
+Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги.
+```python
+import datetime
+from peewee import Model, CharField, TextField, ForeignKeyField, DateTimeField, SqliteDatabase
+
+db = SqliteDatabase("blog.db")
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+
+class User(BaseModel):
+    username = CharField(unique=True)
+    password = CharField()
+
+class Blog(BaseModel):
+    title = CharField()
+    content = TextField()
+    pub_date = DateTimeField(default=datetime.datetime.now)
+    author = ForeignKeyField(User, backref="blogs")
+
+class Comment(BaseModel):
+    blog = ForeignKeyField(Blog, backref="comments")
+    user = ForeignKeyField(User, backref="comments")
+    content = TextField()
+    pub_date = DateTimeField(default=datetime.datetime.now)
+
+class Tag(BaseModel):
+    name = CharField(unique=True)
+
+class BlogTag(BaseModel):
+    blog = ForeignKeyField(Blog, backref="tags")
+    tag = ForeignKeyField(Tag, backref="blogs")
+
+# Создание таблиц
+db.connect()
+db.create_tables([User, Blog, Comment, Tag, BlogTag])
+
+# Пример создания записи
+user = User.create(username="john_doe", password="password123")
+blog = Blog.create(title="My Blog Post", content="This is my first post", author=user)
+comment = Comment.create(blog=blog, user=user, content="Nice post!")
+tag = Tag.create(name="Python")
+BlogTag.create(blog=blog, tag=tag)
+```
+
+# Пагинация
+```python
+def paginate(query, page, page_size=10):
+    return query.paginate(page, page_size)
+
+# Получение первой страницы с 10 записями
+first_page = paginate(User.select(), 1, 10)
+```
+
+# Миграции
+Для изменения структуры базы данных рекомендуется использовать миграции.
+В Peewee для этого есть библиотека `playhouse.migrate`
+```python
+from playhouse.migrate import *
+
+migrator = SqliteMigrator(db)
+
+# Добавление нового поля в таблицу User
+migrate(migrator.add_column("user", "email", CharField(null=True)))
+```
+
+""",
+                    "pony": """
+# Pony ORM
+
+**Pony ORM** — это объектно-реляционная модель (ORM) для Python,
+которая позволяет работать с базами данных, используя генераторы выражений Python вместо SQL-запросов.
+Pony ORM поддерживает такие базы данных, как `SQLite`, `MySQL`, `PostgreSQL`, `Oracle`.
+
+```bash
+pip install pony
+```
+
+# Создание структуры
+
+Для работы с Pony ORM, необходимо создать объекты классов, которые будут связаны с таблицами базы данных.
+Используется класс `Database` для управления подключениями и класс `Entity` для создания моделей.
+
+# Пример создания
+
+```python
+from pony.orm import Database, Required, Set
+
+db = Database()
+
+class Author(db.Entity):
+    name = Required(str)
+    books = Set("Book")
+
+class Book(db.Entity):
+    title = Required(str)
+    author = Required(Author)
+
+db.bind(provider="sqlite", filename=":memory:")
+db.generate_mapping(create_tables=True)
+```
+
+# Взаимодействие с базой данных
+
+После создания структуры базы данных, можно добавлять, изменять, удалять и извлекать данные,
+используя методы Pony ORM и генераторы выражений.
+
+### Добавление данных
+
+```python
+from pony.orm import db_session
+
+with db_session:
+    author = Author(name="J.K. Rowling")
+    book = Book(title="Harry Potter and the Philosopher's Stone", author=author)
+```
+
+### Извлечение данных
+
+```python
+with db_session:
+    books = Book.select(lambda b: b.author.name == "J.K. Rowling")
+    for book in books:
+        print(book.title)
+```
+
+### Обновление данных
+
+```python
+with db_session:
+    book = Book.get(title="Harry Potter and the Philosopher's Stone")
+    book.title = "Harry Potter and the Sorcerer's Stone"
+```
+
+### Удаление данных
+
+```python
+with db_session:
+    book = Book.get(title="Harry Potter and the Sorcerer's Stone")
+    book.delete()
+```
+
+### Генераторы выражений (Query Expressions)
+
+Pony ORM позволяет использовать Python выражения для фильтрации, сортировки и выборки данных.
+Это делает код более читабельным и легким в написании.
+
+```python
+with db_session:
+    books = select(b for b in Book if "Harry Potter" in b.title)
+    for book in books:
+        print(book.title)
+```
+
+# Отношения между сущностями
+
+Pony ORM поддерживает различные типы отношений между сущностями
+
+### **Один-ко-многим (One-to-Many)**:
+Пример был показан выше, где один автор может написать несколько книг (отношение `Author -> Book`).
+
+### **Многие-ко-многим (Many-to-Many)**:
+Пример создания связи между студентами и курсами, которые они могут посещать.
+
+```python
+class Student(db.Entity):
+    name = Required(str)
+    courses = Set("Course")
+
+class Course(db.Entity):
+    name = Required(str)
+    students = Set(Student)
+```
+
+### **Один-к-одному (One-to-One)**
+Связь между студентом и его личным профилем.
+
+```python
+class Profile(db.Entity):
+    student = Required("Student")
+    bio = Required(str)
+
+class Student(db.Entity):
+    name = Required(str)
+    profile = Required(Profile)
+```
+
+# Транзакции
+
+Pony ORM автоматически управляет транзакциями через контекстный менеджер `db_session`.
+Все операции, выполняемые в рамках `db_session`, происходят в одной транзакции.
+Pony ORM автоматически коммитит или откатывает транзакцию в зависимости от результата выполнения.
+
+```python
+from pony.orm import db_session
+
+with db_session:
+    author = Author(name="George Orwell")
+    book = Book(title="1984", author=author)
+```
+
+# Кэширование
+
+Pony ORM кэширует объекты в рамках одной сессии `db_session`.
+Это значит, что повторные запросы за одним и тем же объектом
+в рамках одной сессии не будут обращаться к базе данных.
+
+```python
+with db_session:
+    author1 = Author.get(name="George Orwell")
+    author2 = Author.get(name="George Orwell")
+    print(author1 is author2)  # True
+```
+
+### Пример полной работы с базой данных
+
+```python
+from pony.orm import Database, Required, Set, db_session, select
+
+db = Database()
+
+class Author(db.Entity):
+    name = Required(str)
+    books = Set("Book")
+
+class Book(db.Entity):
+    title = Required(str)
+    author = Required(Author)
+
+# Привязка базы данных к SQLite
+db.bind(provider="sqlite", filename="library.sqlite", create_db=True)
+db.generate_mapping(create_tables=True)
+
+# Добавление данных
+with db_session:
+    author = Author(name="George Orwell")
+    book1 = Book(title="1984", author=author)
+    book2 = Book(title="Animal Farm", author=author)
+
+# Извлечение данных
+with db_session:
+    books = select(b for b in Book if b.author.name == "George Orwell")
+    for book in books:
+        print(f"{book.title} by {book.author.name}")
+
+# Обновление данных
+with db_session:
+    book = Book.get(title="1984")
+    book.title = "Nineteen Eighty-Four"
+
+# Удаление данных
+with db_session:
+    book = Book.get(title="Animal Farm")
+    book.delete()
+```
+
+# Особенности работы с Pony ORM
+
+- **Ленивая загрузка**: Pony ORM автоматически загружает связанные данные только тогда, когда они необходимы.
+- **Оптимизация запросов**: Генераторы выражений оптимизируются в SQL-запросы, что обеспечивает производительность.
+- **Поддержка сложных запросов**: Можно выполнять сложные SQL-запросы с использованием привычных Python-выражений.
+
+""",
                 },
                 "Other": {
                     "pythoncom": r"""
@@ -16858,7 +16996,7 @@ class AnotherClass(FinalClass):  # Ошибка: невозможно насле
 """,
             },
             "bash": {
-                "Flags cmd Python": """
+                "python flags": """
 | Флаг                        | Описание |
 |-----------------------------|----------|
 | `-c`                        | Выполнить однострочный Python-код из командной строки |
@@ -16917,7 +17055,7 @@ file   : program read from script file
 arg ...: arguments passed to program in sys.argv[1:]
 ```
 """,
-                "Flags cmd pip": """
+                "pip flags": """
 | Флаг                  | Описание |
 |-----------------------|----------|
 | `-r` `--requirements` | Установить пакеты из указанного файла зависимостей `requirements.txt`.
@@ -17082,8 +17220,12 @@ python -m venv venv
 
 ### Активация окружения
 
-- **Windows:** `venv/Scripts/activate`
-- **macOS/Linux:** `source venv/bin/activate`
+- **Windows:** ```bash
+venv/Scripts/activate
+```
+- **macOS/Linux:** ```
+source venv/bin/activate
+```
 
 ### Деактивация окружения
 
@@ -17100,12 +17242,19 @@ pip install -r requirements.txt
 ### Удаление окружения
 
 Просто удалите папку с виртуальным окружением `venv`.
+
+- **Windows:** ```bash
+rmdir /s /q venv
+```
+- **macOS/Linux:** ```bash
+rm -rf venv
+```
 """,
                 "requirements.txt": """
 Команда, которая создает список всех пакетов и их версий,
 установленных в настоящее время в среде Python.
 
-```python
+```bash
 pip freeze > requirements.txt
 ```
 
@@ -17118,7 +17267,7 @@ pip freeze > requirements.txt
 настоящее время установлены в вашей среде Python, один пакет за строку.
 Позже вы можете использовать
 
-```python
+```bash
 pip install -r requirements.txt
 ```
 
@@ -17132,7 +17281,7 @@ pip install -r requirements.txt
 
 Для создания файла с библиотеками используемыми только для нужного проекта использовать
 
-```python
+```bash
 pip freeze --local > requirements.txt
 ```
 """,
@@ -17281,7 +17430,7 @@ pip freeze --local > requirements.txt
 | `.pxd`       | Заголовочные файлы для `Cython`, аналог `.h` файлов в `C`/`C++`.<br>Используются для объявления C-функций и структур, которые могут быть использованы в Cython-коде        |
 | `.pyx`       | Исходные файлы для Cython, расширение Python.<br>Эти файлы компилируются в C-код и могут использоваться для повышения производительности Python-программ                   |
 
-# .py
+### .py
 Содержат исходный код на языке Python
 Они могут включать определения функций, классов, переменных и другие конструкции, поддерживаемые Python
 Эти файлы интерпретируются напрямую интерпретатором Python
@@ -17294,7 +17443,7 @@ def hello_world():
 
 Этот файл можно запустить командой `python script.py` в командной строке
 
-# .pyi
+### .pyi
 Используются для добавления аннотаций типов к Python-коду
 Эти файлы позволяют статическим анализаторам кода (например, `MyPy`)
 проверять корректность типов без выполнения самого кода
@@ -17306,17 +17455,17 @@ def hello_world() -> None: ...
 
 Этот файл используется только для типизации и не выполняется непосредственно
 
-# .pyc
+### .pyc
 Содержат скомпилированный байт-код Python, который создаётся автоматически при импорте `.py` файлов
 Этот байт-код интерпретируется виртуальной машиной Python и ускоряет выполнение программы
 
 Когда вы импортируете модуль `import script`, Python автоматически создаёт файл `script.pyc` в директории `__pycache__`.
 
-# .pyo
+### .pyo
 Использовались в старых версиях Python (до `3.5`) для хранения скомпилированного байт-кода с включенной оптимизацией
 В новых версиях Python этот формат заменён на `.pyc` с флагом оптимизации
 
-# .pyw
+### .pyw
 Аналогичны `.py`, но предназначены для запуска скриптов на `Windows` без открытия консольного окна
 Обычно используются для создания графических приложений на Python
 
@@ -17331,7 +17480,7 @@ root.mainloop()
 ```
 Запуск `script.pyw` на Windows не откроет консольное окно
 
-# .pyz
+### .pyz
 ZIP-архивы, которые могут содержать Python-программы
 Они позволяют упаковать несколько модулей и пакетов в один файл для удобства распространения и выполнения
 
@@ -17343,14 +17492,14 @@ python -m zipapp my_app -o my_app.pyz
 
 Запуск `python my_app.pyz` выполнит программу, упакованную в архив
 
-# .pyd
+### .pyd
 Динамически загружаемые библиотеки (`DLL`),
 написанные на `C` или `C++` и используемые как модули Python
 Они позволяют использовать высокопроизводительный код, написанный на других языках
 
 Вы можете создать `.pyd` файл, используя компилятор `C` или `C++` с поддержкой `Python API`
 
-# .pxd
+### .pxd
 Используются в `Cython` для объявления C-функций и структур, которые будут использоваться в Cython-коде
 Они аналогичны `.h` файлам в `C`/`C++`
 ```cython@header.pxd
@@ -17359,7 +17508,7 @@ cdef extern from "math.h":
     double sin(double x)
 ```
 
-# .pyx
+### .pyx
 Содержат исходный код на Cython, который представляет собой надстройку над Python,
 позволяющую компилировать код в `C` для повышения производительности.
 
@@ -17541,29 +17690,7 @@ your-command
 
 """,
             },
-            "Generators and lists": {
-                "for in list comprehension": """
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = [
-    item
-    for tpl in list_of_tuples
-    for item in tpl
-]
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = []
-for tpl in list_of_tuples:
-    for item in tpl:
-        result_list.append(item)
-
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-""",
+            "Generators": {
                 "yield from": """
 # yield from
 
@@ -17601,47 +17728,213 @@ def generator2():
 Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
 который продолжает генерировать свои элементы.
 """,
-                "Multiplication of lists": """
+                ".send()": """
+# .send()
+
+Метод `send()` используется для отправки значения в активный генератор.
+
+- Возобновляет выполнение генератора, передавая указанное значение в текущую точку `yield`.
+- Возвращает следующее значение, которое генератор `yield` после возобновления.
+
 ```pycon
->>> a = [[]]*3
->>> for x in a:
-...     print(id(x))
+>>> def echo():
+...     while True:
+...         received = yield
+...         print(f"Received: {received}")
 ...
-3276075832448
-3276075832448
-3276075832448
->>> a[1].append(1)
->>> a
-[[1], [1], [1]]
->>>
->>> b = [[] for _ in range(3)]
->>> for x in b:
-...     print(id(x))
-...
-3276075828928
-3276075828992
-3276075828864
->>> b[1].append(1)
->>> b
-[[], [1], []]
->>>
->>> c = [[]]
->>> print(id(c[0]))
-3276075894784
->>> for x in (c + c):
-...     print(id(x))
-...
-3276075894784
-3276075894784
->>>
->>> d = ((),)*3
->>> for x in d:
-...     print(id(d))
-...
-3276075830656
-3276075830656
-3276075830656
+>>> gen = echo()
+>>> # Запускаем генератор до первого yield
+>>> next(gen)
+>>> gen.send("Hello")
+Received: Hello
+>>> gen.send("World")
+Received: World
 ```
+
+```pycon
+>>> def accumulator():
+...     total = 0
+...     while True:
+...         # Возвращаем текущую сумму
+...         value = yield total
+...         # Если ничего не передали, пропускаем
+...         if value is None:
+...             continue
+...         # Добавляем переданное значение
+...         total += value
+...
+>>> gen = accumulator()
+>>> # Запускаем генератор, начальная сумма = 0
+>>> print(next(gen))
+0
+>>> # Добавляем 10, сумма = 10
+>>> print(gen.send(10))
+10
+>>> print(gen.send(20))
+30
+>>> print(gen.send(0))
+30
+>>> print(next(gen))
+30
+```
+
+```pycon
+>>> def controlled_count():
+...     count = 0
+...     while True:
+...         command = yield count
+...         if command == "stop":
+...             break
+...         elif command == "reset":
+...             count = 0
+...         else:
+...             count += 1
+...
+>>> gen = controlled_count()
+>>> # Начало, count = 0
+>>> print(next(gen))
+0
+>>> print(gen.send(None))
+1
+>>> print(gen.send(None))
+2
+>>> print(gen.send("reset"))
+0
+>>> print(gen.send(None))
+1
+>>> gen.send("stop")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+```
+
+# Примечания
+- **`.send(None)` аналогично `next()`**:
+    - Используется для первого вызова генератора или продолжения без передачи данных.
+    - При первом вызове генератор должен быть готов принять `None`, иначе возникнет ошибка `TypeError`. ```pycon
+>>> gen = accumulator()
+>>> gen.send(None)
+0
+>>> gen = accumulator()
+>>> gen.send(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't send non-None value to a just-started generator
+```
+- Исключение при остановке генератора:
+    - Если генератор завершил выполнение `StopIteration`, вызов `.send()` приводит к выбросу исключения.
+- Использование с корутинами:
+    - Метод `.send()` часто применяется в сопрограммах на основе генераторов для обмена данными между частями кода.
+
+""",
+                ".throw()": """
+# .throw(type, value=None, traceback=None)
+
+Генератору передается исключение.
+Оно выбрасывается в текущей точке `yield`, где его можно обработать с помощью `try-except`.
+
+```pycon
+>>> def example():
+...     try:
+...         yield
+...     except ValueError as e:
+...         yield f"Caught: {e}"
+...
+>>> gen = example()
+>>> next(gen)
+>>> print(gen.throw(ValueError, "Test"))
+Caught: Test
+```
+
+""",
+                ".close()": """
+# .close()
+
+Завершает генератор.
+Если генератор ожидает на `yield`, он выбрасывает исключение `GeneratorExit`.
+Используется для принудительного завершения работы генератора.
+
+```pycon
+>>> def example():
+...     try:
+...         yield
+...     except GeneratorExit:
+...         print("Generator closed!")
+...
+>>> gen = example()
+>>> next(gen)
+>>> gen.close()
+Generator closed!
+```
+""",
+                "Атрибуты": """
+# `gi_code`
+Ссылка на объект кода (тип `code`), связанный с генератором.
+Содержит информацию о скомпилированном коде, например, имя функции.
+```pycon
+>>> def example():
+...     yield
+...
+>>> gen = example()
+>>> print(gen.gi_code.co_name)
+example
+```
+
+# `gi_frame`
+
+Ссылка на текущий объект фрейма выполнения (тип frame), представляющий стек вызовов генератора.
+Используется для отладки или анализа текущего состояния генератора.
+```pycon
+def example():
+    yield
+
+gen = example()
+print(gen.gi_frame.f_lasti)  # Вывод: -1 (указатель ещё не начал выполнение)
+next(gen)
+print(gen.gi_frame.f_lasti)  # Указывает на байт-код последней операции
+```
+
+# `gi_running`
+
+Возвращает True, если генератор в данный момент выполняется (например, рекурсивный вызов).
+Помогает отслеживать, активен ли генератор.
+
+```pycon
+def example():
+    print(gen.gi_running)  # Вывод: True (генератор выполняется)
+    yield
+
+gen = example()
+print(gen.gi_running)  # Вывод: False (генератор не выполняется)
+next(gen)
+```
+
+# `gi_suspended`
+Неявный атрибут, определяющий, приостановлен ли генератор.
+Проверяется косвенно через `gi_running` и `gi_frame`.
+
+# `gi_yieldfrom`
+Содержит ссылку на вложенный генератор, если используется выражение `yield from`.
+Позволяет анализировать вложенные генераторы.
+
+```pycon
+def sub_generator():
+    yield "Sub value"
+
+def example():
+    yield from sub_generator()
+
+gen = example()
+next(gen)  # Возобновляем основной генератор
+print(gen.gi_yieldfrom)  # Ссылка на вложенный генератор
+```
+
+| Атрибут        | Описание                                   |
+|----------------|--------------------------------------------|
+| `gi_code`      | Код функции генератора                     |
+| `gi_frame`     | Текущий стек вызовов генератора            |
+| `gi_running`   | Указывает, выполняется ли генератор        |
+| `gi_yieldfrom` | Ссылка на вложенный генератор `yield from` |
 """,
             },
             "Built-in": {
@@ -18752,6 +19045,79 @@ Person Object
 
 [https://habr.com/ru/articles/62203/](https://habr.com/ru/articles/62203/)
 """,
+            "list comprehension tips": """
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = [
+    item
+    for tpl in list_of_tuples
+    for item in tpl
+]
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = []
+for tpl in list_of_tuples:
+    for item in tpl:
+        result_list.append(item)
+
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+""",
+            "Multiplication of lists": """
+<div class="container-row">
+```pycon
+>>> a = [[]]*3
+>>> for x in a:
+...     print(id(x))
+...
+3276075832448
+3276075832448
+3276075832448
+>>> a[1].append(1)
+>>> a
+[[1], [1], [1]]
+```
+&nbsp;
+```pycon
+>>> b = [[] for _ in range(3)]
+>>> for x in b:
+...     print(id(x))
+...
+3276075828928
+3276075828992
+3276075828864
+>>> b[1].append(1)
+>>> b
+[[], [1], []]
+```
+</div>
+<div class="container-row">
+```pycon
+>>> c = [[]]
+>>> print(id(c[0]))
+3276075894784
+>>> for x in (c + c):
+...     print(id(x))
+...
+3276075894784
+3276075894784
+```
+&nbsp;
+```pycon
+>>> d = ((),)*3
+>>> for x in d:
+...     print(id(d))
+...
+3276075830656
+3276075830656
+3276075830656
+```
+</div>
+""",
         },
         "RegExp": {
             "RegExp": r"""
@@ -18975,7 +19341,8 @@ Person Object
 ((^|:)([0-9a-fA-F]{{0,4}})){{1,8}}$
 ```
 
-### Имя пользователя (с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква)
+### Имя пользователя
+(с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква)
 
 ```regexp
 ^[a-zA-Z][a-zA-Z0-9-_\.]{{1,20}}$
@@ -21778,6 +22145,56 @@ TAN                 возвращает тангенс угла в радиан
 
 """,
             },
+            "MySQL MariaDB": {
+                "Типы данных": """
+## Числовые типы
+
+| Тип             | Диапазон                                                                           | Занимает | Пример             |
+|-----------------|------------------------------------------------------------------------------------|----------|--------------------|
+| `TINYINT`       | -128 до 127 (с `SIGNED`) или 0 до 255 (с `UNSIGNED`)                               | 1 байт   | `TINYINT UNSIGNED` |
+| `SMALLINT`      | -32,768 до 32,767 (с `SIGNED`) или 0 до 65,535 (с `UNSIGNED`)                      | 2 байта  |                    |
+| `MEDIUMINT`     | -8,388,608 до 8,388,607 (с `SIGNED`) или 0 до 16,777,215 (с `UNSIGNED`)            | 3 байта  |                    |
+| `INT (INTEGER)` | -2,147,483,648 до 2,147,483,647 (с `SIGNED`) или 0 до 4,294,967,295 (с `UNSIGNED`) | 4 байта  |                    |
+| `BIGINT`        | -2⁶³ до 2⁶³-1 (с `SIGNED`) или 0 до 2⁶⁴-1 (с `UNSIGNED`)                           | 8 байт   |                    |
+
+### Числа с плавающей точкой
+|                               |                         |                                                             |               |
+|-------------------------------|-------------------------|-------------------------------------------------------------|---------------|
+| FLOAT(точность)               | ~ ±3.4E-38 до ±3.4E38   | 4 байта (по умолчанию)                                      | `FLOAT(7, 4)` |
+| `DOUBLE` (`DOUBLE PRECISION`) | ~ ±1.7E-308 до ±1.7E308 | 8 байт                                                      |               |
+| `DECIMAL` (`NUMERIC`)         | задается пользователем  | `DECIMAL(10, 2)` — максимум 10 цифр, 2 из них после запятой |               |
+
+## Строковые типы
+|              |                                                                    |                        |
+|--------------|--------------------------------------------------------------------|------------------------|
+| `CHAR(n)`    | Фиксированная длина `n` (до 255 символов)                          | `n` байт               |
+| `VARCHAR(n)` | Переменная длина до `n` (до 65,535 байт, включая служебные данные) | `VARCHAR(255)`         |
+| `TINYTEXT`   | Максимум: 255 байт                                                 | длина строки + 1 байт  |
+| `TEXT`       | Максимум: 65,535 байт                                              | длина строки + 2 байта |
+| `MEDIUMTEXT` | Максимум: 16,777,215 байт                                          | длина строки + 3 байта |
+| `LONGTEXT`   | Максимум: 4,294,967,295 байт                                       | длина строки + 4 байта |
+
+## Дата и время
+|             | Формат                | Диапазон                                           | Занимает |
+|-------------|-----------------------|----------------------------------------------------|----------|
+| `DATE`      | `YYYY-MM-DD`          | 1000-01-01 до 9999-12-31                           | 3 байта  |
+| `DATETIME`  | `YYYY-MM-DD HH:MM:SS` | 1000-01-01 00:00:00 до 9999-12-31 23:59:59         | 8 байт   |  
+| `TIMESTAMP` | `YYYY-MM-DD HH:MM:SS` | 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 UTC | 4 байта  |  
+| `TIME`      | `HH:MM:SS`            | -838:59:59 до 838:59:59                            | 3 байта  |  
+| `YEAR`      | `YYYY`                | 1901 до 2155                                       | 1 байт   |  
+
+## Типы для хранения двоичных данных
+|                |                                                    |
+|----------------|----------------------------------------------------|
+| `BINARY(n)`    | Фиксированная длина двоичных данных                |
+| `VARBINARY(n)` | Переменная длина двоичных данных                   |
+| `TINYBLOB`     | до 255 байт                                        |
+| `BLOB`         | до 65,535 байт (Аналог `TEXT` для двоичных данных) |
+| `MEDIUMBLOB`   | до 16,777,215 байт                                 |
+| `LONGBLOB`     | до 4,294,967,295 байт                              |
+
+""",
+            },
             "PostgreSQL": {
                 "Типы данных": """
 # Числовые типы
@@ -22007,6 +22424,43 @@ $abcd$st'r$abcd$
 ![sql.png](Languages/SQL/sql.png)
 ![chshpart1.jpg](Languages/SQL/chshpart1.jpg)
 ![chshpart2.jpg](Languages/SQL/chshpart2.jpg)
+""",
+            "DESC и ASC": """
+**`DESC`** и **`ASC`** — это ключевые слова, используемые для
+указания порядка сортировки данных в запросах SQL в команде `ORDER BY`
+
+### `ASC` указывает сортировку по возрастанию _(по умолчанию)_
+  - "Ascending" — по возрастанию
+  - Сортирует данные от меньшего к большему
+  - Для чисел: от минимального значения к максимальному
+  - Для строк: от A до Z (в алфавитном порядке)
+  - Для дат: от самой ранней к самой поздней
+  - ```sql
+SELECT * FROM employees
+ORDER BY name;
+-- Эквивалентно ORDER BY name ASC;
+```
+
+### `DESC` указывает сортировку по убыванию
+  - "Descending" — по убыванию
+  - Сортирует данные от большего к меньшему
+  - Для чисел: от максимального значения к минимальному
+  - Для строк: от Z до A (в обратном алфавитном порядке)
+  - Для дат: от самой поздней к самой ранней
+  - ```sql
+SELECT * FROM employees
+ORDER BY salary DESC;
+```
+
+### Комбинированная сортировка
+Можно задавать разные порядки сортировки для нескольких столбцов
+```sql
+SELECT * FROM employees
+ORDER BY department ASC,
+         salary DESC;
+```
+Сначала сортирует по отделу в алфавитном порядке, затем внутри отдела по убыванию зарплаты
+
 """,
         },
         "Dockerfile": {
@@ -26824,45 +27278,6 @@ class Dict:
 """,
         },
         "Minecraft": {
-            "Colors": """
-| color name   |                                                                         | color | chat | hex code  | rgb           | motd       | decimal    |
-|--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|------------|------------|
-| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\\u00A74` | `11141120` |
-| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555` | `255 85 85`   | `\\u00A7c` | `16733525` |
-| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00` | `255 170 0`   | `\\u00A76` | `16755200` |
-| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55` | `255 255 85`  | `\\u00A7e` | `16777045` |
-| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55` | `0 170 0`     | `\\u00A7a` | `5635925`  |
-| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00` | `85 255 85`   | `\\u00A72` | `43520`    |
-| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF` | `85 255 255`  | `\\u00A7b` | `5636095`  |
-| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA` | `0 170 170`   | `\\u00A73` | `43690`    |
-| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF` | `0 0 170`     | `\\u00A79` | `5592575`  |
-| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA` | `85 85 255`   | `\\u00A71` | `170`      |
-| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF` | `255 85 255`  | `\\u00A7d` | `16733695` |
-| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA` | `170 0 170`   | `\\u00A75` | `11141290` |
-| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF` | `255 255 255` | `\\u00A7f` | `16777215` |
-| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA` | `170 170 170` | `\\u00A77` | `11184810` |
-| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\\u00A78` | `5592405`  |
-| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\\u00A70` | `0`        |
-
-|            |    |
-|------------|----|
-| color name | string code, mostly used banner and items
-| chat       | start with the `§` character, used for chat, books and signs
-| motd       | Used in the server config for setting message of the day
-| hex code   | paint color and web css colors
-| decimal    | used for nbt data tags, setting potion and leather armour colors
-
-| style         | chat   | motd       |
-|---------------|--------|------------|
-| Obfuscated    | `§k`   | `\\u00A7k` |
-| Bold          | `§l`   | `\\u00A7l` |
-| Strikethrough | `§m`   | `\\u00A7m` |
-| Underline     | `§n`   | `\\u00A7n` |
-| Italic        | `§o`   | `\\u00A7o` |
-| Reset         | `§r`   | `\\u00A7r` |
-
-![colors.png](Other/Minecraft/colors.png)
-""",
             "Server": {
                 "plugins": {
                     "LuckPerms": """
@@ -26912,6 +27327,48 @@ storage-method: MariaDB
 """,
                 },
             },
+            "Colors": """
+| color name   |                                                                         | color | chat | hex code  | rgb           | motd       | decimal    |
+|--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|------------|------------|
+| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\\u00A74` | `11141120` |
+| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555` | `255 85 85`   | `\\u00A7c` | `16733525` |
+| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00` | `255 170 0`   | `\\u00A76` | `16755200` |
+| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55` | `255 255 85`  | `\\u00A7e` | `16777045` |
+| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55` | `0 170 0`     | `\\u00A7a` | `5635925`  |
+| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00` | `85 255 85`   | `\\u00A72` | `43520`    |
+| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF` | `85 255 255`  | `\\u00A7b` | `5636095`  |
+| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA` | `0 170 170`   | `\\u00A73` | `43690`    |
+| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF` | `0 0 170`     | `\\u00A79` | `5592575`  |
+| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA` | `85 85 255`   | `\\u00A71` | `170`      |
+| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF` | `255 85 255`  | `\\u00A7d` | `16733695` |
+| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA` | `170 0 170`   | `\\u00A75` | `11141290` |
+| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF` | `255 255 255` | `\\u00A7f` | `16777215` |
+| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA` | `170 170 170` | `\\u00A77` | `11184810` |
+| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\\u00A78` | `5592405`  |
+| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\\u00A70` | `0`        |
+
+|            |    |
+|------------|----|
+| color name | string code, mostly used banner and items
+| chat       | start with the `§` character, used for chat, books and signs
+| motd       | Used in the server config for setting message of the day
+| hex code   | paint color and web css colors
+| decimal    | used for nbt data tags, setting potion and leather armour colors
+
+| style         | chat   | motd       |
+|---------------|--------|------------|
+| Obfuscated    | `§k`   | `\\u00A7k` |
+| Bold          | `§l`   | `\\u00A7l` |
+| Strikethrough | `§m`   | `\\u00A7m` |
+| Underline     | `§n`   | `\\u00A7n` |
+| Italic        | `§o`   | `\\u00A7o` |
+| Reset         | `§r`   | `\\u00A7r` |
+
+![colors.png](Other/Minecraft/colors.png)
+""",
+            "Circle Generator": """
+[plotz.co.uk](https://www.plotz.co.uk/)
+"""
         },
         "ChatGPT": {
             "Шпаргалки": """
