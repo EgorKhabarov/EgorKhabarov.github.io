@@ -1,6 +1,5 @@
 <p><strong><code>DESC</code></strong> и <strong><code>ASC</code></strong> — это ключевые слова, используемые для
 указания порядка сортировки данных в запросах SQL в команде <code>ORDER BY</code></p>
-<h1>Ключевые моменты</h1>
 <h3><code>ASC</code> указывает сортировку по возрастанию <em>(по умолчанию)</em></h3>
 <ul>
 <li>"Ascending" — по возрастанию</li>
