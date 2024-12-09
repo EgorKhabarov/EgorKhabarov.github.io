@@ -467,3 +467,15 @@ p {
   margin-block-start: 0.5em;
   margin-block-end: 0.5em;
 }
+
+
+
+
+.container-column {
+  display: flex;
+  flex-direction: column;
+}
+.container-row {
+  display: flex;
+  flex-direction: row;
+}
