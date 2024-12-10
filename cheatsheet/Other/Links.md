@@ -165,6 +165,14 @@
 <td>font</td>
 <td><a href="https://fonts.google.com/">https://fonts.google.com/</a></td>
 </tr>
+<tr>
+<td>MIME types</td>
+<td><a href="https://mimetype.io/all-types">https://mimetype.io/all-types</a></td>
+</tr>
+<tr>
+<td>Список MIME типов</td>
+<td><a href="https://ru.wikipedia.org/wiki/Список_MIME-типов">wikipedia</a></td>
+</tr>
 </tbody>
 </table>
 <h1>General</h1>

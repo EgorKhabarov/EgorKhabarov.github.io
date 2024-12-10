@@ -27478,13 +27478,15 @@ Runner.instance_.tRex.setJumpVelocity(10)
 
 # HTML
 
-|             |                                                                  |
-|-------------|------------------------------------------------------------------|
-| SVG         | [https://flowbite.com/icons/](https://flowbite.com/icons/)       |
-| codepen.io  | [https://codepen.io/](https://codepen.io/)                       |
-| svgrepo.com | [https://www.svgrepo.com/](https://www.svgrepo.com/)             |
-| SVG         | [https://fonts.google.com/icons](https://fonts.google.com/icons) |
-| font        | [https://fonts.google.com/](https://fonts.google.com/)           |
+|                   |                                                                  |
+|-------------------|------------------------------------------------------------------|
+| SVG               | [https://flowbite.com/icons/](https://flowbite.com/icons/)       |
+| codepen.io        | [https://codepen.io/](https://codepen.io/)                       |
+| svgrepo.com       | [https://www.svgrepo.com/](https://www.svgrepo.com/)             |
+| SVG               | [https://fonts.google.com/icons](https://fonts.google.com/icons) |
+| font              | [https://fonts.google.com/](https://fonts.google.com/)           |
+| MIME types        | [https://mimetype.io/all-types](https://mimetype.io/all-types)   |
+| Список MIME типов | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)     |
 
 
 # General
