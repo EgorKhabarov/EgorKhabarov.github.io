@@ -2486,6 +2486,172 @@ print("Last accessed time:", stat_info.st_atime)
 
 """,
                     },
+                    "io": """
+Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+
+io.StringIO() - создание в памяти строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+stream.seek(0)
+print(stream.read())  # Hello, world!
+```
+
+io.BytesIO() - создание в памяти потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+stream.seek(0)
+print(stream.read())  # b"Hello, world!"
+```
+
+io.open() - открытие файла в нужном режиме.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    f.write("Hello, world!")
+
+with io.open("example.txt", "r") as f:
+    print(f.read())  # Hello, world!
+```
+
+io.TextIOWrapper() - обертка для текстовых потоков.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Привет, мир!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Привет, мир!
+```
+
+io.BufferedWriter() - буферизированный записывающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedWriter(f)
+    writer.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.BufferedReader() - буферизированный читающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    f.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.FileIO() - создание потока для работы с файлом в бинарном режиме.
+
+```python
+import io
+
+with io.FileIO("example.txt", "w") as f:
+    f.write(b"Hello, world!")
+
+with io.FileIO("example.txt", "r") as f:
+    print(f.read())  # b"Hello, world!"
+```
+
+io.TextIOBase() - базовый класс для всех текстовых потоков.
+
+```python
+import io
+
+class UpperTextIO(io.TextIOBase):
+    def __init__(self, stream):
+        self._stream = stream
+
+    def write(self, text):
+        self._stream.write(text.upper())
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    upper_wrapper = UpperTextIO(wrapper)
+    upper_wrapper.write("hello, world!")
+    wrapper.flush()
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # HELLO, WORLD!
+```
+
+io.StringIO.getvalue() - получение содержимого из строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+print(stream.getvalue())  # Hello, world!
+```
+
+io.BytesIO.getvalue() - получение содержимого из потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+print(stream.getvalue())  # b"Hello, world!"
+```
+
+io.TextIOWrapper.detach() - отсоединение потока от обертки.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Hello, world!")
+    stream = wrapper.detach()
+    stream.write(b"!!!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Hello, world!!!
+```
+
+io.BufferedRandom() - буферизированный поток с произвольным доступом.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedRandom(f)
+    writer.write(b"Hello, world!")
+    writer.flush()
+    writer.seek(-6, io.SEEK_CUR)
+    writer.write(b"Python!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, Python!"
+```
+""",
                     "sys": r"""
 Этот модуль предоставляет доступ к некоторым объектам, используемым или поддерживаемым
 интерпретатором, и к функциям, которые тесно взаимодействуют с интерпретатором.
@@ -3991,171 +4157,185 @@ signal.pause()
 убедитесь, что обработка сигналов не нарушает работу приложения.
 
 """,
-                    "io": """
-Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+                    "watchdog": r"""
+`watchdog` — это Python-библиотека для мониторинга изменений в файловой системе.
+Она позволяет отслеживать создание, удаление, модификацию файлов и папок, а также их перемещение.
 
-io.StringIO() - создание в памяти строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-stream.seek(0)
-print(stream.read())  # Hello, world!
+```bash
+pip install watchdog
 ```
 
-io.BytesIO() - создание в памяти потока байт.
+| Класс / Метод                                 | Описание                                                       |
+|-----------------------------------------------|----------------------------------------------------------------|
+| `Observer`                                    | Основной класс для запуска наблюдения за файловой системой     |
+| `Observer.schedule(handler, path, recursive)` | Назначает обработчик событий для указанного пути               |
+| `Observer.start()`                            | Запускает наблюдение                                           |
+| `Observer.stop()`                             | Останавливает наблюдение                                       |
+| `Observer.join()`                             | Блокирует поток до завершения наблюдения                       |
+| `FileSystemEventHandler`                      | Базовый класс для создания обработчиков событий                |
+| `on_created(event)`                           | Вызывается при создании файла или директории                   |
+| `on_deleted(event)`                           | Вызывается при удалении файла или директории                   |
+| `on_modified(event)`                          | Вызывается при изменении файла или директории                  |
+| `on_moved(event)`                             | Вызывается при перемещении/переименовании файла или директории |
+| `LoggingEventHandler`                         | Встроенный обработчик для логирования всех событий             |
+| `PatternMatchingEventHandler`                 | Обработчик событий с поддержкой фильтрации по шаблонам         |
+| `ignore_patterns`                             | Список шаблонов, которые нужно игнорировать                    |
+| `patterns`                                    | Список шаблонов для отслеживания (например, `["*.txt"]`)       |
 
+### Наблюдение за папкой
 ```python
-import io
+import time
 
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-stream.seek(0)
-print(stream.read())  # b"Hello, world!"
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+
+class MyHandler(FileSystemEventHandler):
+    def on_created(self, event):
+        print(f"Создан: {event.src_path}")
+
+    def on_deleted(self, event):
+        print(f"Удален: {event.src_path}")
+
+    def on_modified(self, event):
+        print(f"Изменен: {event.src_path}")
+
+    def on_moved(self, event):
+        print(f"Перемещен: {event.src_path} -> {event.dest_path}")
+
+
+path = "./watch_folder"
+event_handler = MyHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.open() - открытие файла в нужном режиме.
-
+### Логирование изменений в папке
 ```python
-import io
+import time
 
-with io.open("example.txt", "w") as f:
-    f.write("Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import LoggingEventHandler
 
-with io.open("example.txt", "r") as f:
-    print(f.read())  # Hello, world!
+
+path = "./watch_folder"
+event_handler = LoggingEventHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.TextIOWrapper() - обертка для текстовых потоков.
-
+### Использование фильтров с `PatternMatchingEventHandler`
 ```python
-import io
+import time
 
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Привет, мир!")
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Привет, мир!
+
+class MyHandler(PatternMatchingEventHandler):
+    def __init__(self):
+        super().__init__(patterns=["*.txt"], ignore_patterns=["*.log"], ignore_directories=False)
+
+    def on_created(self, event):
+        print(f"Текстовый файл создан: {event.src_path}")
+
+
+path = "./watch_folder"
+event_handler = MyHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.BufferedWriter() - буферизированный записывающий поток.
-
+### Отслеживание изменений в нескольких папках
 ```python
-import io
+import time
 
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedWriter(f)
-    writer.write(b"Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
+
+class MyHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        print(f"Изменен: {event.src_path}")
+
+
+paths = ["./folder1", "./folder2"]
+observer = Observer()
+
+for path in paths:
+    observer.schedule(MyHandler(), path, recursive=True)
+
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.BufferedReader() - буферизированный читающий поток.
-
+### Обработка больших директорий с буферизацией
 ```python
-import io
+import time
 
-with io.open("example.txt", "wb") as f:
-    f.write(b"Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
+
+class BufferedHandler(FileSystemEventHandler):
+    def __init__(self):
+        self.events = []
+
+    def on_modified(self, event):
+        self.events.append(f"Изменен: {event.src_path}")
+        if len(self.events) >= 10:
+            self.flush()
+
+    def flush(self):
+        print("\n".join(self.events))
+        self.events.clear()
+
+
+path = "./watch_folder"
+event_handler = BufferedHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.FileIO() - создание потока для работы с файлом в бинарном режиме.
-
-```python
-import io
-
-with io.FileIO("example.txt", "w") as f:
-    f.write(b"Hello, world!")
-
-with io.FileIO("example.txt", "r") as f:
-    print(f.read())  # b"Hello, world!"
-```
-
-io.TextIOBase() - базовый класс для всех текстовых потоков.
-
-```python
-import io
-
-class UpperTextIO(io.TextIOBase):
-    def __init__(self, stream):
-        self._stream = stream
-
-    def write(self, text):
-        self._stream.write(text.upper())
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    upper_wrapper = UpperTextIO(wrapper)
-    upper_wrapper.write("hello, world!")
-    wrapper.flush()
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # HELLO, WORLD!
-```
-
-io.StringIO.getvalue() - получение содержимого из строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-print(stream.getvalue())  # Hello, world!
-```
-
-io.BytesIO.getvalue() - получение содержимого из потока байт.
-
-```python
-import io
-
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-print(stream.getvalue())  # b"Hello, world!"
-```
-
-io.TextIOWrapper.detach() - отсоединение потока от обертки.
-
-```python
-import io
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Hello, world!")
-    stream = wrapper.detach()
-    stream.write(b"!!!")
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Hello, world!!!
-```
-
-io.BufferedRandom() - буферизированный поток с произвольным доступом.
-
-```python
-import io
-
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedRandom(f)
-    writer.write(b"Hello, world!")
-    writer.flush()
-    writer.seek(-6, io.SEEK_CUR)
-    writer.write(b"Python!")
-
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, Python!"
-```
+[https://habr.com/ru/articles/140649/](https://habr.com/ru/articles/140649/)
 """,
                 },
                 "Data types": {
@@ -27409,16 +27589,21 @@ You can control how high the dino jumps by using the below function. Adjust the 
 ```javascript
 Runner.instance_.tRex.setJumpVelocity(10)
 ```
+
+```javascript
+Runner.prototype.gameOver = function(){}
+Runner.instance_.setSpeed(1000)
+```
 """,
         "Alt Symbols": """
 
 | Символ | Код  |
-|-------:|:-----|
-| `§`    | 21   |
-| `…`    | 0133 |
-| `¹`    | 0185 |
-| `²`    | 0178 |
-| `³`    | 0179 |
+|:------:|:-----|
+|  `§`   | 21   |
+|  `…`   | 0133 |
+|  `¹`   | 0185 |
+|  `²`   | 0178 |
+|  `³`   | 0179 |
 
 """,
         "Links": """
@@ -27487,6 +27672,7 @@ Runner.instance_.tRex.setJumpVelocity(10)
 | font              | [https://fonts.google.com/](https://fonts.google.com/)           |
 | MIME types        | [https://mimetype.io/all-types](https://mimetype.io/all-types)   |
 | Список MIME типов | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)     |
+| HTTP headers      | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
 
 
 # General

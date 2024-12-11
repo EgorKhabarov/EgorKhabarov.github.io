@@ -479,6 +479,9 @@
   "Languages/Python/Libraries/System/sys.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/watchdog.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/os/os.path.md": {
     "color": "green"
   },
