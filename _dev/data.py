@@ -4964,8 +4964,8 @@ else:
 | `inf`             | Положительная бесконечность `float("inf")`                                                                                     | `inf`                                            |
 | `isclose(a, b)`   | Проверяет, близки ли два числа `a` и `b` с учётом относительной и абсолютной точности                                          | `math.isclose(0.1 + 0.2, 0.3)`  # True           |
 | `isfinite(x)`     | Возвращает `True`, если число конечно (не бесконечное и не `NaN`)                                                              | `math.isfinite(1.0)`  # True                     |
-| `isinf(x)`        | Возвращает `True`, если число бесконечное                                                                                      | `math.isinf(float('inf'))`  # True               |
-| `isnan(x)`        | Возвращает `True`, если число не является числом (`NaN`)                                                                       | `math.isnan(float('nan'))`  # True               |
+| `isinf(x)`        | Возвращает `True`, если число бесконечное                                                                                      | `math.isinf(float("inf"))`  # True               |
+| `isnan(x)`        | Возвращает `True`, если число не является числом (`NaN`)                                                                       | `math.isnan(float("nan"))`  # True               |
 | `isqrt(n)`        | **(В Python 3.8+)** Возвращает целочисленный квадратный корень                                                                 | `math.isqrt(16)`  # 4                            |
 | `lcm(*args)`      | **(В Python 3.9+)** Возвращает наименьшее общее кратное всех переданных аргументов                                             | `math.lcm(4, 6)`  # 12                           |
 | `ldexp(x, i)`     | Возвращает `x * (2**i)`                                                                                                        | `math.ldexp(1.5, 2)`  # 6.0                      |
@@ -4975,7 +4975,7 @@ else:
 | `log1p(x)`        | Возвращает `log(1 + x)` с высокой точностью для малых значений `x`                                                             | `math.log1p(0.0001)`  # 0.00009999500033334777   |
 | `log2(x)`         | Возвращает логарифм по основанию 2                                                                                             | `math.log2(8)`  # 3.0                            |
 | `modf(x)`         | Возвращает кортеж из дробной и целой части                                                                                     | `math.modf(3.14)`  # (0.14000000000000012, 3.0)  |
-| `nan`             | Представление "Не число" (`NaN`) `float('nan')`                                                                                | `print(math.nan)`  # nan                         |
+| `nan`             | Представление "Не число" (`NaN`) `float("nan")`                                                                                | `print(math.nan)`  # nan                         |
 | `nextafter(x, y)` | Возвращает ближайшее число к `x`, направленное в сторону `y`                                                                   | `math.nextafter(1.0, 2.0)`  # 1.0000000000000002 |
 | `perm(n, k)`      | **(В Python 3.8+)** Возвращает число перестановок из `n` по `k`                                                                | `math.perm(5, 2)`  # 20                          |
 | `pi`              | Константа π (приблизительно 3.141592653589793)                                                                                 | `print(math.pi)`  # 3.141592653589793            |
@@ -6827,7 +6827,7 @@ def whitespace_example():
     'text with    spaces'
     # doctest: +NORMALIZE_WHITESPACE
     """
-    return 'text with    spaces'
+    return "text with    spaces"
 ```
 
 ### FAIL_FAST
@@ -6857,7 +6857,7 @@ def diff_report():
     'Hello World'
     # doctest: +REPORT_NDIFF
     """
-    return 'Hello world'
+    return "Hello world"
 ```
 
 ### REPORT_ONLY_FIRST_FAILURE
@@ -6886,7 +6886,7 @@ def allow_unicode():
     'тест'
     # doctest: +ALLOW_UNICODE
     """
-    return 'тест'
+    return "тест"
 ```
 
 ### ALLOW_BYTES
@@ -6901,7 +6901,7 @@ def allow_bytes():
     b'hello'
     # doctest: +ALLOW_BYTES
     """
-    return b'hello'
+    return b"hello"
 ```
 
 ### FLOAT_CMP
@@ -6960,7 +6960,7 @@ def combined_flags():
     'This is a long string ...'
     # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
     """
-    return 'This is a long string with unnecessary    spaces'
+    return "This is a long string with unnecessary    spaces"
 ```
 
 ## Запуск doctest с флагами
@@ -7050,13 +7050,13 @@ class LinkedList:
 ```python
 class LinkedList:
     data: Any
-    next: 'LinkedList'
+    next: "LinkedList"
 ```
 
 Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
 
 ```python
-some_variable: 'somemodule.SomeClass'
+some_variable: "somemodule.SomeClass"
 ```
 
 или
@@ -9913,7 +9913,7 @@ pip install mypy
 
 ```python
 def greeting(name: str) -> str:
-    return 'Hello ' + name
+    return "Hello " + name
 ```
 
 Здесь `name` — строка (`str`), и функция должна возвращать строку.
@@ -10272,12 +10272,12 @@ class TestClassB(unittest.TestCase):
 # Создание тестовой группы
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(TestClassA('test_case_a'))
-    suite.addTest(TestClassB('test_case_b'))
+    suite.addTest(TestClassA("test_case_a"))
+    suite.addTest(TestClassB("test_case_b"))
     return suite
 
 # Запуск тестов
-if __name__ == '__main__':
+if __name__ == "__main__":
     runner = unittest.TextTestRunner()
     runner.run(suite())
 ```
@@ -12578,14 +12578,14 @@ template.render(name="John Doe") == u"Hello John Doe!"
 Это удобно для повторного использования небольших блоков `HTML`,
 таких как заголовки, подвал сайта или навигационные меню.
 ```jinja
-{% include 'header.html' %}
+{% include "header.html" %}
 <p>Main content goes here.</p>
-{% include 'footer.html' %}
+{% include "footer.html" %}
 ```
 При использовании `{% include %}` можно также передавать переменные в включаемый шаблон.
   - **Импорт макросов**: Позволяет импортировать макросы из других шаблонов для повторного использования кода.
 ```jinja
-{% from 'macros.html' import render_item %}
+{% from "macros.html" import render_item %}
 <div>
     {{ render_item(item) }}
 </div>
@@ -13188,9 +13188,9 @@ root.mainloop()
 | `pack()`                  | Размещает виджет на родительском виджете с помощью менеджера геометрии "pack" | `widget.pack()`                      |
 | `grid()`                  | Размещает виджет с помощью менеджера геометрии "grid"                         | `widget.grid(row=0, column=0)`       |
 | `place()`                 | Размещает виджет с помощью менеджера геометрии "place"                        | `widget.place(x=50, y=50)`           |
-| `config()` / `configure()`| Позволяет изменить параметры виджета после его создания                       | `widget.config(bg='red')`            |
+| `config()` / `configure()`| Позволяет изменить параметры виджета после его создания                       | `widget.config(bg="red")`            |
 | `bind(event, handler)`    | Привязывает событие к виджету (например, щелчок мышью или нажатие клавиши)    | `widget.bind("<Button-1>", handler)` |
-| `cget(option)`            | Возвращает текущее значение указанного параметра виджета                      | `widget.cget('text')`                |
+| `cget(option)`            | Возвращает текущее значение указанного параметра виджета                      | `widget.cget("text")`                |
 | `destroy()`               | Уничтожает виджет                                                             | `widget.destroy()`                   |
 
 ### Button
@@ -13211,16 +13211,16 @@ root.mainloop()
 | Метод                | Описание                                  | Пример использования       |
 |----------------------|-------------------------------------------|----------------------------|
 | `get()`              | Возвращает текущий текст в поле ввода     | `entry.get()`              |
-| `delete(start, end)` | Удаляет текст от позиции `start` до `end` | `entry.delete(0, 'end')`   |
+| `delete(start, end)` | Удаляет текст от позиции `start` до `end` | `entry.delete(0, "end")`   |
 | `insert(index, text)`| Вставляет текст в указанную позицию       | `entry.insert(0, "Текст")` |
 
 ### Text
 
 | Метод                 | Описание                                 | Пример использования          |
 |-----------------------|------------------------------------------|-------------------------------|
-| `get(start, end)`     | Возвращает текст из указанного диапазона | `text.get("1.0", 'end')`      |
-| `insert(index, text)` | Вставляет текст в указанную позицию      | `text.insert('1.0', "Текст")` |
-| `delete(start, end)`  | Удаляет текст из указанного диапазона    | `text.delete("1.0", 'end')`   |
+| `get(start, end)`     | Возвращает текст из указанного диапазона | `text.get("1.0", "end")`      |
+| `insert(index, text)` | Вставляет текст в указанную позицию      | `text.insert("1.0", "Текст")` |
+| `delete(start, end)`  | Удаляет текст из указанного диапазона    | `text.delete("1.0", "end")`   |
 
 ### Canvas
 
@@ -15988,7 +15988,7 @@ class MyClass(metaclass=CustomMeta):
 | `__closure__`     | Кортеж объектов `cell`, хранящих значения переменных,<br>захваченных замыканием (если функция использует замыкания) | `func.__closure__[0].cell_contents`               |
 | `__module__`      | Имя модуля, в котором определена функция.<br>Полезно для понимания контекста определения функции                | `func.__module__`                                  |
 | `__annotations__` | Словарь с аннотациями типов для аргументов функции и возвращаемого значения                                | `func.__annotations__`                             |
-| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля           | `func.__globals__['variable_name']`                |
+| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля           | `func.__globals__["variable_name"]`                |
 | `__defaults__`    | Кортеж значений по умолчанию для позиционных<br>и именованных аргументов функции (если они определены)          | `func.__defaults__`                                |
 | `__kwdefaults__`  | Словарь значений по умолчанию для только ключевых аргументов функции (если они определены)                  | `func.__kwdefaults__`                              |
 | `__qualname__`    | Полное имя функции, включая контексты, такие как класс или модуль, в котором она определена                  | `func.__qualname__`                                |
@@ -18510,7 +18510,7 @@ except ExceptionGroup as eg:
 Произошло 3 исключений:
 - ValueError: Некорректное значение
 - TypeError: Неверный тип данных
-- KeyError: 'Ключ не найден'
+- KeyError: "Ключ не найден"
 ```
 
 </details>
@@ -21739,7 +21739,7 @@ SQLite supports seven scalar date and time functions as follows:
 | `unixepoch(...)` | `CAST(strftime('%s', ...) as INT)`  |
 
 ```sql
-SELECT timediff('2023-02-15','2023-03-15');
+SELECT timediff('2023-02-15', '2023-03-15');
 ```
 
 ## Time Values
@@ -27000,7 +27000,7 @@ with open("data.csv", "r", encoding="UTF-8") as file:
     SQL(
         f"""
 CREATE TABLE table_name (
-    {', '.join([f"{column} TEXT" for column in column_names])}
+    {", ".join([f"{column} TEXT" for column in column_names])}
 );
 """,
         commit=True,
@@ -27009,10 +27009,10 @@ CREATE TABLE table_name (
         SQL(
             f"""
 INSERT INTO table_name (
-    {', '.join(column_names)}
+    {", ".join(column_names)}
 )
 VALUES (
-    {', '.join([f'"{column}"' for column in row])}
+    {", ".join([f'"{column}"' for column in row])}
 )
 """,
             commit=True,
@@ -27447,7 +27447,7 @@ class Dict:
         return self.__class__(self.d.get(item))
 
     def __setattr__(self, name, value):
-        if name == 'd':
+        if name == "d":
             super().__setattr__(name, value)
         else:
             self.d[name] = value
