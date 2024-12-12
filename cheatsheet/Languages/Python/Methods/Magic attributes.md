@@ -30,7 +30,7 @@
 <tr>
 <td><code>__globals__</code></td>
 <td>Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то <code>func.__globals__</code> будет ссылаться<br>на глобальный символический словарь этого модуля</td>
-<td><code>func.__globals__['variable_name']</code></td>
+<td><code>func.__globals__["variable_name"]</code></td>
 </tr>
 <tr>
 <td><code>__defaults__</code></td>

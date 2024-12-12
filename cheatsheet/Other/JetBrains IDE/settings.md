@@ -1,0 +1,183 @@
+<h1>Keymap</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Editor Actions</code> <code>Delete Line</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Editor Actions</code> <code>Extend Selection</code></td>
+<td><code>Ctrl</code>+<code>S</code></td>
+</tr>
+<tr>
+<td><code>Editor Actions</code> <code>Column Selection Mode</code></td>
+<td><code>Alt</code>+<code>S</code></td>
+</tr>
+<tr>
+<td><code>Editor Actions</code> <code>Add or Remove Caret</code></td>
+<td><code>Alt</code>+<code>Click</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>File</code> <code>File Open Actions</code> <code>New…</code></td>
+<td><code>Ctrl</code>+<code>T</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>File</code> <code>File Open Actions</code> <code>Scratch File</code></td>
+<td><code>Ctrl</code>+<code>Shift</code>+<code>T</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Redo</code></td>
+<td><code>Ctrl</code>+<code>Y</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Find</code> <code>Find Next / Move to Next Occurrence</code></td>
+<td><code>Alt</code>+<code>.</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Find</code> <code>Find Previous / Move to Previous Occurrence</code></td>
+<td><code>Alt</code>+<code>Comma</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Find</code> <code>Select All Occurrences</code></td>
+<td><code>Alt</code>+<code>M</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Column Selection Mode</code></td>
+<td><code>Alt</code>+<code>S</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Edit</code> <code>Editor Select Actions</code> <code>Select Word Actions</code> <code>Extend Selection</code></td>
+<td><code>Ctrl</code>+<code>S</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>View</code> <code>Appearance</code> <code>Toggle Presentation mode</code></td>
+<td><code>Alt</code>+<code>P</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Navigate</code> <code>Goto by Reference Actions</code> <code>Go to Test</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Refactor</code> <code>Rename…</code></td>
+<td><code>Alt</code>+<code>R</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Run</code> <code>Run/Debug</code> <code>Run</code></td>
+<td><code>Alt</code>+<code>X</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Run</code> <code>Run/Debug</code> <code>Debug</code></td>
+<td><code>Alt</code>+<code>Z</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Run</code> <code>Run…</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Run</code> <code>Stop</code></td>
+<td><code>Alt</code>+<code>C</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Git</code> <code>VCS Group</code> <code>Update Project</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Git</code> <code>Update Project</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Window</code> <code>Active Tool Window</code> <code>Close Active Tab</code></td>
+<td><code>Ctrl</code>+<code>W</code></td>
+</tr>
+<tr>
+<td><code>Main Menu</code> <code>Window</code> <code>Editor Tabs</code> <code>Editor Close Actions</code> <code>Close Tab</code></td>
+<td><code>Ctrl</code>+<code>W</code></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>BookMarks</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Commit</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Debug</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Find</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Problems</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Project</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Run</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Services</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Structure</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Tool Windows</code> <code>Git</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Version Control Systems</code> <code>Diff &amp; Merge/Next Difference</code></td>
+<td><code>Alt</code>+<code>.</code></td>
+</tr>
+<tr>
+<td><code>Version Control Systems</code> <code>Diff &amp; Merge/Previous Difference</code></td>
+<td><code>Alt</code>+<code>Comma</code></td>
+</tr>
+<tr>
+<td><code>Version Control Systems</code> <code>Amend Commit</code></td>
+<td><code>Ctrl</code>+<code>K</code></td>
+</tr>
+<tr>
+<td><code>Version Control Systems</code> <code>Update Project</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Editor</h1>
+<h2>Font</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Size</code></td>
+<td><code>10.0</code></td>
+</tr>
+<tr>
+<td><code>Line</code></td>
+<td><code>1.0</code></td>
+</tr>
+<tr>
+<td><code>Enable Ligatures</code></td>
+<td><input type="checkbox" checked></td>
+</tr>
+</tbody>
+</table>

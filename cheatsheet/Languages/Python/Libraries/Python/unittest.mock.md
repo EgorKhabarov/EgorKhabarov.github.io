@@ -162,12 +162,12 @@
 <span class="c1"># Создание тестовой группы</span>
 <span class="k">def</span> <span class="nf">suite</span><span class="p">():</span>
     <span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestSuite</span><span class="p">()</span>
-    <span class="n">suite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">TestClassA</span><span class="p">(</span><span class="s1">&#39;test_case_a&#39;</span><span class="p">))</span>
-    <span class="n">suite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">TestClassB</span><span class="p">(</span><span class="s1">&#39;test_case_b&#39;</span><span class="p">))</span>
+    <span class="n">suite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">TestClassA</span><span class="p">(</span><span class="s2">&quot;test_case_a&quot;</span><span class="p">))</span>
+    <span class="n">suite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">TestClassB</span><span class="p">(</span><span class="s2">&quot;test_case_b&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">suite</span>
 
 <span class="c1"># Запуск тестов</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">runner</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">()</span>
     <span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">())</span>
 </pre></div></div></div>

@@ -32,7 +32,7 @@
 <span class="sd">    &#39;text with    spaces&#39;</span>
 <span class="sd">    # doctest: +NORMALIZE_WHITESPACE</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;text with    spaces&#39;</span>
+    <span class="k">return</span> <span class="s2">&quot;text with    spaces&quot;</span>
 </pre></div></div></div>
 
 <h3>FAIL_FAST</h3>
@@ -60,7 +60,7 @@
 <span class="sd">    &#39;Hello World&#39;</span>
 <span class="sd">    # doctest: +REPORT_NDIFF</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello world&#39;</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello world&quot;</span>
 </pre></div></div></div>
 
 <h3>REPORT_ONLY_FIRST_FAILURE</h3>
@@ -87,7 +87,7 @@
 <span class="sd">    &#39;тест&#39;</span>
 <span class="sd">    # doctest: +ALLOW_UNICODE</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;тест&#39;</span>
+    <span class="k">return</span> <span class="s2">&quot;тест&quot;</span>
 </pre></div></div></div>
 
 <h3>ALLOW_BYTES</h3>
@@ -101,7 +101,7 @@
 <span class="sd">    b&#39;hello&#39;</span>
 <span class="sd">    # doctest: +ALLOW_BYTES</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="sa">b</span><span class="s1">&#39;hello&#39;</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;hello&quot;</span>
 </pre></div></div></div>
 
 <h3>FLOAT_CMP</h3>
@@ -157,7 +157,7 @@
 <span class="sd">    &#39;This is a long string ...&#39;</span>
 <span class="sd">    # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;This is a long string with unnecessary    spaces&#39;</span>
+    <span class="k">return</span> <span class="s2">&quot;This is a long string with unnecessary    spaces&quot;</span>
 </pre></div></div></div>
 
 <h2>Запуск doctest с флагами</h2>

@@ -2486,6 +2486,172 @@ print("Last accessed time:", stat_info.st_atime)
 
 """,
                     },
+                    "io": """
+Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+
+io.StringIO() - создание в памяти строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+stream.seek(0)
+print(stream.read())  # Hello, world!
+```
+
+io.BytesIO() - создание в памяти потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+stream.seek(0)
+print(stream.read())  # b"Hello, world!"
+```
+
+io.open() - открытие файла в нужном режиме.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    f.write("Hello, world!")
+
+with io.open("example.txt", "r") as f:
+    print(f.read())  # Hello, world!
+```
+
+io.TextIOWrapper() - обертка для текстовых потоков.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Привет, мир!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Привет, мир!
+```
+
+io.BufferedWriter() - буферизированный записывающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedWriter(f)
+    writer.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.BufferedReader() - буферизированный читающий поток.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    f.write(b"Hello, world!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, world!"
+```
+
+io.FileIO() - создание потока для работы с файлом в бинарном режиме.
+
+```python
+import io
+
+with io.FileIO("example.txt", "w") as f:
+    f.write(b"Hello, world!")
+
+with io.FileIO("example.txt", "r") as f:
+    print(f.read())  # b"Hello, world!"
+```
+
+io.TextIOBase() - базовый класс для всех текстовых потоков.
+
+```python
+import io
+
+class UpperTextIO(io.TextIOBase):
+    def __init__(self, stream):
+        self._stream = stream
+
+    def write(self, text):
+        self._stream.write(text.upper())
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    upper_wrapper = UpperTextIO(wrapper)
+    upper_wrapper.write("hello, world!")
+    wrapper.flush()
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # HELLO, WORLD!
+```
+
+io.StringIO.getvalue() - получение содержимого из строкового потока.
+
+```python
+import io
+
+stream = io.StringIO()
+stream.write("Hello, world!")
+print(stream.getvalue())  # Hello, world!
+```
+
+io.BytesIO.getvalue() - получение содержимого из потока байт.
+
+```python
+import io
+
+stream = io.BytesIO()
+stream.write(b"Hello, world!")
+print(stream.getvalue())  # b"Hello, world!"
+```
+
+io.TextIOWrapper.detach() - отсоединение потока от обертки.
+
+```python
+import io
+
+with io.open("example.txt", "w") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    wrapper.write("Hello, world!")
+    stream = wrapper.detach()
+    stream.write(b"!!!")
+
+with io.open("example.txt", "r") as f:
+    wrapper = io.TextIOWrapper(f, encoding="utf-8")
+    print(wrapper.read())  # Hello, world!!!
+```
+
+io.BufferedRandom() - буферизированный поток с произвольным доступом.
+
+```python
+import io
+
+with io.open("example.txt", "wb") as f:
+    writer = io.BufferedRandom(f)
+    writer.write(b"Hello, world!")
+    writer.flush()
+    writer.seek(-6, io.SEEK_CUR)
+    writer.write(b"Python!")
+
+with io.open("example.txt", "rb") as f:
+    reader = io.BufferedReader(f)
+    print(reader.read())  # b"Hello, Python!"
+```
+""",
                     "sys": r"""
 Этот модуль предоставляет доступ к некоторым объектам, используемым или поддерживаемым
 интерпретатором, и к функциям, которые тесно взаимодействуют с интерпретатором.
@@ -3991,171 +4157,185 @@ signal.pause()
 убедитесь, что обработка сигналов не нарушает работу приложения.
 
 """,
-                    "io": """
-Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+                    "watchdog": r"""
+`watchdog` — это Python-библиотека для мониторинга изменений в файловой системе.
+Она позволяет отслеживать создание, удаление, модификацию файлов и папок, а также их перемещение.
 
-io.StringIO() - создание в памяти строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-stream.seek(0)
-print(stream.read())  # Hello, world!
+```bash
+pip install watchdog
 ```
 
-io.BytesIO() - создание в памяти потока байт.
+| Класс / Метод                                 | Описание                                                       |
+|-----------------------------------------------|----------------------------------------------------------------|
+| `Observer`                                    | Основной класс для запуска наблюдения за файловой системой     |
+| `Observer.schedule(handler, path, recursive)` | Назначает обработчик событий для указанного пути               |
+| `Observer.start()`                            | Запускает наблюдение                                           |
+| `Observer.stop()`                             | Останавливает наблюдение                                       |
+| `Observer.join()`                             | Блокирует поток до завершения наблюдения                       |
+| `FileSystemEventHandler`                      | Базовый класс для создания обработчиков событий                |
+| `on_created(event)`                           | Вызывается при создании файла или директории                   |
+| `on_deleted(event)`                           | Вызывается при удалении файла или директории                   |
+| `on_modified(event)`                          | Вызывается при изменении файла или директории                  |
+| `on_moved(event)`                             | Вызывается при перемещении/переименовании файла или директории |
+| `LoggingEventHandler`                         | Встроенный обработчик для логирования всех событий             |
+| `PatternMatchingEventHandler`                 | Обработчик событий с поддержкой фильтрации по шаблонам         |
+| `ignore_patterns`                             | Список шаблонов, которые нужно игнорировать                    |
+| `patterns`                                    | Список шаблонов для отслеживания (например, `["*.txt"]`)       |
 
+### Наблюдение за папкой
 ```python
-import io
+import time
 
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-stream.seek(0)
-print(stream.read())  # b"Hello, world!"
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+
+class MyHandler(FileSystemEventHandler):
+    def on_created(self, event):
+        print(f"Создан: {event.src_path}")
+
+    def on_deleted(self, event):
+        print(f"Удален: {event.src_path}")
+
+    def on_modified(self, event):
+        print(f"Изменен: {event.src_path}")
+
+    def on_moved(self, event):
+        print(f"Перемещен: {event.src_path} -> {event.dest_path}")
+
+
+path = "./watch_folder"
+event_handler = MyHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.open() - открытие файла в нужном режиме.
-
+### Логирование изменений в папке
 ```python
-import io
+import time
 
-with io.open("example.txt", "w") as f:
-    f.write("Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import LoggingEventHandler
 
-with io.open("example.txt", "r") as f:
-    print(f.read())  # Hello, world!
+
+path = "./watch_folder"
+event_handler = LoggingEventHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.TextIOWrapper() - обертка для текстовых потоков.
-
+### Использование фильтров с `PatternMatchingEventHandler`
 ```python
-import io
+import time
 
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Привет, мир!")
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Привет, мир!
+
+class MyHandler(PatternMatchingEventHandler):
+    def __init__(self):
+        super().__init__(patterns=["*.txt"], ignore_patterns=["*.log"], ignore_directories=False)
+
+    def on_created(self, event):
+        print(f"Текстовый файл создан: {event.src_path}")
+
+
+path = "./watch_folder"
+event_handler = MyHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.BufferedWriter() - буферизированный записывающий поток.
-
+### Отслеживание изменений в нескольких папках
 ```python
-import io
+import time
 
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedWriter(f)
-    writer.write(b"Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
+
+class MyHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        print(f"Изменен: {event.src_path}")
+
+
+paths = ["./folder1", "./folder2"]
+observer = Observer()
+
+for path in paths:
+    observer.schedule(MyHandler(), path, recursive=True)
+
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.BufferedReader() - буферизированный читающий поток.
-
+### Обработка больших директорий с буферизацией
 ```python
-import io
+import time
 
-with io.open("example.txt", "wb") as f:
-    f.write(b"Hello, world!")
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, world!"
+
+class BufferedHandler(FileSystemEventHandler):
+    def __init__(self):
+        self.events = []
+
+    def on_modified(self, event):
+        self.events.append(f"Изменен: {event.src_path}")
+        if len(self.events) >= 10:
+            self.flush()
+
+    def flush(self):
+        print("\n".join(self.events))
+        self.events.clear()
+
+
+path = "./watch_folder"
+event_handler = BufferedHandler()
+observer = Observer()
+observer.schedule(event_handler, path, recursive=True)
+observer.start()
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    observer.stop()
+observer.join()
 ```
 
-io.FileIO() - создание потока для работы с файлом в бинарном режиме.
-
-```python
-import io
-
-with io.FileIO("example.txt", "w") as f:
-    f.write(b"Hello, world!")
-
-with io.FileIO("example.txt", "r") as f:
-    print(f.read())  # b"Hello, world!"
-```
-
-io.TextIOBase() - базовый класс для всех текстовых потоков.
-
-```python
-import io
-
-class UpperTextIO(io.TextIOBase):
-    def __init__(self, stream):
-        self._stream = stream
-
-    def write(self, text):
-        self._stream.write(text.upper())
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    upper_wrapper = UpperTextIO(wrapper)
-    upper_wrapper.write("hello, world!")
-    wrapper.flush()
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # HELLO, WORLD!
-```
-
-io.StringIO.getvalue() - получение содержимого из строкового потока.
-
-```python
-import io
-
-stream = io.StringIO()
-stream.write("Hello, world!")
-print(stream.getvalue())  # Hello, world!
-```
-
-io.BytesIO.getvalue() - получение содержимого из потока байт.
-
-```python
-import io
-
-stream = io.BytesIO()
-stream.write(b"Hello, world!")
-print(stream.getvalue())  # b"Hello, world!"
-```
-
-io.TextIOWrapper.detach() - отсоединение потока от обертки.
-
-```python
-import io
-
-with io.open("example.txt", "w") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    wrapper.write("Hello, world!")
-    stream = wrapper.detach()
-    stream.write(b"!!!")
-
-with io.open("example.txt", "r") as f:
-    wrapper = io.TextIOWrapper(f, encoding="utf-8")
-    print(wrapper.read())  # Hello, world!!!
-```
-
-io.BufferedRandom() - буферизированный поток с произвольным доступом.
-
-```python
-import io
-
-with io.open("example.txt", "wb") as f:
-    writer = io.BufferedRandom(f)
-    writer.write(b"Hello, world!")
-    writer.flush()
-    writer.seek(-6, io.SEEK_CUR)
-    writer.write(b"Python!")
-
-with io.open("example.txt", "rb") as f:
-    reader = io.BufferedReader(f)
-    print(reader.read())  # b"Hello, Python!"
-```
+[https://habr.com/ru/articles/140649/](https://habr.com/ru/articles/140649/)
 """,
                 },
                 "Data types": {
@@ -4784,8 +4964,8 @@ else:
 | `inf`             | Положительная бесконечность `float("inf")`                                                                                     | `inf`                                            |
 | `isclose(a, b)`   | Проверяет, близки ли два числа `a` и `b` с учётом относительной и абсолютной точности                                          | `math.isclose(0.1 + 0.2, 0.3)`  # True           |
 | `isfinite(x)`     | Возвращает `True`, если число конечно (не бесконечное и не `NaN`)                                                              | `math.isfinite(1.0)`  # True                     |
-| `isinf(x)`        | Возвращает `True`, если число бесконечное                                                                                      | `math.isinf(float('inf'))`  # True               |
-| `isnan(x)`        | Возвращает `True`, если число не является числом (`NaN`)                                                                       | `math.isnan(float('nan'))`  # True               |
+| `isinf(x)`        | Возвращает `True`, если число бесконечное                                                                                      | `math.isinf(float("inf"))`  # True               |
+| `isnan(x)`        | Возвращает `True`, если число не является числом (`NaN`)                                                                       | `math.isnan(float("nan"))`  # True               |
 | `isqrt(n)`        | **(В Python 3.8+)** Возвращает целочисленный квадратный корень                                                                 | `math.isqrt(16)`  # 4                            |
 | `lcm(*args)`      | **(В Python 3.9+)** Возвращает наименьшее общее кратное всех переданных аргументов                                             | `math.lcm(4, 6)`  # 12                           |
 | `ldexp(x, i)`     | Возвращает `x * (2**i)`                                                                                                        | `math.ldexp(1.5, 2)`  # 6.0                      |
@@ -4795,7 +4975,7 @@ else:
 | `log1p(x)`        | Возвращает `log(1 + x)` с высокой точностью для малых значений `x`                                                             | `math.log1p(0.0001)`  # 0.00009999500033334777   |
 | `log2(x)`         | Возвращает логарифм по основанию 2                                                                                             | `math.log2(8)`  # 3.0                            |
 | `modf(x)`         | Возвращает кортеж из дробной и целой части                                                                                     | `math.modf(3.14)`  # (0.14000000000000012, 3.0)  |
-| `nan`             | Представление "Не число" (`NaN`) `float('nan')`                                                                                | `print(math.nan)`  # nan                         |
+| `nan`             | Представление "Не число" (`NaN`) `float("nan")`                                                                                | `print(math.nan)`  # nan                         |
 | `nextafter(x, y)` | Возвращает ближайшее число к `x`, направленное в сторону `y`                                                                   | `math.nextafter(1.0, 2.0)`  # 1.0000000000000002 |
 | `perm(n, k)`      | **(В Python 3.8+)** Возвращает число перестановок из `n` по `k`                                                                | `math.perm(5, 2)`  # 20                          |
 | `pi`              | Константа π (приблизительно 3.141592653589793)                                                                                 | `print(math.pi)`  # 3.141592653589793            |
@@ -6647,7 +6827,7 @@ def whitespace_example():
     'text with    spaces'
     # doctest: +NORMALIZE_WHITESPACE
     """
-    return 'text with    spaces'
+    return "text with    spaces"
 ```
 
 ### FAIL_FAST
@@ -6677,7 +6857,7 @@ def diff_report():
     'Hello World'
     # doctest: +REPORT_NDIFF
     """
-    return 'Hello world'
+    return "Hello world"
 ```
 
 ### REPORT_ONLY_FIRST_FAILURE
@@ -6706,7 +6886,7 @@ def allow_unicode():
     'тест'
     # doctest: +ALLOW_UNICODE
     """
-    return 'тест'
+    return "тест"
 ```
 
 ### ALLOW_BYTES
@@ -6721,7 +6901,7 @@ def allow_bytes():
     b'hello'
     # doctest: +ALLOW_BYTES
     """
-    return b'hello'
+    return b"hello"
 ```
 
 ### FLOAT_CMP
@@ -6780,7 +6960,7 @@ def combined_flags():
     'This is a long string ...'
     # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
     """
-    return 'This is a long string with unnecessary    spaces'
+    return "This is a long string with unnecessary    spaces"
 ```
 
 ## Запуск doctest с флагами
@@ -6870,13 +7050,13 @@ class LinkedList:
 ```python
 class LinkedList:
     data: Any
-    next: 'LinkedList'
+    next: "LinkedList"
 ```
 
 Так же вы можете обращаться к классам из других модулей (конечно, если модуль импортирован):
 
 ```python
-some_variable: 'somemodule.SomeClass'
+some_variable: "somemodule.SomeClass"
 ```
 
 или
@@ -9733,7 +9913,7 @@ pip install mypy
 
 ```python
 def greeting(name: str) -> str:
-    return 'Hello ' + name
+    return "Hello " + name
 ```
 
 Здесь `name` — строка (`str`), и функция должна возвращать строку.
@@ -10092,12 +10272,12 @@ class TestClassB(unittest.TestCase):
 # Создание тестовой группы
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(TestClassA('test_case_a'))
-    suite.addTest(TestClassB('test_case_b'))
+    suite.addTest(TestClassA("test_case_a"))
+    suite.addTest(TestClassB("test_case_b"))
     return suite
 
 # Запуск тестов
-if __name__ == '__main__':
+if __name__ == "__main__":
     runner = unittest.TextTestRunner()
     runner.run(suite())
 ```
@@ -12398,14 +12578,14 @@ template.render(name="John Doe") == u"Hello John Doe!"
 Это удобно для повторного использования небольших блоков `HTML`,
 таких как заголовки, подвал сайта или навигационные меню.
 ```jinja
-{% include 'header.html' %}
+{% include "header.html" %}
 <p>Main content goes here.</p>
-{% include 'footer.html' %}
+{% include "footer.html" %}
 ```
 При использовании `{% include %}` можно также передавать переменные в включаемый шаблон.
   - **Импорт макросов**: Позволяет импортировать макросы из других шаблонов для повторного использования кода.
 ```jinja
-{% from 'macros.html' import render_item %}
+{% from "macros.html" import render_item %}
 <div>
     {{ render_item(item) }}
 </div>
@@ -13008,9 +13188,9 @@ root.mainloop()
 | `pack()`                  | Размещает виджет на родительском виджете с помощью менеджера геометрии "pack" | `widget.pack()`                      |
 | `grid()`                  | Размещает виджет с помощью менеджера геометрии "grid"                         | `widget.grid(row=0, column=0)`       |
 | `place()`                 | Размещает виджет с помощью менеджера геометрии "place"                        | `widget.place(x=50, y=50)`           |
-| `config()` / `configure()`| Позволяет изменить параметры виджета после его создания                       | `widget.config(bg='red')`            |
+| `config()` / `configure()`| Позволяет изменить параметры виджета после его создания                       | `widget.config(bg="red")`            |
 | `bind(event, handler)`    | Привязывает событие к виджету (например, щелчок мышью или нажатие клавиши)    | `widget.bind("<Button-1>", handler)` |
-| `cget(option)`            | Возвращает текущее значение указанного параметра виджета                      | `widget.cget('text')`                |
+| `cget(option)`            | Возвращает текущее значение указанного параметра виджета                      | `widget.cget("text")`                |
 | `destroy()`               | Уничтожает виджет                                                             | `widget.destroy()`                   |
 
 ### Button
@@ -13031,16 +13211,16 @@ root.mainloop()
 | Метод                | Описание                                  | Пример использования       |
 |----------------------|-------------------------------------------|----------------------------|
 | `get()`              | Возвращает текущий текст в поле ввода     | `entry.get()`              |
-| `delete(start, end)` | Удаляет текст от позиции `start` до `end` | `entry.delete(0, 'end')`   |
+| `delete(start, end)` | Удаляет текст от позиции `start` до `end` | `entry.delete(0, "end")`   |
 | `insert(index, text)`| Вставляет текст в указанную позицию       | `entry.insert(0, "Текст")` |
 
 ### Text
 
 | Метод                 | Описание                                 | Пример использования          |
 |-----------------------|------------------------------------------|-------------------------------|
-| `get(start, end)`     | Возвращает текст из указанного диапазона | `text.get("1.0", 'end')`      |
-| `insert(index, text)` | Вставляет текст в указанную позицию      | `text.insert('1.0', "Текст")` |
-| `delete(start, end)`  | Удаляет текст из указанного диапазона    | `text.delete("1.0", 'end')`   |
+| `get(start, end)`     | Возвращает текст из указанного диапазона | `text.get("1.0", "end")`      |
+| `insert(index, text)` | Вставляет текст в указанную позицию      | `text.insert("1.0", "Текст")` |
+| `delete(start, end)`  | Удаляет текст из указанного диапазона    | `text.delete("1.0", "end")`   |
 
 ### Canvas
 
@@ -15808,7 +15988,7 @@ class MyClass(metaclass=CustomMeta):
 | `__closure__`     | Кортеж объектов `cell`, хранящих значения переменных,<br>захваченных замыканием (если функция использует замыкания) | `func.__closure__[0].cell_contents`               |
 | `__module__`      | Имя модуля, в котором определена функция.<br>Полезно для понимания контекста определения функции                | `func.__module__`                                  |
 | `__annotations__` | Словарь с аннотациями типов для аргументов функции и возвращаемого значения                                | `func.__annotations__`                             |
-| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля           | `func.__globals__['variable_name']`                |
+| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля           | `func.__globals__["variable_name"]`                |
 | `__defaults__`    | Кортеж значений по умолчанию для позиционных<br>и именованных аргументов функции (если они определены)          | `func.__defaults__`                                |
 | `__kwdefaults__`  | Словарь значений по умолчанию для только ключевых аргументов функции (если они определены)                  | `func.__kwdefaults__`                              |
 | `__qualname__`    | Полное имя функции, включая контексты, такие как класс или модуль, в котором она определена                  | `func.__qualname__`                                |
@@ -18330,7 +18510,7 @@ except ExceptionGroup as eg:
 Произошло 3 исключений:
 - ValueError: Некорректное значение
 - TypeError: Неверный тип данных
-- KeyError: 'Ключ не найден'
+- KeyError: "Ключ не найден"
 ```
 
 </details>
@@ -21503,6 +21683,11 @@ public class Main {
             "index": """
 [https://devhints.io/kotlin](https://devhints.io/kotlin)
 """,
+            "Android": """
+[https://youtube.com/playlist?list=PLDyJYA6aTY1nZqYprT1PKtDFthBcZWAMZ](https://youtube.com/playlist?list=PLDyJYA6aTY1nZqYprT1PKtDFthBcZWAMZ)
+[https://itproger.com/course/java-android/3](https://itproger.com/course/java-android/3)
+![activity_lifecycle.png](Languages/Kotlin/activity_lifecycle.png)
+""",
         },
         "SQL": {
             "SQLite3": {
@@ -21559,7 +21744,7 @@ SQLite supports seven scalar date and time functions as follows:
 | `unixepoch(...)` | `CAST(strftime('%s', ...) as INT)`  |
 
 ```sql
-SELECT timediff('2023-02-15','2023-03-15');
+SELECT timediff('2023-02-15', '2023-03-15');
 ```
 
 ## Time Values
@@ -26820,7 +27005,7 @@ with open("data.csv", "r", encoding="UTF-8") as file:
     SQL(
         f"""
 CREATE TABLE table_name (
-    {', '.join([f"{column} TEXT" for column in column_names])}
+    {", ".join([f"{column} TEXT" for column in column_names])}
 );
 """,
         commit=True,
@@ -26829,10 +27014,10 @@ CREATE TABLE table_name (
         SQL(
             f"""
 INSERT INTO table_name (
-    {', '.join(column_names)}
+    {", ".join(column_names)}
 )
 VALUES (
-    {', '.join([f'"{column}"' for column in row])}
+    {", ".join([f'"{column}"' for column in row])}
 )
 """,
             commit=True,
@@ -27267,7 +27452,7 @@ class Dict:
         return self.__class__(self.d.get(item))
 
     def __setattr__(self, name, value):
-        if name == 'd':
+        if name == "d":
             super().__setattr__(name, value)
         else:
             self.d[name] = value
@@ -27370,6 +27555,59 @@ storage-method: MariaDB
 [plotz.co.uk](https://www.plotz.co.uk/)
 """
         },
+        "JetBrains IDE": {
+            "settings": """
+# Keymap
+|                                                                                     |                    |
+|-------------------------------------------------------------------------------------|--------------------|
+| `Editor Actions` `Delete Line`                                                      |                    |
+| `Editor Actions` `Extend Selection`                                                 | `Ctrl`+`S`         |
+| `Editor Actions` `Column Selection Mode`                                            | `Alt`+`S`          |
+| `Editor Actions` `Add or Remove Caret`                                              | `Alt`+`Click`      |
+| `Main Menu` `File` `File Open Actions` `New…`                                       | `Ctrl`+`T`         |
+| `Main Menu` `File` `File Open Actions` `Scratch File`                               | `Ctrl`+`Shift`+`T` |
+| `Main Menu` `Edit` `Redo`                                                           | `Ctrl`+`Y`         |
+| `Main Menu` `Edit` `Find` `Find Next / Move to Next Occurrence`                     | `Alt`+`.`          |
+| `Main Menu` `Edit` `Find` `Find Previous / Move to Previous Occurrence`             | `Alt`+`Comma`      |
+| `Main Menu` `Edit` `Find` `Select All Occurrences`                                  | `Alt`+`M`          |
+| `Main Menu` `Edit` `Column Selection Mode`                                          | `Alt`+`S`          |
+| `Main Menu` `Edit` `Editor Select Actions` `Select Word Actions` `Extend Selection` | `Ctrl`+`S`         |
+| `Main Menu` `View` `Appearance` `Toggle Presentation mode`                          | `Alt`+`P`          |
+| `Main Menu` `Navigate` `Goto by Reference Actions` `Go to Test`                     |                    |
+| `Main Menu` `Refactor` `Rename…`                                                    | `Alt`+`R`          |
+| `Main Menu` `Run` `Run/Debug` `Run`                                                 | `Alt`+`X`          |
+| `Main Menu` `Run` `Run/Debug` `Debug`                                               | `Alt`+`Z`          |
+| `Main Menu` `Run` `Run…`                                                            |                    |
+| `Main Menu` `Run` `Stop`                                                            | `Alt`+`C`          |
+| `Main Menu` `Git` `VCS Group` `Update Project`                                      |                    |
+| `Main Menu` `Git` `Update Project`                                                  |                    |
+| `Main Menu` `Window` `Active Tool Window` `Close Active Tab`                        | `Ctrl`+`W`         |
+| `Main Menu` `Window` `Editor Tabs` `Editor Close Actions` `Close Tab`               | `Ctrl`+`W`         |
+| `Tool Windows` `BookMarks`                                                          |                    |
+| `Tool Windows` `Commit`                                                             |                    |
+| `Tool Windows` `Debug`                                                              |                    |
+| `Tool Windows` `Find`                                                               |                    |
+| `Tool Windows` `Problems`                                                           |                    |
+| `Tool Windows` `Project`                                                            |                    |
+| `Tool Windows` `Run`                                                                |                    |
+| `Tool Windows` `Services`                                                           |                    |
+| `Tool Windows` `Structure`                                                          |                    |
+| `Tool Windows` `Git`                                                                |                    |
+| `Version Control Systems` `Diff & Merge/Next Difference`                            | `Alt`+`.`          |
+| `Version Control Systems` `Diff & Merge/Previous Difference`                        | `Alt`+`Comma`      |
+| `Version Control Systems` `Amend Commit`                                            | `Ctrl`+`K`         |
+| `Version Control Systems` `Update Project`                                          |                    |
+
+# Editor
+## Font
+|                    |                                 |
+|--------------------|---------------------------------|
+| `Size`             | `10.0`                          |
+| `Line`             | `1.0`                           |
+| `Enable Ligatures` | <input type="checkbox" checked> |
+
+""",
+        },
         "ChatGPT": {
             "Шпаргалки": """
 Обычная шпаргалка
@@ -27409,16 +27647,21 @@ You can control how high the dino jumps by using the below function. Adjust the 
 ```javascript
 Runner.instance_.tRex.setJumpVelocity(10)
 ```
+
+```javascript
+Runner.prototype.gameOver = function(){}
+Runner.instance_.setSpeed(1000)
+```
 """,
         "Alt Symbols": """
 
 | Символ | Код  |
-|-------:|:-----|
-| `§`    | 21   |
-| `…`    | 0133 |
-| `¹`    | 0185 |
-| `²`    | 0178 |
-| `³`    | 0179 |
+|:------:|:-----|
+|  `§`   | 21   |
+|  `…`   | 0133 |
+|  `¹`   | 0185 |
+|  `²`   | 0178 |
+|  `³`   | 0179 |
 
 """,
         "Links": """
@@ -27487,6 +27730,7 @@ Runner.instance_.tRex.setJumpVelocity(10)
 | font              | [https://fonts.google.com/](https://fonts.google.com/)           |
 | MIME types        | [https://mimetype.io/all-types](https://mimetype.io/all-types)   |
 | Список MIME типов | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)     |
+| HTTP headers      | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
 
 
 # General

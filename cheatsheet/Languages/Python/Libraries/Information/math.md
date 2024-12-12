@@ -176,12 +176,12 @@
 <tr>
 <td><code>isinf(x)</code></td>
 <td>Возвращает <code>True</code>, если число бесконечное</td>
-<td><code>math.isinf(float('inf'))</code>  # True</td>
+<td><code>math.isinf(float("inf"))</code>  # True</td>
 </tr>
 <tr>
 <td><code>isnan(x)</code></td>
 <td>Возвращает <code>True</code>, если число не является числом (<code>NaN</code>)</td>
-<td><code>math.isnan(float('nan'))</code>  # True</td>
+<td><code>math.isnan(float("nan"))</code>  # True</td>
 </tr>
 <tr>
 <td><code>isqrt(n)</code></td>
@@ -230,7 +230,7 @@
 </tr>
 <tr>
 <td><code>nan</code></td>
-<td>Представление "Не число" (<code>NaN</code>) <code>float('nan')</code></td>
+<td>Представление "Не число" (<code>NaN</code>) <code>float("nan")</code></td>
 <td><code>print(math.nan)</code>  # nan</td>
 </tr>
 <tr>
