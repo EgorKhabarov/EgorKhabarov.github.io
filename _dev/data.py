@@ -19982,34 +19982,34 @@ String s2 = new String("World");
 
 # Методы
 
-| Метод                                                           | Описание                                                               | Пример использования  |
-|-----------------------------------------------------------------|------------------------------------------------------------------------|-----------------------|
-| `charAt(int index)`                                             | Возвращает символ по указанному индексу                                | {charAt}              |
-| `length()`                                                      | Возвращает длину строки                                                | {length}              |
-| `concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | {concat}              |
-| `contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | {contains}            |
-| `equals(Object obj)`                                            | Проверяет строки на равенство                                          | {equals}              |
-| `equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | {equalsIgnoreCase}    |
-| `startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | {startsWith}          |
-| `endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | {endsWith}            |
-| `indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | {indexOf}             |
-| `lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | {lastIndexOf}         |
-| `substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | {substring}           |
-| `substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | {substring_2}         |
-| `toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | {toLowerCase}         |
-| `toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | {toUpperCase}         |
-| `trim()`                                                        | Удаляет начальные и конечные пробелы                                   | {trim}                |
-| `replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | {replace}             |
-| `replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | {replace_2}           |
-| `split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | {split}               |
-| `matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | {matches}             |
-| `isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | {isEmpty}             |
-| `intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | {intern}              |
-| `toCharArray()`                                                 | Преобразует строку в массив символов                                   | {toCharArray}         |
-| `compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | {compareTo}           |
-| `compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | {compareToIgnoreCase} |
-| `format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | {format}              |
-| `join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | {join}                |
+| Метод                                                            | Описание                                                               | Пример использования  |
+|------------------------------------------------------------------|------------------------------------------------------------------------|-----------------------|
+| `.charAt(int index)`                                             | Возвращает символ по указанному индексу                                | {charAt}              |
+| `.length()`                                                      | Возвращает длину строки                                                | {length}              |
+| `.concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | {concat}              |
+| `.contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | {contains}            |
+| `.equals(Object obj)`                                            | Проверяет строки на равенство                                          | {equals}              |
+| `.equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | {equalsIgnoreCase}    |
+| `.startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | {startsWith}          |
+| `.endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | {endsWith}            |
+| `.indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | {indexOf}             |
+| `.lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | {lastIndexOf}         |
+| `.substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | {substring}           |
+| `.substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | {substring_2}         |
+| `.toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | {toLowerCase}         |
+| `.toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | {toUpperCase}         |
+| `.trim()`                                                        | Удаляет начальные и конечные пробелы                                   | {trim}                |
+| `.replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | {replace}             |
+| `.replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | {replace_2}           |
+| `.split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | {split}               |
+| `.matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | {matches}             |
+| `.isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | {isEmpty}             |
+| `.intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | {intern}              |
+| `.toCharArray()`                                                 | Преобразует строку в массив символов                                   | {toCharArray}         |
+| `.compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | {compareTo}           |
+| `.compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | {compareToIgnoreCase} |
+| `.format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | {format}              |
+| `.join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | {join}                |
 
 # Примеры использования
 
@@ -20068,7 +20068,11 @@ System.out.println(formatted);  // "Name: Alice, Age: 30"
                     trim=to_table_code_java('String s = "  Hello  ".trim();\n// "Hello"'),
                     replace=to_table_code_java('String s = "Hello".replace(\'l\', \'p\');\n// "Heppo"'),
                     replace_2=to_table_code_java('String s = "Hello".replace("ll", "yy");\n// "Heyyo"'),
-                    split=to_table_code_java('String[] arr = "a,b,c".split(",");\nArrays.toString("a,b,c".split(","))\n[a, b, c]'),
+                    split=to_table_code_java(
+                        'String[] arr = "a,b,c".split(",");\n'
+                        'Arrays.toString("a,b,c".split(","))\n'
+                        '[a, b, c]'
+                    ),
                     matches=to_table_code_java('boolean b = "abc".matches("[a-z]+");\n// true'),
                     isEmpty=to_table_code_java('boolean b = "".isEmpty();\n// true'),
                     intern=to_table_code_java('String s = "Hello".intern();\n// "Hello"'),
@@ -20079,8 +20083,70 @@ System.out.println(formatted);  // "Name: Alice, Age: 30"
                     join=to_table_code_java('String s = String.join(", ", "a", "b", "c");\n// "a, b, c"'),
                 ),
                 "Integer": """
+`Integer` — это класс-оболочка для типа `int` в Java, предоставляющий дополнительные методы для работы с целыми числами.
 
-""",
+**Примитив vs Объект**: `int` — примитивный тип, а `Integer` — класс-оболочка, который может быть `null` и поддерживает методы.
+
+Преобразование между `int` и `Integer` происходит автоматически
+```java
+Integer obj = 42; // Автоупаковка
+int num = obj;    // Автораспаковка
+```
+
+|                     |                  |
+|---------------------|------------------|
+| `Integer.MIN_VALUE` | `-2,147,483,648` |
+| `Integer.MAX_VALUE` | `2,147,483,647`  |
+
+| Метод                                   | Описание                                                                                            | Пример использования  |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------|
+| `.valueOf(String s)`                    | Преобразует строку в объект `Integer`                                                               | {valueOf_String}      |
+| `.valueOf(int i)`                       | Возвращает объект `Integer`, представляющий указанное значение `int`                                | {valueOf_int}         |
+| `.parseInt(String s)`                   | Преобразует строку в примитивное значение `int`                                                     | {parseInt_String}     |
+| `.parseInt`<br>(String s, int radix)    | Преобразует строку в число указанной системы счисления                                              | {parseInt_String_int} |
+| `.toString(int i)`                      | Преобразует число `int` в строку                                                                    | {toString_int}        |
+| `.toString`<br>(int i, int radix)       | Преобразует число в строку указанной системы счисления                                              | {toString_int_int}    |
+| `.compare(int x, int y)`                | Сравнивает два числа.<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`    | {compare}             |
+| `.compareTo`<br>(Integer another)       | Сравнивает текущий объект `Integer` с другим                                                        | {compareTo}           |
+| `.max(int a, int b)`                    | Возвращает большее из двух чисел                                                                    | {max}                 |
+| `.min(int a, int b)`                    | Возвращает меньшее из двух чисел                                                                    | {min}                 |
+| `.sum(int a, int b)`                    | Возвращает сумму двух чисел                                                                         | {sum}                 |
+| `.bitCount(int i)`                      | Возвращает количество установленных битов<br>в числе (единиц в бинарной записи числа)               | {bitCount}            |
+| `.highestOneBit(int i)`                 | Возвращает число, в котором установлен<br>только самый старший значащий бит исходного числа         | {highestOneBit}       |
+| `.lowestOneBit(int i)`                  | Возвращает число, в котором установлен<br>только младший значащий бит исходного числа               | {lowestOneBit}        |
+| `.reverse(int i)`                       | Возвращает число с битами, расположенными в обратном порядке                                        | {reverse}             |
+| `.reverseBytes(int i)`                  | Возвращает число с байтами, расположенными в обратном порядке                                       | {reverseBytes}        |
+| `.rotateLeft`<br>(int i, int distance)  | Сдвигает биты числа влево циклически на указанное количество позиций                                | {rotateLeft}          |
+| `.rotateRight`<br>(int i, int distance) | Сдвигает биты числа вправо циклически на указанное количество позиций                               | {rotateRight}         |
+| `.signum(int i)`                        | Возвращает знак числа: `1` для положительных,<br>`-1` для отрицательных, `0` для нуля               | {signum}              |
+| `.decode(String nm)`                    | Преобразует строку с числом в десятичной,<br>шестнадцатеричной или восьмеричной системе в `Integer` | {decode}              |
+| `.getInteger(String nm)`                | Возвращает значение свойства системы с именем<br>`nm`, интерпретируя его как число                  | {getInteger}          |
+| `.hashCode(int value)`                  | Хэш-код для числа                                                                                   | {hashCode}            |
+
+""".format(
+                    valueOf_String=to_table_code_java('Integer num = Integer.valueOf("42");\n// 42'),
+                    valueOf_int=to_table_code_java('Integer num = Integer.valueOf(42);\n// 42'),
+                    parseInt_String=to_table_code_java('int num = Integer.parseInt("42");\n// 42'),
+                    parseInt_String_int=to_table_code_java('int num = Integer.parseInt("2A", 16);\n// 42'),
+                    toString_int=to_table_code_java('String str = Integer.toString(42);\n// "42"'),
+                    toString_int_int=to_table_code_java('String str = Integer.toString(42, 16);\n// "2a"'),
+                    compare=to_table_code_java('int result = Integer.compare(42, 24);\n// 1'),
+                    compareTo=to_table_code_java('Integer num = 42;\nint result = num.compareTo(24);\n// 1'),
+                    max=to_table_code_java('int max = Integer.max(42, 24);\n// 42'),
+                    min=to_table_code_java('int min = Integer.min(42, 24);\n// 24'),
+                    sum=to_table_code_java('int sum = Integer.sum(42, 24);\n// 66'),
+                    bitCount=to_table_code_java('int bits = Integer.bitCount(42);\n// 3'),
+                    highestOneBit=to_table_code_java('int highBit = Integer.highestOneBit(42);\n// 32'),
+                    lowestOneBit=to_table_code_java('int lowBit = Integer.lowestOneBit(42);\n// 2'),
+                    reverse=to_table_code_java('int reversed = Integer.reverse(42);\n// 1409286144'),
+                    reverseBytes=to_table_code_java('int reversedBytes = Integer.reverseBytes(42);\n// 704643072'),
+                    rotateLeft=to_table_code_java('int rotated = Integer.rotateLeft(42, 2);\n// 168'),
+                    rotateRight=to_table_code_java('int rotated = Integer.rotateRight(42, 2);\n// -2147483638'),
+                    signum=to_table_code_java('int sign = Integer.signum(-42);\n// -1'),
+                    decode=to_table_code_java('Integer num = Integer.decode("0x2A");\n// 42'),
+                    getInteger=to_table_code_java(''),
+                    hashCode=to_table_code_java('int hash = Integer.hashCode(42);\n// 42'),
+                ),
                 "Character": """
 ```java
 int x = 65535;
