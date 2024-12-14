@@ -19964,8 +19964,149 @@ public class HashMapExample {
                 },
                 "math": {
                     "BigInteger и BigDecimal": """
+Предназначены для работы с большими числами, которые выходят за пределы типа `int` или `double`
+а также для работы с высокой точностью
 
-""",
+# BigInteger
+
+Класс для работы с целыми числами произвольной длины
+
+| Метод                                | Описание                                                             | Пример использования            |
+|--------------------------------------|----------------------------------------------------------------------|---------------------------------|
+| `BigInteger(String val)`             | Создает объект из строки                                             | {BigInteger_BigInteger}         |
+| `BigInteger.valueOf(long val)`       | Создает объект из `long`                                             | {BigInteger_valueOf}            |
+| `add(BigInteger val)`                | Складывает два числа                                                 | {BigInteger_add}                |
+| `subtract(BigInteger val)`           | Вычитает одно число из другого                                       | {BigInteger_subtract}           |
+| `multiply(BigInteger val)`           | Умножает два числа                                                   | {BigInteger_multiply}           |
+| `divide(BigInteger val)`             | Делит одно число на другое (целочисленное деление)                   | {BigInteger_divide}             |
+| `remainder(BigInteger val)`          | Остаток от деления                                                   | {BigInteger_remainder}          |
+| `divideAndRemainder(BigInteger val)` | Возвращает массив с результатом<br>целочисленного деления и остатком | {BigInteger_divideAndRemainder} |
+| `pow(int exponent)`                  | Возводит число в степень                                             | {BigInteger_pow}                |
+| `mod(BigInteger val)`                | Остаток от деления для положительных чисел (модуль)                  | {BigInteger_mod}                |
+| `gcd(BigInteger val)`                | НОД двух чисел                                                       | {BigInteger_gcd}                |
+| `abs()`                              | Возвращает абсолютное значение числа                                 | {BigInteger_abs}                |
+| `negate()`                           | Возвращает отрицательное значение числа                              | {BigInteger_negate}             |
+| `compareTo(BigInteger val)`          | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше)        | {BigInteger_compareTo}          |
+| `toString()`                         | Преобразует число в строку                                           | {BigInteger_toString}           |
+| `isProbablePrime(int certainty)`     | Проверяет, является ли число<br>простым с заданной вероятностью      | {BigInteger_isProbablePrime}    |
+
+### Пример использования `BigInteger`
+
+```java
+import java.math.BigInteger;
+
+public class BigIntegerExample {{
+    public static void main(String[] args) {{
+        BigInteger a = new BigInteger("123456789012345678901234567890");
+        BigInteger b = new BigInteger("987654321098765432109876543210");
+
+        BigInteger sum = a.add(b);
+        BigInteger product = a.multiply(b);
+        BigInteger power = a.pow(2);
+
+        System.out.println("Сумма: " + sum);
+        System.out.println("Произведение: " + product);
+        System.out.println("Квадрат: " + power);
+    }}
+}}
+// Сумма: 1111111110111111111011111111100
+// Произведение: 121932631137021795226185032733622923332237463801111263526900
+// Квадрат: 15241578753238836750495351562536198787501905199875019052100
+```
+
+# BigDecimal
+
+Класс для работы с числами с плавающей точкой произвольной точности
+
+| Метод                                                               | Описание                                                      | Пример использования            |
+|---------------------------------------------------------------------|---------------------------------------------------------------|---------------------------------|
+| `BigDecimal(String val)`                                            | Создает объект из строки                                      | {BigDecimal_BigDecimal}         |
+| `BigDecimal.valueOf(double val)`                                    | Создает объект из `double`                                    | {BigDecimal_valueOf}            |
+| `add(BigDecimal val)`                                               | Складывает два числа                                          | {BigDecimal_add}                |
+| `subtract(BigDecimal val)`                                          | Вычитает одно число из другого                                | {BigDecimal_subtract}           |
+| `multiply(BigDecimal val)`                                          | Умножает два числа                                            | {BigDecimal_multiply}           |
+| `divide(BigDecimal val, int scale,`<br>`RoundingMode roundingMode)` | Делит числа с указанием<br>точности и метода округления       | {BigDecimal_divide}             |
+| `remainder(BigDecimal val)`                                         | Остаток от деления                                            | {BigDecimal_remainder}          |
+| `setScale(int newScale,`<br>`RoundingMode roundingMode)`            | Изменяет точность числа с указанием метода округления         | {BigDecimal_setScale}           |
+| `compareTo(BigDecimal val)`                                         | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше) | {BigDecimal_compareTo}          |
+| `toString()`                                                        | Преобразует число в строку                                    | {BigDecimal_toString}           |
+| `scale()`                                                           | Возвращает текущую точность числа                             | {BigDecimal_scale}              |
+| `precision()`                                                       | Возвращает общее количество значащих цифр                     | {BigDecimal_precision}          |
+| `stripTrailingZeros()`                                              | Убирает незначащие нули после запятой                         | {BigDecimal_stripTrailingZeros} |
+
+### Пример использования `BigDecimal`
+```java
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class BigDecimalExample {{
+    public static void main(String[] args) {{
+        BigDecimal a = new BigDecimal("12345.6789");
+        BigDecimal b = new BigDecimal("0.001");
+
+        BigDecimal sum = a.add(b);
+        BigDecimal diff = a.subtract(b);
+        BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);
+
+        System.out.println("Сумма: " + sum);
+        System.out.println("Разность: " + diff);
+        System.out.println("С округлением: " + scaled);
+    }}
+}}
+```
+
+### Заметки
+
+1. Не использовать `double` или `float` в конструкторе `BigDecimal` ```java
+BigDecimal a = new BigDecimal(0.1); // Неточно!
+BigDecimal b = new BigDecimal("0.1"); // Точно
+```
+2. Методы округления (`RoundingMode`)
+    - `RoundingMode.HALF_UP` — округление "по математическим правилам"
+    - `RoundingMode.FLOOR` — округление вниз
+    - `RoundingMode.CEILING` — округление вверх
+
+""".format(
+                        BigInteger_BigInteger=to_table_code_java(
+                            'BigInteger num = new BigInteger("12345678901234567890");'
+                        ),
+                        BigInteger_valueOf=to_table_code_java("BigInteger num = BigInteger.valueOf(42);"),
+                        BigInteger_add=to_table_code_java("BigInteger sum = a.add(b);"),
+                        BigInteger_subtract=to_table_code_java("BigInteger diff = a.subtract(b);"),
+                        BigInteger_multiply=to_table_code_java("BigInteger product = a.multiply(b);"),
+                        BigInteger_divide=to_table_code_java("BigInteger quotient = a.divide(b);"),
+                        BigInteger_remainder=to_table_code_java("BigInteger rem = a.remainder(b);"),
+                        BigInteger_divideAndRemainder=to_table_code_java(
+                            "BigInteger[] result = a.divideAndRemainder(b);"
+                        ),
+                        BigInteger_pow=to_table_code_java("BigInteger power = a.pow(3);"),
+                        BigInteger_mod=to_table_code_java("BigInteger mod = a.mod(b);"),
+                        BigInteger_gcd=to_table_code_java("BigInteger gcd = a.gcd(b);"),
+                        BigInteger_abs=to_table_code_java("BigInteger absVal = a.abs();"),
+                        BigInteger_negate=to_table_code_java("BigInteger neg = a.negate();"),
+                        BigInteger_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
+                        BigInteger_toString=to_table_code_java("String str = a.toString();"),
+                        BigInteger_isProbablePrime=to_table_code_java("boolean isPrime = a.isProbablePrime(10);"),
+                        BigDecimal_BigDecimal=to_table_code_java('BigDecimal num = new BigDecimal("12345.6789");'),
+                        BigDecimal_valueOf=to_table_code_java("BigDecimal num = BigDecimal.valueOf(12345.6789);"),
+                        BigDecimal_add=to_table_code_java("BigDecimal sum = a.add(b);"),
+                        BigDecimal_subtract=to_table_code_java("BigDecimal diff = a.subtract(b);"),
+                        BigDecimal_multiply=to_table_code_java("BigDecimal product = a.multiply(b);"),
+                        BigDecimal_divide=to_table_code_java(
+                            "BigDecimal quotient = a.divide(b, 2, RoundingMode.HALF_UP);"
+                        ),
+                        BigDecimal_remainder=to_table_code_java("BigDecimal rem = a.remainder(b);"),
+                        BigDecimal_setScale=to_table_code_java(
+                            "BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);"
+                        ),
+                        BigDecimal_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
+                        BigDecimal_toString=to_table_code_java("String str = a.toString();"),
+                        BigDecimal_scale=to_table_code_java("int scale = a.scale();"),
+                        BigDecimal_precision=to_table_code_java("int precision = a.precision();"),
+                        BigDecimal_stripTrailingZeros=to_table_code_java(
+                            "BigDecimal stripped = a.stripTrailingZeros();"
+                        ),
+                    ),
                 },
             },
             "Built-in": {
