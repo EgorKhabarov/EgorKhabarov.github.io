@@ -88,6 +88,7 @@ function loadSettings() {
         "settings_search_register_independence": true,
         "settings_search_full_path": true,
         "settings_search_show_full_path": true,
+        "settings_css_markdown_preview": false,
         "settings_css": "",
     };
 }
@@ -103,6 +104,43 @@ function applySettings(settings) {
         if (element) element.checked = value;
     }
     settings_css_textarea.value = settings.settings_css || "";
+}
+function css_markdown_preview_func(element) {
+    if (element.checked) {
+        css_markdown_preview.textContent = `
+
+#cheatsheet_field h1 {color:rgb(255,   0,   0);}
+#cheatsheet_field h2 {color:rgb(250, 115,   0);}
+#cheatsheet_field h3 {color:rgb(255, 250,   0);}
+#cheatsheet_field h4 {color:rgb(  0, 255,   0);}
+#cheatsheet_field h5 {color:rgb(  0, 160, 245);}
+#cheatsheet_field h6 {color:rgb(221,   0, 242);}
+
+#cheatsheet_field b, strong    {color:rgb(243, 171,   6);}
+#cheatsheet_field i, em        {color:rgb(128, 136, 193);}
+#cheatsheet_field strong em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field      b em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field em strong, b {color:rgb(195, 153, 144);}
+#cheatsheet_field  i strong, b {color:rgb(195, 153, 144);}
+
+strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
+
+
+#cheatsheet_field h1:before {content: "# ";}
+#cheatsheet_field h2:before {content: "## ";}
+#cheatsheet_field h3:before {content: "### ";}
+#cheatsheet_field h4:before {content: "#### ";}
+#cheatsheet_field h5:before {content: "##### ";}
+#cheatsheet_field h6:before {content: "###### ";}
+#cheatsheet_field code:before, code:after {content: "\`";}
+#cheatsheet_field mark:before, mark:after {content: "==";}
+#cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
+#cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
+
+`;
+    } else {
+        css_markdown_preview.textContent = '';
+    }
 }
 
 /* Anchor */
@@ -593,7 +631,7 @@ document.addEventListener("DOMContentLoaded", function() {
         DisplayCheatSheet(arg);
         changeTitle(getPathFilename(arg))
     } else {
-        PutHtmlText(getCheatSheet("README.html"));
+        PutHtmlText(getCheatSheet("README.md"));
     }
 
     // Якорь
@@ -624,6 +662,7 @@ document.addEventListener("DOMContentLoaded", function() {
         settings["settings_search_register_independence"] = true;
         settings["settings_search_full_path"] = true;
         settings["settings_search_show_full_path"] = true;
+        settings["settings_css_markdown_preview"] = false;
         // settings["settings_css"] = "";
         saveSettings(settings);
         applySettings(settings);
@@ -642,6 +681,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+
+    css_markdown_preview_func(settings_css_markdown_preview);
 
     font_size_button.addEventListener("wheel", event => {
         if (event.deltaY < 0) {

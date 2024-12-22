@@ -406,6 +406,8 @@ hr {
   width: 100%;
   overflow-y: auto;
   resize: none;
+  height: 160px;
+  font-size: 9px;
 }
 #settings_ok_button:hover, #settings-reset-button:hover {background-color: #424242;}
 #settings_ok_button:active, #settings-reset-button:active {background-color: #323232;}
@@ -456,6 +458,9 @@ hr {
   position: absolute;
   top: 17px;
   right: 124px;
+
+  max-height: 50%;
+  max-width: 40%;
 }
 #h_list::-webkit-scrollbar {display: none;}
 

@@ -150,7 +150,7 @@ def create_files(cheatsheet_count: int):
     except requests.exceptions.ConnectionError:
         pass
     else:
-        with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
+        with open("../cheatsheet/README.md", "w", encoding="utf-8") as file_readme:
             file_readme.write(
                 to_markup(
                     f"""
