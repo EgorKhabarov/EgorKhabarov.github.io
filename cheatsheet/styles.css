@@ -149,7 +149,7 @@ th:last-child {border-top-right-radius: .375em;}
 
 /* Закругление заголовка если нету thead */
 table:not(:has(thead)) tbody:first-of-type > tr:first-of-type > td:first-of-type {border-top-left-radius: .375em;}
-table:not(:has(thead)) tbody:first-of-type > tr:first-of-type > td:last-of-type {border-top-right-radius: .375em; }
+table:not(:has(thead)) tbody:first-of-type > tr:first-of-type > td:last-of-type {border-top-right-radius: .375em;}
 
 /* Закругление низа таблицы */
 tr:last-child td:first-child {border-bottom-left-radius: .375em;}

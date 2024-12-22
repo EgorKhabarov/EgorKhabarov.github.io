@@ -1,3 +1,51 @@
+<h1>locals()</h1>
+<table>
+<thead>
+<tr>
+<th>Переменная</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__annotations__</code></td>
+<td>Словарь, содержащий аннотации типов, заданные в модуле<br><code>def func(a: int, b: str) -&gt; bool: pass</code><br><code>print(func.__annotations__)  # {'a': &lt;class 'int'&gt;, 'b': &lt;class 'str'&gt;, 'return': &lt;class 'bool'&gt;}</code></td>
+</tr>
+<tr>
+<td><code>__builtins__</code></td>
+<td>Ссылка на встроенные объекты Python, такие как функции (<code>len</code>, <code>print</code>) и исключения (<code>ValueError</code>)</td>
+</tr>
+<tr>
+<td><code>__cached__</code></td>
+<td>Указывает путь к закэшированному файлу <code>.pyc</code>, созданному для текущего модуля</td>
+</tr>
+<tr>
+<td><code>__doc__</code></td>
+<td>Строка документации текущего модуля. Если документации нет, то значение будет <code>None</code></td>
+</tr>
+<tr>
+<td><code>__file__</code></td>
+<td>Путь к файлу, из которого был загружен текущий модуль</td>
+</tr>
+<tr>
+<td><code>__loader__</code></td>
+<td>Объект, ответственный за загрузку текущего модуля</td>
+</tr>
+<tr>
+<td><code>__name__</code></td>
+<td>Имя текущего модуля. Для основного исполняемого скрипта значение будет <code>'__main__'</code></td>
+</tr>
+<tr>
+<td><code>__package__</code></td>
+<td>Имя пакета, в котором находится модуль. Если модуль находится на верхнем уровне, то значение будет <code>None</code></td>
+</tr>
+<tr>
+<td><code>__spec__</code></td>
+<td>Спецификация загрузки модуля. Это объект, содержащий информацию о модуле, такой как его путь, имя и пакет</td>
+</tr>
+</tbody>
+</table>
+<h1>object</h1>
 <table>
 <thead>
 <tr>
@@ -49,7 +97,7 @@
 </tr>
 </tbody>
 </table>
-<h1>&#x5f;&#x5f;code&#x5f;&#x5f;</h1>
+<h2>&#x5f;&#x5f;code&#x5f;&#x5f;</h2>
 <table>
 <thead>
 <tr>
@@ -96,7 +144,7 @@
 </tr>
 <tr>
 <td><code>co_flags</code></td>
-<td>Флаги, описывающие состояние функции (например, использование генераторов)</td>
+<td>Флаги, описывающие состояние функции (например, использование генераторов)<br>Этот атрибут — битовая маска, содержащая информацию о функции, например,<br>используется ли функция как генератор, имеет ли она <code>*args</code> или <code>**kwargs</code> и т.д<br>Например, <code>0x20</code> указывает, что функция — генератор</td>
 <td><code>func.__code__.co_flags</code></td>
 </tr>
 <tr>
@@ -171,15 +219,15 @@
 </tr>
 </tbody>
 </table>
-<h3>Примеры использования</h3>
-<h4>Получение количества аргументов функции</h4>
+<h1>Примеры использования</h1>
+<h3>Получение количества аргументов функции</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">example_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span><span class="p">)</span>  <span class="c1"># 2</span>
 </pre></div></div></div>
 
-<h4>Извлечение имен аргументов и локальных переменных</h4>
+<h3>Извлечение имен аргументов и локальных переменных</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
     <span class="k">return</span> <span class="n">z</span>
@@ -187,7 +235,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">example_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span>  <span class="c1"># (&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)</span>
 </pre></div></div></div>
 
-<h4>Получение имени файла и строки, где определена функция</h4>
+<h3>Получение имени файла и строки, где определена функция</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">():</span>
     <span class="k">pass</span>
 
@@ -195,14 +243,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">example_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_firstlineno</span><span class="p">)</span>  <span class="c1"># Номер первой строки</span>
 </pre></div></div></div>
 
-<h4>Работа с байт-кодом</h4>
+<h3>Работа с байт-кодом</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">example_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span><span class="p">)</span>  <span class="c1"># Сырые байт-коды</span>
 </pre></div></div></div>
 
-<h4>Константы, используемые в функции</h4>
+<h3>Константы, используемые в функции</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_func</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
     <span class="k">return</span> <span class="n">x</span>
@@ -210,7 +258,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">example_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_consts</span><span class="p">)</span>  <span class="c1"># (None, 42)</span>
 </pre></div></div></div>
 
-<h4>Проверка использования замыканий</h4>
+<h3>Проверка использования замыканий</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">inner_func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -220,18 +268,3 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">closure_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_freevars</span><span class="p">)</span>  <span class="c1"># (&quot;x&quot;,)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">closure_func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_cellvars</span><span class="p">)</span>  <span class="c1"># ()</span>
 </pre></div></div></div>
-
-<h3>Дополнительные материалы</h3>
-<ul>
-<li>
-<p><code>co_flags</code>: Этот атрибут — битовая маска, содержащая информацию о функции,
-например, используется ли функция как генератор, имеет ли она <code>*args</code> или <code>**kwargs</code> и т.д.</p>
-<ul>
-<li>Например, <code>0x20</code> указывает, что функция — генератор.</li>
-</ul>
-</li>
-<li>
-<p><code>co_lnotab</code>: Содержит байтовую строку, которая используется для отображения байт-кодов в номера строк исходного кода.
-Эта информация полезна при отладке и генерации трассировки стека.</p>
-</li>
-</ul>
