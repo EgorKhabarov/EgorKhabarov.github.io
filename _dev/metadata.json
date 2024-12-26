@@ -176,6 +176,9 @@
   "Languages/Python/Libraries/Information/rich.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Information/numpy.md": {
+    "color": "lblue"
+  },
   "Languages/Python/Libraries/Information/shlex.md": {
     "color": "green"
   },
@@ -183,6 +186,9 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Information/textwrap.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Information/time.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/xdrlib.md": {
@@ -524,70 +530,88 @@
   "Languages/SQL/PostgreSQL/Картинки.md": {
     "color": "lblue"
   },
-  "Other/Code examples/": {
+  "Languages/Python/Snippets/Problems/": {
     "color": "brown"
   },
-  "Other/File formats/": {
+  "Languages/Python/Snippets/": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/File formats/": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Examples/": {
     "color": "brown"
   },
   "Other/TODO.md": {
     "color": "red"
   },
-  "Other/Code examples/converters.md": {
+  "Languages/Python/Snippets/Problems/converters.md": {
     "color": "brown"
   },
-  "Other/Code examples/download telegram emoji.md": {
+  "Languages/Python/Snippets/Problems/download telegram emoji.md": {
     "color": "brown"
   },
-  "Other/Code examples/fib.md": {
+  "Languages/Python/Snippets/Problems/fib.md": {
     "color": "brown"
   },
-  "Other/Code examples/js YouTube.md": {
+  "Languages/Python/Snippets/Problems/js YouTube.md": {
     "color": "brown"
   },
-  "Other/Code examples/quicksort.md": {
+  "Languages/Python/Snippets/Problems/quicksort.md": {
     "color": "brown"
   },
-  "Other/Code examples/str - int.md": {
+  "Languages/Python/Snippets/Problems/str - int.md": {
     "color": "brown"
   },
-  "Other/Code examples/Минимальное максимальное число матрицы cpp.md": {
+  "Languages/Python/Snippets/Problems/Минимальное максимальное число матрицы cpp.md": {
     "color": "brown"
   },
-  "Other/Code examples/Определитель матрицы.md": {
+  "Languages/Python/Snippets/Problems/Определитель матрицы.md": {
     "color": "brown"
   },
-  "Other/Code examples/Пирамида граф.md": {
+  "Languages/Python/Snippets/Problems/Пирамида граф.md": {
     "color": "brown"
   },
-  "Other/Code examples/словарь обращение через точку.md": {
+  "Languages/Python/Snippets/Problems/словарь обращение через точку.md": {
     "color": "brown"
   },
-  "Other/File formats/CSV.md": {
+  "Languages/Python/Snippets/File formats/CSV.md": {
     "color": "brown"
   },
-  "Other/File formats/INI.md": {
+  "Languages/Python/Snippets/File formats/INI.md": {
     "color": "brown"
   },
-  "Other/File formats/JSON.md": {
+  "Languages/Python/Snippets/File formats/JSON.md": {
     "color": "brown"
   },
-  "Other/File formats/SQLite3 to CSV.md": {
+  "Languages/Python/Snippets/File formats/SQLite3 to CSV.md": {
     "color": "brown"
   },
-  "Other/File formats/TinyDB (json).md": {
+  "Languages/Python/Snippets/File formats/TinyDB (json).md": {
     "color": "brown"
   },
-  "Other/File formats/TOML.md": {
+  "Languages/Python/Snippets/File formats/TOML.md": {
     "color": "brown"
   },
-  "Other/File formats/Vedis db.md": {
+  "Languages/Python/Snippets/File formats/Vedis db.md": {
     "color": "brown"
   },
-  "Other/File formats/XML.md": {
+  "Languages/Python/Snippets/Examples/list comprehension tips.md": {
     "color": "brown"
   },
-  "Other/File formats/YAML.md": {
+  "Languages/Python/Snippets/Examples/Multiplication of lists.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/File formats/XML.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/File formats/YAML.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Get admin rights.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/PYPRECODE.md": {
     "color": "brown"
   },
   "Shortcuts/Java/": {

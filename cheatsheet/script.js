@@ -240,7 +240,7 @@ function CopyCode(button_element) {
 function DownloadCode(button_element, filename) {
     code_element = button_element.parentElement.parentElement.lastElementChild;
 
-    text = code_element.textContent.split("\n").slice(1).join("\n");
+    text = code_element.textContent;//.split("\n").slice(1).join("\n");
     const element = document.createElement("a");
     element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
     element.setAttribute("download", filename);

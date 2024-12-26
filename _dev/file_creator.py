@@ -1,5 +1,6 @@
 import os
 import re
+from pathlib import Path
 
 import markdown
 import requests
@@ -136,7 +137,16 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
 
 
 def create_files(cheatsheet_count: int):
-    create_files_and_folders(DICT, y=cheatsheet_count - 1)
+    additional_path = ""
+    dictionary = DICT
+    directory = Path("../cheatsheet")
+
+    if additional_path:
+        directory = directory.joinpath(additional_path)
+        for path in additional_path.split("/"):
+            dictionary = dictionary[path]
+
+    create_files_and_folders(dictionary, directory=str(directory), y=cheatsheet_count - 1)
 
     try:
         content = requests.get(
