@@ -11,11 +11,6 @@
 <code>getWindowPID(window)</code>: Возвращает идентификатор процесса, связанного с указанным окном.
 <code>getWindowProcessID(window)</code>: Возвращает идентификатор процесса, связанного с указанным окном.
 <code>getWindowThreadID(window)</code>: Возвращает идентификатор потока, связанного с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.
 <code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.</p>
 <p>Некоторые из самых часто используемых методов библиотеки "pygetwindow":</p>
 <p><code>getAllTitles()</code>: Возвращает список заголовков всех открытых окон.</p>

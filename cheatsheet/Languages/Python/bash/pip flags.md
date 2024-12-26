@@ -87,7 +87,7 @@ Install Options:
   --abi &lt;abi&gt;                 Only use wheels compatible with Python abi &lt;abi&gt;, e.g. &#39;pypy_41&#39;. If not specified, then the current interpreter abi tag is
                               used. Use this option multiple times to specify multiple abis supported by the target interpreter. Generally you will need
                               to specify --implementation, --platform, and --python-version when using this option.
-  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%\Python on Windows. (See
+  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%/Python on Windows. (See
                               the Python documentation for site.USER_BASE for full details.)
   --root &lt;dir&gt;                Install everything relative to this alternate root directory.
   --prefix &lt;dir&gt;              Installation prefix where lib, bin and other top-level folders are placed. Note that the resulting installation may contain

@@ -1,3 +1,8 @@
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span>
+<span class="unselectable"><span class="go">&lt;module &#39;ntpath&#39; (frozen)&gt;</span>
+</span></pre></div></div></div>
+
 <p>Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
 с учетом специфических особенностей операционной системы Windows.</p>
 <p>Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:</p>

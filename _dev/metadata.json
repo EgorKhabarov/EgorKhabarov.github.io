@@ -236,7 +236,7 @@
   "Languages/Python/Libraries/Other/notebook.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/ntpath.md": {
+  "Languages/Python/Libraries/System/Windows/ntpath.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/packaging.md": {
@@ -303,6 +303,12 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/contextlib.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/nt.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/os/os 2.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/curses.md": {
@@ -437,7 +443,7 @@
   "Languages/Python/Libraries/System/glob.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/grp.md": {
+  "Languages/Python/Libraries/System/Unix/grp.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/io.md": {
@@ -449,16 +455,19 @@
   "Languages/Python/Libraries/System/multiprocessing.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/nt.md": {
+  "Languages/Python/Libraries/System/Windows/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/optparse.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/posix.md": {
+  "Languages/Python/Libraries/System/Unix/posix.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/posixpath.md": {
+  "Languages/Python/Libraries/System/Unix/posixpath.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/psutil.md": {
@@ -473,7 +482,7 @@
   "Languages/Python/Libraries/System/resource.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/signal.md": {
+  "Languages/Python/Libraries/System/Unix/signal.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/spwd.md": {
@@ -501,6 +510,9 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Web/Flask/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/FastAPI/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/Jinja/": {
