@@ -143,9 +143,6 @@
   "Languages/Python/Libraries/Information/PIL/": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Information/aalib.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Information/argparse.md": {
     "color": "green"
   },
@@ -153,9 +150,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Information/binhex.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Information/cycler.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/datetime.md": {
@@ -194,13 +188,7 @@
   "Languages/Python/Libraries/Information/time.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Information/xdrlib.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Information/PIL/ImageDraw.Draw.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/bz2.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/errno.md": {
@@ -209,67 +197,22 @@
   "Languages/Python/Libraries/Other/gettext.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/js2py.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/linecache.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/locale.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/mailbox.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/mailcap.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/netbios.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/nis.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/nntplib.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/notebook.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/Windows/ntpath.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/packaging.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/poplib.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/pylab.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/pythoncom.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/quopri.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/rasutil.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/readline.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/regcheck.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/rfc3339_validator.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/sched.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/traitlets.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/wheel.md": {
@@ -303,12 +246,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Python/contextlib.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/Windows/nt.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/os/os 2.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Python/curses.md": {
@@ -419,6 +356,12 @@
   "Languages/Python/Libraries/System/os/": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/Unix/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/concurrent.md": {
     "color": "green"
   },
@@ -443,9 +386,6 @@
   "Languages/Python/Libraries/System/glob.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/Unix/grp.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/io.md": {
     "color": "green"
   },
@@ -455,19 +395,7 @@
   "Languages/Python/Libraries/System/multiprocessing.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/Windows/": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/Unix/": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/optparse.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/Unix/posix.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/Unix/posixpath.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/psutil.md": {
@@ -482,12 +410,6 @@
   "Languages/Python/Libraries/System/resource.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/Unix/signal.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/spwd.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/stat.md": {
     "color": "green"
   },
@@ -500,25 +422,43 @@
   "Languages/Python/Libraries/System/watchdog.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/os/os 2.md": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/os/os.path.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/os/os.stat.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/Django/": {
+  "Languages/Python/Libraries/System/Unix/grp.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/Flask/": {
+  "Languages/Python/Libraries/System/Unix/posix.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/posixpath.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/signal.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/nt.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/ntpath.md": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/Django/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/FastAPI/": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/Jinja/": {
+  "Languages/Python/Libraries/Web/Flask/": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/bleach.md": {
+  "Languages/Python/Libraries/Web/Jinja/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/certifi.md": {
@@ -527,13 +467,7 @@
   "Languages/Python/Libraries/Web/grpc.md": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/rfc3986_validator.md": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Web/webcolors.md": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Web/webencodings.md": {
     "color": "green"
   },
   "Languages/Python/Snippets/Examples/": {
