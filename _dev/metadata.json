@@ -53,6 +53,9 @@
   "Languages/Python/Libraries/": {
     "color": "green"
   },
+  "Languages/Python/Snippets/": {
+    "color": "brown"
+  },
   "Languages/Python/Libraries/Algorithms/": {
     "color": "green"
   },
@@ -170,14 +173,14 @@
   "Languages/Python/Libraries/Information/math.md": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Information/numpy.md": {
+    "color": "lblue"
+  },
   "Languages/Python/Libraries/Information/random.md": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/rich.md": {
     "color": "green"
-  },
-  "Languages/Python/Libraries/Information/numpy.md": {
-    "color": "lblue"
   },
   "Languages/Python/Libraries/Information/shlex.md": {
     "color": "green"
@@ -521,58 +524,25 @@
   "Languages/Python/Libraries/Web/webencodings.md": {
     "color": "green"
   },
-  "Languages/RegExp/images.md": {
-    "color": "lblue"
-  },
-  "Languages/SQL/Картинки.md": {
-    "color": "lblue"
-  },
-  "Languages/SQL/PostgreSQL/Картинки.md": {
-    "color": "lblue"
-  },
-  "Languages/Python/Snippets/Problems/": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/": {
+  "Languages/Python/Snippets/Examples/": {
     "color": "brown"
   },
   "Languages/Python/Snippets/File formats/": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Examples/": {
+  "Languages/Python/Snippets/Problems/": {
     "color": "brown"
   },
-  "Other/TODO.md": {
-    "color": "red"
-  },
-  "Languages/Python/Snippets/Problems/converters.md": {
+  "Languages/Python/Snippets/Get admin rights.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/download telegram emoji.md": {
+  "Languages/Python/Snippets/PYPRECODE.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/fib.md": {
+  "Languages/Python/Snippets/Examples/list comprehension tips.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/js YouTube.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/quicksort.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/str - int.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/Минимальное максимальное число матрицы cpp.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/Определитель матрицы.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/Пирамида граф.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Problems/словарь обращение через точку.md": {
+  "Languages/Python/Snippets/Examples/Multiplication of lists.md": {
     "color": "brown"
   },
   "Languages/Python/Snippets/File formats/CSV.md": {
@@ -596,23 +566,50 @@
   "Languages/Python/Snippets/File formats/Vedis db.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Examples/list comprehension tips.md": {
-    "color": "brown"
-  },
-  "Languages/Python/Snippets/Examples/Multiplication of lists.md": {
-    "color": "brown"
-  },
   "Languages/Python/Snippets/File formats/XML.md": {
     "color": "brown"
   },
   "Languages/Python/Snippets/File formats/YAML.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Get admin rights.md": {
+  "Languages/Python/Snippets/Problems/converters.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/PYPRECODE.md": {
+  "Languages/Python/Snippets/Problems/download telegram emoji.md": {
     "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/fib.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/quicksort.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/str - int.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/Минимальное максимальное число матрицы cpp.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/Определитель матрицы.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/Пирамида граф.md": {
+    "color": "brown"
+  },
+  "Languages/Python/Snippets/Problems/словарь обращение через точку.md": {
+    "color": "brown"
+  },
+  "Languages/RegExp/images.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/PostgreSQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Other/TODO.md": {
+    "color": "red"
   },
   "Shortcuts/Java/": {
     "folder-open": true
