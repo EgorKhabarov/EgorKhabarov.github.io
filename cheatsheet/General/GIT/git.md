@@ -28,7 +28,7 @@
 </tr>
 <tr>
 <td><code>git push -u origin master</code></td>
-<td>Кзменения отправляются на удаленный сервер</td>
+<td>Изменения отправляются на удаленный сервер</td>
 </tr>
 </tbody>
 </table>

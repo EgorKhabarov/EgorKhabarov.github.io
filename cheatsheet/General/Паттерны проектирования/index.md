@@ -20,24 +20,10 @@
 </ul>
 </li>
 </ul>
-<h1>ChatGPT Promt</h1>
-<div class="code_element"><div class="lang_line"><text>markdown</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-markdown"><div class="highlight"><pre><span></span>Я буду тебе писать название паттерна проектирования, а ты будешь максимально кратко объяснять его в виде шпаргалки с примерами кода.
-По шаблону:
-<span class="gh"># &lt;Название шаблона на английском языке&gt; (&lt;Перевод названия на русском языке&gt;)</span>
-
-<span class="gs">**Описание**</span>: &lt;Описание&gt;
-
-<span class="gs">**Когда использовать**</span>: &lt;Когда использовать&gt;
-
-<span class="sb">&#x60;&#x60;&#x60;python</span>
-<span class="o">&lt;</span><span class="n">Короткий</span> <span class="n">пример</span> <span class="n">кода</span> <span class="n">объясняющий</span> <span class="n">работу</span> <span class="n">паттерна</span><span class="o">&gt;</span>
-<span class="sb">&#x60;&#x60;&#x60;</span>
-
-Заменяй только то что находится в &lt;&gt;
-</pre></div></div></div>
-
+<h1>Промт</h1>
+<p><a href="?Other/ChatGPT/Промты#chatgpt-promt">Промт для паттернов проектирования</a></p>
 <h1>patterns_image_generator.py</h1>
-<details><summary>code</summary>
+<details><summary>patterns_image_generator.py</summary>
 
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `patterns_image_generator.py`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable">Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># pip install pillow</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span><span class="p">,</span> <span class="n">ImageFont</span>
