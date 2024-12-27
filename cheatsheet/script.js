@@ -88,6 +88,7 @@ function loadSettings() {
         "settings_search_register_independence": true,
         "settings_search_full_path": true,
         "settings_search_show_full_path": true,
+        "settings_css_markdown_preview": false,
         "settings_css": "",
     };
 }
@@ -103,6 +104,43 @@ function applySettings(settings) {
         if (element) element.checked = value;
     }
     settings_css_textarea.value = settings.settings_css || "";
+}
+function css_markdown_preview_func(element) {
+    if (element.checked) {
+        css_markdown_preview.textContent = `
+
+#cheatsheet_field h1 {color:rgb(255,   0,   0);}
+#cheatsheet_field h2 {color:rgb(250, 115,   0);}
+#cheatsheet_field h3 {color:rgb(255, 250,   0);}
+#cheatsheet_field h4 {color:rgb(  0, 255,   0);}
+#cheatsheet_field h5 {color:rgb(  0, 160, 245);}
+#cheatsheet_field h6 {color:rgb(221,   0, 242);}
+
+#cheatsheet_field b, strong    {color:rgb(243, 171,   6);}
+#cheatsheet_field i, em        {color:rgb(128, 136, 193);}
+#cheatsheet_field strong em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field      b em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field em strong, b {color:rgb(195, 153, 144);}
+#cheatsheet_field  i strong, b {color:rgb(195, 153, 144);}
+
+strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
+
+
+#cheatsheet_field h1:before {content: "# ";}
+#cheatsheet_field h2:before {content: "## ";}
+#cheatsheet_field h3:before {content: "### ";}
+#cheatsheet_field h4:before {content: "#### ";}
+#cheatsheet_field h5:before {content: "##### ";}
+#cheatsheet_field h6:before {content: "###### ";}
+#cheatsheet_field code:before, code:after {content: "\`";}
+#cheatsheet_field mark:before, mark:after {content: "==";}
+#cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
+#cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
+
+`;
+    } else {
+        css_markdown_preview.textContent = '';
+    }
 }
 
 /* Anchor */
@@ -189,9 +227,9 @@ function CopyCode(button_element) {
     }
     copy(pre_element.textContent);
 
-    let svg = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">'
-    let html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text>Copied!</text>';
-    let html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text>Copy code</text>';
+    svg = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">'
+    html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable">Copied!</text>';
+    html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text class="unselectable">Copy code</text>';
 
     button_element.innerHTML = html1;
 
@@ -200,9 +238,9 @@ function CopyCode(button_element) {
     }, 1000);
 }
 function DownloadCode(button_element, filename) {
-    let code_element = button_element.parentElement.parentElement.lastElementChild;
+    code_element = button_element.parentElement.parentElement.lastElementChild;
 
-    let text = code_element.textContent.split("\n").slice(1).join("\n");
+    text = code_element.textContent;//.split("\n").slice(1).join("\n");
     const element = document.createElement("a");
     element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
     element.setAttribute("download", filename);
@@ -211,8 +249,8 @@ function DownloadCode(button_element, filename) {
     element.click();
     document.body.removeChild(element);
 
-    let download_html = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text>Download code</text>'
-    let downloaded_html = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><text>Download!</text>';
+    download_html = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable">Download code</text>'
+    downloaded_html = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable">Download!</text>';
 
     button_element.innerHTML = downloaded_html;
 
@@ -223,7 +261,7 @@ function DownloadCode(button_element, filename) {
 
 /* FontSize */
 function changeFontSize(action) {
-    let currentSize = parseFloat(getComputedStyle(cheatsheet_field).fontSize);
+    currentSize = parseFloat(getComputedStyle(cheatsheet_field).fontSize);
 
     if (action === "+") {
         if (currentSize > 100) return
@@ -274,7 +312,7 @@ function performSearch(empty) {
     console.log(s1Array);
 
     function searchElements(element) {
-        let results = [];
+        results = [];
         for (el of element)
             if (el.tagName === "BUTTON" && el.getAttribute("vpath")) {
                 vpath = el.getAttribute("vpath");
@@ -593,7 +631,7 @@ document.addEventListener("DOMContentLoaded", function() {
         DisplayCheatSheet(arg);
         changeTitle(getPathFilename(arg))
     } else {
-        PutHtmlText(getCheatSheet("README.html"));
+        PutHtmlText(getCheatSheet("README.md"));
     }
 
     // Якорь
@@ -624,6 +662,7 @@ document.addEventListener("DOMContentLoaded", function() {
         settings["settings_search_register_independence"] = true;
         settings["settings_search_full_path"] = true;
         settings["settings_search_show_full_path"] = true;
+        settings["settings_css_markdown_preview"] = false;
         // settings["settings_css"] = "";
         saveSettings(settings);
         applySettings(settings);
@@ -642,6 +681,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     });
+
+    css_markdown_preview_func(settings_css_markdown_preview);
 
     font_size_button.addEventListener("wheel", event => {
         if (event.deltaY < 0) {

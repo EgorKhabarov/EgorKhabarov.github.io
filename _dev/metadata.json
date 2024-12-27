@@ -140,9 +140,6 @@
   "Languages/Python/Libraries/Information/PIL/": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Information/aalib": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Information/argparse": {
     "color": "green"
   },
@@ -150,9 +147,6 @@
     "color": "green"
   },
   "Languages/Python/Libraries/Information/binhex": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Information/cycler": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/datetime": {
@@ -170,6 +164,9 @@
   "Languages/Python/Libraries/Information/math": {
     "color": "green"
   },
+  "Languages/Python/Libraries/Information/numpy": {
+    "color": "lblue"
+  },
   "Languages/Python/Libraries/Information/random": {
     "color": "green"
   },
@@ -185,13 +182,10 @@
   "Languages/Python/Libraries/Information/textwrap": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Information/xdrlib": {
+  "Languages/Python/Libraries/Information/time": {
     "color": "green"
   },
   "Languages/Python/Libraries/Information/PIL/ImageDraw.Draw": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/bz2": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/errno": {
@@ -200,67 +194,22 @@
   "Languages/Python/Libraries/Other/gettext": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/js2py": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/linecache": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/locale": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/mailbox": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/mailcap": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/netbios": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/nis": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/nntplib": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/notebook": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/ntpath": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/packaging": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/poplib": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/pylab": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/pythoncom": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/quopri": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Other/rasutil": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/readline": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/regcheck": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/rfc3339_validator": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Other/sched": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Other/traitlets": {
     "color": "green"
   },
   "Languages/Python/Libraries/Other/wheel": {
@@ -404,6 +353,12 @@
   "Languages/Python/Libraries/System/os/": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/Unix/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/concurrent": {
     "color": "green"
   },
@@ -428,9 +383,6 @@
   "Languages/Python/Libraries/System/glob": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/grp": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/io": {
     "color": "green"
   },
@@ -440,16 +392,7 @@
   "Languages/Python/Libraries/System/multiprocessing": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/nt": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/optparse": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/posix": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/posixpath": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/psutil": {
@@ -464,12 +407,6 @@
   "Languages/Python/Libraries/System/resource": {
     "color": "green"
   },
-  "Languages/Python/Libraries/System/signal": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/System/spwd": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/System/stat": {
     "color": "green"
   },
@@ -482,13 +419,37 @@
   "Languages/Python/Libraries/System/watchdog": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/os/os 2": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/System/os/os.path": {
     "color": "green"
   },
   "Languages/Python/Libraries/System/os/os.stat": {
     "color": "green"
   },
+  "Languages/Python/Libraries/System/Unix/grp": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/posix": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/posixpath": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Unix/signal": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/nt": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/System/Windows/ntpath": {
+    "color": "green"
+  },
   "Languages/Python/Libraries/Web/Django/": {
+    "color": "green"
+  },
+  "Languages/Python/Libraries/Web/FastAPI/": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/Flask/": {
@@ -497,22 +458,13 @@
   "Languages/Python/Libraries/Web/Jinja/": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/bleach": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Web/certifi": {
     "color": "green"
   },
   "Languages/Python/Libraries/Web/grpc": {
     "color": "green"
   },
-  "Languages/Python/Libraries/Web/rfc3986_validator": {
-    "color": "green"
-  },
   "Languages/Python/Libraries/Web/webcolors": {
-    "color": "green"
-  },
-  "Languages/Python/Libraries/Web/webencodings": {
     "color": "green"
   },
   "Languages/RegExp/images": {
@@ -524,73 +476,91 @@
   "Languages/SQL/PostgreSQL/Картинки": {
     "color": "lblue"
   },
-  "Other/Code examples/": {
-    "color": "brown"
-  },
-  "Other/File formats/": {
-    "color": "brown"
-  },
   "Other/TODO": {
     "color": "red"
   },
-  "Other/Code examples/converters": {
-    "color": "brown"
-  },
-  "Other/Code examples/download telegram emoji": {
-    "color": "brown"
-  },
-  "Other/Code examples/fib": {
-    "color": "brown"
-  },
-  "Other/Code examples/js YouTube": {
-    "color": "brown"
-  },
-  "Other/Code examples/quicksort": {
-    "color": "brown"
-  },
-  "Other/Code examples/str - int": {
-    "color": "brown"
-  },
-  "Other/Code examples/Минимальное максимальное число матрицы cpp": {
-    "color": "brown"
-  },
-  "Other/Code examples/Определитель матрицы": {
-    "color": "brown"
-  },
-  "Other/Code examples/Пирамида граф": {
-    "color": "brown"
-  },
-  "Other/Code examples/словарь обращение через точку": {
-    "color": "brown"
-  },
-  "Other/File formats/CSV": {
-    "color": "brown"
-  },
-  "Other/File formats/INI": {
-    "color": "brown"
-  },
-  "Other/File formats/JSON": {
-    "color": "brown"
-  },
-  "Other/File formats/SQLite3 to CSV": {
-    "color": "brown"
-  },
-  "Other/File formats/TinyDB (json)": {
-    "color": "brown"
-  },
-  "Other/File formats/TOML": {
-    "color": "brown"
-  },
-  "Other/File formats/Vedis db": {
-    "color": "brown"
-  },
-  "Other/File formats/XML": {
-    "color": "brown"
-  },
-  "Other/File formats/YAML": {
-    "color": "brown"
-  },
   "Shortcuts/Java/": {
     "folder-open": true
+  },
+  "Snippets/Java/snippet 1": {
+    "color": "brown"
+  },
+  "Snippets/JavaScript/js YouTube": {
+    "color": "brown"
+  },
+  "Snippets/Python/Examples/": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/": {
+    "color": "brown"
+  },
+  "Snippets/Python/Get admin rights": {
+    "color": "brown"
+  },
+  "Snippets/Python/PYPRECODE": {
+    "color": "brown"
+  },
+  "Snippets/Python/Examples/list comprehension tips": {
+    "color": "brown"
+  },
+  "Snippets/Python/Examples/Multiplication of lists": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/CSV": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/INI": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/JSON": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/SQLite3 to CSV": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/TinyDB (json)": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/TOML": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/Vedis db": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/XML": {
+    "color": "brown"
+  },
+  "Snippets/Python/File formats/YAML": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/converters": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/download telegram emoji": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/fib": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/quicksort": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/str - int": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/Минимальное максимальное число матрицы cpp": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/Определитель матрицы": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/Пирамида граф": {
+    "color": "brown"
+  },
+  "Snippets/Python/Problems/словарь обращение через точку": {
+    "color": "brown"
   }
 }

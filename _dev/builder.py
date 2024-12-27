@@ -12,6 +12,8 @@ from _dev.file_creator import create_files  # noqa
 from _dev.utils import print_progress_bar, check_dict_keys  # noqa
 
 
+ADDITIONAL_PATH = ""
+
 cheatsheet_count = check_dict_keys(DICT)
 assert cheatsheet_count is not False
 print()
@@ -40,7 +42,7 @@ for foldername, _, filenames in os.walk(folder_path):
                 os.remove(path)
 
 print()
-create_files(cheatsheet_count)
+create_files(cheatsheet_count, ADDITIONAL_PATH)
 print()
 metadata = make_clear_json()
 generate_index_html(cheatsheet_count, metadata)

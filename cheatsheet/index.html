@@ -13,6 +13,8 @@
  <body>
   <style id="settings_css">
   </style>
+  <style id="css_markdown_preview">
+  </style>
   <div id="cheatsheet_buttons">
    <div class="search_container">
     <input class="search_input unselectable" id="search_input" placeholder="🔎 Поиск" type="text"/>
@@ -283,20 +285,6 @@
       </svg>
       HTTР
      </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Requests" vpath="General/HTTP/Requests">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Requests
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Протоколы связи" vpath="General/HTTP/Протоколы связи">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Протоколы связи
-     </button>
      <button onclick="onclickCheatSheetButton(this);" title="Заголовки" vpath="General/HTTP/Заголовки">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -304,37 +292,28 @@
       </svg>
       Заголовки
      </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Ответы" vpath="General/HTTP/Ответы">
+     <button onclick="onclickCheatSheetButton(this);" title="Коды ответов" vpath="General/HTTP/Коды ответов">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
-      Ответы
+      Коды ответов
+     </button>
+     <button onclick="onclickCheatSheetButton(this);" title="Networking Protocols" vpath="General/HTTP/Networking Protocols">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      Networking Protocols
      </button>
     </div>
-    <button kpath="General/Парадигмы" onclick="onclickFolderButton(this)" title="Парадигмы">
-     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+    <button onclick="onclickCheatSheetButton(this);" title="Парадигмы программирования" vpath="General/Парадигмы программирования">
+     <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
       </path>
      </svg>
-     Парадигмы
+     Парадигмы программирования
     </button>
-    <div class="button_folder" style="display:none;">
-     <button onclick="onclickCheatSheetButton(this);" title="Императивная" vpath="General/Парадигмы/Императивная">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Императивная
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Декларативная" vpath="General/Парадигмы/Декларативная">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Декларативная
-     </button>
-    </div>
     <button onclick="onclickCheatSheetButton(this);" title="ip" vpath="General/ip">
      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -348,13 +327,6 @@
       </path>
      </svg>
      ООП
-    </button>
-    <button onclick="onclickCheatSheetButton(this);" title="Networking Protocols" vpath="General/Networking Protocols">
-     <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-      </path>
-     </svg>
-     Networking Protocols
     </button>
     <button onclick="onclickCheatSheetButton(this);" title="Interpreter Compiler" vpath="General/Interpreter Compiler">
      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -419,6 +391,20 @@
      </svg>
      Cron
     </button>
+    <button onclick="onclickCheatSheetButton(this);" title="Glob" vpath="General/Glob">
+     <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+      </path>
+     </svg>
+     Glob
+    </button>
+    <button onclick="onclickCheatSheetButton(this);" title="ACID" vpath="General/ACID">
+     <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+      </path>
+     </svg>
+     ACID
+    </button>
    </div>
    <button kpath="Languages" onclick="onclickFolderButton(this)" title="Languages">
     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -452,6 +438,66 @@
        System
       </button>
       <div class="button_folder" style="display:none;">
+       <button kpath="Languages/Python/Libraries/System/Windows" onclick="onclickFolderButton(this)" title="Windows">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+         </path>
+        </svg>
+        Windows
+       </button>
+       <div class="button_folder" style="display:none;">
+        <button onclick="onclickCheatSheetButton(this);" title="nt" vpath="Languages/Python/Libraries/System/Windows/nt">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         nt
+        </button>
+        <button onclick="onclickCheatSheetButton(this);" title="ntpath" vpath="Languages/Python/Libraries/System/Windows/ntpath">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         ntpath
+        </button>
+       </div>
+       <button kpath="Languages/Python/Libraries/System/Unix" onclick="onclickFolderButton(this)" title="Unix">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+         </path>
+        </svg>
+        Unix
+       </button>
+       <div class="button_folder" style="display:none;">
+        <button onclick="onclickCheatSheetButton(this);" title="posix" vpath="Languages/Python/Libraries/System/Unix/posix">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         posix
+        </button>
+        <button onclick="onclickCheatSheetButton(this);" title="posixpath" vpath="Languages/Python/Libraries/System/Unix/posixpath">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         posixpath
+        </button>
+        <button onclick="onclickCheatSheetButton(this);" title="signal" vpath="Languages/Python/Libraries/System/Unix/signal">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         signal
+        </button>
+        <button onclick="onclickCheatSheetButton(this);" title="grp" vpath="Languages/Python/Libraries/System/Unix/grp">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+          </path>
+         </svg>
+         grp
+        </button>
+       </div>
        <button kpath="Languages/Python/Libraries/System/os" onclick="onclickFolderCheatSheetButton(this);" title="os" vpath="Languages/Python/Libraries/System/os/index">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
@@ -461,7 +507,7 @@
        </button>
        <div class="button_folder" style="display:none;">
         <button onclick="onclickCheatSheetButton(this);" title="os 2" vpath="Languages/Python/Libraries/System/os/os 2">
-         <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
           <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
           </path>
          </svg>
@@ -545,13 +591,6 @@
         </svg>
         resource
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="posix" vpath="Languages/Python/Libraries/System/posix">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        posix
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="stat" vpath="Languages/Python/Libraries/System/stat">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -573,20 +612,6 @@
         </svg>
         optparse
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="grp" vpath="Languages/Python/Libraries/System/grp">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        grp
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="posixpath" vpath="Languages/Python/Libraries/System/posixpath">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        posixpath
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="genericpath" vpath="Languages/Python/Libraries/System/genericpath">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -600,13 +625,6 @@
          </path>
         </svg>
         gc
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="nt" vpath="Languages/Python/Libraries/System/nt">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        nt
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="filecmp" vpath="Languages/Python/Libraries/System/filecmp">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -636,26 +654,12 @@
         </svg>
         psutil
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="spwd" vpath="Languages/Python/Libraries/System/spwd">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        spwd
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="fcntl" vpath="Languages/Python/Libraries/System/fcntl">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
         fcntl
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="signal" vpath="Languages/Python/Libraries/System/signal">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        signal
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="watchdog" vpath="Languages/Python/Libraries/System/watchdog">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -759,6 +763,13 @@
         </svg>
         textwrap
        </button>
+       <button onclick="onclickCheatSheetButton(this);" title="time" vpath="Languages/Python/Libraries/Information/time">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+         </path>
+        </svg>
+        time
+       </button>
        <button onclick="onclickCheatSheetButton(this);" title="datetime" vpath="Languages/Python/Libraries/Information/datetime">
         <svg aria-hidden="true" class="lblue" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -810,26 +821,12 @@
          ImageDraw.Draw
         </button>
        </div>
-       <button onclick="onclickCheatSheetButton(this);" title="aalib" vpath="Languages/Python/Libraries/Information/aalib">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        aalib
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="argparse" vpath="Languages/Python/Libraries/Information/argparse">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
         argparse
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="cycler" vpath="Languages/Python/Libraries/Information/cycler">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        cycler
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="shlex" vpath="Languages/Python/Libraries/Information/shlex">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -852,13 +849,6 @@
         </svg>
         binhex
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="xdrlib" vpath="Languages/Python/Libraries/Information/xdrlib">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        xdrlib
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="string" vpath="Languages/Python/Libraries/Information/string">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -874,7 +864,7 @@
         rich
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="numpy" vpath="Languages/Python/Libraries/Information/numpy">
-        <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" class="lblue" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
@@ -1324,7 +1314,7 @@
         </button>
        </div>
        <button kpath="Languages/Python/Libraries/Web/FastAPI" onclick="onclickFolderCheatSheetButton(this);" title="FastAPI" vpath="Languages/Python/Libraries/Web/FastAPI/index">
-        <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
          </path>
         </svg>
@@ -1404,33 +1394,12 @@
         </svg>
         webcolors
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="bleach" vpath="Languages/Python/Libraries/Web/bleach">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        bleach
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="webencodings" vpath="Languages/Python/Libraries/Web/webencodings">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        webencodings
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="certifi" vpath="Languages/Python/Libraries/Web/certifi">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
         certifi
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="rfc3986_validator" vpath="Languages/Python/Libraries/Web/rfc3986_validator">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        rfc3986_validator
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="grpc" vpath="Languages/Python/Libraries/Web/grpc">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1561,20 +1530,6 @@
        Other
       </button>
       <div class="button_folder" style="display:none;">
-       <button onclick="onclickCheatSheetButton(this);" title="pythoncom" vpath="Languages/Python/Libraries/Other/pythoncom">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        pythoncom
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="nntplib" vpath="Languages/Python/Libraries/Other/nntplib">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        nntplib
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="wheel" vpath="Languages/Python/Libraries/Other/wheel">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -1582,68 +1537,12 @@
         </svg>
         wheel
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="js2py" vpath="Languages/Python/Libraries/Other/js2py">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        js2py
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="pylab" vpath="Languages/Python/Libraries/Other/pylab">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        pylab
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="rasutil" vpath="Languages/Python/Libraries/Other/rasutil">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        rasutil
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="poplib" vpath="Languages/Python/Libraries/Other/poplib">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        poplib
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="mailbox" vpath="Languages/Python/Libraries/Other/mailbox">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        mailbox
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="regcheck" vpath="Languages/Python/Libraries/Other/regcheck">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        regcheck
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="traitlets" vpath="Languages/Python/Libraries/Other/traitlets">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        traitlets
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="linecache" vpath="Languages/Python/Libraries/Other/linecache">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
         linecache
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="readline" vpath="Languages/Python/Libraries/Other/readline">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        readline
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="sched" vpath="Languages/Python/Libraries/Other/sched">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1659,13 +1558,6 @@
         </svg>
         packaging
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="nis" vpath="Languages/Python/Libraries/Other/nis">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        nis
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="notebook" vpath="Languages/Python/Libraries/Other/notebook">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
@@ -1680,26 +1572,12 @@
         </svg>
         quopri
        </button>
-       <button onclick="onclickCheatSheetButton(this);" title="mailcap" vpath="Languages/Python/Libraries/Other/mailcap">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        mailcap
-       </button>
        <button onclick="onclickCheatSheetButton(this);" title="errno" vpath="Languages/Python/Libraries/Other/errno">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
          <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
          </path>
         </svg>
         errno
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="ntpath" vpath="Languages/Python/Libraries/Other/ntpath">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        ntpath
        </button>
        <button onclick="onclickCheatSheetButton(this);" title="locale" vpath="Languages/Python/Libraries/Other/locale">
         <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1714,27 +1592,6 @@
          </path>
         </svg>
         gettext
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="rfc3339_validator" vpath="Languages/Python/Libraries/Other/rfc3339_validator">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        rfc3339_validator
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="netbios" vpath="Languages/Python/Libraries/Other/netbios">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        netbios
-       </button>
-       <button onclick="onclickCheatSheetButton(this);" title="bz2" vpath="Languages/Python/Libraries/Other/bz2">
-        <svg aria-hidden="true" class="green" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-         </path>
-        </svg>
-        bz2
        </button>
       </div>
      </div>
@@ -1948,33 +1805,12 @@
       Generators
      </button>
      <div class="button_folder" style="display:none;">
-      <button onclick="onclickCheatSheetButton(this);" title="yield from" vpath="Languages/Python/Generators/yield from">
+      <button onclick="onclickCheatSheetButton(this);" title="Методы" vpath="Languages/Python/Generators/Методы">
        <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
         <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
         </path>
        </svg>
-       yield from
-      </button>
-      <button onclick="onclickCheatSheetButton(this);" title=".send()" vpath="Languages/Python/Generators/.send()">
-       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-        </path>
-       </svg>
-       .send()
-      </button>
-      <button onclick="onclickCheatSheetButton(this);" title=".throw()" vpath="Languages/Python/Generators/.throw()">
-       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-        </path>
-       </svg>
-       .throw()
-      </button>
-      <button onclick="onclickCheatSheetButton(this);" title=".close()" vpath="Languages/Python/Generators/.close()">
-       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-        </path>
-       </svg>
-       .close()
+       Методы
       </button>
       <button onclick="onclickCheatSheetButton(this);" title="Атрибуты" vpath="Languages/Python/Generators/Атрибуты">
        <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -1982,6 +1818,13 @@
         </path>
        </svg>
        Атрибуты
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="yield from" vpath="Languages/Python/Generators/yield from">
+       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       yield from
       </button>
      </div>
      <button kpath="Languages/Python/Built-in" onclick="onclickFolderButton(this)" title="Built⁠-⁠in">
@@ -2021,12 +1864,12 @@
        metaclass
       </button>
      </div>
-     <button onclick="onclickCheatSheetButton(this);" title="operator precedence" vpath="Languages/Python/operator precedence">
+     <button onclick="onclickCheatSheetButton(this);" title="Operator precedence" vpath="Languages/Python/Operator precedence">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
-      operator precedence
+      Operator precedence
      </button>
      <button onclick="onclickCheatSheetButton(this);" title="fstrings" vpath="Languages/Python/fstrings">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -2035,26 +1878,19 @@
       </svg>
       fstrings
      </button>
-     <button onclick="onclickCheatSheetButton(this);" title="mro" vpath="Languages/Python/mro">
+     <button onclick="onclickCheatSheetButton(this);" title="match⁠-⁠case" vpath="Languages/Python/match-case">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
-      mro
+      match⁠-⁠case
      </button>
-     <button onclick="onclickCheatSheetButton(this);" title="list comprehension tips" vpath="Languages/Python/list comprehension tips">
+     <button onclick="onclickCheatSheetButton(this);" title="MRO" vpath="Languages/Python/MRO">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
-      list comprehension tips
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Multiplication of lists" vpath="Languages/Python/Multiplication of lists">
-      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Multiplication of lists
+      MRO
      </button>
     </div>
     <button kpath="Languages/RegExp" onclick="onclickFolderButton(this)" title="RegExp">
@@ -2486,22 +2322,6 @@
       </svg>
       IO
      </button>
-     <button kpath="Languages/Java/Snippets" onclick="onclickFolderButton(this)" title="Snippets">
-      <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
-       </path>
-      </svg>
-      Snippets
-     </button>
-     <div class="button_folder" style="display:none;">
-      <button onclick="onclickCheatSheetButton(this);" title="snippet 1" vpath="Languages/Java/Snippets/snippet 1">
-       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-        </path>
-       </svg>
-       snippet 1
-      </button>
-     </div>
     </div>
     <button kpath="Languages/Kotlin" onclick="onclickFolderCheatSheetButton(this);" title="Kotlin" vpath="Languages/Kotlin/index">
      <svg aria-hidden="true" class="violet" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -3298,157 +3118,6 @@
     Other
    </button>
    <div class="button_folder" style="display:none;">
-    <button kpath="Other/File formats" onclick="onclickFolderButton(this)" title="File formats">
-     <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
-      </path>
-     </svg>
-     File formats
-    </button>
-    <div class="button_folder" style="display:none;">
-     <button onclick="onclickCheatSheetButton(this);" title="JSON" vpath="Other/File formats/JSON">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      JSON
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="YAML" vpath="Other/File formats/YAML">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      YAML
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="TOML" vpath="Other/File formats/TOML">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      TOML
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="INI" vpath="Other/File formats/INI">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      INI
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="XML" vpath="Other/File formats/XML">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      XML
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="CSV" vpath="Other/File formats/CSV">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      CSV
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="SQLite3 to CSV" vpath="Other/File formats/SQLite3 to CSV">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      SQLite3 to CSV
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Vedis db" vpath="Other/File formats/Vedis db">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Vedis db
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="TinyDB (json)" vpath="Other/File formats/TinyDB (json)">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      TinyDB (json)
-     </button>
-    </div>
-    <button kpath="Other/Code examples" onclick="onclickFolderButton(this)" title="Code examples">
-     <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
-      </path>
-     </svg>
-     Code examples
-    </button>
-    <div class="button_folder" style="display:none;">
-     <button onclick="onclickCheatSheetButton(this);" title="Пирамида граф" vpath="Other/Code examples/Пирамида граф">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Пирамида граф
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Определитель матрицы" vpath="Other/Code examples/Определитель матрицы">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Определитель матрицы
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="Минимальное максимальное число матрицы cpp" vpath="Other/Code examples/Минимальное максимальное число матрицы cpp">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      Минимальное максимальное число матрицы cpp
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="str ⁠-⁠ int" vpath="Other/Code examples/str - int">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      str ⁠-⁠ int
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="fib" vpath="Other/Code examples/fib">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      fib
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="converters" vpath="Other/Code examples/converters">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      converters
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="quicksort" vpath="Other/Code examples/quicksort">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      quicksort
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="download telegram emoji" vpath="Other/Code examples/download telegram emoji">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      download telegram emoji
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="js YouTube" vpath="Other/Code examples/js YouTube">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      js YouTube
-     </button>
-     <button onclick="onclickCheatSheetButton(this);" title="словарь обращение через точку" vpath="Other/Code examples/словарь обращение через точку">
-      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
-       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
-       </path>
-      </svg>
-      словарь обращение через точку
-     </button>
-    </div>
     <button kpath="Other/Minecraft" onclick="onclickFolderButton(this)" title="Minecraft">
      <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
       <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
@@ -3512,6 +3181,13 @@
       </svg>
       settings
      </button>
+     <button onclick="onclickCheatSheetButton(this);" title="font" vpath="Other/JetBrains IDE/font">
+      <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      font
+     </button>
     </div>
     <button kpath="Other/ChatGPT" onclick="onclickFolderButton(this)" title="ChatGPT">
      <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -3521,12 +3197,12 @@
      ChatGPT
     </button>
     <div class="button_folder" style="display:none;">
-     <button onclick="onclickCheatSheetButton(this);" title="Шпаргалки" vpath="Other/ChatGPT/Шпаргалки">
+     <button onclick="onclickCheatSheetButton(this);" title="Промты" vpath="Other/ChatGPT/Промты">
       <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
        </path>
       </svg>
-      Шпаргалки
+      Промты
      </button>
     </div>
     <button onclick="onclickCheatSheetButton(this);" title="Chrome Dino" vpath="Other/Chrome Dino">
@@ -3564,6 +3240,237 @@
      </svg>
      Markdown
     </button>
+   </div>
+   <button kpath="Snippets" onclick="onclickFolderButton(this)" title="Snippets">
+    <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+     <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+     </path>
+    </svg>
+    Snippets
+   </button>
+   <div class="button_folder" style="display:none;">
+    <button kpath="Snippets/Python" onclick="onclickFolderButton(this)" title="Python">
+     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+      </path>
+     </svg>
+     Python
+    </button>
+    <div class="button_folder" style="display:none;">
+     <button kpath="Snippets/Python/Examples" onclick="onclickFolderButton(this)" title="Examples">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+       </path>
+      </svg>
+      Examples
+     </button>
+     <div class="button_folder" style="display:none;">
+      <button onclick="onclickCheatSheetButton(this);" title="list comprehension tips" vpath="Snippets/Python/Examples/list comprehension tips">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       list comprehension tips
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="Multiplication of lists" vpath="Snippets/Python/Examples/Multiplication of lists">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       Multiplication of lists
+      </button>
+     </div>
+     <button kpath="Snippets/Python/File formats" onclick="onclickFolderButton(this)" title="File formats">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+       </path>
+      </svg>
+      File formats
+     </button>
+     <div class="button_folder" style="display:none;">
+      <button onclick="onclickCheatSheetButton(this);" title="JSON" vpath="Snippets/Python/File formats/JSON">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       JSON
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="YAML" vpath="Snippets/Python/File formats/YAML">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       YAML
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="TOML" vpath="Snippets/Python/File formats/TOML">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       TOML
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="INI" vpath="Snippets/Python/File formats/INI">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       INI
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="XML" vpath="Snippets/Python/File formats/XML">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       XML
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="CSV" vpath="Snippets/Python/File formats/CSV">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       CSV
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="SQLite3 to CSV" vpath="Snippets/Python/File formats/SQLite3 to CSV">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       SQLite3 to CSV
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="Vedis db" vpath="Snippets/Python/File formats/Vedis db">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       Vedis db
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="TinyDB (json)" vpath="Snippets/Python/File formats/TinyDB (json)">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       TinyDB (json)
+      </button>
+     </div>
+     <button kpath="Snippets/Python/Problems" onclick="onclickFolderButton(this)" title="Problems">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+       </path>
+      </svg>
+      Problems
+     </button>
+     <div class="button_folder" style="display:none;">
+      <button onclick="onclickCheatSheetButton(this);" title="Пирамида граф" vpath="Snippets/Python/Problems/Пирамида граф">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       Пирамида граф
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="Определитель матрицы" vpath="Snippets/Python/Problems/Определитель матрицы">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       Определитель матрицы
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="Минимальное максимальное число матрицы cpp" vpath="Snippets/Python/Problems/Минимальное максимальное число матрицы cpp">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       Минимальное максимальное число матрицы cpp
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="str ⁠-⁠ int" vpath="Snippets/Python/Problems/str - int">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       str ⁠-⁠ int
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="fib" vpath="Snippets/Python/Problems/fib">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       fib
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="converters" vpath="Snippets/Python/Problems/converters">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       converters
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="quicksort" vpath="Snippets/Python/Problems/quicksort">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       quicksort
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="словарь обращение через точку" vpath="Snippets/Python/Problems/словарь обращение через точку">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       словарь обращение через точку
+      </button>
+      <button onclick="onclickCheatSheetButton(this);" title="download telegram emoji" vpath="Snippets/Python/Problems/download telegram emoji">
+       <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+        </path>
+       </svg>
+       download telegram emoji
+      </button>
+     </div>
+     <button onclick="onclickCheatSheetButton(this);" title="Get admin rights" vpath="Snippets/Python/Get admin rights">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      Get admin rights
+     </button>
+     <button onclick="onclickCheatSheetButton(this);" title="PYPRECODE" vpath="Snippets/Python/PYPRECODE">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      PYPRECODE
+     </button>
+    </div>
+    <button kpath="Snippets/Java" onclick="onclickFolderButton(this)" title="Java">
+     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+      </path>
+     </svg>
+     Java
+    </button>
+    <div class="button_folder" style="display:none;">
+     <button onclick="onclickCheatSheetButton(this);" title="snippet 1" vpath="Snippets/Java/snippet 1">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      snippet 1
+     </button>
+    </div>
+    <button kpath="Snippets/JavaScript" onclick="onclickFolderButton(this)" title="JavaScript">
+     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" fill-rule="evenodd">
+      </path>
+     </svg>
+     JavaScript
+    </button>
+    <div class="button_folder" style="display:none;">
+     <button onclick="onclickCheatSheetButton(this);" title="js YouTube" vpath="Snippets/JavaScript/js YouTube">
+      <svg aria-hidden="true" class="brown" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+       <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+       </path>
+      </svg>
+      js YouTube
+     </button>
+    </div>
    </div>
    <button kpath="Shortcuts" onclick="onclickFolderButton(this)" title="Shortcuts">
     <svg aria-hidden="true" class="yellow" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -3611,10 +3518,17 @@
      </button>
     </div>
    </div>
+   <button onclick="onclickCheatSheetButton(this);" title="README" vpath="README">
+    <svg aria-hidden="true" class="white" fill="currentColor" height="20" viewbox="2 0 26 24" width="22" xmlns="http://www.w3.org/2000/svg">
+     <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z">
+     </path>
+    </svg>
+    README
+   </button>
   </div>
   <div id="rpanrResize">
   </div>
-  <pre id="cheatsheet_field">Нажмите на кнопку с темой, чтобы увидеть здесь объяснение</pre>
+  <pre id="cheatsheet_field">Нажмите на кнопку с темой</pre>
   <div id="cheatsheet_control_buttons">
    <button onclick="removeArgumentFromUrl();delAnchor();window.location.reload();">
     <!-- <img src="icon.png" width="24" height="24"/> -->
@@ -3679,6 +3593,8 @@
    <input id="settings_search_show_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
    Показывать весь путь до шпаргалки
    <br/>
+   <input id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this)" style="width: 13px;height: 13px;" type="checkbox"/>
+   CSS предпросмотр Markdown
    <br/>
    <h3 style="margin-top: 0px;margin-bottom: 6px;">
     CSS

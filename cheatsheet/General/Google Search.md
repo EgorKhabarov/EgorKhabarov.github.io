@@ -15,7 +15,7 @@
 <tr>
 <td><code>-</code></td>
 <td>Исключение слова или фразы</td>
-<td><code>рецепты пасты -томат или -"томат"</code></td>
+<td><code>рецепты пасты -томат</code> или <code>-"томат"</code></td>
 </tr>
 <tr>
 <td><code>site:</code></td>

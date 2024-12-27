@@ -1,5 +1,6 @@
 import os
 import re
+from pathlib import Path
 
 import markdown
 import requests
@@ -54,9 +55,9 @@ def code_block_callback(match: re.Match) -> str:
     copy_svg = '<svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg>'
     download_svg = '<svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg>'
 
-    copy_btn = f'<button class="copy_code_button" onclick="CopyCode(this)">{copy_svg}<text>Copy code</text></button>'
+    copy_btn = f'<button class="copy_code_button" onclick="CopyCode(this)">{copy_svg}<text class="unselectable">Copy code</text></button>'
     download_btn = (
-        f'<button class="download_code_button" onclick="DownloadCode(this, `{filename}`)">{download_svg}<text>Download code</text></button>'
+        f'<button class="download_code_button" onclick="DownloadCode(this, `{filename}`)">{download_svg}<text class="unselectable">Download code</text></button>'
         if filename
         else ""
     )
@@ -139,8 +140,16 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
     return x
 
 
-def create_files(cheatsheet_count: int):
-    create_files_and_folders(DICT, y=cheatsheet_count - 1)
+def create_files(cheatsheet_count: int, additional_path: str = ""):
+    dictionary = DICT
+    directory = Path("../cheatsheet")
+
+    if additional_path:
+        directory = directory.joinpath(additional_path)
+        for path in additional_path.strip("/").split("/"):
+            dictionary = dictionary[path]
+
+    create_files_and_folders(dictionary, directory=str(directory), y=cheatsheet_count - 1)
 
     try:
         content = requests.get(
@@ -154,7 +163,7 @@ def create_files(cheatsheet_count: int):
     except requests.exceptions.ConnectionError:
         pass
     else:
-        with open("../cheatsheet/README.html", "w", encoding="utf-8") as file_readme:
+        with open("../cheatsheet/README.md", "w", encoding="utf-8") as file_readme:
             file_readme.write(
                 to_markup(
                     f"""

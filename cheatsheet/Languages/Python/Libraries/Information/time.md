@@ -1,0 +1,124 @@
+<h1>time</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+<th>Пример использования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time.time()</code></td>
+<td>Возвращает текущее время в секундах с эпохи (<code>01.01.1970 00:00:00 UTC</code>)</td>
+<td><code>time.time()</code></td>
+</tr>
+<tr>
+<td><code>time.sleep(seconds)</code></td>
+<td>Останавливает выполнение программы на указанное количество секунд</td>
+<td><code>time.sleep(1.5)</code></td>
+</tr>
+<tr>
+<td><code>time.ctime([secs])</code></td>
+<td>Преобразует время (в секундах с эпохи) в удобочитаемую строку.<br>Если <code>secs</code> не указано, используется текущее время</td>
+<td><code>time.ctime()</code></td>
+</tr>
+<tr>
+<td><code>time.gmtime([secs])</code></td>
+<td>Преобразует время (в секундах с эпохи)<br>в структуру <code>struct_time</code> в формате UTC</td>
+<td><code>time.gmtime()</code></td>
+</tr>
+<tr>
+<td><code>time.localtime([secs])</code></td>
+<td>Преобразует время (в секундах с эпохи)<br>в структуру <code>struct_time</code> для текущего часового пояса</td>
+<td><code>time.localtime()</code></td>
+</tr>
+<tr>
+<td><code>time.mktime(t)</code></td>
+<td>Преобразует объект <code>struct_time</code> обратно в секунды с эпохи</td>
+<td><code>time.mktime(time.localtime())</code></td>
+</tr>
+<tr>
+<td><code>time.strftime(format, t)</code></td>
+<td>Преобразует <code>struct_time</code> в строку по указанному формату</td>
+<td><code>time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())</code></td>
+</tr>
+<tr>
+<td><code>time.strptime(string, format)</code></td>
+<td>Парсит строку времени в объект <code>struct_time</code> на основе заданного формата</td>
+<td><code>time.strptime("2024-12-25", "%Y-%m-%d")</code></td>
+</tr>
+<tr>
+<td><code>time.perf_counter()</code></td>
+<td>Возвращает высокоточный таймер для измерения временных интервалов</td>
+<td><code>start = time.perf_counter()</code><br><code>time.perf_counter() - start</code></td>
+</tr>
+<tr>
+<td><code>time.process_time()</code></td>
+<td>Возвращает процессорное время выполнения текущего процесса</td>
+<td><code>time.process_time()</code></td>
+</tr>
+<tr>
+<td><code>time.monotonic()</code></td>
+<td>Возвращает значение монотонного таймера (всегда возрастает)</td>
+<td><code>time.monotonic()</code></td>
+</tr>
+<tr>
+<td><code>time.thread_time()</code></td>
+<td>Возвращает процессорное время потока</td>
+<td><code>time.thread_time()</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Таблица констант</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Константа</strong></th>
+<th><strong>Описание</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time.timezone</code></td>
+<td>Смещение текущего часового пояса в секундах от UTC (для стандартного времени)</td>
+</tr>
+<tr>
+<td><code>time.altzone</code></td>
+<td>Смещение текущего часового пояса в секундах от UTC (для летнего времени)</td>
+</tr>
+<tr>
+<td><code>time.daylight</code></td>
+<td>Показывает, используется ли переход на летнее время (1 — да, 0 — нет)</td>
+</tr>
+<tr>
+<td><code>time.tzname</code></td>
+<td>Кортеж строк с названиями стандартного и летнего времени, например, <code>(UTC, BST)</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Примеры</h1>
+<h3>Таймер выполнения</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Задержка на 2 секунды</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h3>Форматирование времени</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()))</span>
+</pre></div></div></div>
+
+<h3>Парсинг строки времени</h3>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;2024-12-25&quot;</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="unselectable"><span class="go">time.struct_time(tm_year=2024, tm_mon=12, tm_mday=25, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=2, tm_yday=360, tm_isdst=-1)</span>
+</span></pre></div></div></div>
+
+<h3>Работа с UTC и локальным временем</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UTC:&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Local:&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()))</span>
+</pre></div></div></div>

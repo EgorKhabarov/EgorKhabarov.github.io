@@ -1414,38 +1414,27 @@ word_doc.accept(visitor)
 """,
         },
         "HTTP": {
-            "HTTР": """HTTP
-(Hypertext Transfer Protocol)
+            "HTTР": """
+
+# HTTP (Hypertext Transfer Protocol)
 Протокол для передачи гипертекстовых документов, таких как веб-страницы.
-HTTPS (HTTP Secure) - это расширение HTTP, которое использует шифрование
+
+# HTTPS (HTTP Secure)
+Это расширение HTTP, которое использует шифрование
 данных для безопасной передачи информации между сервером и клиентом.
 Протокол HTTPS использует те же методы, что и протокол HTTP,
-такие как GET, POST, PUT, DELETE и т. д.
+такие как **GET**, **POST**, **PUT**, **DELETE** и т. д.
 Однако в отличие от HTTP, HTTPS использует шифрование данных
 для защиты информации во время передачи.
-""",
-            "Requests": """
+
+
 |        |            |
 |--------|------------|
-| GET    | Получение данных с сервера.<br>Не изменяют состояние сервера и обычно используются<br>для получения данных, не требующих аутентификации |
-| POST   | Отправки данных на сервер.<br>Используются для создания новых ресурсов или<br>изменения существующих ресурсов на сервере |
-| PUT    | Обновления ресурса на сервере.<br>Заменяет текущий ресурс на новый ресурс |
-| PATCH  | Изменяет существующий ресурс |
-| DELETE | Удаления ресурса с сервера |
-""",
-            "Протоколы связи": """
-|                                                                 |                 |
-|-----------------------------------------------------------------|-----------------|
-| HTTP (Hypertext Transfer Protocol)                              | Протокол передачи гипертекста, который используется<br>для передачи веб-страниц и другого контента между сервером и клиентом в Интернете.<br>HTTP использует методы запроса-ответа между клиентом и сервером, где клиент отправляет запрос на сервер,<br>а сервер отправляет ответ с запрошенной информацией.<br>HTTP также поддерживает кэширование, что позволяет уменьшить количество передаваемых данных и ускорить загрузку страниц                                                                                                                                                                |
-| HTTPS (Hypertext Transfer Protocol Secure)                      | Это безопасная версия HTTP, которая использует шифрование SSL/TLS для защиты передаваемых данных от перехвата и подделки.<br>HTTPS добавляет дополнительный уровень безопасности в сравнении с HTTP и является необходимым<br>для обеспечения безопасной передачи конфиденциальной информации,<br>такой как пароли, номера кредитных карт и другие личные данные                                                                                                                                                                                                                                        |
-| SMTP (Simple Mail Transfer Protocol)                            | Протокол передачи почты, который используется для отправки электронной почты между почтовыми серверами.<br>SMTP работает на уровне приложения в модели OSI и использует порт 25 для обмена данными.<br>SMTP использует методы запроса-ответа, где отправитель отправляет сообщение на сервер,<br>а сервер затем доставляет сообщение получателю                                                                                                                                                                                                                                                         |
-| POP3 (Post Office Protocol version 3)                           | Протокол приема почты, который используется для получения электронной почты с сервера на клиентское устройство.<br>POP3 работает на уровне приложения и использует порт 110 для обмена данными.<br>Когда клиентский компьютер подключается к почтовому серверу,<br>POP3 загружает все письма с сервера на устройство, а затем удаляет их с сервера                                                                                                                                                                                                                                                      |
-| IMAP (Internet Message Access Protocol)                         | Протокол доступа к электронной почте, который также используется для получения электронной почты с сервера<br>на клиентское устройство, но предоставляет более продвинутые функции,<br>такие как хранение писем на сервере и синхронизация между устройствами.<br>IMAP работает на уровне приложения и использует порт 143 для обмена данными.<br>IMAP позволяет клиентам просматривать только заголовки писем или загружать их содержимое полностью,<br>а также удалять письма на сервере, не загружая их на устройство                                                                                |
-| TCP/IP<br>(Transmission Control Protocol/<br>Internet Protocol) | Это семейство протоколов, используемых для обмена данными в сети Интернет.<br>TCP отвечает за надежную передачу данных между приложениями,<br>установление и управление соединениями, а также контроль потока данных.<br>IP же отвечает за маршрутизацию пакетов данных между устройствами в сети,<br>идентификацию устройств, управление адресами и т.д.<br>TCP/IP также включает другие протоколы, такие как DNS (Domain Name System),<br>который переводит доменные имена в IP-адреса, и DHCP (Dynamic Host Configuration Protocol),<br>который автоматически назначает IP-адреса устройствам в сети |
-| FTP (File Transfer Protocol)                                    | Протокол передачи файлов, который используется для передачи файлов между компьютерами в сети.<br>FTP работает на уровне приложения и использует порт 21 для установки соединения и передачи команд,<br>а также порт 20 для передачи данных.<br>FTP позволяет пользователям загружать и скачивать файлы с сервера,<br>создавать и удалять директории и управлять правами доступа к файлам                                                                                                                                                                                                                |
-| SSH (Secure Shell)                                              | Протокол безопасной удаленной работы с командной строкой, который используется<br>для управления удаленными компьютерами и серверами.<br>SSH работает на уровне приложения и использует порт 22 для обмена данными.<br>SSH обеспечивает защиту от перехвата и подделки данных с помощью шифрования,<br>а также обеспечивает возможность удаленной аутентификации и управления устройством                                                                                                                                                                                                               |
-| DNS (Domain Name System)                                        | Протокол, который переводит доменные имена в IP-адреса и обратно.<br>DNS работает на уровне приложения и использует порт 53 для обмена данными.<br>DNS предоставляет возможность использования доменных имен для доступа к ресурсам<br>в сети вместо использования IP-адресов, что упрощает и облегчает работу сети                                                                                                                                                                                                                                                                                     |
-| SNMP (Simple Network Management Protocol)                       | Протокол управления сетью, который используется для мониторинга и управления сетевыми устройствами,<br>такими как маршрутизаторы, коммутаторы, серверы и т.д.<br>SNMP работает на уровне приложения и использует порты 161 и 162 для обмена данными.<br>SNMP позволяет администраторам мониторить статус устройств, настраивать их параметры и диагностировать проблемы в сети                                                                                                                                                                                                                          |
+| GET    | Получение данных с сервера.<br>Не изменяют состояние сервера и обычно используются<br>для получения данных, не требующих аутентификации
+| POST   | Отправки данных на сервер.<br>Используются для создания новых ресурсов или<br>изменения существующих ресурсов на сервере
+| PUT    | Обновления ресурса на сервере.<br>Заменяет текущий ресурс на новый ресурс
+| PATCH  | Изменяет существующий ресурс
+| DELETE | Удаления ресурса с сервера
 
 
 """,
@@ -1475,32 +1464,243 @@ Location – определяет, был ли запрос перенаправ
 Set-Cookie – куки, которую можно использовать для хранения данных
 
 """,
-            "Ответы": """
+            "Коды ответов": """
 
-- 100 информационный
-- 200 успешный
-- 300 перенаправление
-- 400 клиентская ошибка
-- 500 серверная ошибка
+# Коды ответов
 
-![http-status-codes.png](General/HTTP/http-status-codes.png)
+[https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP](https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP)
+
+- [100 информационный](#1xx)
+- [200 успешный](#2xx)
+- [300 перенаправление](#3xx)
+- [400 клиентская ошибка](#4xx)
+- [500 серверная ошибка](#5xx)
+
+## 1xx Status Codes: Information Requests
+
+<!--
+- [100 CONTINUE](#)
+- [101 SWITCHING PROTOCOLS](#)
+- [102 PROCESSING](#)
+- [103 EARLY HINTS](#)
+
+### 100 Continue
+This interim response indicates that everything so far is OK and that the client should continue the request, or ignore the response if the request is already finished.
+### 101 Switching Protocol
+This code is sent in response to an Upgrade request header from the client, and indicates the protocol the server is switching to.
+### 102 Processing
+This code indicates that the server has received and is processing the request, but no response is available yet.
+### 103 Early Hints
+This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response.
+
+-->
+<img alt="http-status-code1-xx.png" src="General/HTTP/1xx.png" style="width: 20em;">
+## 2xx Status Codes: Successful Requests
+<!--
+
+- [200 OK](#200%20ok)
+- [201 CREATED](#201%20created)
+- [202 ACCEPTED](#202%20accepted)
+- [203 NON-AUTHORITATIVE INFORMATION](#203%20non-authoritative%20information)
+- [204 NO CONTENT](#204%20no%20content)
+- [205 RESET CONTENT](#205%20reset%20content)
+- [206 PARTIAL CONTENT](#206%20partial%20content)
+- [207 MULTI-STATUS](#207%20multi-status)
+- [208 ALREADY REPORTED](#208%20already%20reported)
+- [226 IM USED PROCESSING](#226%20im%20used%20processing)
+
+### 200 OK
+The request has succeeded. The meaning of success depends on the HTTP method:
+• GET: The resource has been fetched and is transmitted in the message body
+• HEAD: The entity headers are in the message body.
+• PUT or POST: The resource describing the result of the action is transmitted in the message body.
+• TRACE The message bady contains the request message as received by the server
+### 201 Created
+The request has succeeded and a new resource has been created as a result. This is typically the response sent after POST requests, or same FUT requests
+### 202 Accepted
+The request has been received but not yet acted upon. It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the dutcome of the request. it is intended for cases where another process or server handles the request, or for batch processing.
+### 203 Non-Authoritative information
+This resporse code means the returned meta information is not exactly the same as is available from the origin servet, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the "200 OK" response is preferred to this status.
+### 204 No Content
+There is no content to send for this request, but the headers may be usetul The user agont may update its cached headers for this resource with the new ones.
+### 205 Reset Content
+Tells the user agent to reset the document which sent this request.
+### 206 Partial Content
+This response code is used when the Range header is sent from the client to request only part of a resource.
+### 207 MuliStatus
+Conveys information about multiple resources, for situations where multiple status codes might be appropriate.
+### 208 Already Reported
+Used inside a response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.
+### 226 IM Used
+The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance manipulations applied to the current instance.
+
+-->
+<img alt="http-status-code2-xx.png" src="General/HTTP/2xx.png" style="width: 20em;">
+## 3xx Status Codes: Redirections
+<!--
+
+- [300 MULTIPLE CHOICES](#300%20multiple%20choices)
+- [301 MOVED PERMANENTLY](#301%20moved%20permanently)
+- [302 FOUND](#302%20found)
+- [303 SEE OTHER](#303%20see other)
+- [304 NOT MODIFIED](#304%20not%20modified)
+- [305 USE PROXY](#305%20use%20proxy)
+- [306 SWITCH PROXY](#306%20switch%20proxy)
+- [307 TEMPORARY REDIRECT](#307%20temporary%20redirect)
+- [308 PERMANENT REDIRECT](#308%20permanent%20redirect)
+
+### 300 Multiple Choice
+The request has more than oné possible response. The user-agent or user should choose one of them. (There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick)
+### 301 Moved Permanently
+The URL of the requested resource has been changed permanently. The new URL is given in the response.
+### 302 Found
+This response code means that the URI of requested resource has been changed temporarily, Further changes in the URI might be made in the future, Therefore. this same URi should be used by the client in future requests
+### 303 See Other
+The server sent this response to direct the client to get the requested resource at another URI with a GET request
+### 304 Not Modified
+This is used for caching purposes it tells the client that the response has not been modified, so the client can continue to use the same cached version of the response,
+### 305 Use Proxy
+Deline in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy it has been deprecated due to securny concerns regarding in-band configuration ol a proxy.
+### 306 Unused
+This response code is no longer used, it is just reserved. It was used in a previous versiion of the HTTP/1.1 specification.
+### 307 Temporary Redirect
+The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request. This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP methiod used ifa POST was used in the first request a POST must be used in the second request.
+### 308 Permanent Redirect
+This means that the resource is now permanently located at anather URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: ifa POST was used in the fist request a POST must be used in the second request.
+
+-->
+<img alt="http-status-code3-xx.png" src="General/HTTP/3xx.png" style="width: 20em;">
+## 4xx Status Codes: Client Errors
+<!--
+
+- [400 Bad Request](#400%20bad%20request)
+- [401 Unauthorized](#401%20unauthorized)
+- [402 Payment Required](#402%20payment%20required)
+- [403 Forbidden](#403%20forbidden)
+- [404 Not Found](#404%20not%20found)
+- [405 Method Not Allowed](#405%20method%20not%20allowed)
+- [406 Not Acceptable](#406%20not%20acceptable)
+- [407 Proxy Authentication Required](#407%20proxy%20authentication%20required)
+- [408 Request Timeout](#408%20request%20timeout)
+
+### 400 Bad Request
+The server could not understand the request due to Invalid syntax.
+### 401 Unauthorized
+Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+### 402 Payment Required
+This response code is reserved for future use, The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.
+### 403 Forbidden
+The client does not have access rights to the content that is, it is unauthorized, so the server is refusing to give the requested. resource. Unlike 401 the client's identity is known to the server.
+### 404 Not Found
+The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client. This response code is probably the most famous one due to its frequent occurrence on the web. The resource could not be found. This is often used as a catch all for all Invalid URis requested of the server.
+### 405 Method Not Allowed
+The request method is known by the server but has been disabled and cannot be used. For example, an API may forbid DELFTE-ing a resource, The two mandatory methods, GET and HEAD, must never be disabled and should not return this error code.
+### 406 Not Acceptable
+This respanse is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.
+### 407 Proxy Authentication Required
+This is similar to 401 but authentication is needed to be done by a proxy.
+### 408 Request Timeout
+This response is sent on an idle connection by some servers, even without any previous request by the client, It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox, or IE9, use HTTP pre connection mechanisms to speed up surting. Also, note that some servers merely shut down the connection without sending this message.
+-->
+
+<img alt="http-status-code4-xx.png" src="General/HTTP/4xx.png" style="width: 30em;">
+## 5xx Status Codes: Server Errors
+<img alt="http-status-code5-xx.png" src="General/HTTP/5xx.png" style="width: 30em;">
+
+
+
+
+
+<!--
+
+# X
+
+
+<div class="container-row" style="">
+<img alt="http-status-code1-xx.png" src="General/HTTP/1xx.png" style="width: 20em;height: 50em;">
+<img alt="http-status-code2-xx.png" src="General/HTTP/2xx.png" style="width: 20em;height: 139em;">
+<img alt="http-status-code3-xx.png" src="General/HTTP/3xx.png" style="width: 20em;height: 131em;">
+<img alt="http-status-code4-xx.png" src="General/HTTP/4xx.png" style="width: 30em;height: 351em;">
+<img alt="http-status-code5-xx.png" src="General/HTTP/5xx.png" style="width: 30em;height: 175em;">
+</div>
+
+
+<div class="container-row" style="">
+![http-status-code1-xx.png](General/HTTP/1xx.png)
+![http-status-code2-xx.png](General/HTTP/2xx.png)
+![http-status-code3-xx.png](General/HTTP/3xx.png)
+![http-status-code4-xx.png](General/HTTP/4xx.png)
+![http-status-code5-xx.png](General/HTTP/5xx.png)
+</div>
+-->
+
+
+<!-- ![http-status-codes.png](General/HTTP/http-status-codes.png) -->
+""",
+            "Networking Protocols": """
+
+|                  |                                                            |                                |
+|------------------|------------------------------------------------------------|--------------------------------|
+| FTP              | File Transfer Protocol                                     | Port 21                        |
+| SSH              | Secure Shell                                               | Port 22                        |
+| Teinet           | Port 23                                                    |                                |
+| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
+| DNS              | Domain Naming System (or Service)                          | Port 53                        |
+| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
+| POP3             | Post Office Protocol                                       | Port 110                       |
+| IMAP             | Internet Message Access Protocol                           | Port 143                       |
+| HTTPS            | HTTP Secure                                                | Port 443                       |
+| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
+| TCP              | Transmission Control Protocol                              |                                |
+| UDP              | User Datagram Protocol                                     |                                |
+| ARP              | Address Resolution Protocol                                |                                |
+| RARP             | Reverse ARP                                                |                                |
+| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
+| MTP              | Media Transfert Protocol                                   |                                |
+| SFTP             | Secure File Transfer Protocol                              |                                |
+| SSL              | Secure Socket Layer                                        |                                |
+| TLS              | Transport Layer Security                                   |                                |
+| E6               | Ethernet globalization protocols                           |                                |
+| NTP              | Network time protocol                                      |                                |
+| PPP              | Point to Point Protocol                                    |                                |
+| NNTP             | Network News Transfer Protocol                             |                                |
+| QOTD             | Quote Of The Day                                           |                                |
+| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
+| ICMP             | Internet Control Message Protocol                          |                                |
+| IGMP             | Internet Group Management Protocol                         |                                |
+| GGP              | Gateway-to-Gateway Protocol                                |                                |
+| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
+
+
+|                                                                 |                 |
+|-----------------------------------------------------------------|-----------------|
+| HTTP (Hypertext Transfer Protocol)                              | Протокол передачи гипертекста, который используется<br>для передачи веб-страниц и другого контента между сервером и клиентом в Интернете.<br>HTTP использует методы запроса-ответа между клиентом и сервером, где клиент отправляет запрос на сервер,<br>а сервер отправляет ответ с запрошенной информацией.<br>HTTP также поддерживает кэширование, что позволяет уменьшить количество передаваемых данных и ускорить загрузку страниц                                                                                                                                                                |
+| HTTPS (Hypertext Transfer Protocol Secure)                      | Это безопасная версия HTTP, которая использует шифрование SSL/TLS для защиты передаваемых данных от перехвата и подделки.<br>HTTPS добавляет дополнительный уровень безопасности в сравнении с HTTP и является необходимым<br>для обеспечения безопасной передачи конфиденциальной информации,<br>такой как пароли, номера кредитных карт и другие личные данные                                                                                                                                                                                                                                        |
+| SMTP (Simple Mail Transfer Protocol)                            | Протокол передачи почты, который используется для отправки электронной почты между почтовыми серверами.<br>SMTP работает на уровне приложения в модели OSI и использует порт 25 для обмена данными.<br>SMTP использует методы запроса-ответа, где отправитель отправляет сообщение на сервер,<br>а сервер затем доставляет сообщение получателю                                                                                                                                                                                                                                                         |
+| POP3 (Post Office Protocol version 3)                           | Протокол приема почты, который используется для получения электронной почты с сервера на клиентское устройство.<br>POP3 работает на уровне приложения и использует порт 110 для обмена данными.<br>Когда клиентский компьютер подключается к почтовому серверу,<br>POP3 загружает все письма с сервера на устройство, а затем удаляет их с сервера                                                                                                                                                                                                                                                      |
+| IMAP (Internet Message Access Protocol)                         | Протокол доступа к электронной почте, который также используется для получения электронной почты с сервера<br>на клиентское устройство, но предоставляет более продвинутые функции,<br>такие как хранение писем на сервере и синхронизация между устройствами.<br>IMAP работает на уровне приложения и использует порт 143 для обмена данными.<br>IMAP позволяет клиентам просматривать только заголовки писем или загружать их содержимое полностью,<br>а также удалять письма на сервере, не загружая их на устройство                                                                                |
+| TCP/IP<br>(Transmission Control Protocol/<br>Internet Protocol) | Это семейство протоколов, используемых для обмена данными в сети Интернет.<br>TCP отвечает за надежную передачу данных между приложениями,<br>установление и управление соединениями, а также контроль потока данных.<br>IP же отвечает за маршрутизацию пакетов данных между устройствами в сети,<br>идентификацию устройств, управление адресами и т.д.<br>TCP/IP также включает другие протоколы, такие как DNS (Domain Name System),<br>который переводит доменные имена в IP-адреса, и DHCP (Dynamic Host Configuration Protocol),<br>который автоматически назначает IP-адреса устройствам в сети |
+| FTP (File Transfer Protocol)                                    | Протокол передачи файлов, который используется для передачи файлов между компьютерами в сети.<br>FTP работает на уровне приложения и использует порт 21 для установки соединения и передачи команд,<br>а также порт 20 для передачи данных.<br>FTP позволяет пользователям загружать и скачивать файлы с сервера,<br>создавать и удалять директории и управлять правами доступа к файлам                                                                                                                                                                                                                |
+| SSH (Secure Shell)                                              | Протокол безопасной удаленной работы с командной строкой, который используется<br>для управления удаленными компьютерами и серверами.<br>SSH работает на уровне приложения и использует порт 22 для обмена данными.<br>SSH обеспечивает защиту от перехвата и подделки данных с помощью шифрования,<br>а также обеспечивает возможность удаленной аутентификации и управления устройством                                                                                                                                                                                                               |
+| DNS (Domain Name System)                                        | Протокол, который переводит доменные имена в IP-адреса и обратно.<br>DNS работает на уровне приложения и использует порт 53 для обмена данными.<br>DNS предоставляет возможность использования доменных имен для доступа к ресурсам<br>в сети вместо использования IP-адресов, что упрощает и облегчает работу сети                                                                                                                                                                                                                                                                                     |
+| SNMP (Simple Network Management Protocol)                       | Протокол управления сетью, который используется для мониторинга и управления сетевыми устройствами,<br>такими как маршрутизаторы, коммутаторы, серверы и т.д.<br>SNMP работает на уровне приложения и использует порты 161 и 162 для обмена данными.<br>SNMP позволяет администраторам мониторить статус устройств, настраивать их параметры и диагностировать проблемы в сети                                                                                                                                                                                                                          |
+
+
 """,
         },
-        "Парадигмы": {
-            "Императивная": """
-# КАК
+        "Парадигмы программирования": """
+# Императивная (КАК)
 
 Разработчик пишет для компьютера инструкции, которым тот следует.
 
 Виды программирования относятся к императивной парадигме:
 процедурное структурное аспектно-ориентированное объектно-ориентированное и другие.
 
-Пример
-Сложи два числа;
-Если а, то сделай б, а иначе сделай в;
-Отправь запрос на сервер;
-Открой файл;
-Выведи строку.
+> Сложи два числа;
+> Если а, то сделай б, а иначе сделай в;
+> Отправь запрос на сервер;
+> Открой файл;
+> Выведи строку.
 
 C# - Разработчик говорит как это можно получить (императивный)
 
@@ -1519,9 +1719,8 @@ int[] N2 = nums.ToArray();
 
 Императивное программирование даёт больше свободы, поэтому его чаще используют
 в творческих областях, особенно там, где важен порядок выполняемых действий.
-""",
-            "Декларативная": """
-# ЧТО
+
+# Декларативная (ЧТО)
 
 Разработчик описывает проблему и ожидаемый результат, но не пишет никаких инструкций.
 
@@ -1530,10 +1729,9 @@ int[] N2 = nums.ToArray();
 
 К декларативной парадигме относятся функциональное и логическое программирование.
 
-Пример
-Дано:    5, 1, 3, 9, 12, 583, 998, 7538, 72, 53, 71, 85, 7, 2, 9
-Задача:  Получить из этого массива все числа, которые больше 3, но меньше 100.
-Решение: Получить из массива N все числа, которые больше 3 и меньше 100.
+> Дано:    5, 1, 3, 9, 12, 583, 998, 7538, 72, 53, 71, 85, 7, 2, 9
+> Задача:  Получить из этого массива все числа, которые больше 3, но меньше 100.
+> Решение: Получить из массива N все числа, которые больше 3 и меньше 100.
 
 SQL - Разработчик говорит, что ему нужно (декларативный)
 
@@ -1543,8 +1741,8 @@ SELECT num FROM N WHERE num > 3 AND num < 100;
 Декларативное программирование — это обёртка для императивного.
 Не подходит для задач, для решения которых важно иметь доступ к состоянию программы.
 Например, если нужно проверить, нажата ли кнопка или поставлена ли галочка в чекбокс.
+
 """,
-        },
         "ip": """
 IP-адреса делятся на 5 классов
 
@@ -1616,39 +1814,6 @@ IP бывают **белые и серые** (или публичные и ча�
 Конкретные типы счетов, такие как "текущий счет" или "депозитный счет", могут быть созданы на основе этого абстрактного класса
 и расширены своими дополнительными свойствами и методами.
 """,
-        "Networking Protocols": """
-|                  |                                                            |                                |
-|------------------|------------------------------------------------------------|--------------------------------|
-| FTP              | File Transfer Protocol                                     | Port 21                        |
-| SSH              | Secure Shell                                               | Port 22                        |
-| Teinet           | Port 23                                                    |                                |
-| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
-| DNS              | Domain Naming System (or Service)                          | Port 53                        |
-| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
-| POP3             | Post Office Protocol                                       | Port 110                       |
-| IMAP             | Internet Message Access Protocol                           | Port 143                       |
-| HTTPS            | HTTP Secure                                                | Port 443                       |
-| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
-| TCP              | Transmission Control Protocol                              |                                |
-| UDP              | User Datagram Protocol                                     |                                |
-| ARP              | Address Resolution Protocol                                |                                |
-| RARP             | Reverse ARP                                                |                                |
-| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
-| MTP              | Media Transfert Protocol                                   |                                |
-| SFTP             | Secure File Transfer Protocol                              |                                |
-| SSL              | Secure Socket Layer                                        |                                |
-| TLS              | Transport Layer Security                                   |                                |
-| E6               | Ethernet globalization protocols                           |                                |
-| NTP              | Network time protocol                                      |                                |
-| PPP              | Point to Point Protocol                                    |                                |
-| NNTP             | Network News Transfer Protocol                             |                                |
-| QOTD             | Quote Of The Day                                           |                                |
-| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
-| ICMP             | Internet Control Message Protocol                          |                                |
-| IGMP             | Internet Group Management Protocol                         |                                |
-| GGP              | Gateway-to-Gateway Protocol                                |                                |
-| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
-""",
         "Interpreter Compiler": """
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1691,7 +1856,7 @@ CSRF-атаки заставляют пользователя выполнять
 | Синтаксис     | Описание                                                   | Пример использования                            |
 |---------------|------------------------------------------------------------|-------------------------------------------------|
 | `""`          | Поиск точного совпадения                                   | `"лучшие рестораны Москвы"`                     |
-| `-`           | Исключение слова или фразы                                 | `рецепты пасты -томат или -"томат"`             |
+| `-`           | Исключение слова или фразы                                 | `рецепты пасты -томат` или `-"томат"`           |
 | `site:`       | Поиск на определенном сайте                                | `вакансии site:example.com`                     |
 | `intitle:`    | Поиск слов в заголовках                                    | `intitle:"как сделать сайт"`                    |
 | `filetype:`   | Поиск файлов определенного типа                            | `резюме filetype:pdf`                           |
@@ -1871,43 +2036,44 @@ def bubble_sort(arr):
 
 """,
         "Бинарные операторы": """
-Бинарные операторы и создание флагов в Python
+Бинарные операторы и создание флагов
 
 # Бинарные операторы
 
 Бинарные операторы работают с числами на уровне битов.
 Они позволяют выполнять операции на двоичных представлениях целых чисел, манипулируя отдельными битами.
 
-Основные бинарные операторы
-|                     |      |                                                                                                                                   |
-|---------------------|------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **И**               | `&`  | Возвращает 1, если оба соответствующих бита — 1                                                                                   |
-| **ИЛИ**             | `|`  | Возвращает 1, если хотя бы один из соответствующих битов — 1                                                                      |
-| **ИСКЛЮЧАЮЩАЯ ИЛИ** | `^`  | Возвращает 1, если один из соответствующих битов — 1, но не оба                                                                   |
-| Отрицание           | `~`  | Инвертирует каждый бит числа (включая знак)                                                                                       |
-| Сдвиг влево         | `<<` | Сдвигает биты числа влево, добавляя справа нули                                                                                   |
-| Сдвиг вправо        | `>>` | Сдвигает биты числа вправо, заполняя левую часть нулями<br>(или единицами для отрицательных чисел в зависимости от представления) |
+### Основные бинарные операторы
+
+|                     |          |                                                                 |
+|---------------------|----------|-----------------------------------------------------------------|
+| **И**               | `&`      | Возвращает 1, если оба соответствующих бита — 1                 |
+| **ИЛИ**             | `&#x7c;` | Возвращает 1, если хотя бы один из соответствующих битов — 1    |
+| **ИСКЛЮЧАЮЩАЯ ИЛИ** | `^`      | Возвращает 1, если один из соответствующих битов — 1, но не оба |
+| Отрицание           | `~`      | Инвертирует каждый бит числа (включая знак)                     |
+| Сдвиг влево         | `<<`     | Сдвигает биты числа влево, добавляя справа нули                 |
+| Сдвиг вправо        | `>>`     | Сдвигает биты числа вправо, заполняя левую часть нулями<br>(или единицами для отрицательных чисел в зависимости от представления) |
 
 ### Пример использования бинарных операторов
 
 ```python
-a = 0b1100  # Число 12 в двоичном формате
-b = 0b1010  # Число 10 в двоичном формате
+a = 0b1100  # bin(12)  # Число 12 в двоичном формате
+b = 0b1010  # bin(10)  # Число 10 в двоичном формате
 
 # Побитовая И
-c = a & b  # 0b1000 -> 8
+a & b  # 0b1000 -> 8
 
 # Побитовая ИЛИ
-d = a | b  # 0b1110 -> 14
+a | b  # 0b1110 -> 14
 
 # Побитовая исключающая ИЛИ
-e = a ^ b  # 0b0110 -> 6
+a ^ b  # 0b0110 -> 6
 
 # Сдвиг влево
-f = a << 2  # 0b110000 -> 48
+a << 2  # 0b110000 -> 48
 
 # Сдвиг вправо
-g = a >> 2  # 0b0011 -> 3
+a >> 2  # 0b0011 -> 3
 ```
 
 ## Создание флагов с помощью бинарных операторов
@@ -2043,6 +2209,57 @@ crontab -r [-u user]
 | `0 0 * * 0`    | Every Sunday midnight       |
 
 """,
+        "Glob": """
+**Glob** — это шаблон сопоставления имен файлов и директорий
+
+| Шаблон   | Описание                                                                            | Пример                                    |
+|----------|-------------------------------------------------------------------------------------|-------------------------------------------|
+| `*`      | Соответствует любому количеству символов (включая 0) в имени файла или папки        | `*.txt` — все файлы с расширением `.txt`  |
+| `?`      | Соответствует любому одиночному символу                                             | `file?.txt` — `file1.txt`, `file2.txt`    |
+| `[abc]`  | Соответствует любому символу из указанного набора                                   | `file[12].txt` — `file1.txt`, `file2.txt` |
+| `[a-z]`  | Соответствует любому символу в заданном диапазоне                                   | `[a-c].txt` — `a.txt`, `b.txt`, `c.txt`   |
+| `[!abc]` | Соответствует любому символу, **кроме** указанных в наборе                          | `file[!10].txt` — исключает цифры 1 и 0   |
+| `[!a-z]` | Соответствует любому символу, **кроме** указанных в заданном диапазоне              | `file[!0-9].txt` — исключает цифры        |
+| `**`     | Соответствует любому количеству поддиректорий (требуется параметр `recursive=True`) | `**/*.py` — все `.py` файлы в проекте     |
+
+
+[https://en.wikipedia.org/wiki/Glob_(programming)](https://en.wikipedia.org/wiki/Glob_(programming))
+
+Для сложной фильтрации в Python лучше использовать [`fnmatch`](?Languages/Python/Libraries/System/fnmatch)
+
+""",
+        "ACID": """
+# ACID
+Основы транзакций в базах данных
+
+**ACID** — это набор свойств, которые обеспечивают надежность и корректность транзакций в базах данных
+
+### Atomicity (Атомарность)
+**Всё или ничего** Транзакция выполняется полностью или не выполняется вовсе
+**Если ошибка -> откат всех изменений** Если происходит сбой, система гарантирует откат всех изменений, чтобы база данных осталась в корректном состоянии
+
+### Consistency (Согласованность)**
+**Транзакция переводит базу в согласованное состояние** После выполнения транзакции база данных переходит из одного согласованного состояния в другое
+**Ограничения целостности соблюдены** Внутренние правила базы (например, ограничения целостности) остаются соблюдены
+
+### Isolation (Изолированность)**
+**Транзакции независимы** Одновременное выполнение нескольких транзакций не влияет на их результат
+**Никаких "грязных" данных между транзакциями** Каждая транзакция выполняется так, как если бы она была единственной в системе
+
+### Durability (Долговечность)**
+После подтверждения транзакции её изменения сохраняются, даже если произойдет сбой системы
+
+
+## Пример
+
+Допустим, мы переводим деньги с одного счёта на другой
+
+- **Atomicity**: Если произошёл сбой, то либо оба изменения (списание и зачисление) будут отменены, либо выполнены вместе
+- **Consistency**: Сумма денег на обоих счетах остаётся одинаковой до и после транзакции
+- **Isolation**: Другие транзакции не видят промежуточных состояний, например, когда деньги списаны, но ещё не зачислены
+- **Durability**: После подтверждения транзакции данные о переводе сохранятся даже при сбое системы
+
+""",
     },
     "Languages": {
         "Python": {
@@ -2057,6 +2274,398 @@ https://img.shields.io/badge/ChatGPT-3.5-blue?logo=openai
 -->
 """,
                 "System": {
+                    "Windows": {
+                        "nt": r"""
+Библиотека "nt" в Python используется для работы с функциями операционной системы Windows.
+
+Методы модуля "nt" и его подмодулей:
+
+Модуль "nt":
+nt.getcwd(): Возвращает текущую рабочую директорию.
+nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
+nt.mkdir(path): Создает новую директорию по указанному пути.
+nt.remove(path): Удаляет файл по указанному пути.
+nt.rename(src, dst): Переименовывает файл или директорию.
+nt.system(command): Выполняет команду операционной системы.
+
+Подмодуль "ntpath":
+ntpath.basename(path): Возвращает имя файла или директории из указанного пути.
+ntpath.dirname(path): Возвращает имя директории из указанного пути.
+ntpath.exists(path): Проверяет, существует ли файл или директория по указанному пути.
+ntpath.join(path, *paths): Объединяет пути в один.
+ntpath.split(path): Разделяет путь на имя директории и имя файла.
+
+Некоторые часто используемые методы и их описание:
+
+nt.getcwd(): Возвращает текущую рабочую директорию.
+
+```python
+import nt
+current_dir = nt.getcwd()
+print(current_dir)
+```
+
+nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
+
+
+```python
+import nt
+file_list = nt.listdir("C:/Users")
+print(file_list)
+```
+
+nt.mkdir(path): Создает новую директорию по указанному пути.
+
+```python
+import nt
+nt.mkdir("C:/Users/NewDirectory")
+```
+
+nt.remove(path): Удаляет файл по указанному пути.
+
+```python
+import nt
+nt.remove("C:/Users/example.txt")
+```
+
+nt.rename(src, dst): Переименовывает файл или директорию.
+
+```python
+import nt
+nt.rename("C:/Users/old_name.txt", "C:/Users/new_name.txt")
+```
+
+nt.system(command): Выполняет команду операционной системы.
+
+```python
+import nt
+nt.system("dir")
+```
+""",
+                        "ntpath": r"""
+```pycon
+>>> import os.path
+>>> os.path
+<module 'ntpath' (frozen)>
+```
+
+Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
+с учетом специфических особенностей операционной системы Windows.
+
+Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:
+
+Метод                                     | Описание
+----------------------------------------|---------------------------------------------------
+ntpath.abspath(path)                     | Возвращает абсолютный путь к указанному пути.
+ntpath.basename(path)                    | Возвращает базовое имя файла или каталога из указанного пути.
+ntpath.commonprefix(list)                | Возвращает наибольший общий префикс из списка путей.
+ntpath.dirname(path)                     | Возвращает каталог, содержащий указанный путь.
+ntpath.exists(path)                      | Проверяет, существует ли указанный путь.
+ntpath.expanduser(path)                  | Заменяет в указанном пути тильду (~) на домашний каталог пользователя.
+ntpath.expandvars(path)                  | Заменяет переменные окружения в указанном пути на их значения.
+ntpath.isfile(path)                      | Проверяет, является ли указанный путь файлом.
+ntpath.isdir(path)                       | Проверяет, является ли указанный путь каталогом.
+ntpath.join(path, *paths)                | Объединяет пути с использованием разделителя.
+ntpath.normpath(path)                    | Нормализует указанный путь, удаляя двойные слеши и точки.
+ntpath.realpath(path)                    | Возвращает канонический абсолютный путь к указанному пути.
+ntpath.relpath(path, start)              | Возвращает относительный путь от исходного пути до указанного пути.
+ntpath.split(path)                       | Разделяет указанный путь на имя каталога и имя файла.
+
+Несколько часто используемых методов "ntpath" с их кратким описанием и примерами кода:
+
+Метод                                     | Описание                                | Пример
+-----------------------------------------|-----------------------------------------|--------------------------------------------------
+ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути | dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -> "file.txt"
+ntpath.exists(path)                       | Проверяет, существует ли указанный путь | if ntpath.exists("/path/to/file.txt"): print("File exists")
+ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя | full_path = ntpath.join("/path/to", "file.txt") print(full_path) -> "/path/to/file.txt"
+""",
+                    },
+                    "Unix": {
+                        "posix": r"""
+Библиотека "posix" в Python используется для взаимодействия с функциями и операциями,
+специфичными для POSIX-совместимых операционных систем, таких как Linux и macOS.
+
+Таблица методов модуля "posix" и его подмодулей и краткое описание:
+
+Модуль "posix":
+getpid(): Возвращает идентификатор текущего процесса.
+getuid(): Возвращает идентификатор пользователя текущего процесса.
+getgid(): Возвращает идентификатор группы текущего процесса.
+chmod(path, mode): Изменяет права доступа к файлу или директории.
+chown(path, uid, gid): Изменяет владельца и группу файловой системы.
+getcwd(): Возвращает текущую рабочую директорию.
+listdir(path): Возвращает список файлов и директорий в указанной директории.
+
+Подмодуль "posixpath":
+join(path1, path2): Объединяет два пути в один.
+isfile(path): Проверяет, является ли путь файлом.
+isdir(path): Проверяет, является ли путь директорией.
+basename(path): Возвращает базовое имя последнего компонента пути.
+dirname(path): Возвращает каталог пути.
+
+Список часто используемых методов, их краткое описание и
+
+getpid(): Возвращает идентификатор текущего процесса.
+
+```python
+import os
+print(os.getpid())
+```
+
+getcwd(): Возвращает текущую рабочую директорию.
+
+```python
+import os
+print(os.getcwd())
+```
+
+listdir(path): Возвращает список файлов и директорий в указанной директории.
+
+```python
+import os
+print(os.listdir("/path/to/directory"))
+```
+""",
+                        "posixpath": r"""
+Библиотека "posixpath" в Python используется для работы с путями файловой системы в POSIX-совместимых операционных системах.
+Она предоставляет функции и методы для манипуляции, анализа и навигации по путям к файлам и директориям.
+
+Методы и подмодули библиотеки "posixpath":
+
+`posixpath.basename(path)`: Возвращает базовое имя файла или директории из заданного пути.
+`posixpath.dirname(path)`: Возвращает имя директории из заданного пути.
+`posixpath.isabs(path)`: Проверяет, является ли заданный путь абсолютным.
+`posixpath.join(path, *paths)`: Объединяет компоненты пути в один.
+`posixpath.normcase(path)`: Возвращает нормализованную версию заданного пути с учетом регистра символов.
+`posixpath.normpath(path)`: Возвращает нормализованную версию заданного пути с учетом символов ".", ".." и разделителей.
+`posixpath.realpath(path)`: Возвращает каноническое имя (полный путь) для заданного пути.
+`posixpath.split(path)`: Разделяет заданный путь на имя директории и базовое имя файла или директории.
+
+Некоторые из наиболее часто используемых методов библиотеки "posixpath":
+
+`basename(path)`: Возвращает имя файла из заданного пути.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+filename = posixpath.basename(path)
+print(filename)  # example.txt
+```
+
+`dirname(path)`: Возвращает имя директории из заданного пути.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+directory = posixpath.dirname(path)
+print(directory)  # /home/user
+```
+
+`isabs(path)`: Проверяет, является ли заданный путь абсолютным.
+
+```python
+import posixpath
+
+path = "/home/user/example.txt"
+is_absolute = posixpath.isabs(path)
+print(is_absolute)  # True
+```
+""",
+                        "signal": """
+Библиотека `signal` позволяет работать с сигналами в Unix-подобных операционных системах.
+Сигналы — это уведомления, которые операционная система посылает процессам для того,
+чтобы сообщить о каких-либо событиях (например, о завершении работы, прерывании и т.д.).
+
+- **Сигнал** — сообщение, посылаемое операционной системой процессу для уведомления о каком-либо событии.
+- **Обработчик сигнала** — функция, которая вызывается, когда процесс получает сигнал.
+
+| Сигнал           | Описание                           | Действие по умолчанию |
+|------------------|------------------------------------|-----------------------|
+| `signal.SIGINT`  | Прерывание (обычно `CTRL+C`)       | Завершение процесса   |
+| `signal.SIGTERM` | Завершение процесса                | Завершение процесса   |
+| `signal.SIGKILL` | Принудительное завершение процесса | Завершение процесса   |
+| `signal.SIGALRM` | Таймер истек                       | Завершение процесса   |
+| `signal.SIGHUP`  | Обрыв связи                        | Завершение процесса   |
+| `signal.SIGUSR1` | Пользовательский сигнал 1          | Завершение процесса   |
+| `signal.SIGUSR2` | Пользовательский сигнал 2          | Завершение процесса   |
+
+> **Примечание:** Сигнал `SIGKILL` нельзя перехватить или игнорировать.
+
+# Установка обработчика сигнала
+
+Для установки обработчика используется функция `signal.signal()`:
+
+```python
+def handler(signum, frame):
+    print(f"Сигнал {signum} получен")
+
+signal.signal(signal.SIGINT, handler)
+```
+
+- `signum`: номер сигнала.
+- `frame`: текущее состояние стека (можно игнорировать).
+
+# Игнорирование сигналов
+
+Сигнал можно игнорировать, установив обработчик в `signal.SIG_IGN`:
+
+```python
+signal.signal(signal.SIGINT, signal.SIG_IGN)
+```
+
+# Восстановление стандартного обработчика
+
+```python
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+```
+
+# Отправка сигналов процессу
+
+Для отправки сигнала процессу используется функция [[Languages/Python/Libraries/System/os/]]`.kill()`:
+
+```python
+import os
+os.kill(os.getpid(), signal.SIGTERM)
+```
+
+- `os.getpid()` возвращает ID текущего процесса.
+- `signal.SIGTERM` — сигнал завершения.
+
+# Работа с таймерами
+
+Функция `signal.alarm()` устанавливает таймер, который отправляет сигнал `SIGALRM` после указанного времени:
+
+```python
+signal.alarm(5)  # Через 5 секунд процесс получит сигнал SIGALRM
+```
+
+- `signal.alarm(0)` отменяет таймер.
+
+# Ожидание сигнала
+
+Функция `signal.pause()` блокирует выполнение программы до получения сигнала:
+
+```python
+signal.pause()  # Ожидание сигнала
+```
+
+## Пример использования
+
+```python
+import signal
+import time
+
+# Обработчик сигнала
+def handler(signum, frame):
+    print(f"Сигнал {signum} получен. Прерывание программы.")
+
+# Устанавливаем обработчик для SIGINT
+signal.signal(signal.SIGINT, handler)
+
+print("Программа работает. Нажмите Ctrl+C для прерывания.")
+
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("Программа завершена.")
+
+```
+
+Этот пример перехватывает сигнал `SIGINT` (`Ctrl+C`) и выполняет пользовательский обработчик,
+который выводит сообщение о получении сигнала.
+
+# Часто используемые функции
+
+| Функция                          | Описание                                                                 |
+|----------------------------------|--------------------------------------------------------------------------|
+| `signal.signal(signum, handler)` | Устанавливает обработчик для сигнала                                     |
+| `signal.getsignal(signum)`       | Возвращает текущий обработчик сигнала                                    |
+| `signal.pause()`                 | Останавливает выполнение до получения сигнала                            |
+| `signal.alarm(seconds)`          | Устанавливает таймер для отправки сигнала `SIGALRM` через заданное время |
+| `signal.setitimer()`             | Устанавливает высокоточный таймер и отправляет сигнал                    |
+| `signal.siginterrupt()`          | Устанавливает, должен ли системный вызов быть прерван сигналом           |
+
+## Пример работы с таймером
+
+```python
+import signal
+
+def timeout_handler(signum, frame):
+    print("Таймер истек!")
+
+# Устанавливаем обработчик для SIGALRM
+signal.signal(signal.SIGALRM, timeout_handler)
+
+# Устанавливаем таймер на 5 секунд
+signal.alarm(5)
+
+print("Ожидание сигнала...")
+
+# Ожидание сигнала
+signal.pause()
+```
+
+Этот пример устанавливает таймер на 5 секунд и ждет его истечения.
+Когда таймер истекает, вызывается обработчик `timeout_handler`.
+
+## Полезные замечания
+
+1. **Обработчики сигналов**: Старайтесь минимизировать выполнение кода в обработчиках сигналов,
+так как они могут быть вызваны в любой момент, что может привести к непредсказуемому поведению.
+2. **Портируемость**: Библиотека `signal` доступна только в Unix-подобных системах (Linux, macOS).
+На Windows поддерживаются лишь некоторые функции, такие как `signal.SIGINT`.
+3. **Сигналы и потоки**: Сигналы обрабатываются в главном потоке. Если ваш процесс использует несколько потоков,
+убедитесь, что обработка сигналов не нарушает работу приложения.
+
+""",
+                        "grp": r"""
+Библиотека "grp" в Python используется для работы с группами пользователей в операционной системе.
+Методы модуля "grp" и его подмодулей:
+
+`grp.getgrgid(gid)`: Возвращает информацию о группе по ее идентификатору.
+`grp.getgrnam(name)`: Возвращает информацию о группе по ее имени.
+`grp.getgrall()`: Возвращает список всех групп в системе.
+`grp.getgrgid(gid).gr_name`: Возвращает имя группы по ее идентификатору.
+`grp.getgrgid(gid).gr_passwd`: Возвращает пароль группы по ее идентификатору.
+
+Самые часто используемые методы:
+
+Метод `grp.getgrgid(gid)` используется для получения информации о группе по ее идентификатору.
+
+```python
+import grp
+
+gid = 1000
+group_info = grp.getgrgid(gid)
+print(group_info)
+```
+
+Метод `grp.getgrnam(name)` используется для получения информации о группе по ее имени.
+
+```python
+import grp
+
+group_name = "developers"
+group_info = grp.getgrnam(group_name)
+print(group_info)
+```
+
+Метод `grp.getgrall()` возвращает список всех групп в системе.
+
+```python
+import grp
+
+all_groups = grp.getgrall()
+for group_info in all_groups:
+    print(group_info)
+```
+
+Пожалуйста, обратите внимание, что эти примеры кода могут потребовать соответствующих разрешений для доступа к информации о группах пользователя на операционной системе.
+""",
+                    },
                     "os": {
                         "index": r"""
 # Работа с файлами и директориями
@@ -2779,11 +3388,11 @@ import sys
 print(sys.path)
 [
     "",
-    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip",
-    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\DLLs",
-    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib",
-    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311",
-    "C:\\Users\\User\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages"
+    "C:/Users/User/AppData/Local/Programs/Python/Python311/python311.zip",
+    "C:/Users/User/AppData/Local/Programs/Python/Python311/DLLs",
+    "C:/Users/User/AppData/Local/Programs/Python/Python311/Lib",
+    "C:/Users/User/AppData/Local/Programs/Python/Python311",
+    "C:/Users/User/AppData/Local/Programs/Python/Python311/Lib/site-packages"
 ]
 ```
 
@@ -3248,51 +3857,6 @@ limits = (2, resource.RLIM_INFINITY)
 resource.setrlimit(resource.RLIMIT_CPU, limits)
 ```
 """,
-                    "posix": r"""
-Библиотека "posix" в Python используется для взаимодействия с функциями и операциями,
-специфичными для POSIX-совместимых операционных систем, таких как Linux и macOS.
-
-Таблица методов модуля "posix" и его подмодулей и краткое описание:
-
-Модуль "posix":
-getpid(): Возвращает идентификатор текущего процесса.
-getuid(): Возвращает идентификатор пользователя текущего процесса.
-getgid(): Возвращает идентификатор группы текущего процесса.
-chmod(path, mode): Изменяет права доступа к файлу или директории.
-chown(path, uid, gid): Изменяет владельца и группу файловой системы.
-getcwd(): Возвращает текущую рабочую директорию.
-listdir(path): Возвращает список файлов и директорий в указанной директории.
-
-Подмодуль "posixpath":
-join(path1, path2): Объединяет два пути в один.
-isfile(path): Проверяет, является ли путь файлом.
-isdir(path): Проверяет, является ли путь директорией.
-basename(path): Возвращает базовое имя последнего компонента пути.
-dirname(path): Возвращает каталог пути.
-
-Список часто используемых методов, их краткое описание и
-
-getpid(): Возвращает идентификатор текущего процесса.
-
-```python
-import os
-print(os.getpid())
-```
-
-getcwd(): Возвращает текущую рабочую директорию.
-
-```python
-import os
-print(os.getcwd())
-```
-
-listdir(path): Возвращает список файлов и директорий в указанной директории.
-
-```python
-import os
-print(os.listdir("/path/to/directory"))
-```
-""",
                     "stat": r"""
 Библиотека "stat" в Python используется для работы с информацией о файловой системе,
 такой как атрибуты файла, права доступа и временные метки.
@@ -3419,97 +3983,6 @@ set_defaults(): Устанавливает значения по умолчан�
 parser.set_defaults(verbose=True)
 ```
 """,
-                    "grp": r"""
-Библиотека "grp" в Python используется для работы с группами пользователей в операционной системе.
-Методы модуля "grp" и его подмодулей:
-
-`grp.getgrgid(gid)`: Возвращает информацию о группе по ее идентификатору.
-`grp.getgrnam(name)`: Возвращает информацию о группе по ее имени.
-`grp.getgrall()`: Возвращает список всех групп в системе.
-`grp.getgrgid(gid).gr_name`: Возвращает имя группы по ее идентификатору.
-`grp.getgrgid(gid).gr_passwd`: Возвращает пароль группы по ее идентификатору.
-
-Самые часто используемые методы:
-
-Метод `grp.getgrgid(gid)` используется для получения информации о группе по ее идентификатору.
-
-```python
-import grp
-
-gid = 1000
-group_info = grp.getgrgid(gid)
-print(group_info)
-```
-
-Метод `grp.getgrnam(name)` используется для получения информации о группе по ее имени.
-
-```python
-import grp
-
-group_name = "developers"
-group_info = grp.getgrnam(group_name)
-print(group_info)
-```
-
-Метод `grp.getgrall()` возвращает список всех групп в системе.
-
-```python
-import grp
-
-all_groups = grp.getgrall()
-for group_info in all_groups:
-    print(group_info)
-```
-
-Пожалуйста, обратите внимание, что эти примеры кода могут потребовать соответствующих разрешений для доступа к информации о группах пользователя на операционной системе.
-""",
-                    "posixpath": r"""
-Библиотека "posixpath" в Python используется для работы с путями файловой системы в POSIX-совместимых операционных системах.
-Она предоставляет функции и методы для манипуляции, анализа и навигации по путям к файлам и директориям.
-
-Методы и подмодули библиотеки "posixpath":
-
-`posixpath.basename(path)`: Возвращает базовое имя файла или директории из заданного пути.
-`posixpath.dirname(path)`: Возвращает имя директории из заданного пути.
-`posixpath.isabs(path)`: Проверяет, является ли заданный путь абсолютным.
-`posixpath.join(path, *paths)`: Объединяет компоненты пути в один.
-`posixpath.normcase(path)`: Возвращает нормализованную версию заданного пути с учетом регистра символов.
-`posixpath.normpath(path)`: Возвращает нормализованную версию заданного пути с учетом символов ".", ".." и разделителей.
-`posixpath.realpath(path)`: Возвращает каноническое имя (полный путь) для заданного пути.
-`posixpath.split(path)`: Разделяет заданный путь на имя директории и базовое имя файла или директории.
-
-Некоторые из наиболее часто используемых методов библиотеки "posixpath":
-
-`basename(path)`: Возвращает имя файла из заданного пути.
-
-```python
-import posixpath
-
-path = "/home/user/example.txt"
-filename = posixpath.basename(path)
-print(filename)  # example.txt
-```
-
-`dirname(path)`: Возвращает имя директории из заданного пути.
-
-```python
-import posixpath
-
-path = "/home/user/example.txt"
-directory = posixpath.dirname(path)
-print(directory)  # /home/user
-```
-
-`isabs(path)`: Проверяет, является ли заданный путь абсолютным.
-
-```python
-import posixpath
-
-path = "/home/user/example.txt"
-is_absolute = posixpath.isabs(path)
-print(is_absolute)  # True
-```
-""",
                     "genericpath": r"""
 Библиотека "genericpath" в Python используется для работы с путями и файловой системой на разных платформах.
 Она предоставляет универсальные методы для обработки путей, создания новых путей, проверки наличия файлов и директорий,
@@ -3616,73 +4089,6 @@ gc.collect()
 ```
 Надеюсь, это поможет вам понять и использовать библиотеку "gc" в Python.
 Если у вас возникнут дополнительные вопросы, не стесняйтесь задавать их.
-""",
-                    "nt": r"""
-Библиотека "nt" в Python используется для работы с функциями операционной системы Windows.
-
-Методы модуля "nt" и его подмодулей:
-
-Модуль "nt":
-nt.getcwd(): Возвращает текущую рабочую директорию.
-nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
-nt.mkdir(path): Создает новую директорию по указанному пути.
-nt.remove(path): Удаляет файл по указанному пути.
-nt.rename(src, dst): Переименовывает файл или директорию.
-nt.system(command): Выполняет команду операционной системы.
-
-Подмодуль "ntpath":
-ntpath.basename(path): Возвращает имя файла или директории из указанного пути.
-ntpath.dirname(path): Возвращает имя директории из указанного пути.
-ntpath.exists(path): Проверяет, существует ли файл или директория по указанному пути.
-ntpath.join(path, *paths): Объединяет пути в один.
-ntpath.split(path): Разделяет путь на имя директории и имя файла.
-
-Некоторые часто используемые методы и их описание:
-
-nt.getcwd(): Возвращает текущую рабочую директорию.
-
-```python
-import nt
-current_dir = nt.getcwd()
-print(current_dir)
-```
-
-nt.listdir(path): Возвращает список файлов и директорий в указанном пути.
-
-
-```python
-import nt
-file_list = nt.listdir("C:/Users")
-print(file_list)
-```
-
-nt.mkdir(path): Создает новую директорию по указанному пути.
-
-```python
-import nt
-nt.mkdir("C:/Users/NewDirectory")
-```
-
-nt.remove(path): Удаляет файл по указанному пути.
-
-```python
-import nt
-nt.remove("C:/Users/example.txt")
-```
-
-nt.rename(src, dst): Переименовывает файл или директорию.
-
-```python
-import nt
-nt.rename("C:/Users/old_name.txt", "C:/Users/new_name.txt")
-```
-
-nt.system(command): Выполняет команду операционной системы.
-
-```python
-import nt
-nt.system("dir")
-```
 """,
                     "filecmp": r"""
 Библиотека "filecmp" используется для сравнения файлов и директорий в Python.
@@ -3807,11 +4213,6 @@ text = pymsgbox.textbox("Введите текст:", "Редактирован�
 `getWindowProcessID(window)`: Возвращает идентификатор процесса, связанного с указанным окном.
 `getWindowThreadID(window)`: Возвращает идентификатор потока, связанного с указанным окном.
 `getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
-`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
 
 Некоторые из самых часто используемых методов библиотеки "pygetwindow":
 
@@ -3934,33 +4335,6 @@ process_count = psutil.process_count()
 print("Количество запущенных процессов:", process_count)
 ```
 """,
-                    "spwd": r"""
-Библиотека "spwd" в Python используется для доступа к информации о пользовательских учетных записях в системе UNIX.
-Она предоставляет функции для получения доступа к файлу `/etc/shadow`,
-который хранит зашифрованные пароли пользователей, а также другую информацию о пользователях.
-
-Таблица методов модуля "spwd":
-
-Метод                | Описание
----------------------|-------------------------
-`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени в виде объекта `spwd.struct_spwd`.
-`spwd.getspall()`    | Возвращает список всех пользователей в системе, каждый в виде объекта `spwd.struct_spwd`.
-`spwd.struct_spwd`   | Объект, представляющий информацию о пользователе, содержащий следующие атрибуты:
-`sp_nam`(имя пользователя), `sp_pwd`(зашифрованный пароль),
-`sp_lstchg`(последнее изменение пароля), `sp_min`(минимальный срок действия пароля),
-`sp_max`(максимальный срок действия пароля), `sp_warn`(предупреждение о необходимости изменения пароля),
-`sp_inact`(срок неактивности до блокировки учетной записи),
-`sp_expire`(дата истечения срока действия пароля), `sp_flag`(флаги учетной записи).
-
-Список самых частых методов модуля "spwd" и их описания:
-
-Метод                | Описание                                          | Пример кода
----------------------|---------------------------------------------------|------------------------
-`spwd.getspnam(name)`| Возвращает информацию о пользователе по его имени | `user_info = spwd.getspnam("john")`
-`spwd.getspall()`    | Возвращает список всех пользователей в системе    | `users = spwd.getspall()`
-
-Примечание: Примеры кода не могут быть предоставлены для данной библиотеки, поскольку требуется доступ к системным файлам.
-""",
                     "fcntl": r"""
 Библиотека "fcntl" в Python используется для обращения к системным вызовам управления файловыми дескрипторами и флагами файлового управления.
 
@@ -4008,154 +4382,6 @@ flags = fcntl.fcntl(file_descriptor, command, 0)
 print(flags)
 file_descriptor.close()
 ```
-""",
-                    "signal": """
-Библиотека `signal` позволяет работать с сигналами в Unix-подобных операционных системах.
-Сигналы — это уведомления, которые операционная система посылает процессам для того,
-чтобы сообщить о каких-либо событиях (например, о завершении работы, прерывании и т.д.).
-
-- **Сигнал** — сообщение, посылаемое операционной системой процессу для уведомления о каком-либо событии.
-- **Обработчик сигнала** — функция, которая вызывается, когда процесс получает сигнал.
-
-| Сигнал           | Описание                           | Действие по умолчанию |
-|------------------|------------------------------------|-----------------------|
-| `signal.SIGINT`  | Прерывание (обычно `CTRL+C`)       | Завершение процесса   |
-| `signal.SIGTERM` | Завершение процесса                | Завершение процесса   |
-| `signal.SIGKILL` | Принудительное завершение процесса | Завершение процесса   |
-| `signal.SIGALRM` | Таймер истек                       | Завершение процесса   |
-| `signal.SIGHUP`  | Обрыв связи                        | Завершение процесса   |
-| `signal.SIGUSR1` | Пользовательский сигнал 1          | Завершение процесса   |
-| `signal.SIGUSR2` | Пользовательский сигнал 2          | Завершение процесса   |
-
-> **Примечание:** Сигнал `SIGKILL` нельзя перехватить или игнорировать.
-
-# Установка обработчика сигнала
-
-Для установки обработчика используется функция `signal.signal()`:
-
-```python
-def handler(signum, frame):
-    print(f"Сигнал {signum} получен")
-
-signal.signal(signal.SIGINT, handler)
-```
-
-- `signum`: номер сигнала.
-- `frame`: текущее состояние стека (можно игнорировать).
-
-# Игнорирование сигналов
-
-Сигнал можно игнорировать, установив обработчик в `signal.SIG_IGN`:
-
-```python
-signal.signal(signal.SIGINT, signal.SIG_IGN)
-```
-
-# Восстановление стандартного обработчика
-
-```python
-signal.signal(signal.SIGINT, signal.SIG_DFL)
-```
-
-# Отправка сигналов процессу
-
-Для отправки сигнала процессу используется функция [[Languages/Python/Libraries/System/os/]]`.kill()`:
-
-```python
-import os
-os.kill(os.getpid(), signal.SIGTERM)
-```
-
-- `os.getpid()` возвращает ID текущего процесса.
-- `signal.SIGTERM` — сигнал завершения.
-
-# Работа с таймерами
-
-Функция `signal.alarm()` устанавливает таймер, который отправляет сигнал `SIGALRM` после указанного времени:
-
-```python
-signal.alarm(5)  # Через 5 секунд процесс получит сигнал SIGALRM
-```
-
-- `signal.alarm(0)` отменяет таймер.
-
-# Ожидание сигнала
-
-Функция `signal.pause()` блокирует выполнение программы до получения сигнала:
-
-```python
-signal.pause()  # Ожидание сигнала
-```
-
-## Пример использования
-
-```python
-import signal
-import time
-
-# Обработчик сигнала
-def handler(signum, frame):
-    print(f"Сигнал {signum} получен. Прерывание программы.")
-
-# Устанавливаем обработчик для SIGINT
-signal.signal(signal.SIGINT, handler)
-
-print("Программа работает. Нажмите Ctrl+C для прерывания.")
-
-try:
-    while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    print("Программа завершена.")
-
-```
-
-Этот пример перехватывает сигнал `SIGINT` (`Ctrl+C`) и выполняет пользовательский обработчик,
-который выводит сообщение о получении сигнала.
-
-# Часто используемые функции
-
-| Функция                          | Описание                                                                 |
-|----------------------------------|--------------------------------------------------------------------------|
-| `signal.signal(signum, handler)` | Устанавливает обработчик для сигнала                                     |
-| `signal.getsignal(signum)`       | Возвращает текущий обработчик сигнала                                    |
-| `signal.pause()`                 | Останавливает выполнение до получения сигнала                            |
-| `signal.alarm(seconds)`          | Устанавливает таймер для отправки сигнала `SIGALRM` через заданное время |
-| `signal.setitimer()`             | Устанавливает высокоточный таймер и отправляет сигнал                    |
-| `signal.siginterrupt()`          | Устанавливает, должен ли системный вызов быть прерван сигналом           |
-
-## Пример работы с таймером
-
-```python
-import signal
-
-def timeout_handler(signum, frame):
-    print("Таймер истек!")
-
-# Устанавливаем обработчик для SIGALRM
-signal.signal(signal.SIGALRM, timeout_handler)
-
-# Устанавливаем таймер на 5 секунд
-signal.alarm(5)
-
-print("Ожидание сигнала...")
-
-# Ожидание сигнала
-signal.pause()
-```
-
-Этот пример устанавливает таймер на 5 секунд и ждет его истечения.
-Когда таймер истекает, вызывается обработчик `timeout_handler`.
-
-## Полезные замечания
-
-1. **Обработчики сигналов**: Старайтесь минимизировать выполнение кода в обработчиках сигналов,
-так как они могут быть вызваны в любой момент, что может привести к непредсказуемому поведению.
-2. **Портируемость**: Библиотека `signal` доступна только в Unix-подобных системах (Linux, macOS).
-На Windows поддерживаются лишь некоторые функции, такие как `signal.SIGINT`.
-3. **Сигналы и потоки**: Сигналы обрабатываются в главном потоке. Если ваш процесс использует несколько потоков,
-убедитесь, что обработка сигналов не нарушает работу приложения.
-
 """,
                     "watchdog": r"""
 `watchdog` — это Python-библиотека для мониторинга изменений в файловой системе.
@@ -5320,6 +5546,65 @@ textwrap.dedent      эта функция удаляет общий префи�
 textwrap.TextWrapper это класс, который представляет настройки форматирования текста, такие как ширина столбца, префикс, отступы и другие параметры.
                      Вы можете использовать этот класс, чтобы создать экземпляр объекта, который может быть использован для форматирования нескольких строк текста.
 """,
+                    "time": """
+# time
+
+| Функция                         | Описание                                                                                                             | Пример использования                                           |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| `time.time()`                   | Возвращает текущее время в секундах с эпохи (`01.01.1970 00:00:00 UTC`)                                              | `time.time()`                                                  |
+| `time.sleep(seconds)`           | Останавливает выполнение программы на указанное количество секунд                                                    | `time.sleep(1.5)`                                              |
+| `time.ctime([secs])`            | Преобразует время (в секундах с эпохи) в удобочитаемую строку.<br>Если `secs` не указано, используется текущее время | `time.ctime()`                                                 |
+| `time.gmtime([secs])`           | Преобразует время (в секундах с эпохи)<br>в структуру `struct_time` в формате UTC                                    | `time.gmtime()`                                                |
+| `time.localtime([secs])`        | Преобразует время (в секундах с эпохи)<br>в структуру `struct_time` для текущего часового пояса                      | `time.localtime()`                                             |
+| `time.mktime(t)`                | Преобразует объект `struct_time` обратно в секунды с эпохи                                                           | `time.mktime(time.localtime())`                                |
+| `time.strftime(format, t)`      | Преобразует `struct_time` в строку по указанному формату                                                             | `time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())`         |
+| `time.strptime(string, format)` | Парсит строку времени в объект `struct_time` на основе заданного формата                                             | `time.strptime("2024-12-25", "%Y-%m-%d")`                      |
+| `time.perf_counter()`           | Возвращает высокоточный таймер для измерения временных интервалов                                                    | `start = time.perf_counter()`<br>`time.perf_counter() - start` |
+| `time.process_time()`           | Возвращает процессорное время выполнения текущего процесса                                                           | `time.process_time()`                                          |
+| `time.monotonic()`              | Возвращает значение монотонного таймера (всегда возрастает)                                                          | `time.monotonic()`                                             |
+| `time.thread_time()`            | Возвращает процессорное время потока                                                                                 | `time.thread_time()`                                           |
+
+## Таблица констант
+
+| **Константа**   | **Описание**                                                                         |
+|-----------------|--------------------------------------------------------------------------------------|
+| `time.timezone` | Смещение текущего часового пояса в секундах от UTC (для стандартного времени)        |
+| `time.altzone`  | Смещение текущего часового пояса в секундах от UTC (для летнего времени)             |
+| `time.daylight` | Показывает, используется ли переход на летнее время (1 — да, 0 — нет)                |
+| `time.tzname`   | Кортеж строк с названиями стандартного и летнего времени, например, `(UTC, BST)` |
+
+# Примеры
+
+### Таймер выполнения
+```python
+import time
+start = time.perf_counter()
+time.sleep(2)  # Задержка на 2 секунды
+end = time.perf_counter()
+print(f"{end - start:.2f}")
+```
+
+### Форматирование времени
+```python
+import time
+print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+```
+
+### Парсинг строки времени
+```pycon
+>>> import time
+>>> print(time.strptime("2024-12-25", "%Y-%m-%d"))
+time.struct_time(tm_year=2024, tm_mon=12, tm_mday=25, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=2, tm_yday=360, tm_isdst=-1)
+```
+
+### Работа с UTC и локальным временем
+```python
+import time
+print("UTC:", time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()))
+print("Local:", time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+```
+
+""",
                     "datetime": """
 | Формат | Значение                                          |
 |--------|---------------------------------------------------|
@@ -5347,6 +5632,14 @@ textwrap.TextWrapper это класс, который представляет 
 | `%x`   | Местное представление даты                        |
 | `%X`   | Местное представление времени                     |
 | `%%`   | Символ процента                                   |
+
+| Format                                     | Example result                                   |
+|--------------------------------------------|--------------------------------------------------|
+| `%d.%m.%Y`<br>`%d-%m-%Y`                   | `31.12.2012`<br>`31-12-2012`                     |
+| `%Y.%m.%d`<br>`%Y-%m-%d`                   | `2012.12.31`<br>`2012-12-31`                     |
+| `%H:%M`<br>`%H:%M:%S`                      | `12:34`<br>`12:34:56`                            |
+| `%Y.%m.%d %H:%M:%S`<br>`%Y-%m-%d %H:%M:%S` | `2012.12.31 12:34:56`<br>`2012-12-31 12:34:56`   |
+| `%Y-%m-%d_%H-%M-%S`                        | `2012-12-31_12-34-56`<br>Example: for file names |
 
 ![datetime.png](Languages/Python/Libraries/datetime.png)
 """,
@@ -5936,54 +6229,6 @@ textsize            Возвращает размер текста.
                     Принимает два аргумента: текст и шрифт.
 """
                     },
-                    "aalib": """
-aalib - это библиотека для создания ASCII-графики из изображений. Она преобразует изображения в искусственные изображения, составленные из символов ASCII.
-
-| Метод                            | Описание                                                            |
-|----------------------------------|---------------------------------------------------------------------|
-| aalib.AsciiArt                   | Создает объект AsciiArt для конвертации изображений в ASCII-графику |
-| AsciiArt.render(image)           | Преобразует изображение в ASCII-графику                             |
-| AsciiArt.render_to_memory(image) | Возвращает ASCII-графику в виде строки                              |
-| AsciiArt.save(filename, image)   | Сохраняет ASCII-графику в файл                                      |
-
-
-**render(image)** - Преобразует изображение в ASCII-графику.
-
-```python
-import aalib
-import Image  # Предполагается, что у вас уже есть изображение под названием "image.jpg"
-
-img = Image.open("image.jpg").convert("L")
-width, height = img.size
-ascii_img = aalib.AsciiArt(width=width, height=height)
-ascii_img.render(img)
-ascii_img.save("output.txt")
-```
-
-**render_to_memory(image)** - Возвращает ASCII-графику в виде строки.
-
-```python
-import aalib
-import Image
-
-img = Image.open("image.jpg").convert("L")
-ascii_img = aalib.AsciiArt(width=80, height=40)
-ascii_str = ascii_img.render_to_memory(img)
-print(ascii_str)
-```
-
-**save(filename, image)** - Сохраняет ASCII-графику в файл.
-
-```python
-import aalib
-import Image
-
-img = Image.open("image.jpg").convert("L")
-ascii_img = aalib.AsciiArt(width=80, height=40)
-ascii_img.render(img)
-ascii_img.save("output.txt", img)
-```
-""",
                     "argparse": """
 Библиотека argparse в Python позволяет легко создавать интерфейсы командной строки для ваших скриптов.
 Эта библиотека предоставляет механизмы для определения аргументов командной строки и автоматического
@@ -6234,24 +6479,6 @@ python script.py command_a 5
 python script.py command_b --bar test
 ```
 """,
-                    "cycler": """
-Библиотека cycler в Python используется для создания циклических стилей,
-особенно в контексте графиков и диаграмм в библиотеке Matplotlib.
-
-| Метод         | Описание                                                 |
-|---------------|----------------------------------------------------------|
-| cycler.cycler | Создает новый циклический объект с заданными параметрами |
-
-```python
-from cycler import cycler
-
-colors = cycler(color=["red", "green", "blue"])
-linestyles = cycler(linestyle=["-", "--", "-."])
-
-# Комбинирование циклических стилей
-combined_styles = colors + linestyles
-```
-""",
                     "shlex": r"""
 Библиотека "shlex" в Python используется для разбивки строки на токены в соответствии с синтаксисом оболочки Unix.
 Она часто применяется при работе с командной строкой, парсинге аргументов командной строки и анализе ввода пользователя.
@@ -6391,63 +6618,6 @@ hex_file = "input.hex"
 bin_file = "output.bin"
 binhex.hexbin(hex_file, bin_file)
 ```
-""",
-                    "xdrlib": r"""
-Библиотека "xdrlib" в Python используется для работы с кодированием и декодированием данных в формате XDR (eXternal Data Representation).
-XDR является стандартом для представления данных, независимым от платформы, и часто используется для обмена данными между различными системами.
-
-Методы модуля "xdrlib" и его подмодулей:
-
-Модуль "xdrlib":
-pack_fstring(format_string, *args): Упаковывает аргументы в соответствии с заданным форматным строкой и возвращает упакованные данные в формате XDR.
-unpack_fstring(format_string, packed_data): Распаковывает данные в формате XDR, используя заданную форматную строку, и возвращает распакованные значения.
-
-Наиболее часто используемые методы:
-
-pack_uint(value): Упаковывает беззнаковое целое число (unsigned int) в формате XDR.
-
-```python
-import xdrlib
-
-packer = xdrlib.Packer()
-packed_data = packer.pack_uint(42)
-print(packed_data)
-```
-
-unpack_uint(packed_data): Распаковывает беззнаковое целое число (unsigned int) из данных в формате XDR и возвращает его значение.
-
-```python
-import xdrlib
-
-packed_data = b"\x00\x00\x00\x2a"
-unpacker = xdrlib.Unpacker(packed_data)
-unpacked_value = unpacker.unpack_uint()
-print(unpacked_value)
-```
-
-pack_string(value): Упаковывает строку в формате XDR.
-
-```python
-import xdrlib
-
-packer = xdrlib.Packer()
-packed_data = packer.pack_string("Hello, World!")
-print(packed_data)
-```
-
-unpack_string(packed_data): Распаковывает строку из данных в формате XDR и возвращает ее значение.
-
-```python
-import xdrlib
-
-packed_data = b"\x00\x00\x00\x0cHello, World!"
-unpacker = xdrlib.Unpacker(packed_data)
-unpacked_value = unpacker.unpack_string()
-print(unpacked_value)
-```
-
-Пожалуйста, обратите внимание, что это только некоторые примеры методов библиотеки "xdrlib".
-Для полного списка методов и их подробного описания рекомендуется обратиться к официальной документации Python.
 """,
                     "string": r"""
 |                   |                                                                                       |
@@ -12712,93 +12882,6 @@ color_name = rgb_to_name(rgb_color)
 print(color_name)  # "red"
 ```
 """,
-                    "bleach": r"""
-Библиотека "bleach" используется для безопасного удаления или экранирования HTML-тегов и атрибутов в тексте,
-чтобы предотвратить возможность внедрения вредоносного кода или XSS-атак.
-
-Метод              | Описание
--------------------|-----------------------------------------------------------
-clean              | Удаляет или экранирует HTML-теги и атрибуты из текста
-linkify            | Преобразует URL-адреса в тексте в ссылки
-strip_tags         | Удаляет все HTML-теги из текста
-escape             | Экранирует HTML-сущности в тексте
-unescape           | Преобразует экранированные HTML-сущности в их исходное состояние
-
-Наиболее часто используемые методы "bleach" вместе с их кратким описанием и примером кода:
-
-Метод              | Описание                                   | Пример кода
--------------------|--------------------------------------------|------------------------------
-clean              | Удаляет или экранирует HTML-теги и атрибуты | clean(text, tags=["p", "a"])
-linkify            | Преобразует URL-адреса в тексте в ссылки   | linkify(text)
-strip_tags         | Удаляет все HTML-теги из текста             | strip_tags(text)
-escape             | Экранирует HTML-сущности в тексте           | escape(text)
-unescape           | Преобразует экранированные HTML-сущности     | unescape(text)
-""",
-                    "webencodings": r"""
-Библиотека "webencodings" используется для работы с кодированием и декодированием текста в веб-разработке.
-Она предоставляет функции для преобразования между различными форматами кодировки, такими как HTML-entities, UTF-8 и другие.
-
-Методы модуля "webencodings" и его подмодулей:
-
-Модуль "webencodings":
-decode(s, encoding="utf-8", errors="strict"): Декодирует строку "s" из указанной кодировки в Unicode.
-encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.
-htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace"): Декодирует строку "s" из HTML-entities в Unicode.
-htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace"): Преобразует строку "s" в HTML-entities.
-unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.
-
-Самые часто используемые методы "webencodings" и их описание с примерами кода:
-
-decode(s, encoding="utf-8", errors="strict"): Декодирует строку "s" из указанной кодировки в Unicode.
-
-```python
-import webencodings
-
-encoded_string = b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
-decoded_string = webencodings.decode(encoded_string, encoding="utf-8")
-print(decoded_string)  # Привет
-```
-
-encode(s, encoding="utf-8", errors="strict"): Кодирует строку "s" в указанной кодировке.
-
-```python
-import webencodings
-
-decoded_string = "Привет"
-encoded_string = webencodings.encode(decoded_string, encoding="utf-8")
-print(encoded_string)  # b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82"
-```
-
-"htmldecode(s, keep_ignorable=False, encoding="utf-8", errors="xmlcharrefreplace")": Декодирует строку "s" из HTML-entities в Unicode.
-
-```python
-import webencodings
-
-html_string = "&lt;div&gt;Hello&lt;/div&gt;"
-decoded_string = webencodings.htmldecode(html_string)
-print(decoded_string)  # <div>Hello</div>
-```
-
-"htmlencode(s, encoding="utf-8", errors="xmlcharrefreplace")": Преобразует строку "s" в HTML-entities.
-
-```python
-import webencodings
-
-plain_string = "<div>Hello</div>"
-encoded_string = webencodings.htmlencode(plain_string)
-print(encoded_string)  # &lt;div&gt;Hello&lt;/div&gt;
-```
-
-unquote(qstring, encoding="utf-8", errors="replace"): Декодирует строку "qstring" из формата URL-кодирования.
-
-```python
-import webencodings
-
-url_encoded_string = "Hello%20World%21"
-decoded_string = webencodings.unquote(url_encoded_string)
-print(decoded_string)  # Hello World!
-```
-""",
                     "certifi": r"""
 Библиотека "certifi" в Python используется для работы с сертификатами в криптографии.
 Она предоставляет набор корневых сертификатов, которые могут быть использованы
@@ -12858,58 +12941,9 @@ cert_bytes = certifi.contents_bytes()
 print(cert_bytes)
 ```
 """,
-                    "rfc3986_validator": r"""
-Название библиотеки: "rfc3986_validator"
-
-Описание: Библиотека "rfc3986_validator" используется для проверки и валидации URL-адресов согласно стандарту RFC 3986.
-Она обеспечивает функционал для проверки правильности формата URL и его различных компонентов, таких как схема, хост, путь и другие.
-
-Методы модуля и их описание:
-
-Модуль: rfc3986_validator
-validate(url: str) -> bool: Проверяет, соответствует ли заданный URL формату RFC 3986. Возвращает True, если URL действительный, и False в противном случае.
-get_scheme(url: str) -> str: Извлекает и возвращает схему (протокол) из заданного URL.
-get_host(url: str) -> str: Извлекает и возвращает хост (доменное имя) из заданного URL.
-get_path(url: str) -> str: Извлекает и возвращает путь из заданного URL.
-get_query(url: str) -> str: Извлекает и возвращает параметры запроса из заданного URL.
-get_fragment(url: str) -> str: Извлекает и возвращает фрагмент из заданного URL.
-
-Список самых часто используемых методов, их описание и
-
-validate(url: str) -> bool:
-Описание: Проверяет, является ли заданный URL действительным согласно стандарту RFC 3986.
-
-```python
-from rfc3986_validator import validate
-
-url = "https://www.example.com"
-is_valid = validate(url)
-print(is_valid)  # True, если URL действителен
-```
-
-get_host(url: str) -> str:
-Описание: Извлекает и возвращает хост (доменное имя) из заданного URL.
-
-```python
-from rfc3986_validator import get_host
-
-url = "https://www.example.com/path"
-host = get_host(url)
-print(host)  # "www.example.com"
-```
-
-get_path(url: str) -> str:
-Описание: Извлекает и возвращает путь из заданного URL.
-
-```python
-from rfc3986_validator import get_path
-
-url = "https://www.example.com/path"
-path = get_path(url)
-print(path)  # "/path"
-```
-""",
                     "grpc": r"""
+[https://habr.com/ru/articles/774870/](https://habr.com/ru/articles/774870/)
+
 Библиотека "grpc" в Python используется для реализации удаленного вызова процедур (RPC - Remote Procedure Call).
 Это позволяет разработчикам создавать распределенные системы,
 где клиентский код может вызывать функции на удаленном сервере, будто они находятся локально.
@@ -14454,99 +14488,6 @@ with db_session:
 """,
                 },
                 "Other": {
-                    "pythoncom": r"""
-Библиотека "pythoncom" используется для взаимодействия с COM-объектами (Component Object Model) в Python.
-Она предоставляет функциональность для создания, вызова и управления COM-объектами,
-такими как приложения Windows, компоненты Office и другие COM-совместимые объекты.
-
-Вот таблица методов модуля "pythoncom" и его подмодулей:
-
-| Метод           | Описание                             |
-|-----------------|--------------------------------------|
-| CoInitialize    | Инициализирует библиотеку COM        |
-| CoUninitialize  | Завершает работу с библиотекой COM    |
-| CoCreateInstance| Создает экземпляр COM-объекта        |
-| PyCom_RegisterUnknownHandler | Регистрирует обработчик для неизвестных COM-объектов |
-| CLSIDToClassMap | Карта соответствия CLSID и классов COM |
-| IIDToInterfaceMap | Карта соответствия IID и интерфейсов COM |
-
-Некоторые из часто используемых методов библиотеки "pythoncom" включают:
-CoInitialize(): Инициализирует библиотеку COM, обычно вызывается в начале программы.
-CoCreateInstance(clsid, interface=None, context=None, flags=None):
-Создает экземпляр COM-объекта с помощью указанного идентификатора класса (CLSID).
-Возвращает интерфейс COM-объекта.
-CoUninitialize(): Завершает работу с библиотекой COM, обычно вызывается в конце программы.
-
-Пример кода демонстрирующий использование метода CoCreateInstance():
-
-```python
-import pythoncom
-
-# Идентификатор класса для Excel
-clsid = "{00024500-0000-0000-C000-000000000046}"
-
-# Создание экземпляра объекта Excel
-excel = pythoncom.CoCreateInstance(clsid, None, None, pythoncom.CLSCTX_SERVER)
-
-# Вывод версии Excel
-print(excel.Version)
-```
-
-Обратите внимание, что код может варьироваться в зависимости от требуемых COM-объектов и их интерфейсов.
-""",
-                    "nntplib": r"""
-Библиотека "nntplib" в Python используется для взаимодействия с серверами новостных групп (NNTP).
-Она предоставляет функции и методы для чтения, отправки и управления сообщениями в новостных группах.
-
-Вот таблица методов и их краткие описания для модуля "nntplib" и его подмодулей:
-
-Метод                  | Описание
------------------------|-------------------------------
-nntplib.NNTP           | Класс для установки соединения с сервером NNTP.
-NNTP.__init__()        | Инициализация объекта NNTP.
-NNTP.quit()            | Отключение от сервера NNTP.
-NNTP.group(group)      | Выбор новостной группы для чтения статей.
-NNTP.list()            | Получение списка доступных новостных групп.
-NNTP.article(num)      | Получение статьи по ее номеру.
-NNTP.body(num)         | Получение тела статьи по ее номеру.
-NNTP.head(num)         | Получение заголовка статьи по ее номеру.
-NNTP.post(message)     | Отправка сообщения на сервер NNTP.
-NNTP.search(criteria)  | Поиск статей, удовлетворяющих заданным критериям.
-
-Вот список самых часто используемых методов в "nntplib" и их краткие описания:
-
-NNTP.group(group): Выбирает новостную группу для чтения статей.
-```python
-from nntplib import NNTP
-
-conn = NNTP("news.example.com")
-conn.group("comp.lang.python")
-```
-
-NNTP.list(): Получает список доступных новостных групп.
-```python
-from nntplib import NNTP
-
-conn = NNTP("news.example.com")
-groups = conn.list()
-```
-
-NNTP.article(num): Получает статью по ее номеру.
-```python
-from nntplib import NNTP
-
-conn = NNTP("news.example.com")
-resp, article_lines, msg_id, info = conn.article("12345")
-```
-
-NNTP.post(message): Отправляет сообщение на сервер NNTP.
-```python
-from nntplib import NNTP
-
-conn = NNTP("news.example.com")
-resp = conn.post("<subject>", "<from>", "<body>")
-```
-""",
                     "wheel": r"""
 Библиотека "wheel" в Python используется для упрощения установки пакетов и их распространения.
 Она представляет собой формат пакета, который содержит предварительно
@@ -14602,417 +14543,6 @@ from wheel import pack
 pack.pack("path/to/source/package", "path/to/destination/file.whl")
 ```
 """,
-                    "js2py": r"""
-Библиотека "js2py" используется в Python для выполнения и интерпретации JavaScript-кода.
-Она предоставляет возможность взаимодействия между Python и JavaScript, позволяя исполнять JavaScript-код внутри среды Python.
-
-Таблица методов модуля "js2py":
-
-Метод           | Описание кратко
-----------------|----------------
-eval_js()       | Исполняет переданный JavaScript-код и возвращает его результат.
-call()          | Вызывает функцию JavaScript и передает ей аргументы.
-set()           | Устанавливает значение переменной JavaScript.
-get()           | Получает значение переменной JavaScript.
-delete()        | Удаляет переменную JavaScript.
-
-Список самых часто используемых методов, их краткое описание и
-
-eval_js(): Исполняет переданный JavaScript-код и возвращает его результат.
-
-```python
-print(eval_js("1 + 2"))  # 3
-```
-
-call(): Вызывает функцию JavaScript и передает ей аргументы.
-
-```python
-js_function = js2py.eval_js("function add(a, b) { return a + b; }")
-print(call(js_function, 2, 3))  # 5
-```
-
-set(): Устанавливает значение переменной JavaScript.
-
-```python
-set("x", 10)
-print(eval_js("x"))  # 10
-```
-
-get(): Получает значение переменной JavaScript.
-
-```python
-eval_js("var message = 'Hello, world!'")
-print(get("message"))  # Hello, world!
-```
-
-delete(): Удаляет переменную JavaScript.
-
-```python
-eval_js("var x = 5;")
-delete("x")
-print(eval_js("x"))  # undefined
-```
-""",
-                    "pylab": r"""
-Название библиотеки: "pylab"
-
-Краткое описание: Библиотека "pylab" является комбинацией библиотеки "matplotlib" и "NumPy"
-для выполнения научных и инженерных вычислений в Python.
-Она предоставляет функции для создания графиков, визуализации данных и выполнения математических операций.
-
-Таблица методов:
-
-| Метод                | Описание                                                    |
-|----------------------|-------------------------------------------------------------|
-| `plot`               | Построить график из данных                                   |
-| `scatter`            | Создать точечную диаграмму                                   |
-| `hist`               | Построить гистограмму из данных                              |
-| `imshow`             | Отобразить изображение                                       |
-| `xlabel`             | Задать подпись для оси x                                    |
-| `ylabel`             | Задать подпись для оси y                                    |
-| `title`              | Задать заголовок графика                                    |
-| `legend`             | Вывести легенду графика                                     |
-| `grid`               | Отобразить сетку на графике                                 |
-| `sin`                | Вычислить синус значения                                     |
-| `cos`                | Вычислить косинус значения                                  |
-| `exp`                | Вычислить экспоненту значения                               |
-
-
-Метод `plot` позволяет строить графики из предоставленных данных.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y)
-pylab.show()
-```
-
-Метод `scatter` используется для создания точечной диаграммы.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.scatter(x, y)
-pylab.show()
-```
-
-Метод `hist` позволяет создать гистограмму из предоставленных данных.
-
-```python
-import pylab
-
-data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5]
-
-pylab.hist(data)
-pylab.show()
-```
-
-Метод `imshow` используется для отображения изображений.
-
-```python
-import pylab
-import numpy as np
-
-image = np.random.random((10, 10))
-
-pylab.imshow(image)
-pylab.show()
-```
-
-Метод `xlabel` задает подпись для оси x на графике.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y)
-pylab.xlabel("X-axis")
-pylab.show()
-```
-
-Метод `ylabel` задает подпись для оси y на графике.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y)
-pylab.ylabel("Y-axis")
-pylab.show()
-```
-
-Метод `title` задает заголовок для графика.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y)
-pylab.title("My Plot")
-pylab.show()
-```
-
-Метод `legend` выводит легенду на графике.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y, label="Data")
-pylab.legend()
-pylab.show()
-```
-
-Метод `grid` отображает сетку на графике.
-
-```python
-import pylab
-
-x = [1, 2, 3, 4, 5]
-y = [10, 20, 30, 40, 50]
-
-pylab.plot(x, y)
-pylab.grid(True)
-pylab.show()
-```
-
-Метод `sin` используется для вычисления синуса значения.
-
-```python
-import pylab
-
-
-print(pylab.sin(0.5))
-```
-
-Метод `cos` используется для вычисления косинуса значения.
-
-```python
-import pylab
-
-
-print(pylab.cos(0.5))
-```
-
-Метод `exp` используется для вычисления экспоненты значения.
-
-```python
-import pylab
-
-
-print(pylab.exp(2))
-```
-""",
-                    "rasutil": r"""
-Библиотека "rasutil" (raspberry utility) используется для упрощения
-разработки и взаимодействия с Raspberry Pi в языке программирования Python.
-
-Таблица методов для модуля "rasutil":
-Method 1: GPIOInit() - Инициализирует пины GPIO на Raspberry Pi.
-Method 2: GPIOSet(pin, value) - Устанавливает значение пина GPIO на Raspberry Pi.
-Method 3: GPIORead(pin) - Считывает значение с пина GPIO на Raspberry Pi.
-
-Методы модуля "rasutil" позволяют управлять GPIO пинами на Raspberry Pi,
-инициализировать их, устанавливать значения и считывать значения с этих пинов.
-
-Список самых частых методов и их описания:
-GPIOInit() - Инициализирует пины GPIO на Raspberry Pi.
-```python
-rasutil.GPIOInit()
-```
-Этот метод инициализирует пины GPIO на Raspberry Pi перед использованием.
-
-GPIOSet(pin, value) - Устанавливает значение пина GPIO на Raspberry Pi.
-```python
-rasutil.GPIOSet(18, 1)
-```
-Этот метод устанавливает значение 1 на пине GPIO 18 на Raspberry Pi.
-
-GPIORead(pin) - Считывает значение с пина GPIO на Raspberry Pi.
-```python
-value = rasutil.GPIORead(12)
-```
-Этот метод считывает значение с пина GPIO 12 на Raspberry Pi и сохраняет его в переменную "value".
-
-Методы "GPIOSet" и "GPIORead" позволяют управлять значениями пинов GPIO на Raspberry Pi,
-устанавливая значения и считывая их соответственно. Метод "GPIOInit" необходим для инициализации пинов GPIO перед их использованием.
-""",
-                    "poplib": r"""
-Библиотека "poplib" в Python используется для работы с протоколом почтового ящика на основе протокола POP3 (Post Office Protocol version 3).
-Она позволяет получать электронные письма, удалять их, и выполнять другие операции взаимодействия с почтовым сервером.
-
-Методы и подмодули библиотеки "poplib":
-
-`poplib.POP3(host[, port])`: Создает объект соединения с почтовым сервером POP3 на указанном хосте и порту.
-`poplib.POP3.user(username)`: Аутентифицирует пользователя на сервере, указывая имя пользователя.
-`poplib.POP3.pass_(password)`: Аутентифицирует пользователя на сервере, указывая пароль.
-`poplib.POP3.stat()`: Возвращает информацию о состоянии почтового ящика, включая количество сообщений и общий размер.
-`poplib.POP3.list([which])`: Возвращает список всех сообщений в почтовом ящике, или информацию о конкретном сообщении, если указан параметр "which".
-`poplib.POP3.retr(which)`: Получает содержимое указанного сообщения из почтового ящика.
-`poplib.POP3.dele(which)`: Отмечает указанное сообщение для удаления.
-`poplib.POP3.quit()`: Закрывает соединение с сервером POP3.
-
-Наиболее часто используемые методы в библиотеке "poplib":
-
-`poplib.POP3(host[, port])`: Создание соединения с почтовым сервером.
-`poplib.POP3.user(username)` и `poplib.POP3.pass_(password)`: Аутентификация пользователя на сервере.
-`poplib.POP3.stat()`: Получение информации о состоянии почтового ящика.
-`poplib.POP3.list()`: Получение списка всех сообщений в почтовом ящике.
-`poplib.POP3.retr(which)`: Получение содержимого конкретного сообщения.
-`poplib.POP3.quit()`: Закрытие соединения с сервером POP3.
-
-Пример использования метода `poplib.POP3(user, password)` для создания соединения с почтовым сервером:
-
-```python
-import poplib
-
-pop_server = poplib.POP3("mail.example.com", 110)
-pop_server.user("your_username")
-pop_server.pass_("your_password")
-```
-""",
-                    "mailbox": r"""
-Библиотека "mailbox" в Python используется для работы с почтовыми ящиками.
-Она позволяет читать и записывать электронные письма в различных форматах, таких как mbox, MMDF, babyl и др.
-
-Таблица методов библиотеки "mailbox":
-
-| Метод               | Краткое описание                                      |
-|---------------------|-------------------------------------------------------|
-| mailbox.mbox        | Позволяет работать с форматом mbox                    |
-| mailbox.Maildir     | Предоставляет доступ к Maildir-формату почтового ящика |
-| mailbox.Babyl       | Обеспечивает работу с форматом babyl                   |
-| mailbox.MMDF        | Позволяет чтение и запись писем в формате MMDF         |
-| mailbox.Mailbox     | Предоставляет общий интерфейс для работы с почтовыми ящиками в разных форматах  |
-| mailbox.MaildirMessage  | Представляет отдельное письмо в формате Maildir |
-| mailbox.MH          | Работа с письмами в формате MH                         |
-
-Самые часто используемые методы библиотеки "mailbox":
-
-`add` - добавляет письмо в почтовый ящик.
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    message = EmailMessage()
-    message["Subject"] = "Hello"
-    message.set_content("This is a test email")
-    mbox.add(message)
-```
-
-`iterkeys` - возвращает итератор для ключей (идентификаторов) писем в почтовом ящике.
-
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    for key in mbox.iterkeys():
-        print(key)
-```
-
-`get_message` - возвращает письмо по ключу (идентификатору).
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    message = mbox.get_message("12345")
-    print(message["Subject"])
-```
-
-`remove` - удаляет письмо по ключу (идентификатору).
-
-```python
-with mailbox.mbox("sample.mbox") as mbox:
-    mbox.remove("12345")
-```
-""",
-                    "regcheck": r"""
-Библиотека "regcheck" используется для работы с регулярными выражениями в Python.
-Она предоставляет инструменты для поиска и сравнения строк, основываясь на заданных шаблонах.
-
-Таблица методов и их краткое описание для модуля "regcheck":
-
-Метод         | Описание
-------------- | -------------
-search        | Выполняет поиск заданного регулярного выражения в строке и возвращает первое совпадение.
-match         | Проверяет, соответствует ли вся строка заданному регулярному выражению.
-findall       | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде списка.
-finditer      | Находит все совпадения заданного регулярного выражения в строке и возвращает их в виде итератора.
-split         | Разделяет строку на подстроки, используя заданное регулярное выражение в качестве разделителя.
-sub           | Заменяет все совпадения заданного регулярного выражения в строке указанным значением.
-
-Список самых часто используемых методов, их краткое описание и примерный код для демонстрации их работы:
-
-Метод      | Описание                            | Примерный код
----------- | ----------------------------------- | -------------
-search     | Ищет первое совпадение в строке      | import re \n result = re.search(r"pattern", string)
-findall    | Находит все совпадения в строке       | import re \n results = re.findall(r"pattern", string)
-split      | Разделяет строку на подстроки         | import re \n parts = re.split(r"\s", string)
-sub        | Заменяет совпадения в строке          | import re \n new_string = re.sub(r"pattern", replacement, string)
-""",
-                    "traitlets": r"""
-Библиотека "traitlets" в Python используется для определения и использования
-типизированных атрибутов (traits) и событий (events) в объектно-ориентированном программировании.
-Она обеспечивает механизмы проверки типов, установки значений по умолчанию,
-уведомлений об изменениях и другие функции, улучшающие модульность и гибкость кода.
-
-
-Модуль: traitlets
-
-Методы:
-HasTraits(): Базовый класс, предоставляющий инфраструктуру для определения типизированных атрибутов и событий.
-default(obj): Метод, возвращающий значение по умолчанию для указанного атрибута.
-validate(obj, value): Метод, проверяющий значение атрибута на соответствие заданным условиям или типу.
-observe(cls, handler, names=None): Метод класса, позволяющий связать обработчик события с указанными атрибутами.
-link(target, name, linkname=None): Метод объекта, позволяющий установить
-связь между атрибутами текущего объекта и атрибутами другого объекта.
-
-Подмодуль: traitlets.config
-
-Методы:
-Configurable(): Базовый класс, предоставляющий функциональность для работы с конфигурационными файлами и параметрами.
-load_config_file(filename): Метод, загружающий конфигурационный файл, указанный по имени.
-Application: Класс, представляющий приложение, которое может быть настроено с помощью конфигурационных файлов.
-Config: Класс, представляющий конфигурацию, содержащую набор параметров для настройки.
-
-
-Самые часто используемые методы:
-default(obj): Возвращает значение по умолчанию для указанного атрибута.
-
-```python
-value = default("attr_name")
-```
-
-validate(obj, value): Проверяет значение атрибута на соответствие заданным условиям или типу.
-
-```python
-is_valid = validate("attr_name", value)
-```
-
-observe(cls, handler, names=None): Связывает обработчик события с указанными атрибутами.
-
-```python
-observe("class_name", handler_func, ["attr_name1", "attr_name2"])
-```
-
-link(target, name, linkname=None): Устанавливает связь между атрибутами
-текущего объекта и атрибутами другого объекта.
-
-```python
-link(other_object, "attr_name", "linked_attr_name")
-```
-""",
                     "linecache": r"""
 Библиотека "linecache" в Python используется для чтения линий из файлов с исходным кодом.
 Она предоставляет функции для извлечения строк из файла по их номеру.
@@ -15064,48 +14594,6 @@ print(line)
 Этот код сначала очищает кэш, а затем возвращает пятую строку из обновленного файла "file.txt".
 
 Примечание: Убедитесь, что файл "file.txt" существует и содержит нужные строки.
-""",
-                    "readline": r"""
-Библиотека "readline" используется в Python для обеспечения функциональности чтения и редактирования строк в интерактивной командной оболочке.
-
-Методы модуля "readline" и его подмодулей:
-
-readline(): Читает строку из входного потока.
-add_history(string): Добавляет строку в историю командной оболочки.
-clear_history(): Очищает историю командной оболочки.
-get_history_length(): Возвращает количество записей в истории командной оболочки.
-set_history_length(length): Устанавливает максимальное количество записей в истории командной оболочки.
-get_current_history_length(): Возвращает текущую длину истории командной оболочки.
-remove_history_item(pos): Удаляет запись из истории командной оболочки по указанной позиции.
-replace_history_item(pos, string): Заменяет запись в истории командной оболочки по указанной позиции новой строкой.
-
-Наиболее часто используемые методы:
-
-readline(): Читает строку из входного потока.
-
-```python
-import readline
-
-input_string = readline.readline()
-print("Input:", input_string)
-```
-
-add_history(string): Добавляет строку в историю командной оболочки.
-
-```python
-import readline
-
-readline.add_history("command 1")
-readline.add_history("command 2")
-```
-
-clear_history(): Очищает историю командной оболочки.
-
-```python
-import readline
-
-readline.clear_history()
-```
 """,
                     "sched": r"""
 Библиотека "sched" в Python используется для планирования и управления задачами в программе.
@@ -15224,49 +14712,6 @@ print(requirement)
 ```
 
 Убедитесь, что у вас установлена библиотека "packaging" перед использованием этих методов.
-""",
-                    "nis": r"""
-Библиотека "nis" в Python используется для работы с сервисом Network Information Service (NIS).
-NIS предоставляет распределенную базу данных, которая используется для хранения информации о пользователях,
-группах и других системных ресурсах в сети.
-
-Методы модуля "nis":
-nis.match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
-nis.cat(mapname): Возвращает все записи из указанной базы данных.
-nis.maps(): Возвращает список доступных баз данных.
-nis.getmapbyname(name): Возвращает содержимое базы данных с указанным именем.
-nis.getmapbynumber(number): Возвращает содержимое базы данных с указанным номером.
-
-Некоторые из самых часто используемых методов "nis" включают:
-match(mapname, key): Возвращает значение, связанное с указанным ключом в указанной базе данных.
-
-```python
-import nis
-
-value = nis.match("passwd", "john")
-print(value)
-```
-
-cat(mapname): Возвращает все записи из указанной базы данных.
-
-```python
-import nis
-
-records = nis.cat("passwd")
-for record in records:
-    print(record)
-```
-
-maps(): Возвращает список доступных баз данных.
-
-```python
-import nis
-
-map_list = nis.maps()
-print(map_list)
-```
-
-Это лишь некоторые из методов, доступных в библиотеке "nis".
 """,
                     "notebook": r"""
 Библиотека "notebook" используется для создания интерактивных блокнотов в среде Jupyter Notebook.
@@ -15398,77 +14843,6 @@ decoded_data = quopri.decode(encoded_data)
 print(decoded_data)
 ```
 """,
-                    "mailcap": r"""
-Библиотека "mailcap" в Python используется для обработки типов файлов и ассоциированных программ.
-
-
-Модуль: mailcap
-findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
-getcaps: Возвращает все записи в файле mailcap.
-getparam: Возвращает значение параметра из записи mailcap.
-listmailcapfiles: Возвращает список файлов mailcap в системе.
-lookup: Находит запись mailcap для заданного типа файла.
-parse: Разбирает содержимое mailcap-файла и возвращает его в виде словаря.
-
-
-findmatch: Находит подходящую запись для заданного типа файла и возвращает ее.
-
-```python
-import mailcap
-
-filename = "example.txt"
-type = "text/plain"
-
-match = mailcap.findmatch(type, filename)
-if match:
-    command = match[0]
-    params = match[1]
-    # выполнение команды с использованием параметров
-```
-
-getcaps: Возвращает все записи в файле mailcap.
-
-```python
-import mailcap
-
-caps = mailcap.getcaps()
-for cap in caps:
-    print(cap)
-```
-
-lookup: Находит запись mailcap для заданного типа файла.
-
-```python
-import mailcap
-
-type = "text/plain"
-lookup = mailcap.lookup(type)
-if lookup:
-    print(lookup)
-```
-
-Маленький код для демонстрации этих методов:
-```python
-import mailcap
-
-filename = "example.txt"
-type = "text/plain"
-
-match = mailcap.findmatch(type, filename)
-if match:
-    command = match[0]
-    params = match[1]
-    # выполнение команды с использованием параметров
-
-caps = mailcap.getcaps()
-for cap in caps:
-    print(cap)
-
-lookup = mailcap.lookup(type)
-if lookup:
-    print(lookup)
-```
-""",
                     "errno": r"""
 Библиотека "errno" в Python используется для обработки ошибок, связанных с системными вызовами и функциями операционной системы.
 Она предоставляет доступ к кодам ошибок, которые могут возникать
@@ -15511,37 +14885,6 @@ import errno
 error_desc = errno.geterror()
 print(error_desc)
 ```
-""",
-                    "ntpath": r"""
-Библиотека "ntpath" в Python используется для обработки и манипулирования путями файловой системы
-с учетом специфических особенностей операционной системы Windows.
-
-Таблица методов модуля и его подмодуля "ntpath" и их краткое описание:
-
-Метод                                     | Описание
-----------------------------------------|---------------------------------------------------
-ntpath.abspath(path)                     | Возвращает абсолютный путь к указанному пути.
-ntpath.basename(path)                    | Возвращает базовое имя файла или каталога из указанного пути.
-ntpath.commonprefix(list)                | Возвращает наибольший общий префикс из списка путей.
-ntpath.dirname(path)                     | Возвращает каталог, содержащий указанный путь.
-ntpath.exists(path)                      | Проверяет, существует ли указанный путь.
-ntpath.expanduser(path)                  | Заменяет в указанном пути тильду (~) на домашний каталог пользователя.
-ntpath.expandvars(path)                  | Заменяет переменные окружения в указанном пути на их значения.
-ntpath.isfile(path)                      | Проверяет, является ли указанный путь файлом.
-ntpath.isdir(path)                       | Проверяет, является ли указанный путь каталогом.
-ntpath.join(path, *paths)                | Объединяет пути с использованием разделителя.
-ntpath.normpath(path)                    | Нормализует указанный путь, удаляя двойные слеши и точки.
-ntpath.realpath(path)                    | Возвращает канонический абсолютный путь к указанному пути.
-ntpath.relpath(path, start)              | Возвращает относительный путь от исходного пути до указанного пути.
-ntpath.split(path)                       | Разделяет указанный путь на имя каталога и имя файла.
-
-Несколько часто используемых методов "ntpath" с их кратким описанием и примерами кода:
-
-Метод                                     | Описание                                | Пример
------------------------------------------|-----------------------------------------|--------------------------------------------------
-ntpath.basename(path)                     | Возвращает базовое имя файла или каталога из указанного пути | dirname, filename = ntpath.split("/path/to/file.txt") print(filename) -> "file.txt"
-ntpath.exists(path)                       | Проверяет, существует ли указанный путь | if ntpath.exists("/path/to/file.txt"): print("File exists")
-ntpath.join(path, *paths)                 | Объединяет пути с использованием разделителя | full_path = ntpath.join("/path/to", "file.txt") print(full_path) -> "/path/to/file.txt"
 """,
                     "locale": r"""
 Библиотека "locale" в Python используется для обработки локализации и форматирования числовых,
@@ -15623,96 +14966,6 @@ gettext.textdomain("mydomain")
 
 _ = gettext.dgettext
 print(_("mydomain", "Hello, world!"))
-```
-""",
-                    "rfc3339_validator": r"""
-Библиотека "rfc3339_validator" используется для проверки правильности формата даты и времени в соответствии со стандартом RFC 3339.
-
-Таблица методов модуля и его подмодулей:
-
-Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
-Возвращает булевое значение True, если формат верен, и False в противном случае.
-
-Список самых частых методов, их краткого описания и примерного кода:
-
-Метод `validate(date_string)` - проверяет правильность формата даты и времени в строке `date_string` в соответствии со стандартом RFC 3339.
-
-```python
-from rfc3339_validator import validate
-
-date_string = "2022-01-01T12:34:56Z"
-if validate(date_string):
-    print("Формат даты и времени верный")
-else:
-    print("Некорректный формат даты и времени")
-```
-""",
-                    "netbios": r"""
-"netbios" - это библиотека в Python, которая предоставляет функциональность
-для работы с протоколом NetBIOS (Network Basic Input/Output System).
-
-Таблица методов модуля "netbios" и их краткого описания:
-
-Метод                  | Описание
------------------------|----------------------------------------------------
-nbt.getnetbiosname()   | Получает NetBIOS-имя компьютера, на котором выполняется код.
-nbt.getwinsaddrs()     | Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
-nbt.getnodetype()      | Возвращает тип узла в сети.
-nbt.gethostbyname()    | Возвращает IP-адреса, связанные с указанным NetBIOS-именем.
-nbt.getbcastaddrs()    | Возвращает список широковещательных адресов, связанных с NetBIOS-именами.
-
-Список самых часто используемых методов, их краткого описания и
-
-nbt.getnetbiosname(): Возвращает NetBIOS-имя компьютера.
-
-```python
-import netbios as nb
-
-name = nb.getnetbiosname()
-print(name)
-```
-
-nbt.getwinsaddrs(): Возвращает список IP-адресов машин, знающих сведения о NetBIOS-именах.
-
-```python
-import netbios as nb
-
-wins_addrs = nb.getwinsaddrs()
-print(wins_addrs)
-```
-
-nbt.getnodetype(): Возвращает тип узла в сети.
-
-```python
-import netbios as nb
-
-node_type = nb.getnodetype()
-print(node_type)
-```
-""",
-                    "bz2": """
-Модуль bz2 в Python предоставляет интерфейс для сжатия и распаковки данных
-с использованием алгоритма BZ2 (Burrows-Wheeler).
-Он позволяет работать с файлами и байтовыми объектами, обеспечивая эффективное сжатие данных.
-
-| Метод                                                     | Описание                                                                           |
-|-----------------------------------------------------------|------------------------------------------------------------------------------------|
-| bz2.compress(data, compresslevel=9)                       | Сжимает данные BZ2. Можно указать уровень сжатия (1-9)                            |
-| bz2.decompress(data)                                      | Распаковывает данные BZ2                                                          |
-| bz2.BZ2File(file, mode="r", buffering=0, compresslevel=9) | Создает файловый объект BZ2. Режимы: "r" (чтение), "w" (запись), "a" (добавление) |
-
-**bz2.compress(data, compresslevel=9)** Сжимает данные BZ2.
-
-```python
-compressed_data = bz2.compress(b"Hello, World!")
-print(compressed_data)
-```
-
-**bz2.decompress(data)** Распаковывает данные BZ2.
-
-```python
-decompressed_data = bz2.decompress(compressed_data)
-print(decompressed_data)
 ```
 """,
                 },
@@ -15982,48 +15235,66 @@ class MyClass(metaclass=CustomMeta):
                     ).replace("__", "&#95;&#95;"),
                 ),
                 "Magic attributes": """
-| Атрибут           | Описание                                                                                                     | Пример использования                                |
-|-------------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
-| `__code__`        | Содержит объект типа `code`, представляющий байт-код функции.<br>Можно использовать для анализа и изменения     | `func.__code__.co_varnames`                        |
-| `__closure__`     | Кортеж объектов `cell`, хранящих значения переменных,<br>захваченных замыканием (если функция использует замыкания) | `func.__closure__[0].cell_contents`               |
-| `__module__`      | Имя модуля, в котором определена функция.<br>Полезно для понимания контекста определения функции                | `func.__module__`                                  |
-| `__annotations__` | Словарь с аннотациями типов для аргументов функции и возвращаемого значения                                | `func.__annotations__`                             |
-| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля           | `func.__globals__["variable_name"]`                |
-| `__defaults__`    | Кортеж значений по умолчанию для позиционных<br>и именованных аргументов функции (если они определены)          | `func.__defaults__`                                |
-| `__kwdefaults__`  | Словарь значений по умолчанию для только ключевых аргументов функции (если они определены)                  | `func.__kwdefaults__`                              |
-| `__qualname__`    | Полное имя функции, включая контексты, такие как класс или модуль, в котором она определена                  | `func.__qualname__`                                |
 
 
-# &#x5f;&#x5f;code&#x5f;&#x5f;
+# locals()
 
-| Атрибут              | Описание                                                                                                                                                                                           | Пример использования                 |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
-| `co_argcount`        | Количество аргументов, принимаемых функцией (без `*args` и `**kwargs`)                                                                                                                             | `func.__code__.co_argcount`          |
-| `co_cellvars`        | Кортеж с именами переменных, которые являются локальными, но используются в замыканиях                                                                                                             | `func.__code__.co_cellvars`          |
-| `co_code`            | Сырые байт-коды, представляющие тело функции                                                                                                                                                       | `func.__code__.co_code`              |
-| `co_consts`          | Кортеж с константами, используемыми в функции (например, числа, строки)                                                                                                                            | `func.__code__.co_consts`            |
-| `co_exceptiontable`  | Таблица, описывающая обработку исключений в байт-коде.<br>Содержит информацию о try/except блоках и местах, где нужно ловить исключения                                                            | `func.__code__.co_exceptiontable`    |
-| `co_filename`        | Имя файла, в котором определена функция                                                                                                                                                            | `func.__code__.co_filename`          |
-| `co_firstlineno`     | Номер первой строки, содержащей исходный код функции                                                                                                                                               | `func.__code__.co_firstlineno`       |
-| `co_flags`           | Флаги, описывающие состояние функции (например, использование генераторов)                                                                                                                         | `func.__code__.co_flags`             |
-| `co_freevars`        | Кортеж с именами переменных, которые используются в функции,<br>но не являются локальными (замыкания)                                                                                              | `func.__code__.co_freevars`          |
-| `co_kwonlyargcount`  | Количество ключевых-only аргументов                                                                                                                                                                | `func.__code__.co_kwonlyargcount`    |
-| `co_lines`           | Итератор, который возвращает пары `(начало строки, конец строки)`<br>для каждого блока байт-кода, позволяя точно определить,<br>какая часть кода соответствует определенным строкам исходного кода | `list(func.__code__.co_lines())`     |
-| `co_linetable`       | Байт-код таблицы, содержащей информацию о соответствии номеров строк исходному коду<br>(используется в интерпретаторе Python для трассировки)                                                      | `func.__code__.co_linetable`         |
-| `co_lnotab`          | Содержит информацию для отображения байт-кодов в номера строк исходного кода                                                                                                                       | `func.__code__.co_lnotab`            |
-| `co_name`            | Имя функции                                                                                                                                                                                        | `func.__code__.co_name`              |
-| `co_names`           | Кортеж с именами всех объектов (функций, классов, переменных), используемых в функции                                                                                                              | `func.__code__.co_names`             |
-| `co_nlocals`         | Количество локальных переменных, используемых в функции                                                                                                                                            | `func.__code__.co_nlocals`           |
-| `co_positions`       | Итератор, возвращающий позиции в коде: `(start_line, start_col, end_line, end_col)`<br>для каждого выражения или инструкции в функции.<br>Это позволяет точно определить позиции в исходном коде   | `list(func.__code__.co_positions())` |
-| `co_posonlyargcount` | Количество позиционных-only аргументов                                                                                                                                                             | `func.__code__.co_posonlyargcount`   |
-| `co_qualname`        | Полное имя функции, включая контексты, такие как класс или модуль.<br>Полезно для определения квалифицированного имени метода класса или вложенной функции                                         | `func.__code__.co_qualname`          |
-| `co_stacksize`       | Размер стека, необходимый для выполнения функции                                                                                                                                                   | `func.__code__.co_stacksize`         |
-| `co_varnames`        | Кортеж с именами всех локальных переменных, включая аргументы функции                                                                                                                              | `func.__code__.co_varnames`          |
-| `replace`            | Позволяет создать новый объект code, заменив выбранные атрибуты                                                                                                                                    | `func.__code__.replace(**kwargs)`    |
+| Переменная        | Описание                                                                                                  |
+|-------------------|-----------------------------------------------------------------------------------------------------------|
+| `__annotations__` | Словарь, содержащий аннотации типов, заданные в модуле<br>`def func(a: int, b: str) -> bool: pass`<br>`print(func.__annotations__)  # {'a': <class 'int'>, 'b': <class 'str'>, 'return': <class 'bool'>}` |
+| `__builtins__`    | Ссылка на встроенные объекты Python, такие как функции (`len`, `print`) и исключения (`ValueError`)       |
+| `__cached__`      | Указывает путь к закэшированному файлу `.pyc`, созданному для текущего модуля                             |
+| `__doc__`         | Строка документации текущего модуля. Если документации нет, то значение будет `None`                      |
+| `__file__`        | Путь к файлу, из которого был загружен текущий модуль                                                     |
+| `__loader__`      | Объект, ответственный за загрузку текущего модуля                                                         |
+| `__name__`        | Имя текущего модуля. Для основного исполняемого скрипта значение будет `'__main__'`                       |
+| `__package__`     | Имя пакета, в котором находится модуль. Если модуль находится на верхнем уровне, то значение будет `None` |
+| `__spec__`        | Спецификация загрузки модуля. Это объект, содержащий информацию о модуле, такой как его путь, имя и пакет |
 
-### Примеры использования
+# object
 
-#### Получение количества аргументов функции
+| Атрибут           | Описание                                                                                                                                                                                                                                                  | Пример использования                |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| `__code__`        | Содержит объект типа `code`, представляющий байт-код функции.<br>Можно использовать для анализа и изменения                                                                                                                                               | `func.__code__.co_varnames`         |
+| `__closure__`     | Кортеж объектов `cell`, хранящих значения переменных,<br>захваченных замыканием (если функция использует замыкания)                                                                                                                                       | `func.__closure__[0].cell_contents` |
+| `__module__`      | Имя модуля, в котором определена функция.<br>Полезно для понимания контекста определения функции                                                                                                                                                          | `func.__module__`                   |
+| `__annotations__` | Словарь с аннотациями типов для аргументов функции и возвращаемого значения                                                                                                                                                                               | `func.__annotations__`              |
+| `__globals__`     | Словарь глобальных переменных, доступных функции.<br>Позволяет доступ к глобальному пространству имен.<br>Если функция func была определена в модуле module,<br>то `func.__globals__` будет ссылаться<br>на глобальный символический словарь этого модуля | `func.__globals__["variable_name"]` |
+| `__defaults__`    | Кортеж значений по умолчанию для позиционных<br>и именованных аргументов функции (если они определены)                                                                                                                                                    | `func.__defaults__`                 |
+| `__kwdefaults__`  | Словарь значений по умолчанию для только ключевых аргументов функции (если они определены)                                                                                                                                                                | `func.__kwdefaults__`               |
+| `__qualname__`    | Полное имя функции, включая контексты, такие как класс или модуль, в котором она определена                                                                                                                                                               | `func.__qualname__`                 |
+
+
+## &#x5f;&#x5f;code&#x5f;&#x5f;
+
+| Атрибут              | Описание                                                                                                                                                                                                                                                                                          | Пример использования                 |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| `co_argcount`        | Количество аргументов, принимаемых функцией (без `*args` и `**kwargs`)                                                                                                                                                                                                                            | `func.__code__.co_argcount`          |
+| `co_cellvars`        | Кортеж с именами переменных, которые являются локальными, но используются в замыканиях                                                                                                                                                                                                            | `func.__code__.co_cellvars`          |
+| `co_code`            | Сырые байт-коды, представляющие тело функции                                                                                                                                                                                                                                                      | `func.__code__.co_code`              |
+| `co_consts`          | Кортеж с константами, используемыми в функции (например, числа, строки)                                                                                                                                                                                                                           | `func.__code__.co_consts`            |
+| `co_exceptiontable`  | Таблица, описывающая обработку исключений в байт-коде.<br>Содержит информацию о try/except блоках и местах, где нужно ловить исключения                                                                                                                                                           | `func.__code__.co_exceptiontable`    |
+| `co_filename`        | Имя файла, в котором определена функция                                                                                                                                                                                                                                                           | `func.__code__.co_filename`          |
+| `co_firstlineno`     | Номер первой строки, содержащей исходный код функции                                                                                                                                                                                                                                              | `func.__code__.co_firstlineno`       |
+| `co_flags`           | Флаги, описывающие состояние функции (например, использование генераторов)<br>Этот атрибут — битовая маска, содержащая информацию о функции, например,<br>используется ли функция как генератор, имеет ли она `*args` или `**kwargs` и т.д<br>Например, `0x20` указывает, что функция — генератор | `func.__code__.co_flags`             |
+| `co_freevars`        | Кортеж с именами переменных, которые используются в функции,<br>но не являются локальными (замыкания)                                                                                                                                                                                             | `func.__code__.co_freevars`          |
+| `co_kwonlyargcount`  | Количество ключевых-only аргументов                                                                                                                                                                                                                                                               | `func.__code__.co_kwonlyargcount`    |
+| `co_lines`           | Итератор, который возвращает пары `(начало строки, конец строки)`<br>для каждого блока байт-кода, позволяя точно определить,<br>какая часть кода соответствует определенным строкам исходного кода                                                                                                | `list(func.__code__.co_lines())`     |
+| `co_linetable`       | Байт-код таблицы, содержащей информацию о соответствии номеров строк исходному коду<br>(используется в интерпретаторе Python для трассировки)                                                                                                                                                     | `func.__code__.co_linetable`         |
+| `co_lnotab`          | Содержит информацию для отображения байт-кодов в номера строк исходного кода                                                                                                                                                                                                                      | `func.__code__.co_lnotab`            |
+| `co_name`            | Имя функции                                                                                                                                                                                                                                                                                       | `func.__code__.co_name`              |
+| `co_names`           | Кортеж с именами всех объектов (функций, классов, переменных), используемых в функции                                                                                                                                                                                                             | `func.__code__.co_names`             |
+| `co_nlocals`         | Количество локальных переменных, используемых в функции                                                                                                                                                                                                                                           | `func.__code__.co_nlocals`           |
+| `co_positions`       | Итератор, возвращающий позиции в коде: `(start_line, start_col, end_line, end_col)`<br>для каждого выражения или инструкции в функции.<br>Это позволяет точно определить позиции в исходном коде                                                                                                  | `list(func.__code__.co_positions())` |
+| `co_posonlyargcount` | Количество позиционных-only аргументов                                                                                                                                                                                                                                                            | `func.__code__.co_posonlyargcount`   |
+| `co_qualname`        | Полное имя функции, включая контексты, такие как класс или модуль.<br>Полезно для определения квалифицированного имени метода класса или вложенной функции                                                                                                                                        | `func.__code__.co_qualname`          |
+| `co_stacksize`       | Размер стека, необходимый для выполнения функции                                                                                                                                                                                                                                                  | `func.__code__.co_stacksize`         |
+| `co_varnames`        | Кортеж с именами всех локальных переменных, включая аргументы функции                                                                                                                                                                                                                             | `func.__code__.co_varnames`          |
+| `replace`            | Позволяет создать новый объект code, заменив выбранные атрибуты                                                                                                                                                                                                                                   | `func.__code__.replace(**kwargs)`    |
+
+# Примеры использования
+
+### Получение количества аргументов функции
 ```python
 def example_func(a, b, c=10):
     return a + b + c
@@ -16031,7 +15302,7 @@ def example_func(a, b, c=10):
 print(example_func.__code__.co_argcount)  # 2
 ```
 
-#### Извлечение имен аргументов и локальных переменных
+### Извлечение имен аргументов и локальных переменных
 ```python
 def example_func(x, y):
     z = x + y
@@ -16040,7 +15311,7 @@ def example_func(x, y):
 print(example_func.__code__.co_varnames)  # ("x", "y", "z")
 ```
 
-#### Получение имени файла и строки, где определена функция
+### Получение имени файла и строки, где определена функция
 ```python
 def example_func():
     pass
@@ -16049,7 +15320,7 @@ print(example_func.__code__.co_filename)     # Имя файла, в котор�
 print(example_func.__code__.co_firstlineno)  # Номер первой строки
 ```
 
-#### Работа с байт-кодом
+### Работа с байт-кодом
 ```python
 def example_func(a, b):
     return a + b
@@ -16057,7 +15328,7 @@ def example_func(a, b):
 print(example_func.__code__.co_code)  # Сырые байт-коды
 ```
 
-#### Константы, используемые в функции
+### Константы, используемые в функции
 ```python
 def example_func():
     x = 42
@@ -16066,7 +15337,7 @@ def example_func():
 print(example_func.__code__.co_consts)  # (None, 42)
 ```
 
-#### Проверка использования замыканий
+### Проверка использования замыканий
 ```python
 def outer_func(x):
     def inner_func(y):
@@ -16078,15 +15349,97 @@ print(closure_func.__code__.co_freevars)  # ("x",)
 print(closure_func.__code__.co_cellvars)  # ()
 ```
 
-### Дополнительные материалы
 
-- `co_flags`: Этот атрибут — битовая маска, содержащая информацию о функции,
-например, используется ли функция как генератор, имеет ли она `*args` или `**kwargs` и т.д.
-    - Например, `0x20` указывает, что функция — генератор.
 
-- `co_lnotab`: Содержит байтовую строку, которая используется для отображения байт-кодов в номера строк исходного кода.
-Эта информация полезна при отладке и генерации трассировки стека.
+# Exception
 
+[Подробнее про методы исключений](?Languages/Python/Built-in/Exception#методы-exception)
+
+|                        |     |
+|------------------------|-----|
+| `__cause__`            | Используется для хранения "причины" исключения<br>На исключение, которое привело к текущему<br>Например, если одно исключение было вызвано другим (например, в процессе обработки ошибки), то "причина" может быть записана в `__cause__`<br>Когда возникает исключение в блоке `except` или при<br>повторном возбуждении исключений с помощью `raise ... from`
+| `__context__`          | Хранит контекст, то есть исключение, которое возникло непосредственно перед текущим исключением,<br>но не обязательно является его причиной<br>Может быть полезен в сложных сценариях обработки ошибок, например, при вложенных `try-except`
+| `__suppress_context__` | bool Указывает, следует ли подавить контекст при повторном возбуждении исключения<br>Если `True`, контекст (то есть `__context__`) не будет отображаться в traceback
+| `__traceback__`        | Содержит объект traceback (трассировки стека), который связан с исключением<br>Используется для получения информации о стеке вызовов, где произошла ошибка
+| `__notes__`            | Список строк, содержащих примечания, добавленные к исключению с помощью метода `add_note`
+
+Магические методы `__cause__`, `__context__`, `__suppress_context__` и `__traceback__`
+позволяют более гибко управлять цепочкой исключений, контекстом и трассировками, что особенно полезно при перехвате,
+повторном возбуждении и обработке исключений.
+
+
+### __context__
+
+```pycon
+>>> try:
+...     try:
+...         raise ValueError("Ошибка в вложенном блоке")
+...     except ValueError as inner_exception:
+...         raise KeyError("Ошибка внешнего блока") from inner_exception
+... except KeyError as e:
+...     print(f"Контекст ошибки: {e.__context__}")
+Контекст ошибки: Ошибка в вложенном блоке
+```
+
+
+#### 3. **`__suppress_context__`**
+
+- **Описание**: Это булев атрибут, который у. .
+- **Применение**: Обычно используется в случае, если вы хотите исключить подробности предыдущих ошибок при повторном возбуждении исключений, чтобы они не появлялись в выводе трассировки.
+
+##### Пример:
+```python
+try:
+    try:
+        raise ValueError("Ошибка в блоке")
+    except ValueError as inner_exception:
+        raise KeyError("Ошибка внешнего блока") from inner_exception
+except KeyError as e:
+    e.__suppress_context__ = True  # Подавляем контекст
+    raise e
+```
+
+В этом примере, несмотря на то что контекст существует, он не будет отображаться в traceback.
+
+---
+
+#### 4. **`__traceback__`**
+
+- **Применение**: Может быть полезен для отображения подробной информации о том, где произошла ошибка, или для передачи трассировки с одним исключением к другому.
+
+##### Пример:
+```python
+try:
+    raise ValueError("Произошла ошибка")
+except ValueError as e:
+    print(f"Traceback: {e.__traceback__} {dir(e.__traceback__)}")
+```
+
+
+# Атрибут `__weakref__`
+
+- **Описание**: Этот атрибут позволяет объектам поддерживать слабые ссылки на себя. Если объект имеет атрибут `__weakref__`, это означает, что он может быть включён в слабую ссылку, что предотвращает цикл ссылок, и объект может быть удалён сборщиком мусора, даже если на него существуют ссылки.
+
+- **Применение**: Используется для предотвращения удержания объектов в памяти, если они больше не нужны, и для работы с кэшами или другими объектами, где нужно контролировать жизненный цикл объектов.
+
+#### Пример:
+```python
+import weakref
+
+class MyClass:
+    def __del__(self):
+        print("Объект удален")
+
+obj = MyClass()
+weak_obj = weakref.ref(obj)
+
+# Прямая ссылка
+print(weak_obj())  # Выведет объект
+
+del obj  # Удаление объекта
+
+print(weak_obj())  # Выведет None, так как объект удален
+```
 """,
                 "str": """
 | Метод                                  | Описание                                                                                                           |                |
@@ -17235,7 +16588,7 @@ file   : program read from script file
 arg ...: arguments passed to program in sys.argv[1:]
 ```
 """,
-                "pip flags": """
+                "pip flags": r"""
 | Флаг                  | Описание |
 |-----------------------|----------|
 | `-r` `--requirements` | Установить пакеты из указанного файла зависимостей `requirements.txt`.
@@ -17293,7 +16646,7 @@ Install Options:
   --abi <abi>                 Only use wheels compatible with Python abi <abi>, e.g. 'pypy_41'. If not specified, then the current interpreter abi tag is
                               used. Use this option multiple times to specify multiple abis supported by the target interpreter. Generally you will need
                               to specify --implementation, --platform, and --python-version when using this option.
-  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%\Python on Windows. (See
+  --user                      Install to the Python user install directory for your platform. Typically ~/.local/, or %APPDATA%/Python on Windows. (See
                               the Python documentation for site.USER_BASE for full details.)
   --root <dir>                Install everything relative to this alternate root directory.
   --prefix <dir>              Installation prefix where lib, bin and other top-level folders are placed. Note that the resulting installation may contain
@@ -17871,44 +17224,7 @@ your-command
 """,
             },
             "Generators": {
-                "yield from": """
-# yield from
-
-Это выражение, которое позволяет делегировать выполнение
-генератора другому генератору, который называется **подгенератором**.
-Это означает, что когда генератор встречает выражение `yield from` с указанием **подгенератора**,
-он передает управление этому **подгенератору**,
-который затем возвращает значения генерируемых им элементов непосредственно в генератор-делегат.
-
-Кроме того, `yield from` позволяет пропустить передачу через промежуточный уровень вложенности.
-Это означает, что когда подгенератор завершает свою работу, управление передается автоматически обратно генератору-делегату.
-Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе,
-чтобы создать новый генератор, который генерирует элементы из каждого из них.
-
-Вот пример, который демонстрирует использование yield from:
-
-```python
-def generator1():
-    yield "A"
-    yield "B"
-    yield "C"
-
-def generator2():
-    yield "D"
-    yield from generator1()
-    yield "E"
-    yield "F"
-
-[letter for letter in generator2()]
-# ["D", "A", "B", "C", "E", "F"]
-```
-
-Здесь `generator2` создает новый генератор, используя `yield from`
-для вызова генератора `generator1` и объединения его с другими элементами, которые генерирует `generator2`.
-Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
-который продолжает генерировать свои элементы.
-""",
-                ".send()": """
+                "Методы": """
 # .send()
 
 Метод `send()` используется для отправки значения в активный генератор.
@@ -17988,7 +17304,7 @@ Traceback (most recent call last):
 StopIteration
 ```
 
-# Примечания
+## Примечания
 - **`.send(None)` аналогично `next()`**:
     - Используется для первого вызова генератора или продолжения без передачи данных.
     - При первом вызове генератор должен быть готов принять `None`, иначе возникнет ошибка `TypeError`. ```pycon
@@ -18006,8 +17322,7 @@ TypeError: can't send non-None value to a just-started generator
 - Использование с корутинами:
     - Метод `.send()` часто применяется в сопрограммах на основе генераторов для обмена данными между частями кода.
 
-""",
-                ".throw()": """
+
 # .throw(type, value=None, traceback=None)
 
 Генератору передается исключение.
@@ -18026,8 +17341,6 @@ TypeError: can't send non-None value to a just-started generator
 Caught: Test
 ```
 
-""",
-                ".close()": """
 # .close()
 
 Завершает генератор.
@@ -18046,6 +17359,7 @@ Caught: Test
 >>> gen.close()
 Generator closed!
 ```
+
 """,
                 "Атрибуты": """
 # `gi_code`
@@ -18064,14 +17378,14 @@ example
 
 Ссылка на текущий объект фрейма выполнения (тип frame), представляющий стек вызовов генератора.
 Используется для отладки или анализа текущего состояния генератора.
-```pycon
+```python
 def example():
     yield
 
 gen = example()
-print(gen.gi_frame.f_lasti)  # Вывод: -1 (указатель ещё не начал выполнение)
+print(gen.gi_frame.f_lasti)
 next(gen)
-print(gen.gi_frame.f_lasti)  # Указывает на байт-код последней операции
+print(gen.gi_frame.f_lasti)
 ```
 
 # `gi_running`
@@ -18080,13 +17394,15 @@ print(gen.gi_frame.f_lasti)  # Указывает на байт-код посл�
 Помогает отслеживать, активен ли генератор.
 
 ```pycon
-def example():
-    print(gen.gi_running)  # Вывод: True (генератор выполняется)
-    yield
-
-gen = example()
-print(gen.gi_running)  # Вывод: False (генератор не выполняется)
-next(gen)
+>>> def example():
+...    print(gen.gi_running)  # Вывод: True (генератор выполняется)
+...    yield
+...
+>>> gen = example()
+>>> print(gen.gi_running)  # Вывод: False (генератор не выполняется)
+False
+>>> next(gen)
+True
 ```
 
 # `gi_suspended`
@@ -18098,15 +17414,17 @@ next(gen)
 Позволяет анализировать вложенные генераторы.
 
 ```pycon
-def sub_generator():
-    yield "Sub value"
-
-def example():
-    yield from sub_generator()
-
-gen = example()
-next(gen)  # Возобновляем основной генератор
-print(gen.gi_yieldfrom)  # Ссылка на вложенный генератор
+>>> def sub_generator():
+...     yield "Sub value"
+...
+>>> def example():
+...     yield from sub_generator()
+...
+>>> gen = example()
+>>> next(gen)
+'Sub value'
+>>> print(gen.gi_yieldfrom)  # Ссылка на вложенный генератор
+<generator object sub_generator at 0x...>
 ```
 
 | Атрибут        | Описание                                   |
@@ -18115,6 +17433,43 @@ print(gen.gi_yieldfrom)  # Ссылка на вложенный генерато
 | `gi_frame`     | Текущий стек вызовов генератора            |
 | `gi_running`   | Указывает, выполняется ли генератор        |
 | `gi_yieldfrom` | Ссылка на вложенный генератор `yield from` |
+""",
+                "yield from": """
+# yield from
+
+Это выражение, которое позволяет делегировать выполнение
+генератора другому генератору, который называется **подгенератором**.
+Это означает, что когда генератор встречает выражение `yield from` с указанием **подгенератора**,
+он передает управление этому **подгенератору**,
+который затем возвращает значения генерируемых им элементов непосредственно в генератор-делегат.
+
+Кроме того, `yield from` позволяет пропустить передачу через промежуточный уровень вложенности.
+Это означает, что когда подгенератор завершает свою работу, управление передается автоматически обратно генератору-делегату.
+Это может быть полезно в случаях, когда вы хотите объединить несколько генераторов вместе,
+чтобы создать новый генератор, который генерирует элементы из каждого из них.
+
+Вот пример, который демонстрирует использование yield from:
+
+```python
+def generator1():
+    yield "A"
+    yield "B"
+    yield "C"
+
+def generator2():
+    yield "D"
+    yield from generator1()
+    yield "E"
+    yield "F"
+
+[letter for letter in generator2()]
+# ["D", "A", "B", "C", "E", "F"]
+```
+
+Здесь `generator2` создает новый генератор, используя `yield from`
+для вызова генератора `generator1` и объединения его с другими элементами, которые генерирует `generator2`.
+Когда `generator1` завершает свою работу, управление автоматически возвращается обратно в `generator2`,
+который продолжает генерировать свои элементы.
 """,
             },
             "Built-in": {
@@ -18474,14 +17829,241 @@ BaseException - базовое исключение, от которого бе�
            +-- UnicodeWarning - предупреждает о проблемах с операциями, связанными с Unicode.
            +-- BytesWarning - предупреждает о проблемах с операциями с байтами или байтовыми массивами.
            +-- ResourceWarning - предупреждает об использовании ресурсов (например, о незакрытых файлах).
+           +-- EncodingWarning
 
 
-EncodingWarning
 EnvironmentError
 IOError
 WindowsError
 ```
 
+
+
+
+# BaseException
+Базовое исключение, от которого берут начало все остальные.
+## SystemExit
+Исключение, порождаемое функцией sys.exit при выходе из программы.
+## KeyboardInterrupt
+Порождается при прерывании программы пользователем (обычно сочетанием клавиш Ctrl+C).
+## GeneratorExit
+Порождается при вызове метода close объекта generator.
+## Exception
+А вот тут уже заканчиваются полностью системные исключения (которые лучше не трогать) и начинаются обыкновенные, с которыми можно работать.
+### StopIteration
+Порождается встроенной функцией next, если в итераторе больше нет элементов.
+### StopAsyncIteration
+Порождается встроенной функцией anext, если в асинхронном итераторе больше нет элементов.
+### ArithmeticError
+Арифметическая ошибка.
+#### FloatingPointError
+Порождается при неудачном выполнении операции с плавающей запятой. На практике встречается нечасто.
+#### OverflowError
+Возникает, когда результат арифметической операции слишком велик для представления. Не появляется при обычной работе с целыми числами (так как python поддерживает длинные числа), но может возникать в некоторых других случаях.
+#### ZeroDivisionError
+Деление на ноль.
+### AssertionError
+Выражение в функции assert ложно.
+### AttributeError
+Объект не имеет данного атрибута (значения или метода).
+### BufferError
+Операция, связанная с буфером, не может быть выполнена.
+### EOFError
+Функция наткнулась на конец файла и не смогла прочитать то, что хотела.
+### ImportError
+Не удалось импортирование модуля или его атрибута.
+#### ModuleNotFoundError
+### LookupError
+Некорректный индекс или ключ.
+#### IndexError
+Индекс не входит в диапазон элементов.
+#### KeyError
+Несуществующий ключ (в словаре, множестве или другом объекте).
+### MemoryError
+Недостаточно памяти.
+### NameError
+Не найдено переменной с таким именем.
+#### UnboundLocalError
+Сделана ссылка на локальную переменную в функции, но переменная не определена ранее.
+### OSError
+Ошибка, связанная с системой.
+#### BlockingIOError
+Операция блокирует неблокируемый объект ввода-вывода (например, сокеты или файлы).
+#### ChildProcessError
+Неудача при операции с дочерним процессом.
+#### ConnectionError
+Базовый класс для исключений, связанных с подключениями.
+##### BrokenPipeError
+Возникает, когда попытка записи данных в закрытый канал или сокет завершается неудачей.
+##### ConnectionAbortedError
+Соединение неожиданно прервано до завершения.
+##### ConnectionRefusedError
+Соединение отклонено сервером (например, порт закрыт).
+##### ConnectionResetError
+Соединение сброшено другой стороной.
+#### FileExistsError
+Попытка создания файла или директории, которая уже существует.
+#### FileNotFoundError
+Файл или директория не существует.
+#### InterruptedError
+Системный вызов прерван входящим сигналом.
+#### IsADirectoryError
+Ожидался файл, но это директория.
+#### NotADirectoryError
+Ожидалась директория, но это файл.
+#### PermissionError
+Не хватает прав доступа.
+#### ProcessLookupError
+Указанного процесса не существует.
+#### TimeoutError
+Закончилось время ожидания.
+### ReferenceError
+Попытка доступа к атрибуту со слабой ссылкой.
+### RuntimeError
+Возникает, когда исключение не попадает ни под одну из других категорий.
+#### NotImplementedError
+Возникает, когда абстрактные методы класса требуют переопределения в дочерних классах.
+#### RecursionError
+Вызывается при превышении максимальной глубины рекурсии, часто из-за бесконечной рекурсии.
+### SyntaxError
+Синтаксическая ошибка.
+#### IndentationError
+Неправильные отступы.
+##### TabError
+Смешивание в отступах табуляции и пробелов.
+### SystemError
+Внутренняя ошибка.
+### TypeError
+Операция применена к объекту несоответствующего типа.
+### ValueError
+Функция получает аргумент правильного типа, но некорректного значения.
+#### UnicodeError
+Ошибка, связанная с кодированием / раскодированием unicode в строках.
+##### UnicodeDecodeError
+Исключение, связанное с кодированием unicode.
+##### UnicodeEncodeError
+Исключение, связанное с декодированием unicode.
+##### UnicodeTranslateError
+Исключение, связанное с переводом unicode.
+### Warning
+Предупреждение.
+#### DeprecationWarning
+Предупреждает о функциях, которые устарели и будут удалены в будущей версии Python.
+#### PendingDeprecationWarning
+Предназначено для функций, которые планируется упразднить в далеком будущем.
+#### RuntimeWarning
+Предупреждает о проблемах, которые не попадают в другие категории, но все равно заслуживают внимания во время выполнения.
+#### SyntaxWarning
+Предупреждает о сомнительном синтаксисе, который может привести к неожиданному поведению.
+#### UserWarning
+Общее предупреждение для пользователей, часто используемое разработчиками для обозначения некритических проблем.
+#### FutureWarning
+Предупреждает об изменениях, которые произойдут в будущих версиях Python.
+#### ImportWarning
+Предупреждает о проблемах во время операций импорта.
+#### UnicodeWarning
+Предупреждает о проблемах с операциями, связанными с Unicode.
+#### BytesWarning
+Предупреждает о проблемах с операциями с байтами или байтовыми массивами.
+#### ResourceWarning
+Предупреждает об использовании ресурсов (например, о незакрытых файлах).
+#### EncodingWarning
+
+EnvironmentError
+IOError
+WindowsError
+
+
+
+
+
+# Методы Exception
+
+[Подробнее про магические атрибуты исключений](?Languages/Python/Methods/Magic%20attributes#exception)
+
+| Метод/Атрибут        | Описание                                                                                               | Пример использования                                                                                                                                                        |
+|----------------------|--------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `add_note`           | Добавляет примечание к исключению                                                                      | `e.add_note("Доп. информация")`                                                                                                                             |
+| `args`               | Кортеж аргументов, переданных при создании исключения                                                  | `print(e.args)`                                                                                                                                              |
+| `with_traceback`     | Привязывает traceback (информацию о стеке вызовов) к исключению                                        | `new_exc = e.with_traceback(tb)`<br>`raise e.with_traceback(tb)`                                                                                       |
+
+# Методы ExceptionGroup
+
+Конструктор
+```python
+ExceptionGroup(message, exceptions)
+```
+
+| Метод/Атрибут        | Описание                                                                                              | Пример использования                                                                                                                                                        |
+|----------------------|-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `add_note`           | Добавляет примечание для всей группы исключений                                                       | `eg.add_note("Доп. информация")`                                                                                                                             |
+| `args`               | Возвращает кортеж с описанием группы и списком исключений                                             | `print(eg.args)`                                                                                                                                             |
+| `derive`             | Создает новую группу исключений из подмножества текущей группы                                        | `derived_group = eg.derive([ValueError("Ошибка")])`                                                                                                          |
+| `exceptions`         | Список всех исключений, входящих в группу                                                             | `for e in eg.exceptions: print(e)`                                                                                                                      |
+| `message`            | Описание группы исключений                                                                            | `print(eg.message)`                                                                                                                                          |
+| `split`              | Разделяет группу на две: исключения, удовлетворяющие условию, и остальные                             | `match, rest = eg.split(lambda e: isinstance(e, ValueError))`                                                                                               |
+| `subgroup`           | Возвращает подгруппу исключений, удовлетворяющих условию                                              | `subgroup = eg.subgroup(lambda e: isinstance(e, KeyError))`                                                                                                 |
+| `with_traceback`     | Привязывает traceback (информацию о стеке вызовов) ко всей группе исключений                          | `new_group = eg.with_traceback(tb)`                                                                                                                          |
+
+```pycon
+>>> e = ValueError("Ошибка")
+>>> e.add_note("Дополнительная информация о причине ошибки")
+>>> print(e.__notes__)
+['Дополнительная информация о причине ошибки.']
+>>> raise e
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: Ошибка
+Дополнительная информация о причине ошибки
+>>> e.args
+('Ошибка',)
+```
+
+```pycon
+>>> try:
+...     raise ExceptionGroup("Ошибки обработки данных", [
+...         ValueError("Некорректное значение"),
+...         TypeError("Несовместимый тип"),
+...         KeyError("Ключ не найден"),
+...     ])
+... except ExceptionGroup as eg:
+...     print(f"Сообщение группы: {eg.message}")
+...     print("Исключения в группе:")
+...     for e in eg.exceptions:
+...         print(f"- {type(e).__name__}: {e}")
+...     print("---")
+...     # Разделяем на ValueError и остальные
+...     match, rest = eg.split(lambda e: isinstance(e, ValueError))
+...     print("Ошибки ValueError:")
+...     for e in match.exceptions:
+...         print(e)
+...     print("Остальные ошибки:")
+...     for e in rest.exceptions:
+...         print(e)
+...
+Сообщение группы: Ошибки обработки данных
+Исключения в группе:
+- ValueError: Некорректное значение
+- TypeError: Несовместимый тип
+- KeyError: 'Ключ не найден'
+---
+Ошибки ValueError:
+Некорректное значение
+Остальные ошибки:
+Несовместимый тип
+'Ключ не найден'
+```
+
+```pycon
+>>> try:
+...     raise ExceptionGroup("Группа ошибок", [ValueError("Ошибка 1"), KeyError("Ошибка 2")])
+... except ExceptionGroup as eg:
+...     derived_group = eg.derive([ValueError("Ошибка 3")])
+...     for e in derived_group.exceptions:
+...         print(e.args)
+...
+('Ошибка 3',)
+```
 """,
                 "ExceptionGroup": """
 ExceptionGroup в Python появился в версии 3.11
@@ -18491,89 +18073,47 @@ ExceptionGroup в Python появился в версии 3.11
 ### Пример 1: Создание ExceptionGroup
 
 ```python
-try:
-    raise ExceptionGroup("Ошибка выполнения операций", [
-        ValueError("Некорректное значение"),
-        TypeError("Неверный тип данных"),
-        KeyError("Ключ не найден")
-    ])
-except ExceptionGroup as eg:
-    print(f"Произошло {len(eg.exceptions)} исключений:")
-    for exc in eg.exceptions:
-        print(f"- {exc.__class__.__name__}: {exc}")
-```
-
-<details>
-<summary>output</summary>
-
-```
+>>> try:
+...     raise ExceptionGroup("Ошибка выполнения операций", [
+...         ValueError("Некорректное значение"),
+...         TypeError("Неверный тип данных"),
+...         KeyError("Ключ не найден")
+...     ])
+... except ExceptionGroup as eg:
+...     print(f"Произошло {len(eg.exceptions)} исключений:")
+...     for exc in eg.exceptions:
+...         print(f"- {exc.__class__.__name__}: {exc}")
 Произошло 3 исключений:
 - ValueError: Некорректное значение
 - TypeError: Неверный тип данных
-- KeyError: "Ключ не найден"
+- KeyError: 'Ключ не найден'
 ```
-
-</details>
 
 ### Пример 2: Обработка отдельных исключений внутри группы
 
 ```python
-try:
-    raise ExceptionGroup("Ошибка выполнения операций", [
-        ValueError("Некорректное значение"),
-        TypeError("Неверный тип данных"),
-        KeyError("Ключ не найден")
-    ])
-except* ValueError as v_errors:
-    for error in v_errors:
-        print(f"Обработан ValueError: {error}")
-except* TypeError as t_errors:
-    for error in t_errors:
-        print(f"Обработан TypeError: {error}")
-```
-
-<details>
-<summary>output</summary>
-
-```
-  | ExceptionGroup:  (3 sub-exceptions)
+>>> try:
+...     raise ExceptionGroup("Ошибка выполнения операций", [
+...         ValueError("Некорректное значение"),
+...         TypeError("Неверный тип данных"),
+...         KeyError("Ключ не найден")
+...     ])
+... except* ValueError as v_errors:
+...     for error in v_errors.exceptions:  # Итерируемся по списку исключений внутри группы
+...         print(f"Обработан ValueError: {error}")
+... except* TypeError as t_errors:
+...     for error in t_errors.exceptions:
+...         print(f"Обработан TypeError: {error}")
+...
+Обработан ValueError: Некорректное значение
+Обработан TypeError: Неверный тип данных
+  + Exception Group Traceback (most recent call last):
+  |   File "<stdin>", line 2, in <module>
+  | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
   +-+---------------- 1 ----------------
-    | Exception Group Traceback (most recent call last):
-    |   File "<stdin>", line 2, in <module>
-    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
-    +-+---------------- 1 ----------------
-      | ValueError: Некорректное значение
-      +------------------------------------
-    |
-    | During handling of the above exception, another exception occurred:
-    |
-    | Traceback (most recent call last):
-    |   File "<stdin>", line 8, in <module>
-    | TypeError: 'ExceptionGroup' object is not iterable
-    +---------------- 2 ----------------
-    | Exception Group Traceback (most recent call last):
-    |   File "<stdin>", line 2, in <module>
-    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
-    +-+---------------- 1 ----------------
-      | TypeError: Неверный тип данных
-      +------------------------------------
-    |
-    | During handling of the above exception, another exception occurred:
-    |
-    | Traceback (most recent call last):
-    |   File "<stdin>", line 11, in <module>
-    | TypeError: 'ExceptionGroup' object is not iterable
-    +---------------- 3 ----------------
-    | Exception Group Traceback (most recent call last):
-    |   File "<stdin>", line 2, in <module>
-    | ExceptionGroup: Ошибка выполнения операций (1 sub-exception)
-    +-+---------------- 1 ----------------
-      | KeyError: 'Ключ не найден'
-      +------------------------------------
+    | KeyError: 'Ключ не найден'
+    +------------------------------------
 ```
-
-</details>
-
 
 ### Пример 3: Вложенные ExceptionGroup
 
@@ -18582,26 +18122,13 @@ try:
     raise ExceptionGroup("Основная группа", [
         ExceptionGroup("Первая подгруппа", [
             ValueError("Некорректное значение"),
-            KeyError("Ключ не найден")
+            KeyError("Ключ не найден"),
         ]),
-        TypeError("Неверный тип данных")
+        TypeError("Неверный тип данных"),
     ])
 except ExceptionGroup as eg:
-    print(f"Основная группа исключений: {eg}")
-    for exc in eg.exceptions:
-        print(f"- {exc}")
+    pass
 ```
-
-<details>
-<summary>output</summary>
-
-```
-Основная группа исключений: Основная группа (2 sub-exceptions)
-- Первая подгруппа (2 sub-exceptions)
-- Неверный тип данных
-```
-
-</details>
 
 ### Пример 4: Комбинирование и повторное создание ExceptionGroup
 
@@ -18624,20 +18151,21 @@ def function_that_raises():
 try:
     function_that_raises()
 except ExceptionGroup as eg:
-    print(f"Обработан ExceptionGroup: {eg}")
-    for exc in eg.exceptions:
-        print(f"- {exc}")
-```
-<details>
-<summary>output</summary>
-
-```
-Обработан ExceptionGroup: Группа исключений в функции (2 sub-exceptions)
-- Первый ValueError
-- Первый TypeError
+    pass
 ```
 
-</details>
+```pycon
+>>> try:
+...     raise ExceptionGroup("Ошибка выполнения операций", [
+...         ValueError("Некорректное значение"),
+...         TypeError("Неверный тип данных"),
+...         KeyError("Ключ не найден")
+...     ])
+... except Exception as e:
+...     print(e.exceptions)
+...
+(ValueError('Некорректное значение'), TypeError('Неверный тип данных'), KeyError('Ключ не найден'))
+```
 """,
                 "metaclass": '''
 **Метаклассы** в Python — это классы, которые создают другие классы.
@@ -18713,7 +18241,7 @@ print(a is b)  # True
 ```
 ''',
             },
-            "operator precedence": """
+            "Operator precedence": """
 Приоритетность операторов от высокой до самой низкой.
 
 | Операторы                                                    | Применение                                 |
@@ -19163,7 +18691,165 @@ Person Object
 | %o | Восьмеричное представление целого числа      |
 
 """,
-            "mro": """
+            "match-case": """
+
+`match-case` — это мощная конструкция в Python, введённая в версии 3.10,
+для реализации сопоставления с образцом (pattern matching).
+Она позволяет писать более читаемый и лаконичный код для работы с разными типами данных, структур и условий.
+
+## Синтаксис
+```python
+match значение:
+    case шаблон1:
+        # Код для шаблона1
+    case шаблон2 if условие:
+        # Код для шаблона2 при выполнении условия
+    case _:
+        # Код по умолчанию (аналог else)
+```
+
+# Особенности и ключевые фишки
+### Сопоставление по значению
+Простое сопоставление с конкретным значением
+```python
+match x:
+   case 1:
+       print("x равно 1")
+   case 2:
+       print("x равно 2")
+   case _:
+       print("Другое значение")
+```
+
+### Сопоставление с переменной
+Переменные в шаблонах записываются как есть, а `_` используется как "любое значение"
+```python
+match x:
+   case y if y > 0:
+       print(f"Положительное число: {y}")
+   case _:
+       print("Не положительное число")
+```
+
+### Сопоставление с коллекциями
+Списки, кортежи и их элементы:
+```python
+match lst:
+   case [1, 2, 3]:
+       print("Список точно равен [1, 2, 3]")
+   case [1, *rest]:  # Распаковка
+       print(f"Начинается с 1, остальные элементы: {rest}")
+   case _:
+       print("Неизвестный список")
+```
+
+### Сопоставление с объектами
+Использование `attr` для проверки полей объекта:
+```python
+class Point:
+   def __init__(self, x, y):
+       self.x = x
+       self.y = y
+
+point = Point(3, 4)
+
+match point:
+   case Point(x=0, y=0):
+       print("Точка в начале координат")
+   case Point(x, y) if x == y:
+       print(f"Точка на линии y = x: ({x}, {y})")
+   case Point(x, y):
+       print(f"Координаты точки: ({x}, {y})")
+```
+
+### Вложенные структуры
+Сопоставление сложных вложенных структур:
+```python
+match data:
+   case {"user": {"id": int(id_), "name": str(name)}}:
+       print(f"ID: {id_}, Name: {name}")
+   case _:
+       print("Неподходящая структура")
+```
+
+### Комбинация условий (OR)
+Использование `|` для нескольких шаблонов:
+```python
+match x:
+   case 1 | 2 | 3:
+       print("x равно 1, 2 или 3")
+   case _:
+       print("Другое значение")
+```
+
+### Сопоставление с литералами и типами
+Проверка типов:
+```python
+match obj:
+   case int():
+       print("Это целое число")
+   case str() as s if s.isdigit():
+       print(f"Это строка с числом: {s}")
+   case _:
+       print("Другой тип")
+```
+
+# Примеры с пояснениями
+
+### Обработка HTTP-статусов
+```python
+match status_code:
+   case 200:
+       print("OK")
+   case 404:
+       print("Not Found")
+   case 500 | 501:
+       print("Server Error")
+   case _:
+       print("Unknown status")
+```
+
+### Работа с JSON-данными
+```python
+data = {"type": "error", "code": 500}
+
+match data:
+   case {"type": "error", "code": code} if code >= 500:
+       print(f"Критическая ошибка: {code}")
+   case {"type": "success", "data": content}:
+       print(f"Успешный ответ: {content}")
+   case _:
+       print("Неизвестный формат")
+```
+
+### Анализ выражений
+```python
+expr = ("+", 3, 5)
+
+match expr:
+   case ("+", a, b):
+       print(f"Сумма: {a + b}")
+   case ("*", a, b):
+       print(f"Произведение: {a * b}")
+   case _:
+       print("Неизвестное выражение")
+```
+
+### Пример с сопоставлением точек
+```python
+match (x, y):
+   case (0, 0):
+       print("Начало координат")
+   case (x, 0):
+       print(f"На оси X, x = {x}")
+   case (0, y):
+       print(f"На оси Y, y = {y}")
+   case (x, y):
+       print(f"В точке ({x}, {y})")
+```
+
+""",
+            "MRO": """
 # Method resolution order | Порядок разрешения методов
 
 Позволяет Питону выяснить, из какого класса-предка нужно вызывать метод,
@@ -19224,79 +18910,6 @@ Person Object
        но ни один из нулевых элементов не удовлетворяет правилам, то линеаризация не возможна.
 
 [https://habr.com/ru/articles/62203/](https://habr.com/ru/articles/62203/)
-""",
-            "list comprehension tips": """
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = [
-    item
-    for tpl in list_of_tuples
-    for item in tpl
-]
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = []
-for tpl in list_of_tuples:
-    for item in tpl:
-        result_list.append(item)
-
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-""",
-            "Multiplication of lists": """
-<div class="container-row">
-```pycon
->>> a = [[]]*3
->>> for x in a:
-...     print(id(x))
-...
-3276075832448
-3276075832448
-3276075832448
->>> a[1].append(1)
->>> a
-[[1], [1], [1]]
-```
-&nbsp;
-```pycon
->>> b = [[] for _ in range(3)]
->>> for x in b:
-...     print(id(x))
-...
-3276075828928
-3276075828992
-3276075828864
->>> b[1].append(1)
->>> b
-[[], [1], []]
-```
-</div>
-<div class="container-row">
-```pycon
->>> c = [[]]
->>> print(id(c[0]))
-3276075894784
->>> for x in (c + c):
-...     print(id(x))
-...
-3276075894784
-3276075894784
-```
-&nbsp;
-```pycon
->>> d = ((),)*3
->>> for x in d:
-...     print(id(d))
-...
-3276075830656
-3276075830656
-3276075830656
-```
-</div>
 """,
         },
         "RegExp": {
@@ -19964,8 +19577,149 @@ public class HashMapExample {
                 },
                 "math": {
                     "BigInteger и BigDecimal": """
+Предназначены для работы с большими числами, которые выходят за пределы типа `int` или `double`
+а также для работы с высокой точностью
 
-""",
+# BigInteger
+
+Класс для работы с целыми числами произвольной длины
+
+| Метод                                | Описание                                                             | Пример использования            |
+|--------------------------------------|----------------------------------------------------------------------|---------------------------------|
+| `BigInteger(String val)`             | Создает объект из строки                                             | {BigInteger_BigInteger}         |
+| `BigInteger.valueOf(long val)`       | Создает объект из `long`                                             | {BigInteger_valueOf}            |
+| `add(BigInteger val)`                | Складывает два числа                                                 | {BigInteger_add}                |
+| `subtract(BigInteger val)`           | Вычитает одно число из другого                                       | {BigInteger_subtract}           |
+| `multiply(BigInteger val)`           | Умножает два числа                                                   | {BigInteger_multiply}           |
+| `divide(BigInteger val)`             | Делит одно число на другое (целочисленное деление)                   | {BigInteger_divide}             |
+| `remainder(BigInteger val)`          | Остаток от деления                                                   | {BigInteger_remainder}          |
+| `divideAndRemainder(BigInteger val)` | Возвращает массив с результатом<br>целочисленного деления и остатком | {BigInteger_divideAndRemainder} |
+| `pow(int exponent)`                  | Возводит число в степень                                             | {BigInteger_pow}                |
+| `mod(BigInteger val)`                | Остаток от деления для положительных чисел (модуль)                  | {BigInteger_mod}                |
+| `gcd(BigInteger val)`                | НОД двух чисел                                                       | {BigInteger_gcd}                |
+| `abs()`                              | Возвращает абсолютное значение числа                                 | {BigInteger_abs}                |
+| `negate()`                           | Возвращает отрицательное значение числа                              | {BigInteger_negate}             |
+| `compareTo(BigInteger val)`          | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше)        | {BigInteger_compareTo}          |
+| `toString()`                         | Преобразует число в строку                                           | {BigInteger_toString}           |
+| `isProbablePrime(int certainty)`     | Проверяет, является ли число<br>простым с заданной вероятностью      | {BigInteger_isProbablePrime}    |
+
+### Пример использования `BigInteger`
+
+```java
+import java.math.BigInteger;
+
+public class BigIntegerExample {{
+    public static void main(String[] args) {{
+        BigInteger a = new BigInteger("123456789012345678901234567890");
+        BigInteger b = new BigInteger("987654321098765432109876543210");
+
+        BigInteger sum = a.add(b);
+        BigInteger product = a.multiply(b);
+        BigInteger power = a.pow(2);
+
+        System.out.println("Сумма: " + sum);
+        System.out.println("Произведение: " + product);
+        System.out.println("Квадрат: " + power);
+    }}
+}}
+// Сумма: 1111111110111111111011111111100
+// Произведение: 121932631137021795226185032733622923332237463801111263526900
+// Квадрат: 15241578753238836750495351562536198787501905199875019052100
+```
+
+# BigDecimal
+
+Класс для работы с числами с плавающей точкой произвольной точности
+
+| Метод                                                               | Описание                                                      | Пример использования            |
+|---------------------------------------------------------------------|---------------------------------------------------------------|---------------------------------|
+| `BigDecimal(String val)`                                            | Создает объект из строки                                      | {BigDecimal_BigDecimal}         |
+| `BigDecimal.valueOf(double val)`                                    | Создает объект из `double`                                    | {BigDecimal_valueOf}            |
+| `add(BigDecimal val)`                                               | Складывает два числа                                          | {BigDecimal_add}                |
+| `subtract(BigDecimal val)`                                          | Вычитает одно число из другого                                | {BigDecimal_subtract}           |
+| `multiply(BigDecimal val)`                                          | Умножает два числа                                            | {BigDecimal_multiply}           |
+| `divide(BigDecimal val, int scale,`<br>`RoundingMode roundingMode)` | Делит числа с указанием<br>точности и метода округления       | {BigDecimal_divide}             |
+| `remainder(BigDecimal val)`                                         | Остаток от деления                                            | {BigDecimal_remainder}          |
+| `setScale(int newScale,`<br>`RoundingMode roundingMode)`            | Изменяет точность числа с указанием метода округления         | {BigDecimal_setScale}           |
+| `compareTo(BigDecimal val)`                                         | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше) | {BigDecimal_compareTo}          |
+| `toString()`                                                        | Преобразует число в строку                                    | {BigDecimal_toString}           |
+| `scale()`                                                           | Возвращает текущую точность числа                             | {BigDecimal_scale}              |
+| `precision()`                                                       | Возвращает общее количество значащих цифр                     | {BigDecimal_precision}          |
+| `stripTrailingZeros()`                                              | Убирает незначащие нули после запятой                         | {BigDecimal_stripTrailingZeros} |
+
+### Пример использования `BigDecimal`
+```java
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class BigDecimalExample {{
+    public static void main(String[] args) {{
+        BigDecimal a = new BigDecimal("12345.6789");
+        BigDecimal b = new BigDecimal("0.001");
+
+        BigDecimal sum = a.add(b);
+        BigDecimal diff = a.subtract(b);
+        BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);
+
+        System.out.println("Сумма: " + sum);
+        System.out.println("Разность: " + diff);
+        System.out.println("С округлением: " + scaled);
+    }}
+}}
+```
+
+### Заметки
+
+1. Не использовать `double` или `float` в конструкторе `BigDecimal` ```java
+BigDecimal a = new BigDecimal(0.1); // Неточно!
+BigDecimal b = new BigDecimal("0.1"); // Точно
+```
+2. Методы округления (`RoundingMode`)
+    - `RoundingMode.HALF_UP` — округление "по математическим правилам"
+    - `RoundingMode.FLOOR` — округление вниз
+    - `RoundingMode.CEILING` — округление вверх
+
+""".format(
+                        BigInteger_BigInteger=to_table_code_java(
+                            'BigInteger num = new BigInteger("12345678901234567890");'
+                        ),
+                        BigInteger_valueOf=to_table_code_java("BigInteger num = BigInteger.valueOf(42);"),
+                        BigInteger_add=to_table_code_java("BigInteger sum = a.add(b);"),
+                        BigInteger_subtract=to_table_code_java("BigInteger diff = a.subtract(b);"),
+                        BigInteger_multiply=to_table_code_java("BigInteger product = a.multiply(b);"),
+                        BigInteger_divide=to_table_code_java("BigInteger quotient = a.divide(b);"),
+                        BigInteger_remainder=to_table_code_java("BigInteger rem = a.remainder(b);"),
+                        BigInteger_divideAndRemainder=to_table_code_java(
+                            "BigInteger[] result = a.divideAndRemainder(b);"
+                        ),
+                        BigInteger_pow=to_table_code_java("BigInteger power = a.pow(3);"),
+                        BigInteger_mod=to_table_code_java("BigInteger mod = a.mod(b);"),
+                        BigInteger_gcd=to_table_code_java("BigInteger gcd = a.gcd(b);"),
+                        BigInteger_abs=to_table_code_java("BigInteger absVal = a.abs();"),
+                        BigInteger_negate=to_table_code_java("BigInteger neg = a.negate();"),
+                        BigInteger_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
+                        BigInteger_toString=to_table_code_java("String str = a.toString();"),
+                        BigInteger_isProbablePrime=to_table_code_java("boolean isPrime = a.isProbablePrime(10);"),
+                        BigDecimal_BigDecimal=to_table_code_java('BigDecimal num = new BigDecimal("12345.6789");'),
+                        BigDecimal_valueOf=to_table_code_java("BigDecimal num = BigDecimal.valueOf(12345.6789);"),
+                        BigDecimal_add=to_table_code_java("BigDecimal sum = a.add(b);"),
+                        BigDecimal_subtract=to_table_code_java("BigDecimal diff = a.subtract(b);"),
+                        BigDecimal_multiply=to_table_code_java("BigDecimal product = a.multiply(b);"),
+                        BigDecimal_divide=to_table_code_java(
+                            "BigDecimal quotient = a.divide(b, 2, RoundingMode.HALF_UP);"
+                        ),
+                        BigDecimal_remainder=to_table_code_java("BigDecimal rem = a.remainder(b);"),
+                        BigDecimal_setScale=to_table_code_java(
+                            "BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);"
+                        ),
+                        BigDecimal_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
+                        BigDecimal_toString=to_table_code_java("String str = a.toString();"),
+                        BigDecimal_scale=to_table_code_java("int scale = a.scale();"),
+                        BigDecimal_precision=to_table_code_java("int precision = a.precision();"),
+                        BigDecimal_stripTrailingZeros=to_table_code_java(
+                            "BigDecimal stripped = a.stripTrailingZeros();"
+                        ),
+                    ),
                 },
             },
             "Built-in": {
@@ -19982,34 +19736,34 @@ String s2 = new String("World");
 
 # Методы
 
-| Метод                                                           | Описание                                                               | Пример использования  |
-|-----------------------------------------------------------------|------------------------------------------------------------------------|-----------------------|
-| `charAt(int index)`                                             | Возвращает символ по указанному индексу                                | {charAt}              |
-| `length()`                                                      | Возвращает длину строки                                                | {length}              |
-| `concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | {concat}              |
-| `contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | {contains}            |
-| `equals(Object obj)`                                            | Проверяет строки на равенство                                          | {equals}              |
-| `equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | {equalsIgnoreCase}    |
-| `startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | {startsWith}          |
-| `endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | {endsWith}            |
-| `indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | {indexOf}             |
-| `lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | {lastIndexOf}         |
-| `substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | {substring}           |
-| `substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | {substring_2}         |
-| `toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | {toLowerCase}         |
-| `toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | {toUpperCase}         |
-| `trim()`                                                        | Удаляет начальные и конечные пробелы                                   | {trim}                |
-| `replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | {replace}             |
-| `replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | {replace_2}           |
-| `split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | {split}               |
-| `matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | {matches}             |
-| `isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | {isEmpty}             |
-| `intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | {intern}              |
-| `toCharArray()`                                                 | Преобразует строку в массив символов                                   | {toCharArray}         |
-| `compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | {compareTo}           |
-| `compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | {compareToIgnoreCase} |
-| `format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | {format}              |
-| `join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | {join}                |
+| Метод                                                            | Описание                                                               | Пример использования  |
+|------------------------------------------------------------------|------------------------------------------------------------------------|-----------------------|
+| `.charAt(int index)`                                             | Возвращает символ по указанному индексу                                | {charAt}              |
+| `.length()`                                                      | Возвращает длину строки                                                | {length}              |
+| `.concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | {concat}              |
+| `.contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | {contains}            |
+| `.equals(Object obj)`                                            | Проверяет строки на равенство                                          | {equals}              |
+| `.equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | {equalsIgnoreCase}    |
+| `.startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | {startsWith}          |
+| `.endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | {endsWith}            |
+| `.indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | {indexOf}             |
+| `.lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | {lastIndexOf}         |
+| `.substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | {substring}           |
+| `.substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | {substring_2}         |
+| `.toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | {toLowerCase}         |
+| `.toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | {toUpperCase}         |
+| `.trim()`                                                        | Удаляет начальные и конечные пробелы                                   | {trim}                |
+| `.replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | {replace}             |
+| `.replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | {replace_2}           |
+| `.split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | {split}               |
+| `.matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | {matches}             |
+| `.isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | {isEmpty}             |
+| `.intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | {intern}              |
+| `.toCharArray()`                                                 | Преобразует строку в массив символов                                   | {toCharArray}         |
+| `.compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | {compareTo}           |
+| `.compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | {compareToIgnoreCase} |
+| `.format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | {format}              |
+| `.join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | {join}                |
 
 # Примеры использования
 
@@ -20068,7 +19822,11 @@ System.out.println(formatted);  // "Name: Alice, Age: 30"
                     trim=to_table_code_java('String s = "  Hello  ".trim();\n// "Hello"'),
                     replace=to_table_code_java('String s = "Hello".replace(\'l\', \'p\');\n// "Heppo"'),
                     replace_2=to_table_code_java('String s = "Hello".replace("ll", "yy");\n// "Heyyo"'),
-                    split=to_table_code_java('String[] arr = "a,b,c".split(",");\nArrays.toString("a,b,c".split(","))\n[a, b, c]'),
+                    split=to_table_code_java(
+                        'String[] arr = "a,b,c".split(",");\n'
+                        'Arrays.toString("a,b,c".split(","))\n'
+                        '[a, b, c]'
+                    ),
                     matches=to_table_code_java('boolean b = "abc".matches("[a-z]+");\n// true'),
                     isEmpty=to_table_code_java('boolean b = "".isEmpty();\n// true'),
                     intern=to_table_code_java('String s = "Hello".intern();\n// "Hello"'),
@@ -20079,8 +19837,70 @@ System.out.println(formatted);  // "Name: Alice, Age: 30"
                     join=to_table_code_java('String s = String.join(", ", "a", "b", "c");\n// "a, b, c"'),
                 ),
                 "Integer": """
+`Integer` — это класс-оболочка для типа `int` в Java, предоставляющий дополнительные методы для работы с целыми числами.
 
-""",
+**Примитив vs Объект**: `int` — примитивный тип, а `Integer` — класс-оболочка, который может быть `null` и поддерживает методы.
+
+Преобразование между `int` и `Integer` происходит автоматически
+```java
+Integer obj = 42; // Автоупаковка
+int num = obj;    // Автораспаковка
+```
+
+|                     |                  |
+|---------------------|------------------|
+| `Integer.MIN_VALUE` | `-2,147,483,648` |
+| `Integer.MAX_VALUE` | `2,147,483,647`  |
+
+| Метод                                   | Описание                                                                                            | Пример использования  |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------|
+| `.valueOf(String s)`                    | Преобразует строку в объект `Integer`                                                               | {valueOf_String}      |
+| `.valueOf(int i)`                       | Возвращает объект `Integer`, представляющий указанное значение `int`                                | {valueOf_int}         |
+| `.parseInt(String s)`                   | Преобразует строку в примитивное значение `int`                                                     | {parseInt_String}     |
+| `.parseInt`<br>(String s, int radix)    | Преобразует строку в число указанной системы счисления                                              | {parseInt_String_int} |
+| `.toString(int i)`                      | Преобразует число `int` в строку                                                                    | {toString_int}        |
+| `.toString`<br>(int i, int radix)       | Преобразует число в строку указанной системы счисления                                              | {toString_int_int}    |
+| `.compare(int x, int y)`                | Сравнивает два числа.<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`    | {compare}             |
+| `.compareTo`<br>(Integer another)       | Сравнивает текущий объект `Integer` с другим                                                        | {compareTo}           |
+| `.max(int a, int b)`                    | Возвращает большее из двух чисел                                                                    | {max}                 |
+| `.min(int a, int b)`                    | Возвращает меньшее из двух чисел                                                                    | {min}                 |
+| `.sum(int a, int b)`                    | Возвращает сумму двух чисел                                                                         | {sum}                 |
+| `.bitCount(int i)`                      | Возвращает количество установленных битов<br>в числе (единиц в бинарной записи числа)               | {bitCount}            |
+| `.highestOneBit(int i)`                 | Возвращает число, в котором установлен<br>только самый старший значащий бит исходного числа         | {highestOneBit}       |
+| `.lowestOneBit(int i)`                  | Возвращает число, в котором установлен<br>только младший значащий бит исходного числа               | {lowestOneBit}        |
+| `.reverse(int i)`                       | Возвращает число с битами, расположенными в обратном порядке                                        | {reverse}             |
+| `.reverseBytes(int i)`                  | Возвращает число с байтами, расположенными в обратном порядке                                       | {reverseBytes}        |
+| `.rotateLeft`<br>(int i, int distance)  | Сдвигает биты числа влево циклически на указанное количество позиций                                | {rotateLeft}          |
+| `.rotateRight`<br>(int i, int distance) | Сдвигает биты числа вправо циклически на указанное количество позиций                               | {rotateRight}         |
+| `.signum(int i)`                        | Возвращает знак числа: `1` для положительных,<br>`-1` для отрицательных, `0` для нуля               | {signum}              |
+| `.decode(String nm)`                    | Преобразует строку с числом в десятичной,<br>шестнадцатеричной или восьмеричной системе в `Integer` | {decode}              |
+| `.getInteger(String nm)`                | Возвращает значение свойства системы с именем<br>`nm`, интерпретируя его как число                  | {getInteger}          |
+| `.hashCode(int value)`                  | Хэш-код для числа                                                                                   | {hashCode}            |
+
+""".format(
+                    valueOf_String=to_table_code_java('Integer num = Integer.valueOf("42");\n// 42'),
+                    valueOf_int=to_table_code_java('Integer num = Integer.valueOf(42);\n// 42'),
+                    parseInt_String=to_table_code_java('int num = Integer.parseInt("42");\n// 42'),
+                    parseInt_String_int=to_table_code_java('int num = Integer.parseInt("2A", 16);\n// 42'),
+                    toString_int=to_table_code_java('String str = Integer.toString(42);\n// "42"'),
+                    toString_int_int=to_table_code_java('String str = Integer.toString(42, 16);\n// "2a"'),
+                    compare=to_table_code_java('int result = Integer.compare(42, 24);\n// 1'),
+                    compareTo=to_table_code_java('Integer num = 42;\nint result = num.compareTo(24);\n// 1'),
+                    max=to_table_code_java('int max = Integer.max(42, 24);\n// 42'),
+                    min=to_table_code_java('int min = Integer.min(42, 24);\n// 24'),
+                    sum=to_table_code_java('int sum = Integer.sum(42, 24);\n// 66'),
+                    bitCount=to_table_code_java('int bits = Integer.bitCount(42);\n// 3'),
+                    highestOneBit=to_table_code_java('int highBit = Integer.highestOneBit(42);\n// 32'),
+                    lowestOneBit=to_table_code_java('int lowBit = Integer.lowestOneBit(42);\n// 2'),
+                    reverse=to_table_code_java('int reversed = Integer.reverse(42);\n// 1409286144'),
+                    reverseBytes=to_table_code_java('int reversedBytes = Integer.reverseBytes(42);\n// 704643072'),
+                    rotateLeft=to_table_code_java('int rotated = Integer.rotateLeft(42, 2);\n// 168'),
+                    rotateRight=to_table_code_java('int rotated = Integer.rotateRight(42, 2);\n// -2147483638'),
+                    signum=to_table_code_java('int sign = Integer.signum(-42);\n// -1'),
+                    decode=to_table_code_java('Integer num = Integer.decode("0x2A");\n// 42'),
+                    getInteger=to_table_code_java(''),
+                    hashCode=to_table_code_java('int hash = Integer.hashCode(42);\n// 42'),
+                ),
                 "Character": """
 ```java
 int x = 65535;
@@ -21641,43 +21461,6 @@ public class FileWriterExample {
 }
 ```
 """,
-            "Snippets": {
-                "snippet 1": """
-```java
-import java.util.function.Consumer;
-
-class Example {
-    int print = 1;
-    // String print = "qwe"; // Variable 'print' is already defined in the scope
-
-    public void print(int x) {
-        System.out.println(x);
-    }
-    public void print(String x) {
-        System.out.println(x);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Example example = new Example();
-        System.out.println(example.print);
-        example.print(23);
-        example.print("qwerty");
-
-        int Int = example.print;
-        System.out.println(Int);
-
-        Consumer<Integer> printInt = example::print;
-        printInt.accept(23);
-
-        Consumer<String> printString = example::print;
-        printString.accept("qwerty");
-    }
-}
-```
-"""
-            },
         },
         "Kotlin": {
             "index": """
@@ -22363,10 +22146,10 @@ TAN                 возвращает тангенс угла в радиан
 |             | Формат                | Диапазон                                           | Занимает |
 |-------------|-----------------------|----------------------------------------------------|----------|
 | `DATE`      | `YYYY-MM-DD`          | 1000-01-01 до 9999-12-31                           | 3 байта  |
-| `DATETIME`  | `YYYY-MM-DD HH:MM:SS` | 1000-01-01 00:00:00 до 9999-12-31 23:59:59         | 8 байт   |  
-| `TIMESTAMP` | `YYYY-MM-DD HH:MM:SS` | 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 UTC | 4 байта  |  
-| `TIME`      | `HH:MM:SS`            | -838:59:59 до 838:59:59                            | 3 байта  |  
-| `YEAR`      | `YYYY`                | 1901 до 2155                                       | 1 байт   |  
+| `DATETIME`  | `YYYY-MM-DD HH:MM:SS` | 1000-01-01 00:00:00 до 9999-12-31 23:59:59         | 8 байт   |
+| `TIMESTAMP` | `YYYY-MM-DD HH:MM:SS` | 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 UTC | 4 байта  |
+| `TIME`      | `HH:MM:SS`            | -838:59:59 до 838:59:59                            | 3 байта  |
+| `YEAR`      | `YYYY`                | 1901 до 2155                                       | 1 байт   |
 
 ## Типы для хранения двоичных данных
 |                |                                                    |
@@ -22496,7 +22279,7 @@ SELECT '1970-01-01 00:00:00'::timestamp + 1704067200 * '1 second'::interval;
 """,
                 "pg_hba.conf": r"""
 ```bash
-notepad "C:\Program Files\PostgreSQL\16\data\pg_hba.conf"
+notepad "C:/Program Files/PostgreSQL/16/data/pg_hba.conf"
 ```
 
 ```bash
@@ -22761,8 +22544,8 @@ for (const element of myArray) {
 }
 ```
 """,
-            "handlebar": """Пробел ! " # % & ' ( ) * + , . / ; < = > @ [ \ ] ^ ` { | } ~
-
+            "handlebar": r"""
+Пробел ! " # % & ' ( ) * + , . / ; < = > @ [ \ ] ^ ` { | } ~
 """,
             "Переменные": """в JavaScript можно создать глобальную переменную, которая будет доступна
 во всем скрипте, даже после завершения функции. Для этого нужно просто объявить переменную
@@ -26710,758 +26493,6 @@ curl -o /dev/null --silent -Iw "%{http_code}" https://example.com/my.remote.tarb
         },
     },
     "Other": {
-        "File formats": {
-            "JSON": r"""
-# JSON - JavaScript Object Notation
-
-Tекстовый формат обмена данными, который основан на синтаксисе JavaScript.
-Он используется для хранения и обмена структурированными данными и часто используется
-в веб-приложениях для обмена данными между клиентом и сервером.
-
-```json
-{
-    "name": "John Smith",
-    "age": 30,
-    "city": "New York"
-}
-```
-
-```python
-import json
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.json", "w", encoding="UTF-8") as file:
-    file.write(json.dumps(config, indent=4, ensure_ascii=False))
-    # json.dump(config, file, indent=4, ensure_ascii=False)
-
-with open("config.json", "r", encoding="UTF-8") as file:
-    config = json.load(file)
-    # config = json.loads(file.read())
-
-print(config)
-```
-
-# JSONL
-
-```python
-{"name": "Alice Jones", "age": 25, "city": "Los Angeles"}
-{"name": "John Smith", "age": 30, "city": "New York"}
-{"name": "Bob Johnson", "age": 40, "city": "Chicago"}
-```
-
-```python
-import json
-
-
-config = [
-    {"name": "Alice Jones", "age": 25, "city": "Los Angeles"},
-    {"name": "John Smith", "age": 30, "city": "New York"},
-    {"name": "Bob Johnson", "age": 40, "city": "Chicago"},
-]
-
-with open("test.jsonl", "a", encoding="UTF-8") as file:
-    file.writelines([str(line) + "\n" for line in config])
-
-with open("config.jsonl", "r", encoding="UTF-8") as file:
-    for line in file:
-        print(json.loads(line))
-```
-
-[[Other/File formats/TinyDB (json)]]
-""",
-            "YAML": """
-# YAML - Ain't Markup Language
-
-Формат файлов, который используется для хранения и обмена неструктурированными и структурированными
-данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
-`YAML` использует отступы и специальные символы для обозначения структуры данных.
-Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.
-
-```yaml
-name: John Smith
-age: 30
-city: New York
-```
-
-```python
-import yaml  # pip install yaml
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.yaml", "w", encoding="utf-8") as file:
-    file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
-
-with open("config.yaml", "r", encoding="utf-8") as file:
-    config = yaml.safe_load(file.read())
-
-print(config)
-```
-""",
-            "TOML": """
-# TOML - Tom's Obvious, Minimal Language
-
-формат конфигурационных файлов, который был разработан
-для использования в проектах, написанных на языке программирования `Rust`.
-
-TOML файлы имеют структуру ключ-значение, где ключи и значения
-разделены знаком `=`, и используют синтаксис, похожий на язык программирования `INI`.
-
-```toml
-[package]
-name = "example"
-version = "1.0.0"
-authors = ["John Doe <john@example.com>"]
-```
-
-```python
-import toml  # pip install toml
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.toml", "w", encoding="UTF-8") as file:
-    file.write(toml.dumps(config))
-    # toml.dump(config, file)
-
-with open("config.toml", "r", encoding="UTF-8") as file:
-    config = toml.load(file)
-    # config = toml.loads(file.read())
-
-print(config)
-```
-""",
-            "INI": """
-# INI (Initialization)
-
-формат конфигурационных файлов, который используется
-для хранения настроек приложений и операционных систем.
-Он был разработан в `Windows` и стал широко используемым
-форматом для хранения конфигурационных данных в различных программных продуктах.
-
-```ini
-[Section1]
-key1 = value1
-key2 = value2
-
-[Section2]
-key3 = value3
-key4 = value4
-```
-
-```python
-# config = configparser.ConfigParser()
-# config["BOT"] = {"bot_name": "", "token": ""}
-
-import configparser
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-config_ini = configparser.ConfigParser()
-
-for key, value in config.items():
-    config_ini[key] = value
-
-with open("config.ini", "w") as file:
-    config_ini.write(file)
-
-config_ini = configparser.ConfigParser()
-config_ini.read("config.ini")
-print(config)
-```
-""",
-            "XML": """
-# XML - eXtensible Markup Language
-
-Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
-Он использует теги для определения структуры данных и может быть использован для хранения
-всех видов данных, включая текст, изображения и мультимедиа.
-`XML` широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<note>
-<to>Tove</to>
-<from>Jani</from>
-<heading>Reminder</heading>
-<body>Don't forget me this weekend!</body>
-</note>
-```
-
-```python
-# config = ET.Element("config")
-# bot = ET.SubElement(config, "BOT")
-# ET.SubElement(bot, "bot_name").text = ""
-# ET.SubElement(bot, "token").text = ""
-# tree = ET.ElementTree(config)
-
-import xml.etree.ElementTree as xml
-
-def dict_to_xml(dct, root_node=None):
-    if root_node is None:
-        root_node = xml.Element("root")
-    for key, value in dct.items():
-        node = xml.SubElement(root_node, key)
-        if isinstance(value, dict):
-            dict_to_xml(value, node)
-        else:
-            node.text = str(value)
-    return root_node
-
-def xml_to_dict(root):
-    from collections import defaultdict
-    dct = {root.tag: {} if root.attrib else None}
-    children = list(root)
-    if children:
-        dd = defaultdict(list)
-        for dc in map(xml_to_dict, children):
-            for k, v in dc.items():
-                dd[k].append(v)
-        dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
-    if root.attrib:
-        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
-    if root.text:
-        text = root.text.strip()
-        if children or root.attrib:
-            if text:
-                dct[root.tag]["#text"] = text
-        else:
-            dct[root.tag] = text
-    return dct
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-config = dict_to_xml(config)
-tree = xml.ElementTree(config)
-
-with open("config.xml", "wb") as file:
-    tree.write(file, encoding="utf-8", xml_declaration=True)
-
-with open("config.xml", "r") as file:
-    tree = xml.parse(file)
-
-root = tree.getroot()
-config = xml_to_dict(root)
-print(config)
-```
-""",
-            "CSV": """
-# CSV - Comma Separated Values
-
-Текстовый формат файла, который используется для хранения табличных данных.
-Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.
-
-```csv
-Name,Age,City
-John Smith,30,New York
-Jane Doe,25,Chicago
-```
-
-```python
-import csv
-
-
-data = [
-    ("Name", "Age"),
-    ("Alice", 25),
-    ("Bob", 30),
-    ("Charlie", 35),
-]
-
-with open("data.csv", "w", newline="", encoding="UTF-8") as file:
-    csv.writer(file).writerows(data)
-
-with open("data.csv", "r", encoding="UTF-8") as file:
-    print(list(csv.reader(file)))
-```
-""",
-            "SQLite3 to CSV": '''
-```python
-import sqlite3
-import csv
-
-def SQL(query: str, params: tuple | dict = None, commit: bool = False, column_names: bool = False):
-    """Выполняет SQL запрос"""
-    with sqlite3.connect(r"database.sqlite") as connection:
-        cursor = connection.cursor()
-        cursor.execute(query, params)
-        if commit: connection.commit()
-        result = cursor.fetchall()
-        if column_names and getattr(cursor, "description"):
-            column_names_data = [column[0] for column in cursor.description] or None
-            result = column_names_data + result
-    return result
-
-data = SQL("SELECT * FROM table_name;")
-
-with open("data.csv", "w", newline="", encoding="UTF-8") as file:
-    writer = csv.writer(file)
-    writer.writerows(data)
-
-with open("data.csv", "r", encoding="UTF-8") as file:
-    reader = csv.reader(file)
-    column_names = next(reader)
-    SQL(
-        f"""
-CREATE TABLE table_name (
-    {", ".join([f"{column} TEXT" for column in column_names])}
-);
-""",
-        commit=True,
-    )
-    for row in reader:
-        SQL(
-            f"""
-INSERT INTO table_name (
-    {", ".join(column_names)}
-)
-VALUES (
-    {", ".join([f'"{column}"' for column in row])}
-)
-""",
-            commit=True,
-        );
-```
-''',
-            "Vedis db": """
-```python
-from vedis import Vedis
-db = Vedis(":mem:")  # Create an in-memory database.
-db = Vedis("Dict.vedis")
-with db.transaction():
-    db["key"] = "value"
-    db.rollback()  # Undo changes.
-    db.commit()
-print(db["key"])
-```
-
-[https://vedis-python.readthedocs.io/en/latest/quickstart.html](https://vedis-python.readthedocs.io/en/latest/quickstart.html)
-
-Пример использования в боте
-[https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/](https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/)
-""",
-            "TinyDB (json)": """
-```bash
-pip install tinydb
-```
-
-```python
-from tinydb import TinyDB, Query
-
-
-db = TinyDB("db.json")
-users_table = db.table("users")
-user_id = users_table.insert({"name": "John", "age": 25})
-all_users = users_table.all()
-
-# Получение записи по условию (например, по имени)
-user_query = Query()
-john_data = users_table.search(user_query.name == "John")
-
-# Изменение данных в записи по условию (например, по имени)
-users_table.update({"age": 26}, user_query.name == "John")
-
-# Удаление записи по условию (например, по имени)
-users_table.remove(user_query.name == "John")
-```
-
-[[Other/File formats/JSON]]
-""",
-        },
-        "Code examples": {
-            "Пирамида граф": """
-Нахождение пути с максимальной суммой по "пирамиде"
-
-```python
-graph = [
-    [75],
-    [95, 64],
-    [17, 47, 82],
-    [18, 35, 87, 10],
-    [20,  4, 82, 47, 65],
-    [19,  1, 23, 75,  3, 34],
-    [88,  2, 77, 73,  7, 63, 67],
-    [99, 65,  4, 28,  6, 16, 70, 92],
-    [41, 41, 26, 56, 83, 40, 80, 70, 33],
-    [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
-    [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
-    [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
-    [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
-    [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
-    [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23],
-]
-
-# Cоздаем пустой словарь для хранения сумм каждого узла.
-sums = {}
-for i in range(len(graph)):
-    for j in range(len(graph[i])):
-        sums[(i, j)] = graph[i][j]
-
-# Проходимся по каждому узлу в пирамиде и вычисляем сумму каждого узла
-# Начинаем с последней строки пирамиды и движемся вверх
-for i in range(len(graph)-2, -1, -1):
-    for j in range(len(graph[i])):
-        sums[(i, j)] += max(sums[(i+1, j)], sums[(i+1, j+1)])
-
-# Step 3
-max_sum_path = sums[(0, 0)]
-
-# Step 4
-i, j = 0, 0
-path = [graph[0][0]]
-while i < len(graph) - 1:
-    left_sum = sums[(i+1, j)]
-    right_sum = sums[(i+1, j+1)]
-    if left_sum > right_sum:
-        i += 1
-    else:
-        i += 1
-        j += 1
-    path.append(graph[i][j])
-
-print(sum(path))
-```
-
-```python
-def max_sum_path(graph):
-    n = len(graph)
-    # Инициализируем максимальную сумму первого элемента
-    max_sum = graph[0][0]
-    for i in range(1, n):
-        # Проходим по строкам и столбцам "ниже" текущего элемента
-        for j in range(i + 1):
-            if j == 0: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
-                graph[i][j] += graph[i - 1][j]
-            elif j == i: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
-                graph[i][j] += graph[i - 1][j - 1]
-            else: # В остальных случаях элемент имеет двух соседей
-                graph[i][j] += max(graph[i - 1][j - 1], graph[i - 1][j])
-            # Обновляем максимальную сумму
-            max_sum = max(max_sum, graph[i][j])
-    return max_sum
-
-# Пример использования функции
-graph = [[45], [23, 78], [12, 26, 51]]
-print("Максимальная сумма пути в графе:", max_sum_path(graph))
-```
-
-```python
-def longest_slide_down(p):
-    res = p.pop()
-    while p:
-        tmp = p.pop()
-        res = [tmp[i] + max(res[i],res[i+1]) for i in range(len(tmp))]
-    return res.pop()
-```
-
-
-# Обьяснение
-Если граф будет равен
-
-```python
-graph = [
-        [45],
-      [23, 78],
-    [12, 26, 51]]
-```
-""",
-            "Определитель матрицы": """
-```python@matrix.py
-class Matrix:
-    def __init__(self, matrix: list[list[int]]):
-        self.matrix = matrix
-
-    def get_minor(self, i: int, j: int) -> list[list[int]]:
-        result = [
-            list(row[:j] + row[j+1:])
-            for row_index, row in enumerate(self.matrix)
-            if row_index != i
-        ]
-        return result
-
-    def det(self):
-        n = len(self.matrix)
-        if len({len(row) for row in self.matrix}) > 1 and n != x[0]:
-            raise ValueError("")
-
-        if n == 1:
-            return self.matrix[0][0]
-
-        elif n == 2:
-            return (
-                self.matrix[0][0] * self.matrix[1][1]
-            ) - (
-                self.matrix[0][1] * self.matrix[1][0]
-            )
-        elif n == 3:
-            return (
-                self.matrix[0][0] * self.matrix[1][1] * self.matrix[2][2]
-            ) + (
-                self.matrix[0][1] * self.matrix[1][2] * self.matrix[2][0]
-            ) + (
-                self.matrix[0][2] * self.matrix[1][0] * self.matrix[2][1]
-            ) - (
-                self.matrix[0][2] * self.matrix[1][1] * self.matrix[2][0]
-            ) - (
-                self.matrix[0][0] * self.matrix[1][2] * self.matrix[2][1]
-            ) - (
-                self.matrix[0][1] * self.matrix[1][0] * self.matrix[2][2]
-            )
-
-        else:
-            result = []
-            i = 0
-            for j, x in enumerate(self.matrix[0]):
-                minor = self.get_minor(i, j)
-                result.append(x * ((-1)**(i+1 + j+1)) * Matrix(minor).det())
-            return sum(result)
-```
-
-```python@test_matrix_1.py
-from matrix import Matrix
-
-m = [
-    [1, 5, 7, 4, 9],
-    [4, 7, 8, 3, 4],
-    [9, 3, 5, 2, 8],
-    [9, 3, 6, 3, 1],
-    [5, 9, 1, 4, 2]
-]
-
-print(Matrix(m).det())
-```
-
-```python@test_matrix_2.py
-from numpy import linalg
-m = [
-    [1, 5, 7, 4, 9],
-    [4, 7, 8, 3, 4],
-    [9, 3, 5, 2, 8],
-    [9, 3, 6, 3, 1],
-    [5, 9, 1, 4, 2]
-]
-print(linalg.det(m))
-```
-""",
-            "Минимальное максимальное число матрицы cpp": r"""
-```cpp@maxminmatrix.cpp
-#include <iostream>
-#include <vector>
-#include <time.h>
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-    int rows = 3;
-    int cols = 4;
-    srand(time(NULL));
-    vector<vector<int>> matrix(rows, vector<int>(cols, 0));
-    for (int i = 0; i < rows; ++i) {
-        cout << "|";
-        for (int j = 0; j < cols; ++j) {
-            int number = 1 + rand() % 999;
-            matrix[i][j] = number;
-            cout << " " << setw(3) << setfill(" ") << number << " |";
-        }
-        cout << "\n";
-    }
-    int max = 0;
-    int min = 999;
-    for (auto r : matrix) {
-        for (auto c : r) {
-            if (c > max) max = c;
-            if (c < min) min = c;
-        }
-    }
-    cout << "max = " << max << "\n" << "min = " << min << "\n";
-    return 0;
-}
-```
-""",
-            "str - int": """
-```python
-chr_digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-
-def number_to_string(number):
-    if number == 0:
-        return "0"
-    sign = "-" if number < 0 else ""
-    number = abs(number)
-    digits = []
-    while number > 0:
-        digit = number % 10
-        digits.append(chr_digit[digit])
-        number //= 10
-    digits.reverse()
-    return sign + "".join(digits)
-
-
-def string_to_number(string):
-    if string == "0":
-        return 0
-    sign = 1
-    if string[0] == "-":
-        sign = -1
-        string = string[1:]
-    number = 0
-    for char in string:
-        digit = chr_digit.index(char)
-        number = number * 10 + digit
-    return sign * number
-```
-```pycon
->>> print(number_to_string(12345))
-"12345"
->>> print(string_to_number("12345"))
-12345
-```
-""",
-            "fib": """
-```python
-def fib(n):
-    a, b = 0, 1
-    for _ in range(n):
-        yield a
-        a, b = b, a + b
-```
-```pycon
->>> print(list(fib(10)))
-[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-```
-""",
-            "converters": '''
-```python
-def sqrt(x, p: int = 2):
-    return pow(x, (1 / p))
-```
-```python
-def rgb_to_hex(r: int, g: int, b: int) -> str:
-    return "#{:02x}{:02x}{:02x}".format(r, g, b).upper()
-
-def hex_to_rgb(h: str) -> tuple[int, int, int]:
-    return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
-```
-```pycon
->>> rgb_to_hex(164, 73, 211)
-"#A449D3"
->>> hex_to_rgb("#A449D3")
-(164, 73, 211)
-```
-```python
-def html_escape(text):
-    return "".join(f"&#{ord(char)};" for char in text)
-```
-```python
-def tg_color(chat_id: int):
-    """
-    0x6FB9F0 Синий
-    0xFFD67E Оранжевый
-    0xCB86DB Фиолетовый
-    0x8EEE98 Зелёный
-    0xFF93B2 Розовый
-    0xFB6F5F Красный
-    """
-    return {0: "К", 1: "О", 2: "Ф", 3: "З", 4: "Г", 5: "С", 6: "Р"}[abs(chat_id) % 7]
-```
-```python
-def unicode(text):
-    return "".join(fr"\\U{ord(char):0>8x}" for char in text)
-```
-''',
-            "quicksort": """
-```python
-def quicksort(array):
-    if len(array) < 2:
-        return array
-    else:
-        pivot = array[0]
-        less = [i for i in array[1:] if i <= pivot]
-        greater = [i for i in array[1:] if i > pivot]
-        return quicksort(less) + [pivot] + quicksort(greater)
-
-
-quicksortL = lambda array: (
-    array
-    if len(array) < 2 else
-    (
-        lambda pivot, less, greater: quicksortL(less) + [pivot] + quicksortL(greater)
-    )(
-        **(
-            lambda pivot, temp_arr: {
-                "pivot": pivot,
-                "less": [i for i in temp_arr if i <= pivot],
-                "greater": [i for i in temp_arr if i > pivot]
-            }
-        )(array[0], array[1:])
-    )
-)
-```
-```pycon
->>> print(quicksort([10, 5, 2, 3]))
-[2, 3, 5, 10]
-```
-""",
-            "download telegram emoji": """
-```python
-import logging
-
-import requests
-from requests.exceptions import MissingSchema
-
-
-def download_emoji(emoji: str) -> bool:
-    emoji_name = "-".join(str(hex(ord(c)))[2:] for c in emoji)
-    print(emoji_name)
-    link = f"https://web.telegram.org/a/img-apple-64/{emoji_name}.png"
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36 Edg/113.0.1774.42"
-        )
-    }
-    try:
-        with open(f"emojis/{emoji_name}.png", "wb") as file:
-            file.write(requests.get(link, headers=headers).content)
-        return True
-    except MissingSchema as e:
-        logging.error(f"{e}")
-    except ConnectionError:
-        logging.error("404")
-    return False
-```
-""",
-            "js YouTube": """
-# изменение скорости воспроизведения на ютубе
-```javascript
-javascript:document.getElementsByClassName("video-stream html5-main-video")[0].playbackRate = 2.5;
-```
-""",
-            "словарь обращение через точку": """
-# Словарь обращение через точку
-
-```python
-class Dict:
-    def __init__(self, d: dict):
-        self.d = d
-
-    def __getattr__(self, item: str):
-        return self.__class__(self.d.get(item))
-
-    def __setattr__(self, name, value):
-        if name == "d":
-            super().__setattr__(name, value)
-        else:
-            self.d[name] = value
-
-    def __repr__(self):
-        return __repr__(self.d)
-```
-""",
-        },
         "Minecraft": {
             "Server": {
                 "plugins": {
@@ -27512,25 +26543,25 @@ storage-method: MariaDB
 """,
                 },
             },
-            "Colors": """
-| color name   |                                                                         | color | chat | hex code  | rgb           | motd       | decimal    |
-|--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|------------|------------|
-| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\\u00A74` | `11141120` |
-| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555` | `255 85 85`   | `\\u00A7c` | `16733525` |
-| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00` | `255 170 0`   | `\\u00A76` | `16755200` |
-| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55` | `255 255 85`  | `\\u00A7e` | `16777045` |
-| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55` | `0 170 0`     | `\\u00A7a` | `5635925`  |
-| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00` | `85 255 85`   | `\\u00A72` | `43520`    |
-| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF` | `85 255 255`  | `\\u00A7b` | `5636095`  |
-| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA` | `0 170 170`   | `\\u00A73` | `43690`    |
-| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF` | `0 0 170`     | `\\u00A79` | `5592575`  |
-| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA` | `85 85 255`   | `\\u00A71` | `170`      |
-| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF` | `255 85 255`  | `\\u00A7d` | `16733695` |
-| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA` | `170 0 170`   | `\\u00A75` | `11141290` |
-| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF` | `255 255 255` | `\\u00A7f` | `16777215` |
-| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA` | `170 170 170` | `\\u00A77` | `11184810` |
-| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\\u00A78` | `5592405`  |
-| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\\u00A70` | `0`        |
+            "Colors": r"""
+| color name   |                                                                         | color | chat | hex code  | rgb           | motd      | decimal    |
+|--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|-----------|------------|
+| dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\u00A74` | `11141120` |
+| red          | <div style="background-color: #FE5555;width: 50px;height: 15px;"></div> | `&c`  | `§c` | #`FF5555` | `255 85 85`   | `\u00A7c` | `16733525` |
+| gold         | <div style="background-color: #FFAA00;width: 50px;height: 15px;"></div> | `&6`  | `§6` | #`FFAA00` | `255 170 0`   | `\u00A76` | `16755200` |
+| yellow       | <div style="background-color: #FFFF55;width: 50px;height: 15px;"></div> | `&e`  | `§e` | #`FFFF55` | `255 255 85`  | `\u00A7e` | `16777045` |
+| green        | <div style="background-color: #55FF55;width: 50px;height: 15px;"></div> | `&a`  | `§a` | #`55FF55` | `0 170 0`     | `\u00A7a` | `5635925`  |
+| dark_green   | <div style="background-color: #00AA00;width: 50px;height: 15px;"></div> | `&2`  | `§2` | #`00AA00` | `85 255 85`   | `\u00A72` | `43520`    |
+| aqua         | <div style="background-color: #55FFFF;width: 50px;height: 15px;"></div> | `&b`  | `§b` | #`55FFFF` | `85 255 255`  | `\u00A7b` | `5636095`  |
+| dark_aqua    | <div style="background-color: #00AAAA;width: 50px;height: 15px;"></div> | `&3`  | `§3` | #`00AAAA` | `0 170 170`   | `\u00A73` | `43690`    |
+| blue         | <div style="background-color: #5555FF;width: 50px;height: 15px;"></div> | `&9`  | `§9` | #`5555FF` | `0 0 170`     | `\u00A79` | `5592575`  |
+| dark_blue    | <div style="background-color: #0000AA;width: 50px;height: 15px;"></div> | `&1`  | `§1` | #`0000AA` | `85 85 255`   | `\u00A71` | `170`      |
+| light_purple | <div style="background-color: #FF55FF;width: 50px;height: 15px;"></div> | `&d`  | `§d` | #`FF55FF` | `255 85 255`  | `\u00A7d` | `16733695` |
+| dark_purple  | <div style="background-color: #AA00AA;width: 50px;height: 15px;"></div> | `&5`  | `§5` | #`AA00AA` | `170 0 170`   | `\u00A75` | `11141290` |
+| white        | <div style="background-color: #FFFFFF;width: 50px;height: 15px;"></div> | `&f`  | `§f` | #`FFFFFF` | `255 255 255` | `\u00A7f` | `16777215` |
+| gray         | <div style="background-color: #AAAAAA;width: 50px;height: 15px;"></div> | `&7`  | `§7` | #`AAAAAA` | `170 170 170` | `\u00A77` | `11184810` |
+| dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\u00A78` | `5592405`  |
+| black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\u00A70` | `0`        |
 
 |            |    |
 |------------|----|
@@ -27540,14 +26571,14 @@ storage-method: MariaDB
 | hex code   | paint color and web css colors
 | decimal    | used for nbt data tags, setting potion and leather armour colors
 
-| style         | chat   | motd       |
-|---------------|--------|------------|
-| Obfuscated    | `§k`   | `\\u00A7k` |
-| Bold          | `§l`   | `\\u00A7l` |
-| Strikethrough | `§m`   | `\\u00A7m` |
-| Underline     | `§n`   | `\\u00A7n` |
-| Italic        | `§o`   | `\\u00A7o` |
-| Reset         | `§r`   | `\\u00A7r` |
+| style         | chat   | motd      |
+|---------------|--------|-----------|
+| Obfuscated    | `§k`   | `\u00A7k` |
+| Bold          | `§l`   | `\u00A7l` |
+| Strikethrough | `§m`   | `\u00A7m` |
+| Underline     | `§n`   | `\u00A7n` |
+| Italic        | `§o`   | `\u00A7o` |
+| Reset         | `§r`   | `\u00A7r` |
 
 ![colors.png](Other/Minecraft/colors.png)
 """,
@@ -27607,9 +26638,16 @@ storage-method: MariaDB
 | `Enable Ligatures` | <input type="checkbox" checked> |
 
 """,
+            "font": """
+
+[https://www.jetbrains.com/lp/mono/](https://www.jetbrains.com/lp/mono/)
+[https://fonts.google.com/specimen/JetBrains+Mono](https://fonts.google.com/specimen/JetBrains+Mono)
+[https://github.com/JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+
+""",
         },
         "ChatGPT": {
-            "Шпаргалки": """
+            "Промты": """
 Обычная шпаргалка
 ```
 Напиши максимально подробную и структурированную шпаргалку по теме, которую я тебе напишу.
@@ -27770,7 +26808,7 @@ Runner.instance_.setSpeed(1000)
 4. Оглавление. Окошко с текстовыми `h` тегами из текущей шпаргалки, прокручивает до видимости при нажатии.
 5. Подсвечивать нажатую кнопку постоянно, а не `:active`.
 6. Сделать ссылку на шпаргалку как всплывашка при наведении на ссылку.
-7. Сделать поисковые фишки как в [[General/Google Search]].
+7. Сделать поисковые фишки как в [[General/Google Search.md]].
 8. История поиска
 
 Поменять в метадате color на classList
@@ -27787,6 +26825,16 @@ Runner.instance_.setSpeed(1000)
 -->
 """,
         "Markdown": r"""
+
+# `#` 1
+## `##` 2
+### `###` 3
+#### `####` 4
+##### `#####` 5
+###### `######` 6
+
+&lt;hr&gt;
+<hr>
 
 \*Italic\* - *Italic*
 \_Italic\_ - _Italic_
@@ -27809,16 +26857,18 @@ Runner.instance_.setSpeed(1000)
 
 &#x3d;&#x3d;{color:red;background-color:inherit;}mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
 
+<div class="container-row">
+
 ```pre
 code
 ```
-
+&nbsp;&nbsp;
 ````pre
 ```pre
 code
 ```
 ````
-
+&nbsp;&nbsp;
 `````pre
 ````pre
 ```pre
@@ -27827,6 +26877,8 @@ code
 ````
 `````
 
+</div>
+
 ```table
 | c1 | c2 |
 |----|----|
@@ -27850,14 +26902,995 @@ code
 |----|----|
 | v1 | v2 |
 | v3 | v4 |
+
+> blockquote 1
+>> blockquote 2
+>>> blockquote 3
+
+<br>
+
+> blockquote 1
+
+<br>
+
+>> blockquote 2
+
+""",
+    },
+    "Snippets": {
+        "Python": {
+            "Examples": {
+                "list comprehension tips": """
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = [
+    item
+    for tpl in list_of_tuples
+    for item in tpl
+]
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = []
+for tpl in list_of_tuples:
+    for item in tpl:
+        result_list.append(item)
+
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+""",
+                "Multiplication of lists": """
+<div class="container-row">
+```pycon
+>>> a = [[]]*3
+>>> for x in a:
+...     print(id(x))
+...
+3276075832448
+3276075832448
+3276075832448
+>>> a[1].append(1)
+>>> a
+[[1], [1], [1]]
+```
+&nbsp;
+```pycon
+>>> b = [[] for _ in range(3)]
+>>> for x in b:
+...     print(id(x))
+...
+3276075828928
+3276075828992
+3276075828864
+>>> b[1].append(1)
+>>> b
+[[], [1], []]
+```
+</div>
+<div class="container-row">
+```pycon
+>>> c = [[]]
+>>> print(id(c[0]))
+3276075894784
+>>> for x in (c + c):
+...     print(id(x))
+...
+3276075894784
+3276075894784
+```
+&nbsp;
+```pycon
+>>> d = ((),)*3
+>>> for x in d:
+...     print(id(d))
+...
+3276075830656
+3276075830656
+3276075830656
+```
+</div>
+""",
+            },
+            "File formats": {
+                "JSON": r"""
+# JSON - JavaScript Object Notation
+
+Tекстовый формат обмена данными, который основан на синтаксисе JavaScript.
+Он используется для хранения и обмена структурированными данными и часто используется
+в веб-приложениях для обмена данными между клиентом и сервером.
+
+```json
+{
+    "name": "John Smith",
+    "age": 30,
+    "city": "New York"
+}
+```
+
+```python
+import json
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.json", "w", encoding="UTF-8") as file:
+    file.write(json.dumps(config, indent=4, ensure_ascii=False))
+    # json.dump(config, file, indent=4, ensure_ascii=False)
+
+with open("config.json", "r", encoding="UTF-8") as file:
+    config = json.load(file)
+    # config = json.loads(file.read())
+
+print(config)
+```
+
+# JSONL
+
+```python
+{"name": "Alice Jones", "age": 25, "city": "Los Angeles"}
+{"name": "John Smith", "age": 30, "city": "New York"}
+{"name": "Bob Johnson", "age": 40, "city": "Chicago"}
+```
+
+```python
+import json
+
+
+config = [
+    {"name": "Alice Jones", "age": 25, "city": "Los Angeles"},
+    {"name": "John Smith", "age": 30, "city": "New York"},
+    {"name": "Bob Johnson", "age": 40, "city": "Chicago"},
+]
+
+with open("test.jsonl", "a", encoding="UTF-8") as file:
+    file.writelines([str(line) + "\n" for line in config])
+
+with open("config.jsonl", "r", encoding="UTF-8") as file:
+    for line in file:
+        print(json.loads(line))
+```
+
+[[Snippets/Python/File formats/TinyDB (json)]]
+""",
+                "YAML": """
+# YAML - Ain't Markup Language
+
+Формат файлов, который используется для хранения и обмена неструктурированными и структурированными
+данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
+`YAML` использует отступы и специальные символы для обозначения структуры данных.
+Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.
+
+```yaml
+name: John Smith
+age: 30
+city: New York
+```
+
+```python
+import yaml  # pip install yaml
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.yaml", "w", encoding="utf-8") as file:
+    file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
+
+with open("config.yaml", "r", encoding="utf-8") as file:
+    config = yaml.safe_load(file.read())
+
+print(config)
+```
+""",
+                "TOML": """
+# TOML - Tom's Obvious, Minimal Language
+
+формат конфигурационных файлов, который был разработан
+для использования в проектах, написанных на языке программирования `Rust`.
+
+TOML файлы имеют структуру ключ-значение, где ключи и значения
+разделены знаком `=`, и используют синтаксис, похожий на язык программирования `INI`.
+
+```toml
+[package]
+name = "example"
+version = "1.0.0"
+authors = ["John Doe <john@example.com>"]
+```
+
+```python
+import toml  # pip install toml
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.toml", "w", encoding="UTF-8") as file:
+    file.write(toml.dumps(config))
+    # toml.dump(config, file)
+
+with open("config.toml", "r", encoding="UTF-8") as file:
+    config = toml.load(file)
+    # config = toml.loads(file.read())
+
+print(config)
+```
+""",
+                "INI": """
+# INI (Initialization)
+
+формат конфигурационных файлов, который используется
+для хранения настроек приложений и операционных систем.
+Он был разработан в `Windows` и стал широко используемым
+форматом для хранения конфигурационных данных в различных программных продуктах.
+
+```ini
+[Section1]
+key1 = value1
+key2 = value2
+
+[Section2]
+key3 = value3
+key4 = value4
+```
+
+```python
+# config = configparser.ConfigParser()
+# config["BOT"] = {"bot_name": "", "token": ""}
+
+import configparser
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+config_ini = configparser.ConfigParser()
+
+for key, value in config.items():
+    config_ini[key] = value
+
+with open("config.ini", "w") as file:
+    config_ini.write(file)
+
+config_ini = configparser.ConfigParser()
+config_ini.read("config.ini")
+print(config)
+```
+""",
+                "XML": """
+# XML - eXtensible Markup Language
+
+Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
+Он использует теги для определения структуры данных и может быть использован для хранения
+всех видов данных, включая текст, изображения и мультимедиа.
+`XML` широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+```
+
+```python
+# config = ET.Element("config")
+# bot = ET.SubElement(config, "BOT")
+# ET.SubElement(bot, "bot_name").text = ""
+# ET.SubElement(bot, "token").text = ""
+# tree = ET.ElementTree(config)
+
+import xml.etree.ElementTree as xml
+
+def dict_to_xml(dct, root_node=None):
+    if root_node is None:
+        root_node = xml.Element("root")
+    for key, value in dct.items():
+        node = xml.SubElement(root_node, key)
+        if isinstance(value, dict):
+            dict_to_xml(value, node)
+        else:
+            node.text = str(value)
+    return root_node
+
+def xml_to_dict(root):
+    from collections import defaultdict
+    dct = {root.tag: {} if root.attrib else None}
+    children = list(root)
+    if children:
+        dd = defaultdict(list)
+        for dc in map(xml_to_dict, children):
+            for k, v in dc.items():
+                dd[k].append(v)
+        dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
+    if root.attrib:
+        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
+    if root.text:
+        text = root.text.strip()
+        if children or root.attrib:
+            if text:
+                dct[root.tag]["#text"] = text
+        else:
+            dct[root.tag] = text
+    return dct
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+config = dict_to_xml(config)
+tree = xml.ElementTree(config)
+
+with open("config.xml", "wb") as file:
+    tree.write(file, encoding="utf-8", xml_declaration=True)
+
+with open("config.xml", "r") as file:
+    tree = xml.parse(file)
+
+root = tree.getroot()
+config = xml_to_dict(root)
+print(config)
+```
+""",
+                "CSV": """
+# CSV - Comma Separated Values
+
+Текстовый формат файла, который используется для хранения табличных данных.
+Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.
+
+```csv
+Name,Age,City
+John Smith,30,New York
+Jane Doe,25,Chicago
+```
+
+```python
+import csv
+
+
+data = [
+    ("Name", "Age"),
+    ("Alice", 25),
+    ("Bob", 30),
+    ("Charlie", 35),
+]
+
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
+    csv.writer(file).writerows(data)
+
+with open("data.csv", "r", encoding="UTF-8") as file:
+    print(list(csv.reader(file)))
+```
+""",
+                "SQLite3 to CSV": '''
+```python
+import sqlite3
+import csv
+
+def SQL(query: str, params: tuple | dict = None, commit: bool = False, column_names: bool = False):
+    """Выполняет SQL запрос"""
+    with sqlite3.connect(r"database.sqlite") as connection:
+        cursor = connection.cursor()
+        cursor.execute(query, params)
+        if commit: connection.commit()
+        result = cursor.fetchall()
+        if column_names and getattr(cursor, "description"):
+            column_names_data = [column[0] for column in cursor.description] or None
+            result = column_names_data + result
+    return result
+
+data = SQL("SELECT * FROM table_name;")
+
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+with open("data.csv", "r", encoding="UTF-8") as file:
+    reader = csv.reader(file)
+    column_names = next(reader)
+    SQL(
+        f"""
+CREATE TABLE table_name (
+    {", ".join([f"{column} TEXT" for column in column_names])}
+);
+""",
+        commit=True,
+    )
+    for row in reader:
+        SQL(
+            f"""
+INSERT INTO table_name (
+    {", ".join(column_names)}
+)
+VALUES (
+    {", ".join([f'"{column}"' for column in row])}
+)
+""",
+            commit=True,
+        );
+```
+''',
+                "Vedis db": """
+```python
+from vedis import Vedis
+db = Vedis(":mem:")  # Create an in-memory database.
+db = Vedis("Dict.vedis")
+with db.transaction():
+    db["key"] = "value"
+    db.rollback()  # Undo changes.
+    db.commit()
+print(db["key"])
+```
+
+[https://vedis-python.readthedocs.io/en/latest/quickstart.html](https://vedis-python.readthedocs.io/en/latest/quickstart.html)
+
+Пример использования в боте
+[https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/](https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/)
+""",
+                "TinyDB (json)": """
+```bash
+pip install tinydb
+```
+
+```python
+from tinydb import TinyDB, Query
+
+
+db = TinyDB("db.json")
+users_table = db.table("users")
+user_id = users_table.insert({"name": "John", "age": 25})
+all_users = users_table.all()
+
+# Получение записи по условию (например, по имени)
+user_query = Query()
+john_data = users_table.search(user_query.name == "John")
+
+# Изменение данных в записи по условию (например, по имени)
+users_table.update({"age": 26}, user_query.name == "John")
+
+# Удаление записи по условию (например, по имени)
+users_table.remove(user_query.name == "John")
+```
+
+[[Snippets/Python/File formats/JSON]]
+""",
+            },
+            "Problems": {
+                "Пирамида граф": """
+Нахождение пути с максимальной суммой по "пирамиде"
+
+```python
+graph = [
+    [75],
+    [95, 64],
+    [17, 47, 82],
+    [18, 35, 87, 10],
+    [20,  4, 82, 47, 65],
+    [19,  1, 23, 75,  3, 34],
+    [88,  2, 77, 73,  7, 63, 67],
+    [99, 65,  4, 28,  6, 16, 70, 92],
+    [41, 41, 26, 56, 83, 40, 80, 70, 33],
+    [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
+    [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
+    [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
+    [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
+    [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
+    [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23],
+]
+
+# Cоздаем пустой словарь для хранения сумм каждого узла.
+sums = {}
+for i in range(len(graph)):
+    for j in range(len(graph[i])):
+        sums[(i, j)] = graph[i][j]
+
+# Проходимся по каждому узлу в пирамиде и вычисляем сумму каждого узла
+# Начинаем с последней строки пирамиды и движемся вверх
+for i in range(len(graph)-2, -1, -1):
+    for j in range(len(graph[i])):
+        sums[(i, j)] += max(sums[(i+1, j)], sums[(i+1, j+1)])
+
+# Step 3
+max_sum_path = sums[(0, 0)]
+
+# Step 4
+i, j = 0, 0
+path = [graph[0][0]]
+while i < len(graph) - 1:
+    left_sum = sums[(i+1, j)]
+    right_sum = sums[(i+1, j+1)]
+    if left_sum > right_sum:
+        i += 1
+    else:
+        i += 1
+        j += 1
+    path.append(graph[i][j])
+
+print(sum(path))
+```
+
+```python
+def max_sum_path(graph):
+    n = len(graph)
+    # Инициализируем максимальную сумму первого элемента
+    max_sum = graph[0][0]
+    for i in range(1, n):
+        # Проходим по строкам и столбцам "ниже" текущего элемента
+        for j in range(i + 1):
+            if j == 0: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
+                graph[i][j] += graph[i - 1][j]
+            elif j == i: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
+                graph[i][j] += graph[i - 1][j - 1]
+            else: # В остальных случаях элемент имеет двух соседей
+                graph[i][j] += max(graph[i - 1][j - 1], graph[i - 1][j])
+            # Обновляем максимальную сумму
+            max_sum = max(max_sum, graph[i][j])
+    return max_sum
+
+# Пример использования функции
+graph = [[45], [23, 78], [12, 26, 51]]
+print("Максимальная сумма пути в графе:", max_sum_path(graph))
+```
+
+```python
+def longest_slide_down(p):
+    res = p.pop()
+    while p:
+        tmp = p.pop()
+        res = [tmp[i] + max(res[i],res[i+1]) for i in range(len(tmp))]
+    return res.pop()
+```
+
+
+# Обьяснение
+Если граф будет равен
+
+```python
+graph = [
+        [45],
+      [23, 78],
+    [12, 26, 51]]
+```
+""",
+                "Определитель матрицы": """
+```python@matrix.py
+class Matrix:
+    def __init__(self, matrix: list[list[int]]):
+        self.matrix = matrix
+
+    def get_minor(self, i: int, j: int) -> list[list[int]]:
+        result = [
+            list(row[:j] + row[j+1:])
+            for row_index, row in enumerate(self.matrix)
+            if row_index != i
+        ]
+        return result
+
+    def det(self):
+        n = len(self.matrix)
+        if len({len(row) for row in self.matrix}) > 1 and n != x[0]:
+            raise ValueError("")
+
+        if n == 1:
+            return self.matrix[0][0]
+
+        elif n == 2:
+            return (
+                self.matrix[0][0] * self.matrix[1][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0]
+            )
+        elif n == 3:
+            return (
+                self.matrix[0][0] * self.matrix[1][1] * self.matrix[2][2]
+            ) + (
+                self.matrix[0][1] * self.matrix[1][2] * self.matrix[2][0]
+            ) + (
+                self.matrix[0][2] * self.matrix[1][0] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][2] * self.matrix[1][1] * self.matrix[2][0]
+            ) - (
+                self.matrix[0][0] * self.matrix[1][2] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0] * self.matrix[2][2]
+            )
+
+        else:
+            result = []
+            i = 0
+            for j, x in enumerate(self.matrix[0]):
+                minor = self.get_minor(i, j)
+                result.append(x * ((-1)**(i+1 + j+1)) * Matrix(minor).det())
+            return sum(result)
+```
+
+```python@test_matrix_1.py
+from matrix import Matrix
+
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+
+print(Matrix(m).det())
+```
+
+```python@test_matrix_2.py
+from numpy import linalg
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+print(linalg.det(m))
+```
+""",
+                "Минимальное максимальное число матрицы cpp": r"""
+```cpp@maxminmatrix.cpp
+#include <iostream>
+#include <vector>
+#include <time.h>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int rows = 3;
+    int cols = 4;
+    srand(time(NULL));
+    vector<vector<int>> matrix(rows, vector<int>(cols, 0));
+    for (int i = 0; i < rows; ++i) {
+        cout << "|";
+        for (int j = 0; j < cols; ++j) {
+            int number = 1 + rand() % 999;
+            matrix[i][j] = number;
+            cout << " " << setw(3) << setfill(" ") << number << " |";
+        }
+        cout << "\n";
+    }
+    int max = 0;
+    int min = 999;
+    for (auto r : matrix) {
+        for (auto c : r) {
+            if (c > max) max = c;
+            if (c < min) min = c;
+        }
+    }
+    cout << "max = " << max << "\n" << "min = " << min << "\n";
+    return 0;
+}
+```
+""",
+                "str - int": """
+```python
+chr_digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+
+def number_to_string(number):
+    if number == 0:
+        return "0"
+    sign = "-" if number < 0 else ""
+    number = abs(number)
+    digits = []
+    while number > 0:
+        digit = number % 10
+        digits.append(chr_digit[digit])
+        number //= 10
+    digits.reverse()
+    return sign + "".join(digits)
+
+
+def string_to_number(string):
+    if string == "0":
+        return 0
+    sign = 1
+    if string[0] == "-":
+        sign = -1
+        string = string[1:]
+    number = 0
+    for char in string:
+        digit = chr_digit.index(char)
+        number = number * 10 + digit
+    return sign * number
+```
+```pycon
+>>> print(number_to_string(12345))
+"12345"
+>>> print(string_to_number("12345"))
+12345
+```
+""",
+                "fib": """
+```python
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+```
+```pycon
+>>> print(list(fib(10)))
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+""",
+                "converters": '''
+```python
+def sqrt(x, p: int = 2):
+    return pow(x, (1 / p))
+```
+```python
+def rgb_to_hex(r: int, g: int, b: int) -> str:
+    return "#{:02x}{:02x}{:02x}".format(r, g, b).upper()
+
+def hex_to_rgb(h: str) -> tuple[int, int, int]:
+    return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+```
+```pycon
+>>> rgb_to_hex(164, 73, 211)
+"#A449D3"
+>>> hex_to_rgb("#A449D3")
+(164, 73, 211)
+```
+```python
+def html_escape(text):
+    return "".join(f"&#{ord(char)};" for char in text)
+```
+```python
+def tg_color(chat_id: int):
+    """
+    0x6FB9F0 Синий
+    0xFFD67E Оранжевый
+    0xCB86DB Фиолетовый
+    0x8EEE98 Зелёный
+    0xFF93B2 Розовый
+    0xFB6F5F Красный
+    """
+    return {0: "К", 1: "О", 2: "Ф", 3: "З", 4: "Г", 5: "С", 6: "Р"}[abs(chat_id) % 7]
+```
+```python
+def unicode(text):
+    return "".join(fr"\\U{ord(char):0>8x}" for char in text)
+```
+''',
+                "quicksort": """
+```python
+def quicksort(array):
+    if len(array) < 2:
+        return array
+    else:
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot]
+        greater = [i for i in array[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
+
+
+quicksortL = lambda array: (
+    array
+    if len(array) < 2 else
+    (
+        lambda pivot, less, greater: quicksortL(less) + [pivot] + quicksortL(greater)
+    )(
+        **(
+            lambda pivot, temp_arr: {
+                "pivot": pivot,
+                "less": [i for i in temp_arr if i <= pivot],
+                "greater": [i for i in temp_arr if i > pivot]
+            }
+        )(array[0], array[1:])
+    )
+)
+```
+```pycon
+>>> print(quicksort([10, 5, 2, 3]))
+[2, 3, 5, 10]
+```
+""",
+                "словарь обращение через точку": """
+# Словарь обращение через точку
+
+```python
+class Dict:
+    def __init__(self, d: dict):
+        self.d = d
+
+    def __getattr__(self, item: str):
+        return self.__class__(self.d.get(item))
+
+    def __setattr__(self, name, value):
+        if name == "d":
+            super().__setattr__(name, value)
+        else:
+            self.d[name] = value
+
+    def __repr__(self):
+        return __repr__(self.d)
+```
+""",
+                "download telegram emoji": """
+```python
+import logging
+
+import requests
+from requests.exceptions import MissingSchema
+
+
+def download_emoji(emoji: str) -> bool:
+    emoji_name = "-".join(str(hex(ord(c)))[2:] for c in emoji)
+    print(emoji_name)
+    link = f"https://web.telegram.org/a/img-apple-64/{emoji_name}.png"
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+        )
+    }
+    try:
+        with open(f"emojis/{emoji_name}.png", "wb") as file:
+            file.write(requests.get(link, headers=headers).content)
+        return True
+    except MissingSchema as e:
+        logging.error(f"{e}")
+    except ConnectionError:
+        logging.error("404")
+    return False
+```
+""",
+            },
+            "Get admin rights": """
+# Windows
+
+```python
+import sys
+import os
+import ctypes
+
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+    except:
+        return False
+
+# Если скрипт не запущен от имени администратора, перезапускаем его с правами администратора
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    # Перезапуск скрипта с правами администратора
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, ' '.join(sys.argv), None, 1)
+    sys.exit(0)
+
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```
+
+# Linux / macOS
+
+```python
+import os
+import sys
+import subprocess
+
+# Проверка, запущен ли скрипт с правами администратора
+def is_admin():
+    return os.geteuid() == 0
+
+# Если скрипт не запущен с правами администратора, перезапускаем его с использованием sudo
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    subprocess.check_call(["sudo", "python3"] + sys.argv)
+    sys.exit(0)
+
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```
+
+""",
+            "PYPRECODE": r"""
+
+```requirements@requirements.txt
+table2string
+pyperclip
+telebot
+arrow
+```
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+`PYPRECODE`
+```python
+import sys,os,re,requests,telebot,time,arrow;from datetime import datetime,timedelta;from uuid import uuid4;from table2string import print_table;from pyperclip import paste, copy;TeleBot=telebot.TeleBot;uuid=lambda: str(uuid4()).replace('-', '');unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text);html_escape = lambda text: ''.join(f'&#x{ord(x):x};' for x in text);re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');sqrt = lambda x, p=2: pow(x, (1 / p));rgb_to_hex = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper();hex_to_rgb = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4));color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args);print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
+```
+
+```path
+python -ic "%PYPRECODE%"
+```
+
+```python
+import sys,os,re,requests,time,arrow,html,urllib.parse,math
+from uuid import uuid4
+from pathlib import Path
+from pyperclip import paste, copy
+from datetime import datetime,timedelta
+from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
+
+sqrt = lambda x, p=2: pow(x, (1 / p))
+uuid=lambda: str(uuid4()).replace("-", "")
+
+unicode_escape = lambda text: "".join(fr"\U{ord(x):0>8x}" for x in text)
+
+html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: "".join(f"&#x{ord(x):x};" for x in text), re.compile(r"(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)")
+url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote
+
+rgb_to_hex, hex_to_rgb = lambda r, g, b: "#{:02x}{:02x}{:02x}".format(r, g, b).upper(), lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args)
+
+__, dir = lambda a: not a.startswith("__"), = lambda o, func=None: [a for a in dir(o) if func(a)]
+
+print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
+```
+
+```python
+import re
+from pyperclip import paste, copy
+if input("Скопируйте код и нажмите Enter (вставлять код в консоль не нужно)") or True: PYPRECODE := copy(re.sub(r"\n+", r"\n", paste().strip()))
+```
 
 <!--
-> blockquote
->> blockquote
->>> blockquote
-> blockquote
+quicksort = lambda array: (array if len(array) < 2 else (lambda p, l, g: quicksort(l) + [p] + quicksort(g))(**(lambda pivot, temp_arr: {'p': pivot, 'l': [i for i in temp_arr if i <= pivot], 'g': [i for i in temp_arr if i > pivot]})(array[0], array[1:])))
 -->
+
 """,
+        },
+        "Java": {
+            "snippet 1": """
+```java
+import java.util.function.Consumer;
+
+class Example {
+    int print = 1;
+    // String print = "qwe"; // Variable 'print' is already defined in the scope
+
+    public void print(int x) {
+        System.out.println(x);
+    }
+    public void print(String x) {
+        System.out.println(x);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Example example = new Example();
+        System.out.println(example.print);
+        example.print(23);
+        example.print("qwerty");
+
+        int Int = example.print;
+        System.out.println(Int);
+
+        Consumer<Integer> printInt = example::print;
+        printInt.accept(23);
+
+        Consumer<String> printString = example::print;
+        printString.accept("qwerty");
+    }
+}
+```
+""",
+        },
+        "JavaScript": {
+            "js YouTube": """
+# изменение скорости воспроизведения на ютубе
+```javascript
+javascript:document.getElementsByClassName("video-stream html5-main-video")[0].playbackRate = 2.5;
+```
+""",
+        },
     },
     "Shortcuts": {
         "link-1": "Languages/Python/fstrings",
@@ -27867,4 +27900,5 @@ code
             "link-4": "Languages/Java/Классы/",
         },
     },
+    "README": "",
 }

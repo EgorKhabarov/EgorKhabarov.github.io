@@ -104,4 +104,34 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Example result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%d.%m.%Y</code><br><code>%d-%m-%Y</code></td>
+<td><code>31.12.2012</code><br><code>31-12-2012</code></td>
+</tr>
+<tr>
+<td><code>%Y.%m.%d</code><br><code>%Y-%m-%d</code></td>
+<td><code>2012.12.31</code><br><code>2012-12-31</code></td>
+</tr>
+<tr>
+<td><code>%H:%M</code><br><code>%H:%M:%S</code></td>
+<td><code>12:34</code><br><code>12:34:56</code></td>
+</tr>
+<tr>
+<td><code>%Y.%m.%d %H:%M:%S</code><br><code>%Y-%m-%d %H:%M:%S</code></td>
+<td><code>2012.12.31 12:34:56</code><br><code>2012-12-31 12:34:56</code></td>
+</tr>
+<tr>
+<td><code>%Y-%m-%d_%H-%M-%S</code></td>
+<td><code>2012-12-31_12-34-56</code><br>Example: for file names</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="datetime.png" src="Languages/Python/Libraries/datetime.png" /></p>
