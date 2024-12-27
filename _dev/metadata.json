@@ -467,6 +467,27 @@
   "Languages/Python/Libraries/Web/webcolors.md": {
     "color": "green"
   },
+  "Languages/RegExp/images.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Languages/SQL/PostgreSQL/Картинки.md": {
+    "color": "lblue"
+  },
+  "Other/TODO.md": {
+    "color": "red"
+  },
+  "Shortcuts/Java/": {
+    "folder-open": true
+  },
+  "Snippets/Java/snippet 1.md": {
+    "color": "brown"
+  },
+  "Snippets/JavaScript/js YouTube.md": {
+    "color": "brown"
+  },
   "Snippets/Python/Examples/": {
     "color": "brown"
   },
@@ -541,26 +562,5 @@
   },
   "Snippets/Python/Problems/словарь обращение через точку.md": {
     "color": "brown"
-  },
-  "Snippets/Java/snippet 1.md": {
-    "color": "brown"
-  },
-  "Snippets/JavaScript/js YouTube.md": {
-    "color": "brown"
-  },
-  "Languages/RegExp/images.md": {
-    "color": "lblue"
-  },
-  "Languages/SQL/Картинки.md": {
-    "color": "lblue"
-  },
-  "Languages/SQL/PostgreSQL/Картинки.md": {
-    "color": "lblue"
-  },
-  "Other/TODO.md": {
-    "color": "red"
-  },
-  "Shortcuts/Java/": {
-    "folder-open": true
   }
 }
