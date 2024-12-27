@@ -46,4 +46,4 @@
 </tbody>
 </table>
 <p><a href="https://en.wikipedia.org/wiki/Glob_(programming)">https://en.wikipedia.org/wiki/Glob_(programming)</a></p>
-<p>Для сложной фильтрации в Python лучше использовать <a href="?Languages/Python/Libraries/System/fnmatch.md"><code>fnmatch</code></a></p>
+<p>Для сложной фильтрации в Python лучше использовать <a href="?Languages/Python/Libraries/System/fnmatch"><code>fnmatch</code></a></p>

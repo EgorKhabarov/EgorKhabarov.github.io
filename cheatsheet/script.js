@@ -738,7 +738,7 @@ let history = {};
 let isCtrlPressed = false;
 let ismdwn = 0;
 let settings = loadSettings();
-let fileSuffix = ".html";
+let fileSuffix = ".md";  // ".html"
 
 
 /* rpanrResize */

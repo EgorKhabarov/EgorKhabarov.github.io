@@ -203,7 +203,7 @@ WindowsError
 IOError
 WindowsError</p>
 <h1>Методы Exception</h1>
-<p><a href="?Languages/Python/Methods/Magic%20attributes.md#exception">Подробнее про магические атрибуты исключений</a></p>
+<p><a href="?Languages/Python/Methods/Magic%20attributes#exception">Подробнее про магические атрибуты исключений</a></p>
 <table>
 <thead>
 <tr>

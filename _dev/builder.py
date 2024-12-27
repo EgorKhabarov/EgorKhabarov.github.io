@@ -32,6 +32,7 @@ def g(path_: str):
 
 for foldername, _, filenames in os.walk(folder_path):
     for filename in filenames:
+        # if filename.endswith((".md", ".html")) and filename != "index.html":
         if filename.endswith(".md"):
             path = os.path.join(foldername, filename)
             try:

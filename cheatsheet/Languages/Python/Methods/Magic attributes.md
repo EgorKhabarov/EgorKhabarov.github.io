@@ -270,7 +270,7 @@
 </pre></div></div></div>
 
 <h1>Exception</h1>
-<p><a href="?Languages/Python/Built-in/Exception.md#методы-exception">Подробнее про методы исключений</a></p>
+<p><a href="?Languages/Python/Built-in/Exception#методы-exception">Подробнее про методы исключений</a></p>
 <table>
 <thead>
 <tr>

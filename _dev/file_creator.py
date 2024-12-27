@@ -109,6 +109,8 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
     :param x:
     :param y:
     """
+    generate_html = False
+
     for key, value in dictionary.items():
         key_path = os.path.join(directory, key)
         print_progress_bar(x, y, "create cheatsheets", key_path.replace("\\", "/"))
@@ -125,10 +127,14 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
         else:
             x += 1
             # Если значение - строка, создаем файл с содержимым строки
-            with open(key_path_html, "w", encoding="utf-8") as f:
-                f.write(to_markup(value.strip()))
-            with open(key_path, "w", encoding="utf-8") as f:
-                f.write(value.strip())
+            if generate_html:
+                with open(key_path_html, "w", encoding="utf-8") as f:
+                    f.write(to_markup(value.strip()))
+                with open(key_path, "w", encoding="utf-8") as f:
+                    f.write(value.strip())
+            else:
+                with open(key_path, "w", encoding="utf-8") as f:
+                    f.write(to_markup(value.strip()))
 
     for directory, dirnames, filenames in os.walk("../cheatsheet"):
         for dirname in dirnames:
