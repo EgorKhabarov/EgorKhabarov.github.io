@@ -57,7 +57,7 @@ def code_block_callback(match: re.Match) -> str:
 
     copy_btn = f'<button class="copy_code_button" onclick="CopyCode(this)">{copy_svg}<text class="unselectable">Copy code</text></button>'
     download_btn = (
-        f'<button class="download_code_button" onclick="DownloadCode(this, `{filename}`)">{download_svg}<text class="unselectable">Download code</text></button>'
+        f'<button class="download_code_button" onclick="DownloadCode(this, `{filename}`)">{download_svg}<text class="unselectable" title="{filename}">Download code</text></button>'
         if filename
         else ""
     )
