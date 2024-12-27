@@ -136,14 +136,13 @@ def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: in
     return x
 
 
-def create_files(cheatsheet_count: int):
-    additional_path = ""
+def create_files(cheatsheet_count: int, additional_path: str = ""):
     dictionary = DICT
     directory = Path("../cheatsheet")
 
     if additional_path:
         directory = directory.joinpath(additional_path)
-        for path in additional_path.split("/"):
+        for path in additional_path.strip("/").split("/"):
             dictionary = dictionary[path]
 
     create_files_and_folders(dictionary, directory=str(directory), y=cheatsheet_count - 1)

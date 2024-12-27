@@ -1414,38 +1414,27 @@ word_doc.accept(visitor)
 """,
         },
         "HTTP": {
-            "HTTР": """HTTP
-(Hypertext Transfer Protocol)
+            "HTTР": """
+
+# HTTP (Hypertext Transfer Protocol)
 Протокол для передачи гипертекстовых документов, таких как веб-страницы.
-HTTPS (HTTP Secure) - это расширение HTTP, которое использует шифрование
+
+# HTTPS (HTTP Secure)
+Это расширение HTTP, которое использует шифрование
 данных для безопасной передачи информации между сервером и клиентом.
 Протокол HTTPS использует те же методы, что и протокол HTTP,
-такие как GET, POST, PUT, DELETE и т. д.
+такие как **GET**, **POST**, **PUT**, **DELETE** и т. д.
 Однако в отличие от HTTP, HTTPS использует шифрование данных
 для защиты информации во время передачи.
-""",
-            "Requests": """
+
+
 |        |            |
 |--------|------------|
-| GET    | Получение данных с сервера.<br>Не изменяют состояние сервера и обычно используются<br>для получения данных, не требующих аутентификации |
-| POST   | Отправки данных на сервер.<br>Используются для создания новых ресурсов или<br>изменения существующих ресурсов на сервере |
-| PUT    | Обновления ресурса на сервере.<br>Заменяет текущий ресурс на новый ресурс |
-| PATCH  | Изменяет существующий ресурс |
-| DELETE | Удаления ресурса с сервера |
-""",
-            "Протоколы связи": """
-|                                                                 |                 |
-|-----------------------------------------------------------------|-----------------|
-| HTTP (Hypertext Transfer Protocol)                              | Протокол передачи гипертекста, который используется<br>для передачи веб-страниц и другого контента между сервером и клиентом в Интернете.<br>HTTP использует методы запроса-ответа между клиентом и сервером, где клиент отправляет запрос на сервер,<br>а сервер отправляет ответ с запрошенной информацией.<br>HTTP также поддерживает кэширование, что позволяет уменьшить количество передаваемых данных и ускорить загрузку страниц                                                                                                                                                                |
-| HTTPS (Hypertext Transfer Protocol Secure)                      | Это безопасная версия HTTP, которая использует шифрование SSL/TLS для защиты передаваемых данных от перехвата и подделки.<br>HTTPS добавляет дополнительный уровень безопасности в сравнении с HTTP и является необходимым<br>для обеспечения безопасной передачи конфиденциальной информации,<br>такой как пароли, номера кредитных карт и другие личные данные                                                                                                                                                                                                                                        |
-| SMTP (Simple Mail Transfer Protocol)                            | Протокол передачи почты, который используется для отправки электронной почты между почтовыми серверами.<br>SMTP работает на уровне приложения в модели OSI и использует порт 25 для обмена данными.<br>SMTP использует методы запроса-ответа, где отправитель отправляет сообщение на сервер,<br>а сервер затем доставляет сообщение получателю                                                                                                                                                                                                                                                         |
-| POP3 (Post Office Protocol version 3)                           | Протокол приема почты, который используется для получения электронной почты с сервера на клиентское устройство.<br>POP3 работает на уровне приложения и использует порт 110 для обмена данными.<br>Когда клиентский компьютер подключается к почтовому серверу,<br>POP3 загружает все письма с сервера на устройство, а затем удаляет их с сервера                                                                                                                                                                                                                                                      |
-| IMAP (Internet Message Access Protocol)                         | Протокол доступа к электронной почте, который также используется для получения электронной почты с сервера<br>на клиентское устройство, но предоставляет более продвинутые функции,<br>такие как хранение писем на сервере и синхронизация между устройствами.<br>IMAP работает на уровне приложения и использует порт 143 для обмена данными.<br>IMAP позволяет клиентам просматривать только заголовки писем или загружать их содержимое полностью,<br>а также удалять письма на сервере, не загружая их на устройство                                                                                |
-| TCP/IP<br>(Transmission Control Protocol/<br>Internet Protocol) | Это семейство протоколов, используемых для обмена данными в сети Интернет.<br>TCP отвечает за надежную передачу данных между приложениями,<br>установление и управление соединениями, а также контроль потока данных.<br>IP же отвечает за маршрутизацию пакетов данных между устройствами в сети,<br>идентификацию устройств, управление адресами и т.д.<br>TCP/IP также включает другие протоколы, такие как DNS (Domain Name System),<br>который переводит доменные имена в IP-адреса, и DHCP (Dynamic Host Configuration Protocol),<br>который автоматически назначает IP-адреса устройствам в сети |
-| FTP (File Transfer Protocol)                                    | Протокол передачи файлов, который используется для передачи файлов между компьютерами в сети.<br>FTP работает на уровне приложения и использует порт 21 для установки соединения и передачи команд,<br>а также порт 20 для передачи данных.<br>FTP позволяет пользователям загружать и скачивать файлы с сервера,<br>создавать и удалять директории и управлять правами доступа к файлам                                                                                                                                                                                                                |
-| SSH (Secure Shell)                                              | Протокол безопасной удаленной работы с командной строкой, который используется<br>для управления удаленными компьютерами и серверами.<br>SSH работает на уровне приложения и использует порт 22 для обмена данными.<br>SSH обеспечивает защиту от перехвата и подделки данных с помощью шифрования,<br>а также обеспечивает возможность удаленной аутентификации и управления устройством                                                                                                                                                                                                               |
-| DNS (Domain Name System)                                        | Протокол, который переводит доменные имена в IP-адреса и обратно.<br>DNS работает на уровне приложения и использует порт 53 для обмена данными.<br>DNS предоставляет возможность использования доменных имен для доступа к ресурсам<br>в сети вместо использования IP-адресов, что упрощает и облегчает работу сети                                                                                                                                                                                                                                                                                     |
-| SNMP (Simple Network Management Protocol)                       | Протокол управления сетью, который используется для мониторинга и управления сетевыми устройствами,<br>такими как маршрутизаторы, коммутаторы, серверы и т.д.<br>SNMP работает на уровне приложения и использует порты 161 и 162 для обмена данными.<br>SNMP позволяет администраторам мониторить статус устройств, настраивать их параметры и диагностировать проблемы в сети                                                                                                                                                                                                                          |
+| GET    | Получение данных с сервера.<br>Не изменяют состояние сервера и обычно используются<br>для получения данных, не требующих аутентификации
+| POST   | Отправки данных на сервер.<br>Используются для создания новых ресурсов или<br>изменения существующих ресурсов на сервере
+| PUT    | Обновления ресурса на сервере.<br>Заменяет текущий ресурс на новый ресурс
+| PATCH  | Изменяет существующий ресурс
+| DELETE | Удаления ресурса с сервера
 
 
 """,
@@ -1475,32 +1464,243 @@ Location – определяет, был ли запрос перенаправ
 Set-Cookie – куки, которую можно использовать для хранения данных
 
 """,
-            "Ответы": """
+            "Коды ответов": """
 
-- 100 информационный
-- 200 успешный
-- 300 перенаправление
-- 400 клиентская ошибка
-- 500 серверная ошибка
+# Коды ответов
 
-![http-status-codes.png](General/HTTP/http-status-codes.png)
+[https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP](https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP)
+
+- [100 информационный](#1xx)
+- [200 успешный](#2xx)
+- [300 перенаправление](#3xx)
+- [400 клиентская ошибка](#4xx)
+- [500 серверная ошибка](#5xx)
+
+## 1xx Status Codes: Information Requests
+
+<!--
+- [100 CONTINUE](#)
+- [101 SWITCHING PROTOCOLS](#)
+- [102 PROCESSING](#)
+- [103 EARLY HINTS](#)
+
+### 100 Continue
+This interim response indicates that everything so far is OK and that the client should continue the request, or ignore the response if the request is already finished.
+### 101 Switching Protocol
+This code is sent in response to an Upgrade request header from the client, and indicates the protocol the server is switching to.
+### 102 Processing
+This code indicates that the server has received and is processing the request, but no response is available yet.
+### 103 Early Hints
+This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response.
+
+-->
+<img alt="http-status-code1-xx.png" src="General/HTTP/1xx.png" style="width: 20em;">
+## 2xx Status Codes: Successful Requests
+<!--
+
+- [200 OK](#200%20ok)
+- [201 CREATED](#201%20created)
+- [202 ACCEPTED](#202%20accepted)
+- [203 NON-AUTHORITATIVE INFORMATION](#203%20non-authoritative%20information)
+- [204 NO CONTENT](#204%20no%20content)
+- [205 RESET CONTENT](#205%20reset%20content)
+- [206 PARTIAL CONTENT](#206%20partial%20content)
+- [207 MULTI-STATUS](#207%20multi-status)
+- [208 ALREADY REPORTED](#208%20already%20reported)
+- [226 IM USED PROCESSING](#226%20im%20used%20processing)
+
+### 200 OK
+The request has succeeded. The meaning of success depends on the HTTP method:
+• GET: The resource has been fetched and is transmitted in the message body
+• HEAD: The entity headers are in the message body.
+• PUT or POST: The resource describing the result of the action is transmitted in the message body.
+• TRACE The message bady contains the request message as received by the server
+### 201 Created
+The request has succeeded and a new resource has been created as a result. This is typically the response sent after POST requests, or same FUT requests
+### 202 Accepted
+The request has been received but not yet acted upon. It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the dutcome of the request. it is intended for cases where another process or server handles the request, or for batch processing.
+### 203 Non-Authoritative information
+This resporse code means the returned meta information is not exactly the same as is available from the origin servet, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the "200 OK" response is preferred to this status.
+### 204 No Content
+There is no content to send for this request, but the headers may be usetul The user agont may update its cached headers for this resource with the new ones.
+### 205 Reset Content
+Tells the user agent to reset the document which sent this request.
+### 206 Partial Content
+This response code is used when the Range header is sent from the client to request only part of a resource.
+### 207 MuliStatus
+Conveys information about multiple resources, for situations where multiple status codes might be appropriate.
+### 208 Already Reported
+Used inside a response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.
+### 226 IM Used
+The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance manipulations applied to the current instance.
+
+-->
+<img alt="http-status-code2-xx.png" src="General/HTTP/2xx.png" style="width: 20em;">
+## 3xx Status Codes: Redirections
+<!--
+
+- [300 MULTIPLE CHOICES](#300%20multiple%20choices)
+- [301 MOVED PERMANENTLY](#301%20moved%20permanently)
+- [302 FOUND](#302%20found)
+- [303 SEE OTHER](#303%20see other)
+- [304 NOT MODIFIED](#304%20not%20modified)
+- [305 USE PROXY](#305%20use%20proxy)
+- [306 SWITCH PROXY](#306%20switch%20proxy)
+- [307 TEMPORARY REDIRECT](#307%20temporary%20redirect)
+- [308 PERMANENT REDIRECT](#308%20permanent%20redirect)
+
+### 300 Multiple Choice
+The request has more than oné possible response. The user-agent or user should choose one of them. (There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick)
+### 301 Moved Permanently
+The URL of the requested resource has been changed permanently. The new URL is given in the response.
+### 302 Found
+This response code means that the URI of requested resource has been changed temporarily, Further changes in the URI might be made in the future, Therefore. this same URi should be used by the client in future requests
+### 303 See Other
+The server sent this response to direct the client to get the requested resource at another URI with a GET request
+### 304 Not Modified
+This is used for caching purposes it tells the client that the response has not been modified, so the client can continue to use the same cached version of the response,
+### 305 Use Proxy
+Deline in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy it has been deprecated due to securny concerns regarding in-band configuration ol a proxy.
+### 306 Unused
+This response code is no longer used, it is just reserved. It was used in a previous versiion of the HTTP/1.1 specification.
+### 307 Temporary Redirect
+The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request. This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP methiod used ifa POST was used in the first request a POST must be used in the second request.
+### 308 Permanent Redirect
+This means that the resource is now permanently located at anather URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: ifa POST was used in the fist request a POST must be used in the second request.
+
+-->
+<img alt="http-status-code3-xx.png" src="General/HTTP/3xx.png" style="width: 20em;">
+## 4xx Status Codes: Client Errors
+<!--
+
+- [400 Bad Request](#400%20bad%20request)
+- [401 Unauthorized](#401%20unauthorized)
+- [402 Payment Required](#402%20payment%20required)
+- [403 Forbidden](#403%20forbidden)
+- [404 Not Found](#404%20not%20found)
+- [405 Method Not Allowed](#405%20method%20not%20allowed)
+- [406 Not Acceptable](#406%20not%20acceptable)
+- [407 Proxy Authentication Required](#407%20proxy%20authentication%20required)
+- [408 Request Timeout](#408%20request%20timeout)
+
+### 400 Bad Request
+The server could not understand the request due to Invalid syntax.
+### 401 Unauthorized
+Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+### 402 Payment Required
+This response code is reserved for future use, The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.
+### 403 Forbidden
+The client does not have access rights to the content that is, it is unauthorized, so the server is refusing to give the requested. resource. Unlike 401 the client's identity is known to the server.
+### 404 Not Found
+The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client. This response code is probably the most famous one due to its frequent occurrence on the web. The resource could not be found. This is often used as a catch all for all Invalid URis requested of the server.
+### 405 Method Not Allowed
+The request method is known by the server but has been disabled and cannot be used. For example, an API may forbid DELFTE-ing a resource, The two mandatory methods, GET and HEAD, must never be disabled and should not return this error code.
+### 406 Not Acceptable
+This respanse is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.
+### 407 Proxy Authentication Required
+This is similar to 401 but authentication is needed to be done by a proxy.
+### 408 Request Timeout
+This response is sent on an idle connection by some servers, even without any previous request by the client, It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox, or IE9, use HTTP pre connection mechanisms to speed up surting. Also, note that some servers merely shut down the connection without sending this message.
+-->
+
+<img alt="http-status-code4-xx.png" src="General/HTTP/4xx.png" style="width: 30em;">
+## 5xx Status Codes: Server Errors
+<img alt="http-status-code5-xx.png" src="General/HTTP/5xx.png" style="width: 30em;">
+
+
+
+
+
+<!--
+
+# X
+
+
+<div class="container-row" style="">
+<img alt="http-status-code1-xx.png" src="General/HTTP/1xx.png" style="width: 20em;height: 50em;">
+<img alt="http-status-code2-xx.png" src="General/HTTP/2xx.png" style="width: 20em;height: 139em;">
+<img alt="http-status-code3-xx.png" src="General/HTTP/3xx.png" style="width: 20em;height: 131em;">
+<img alt="http-status-code4-xx.png" src="General/HTTP/4xx.png" style="width: 30em;height: 351em;">
+<img alt="http-status-code5-xx.png" src="General/HTTP/5xx.png" style="width: 30em;height: 175em;">
+</div>
+
+
+<div class="container-row" style="">
+![http-status-code1-xx.png](General/HTTP/1xx.png)
+![http-status-code2-xx.png](General/HTTP/2xx.png)
+![http-status-code3-xx.png](General/HTTP/3xx.png)
+![http-status-code4-xx.png](General/HTTP/4xx.png)
+![http-status-code5-xx.png](General/HTTP/5xx.png)
+</div>
+-->
+
+
+<!-- ![http-status-codes.png](General/HTTP/http-status-codes.png) -->
+""",
+            "Networking Protocols": """
+
+|                  |                                                            |                                |
+|------------------|------------------------------------------------------------|--------------------------------|
+| FTP              | File Transfer Protocol                                     | Port 21                        |
+| SSH              | Secure Shell                                               | Port 22                        |
+| Teinet           | Port 23                                                    |                                |
+| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
+| DNS              | Domain Naming System (or Service)                          | Port 53                        |
+| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
+| POP3             | Post Office Protocol                                       | Port 110                       |
+| IMAP             | Internet Message Access Protocol                           | Port 143                       |
+| HTTPS            | HTTP Secure                                                | Port 443                       |
+| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
+| TCP              | Transmission Control Protocol                              |                                |
+| UDP              | User Datagram Protocol                                     |                                |
+| ARP              | Address Resolution Protocol                                |                                |
+| RARP             | Reverse ARP                                                |                                |
+| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
+| MTP              | Media Transfert Protocol                                   |                                |
+| SFTP             | Secure File Transfer Protocol                              |                                |
+| SSL              | Secure Socket Layer                                        |                                |
+| TLS              | Transport Layer Security                                   |                                |
+| E6               | Ethernet globalization protocols                           |                                |
+| NTP              | Network time protocol                                      |                                |
+| PPP              | Point to Point Protocol                                    |                                |
+| NNTP             | Network News Transfer Protocol                             |                                |
+| QOTD             | Quote Of The Day                                           |                                |
+| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
+| ICMP             | Internet Control Message Protocol                          |                                |
+| IGMP             | Internet Group Management Protocol                         |                                |
+| GGP              | Gateway-to-Gateway Protocol                                |                                |
+| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
+
+
+|                                                                 |                 |
+|-----------------------------------------------------------------|-----------------|
+| HTTP (Hypertext Transfer Protocol)                              | Протокол передачи гипертекста, который используется<br>для передачи веб-страниц и другого контента между сервером и клиентом в Интернете.<br>HTTP использует методы запроса-ответа между клиентом и сервером, где клиент отправляет запрос на сервер,<br>а сервер отправляет ответ с запрошенной информацией.<br>HTTP также поддерживает кэширование, что позволяет уменьшить количество передаваемых данных и ускорить загрузку страниц                                                                                                                                                                |
+| HTTPS (Hypertext Transfer Protocol Secure)                      | Это безопасная версия HTTP, которая использует шифрование SSL/TLS для защиты передаваемых данных от перехвата и подделки.<br>HTTPS добавляет дополнительный уровень безопасности в сравнении с HTTP и является необходимым<br>для обеспечения безопасной передачи конфиденциальной информации,<br>такой как пароли, номера кредитных карт и другие личные данные                                                                                                                                                                                                                                        |
+| SMTP (Simple Mail Transfer Protocol)                            | Протокол передачи почты, который используется для отправки электронной почты между почтовыми серверами.<br>SMTP работает на уровне приложения в модели OSI и использует порт 25 для обмена данными.<br>SMTP использует методы запроса-ответа, где отправитель отправляет сообщение на сервер,<br>а сервер затем доставляет сообщение получателю                                                                                                                                                                                                                                                         |
+| POP3 (Post Office Protocol version 3)                           | Протокол приема почты, который используется для получения электронной почты с сервера на клиентское устройство.<br>POP3 работает на уровне приложения и использует порт 110 для обмена данными.<br>Когда клиентский компьютер подключается к почтовому серверу,<br>POP3 загружает все письма с сервера на устройство, а затем удаляет их с сервера                                                                                                                                                                                                                                                      |
+| IMAP (Internet Message Access Protocol)                         | Протокол доступа к электронной почте, который также используется для получения электронной почты с сервера<br>на клиентское устройство, но предоставляет более продвинутые функции,<br>такие как хранение писем на сервере и синхронизация между устройствами.<br>IMAP работает на уровне приложения и использует порт 143 для обмена данными.<br>IMAP позволяет клиентам просматривать только заголовки писем или загружать их содержимое полностью,<br>а также удалять письма на сервере, не загружая их на устройство                                                                                |
+| TCP/IP<br>(Transmission Control Protocol/<br>Internet Protocol) | Это семейство протоколов, используемых для обмена данными в сети Интернет.<br>TCP отвечает за надежную передачу данных между приложениями,<br>установление и управление соединениями, а также контроль потока данных.<br>IP же отвечает за маршрутизацию пакетов данных между устройствами в сети,<br>идентификацию устройств, управление адресами и т.д.<br>TCP/IP также включает другие протоколы, такие как DNS (Domain Name System),<br>который переводит доменные имена в IP-адреса, и DHCP (Dynamic Host Configuration Protocol),<br>который автоматически назначает IP-адреса устройствам в сети |
+| FTP (File Transfer Protocol)                                    | Протокол передачи файлов, который используется для передачи файлов между компьютерами в сети.<br>FTP работает на уровне приложения и использует порт 21 для установки соединения и передачи команд,<br>а также порт 20 для передачи данных.<br>FTP позволяет пользователям загружать и скачивать файлы с сервера,<br>создавать и удалять директории и управлять правами доступа к файлам                                                                                                                                                                                                                |
+| SSH (Secure Shell)                                              | Протокол безопасной удаленной работы с командной строкой, который используется<br>для управления удаленными компьютерами и серверами.<br>SSH работает на уровне приложения и использует порт 22 для обмена данными.<br>SSH обеспечивает защиту от перехвата и подделки данных с помощью шифрования,<br>а также обеспечивает возможность удаленной аутентификации и управления устройством                                                                                                                                                                                                               |
+| DNS (Domain Name System)                                        | Протокол, который переводит доменные имена в IP-адреса и обратно.<br>DNS работает на уровне приложения и использует порт 53 для обмена данными.<br>DNS предоставляет возможность использования доменных имен для доступа к ресурсам<br>в сети вместо использования IP-адресов, что упрощает и облегчает работу сети                                                                                                                                                                                                                                                                                     |
+| SNMP (Simple Network Management Protocol)                       | Протокол управления сетью, который используется для мониторинга и управления сетевыми устройствами,<br>такими как маршрутизаторы, коммутаторы, серверы и т.д.<br>SNMP работает на уровне приложения и использует порты 161 и 162 для обмена данными.<br>SNMP позволяет администраторам мониторить статус устройств, настраивать их параметры и диагностировать проблемы в сети                                                                                                                                                                                                                          |
+
+
 """,
         },
-        "Парадигмы": {
-            "Императивная": """
-# КАК
+        "Парадигмы программирования": """
+# Императивная (КАК)
 
 Разработчик пишет для компьютера инструкции, которым тот следует.
 
 Виды программирования относятся к императивной парадигме:
 процедурное структурное аспектно-ориентированное объектно-ориентированное и другие.
 
-Пример
-Сложи два числа;
-Если а, то сделай б, а иначе сделай в;
-Отправь запрос на сервер;
-Открой файл;
-Выведи строку.
+> Сложи два числа;
+> Если а, то сделай б, а иначе сделай в;
+> Отправь запрос на сервер;
+> Открой файл;
+> Выведи строку.
 
 C# - Разработчик говорит как это можно получить (императивный)
 
@@ -1519,9 +1719,8 @@ int[] N2 = nums.ToArray();
 
 Императивное программирование даёт больше свободы, поэтому его чаще используют
 в творческих областях, особенно там, где важен порядок выполняемых действий.
-""",
-            "Декларативная": """
-# ЧТО
+
+# Декларативная (ЧТО)
 
 Разработчик описывает проблему и ожидаемый результат, но не пишет никаких инструкций.
 
@@ -1530,10 +1729,9 @@ int[] N2 = nums.ToArray();
 
 К декларативной парадигме относятся функциональное и логическое программирование.
 
-Пример
-Дано:    5, 1, 3, 9, 12, 583, 998, 7538, 72, 53, 71, 85, 7, 2, 9
-Задача:  Получить из этого массива все числа, которые больше 3, но меньше 100.
-Решение: Получить из массива N все числа, которые больше 3 и меньше 100.
+> Дано:    5, 1, 3, 9, 12, 583, 998, 7538, 72, 53, 71, 85, 7, 2, 9
+> Задача:  Получить из этого массива все числа, которые больше 3, но меньше 100.
+> Решение: Получить из массива N все числа, которые больше 3 и меньше 100.
 
 SQL - Разработчик говорит, что ему нужно (декларативный)
 
@@ -1543,8 +1741,8 @@ SELECT num FROM N WHERE num > 3 AND num < 100;
 Декларативное программирование — это обёртка для императивного.
 Не подходит для задач, для решения которых важно иметь доступ к состоянию программы.
 Например, если нужно проверить, нажата ли кнопка или поставлена ли галочка в чекбокс.
+
 """,
-        },
         "ip": """
 IP-адреса делятся на 5 классов
 
@@ -1615,39 +1813,6 @@ IP бывают **белые и серые** (или публичные и ча�
 а также методами для внесения и снятия денег.
 Конкретные типы счетов, такие как "текущий счет" или "депозитный счет", могут быть созданы на основе этого абстрактного класса
 и расширены своими дополнительными свойствами и методами.
-""",
-        "Networking Protocols": """
-|                  |                                                            |                                |
-|------------------|------------------------------------------------------------|--------------------------------|
-| FTP              | File Transfer Protocol                                     | Port 21                        |
-| SSH              | Secure Shell                                               | Port 22                        |
-| Teinet           | Port 23                                                    |                                |
-| SMTP             | Simple Mail Transfer Protocol                              | Port 25                        |
-| DNS              | Domain Naming System (or Service)                          | Port 53                        |
-| HTTP             | Hypertext Transfer Protocol                                | Port 80                        |
-| POP3             | Post Office Protocol                                       | Port 110                       |
-| IMAP             | Internet Message Access Protocol                           | Port 143                       |
-| HTTPS            | HTTP Secure                                                | Port 443                       |
-| RDP              | Remote Desktop Protocol                                    | Port 3389                      |
-| TCP              | Transmission Control Protocol                              |                                |
-| UDP              | User Datagram Protocol                                     |                                |
-| ARP              | Address Resolution Protocol                                |                                |
-| RARP             | Reverse ARP                                                |                                |
-| DHCP             | Dynamic Host Configuration Protocol                        | Server Port 67, Client Port 68 |
-| MTP              | Media Transfert Protocol                                   |                                |
-| SFTP             | Secure File Transfer Protocol                              |                                |
-| SSL              | Secure Socket Layer                                        |                                |
-| TLS              | Transport Layer Security                                   |                                |
-| E6               | Ethernet globalization protocols                           |                                |
-| NTP              | Network time protocol                                      |                                |
-| PPP              | Point to Point Protocol                                    |                                |
-| NNTP             | Network News Transfer Protocol                             |                                |
-| QOTD             | Quote Of The Day                                           |                                |
-| Bitcoin Protocol | Protocol for Bitcoin transactions and transfers on the web |                                |
-| ICMP             | Internet Control Message Protocol                          |                                |
-| IGMP             | Internet Group Management Protocol                         |                                |
-| GGP              | Gateway-to-Gateway Protocol                                |                                |
-| IP-in-IP         | IP in IP (encapsulation)                                   |                                |
 """,
         "Interpreter Compiler": """
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -1871,7 +2036,7 @@ def bubble_sort(arr):
 
 """,
         "Бинарные операторы": """
-Бинарные операторы и создание флагов в Python
+Бинарные операторы и создание флагов
 
 # Бинарные операторы
 
@@ -18076,933 +18241,6 @@ print(a is b)  # True
 ```
 ''',
             },
-            "Snippets": {
-                "Examples": {
-                    "list comprehension tips": """
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = [
-    item
-    for tpl in list_of_tuples
-    for item in tpl
-]
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = []
-for tpl in list_of_tuples:
-    for item in tpl:
-        result_list.append(item)
-
-print(result_list)
-[1, 2, 3, 4, 5, 6]
-```
-""",
-                    "Multiplication of lists": """
-<div class="container-row">
-```pycon
->>> a = [[]]*3
->>> for x in a:
-...     print(id(x))
-...
-3276075832448
-3276075832448
-3276075832448
->>> a[1].append(1)
->>> a
-[[1], [1], [1]]
-```
-&nbsp;
-```pycon
->>> b = [[] for _ in range(3)]
->>> for x in b:
-...     print(id(x))
-...
-3276075828928
-3276075828992
-3276075828864
->>> b[1].append(1)
->>> b
-[[], [1], []]
-```
-</div>
-<div class="container-row">
-```pycon
->>> c = [[]]
->>> print(id(c[0]))
-3276075894784
->>> for x in (c + c):
-...     print(id(x))
-...
-3276075894784
-3276075894784
-```
-&nbsp;
-```pycon
->>> d = ((),)*3
->>> for x in d:
-...     print(id(d))
-...
-3276075830656
-3276075830656
-3276075830656
-```
-</div>
-""",
-                },
-                "File formats": {
-                    "JSON": r"""
-# JSON - JavaScript Object Notation
-
-Tекстовый формат обмена данными, который основан на синтаксисе JavaScript.
-Он используется для хранения и обмена структурированными данными и часто используется
-в веб-приложениях для обмена данными между клиентом и сервером.
-
-```json
-{
-    "name": "John Smith",
-    "age": 30,
-    "city": "New York"
-}
-```
-
-```python
-import json
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.json", "w", encoding="UTF-8") as file:
-    file.write(json.dumps(config, indent=4, ensure_ascii=False))
-    # json.dump(config, file, indent=4, ensure_ascii=False)
-
-with open("config.json", "r", encoding="UTF-8") as file:
-    config = json.load(file)
-    # config = json.loads(file.read())
-
-print(config)
-```
-
-# JSONL
-
-```python
-{"name": "Alice Jones", "age": 25, "city": "Los Angeles"}
-{"name": "John Smith", "age": 30, "city": "New York"}
-{"name": "Bob Johnson", "age": 40, "city": "Chicago"}
-```
-
-```python
-import json
-
-
-config = [
-    {"name": "Alice Jones", "age": 25, "city": "Los Angeles"},
-    {"name": "John Smith", "age": 30, "city": "New York"},
-    {"name": "Bob Johnson", "age": 40, "city": "Chicago"},
-]
-
-with open("test.jsonl", "a", encoding="UTF-8") as file:
-    file.writelines([str(line) + "\n" for line in config])
-
-with open("config.jsonl", "r", encoding="UTF-8") as file:
-    for line in file:
-        print(json.loads(line))
-```
-
-[[Other/File formats/TinyDB (json).md]]
-""",
-                    "YAML": """
-# YAML - Ain't Markup Language
-
-Формат файлов, который используется для хранения и обмена неструктурированными и структурированными
-данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
-`YAML` использует отступы и специальные символы для обозначения структуры данных.
-Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.
-
-```yaml
-name: John Smith
-age: 30
-city: New York
-```
-
-```python
-import yaml  # pip install yaml
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.yaml", "w", encoding="utf-8") as file:
-    file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
-
-with open("config.yaml", "r", encoding="utf-8") as file:
-    config = yaml.safe_load(file.read())
-
-print(config)
-```
-""",
-                    "TOML": """
-# TOML - Tom's Obvious, Minimal Language
-
-формат конфигурационных файлов, который был разработан
-для использования в проектах, написанных на языке программирования `Rust`.
-
-TOML файлы имеют структуру ключ-значение, где ключи и значения
-разделены знаком `=`, и используют синтаксис, похожий на язык программирования `INI`.
-
-```toml
-[package]
-name = "example"
-version = "1.0.0"
-authors = ["John Doe <john@example.com>"]
-```
-
-```python
-import toml  # pip install toml
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-
-with open("config.toml", "w", encoding="UTF-8") as file:
-    file.write(toml.dumps(config))
-    # toml.dump(config, file)
-
-with open("config.toml", "r", encoding="UTF-8") as file:
-    config = toml.load(file)
-    # config = toml.loads(file.read())
-
-print(config)
-```
-""",
-                    "INI": """
-# INI (Initialization)
-
-формат конфигурационных файлов, который используется
-для хранения настроек приложений и операционных систем.
-Он был разработан в `Windows` и стал широко используемым
-форматом для хранения конфигурационных данных в различных программных продуктах.
-
-```ini
-[Section1]
-key1 = value1
-key2 = value2
-
-[Section2]
-key3 = value3
-key4 = value4
-```
-
-```python
-# config = configparser.ConfigParser()
-# config["BOT"] = {"bot_name": "", "token": ""}
-
-import configparser
-
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-config_ini = configparser.ConfigParser()
-
-for key, value in config.items():
-    config_ini[key] = value
-
-with open("config.ini", "w") as file:
-    config_ini.write(file)
-
-config_ini = configparser.ConfigParser()
-config_ini.read("config.ini")
-print(config)
-```
-""",
-                    "XML": """
-# XML - eXtensible Markup Language
-
-Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
-Он использует теги для определения структуры данных и может быть использован для хранения
-всех видов данных, включая текст, изображения и мультимедиа.
-`XML` широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<note>
-<to>Tove</to>
-<from>Jani</from>
-<heading>Reminder</heading>
-<body>Don't forget me this weekend!</body>
-</note>
-```
-
-```python
-# config = ET.Element("config")
-# bot = ET.SubElement(config, "BOT")
-# ET.SubElement(bot, "bot_name").text = ""
-# ET.SubElement(bot, "token").text = ""
-# tree = ET.ElementTree(config)
-
-import xml.etree.ElementTree as xml
-
-def dict_to_xml(dct, root_node=None):
-    if root_node is None:
-        root_node = xml.Element("root")
-    for key, value in dct.items():
-        node = xml.SubElement(root_node, key)
-        if isinstance(value, dict):
-            dict_to_xml(value, node)
-        else:
-            node.text = str(value)
-    return root_node
-
-def xml_to_dict(root):
-    from collections import defaultdict
-    dct = {root.tag: {} if root.attrib else None}
-    children = list(root)
-    if children:
-        dd = defaultdict(list)
-        for dc in map(xml_to_dict, children):
-            for k, v in dc.items():
-                dd[k].append(v)
-        dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
-    if root.attrib:
-        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
-    if root.text:
-        text = root.text.strip()
-        if children or root.attrib:
-            if text:
-                dct[root.tag]["#text"] = text
-        else:
-            dct[root.tag] = text
-    return dct
-
-config = {"BOT": {"bot_name": "", "token": ""}}
-config = dict_to_xml(config)
-tree = xml.ElementTree(config)
-
-with open("config.xml", "wb") as file:
-    tree.write(file, encoding="utf-8", xml_declaration=True)
-
-with open("config.xml", "r") as file:
-    tree = xml.parse(file)
-
-root = tree.getroot()
-config = xml_to_dict(root)
-print(config)
-```
-""",
-                    "CSV": """
-# CSV - Comma Separated Values
-
-Текстовый формат файла, который используется для хранения табличных данных.
-Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.
-
-```csv
-Name,Age,City
-John Smith,30,New York
-Jane Doe,25,Chicago
-```
-
-```python
-import csv
-
-
-data = [
-    ("Name", "Age"),
-    ("Alice", 25),
-    ("Bob", 30),
-    ("Charlie", 35),
-]
-
-with open("data.csv", "w", newline="", encoding="UTF-8") as file:
-    csv.writer(file).writerows(data)
-
-with open("data.csv", "r", encoding="UTF-8") as file:
-    print(list(csv.reader(file)))
-```
-""",
-                    "SQLite3 to CSV": '''
-```python
-import sqlite3
-import csv
-
-def SQL(query: str, params: tuple | dict = None, commit: bool = False, column_names: bool = False):
-    """Выполняет SQL запрос"""
-    with sqlite3.connect(r"database.sqlite") as connection:
-        cursor = connection.cursor()
-        cursor.execute(query, params)
-        if commit: connection.commit()
-        result = cursor.fetchall()
-        if column_names and getattr(cursor, "description"):
-            column_names_data = [column[0] for column in cursor.description] or None
-            result = column_names_data + result
-    return result
-
-data = SQL("SELECT * FROM table_name;")
-
-with open("data.csv", "w", newline="", encoding="UTF-8") as file:
-    writer = csv.writer(file)
-    writer.writerows(data)
-
-with open("data.csv", "r", encoding="UTF-8") as file:
-    reader = csv.reader(file)
-    column_names = next(reader)
-    SQL(
-        f"""
-CREATE TABLE table_name (
-    {", ".join([f"{column} TEXT" for column in column_names])}
-);
-""",
-        commit=True,
-    )
-    for row in reader:
-        SQL(
-            f"""
-INSERT INTO table_name (
-    {", ".join(column_names)}
-)
-VALUES (
-    {", ".join([f'"{column}"' for column in row])}
-)
-""",
-            commit=True,
-        );
-```
-''',
-                    "Vedis db": """
-```python
-from vedis import Vedis
-db = Vedis(":mem:")  # Create an in-memory database.
-db = Vedis("Dict.vedis")
-with db.transaction():
-    db["key"] = "value"
-    db.rollback()  # Undo changes.
-    db.commit()
-print(db["key"])
-```
-
-[https://vedis-python.readthedocs.io/en/latest/quickstart.html](https://vedis-python.readthedocs.io/en/latest/quickstart.html)
-
-Пример использования в боте
-[https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/](https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/)
-""",
-                    "TinyDB (json)": """
-```bash
-pip install tinydb
-```
-
-```python
-from tinydb import TinyDB, Query
-
-
-db = TinyDB("db.json")
-users_table = db.table("users")
-user_id = users_table.insert({"name": "John", "age": 25})
-all_users = users_table.all()
-
-# Получение записи по условию (например, по имени)
-user_query = Query()
-john_data = users_table.search(user_query.name == "John")
-
-# Изменение данных в записи по условию (например, по имени)
-users_table.update({"age": 26}, user_query.name == "John")
-
-# Удаление записи по условию (например, по имени)
-users_table.remove(user_query.name == "John")
-```
-
-[[Other/File formats/JSON.md]]
-""",
-                },
-                "Problems": {
-                    "Пирамида граф": """
-Нахождение пути с максимальной суммой по "пирамиде"
-
-```python
-graph = [
-    [75],
-    [95, 64],
-    [17, 47, 82],
-    [18, 35, 87, 10],
-    [20,  4, 82, 47, 65],
-    [19,  1, 23, 75,  3, 34],
-    [88,  2, 77, 73,  7, 63, 67],
-    [99, 65,  4, 28,  6, 16, 70, 92],
-    [41, 41, 26, 56, 83, 40, 80, 70, 33],
-    [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
-    [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
-    [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
-    [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
-    [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
-    [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23],
-]
-
-# Cоздаем пустой словарь для хранения сумм каждого узла.
-sums = {}
-for i in range(len(graph)):
-    for j in range(len(graph[i])):
-        sums[(i, j)] = graph[i][j]
-
-# Проходимся по каждому узлу в пирамиде и вычисляем сумму каждого узла
-# Начинаем с последней строки пирамиды и движемся вверх
-for i in range(len(graph)-2, -1, -1):
-    for j in range(len(graph[i])):
-        sums[(i, j)] += max(sums[(i+1, j)], sums[(i+1, j+1)])
-
-# Step 3
-max_sum_path = sums[(0, 0)]
-
-# Step 4
-i, j = 0, 0
-path = [graph[0][0]]
-while i < len(graph) - 1:
-    left_sum = sums[(i+1, j)]
-    right_sum = sums[(i+1, j+1)]
-    if left_sum > right_sum:
-        i += 1
-    else:
-        i += 1
-        j += 1
-    path.append(graph[i][j])
-
-print(sum(path))
-```
-
-```python
-def max_sum_path(graph):
-    n = len(graph)
-    # Инициализируем максимальную сумму первого элемента
-    max_sum = graph[0][0]
-    for i in range(1, n):
-        # Проходим по строкам и столбцам "ниже" текущего элемента
-        for j in range(i + 1):
-            if j == 0: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
-                graph[i][j] += graph[i - 1][j]
-            elif j == i: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
-                graph[i][j] += graph[i - 1][j - 1]
-            else: # В остальных случаях элемент имеет двух соседей
-                graph[i][j] += max(graph[i - 1][j - 1], graph[i - 1][j])
-            # Обновляем максимальную сумму
-            max_sum = max(max_sum, graph[i][j])
-    return max_sum
-
-# Пример использования функции
-graph = [[45], [23, 78], [12, 26, 51]]
-print("Максимальная сумма пути в графе:", max_sum_path(graph))
-```
-
-```python
-def longest_slide_down(p):
-    res = p.pop()
-    while p:
-        tmp = p.pop()
-        res = [tmp[i] + max(res[i],res[i+1]) for i in range(len(tmp))]
-    return res.pop()
-```
-
-
-# Обьяснение
-Если граф будет равен
-
-```python
-graph = [
-        [45],
-      [23, 78],
-    [12, 26, 51]]
-```
-""",
-                    "Определитель матрицы": """
-```python@matrix.py
-class Matrix:
-    def __init__(self, matrix: list[list[int]]):
-        self.matrix = matrix
-
-    def get_minor(self, i: int, j: int) -> list[list[int]]:
-        result = [
-            list(row[:j] + row[j+1:])
-            for row_index, row in enumerate(self.matrix)
-            if row_index != i
-        ]
-        return result
-
-    def det(self):
-        n = len(self.matrix)
-        if len({len(row) for row in self.matrix}) > 1 and n != x[0]:
-            raise ValueError("")
-
-        if n == 1:
-            return self.matrix[0][0]
-
-        elif n == 2:
-            return (
-                self.matrix[0][0] * self.matrix[1][1]
-            ) - (
-                self.matrix[0][1] * self.matrix[1][0]
-            )
-        elif n == 3:
-            return (
-                self.matrix[0][0] * self.matrix[1][1] * self.matrix[2][2]
-            ) + (
-                self.matrix[0][1] * self.matrix[1][2] * self.matrix[2][0]
-            ) + (
-                self.matrix[0][2] * self.matrix[1][0] * self.matrix[2][1]
-            ) - (
-                self.matrix[0][2] * self.matrix[1][1] * self.matrix[2][0]
-            ) - (
-                self.matrix[0][0] * self.matrix[1][2] * self.matrix[2][1]
-            ) - (
-                self.matrix[0][1] * self.matrix[1][0] * self.matrix[2][2]
-            )
-
-        else:
-            result = []
-            i = 0
-            for j, x in enumerate(self.matrix[0]):
-                minor = self.get_minor(i, j)
-                result.append(x * ((-1)**(i+1 + j+1)) * Matrix(minor).det())
-            return sum(result)
-```
-
-```python@test_matrix_1.py
-from matrix import Matrix
-
-m = [
-    [1, 5, 7, 4, 9],
-    [4, 7, 8, 3, 4],
-    [9, 3, 5, 2, 8],
-    [9, 3, 6, 3, 1],
-    [5, 9, 1, 4, 2]
-]
-
-print(Matrix(m).det())
-```
-
-```python@test_matrix_2.py
-from numpy import linalg
-m = [
-    [1, 5, 7, 4, 9],
-    [4, 7, 8, 3, 4],
-    [9, 3, 5, 2, 8],
-    [9, 3, 6, 3, 1],
-    [5, 9, 1, 4, 2]
-]
-print(linalg.det(m))
-```
-""",
-                    "Минимальное максимальное число матрицы cpp": r"""
-```cpp@maxminmatrix.cpp
-#include <iostream>
-#include <vector>
-#include <time.h>
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-    int rows = 3;
-    int cols = 4;
-    srand(time(NULL));
-    vector<vector<int>> matrix(rows, vector<int>(cols, 0));
-    for (int i = 0; i < rows; ++i) {
-        cout << "|";
-        for (int j = 0; j < cols; ++j) {
-            int number = 1 + rand() % 999;
-            matrix[i][j] = number;
-            cout << " " << setw(3) << setfill(" ") << number << " |";
-        }
-        cout << "\n";
-    }
-    int max = 0;
-    int min = 999;
-    for (auto r : matrix) {
-        for (auto c : r) {
-            if (c > max) max = c;
-            if (c < min) min = c;
-        }
-    }
-    cout << "max = " << max << "\n" << "min = " << min << "\n";
-    return 0;
-}
-```
-""",
-                    "str - int": """
-```python
-chr_digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-
-def number_to_string(number):
-    if number == 0:
-        return "0"
-    sign = "-" if number < 0 else ""
-    number = abs(number)
-    digits = []
-    while number > 0:
-        digit = number % 10
-        digits.append(chr_digit[digit])
-        number //= 10
-    digits.reverse()
-    return sign + "".join(digits)
-
-
-def string_to_number(string):
-    if string == "0":
-        return 0
-    sign = 1
-    if string[0] == "-":
-        sign = -1
-        string = string[1:]
-    number = 0
-    for char in string:
-        digit = chr_digit.index(char)
-        number = number * 10 + digit
-    return sign * number
-```
-```pycon
->>> print(number_to_string(12345))
-"12345"
->>> print(string_to_number("12345"))
-12345
-```
-""",
-                    "fib": """
-```python
-def fib(n):
-    a, b = 0, 1
-    for _ in range(n):
-        yield a
-        a, b = b, a + b
-```
-```pycon
->>> print(list(fib(10)))
-[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
-```
-""",
-                    "converters": '''
-```python
-def sqrt(x, p: int = 2):
-    return pow(x, (1 / p))
-```
-```python
-def rgb_to_hex(r: int, g: int, b: int) -> str:
-    return "#{:02x}{:02x}{:02x}".format(r, g, b).upper()
-
-def hex_to_rgb(h: str) -> tuple[int, int, int]:
-    return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
-```
-```pycon
->>> rgb_to_hex(164, 73, 211)
-"#A449D3"
->>> hex_to_rgb("#A449D3")
-(164, 73, 211)
-```
-```python
-def html_escape(text):
-    return "".join(f"&#{ord(char)};" for char in text)
-```
-```python
-def tg_color(chat_id: int):
-    """
-    0x6FB9F0 Синий
-    0xFFD67E Оранжевый
-    0xCB86DB Фиолетовый
-    0x8EEE98 Зелёный
-    0xFF93B2 Розовый
-    0xFB6F5F Красный
-    """
-    return {0: "К", 1: "О", 2: "Ф", 3: "З", 4: "Г", 5: "С", 6: "Р"}[abs(chat_id) % 7]
-```
-```python
-def unicode(text):
-    return "".join(fr"\\U{ord(char):0>8x}" for char in text)
-```
-''',
-                    "quicksort": """
-```python
-def quicksort(array):
-    if len(array) < 2:
-        return array
-    else:
-        pivot = array[0]
-        less = [i for i in array[1:] if i <= pivot]
-        greater = [i for i in array[1:] if i > pivot]
-        return quicksort(less) + [pivot] + quicksort(greater)
-
-
-quicksortL = lambda array: (
-    array
-    if len(array) < 2 else
-    (
-        lambda pivot, less, greater: quicksortL(less) + [pivot] + quicksortL(greater)
-    )(
-        **(
-            lambda pivot, temp_arr: {
-                "pivot": pivot,
-                "less": [i for i in temp_arr if i <= pivot],
-                "greater": [i for i in temp_arr if i > pivot]
-            }
-        )(array[0], array[1:])
-    )
-)
-```
-```pycon
->>> print(quicksort([10, 5, 2, 3]))
-[2, 3, 5, 10]
-```
-""",
-                    "словарь обращение через точку": """
-# Словарь обращение через точку
-
-```python
-class Dict:
-    def __init__(self, d: dict):
-        self.d = d
-
-    def __getattr__(self, item: str):
-        return self.__class__(self.d.get(item))
-
-    def __setattr__(self, name, value):
-        if name == "d":
-            super().__setattr__(name, value)
-        else:
-            self.d[name] = value
-
-    def __repr__(self):
-        return __repr__(self.d)
-```
-""",
-                    "download telegram emoji": """
-```python
-import logging
-
-import requests
-from requests.exceptions import MissingSchema
-
-
-def download_emoji(emoji: str) -> bool:
-    emoji_name = "-".join(str(hex(ord(c)))[2:] for c in emoji)
-    print(emoji_name)
-    link = f"https://web.telegram.org/a/img-apple-64/{emoji_name}.png"
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36 Edg/113.0.1774.42"
-        )
-    }
-    try:
-        with open(f"emojis/{emoji_name}.png", "wb") as file:
-            file.write(requests.get(link, headers=headers).content)
-        return True
-    except MissingSchema as e:
-        logging.error(f"{e}")
-    except ConnectionError:
-        logging.error("404")
-    return False
-```
-""",
-                },
-                "Get admin rights": """
-# Windows
-
-```python
-import sys
-import os
-import ctypes
-
-
-def is_admin():
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin() != 0
-    except:
-        return False
-
-# Если скрипт не запущен от имени администратора, перезапускаем его с правами администратора
-if not is_admin():
-    print("Необходимы права администратора, перезапускаем скрипт...")
-    # Перезапуск скрипта с правами администратора
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, ' '.join(sys.argv), None, 1)
-    sys.exit(0)
-
-# Ваш код, который требует прав администратора
-print("Скрипт запущен с правами администратора!")
-```
-
-# Linux / macOS
-
-```python
-import os
-import sys
-import subprocess
-
-# Проверка, запущен ли скрипт с правами администратора
-def is_admin():
-    return os.geteuid() == 0
-
-# Если скрипт не запущен с правами администратора, перезапускаем его с использованием sudo
-if not is_admin():
-    print("Необходимы права администратора, перезапускаем скрипт...")
-    subprocess.check_call(["sudo", "python3"] + sys.argv)
-    sys.exit(0)
-
-# Ваш код, который требует прав администратора
-print("Скрипт запущен с правами администратора!")
-```
-
-""",
-                "PYPRECODE": r"""
-
-```requirements@requirements.txt
-table2string
-pyperclip
-telebot
-arrow
-```
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-`PYPRECODE`
-```python
-import sys,os,re,requests,telebot,time,arrow;from datetime import datetime,timedelta;from uuid import uuid4;from table2string import print_table;from pyperclip import paste, copy;TeleBot=telebot.TeleBot;uuid=lambda: str(uuid4()).replace('-', '');unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text);html_escape = lambda text: ''.join(f'&#x{ord(x):x};' for x in text);re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');sqrt = lambda x, p=2: pow(x, (1 / p));rgb_to_hex = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper();hex_to_rgb = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4));color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args);print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
-```
-
-```path
-python -ic "%PYPRECODE%"
-```
-
-```python
-import sys,os,re,requests,time,arrow,html,urllib.parse,math
-from uuid import uuid4
-from pyperclip import paste, copy
-from datetime import datetime,timedelta
-from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
-
-sqrt = lambda x, p=2: pow(x, (1 / p))
-uuid=lambda: str(uuid4()).replace("-", "")
-
-unicode_escape = lambda text: "".join(fr"\U{ord(x):0>8x}" for x in text)
-
-html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: "".join(f"&#x{ord(x):x};" for x in text), re.compile(r"(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)")
-url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote
-
-rgb_to_hex, hex_to_rgb = lambda r, g, b: "#{:02x}{:02x}{:02x}".format(r, g, b).upper(), lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
-color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args)
-
-__, dir = lambda a: not a.startswith("__"), = lambda o, func=None: [a for a in dir(o) if func(a)]
-
-print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
-```
-
-```python
-import re
-from pyperclip import paste, copy
-if input("Скопируйте код и нажмите Enter (вставлять код в консоль не нужно)") or True: PYPRECODE := copy(re.sub(r"\n+", r"\n", paste().strip()))
-```
-
-<!--
-quicksort = lambda array: (array if len(array) < 2 else (lambda p, l, g: quicksort(l) + [p] + quicksort(g))(**(lambda pivot, temp_arr: {'p': pivot, 'l': [i for i in temp_arr if i <= pivot], 'g': [i for i in temp_arr if i > pivot]})(array[0], array[1:])))
--->
-
-""",
-            },
             "Operator precedence": """
 Приоритетность операторов от высокой до самой низкой.
 
@@ -22223,43 +21461,6 @@ public class FileWriterExample {
 }
 ```
 """,
-            "Snippets": {
-                "snippet 1": """
-```java
-import java.util.function.Consumer;
-
-class Example {
-    int print = 1;
-    // String print = "qwe"; // Variable 'print' is already defined in the scope
-
-    public void print(int x) {
-        System.out.println(x);
-    }
-    public void print(String x) {
-        System.out.println(x);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Example example = new Example();
-        System.out.println(example.print);
-        example.print(23);
-        example.print("qwerty");
-
-        int Int = example.print;
-        System.out.println(Int);
-
-        Consumer<Integer> printInt = example::print;
-        printInt.accept(23);
-
-        Consumer<String> printString = example::print;
-        printString.accept("qwerty");
-    }
-}
-```
-"""
-            },
         },
         "Kotlin": {
             "index": """
@@ -23280,14 +22481,6 @@ RUN mkdir C:\app\data\logs /p
 """,
         },
         "JavaScript": {
-            "Snippets": {
-                "js YouTube": """
-# изменение скорости воспроизведения на ютубе
-```javascript
-javascript:document.getElementsByClassName("video-stream html5-main-video")[0].playbackRate = 2.5;
-```
-""",
-            },
             "Списки": """
 ```js
 let myArray = [1, 2, 3, 4, 5];
@@ -27445,6 +26638,13 @@ storage-method: MariaDB
 | `Enable Ligatures` | <input type="checkbox" checked> |
 
 """,
+            "font": """
+
+[https://www.jetbrains.com/lp/mono/](https://www.jetbrains.com/lp/mono/)
+[https://fonts.google.com/specimen/JetBrains+Mono](https://fonts.google.com/specimen/JetBrains+Mono)
+[https://github.com/JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono)
+
+""",
         },
         "ChatGPT": {
             "Промты": """
@@ -27717,6 +26917,981 @@ code
 
 """,
     },
+    "Snippets": {
+        "Python": {
+            "Examples": {
+                "list comprehension tips": """
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = [
+    item
+    for tpl in list_of_tuples
+    for item in tpl
+]
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+```python
+list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+result_list = []
+for tpl in list_of_tuples:
+    for item in tpl:
+        result_list.append(item)
+
+print(result_list)
+[1, 2, 3, 4, 5, 6]
+```
+""",
+                "Multiplication of lists": """
+<div class="container-row">
+```pycon
+>>> a = [[]]*3
+>>> for x in a:
+...     print(id(x))
+...
+3276075832448
+3276075832448
+3276075832448
+>>> a[1].append(1)
+>>> a
+[[1], [1], [1]]
+```
+&nbsp;
+```pycon
+>>> b = [[] for _ in range(3)]
+>>> for x in b:
+...     print(id(x))
+...
+3276075828928
+3276075828992
+3276075828864
+>>> b[1].append(1)
+>>> b
+[[], [1], []]
+```
+</div>
+<div class="container-row">
+```pycon
+>>> c = [[]]
+>>> print(id(c[0]))
+3276075894784
+>>> for x in (c + c):
+...     print(id(x))
+...
+3276075894784
+3276075894784
+```
+&nbsp;
+```pycon
+>>> d = ((),)*3
+>>> for x in d:
+...     print(id(d))
+...
+3276075830656
+3276075830656
+3276075830656
+```
+</div>
+""",
+            },
+            "File formats": {
+                "JSON": r"""
+# JSON - JavaScript Object Notation
+
+Tекстовый формат обмена данными, который основан на синтаксисе JavaScript.
+Он используется для хранения и обмена структурированными данными и часто используется
+в веб-приложениях для обмена данными между клиентом и сервером.
+
+```json
+{
+    "name": "John Smith",
+    "age": 30,
+    "city": "New York"
+}
+```
+
+```python
+import json
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.json", "w", encoding="UTF-8") as file:
+    file.write(json.dumps(config, indent=4, ensure_ascii=False))
+    # json.dump(config, file, indent=4, ensure_ascii=False)
+
+with open("config.json", "r", encoding="UTF-8") as file:
+    config = json.load(file)
+    # config = json.loads(file.read())
+
+print(config)
+```
+
+# JSONL
+
+```python
+{"name": "Alice Jones", "age": 25, "city": "Los Angeles"}
+{"name": "John Smith", "age": 30, "city": "New York"}
+{"name": "Bob Johnson", "age": 40, "city": "Chicago"}
+```
+
+```python
+import json
+
+
+config = [
+    {"name": "Alice Jones", "age": 25, "city": "Los Angeles"},
+    {"name": "John Smith", "age": 30, "city": "New York"},
+    {"name": "Bob Johnson", "age": 40, "city": "Chicago"},
+]
+
+with open("test.jsonl", "a", encoding="UTF-8") as file:
+    file.writelines([str(line) + "\n" for line in config])
+
+with open("config.jsonl", "r", encoding="UTF-8") as file:
+    for line in file:
+        print(json.loads(line))
+```
+
+[[Snippets/Python/File formats/TinyDB (json).md]]
+""",
+                "YAML": """
+# YAML - Ain't Markup Language
+
+Формат файлов, который используется для хранения и обмена неструктурированными и структурированными
+данными. Например он популярен в файлах настройки приложений, описание конфигураций и т.д.
+`YAML` использует отступы и специальные символы для обозначения структуры данных.
+Он также поддерживает множество типов данных, включая строки, числа, логические значения и массивы.
+
+```yaml
+name: John Smith
+age: 30
+city: New York
+```
+
+```python
+import yaml  # pip install yaml
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.yaml", "w", encoding="utf-8") as file:
+    file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
+
+with open("config.yaml", "r", encoding="utf-8") as file:
+    config = yaml.safe_load(file.read())
+
+print(config)
+```
+""",
+                "TOML": """
+# TOML - Tom's Obvious, Minimal Language
+
+формат конфигурационных файлов, который был разработан
+для использования в проектах, написанных на языке программирования `Rust`.
+
+TOML файлы имеют структуру ключ-значение, где ключи и значения
+разделены знаком `=`, и используют синтаксис, похожий на язык программирования `INI`.
+
+```toml
+[package]
+name = "example"
+version = "1.0.0"
+authors = ["John Doe <john@example.com>"]
+```
+
+```python
+import toml  # pip install toml
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+
+with open("config.toml", "w", encoding="UTF-8") as file:
+    file.write(toml.dumps(config))
+    # toml.dump(config, file)
+
+with open("config.toml", "r", encoding="UTF-8") as file:
+    config = toml.load(file)
+    # config = toml.loads(file.read())
+
+print(config)
+```
+""",
+                "INI": """
+# INI (Initialization)
+
+формат конфигурационных файлов, который используется
+для хранения настроек приложений и операционных систем.
+Он был разработан в `Windows` и стал широко используемым
+форматом для хранения конфигурационных данных в различных программных продуктах.
+
+```ini
+[Section1]
+key1 = value1
+key2 = value2
+
+[Section2]
+key3 = value3
+key4 = value4
+```
+
+```python
+# config = configparser.ConfigParser()
+# config["BOT"] = {"bot_name": "", "token": ""}
+
+import configparser
+
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+config_ini = configparser.ConfigParser()
+
+for key, value in config.items():
+    config_ini[key] = value
+
+with open("config.ini", "w") as file:
+    config_ini.write(file)
+
+config_ini = configparser.ConfigParser()
+config_ini.read("config.ini")
+print(config)
+```
+""",
+                "XML": """
+# XML - eXtensible Markup Language
+
+Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
+Он использует теги для определения структуры данных и может быть использован для хранения
+всех видов данных, включая текст, изображения и мультимедиа.
+`XML` широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+```
+
+```python
+# config = ET.Element("config")
+# bot = ET.SubElement(config, "BOT")
+# ET.SubElement(bot, "bot_name").text = ""
+# ET.SubElement(bot, "token").text = ""
+# tree = ET.ElementTree(config)
+
+import xml.etree.ElementTree as xml
+
+def dict_to_xml(dct, root_node=None):
+    if root_node is None:
+        root_node = xml.Element("root")
+    for key, value in dct.items():
+        node = xml.SubElement(root_node, key)
+        if isinstance(value, dict):
+            dict_to_xml(value, node)
+        else:
+            node.text = str(value)
+    return root_node
+
+def xml_to_dict(root):
+    from collections import defaultdict
+    dct = {root.tag: {} if root.attrib else None}
+    children = list(root)
+    if children:
+        dd = defaultdict(list)
+        for dc in map(xml_to_dict, children):
+            for k, v in dc.items():
+                dd[k].append(v)
+        dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
+    if root.attrib:
+        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
+    if root.text:
+        text = root.text.strip()
+        if children or root.attrib:
+            if text:
+                dct[root.tag]["#text"] = text
+        else:
+            dct[root.tag] = text
+    return dct
+
+config = {"BOT": {"bot_name": "", "token": ""}}
+config = dict_to_xml(config)
+tree = xml.ElementTree(config)
+
+with open("config.xml", "wb") as file:
+    tree.write(file, encoding="utf-8", xml_declaration=True)
+
+with open("config.xml", "r") as file:
+    tree = xml.parse(file)
+
+root = tree.getroot()
+config = xml_to_dict(root)
+print(config)
+```
+""",
+                "CSV": """
+# CSV - Comma Separated Values
+
+Текстовый формат файла, который используется для хранения табличных данных.
+Каждая строка файла содержит одну запись, а значения в этой записи разделены запятыми.
+
+```csv
+Name,Age,City
+John Smith,30,New York
+Jane Doe,25,Chicago
+```
+
+```python
+import csv
+
+
+data = [
+    ("Name", "Age"),
+    ("Alice", 25),
+    ("Bob", 30),
+    ("Charlie", 35),
+]
+
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
+    csv.writer(file).writerows(data)
+
+with open("data.csv", "r", encoding="UTF-8") as file:
+    print(list(csv.reader(file)))
+```
+""",
+                "SQLite3 to CSV": '''
+```python
+import sqlite3
+import csv
+
+def SQL(query: str, params: tuple | dict = None, commit: bool = False, column_names: bool = False):
+    """Выполняет SQL запрос"""
+    with sqlite3.connect(r"database.sqlite") as connection:
+        cursor = connection.cursor()
+        cursor.execute(query, params)
+        if commit: connection.commit()
+        result = cursor.fetchall()
+        if column_names and getattr(cursor, "description"):
+            column_names_data = [column[0] for column in cursor.description] or None
+            result = column_names_data + result
+    return result
+
+data = SQL("SELECT * FROM table_name;")
+
+with open("data.csv", "w", newline="", encoding="UTF-8") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+with open("data.csv", "r", encoding="UTF-8") as file:
+    reader = csv.reader(file)
+    column_names = next(reader)
+    SQL(
+        f"""
+CREATE TABLE table_name (
+    {", ".join([f"{column} TEXT" for column in column_names])}
+);
+""",
+        commit=True,
+    )
+    for row in reader:
+        SQL(
+            f"""
+INSERT INTO table_name (
+    {", ".join(column_names)}
+)
+VALUES (
+    {", ".join([f'"{column}"' for column in row])}
+)
+""",
+            commit=True,
+        );
+```
+''',
+                "Vedis db": """
+```python
+from vedis import Vedis
+db = Vedis(":mem:")  # Create an in-memory database.
+db = Vedis("Dict.vedis")
+with db.transaction():
+    db["key"] = "value"
+    db.rollback()  # Undo changes.
+    db.commit()
+print(db["key"])
+```
+
+[https://vedis-python.readthedocs.io/en/latest/quickstart.html](https://vedis-python.readthedocs.io/en/latest/quickstart.html)
+
+Пример использования в боте
+[https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/](https://mastergroosha.github.io/telegram-tutorial/docs/lesson_11/)
+""",
+                "TinyDB (json)": """
+```bash
+pip install tinydb
+```
+
+```python
+from tinydb import TinyDB, Query
+
+
+db = TinyDB("db.json")
+users_table = db.table("users")
+user_id = users_table.insert({"name": "John", "age": 25})
+all_users = users_table.all()
+
+# Получение записи по условию (например, по имени)
+user_query = Query()
+john_data = users_table.search(user_query.name == "John")
+
+# Изменение данных в записи по условию (например, по имени)
+users_table.update({"age": 26}, user_query.name == "John")
+
+# Удаление записи по условию (например, по имени)
+users_table.remove(user_query.name == "John")
+```
+
+[[Snippets/Python/File formats/JSON.md]]
+""",
+            },
+            "Problems": {
+                "Пирамида граф": """
+Нахождение пути с максимальной суммой по "пирамиде"
+
+```python
+graph = [
+    [75],
+    [95, 64],
+    [17, 47, 82],
+    [18, 35, 87, 10],
+    [20,  4, 82, 47, 65],
+    [19,  1, 23, 75,  3, 34],
+    [88,  2, 77, 73,  7, 63, 67],
+    [99, 65,  4, 28,  6, 16, 70, 92],
+    [41, 41, 26, 56, 83, 40, 80, 70, 33],
+    [41, 48, 72, 33, 47, 32, 37, 16, 94, 29],
+    [53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14],
+    [70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57],
+    [91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48],
+    [63, 66,  4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
+    [ 4, 62, 98, 27, 23,  9, 70, 98, 73, 93, 38, 53, 60,  4, 23],
+]
+
+# Cоздаем пустой словарь для хранения сумм каждого узла.
+sums = {}
+for i in range(len(graph)):
+    for j in range(len(graph[i])):
+        sums[(i, j)] = graph[i][j]
+
+# Проходимся по каждому узлу в пирамиде и вычисляем сумму каждого узла
+# Начинаем с последней строки пирамиды и движемся вверх
+for i in range(len(graph)-2, -1, -1):
+    for j in range(len(graph[i])):
+        sums[(i, j)] += max(sums[(i+1, j)], sums[(i+1, j+1)])
+
+# Step 3
+max_sum_path = sums[(0, 0)]
+
+# Step 4
+i, j = 0, 0
+path = [graph[0][0]]
+while i < len(graph) - 1:
+    left_sum = sums[(i+1, j)]
+    right_sum = sums[(i+1, j+1)]
+    if left_sum > right_sum:
+        i += 1
+    else:
+        i += 1
+        j += 1
+    path.append(graph[i][j])
+
+print(sum(path))
+```
+
+```python
+def max_sum_path(graph):
+    n = len(graph)
+    # Инициализируем максимальную сумму первого элемента
+    max_sum = graph[0][0]
+    for i in range(1, n):
+        # Проходим по строкам и столбцам "ниже" текущего элемента
+        for j in range(i + 1):
+            if j == 0: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
+                graph[i][j] += graph[i - 1][j]
+            elif j == i: # Если элемент находится на краю графа, то соседи существуют только с одной стороны
+                graph[i][j] += graph[i - 1][j - 1]
+            else: # В остальных случаях элемент имеет двух соседей
+                graph[i][j] += max(graph[i - 1][j - 1], graph[i - 1][j])
+            # Обновляем максимальную сумму
+            max_sum = max(max_sum, graph[i][j])
+    return max_sum
+
+# Пример использования функции
+graph = [[45], [23, 78], [12, 26, 51]]
+print("Максимальная сумма пути в графе:", max_sum_path(graph))
+```
+
+```python
+def longest_slide_down(p):
+    res = p.pop()
+    while p:
+        tmp = p.pop()
+        res = [tmp[i] + max(res[i],res[i+1]) for i in range(len(tmp))]
+    return res.pop()
+```
+
+
+# Обьяснение
+Если граф будет равен
+
+```python
+graph = [
+        [45],
+      [23, 78],
+    [12, 26, 51]]
+```
+""",
+                "Определитель матрицы": """
+```python@matrix.py
+class Matrix:
+    def __init__(self, matrix: list[list[int]]):
+        self.matrix = matrix
+
+    def get_minor(self, i: int, j: int) -> list[list[int]]:
+        result = [
+            list(row[:j] + row[j+1:])
+            for row_index, row in enumerate(self.matrix)
+            if row_index != i
+        ]
+        return result
+
+    def det(self):
+        n = len(self.matrix)
+        if len({len(row) for row in self.matrix}) > 1 and n != x[0]:
+            raise ValueError("")
+
+        if n == 1:
+            return self.matrix[0][0]
+
+        elif n == 2:
+            return (
+                self.matrix[0][0] * self.matrix[1][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0]
+            )
+        elif n == 3:
+            return (
+                self.matrix[0][0] * self.matrix[1][1] * self.matrix[2][2]
+            ) + (
+                self.matrix[0][1] * self.matrix[1][2] * self.matrix[2][0]
+            ) + (
+                self.matrix[0][2] * self.matrix[1][0] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][2] * self.matrix[1][1] * self.matrix[2][0]
+            ) - (
+                self.matrix[0][0] * self.matrix[1][2] * self.matrix[2][1]
+            ) - (
+                self.matrix[0][1] * self.matrix[1][0] * self.matrix[2][2]
+            )
+
+        else:
+            result = []
+            i = 0
+            for j, x in enumerate(self.matrix[0]):
+                minor = self.get_minor(i, j)
+                result.append(x * ((-1)**(i+1 + j+1)) * Matrix(minor).det())
+            return sum(result)
+```
+
+```python@test_matrix_1.py
+from matrix import Matrix
+
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+
+print(Matrix(m).det())
+```
+
+```python@test_matrix_2.py
+from numpy import linalg
+m = [
+    [1, 5, 7, 4, 9],
+    [4, 7, 8, 3, 4],
+    [9, 3, 5, 2, 8],
+    [9, 3, 6, 3, 1],
+    [5, 9, 1, 4, 2]
+]
+print(linalg.det(m))
+```
+""",
+                "Минимальное максимальное число матрицы cpp": r"""
+```cpp@maxminmatrix.cpp
+#include <iostream>
+#include <vector>
+#include <time.h>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int rows = 3;
+    int cols = 4;
+    srand(time(NULL));
+    vector<vector<int>> matrix(rows, vector<int>(cols, 0));
+    for (int i = 0; i < rows; ++i) {
+        cout << "|";
+        for (int j = 0; j < cols; ++j) {
+            int number = 1 + rand() % 999;
+            matrix[i][j] = number;
+            cout << " " << setw(3) << setfill(" ") << number << " |";
+        }
+        cout << "\n";
+    }
+    int max = 0;
+    int min = 999;
+    for (auto r : matrix) {
+        for (auto c : r) {
+            if (c > max) max = c;
+            if (c < min) min = c;
+        }
+    }
+    cout << "max = " << max << "\n" << "min = " << min << "\n";
+    return 0;
+}
+```
+""",
+                "str - int": """
+```python
+chr_digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+
+def number_to_string(number):
+    if number == 0:
+        return "0"
+    sign = "-" if number < 0 else ""
+    number = abs(number)
+    digits = []
+    while number > 0:
+        digit = number % 10
+        digits.append(chr_digit[digit])
+        number //= 10
+    digits.reverse()
+    return sign + "".join(digits)
+
+
+def string_to_number(string):
+    if string == "0":
+        return 0
+    sign = 1
+    if string[0] == "-":
+        sign = -1
+        string = string[1:]
+    number = 0
+    for char in string:
+        digit = chr_digit.index(char)
+        number = number * 10 + digit
+    return sign * number
+```
+```pycon
+>>> print(number_to_string(12345))
+"12345"
+>>> print(string_to_number("12345"))
+12345
+```
+""",
+                "fib": """
+```python
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+```
+```pycon
+>>> print(list(fib(10)))
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+""",
+                "converters": '''
+```python
+def sqrt(x, p: int = 2):
+    return pow(x, (1 / p))
+```
+```python
+def rgb_to_hex(r: int, g: int, b: int) -> str:
+    return "#{:02x}{:02x}{:02x}".format(r, g, b).upper()
+
+def hex_to_rgb(h: str) -> tuple[int, int, int]:
+    return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+```
+```pycon
+>>> rgb_to_hex(164, 73, 211)
+"#A449D3"
+>>> hex_to_rgb("#A449D3")
+(164, 73, 211)
+```
+```python
+def html_escape(text):
+    return "".join(f"&#{ord(char)};" for char in text)
+```
+```python
+def tg_color(chat_id: int):
+    """
+    0x6FB9F0 Синий
+    0xFFD67E Оранжевый
+    0xCB86DB Фиолетовый
+    0x8EEE98 Зелёный
+    0xFF93B2 Розовый
+    0xFB6F5F Красный
+    """
+    return {0: "К", 1: "О", 2: "Ф", 3: "З", 4: "Г", 5: "С", 6: "Р"}[abs(chat_id) % 7]
+```
+```python
+def unicode(text):
+    return "".join(fr"\\U{ord(char):0>8x}" for char in text)
+```
+''',
+                "quicksort": """
+```python
+def quicksort(array):
+    if len(array) < 2:
+        return array
+    else:
+        pivot = array[0]
+        less = [i for i in array[1:] if i <= pivot]
+        greater = [i for i in array[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater)
+
+
+quicksortL = lambda array: (
+    array
+    if len(array) < 2 else
+    (
+        lambda pivot, less, greater: quicksortL(less) + [pivot] + quicksortL(greater)
+    )(
+        **(
+            lambda pivot, temp_arr: {
+                "pivot": pivot,
+                "less": [i for i in temp_arr if i <= pivot],
+                "greater": [i for i in temp_arr if i > pivot]
+            }
+        )(array[0], array[1:])
+    )
+)
+```
+```pycon
+>>> print(quicksort([10, 5, 2, 3]))
+[2, 3, 5, 10]
+```
+""",
+                "словарь обращение через точку": """
+# Словарь обращение через точку
+
+```python
+class Dict:
+    def __init__(self, d: dict):
+        self.d = d
+
+    def __getattr__(self, item: str):
+        return self.__class__(self.d.get(item))
+
+    def __setattr__(self, name, value):
+        if name == "d":
+            super().__setattr__(name, value)
+        else:
+            self.d[name] = value
+
+    def __repr__(self):
+        return __repr__(self.d)
+```
+""",
+                "download telegram emoji": """
+```python
+import logging
+
+import requests
+from requests.exceptions import MissingSchema
+
+
+def download_emoji(emoji: str) -> bool:
+    emoji_name = "-".join(str(hex(ord(c)))[2:] for c in emoji)
+    print(emoji_name)
+    link = f"https://web.telegram.org/a/img-apple-64/{emoji_name}.png"
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+        )
+    }
+    try:
+        with open(f"emojis/{emoji_name}.png", "wb") as file:
+            file.write(requests.get(link, headers=headers).content)
+        return True
+    except MissingSchema as e:
+        logging.error(f"{e}")
+    except ConnectionError:
+        logging.error("404")
+    return False
+```
+""",
+            },
+            "Get admin rights": """
+# Windows
+
+```python
+import sys
+import os
+import ctypes
+
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+    except:
+        return False
+
+# Если скрипт не запущен от имени администратора, перезапускаем его с правами администратора
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    # Перезапуск скрипта с правами администратора
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, ' '.join(sys.argv), None, 1)
+    sys.exit(0)
+
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```
+
+# Linux / macOS
+
+```python
+import os
+import sys
+import subprocess
+
+# Проверка, запущен ли скрипт с правами администратора
+def is_admin():
+    return os.geteuid() == 0
+
+# Если скрипт не запущен с правами администратора, перезапускаем его с использованием sudo
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    subprocess.check_call(["sudo", "python3"] + sys.argv)
+    sys.exit(0)
+
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```
+
+""",
+            "PYPRECODE": r"""
+
+```requirements@requirements.txt
+table2string
+pyperclip
+telebot
+arrow
+```
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+`PYPRECODE`
+```python
+import sys,os,re,requests,telebot,time,arrow;from datetime import datetime,timedelta;from uuid import uuid4;from table2string import print_table;from pyperclip import paste, copy;TeleBot=telebot.TeleBot;uuid=lambda: str(uuid4()).replace('-', '');unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text);html_escape = lambda text: ''.join(f'&#x{ord(x):x};' for x in text);re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');sqrt = lambda x, p=2: pow(x, (1 / p));rgb_to_hex = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper();hex_to_rgb = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4));color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args);print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
+```
+
+```path
+python -ic "%PYPRECODE%"
+```
+
+```python
+import sys,os,re,requests,time,arrow,html,urllib.parse,math
+from uuid import uuid4
+from pathlib import Path
+from pyperclip import paste, copy
+from datetime import datetime,timedelta
+from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
+
+sqrt = lambda x, p=2: pow(x, (1 / p))
+uuid=lambda: str(uuid4()).replace("-", "")
+
+unicode_escape = lambda text: "".join(fr"\U{ord(x):0>8x}" for x in text)
+
+html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: "".join(f"&#x{ord(x):x};" for x in text), re.compile(r"(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)")
+url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote
+
+rgb_to_hex, hex_to_rgb = lambda r, g, b: "#{:02x}{:02x}{:02x}".format(r, g, b).upper(), lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args)
+
+__, dir = lambda a: not a.startswith("__"), = lambda o, func=None: [a for a in dir(o) if func(a)]
+
+print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
+```
+
+```python
+import re
+from pyperclip import paste, copy
+if input("Скопируйте код и нажмите Enter (вставлять код в консоль не нужно)") or True: PYPRECODE := copy(re.sub(r"\n+", r"\n", paste().strip()))
+```
+
+<!--
+quicksort = lambda array: (array if len(array) < 2 else (lambda p, l, g: quicksort(l) + [p] + quicksort(g))(**(lambda pivot, temp_arr: {'p': pivot, 'l': [i for i in temp_arr if i <= pivot], 'g': [i for i in temp_arr if i > pivot]})(array[0], array[1:])))
+-->
+
+""",
+        },
+        "Java": {
+            "snippet 1": """
+```java
+import java.util.function.Consumer;
+
+class Example {
+    int print = 1;
+    // String print = "qwe"; // Variable 'print' is already defined in the scope
+
+    public void print(int x) {
+        System.out.println(x);
+    }
+    public void print(String x) {
+        System.out.println(x);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Example example = new Example();
+        System.out.println(example.print);
+        example.print(23);
+        example.print("qwerty");
+
+        int Int = example.print;
+        System.out.println(Int);
+
+        Consumer<Integer> printInt = example::print;
+        printInt.accept(23);
+
+        Consumer<String> printString = example::print;
+        printString.accept("qwerty");
+    }
+}
+```
+""",
+        },
+        "JavaScript": {
+            "js YouTube": """
+# изменение скорости воспроизведения на ютубе
+```javascript
+javascript:document.getElementsByClassName("video-stream html5-main-video")[0].playbackRate = 2.5;
+```
+""",
+        },
+    },
     "Shortcuts": {
         "link-1": "Languages/Python/fstrings.md",
         "link-2": "Languages/RegExp/RegExp.md",
@@ -27725,4 +27900,5 @@ code
             "link-4": "Languages/Java/Классы/",
         },
     },
+    "README": "",
 }

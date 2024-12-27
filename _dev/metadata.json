@@ -53,9 +53,6 @@
   "Languages/Python/Libraries/": {
     "color": "green"
   },
-  "Languages/Python/Snippets/": {
-    "color": "brown"
-  },
   "Languages/Python/Libraries/Algorithms/": {
     "color": "green"
   },
@@ -470,79 +467,85 @@
   "Languages/Python/Libraries/Web/webcolors.md": {
     "color": "green"
   },
-  "Languages/Python/Snippets/Examples/": {
+  "Snippets/Python/Examples/": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/": {
+  "Snippets/Python/File formats/": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/": {
+  "Snippets/Python/Problems/": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Get admin rights.md": {
+  "Snippets/Python/Get admin rights.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/PYPRECODE.md": {
+  "Snippets/Python/PYPRECODE.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Examples/list comprehension tips.md": {
+  "Snippets/Python/Examples/list comprehension tips.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Examples/Multiplication of lists.md": {
+  "Snippets/Python/Examples/Multiplication of lists.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/CSV.md": {
+  "Snippets/Python/File formats/CSV.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/INI.md": {
+  "Snippets/Python/File formats/INI.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/JSON.md": {
+  "Snippets/Python/File formats/JSON.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/SQLite3 to CSV.md": {
+  "Snippets/Python/File formats/SQLite3 to CSV.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/TinyDB (json).md": {
+  "Snippets/Python/File formats/TinyDB (json).md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/TOML.md": {
+  "Snippets/Python/File formats/TOML.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/Vedis db.md": {
+  "Snippets/Python/File formats/Vedis db.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/XML.md": {
+  "Snippets/Python/File formats/XML.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/File formats/YAML.md": {
+  "Snippets/Python/File formats/YAML.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/converters.md": {
+  "Snippets/Python/Problems/converters.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/download telegram emoji.md": {
+  "Snippets/Python/Problems/download telegram emoji.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/fib.md": {
+  "Snippets/Python/Problems/fib.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/quicksort.md": {
+  "Snippets/Python/Problems/quicksort.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/str - int.md": {
+  "Snippets/Python/Problems/str - int.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/Минимальное максимальное число матрицы cpp.md": {
+  "Snippets/Python/Problems/Минимальное максимальное число матрицы cpp.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/Определитель матрицы.md": {
+  "Snippets/Python/Problems/Определитель матрицы.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/Пирамида граф.md": {
+  "Snippets/Python/Problems/Пирамида граф.md": {
     "color": "brown"
   },
-  "Languages/Python/Snippets/Problems/словарь обращение через точку.md": {
+  "Snippets/Python/Problems/словарь обращение через точку.md": {
+    "color": "brown"
+  },
+  "Snippets/Java/snippet 1.md": {
+    "color": "brown"
+  },
+  "Snippets/JavaScript/js YouTube.md": {
     "color": "brown"
   },
   "Languages/RegExp/images.md": {
