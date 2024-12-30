@@ -1,23 +1,26 @@
 <h1>F-Strings</h1>
 <p><strong>F-строки</strong> - это новый способ форматирования строк в Python 3.6 и выше.
 Они позволяют встраивать выражения Python внутри строк посредством указания их в <code>{}</code> внутри строки, заключенной в <code>f</code>.</p>
-<blockquote>
-<p>replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"</p>
-<p>field_name        ::=  arg_name ("." attribute_name | "[" element_index "]")*
-arg_name          ::=  [identifier | digit+]
-attribute_name    ::=  identifier
-element_index     ::=  digit+ | index_string
-index_string      ::=  &lt;любой исходный символ, кроме "]"&gt; +</p>
-<p>conversion        ::=  "r" | "s" | "a"</p>
-<p>format_spec       ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
-fill              ::=  <any character>
-align             ::=  "&lt;" | "&gt;" | "=" | "^"
-sign              ::=  "+" | "-" | " "
-width             ::=  digit+
-grouping_option   ::=  "_" | ","
-precision         ::=  digit+
-type              ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"</p>
-</blockquote>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="k">replacement_field </span><span class="err">::</span><span class="o">=</span>  <span class="s2">&quot;{&quot;</span> <span class="p">[</span><span class="k">field_name</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;!&quot;</span> <span class="k">conversion</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;:&quot;</span> <span class="k">format_spec</span><span class="p">]</span> <span class="s2">&quot;}&quot;</span>
+
+<span class="k">field_name        </span><span class="err">::=</span>  <span class="k">arg_name </span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="k">attribute_name </span><span class="p">|</span> <span class="s2">&quot;[&quot;</span> <span class="k">element_index </span><span class="s2">&quot;]&quot;</span><span class="p">)</span><span class="err">*</span>
+<span class="k">arg_name          </span><span class="err">::=</span>  <span class="p">[</span><span class="k">identifier </span><span class="p">|</span> <span class="k">digit</span><span class="err">+</span><span class="p">]</span>
+<span class="k">attribute_name    </span><span class="err">::=</span>  <span class="k">identifier</span>
+<span class="k">element_index     </span><span class="err">::=</span>  <span class="k">digit</span><span class="err">+</span> <span class="p">|</span> <span class="k">index_string</span>
+<span class="k">index_string      </span><span class="err">::=</span>  <span class="err">&lt;любой</span> <span class="err">исходный</span> <span class="err">символ</span><span class="p">,</span> <span class="err">кроме</span> <span class="s2">&quot;]&quot;</span><span class="err">&gt;</span> <span class="err">+</span>
+
+<span class="k">conversion        </span><span class="err">::=</span>  <span class="s2">&quot;r&quot;</span> <span class="p">|</span> <span class="s2">&quot;s&quot;</span> <span class="p">|</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="k">format_spec       </span><span class="err">::=</span>  <span class="p">[[</span><span class="k">fill</span><span class="p">]</span><span class="k">align</span><span class="p">][</span><span class="k">sign</span><span class="p">][</span><span class="err">#</span><span class="p">][</span><span class="err">0</span><span class="p">][</span><span class="k">width</span><span class="p">][</span><span class="k">grouping_option</span><span class="p">][.</span><span class="k">precision</span><span class="err">][</span><span class="k">type</span><span class="err">]</span>
+<span class="k">fill              </span><span class="err">::</span><span class="o">=</span>  <span class="err">&lt;</span><span class="k">any character</span><span class="err">&gt;</span>
+<span class="k">align             </span><span class="err">::=</span>  <span class="s2">&quot;&lt;&quot;</span> <span class="p">|</span> <span class="s2">&quot;&gt;&quot;</span> <span class="p">|</span> <span class="s2">&quot;=&quot;</span> <span class="p">|</span> <span class="s2">&quot;^&quot;</span>
+<span class="k">sign              </span><span class="err">::=</span>  <span class="s2">&quot;+&quot;</span> <span class="p">|</span> <span class="s2">&quot;-&quot;</span> <span class="p">|</span> <span class="s2">&quot; &quot;</span>
+<span class="k">width             </span><span class="err">::=</span>  <span class="k">digit</span><span class="err">+</span>
+<span class="k">grouping_option   </span><span class="err">::=</span>  <span class="s2">&quot;_&quot;</span> <span class="p">|</span> <span class="s2">&quot;,&quot;</span>
+<span class="k">precision         </span><span class="err">::=</span>  <span class="k">digit</span><span class="err">+</span>
+<span class="k">type              </span><span class="err">::=</span>  <span class="s2">&quot;b&quot;</span> <span class="p">|</span> <span class="s2">&quot;c&quot;</span> <span class="p">|</span> <span class="s2">&quot;d&quot;</span> <span class="p">|</span> <span class="s2">&quot;e&quot;</span> <span class="p">|</span> <span class="s2">&quot;E&quot;</span> <span class="p">|</span> <span class="s2">&quot;f&quot;</span> <span class="p">|</span> <span class="s2">&quot;F&quot;</span> <span class="p">|</span> <span class="s2">&quot;g&quot;</span> <span class="p">|</span> <span class="s2">&quot;G&quot;</span> <span class="p">|</span> <span class="s2">&quot;n&quot;</span> <span class="p">|</span> <span class="s2">&quot;o&quot;</span> <span class="p">|</span> <span class="s2">&quot;s&quot;</span> <span class="p">|</span> <span class="s2">&quot;x&quot;</span> <span class="p">|</span> <span class="s2">&quot;X&quot;</span> <span class="p">|</span> <span class="s2">&quot;%&quot;</span>
+</pre></div></div></div>
+
 <h2>Field_name</h2>
 <p>Выражение формы <code>".name"</code> выбирает именованный атрибут с помощью <code>getattr()</code>
 Выражение формы <code>"[index]"</code> выполняет поиск по индексу с использованием <code>getitem()</code></p>

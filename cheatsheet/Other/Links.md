@@ -146,6 +146,10 @@
 </thead>
 <tbody>
 <tr>
+<td>Мнемоники_в_HTML<br>HTML escape</td>
+<td><a href="https://ru.wikipedia.org/wiki/Мнемоники_в_HTML">https://ru.wikipedia.org/wiki/Мнемоники_в_HTML</a></td>
+</tr>
+<tr>
 <td>SVG</td>
 <td><a href="https://flowbite.com/icons/">https://flowbite.com/icons/</a></td>
 </tr>

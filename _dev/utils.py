@@ -201,9 +201,13 @@ def to_table_code_sql(code: str) -> str:
     return to_table_code("sql", code)
 
 
-def check_dict_keys(d: dict, c: int = 0) -> bool | int:
+def check_dict_keys(d: dict, c: int = 0, path: list = None) -> tuple[bool | int, list | None]:
+    if path is None:
+        path = []
+
     for k, v in d.items():
         print_progress_bar(c, 0, "counting cheatsheets", k)
+        path.append(k)
         if (
             (not k)
             or k == "."
@@ -211,15 +215,16 @@ def check_dict_keys(d: dict, c: int = 0) -> bool | int:
             or set(k) & set("\\/:*?'\"<>|")
             or k in reserved_filenames
         ):
-            return False
+            return False, path
         if isinstance(v, dict):
-            res = check_dict_keys(v, c)
+            res, errors = check_dict_keys(v, c, path)
             if res is False:
-                return False
+                return False, errors
             c = res
         else:
             c += 1
-    return c
+        path.pop()
+    return c, None
 
 
 def print_progress_bar(x: int, y: int, name: str, text: str = None):

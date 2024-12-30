@@ -14,8 +14,14 @@ from _dev.utils import print_progress_bar, check_dict_keys  # noqa
 
 ADDITIONAL_PATH = ""
 
-cheatsheet_count = check_dict_keys(DICT)
-assert cheatsheet_count is not False
+assert ADDITIONAL_PATH == "" or ADDITIONAL_PATH.endswith("/")
+ADDITIONAL_PATH = ADDITIONAL_PATH.removesuffix("/")
+
+if ADDITIONAL_PATH:
+    print(f"\x1b[1m\x1b[31mCheatsheets are updated only in this directory: \x1b[32m\"{ADDITIONAL_PATH}\"\x1b[0m")
+
+cheatsheet_count, error = check_dict_keys(DICT)
+assert cheatsheet_count is not False, f"\"{'/'.join(error)}\""
 print()
 
 folder_path = "../cheatsheet"
@@ -47,4 +53,4 @@ create_files(cheatsheet_count, ADDITIONAL_PATH)
 print()
 metadata = make_clear_json()
 generate_index_html(cheatsheet_count, metadata)
-print(f"\n{cheatsheet_count} cheatsheets in {time()-start_time:.2f} sec")
+print(f"\n\x1b[31m\x1b[1m{cheatsheet_count}\x1b[0m cheatsheets in \x1b[31m\x1b[1m{time()-start_time:.2f}\x1b[0m sec")
