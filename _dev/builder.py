@@ -21,6 +21,8 @@ if ADDITIONAL_PATH:
     print(f"\x1b[1m\x1b[31mCheatsheets are updated only in this directory: \x1b[32m\"{ADDITIONAL_PATH}\"\x1b[0m")
 
 cheatsheet_count, error = check_dict_keys(DICT)
+if error and not error[-1]:
+    error[-1] = "<empty name>"
 assert cheatsheet_count is not False, f"\"{'/'.join(error)}\""
 print()
 

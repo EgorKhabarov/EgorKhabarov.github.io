@@ -455,9 +455,13 @@ function generateDirectoryLink(kpath) {
 }
 
 /* Markdown */
+//function processingCheatSheet() {
+//    setTimeout(processingCheatSheet_, 500);
+//}
+
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
-        if (!a.target && !a.getAttribute("href")[0] === "#") {
+        if (a.target == "" && a.getAttribute("href")[0] !== "#") {
             a.target="_blank";
         }
     });
