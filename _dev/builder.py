@@ -12,7 +12,9 @@ from _dev.file_creator import create_files  # noqa
 from _dev.utils import print_progress_bar, check_dict_keys  # noqa
 
 
-ADDITIONAL_PATH = ""
+ADDITIONAL_PATH = """
+
+""".strip().strip("/").replace("\n", "/")+"/"
 
 assert ADDITIONAL_PATH == "" or ADDITIONAL_PATH.endswith("/")
 ADDITIONAL_PATH = ADDITIONAL_PATH.removesuffix("/")

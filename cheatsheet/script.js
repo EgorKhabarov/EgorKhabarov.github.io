@@ -34,6 +34,16 @@ function toggleDisplay(element) {
         element.style.display = "block";
     } else {
         element.style.display = "none";
+        recursively_hide_subfolders(element);
+    }
+}
+function recursively_hide_subfolders(element) {
+    // Скрываем все дочерние папки
+    child_folders = element.getElementsByTagName("div");
+    for (el of child_folders) {
+        el.style.display = "none";
+        console.log(el);
+        recursively_hide_subfolders(el);
     }
 }
 function setDisplayBlock(element) {
@@ -199,11 +209,12 @@ function getPathWithoutFilename(filePath) {
 }
 function getPathFilename(filePath) {
     filePath = decodeURIComponent(filePath).trim("/");
-    const lastSlashIndex = filePath.lastIndexOf("/");
-    if (lastSlashIndex !== -1) {
-        return filePath.substring(lastSlashIndex + 1);
-    }
-   return "";
+    return filePath;
+    // const lastSlashIndex = filePath.lastIndexOf("/");
+    // if (lastSlashIndex !== -1) {
+    //     return filePath.substring(lastSlashIndex + 1);
+    // }
+    // return "";
 }
 
 /* Copy Download Code */
@@ -592,11 +603,11 @@ function onclickFolderCheatSheetButton(element) {
     delAnchor();
     changeActiveButton(element);
     toggleDisplay(element.nextElementSibling);
-
-    let vpath = element.getAttribute("vpath");
-
-    changeTitle(getPathFilename(vpath));
-    GET(vpath);
+    if (element.nextElementSibling.style.display == "block") {
+        let vpath = element.getAttribute("vpath");
+        changeTitle(getPathFilename(vpath));
+        GET(vpath);
+    }
 }
 function onclickCheatSheetButton(element) {
     delAnchor();

@@ -1674,6 +1674,345 @@ This response is sent on an idle connection by some servers, even without any pr
 
 """,
         },
+        "Abbreviations": {
+            "Table of contents": """
+
+|   |   |
+|---|---|
+| CLI | Интерфейс командной строки (Command-line interface)
+| [[General/Abbreviations/SOLID]] | Single Responsibility (Принцип единственной ответственности)<br>Open-Closed (Принцип открытости-закрытости)<br>Liskov Substitution (Принцип подстановки Барбары Лисков)<br>Interface Segregation (Принцип разделения интерфейсов)<br>Dependency Inversion (Принцип инверсии зависимостей)
+| [[General/Abbreviations/ACID]] | Atomicity (Атомарность)<br>Consistency (Согласованность)<br>Isolation (Изолированность)<br>Durability (Долговечность)
+| [[General/Abbreviations/BNF EBNF]] | Backus-Naur Form (Форма Бэкуса — Наура)
+|  | 
+|  | 
+|  | 
+
+""",
+            "SOLID": """
+# SOLID
+
+## S - Single Responsibility (Принцип единственной ответственности)
+Каждый класс должен отвечать только за одну операцию
+
+## O - Open-Closed (Принцип открытости-закрытости)
+Классы должны быть открыты для расширения, но закрыты для модификации
+
+## L - Liskov Substitution (Принцип подстановки Барбары Лисков)
+Если П является подтипом Т, то любые объекты типа Т, присутствующие в программе,
+могут заменяться объектами типа П без негативных последствий для функциональности программы
+
+## I - Interface Segregation (Принцип разделения интерфейсов)
+Не следует ставить клиент в зависимость от методов, которые он не использует
+
+## D - Dependency Inversion (Принцип инверсии зависимостей)
+Модули верхнего уровня не должны зависеть от модулей нижнего уровня
+И те, и другие должны зависеть от абстракций
+Абстракции не должны зависеть от деталей
+Детали должны зависеть от абстракций
+
+Модули (или классы) верхнего уровня = классы, которые выполняют операцию при помощи инструмента
+Модули (или классы) нижнего уровня = инструменты, которые нужны для выполнения операций
+Абстракции – представляют интерфейс, соединяющий два класса
+Детали = специфические характеристики работы инструмента
+
+Согласно данному принципу, класс не должен соединяться с инструментом, который применяет для выполнения операции
+Вместо этого он должен быть соединён с интерфейсом, который поможет установить связь между инструментом и классом
+
+Кроме того, принцип гласит, что ни интерфейс, ни класс, не обязаны вникать в специфику работы инструмента
+Напротив, это инструмент должен подходить под требования интерфейса
+
+
+[https://habr.com/ru/companies/productivity_inside/articles/505430/](https://habr.com/ru/companies/productivity_inside/articles/505430/)
+""",
+            "ACID": """
+# ACID
+Основы транзакций в базах данных
+
+**ACID** — это набор свойств, которые обеспечивают надежность и корректность транзакций в базах данных
+
+### Atomicity (Атомарность)
+**Всё или ничего** Транзакция выполняется полностью или не выполняется вовсе
+**Если ошибка -> откат всех изменений** Если происходит сбой, система гарантирует откат всех изменений, чтобы база данных осталась в корректном состоянии
+
+### Consistency (Согласованность)**
+**Транзакция переводит базу в согласованное состояние** После выполнения транзакции база данных переходит из одного согласованного состояния в другое
+**Ограничения целостности соблюдены** Внутренние правила базы (например, ограничения целостности) остаются соблюдены
+
+### Isolation (Изолированность)**
+**Транзакции независимы** Одновременное выполнение нескольких транзакций не влияет на их результат
+**Никаких "грязных" данных между транзакциями** Каждая транзакция выполняется так, как если бы она была единственной в системе
+
+### Durability (Долговечность)**
+После подтверждения транзакции её изменения сохраняются, даже если произойдет сбой системы
+
+
+## Пример
+
+Допустим, мы переводим деньги с одного счёта на другой
+
+- **Atomicity**: Если произошёл сбой, то либо оба изменения (списание и зачисление) будут отменены, либо выполнены вместе
+- **Consistency**: Сумма денег на обоих счетах остаётся одинаковой до и после транзакции
+- **Isolation**: Другие транзакции не видят промежуточных состояний, например, когда деньги списаны, но ещё не зачислены
+- **Durability**: После подтверждения транзакции данные о переводе сохранятся даже при сбое системы
+
+""",
+            "BNF EBNF": r"""
+# Полезные ссылки
+
+- [Wikipedia: Форма Бэкуса — Наура](https://ru.wikipedia.org/wiki/Форма_Бэкуса_—_Наура)
+- [Wikipedia: BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)
+- [Wikipedia: EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form)
+
+
+
+# BNF
+Backus-Naur Form
+Форма Бэкуса — Наура
+
+**BNF** – формальная нотация для описания синтаксиса языков программирования и других структур данных
+
+<table>
+<tbody>
+<tr>
+<td>Терминалы</td>
+<td colspan="2">Конкретные символы (литералы), которые появляются в языке</td>
+</tr>
+<tr>
+<td>Нетерминалы</td>
+<td colspan="2">Абстрактные символы (метки), описывающие группы структур</td>
+</tr>
+<tr>
+<td>Продукции</td>
+<td colspan="2">Правила, задающие преобразование нетерминалов</td>
+</tr>
+<tr>
+<td rowspan="3">Метасимволы</td>
+<td><code>&lt;</code> и <code>&gt;</code></td>
+<td>Для обозначения нетерминалов</td>
+</tr>
+<tr>
+<td><code>::=</code></td>
+<td>Оператор определения ("разворачивается в")</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>Альтернатива ("или")</td>
+</tr>
+</tbody>
+</table>
+
+
+# EBNF
+Extended Backus-Naur Form
+
+**EBNF** расширяет возможности [BNF](#BNF)
+
+|                 |                                  |
+|-----------------|----------------------------------|
+| `{...}` или `*` | Любое количество раз (включая 0) |
+| `[...]`         | 0 или 1 раз (опциональность)     | <!-- или `?`-->
+| `+`             | 1 или более раз                  |
+| `(...)`         | Для объединения элементов        |
+| `"a" ... "z"`   | Диапазоны                        |
+
+# Таблица символов
+Стандарт [ISO/IEC 14977](https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf)
+
+| Употребление                   | Нотация     | Альтернатива | Значение                |
+|--------------------------------|-------------|--------------|-------------------------|
+| Определение                    | `=`         |              |                         |
+| Конкатенация                   | `,`         |              |                         |
+| Окончание                      | `;`         | `.`          |                         |
+| Чередование                    | `|`         |              |                         |
+| Необязательный                 | `[ ... ]`   | `(/ ... /)`  | Ни одного раза или один |
+| Повторение                     | `{ ... }`   | `(: ... :)`  | Ни одного или более раз |
+| Группировка                    | `( ... )`   |              |                         |
+| Клеммная строка                | `" ... "`   | `' ... '`    |                         |
+| Комментарий                    | `(* ... *)` |              |                         |
+| Специальная последовательность | `? ... ?`   |              |                         |
+| Исключение                     | `-`         |              |                         |
+
+|     |                             |
+|-----|-----------------------------|
+| `*` | repetition-symbol           |
+| `-` | except-symbol               |
+| `,` | concatenate-symbol          |
+| `|` | definition-separator-symbol |
+| `=` | defining-symbol             |
+| `;` | terminator-symbol           |
+| `.` | terminator-symbol           |
+
+# BNF of BNF
+```ebnf
+<syntax>         ::= <rule> | <rule> <syntax>
+<rule>           ::= <opt-whitespace> "<" <rule-name> ">" <opt-whitespace> "::=" <opt-whitespace> <expression> <line-end>
+<opt-whitespace> ::= " " <opt-whitespace> | ""
+<expression>     ::= <list> | <list> <opt-whitespace> "|" <opt-whitespace> <expression>
+<line-end>       ::= <opt-whitespace> <EOL> | <line-end> <line-end>
+<list>           ::= <term> | <term> <opt-whitespace> <list>
+<term>           ::= <literal> | "<" <rule-name> ">"
+<literal>        ::= '"' <text1> '"' | "'" <text2> "'"
+<text1>          ::= "" | <character1> <text1>
+<text2>          ::= "" | <character2> <text2>
+<character>      ::= <letter> | <digit> | <symbol>
+<letter>         ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+                   | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+                   | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+                   | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+<digit>          ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<symbol>         ::= "|" | " " | "!" | "#" | "$" | "%" | "&" | "(" | ")" | "*" | "+"
+                   | "," | "-" | "." | "/" | ":" | ";" | ">" | "=" | "<" | "?" | "@"
+                   | "[" | "\" | "]" | "^" | "_" | "`" | "{" | "}" | "~"
+<character1>     ::= <character> | "'"
+<character2>     ::= <character> | '"'
+<rule-name>      ::= <letter> | <rule-name> <rule-char>
+<rule-char>      ::= <letter> | <digit> | "-"
+```
+
+# EBNF of EBNF
+
+```ebnf
+letter = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
+       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
+       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
+       | "x" | "y" | "z";
+
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
+
+symbol = "[" | "]" | "{" | "}" | "(" | ")" | "<" | ">"
+       | "'" | '"' | "=" | "|" | "." | "," | ";" | "-" 
+       | "+" | "*" | "?" | "\n" | "\t" | "\r" | "\f" | "\b";
+
+character = letter | digit | symbol | "_" | " ";
+identifier = letter, {letter | digit | "_"};
+
+S = {" " | "\n" | "\t" | "\r" | "\f" | "\b"};
+
+terminal = "'", character - "'", {character - "'"}, "'"
+         | '"', character - '"', {character - '"'}, '"';
+
+terminator = ";" | ".";
+
+term = "(", S, rhs, S, ")"
+     | "[", S, rhs, S, "]"
+     | "{", S, rhs, S, "}"
+     | terminal
+     | identifier;
+
+factor = term, S, "?"
+       | term, S, "*"
+       | term, S, "+"
+       | term, S, "-", S, term
+       | term, S;
+
+concatenation = (S, factor, S, ","?)+;
+alternation = (S, concatenation, S, "|"?)+;
+
+rhs = alternation;
+lhs = identifier;
+
+rule = lhs, S, "=", S, rhs, S, terminator;
+
+grammar = (S, rule, S)*;
+```
+
+# Примеры
+
+```ebnf
+<expression> ::= <term> | <expression> "+" <term>
+<term>       ::= <factor> | <term> "*" <factor>
+<factor>     ::= <number> | "(" <expression> ")"
+<number>     ::= <digit> | <number> <digit>
+<digit>      ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+```
+
+```ebnf
+<expression> ::= <term> | <expression> "+" <term>
+<term>       ::= <factor> { "*" <factor> }
+<factor>     ::= <number> | "(" <expression> ")"
+<number>     ::= <digit> { <digit> }
+<digit>      ::= "0" ... "9"
+```
+
+
+Обычный приоритет переопределяется следующими парами квадратных скобок:
+
+|      |                         |                         |      |
+|:-----|:------------------------|------------------------:|-----:|
+| `(*` | start-comment-symbol    |      end-comment-symbol | `*)` |
+| `'`  | first-quote-symbol      |      first-quote-symbol |  `'` |
+| `(`  | start-group-symbol      |        end-group-symbol |  `)` |
+| `[`  | start-option-symbol     |       end-option-symbol |  `]` |
+| `{`  | start-repeat-symbol     |       end-repeat-symbol |  `}` |
+| `?`  | special-sequence-symbol | special-sequence-symbol |  `?` |
+| `"`  | second-quote-symbol     |     second-quote-symbol |  `"` |
+| `-`  | -symbol                 |                         |      |
+
+
+aa = "A";                   (* A                             *)
+bb = 3 * aa, "B";           (* AAAB                          *)
+cc = 3 * [aa], "C";         (* C AC AAC AAAC                 *)
+dd = {aa}, "D";             (* D AD AAD AAAD AAAAD etc…      *)
+ee = aa, {aa}, "E";         (* AE AAE AAAE AAAAE AAAAAE etc… *)
+ff = 3 * aa, 3 * [aa], "F"; (* AAAF AAAAF AAAAAF AAAAAAF     *)
+gg = {3 * aa}, "G";         (* G AAAG AAAAAAG etc…           *)
+hh = (aa | bb | cc), "H";   (* AH AAABH CH ACH AACH AAACH    *)
+```
+
+
+| Metalanguage symbol         | Normal representation |
+|-----------------------------|-----------------------|
+| concatenate-symbol          | `,`                   |
+| defining-symbol             | `=`                   |
+| definition-separator-symbol | `|`                   |
+| except-symbol               | `-`                   |
+| first-quote-symbol          | `´`                   |
+| repetition-symbol           | `*`                   |
+| second-quote-symbol         | `"`                   |
+| special-sequence-symbol     | `?`                   |
+| start-comment-symbol<br>end-comment-symbol | `(*`<br>`*)` |
+| start-group-symbol<br>end-group-symbol     | `(`<br>`)`   |
+| start-option-symbol<br>end-option-symbol   | `[`<br>`]`   |
+| start-repeat-symbol<br>end-repeat-symbol   | `{`<br>`}`   |
+| terminator-symbol           | `;`                   |
+
+
+# Полезные шаблоны
+
+### Арифметические выражения
+```ebnf
+<expr>   ::= <term> | <expr> "+" <term> | <expr> "-" <term>
+<term>   ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
+<factor> ::= <number> | "(" <expr> ")"
+<number> ::= <digit> | <number> <digit>
+<digit>  ::= "0" | "1" | ... | "9"
+```
+
+### JSON
+```ebnf
+<object>   ::= "{" <members> "}"
+<members>  ::= <pair> | <pair> "," <members>
+<pair>     ::= <string> ":" <value>
+<array>    ::= "[" <elements> "]"
+<elements> ::= <value> | <value> "," <elements>
+<value>    ::= <string> | <number> | <object> | <array> | "true" | "false" | "null"
+<string>   ::= "\"" { <char> } "\""
+<number>   ::= <digit> { <digit> }
+```
+
+<!--
+Первый символ в кавычках представляет собой апостроф в соответствии с определением ISO/IEC 646:1991,
+то есть Юникодом U+0027 (); шрифт, используемый в ISO/IEC 14977:1996(E), делает его очень похожим на острый, Unicode U+00B4 (), поэтому иногда возникает путаница.
+Тем не менее, стандарт ISO Extended BNF ссылается на ISO/IEC 646:1991, «7-битный кодированный набор символов ISO для обмена информацией»
+в качестве нормативного справочника и не упоминает какие-либо другие наборы символов, поэтому формально нет путаницы с символами Юникода за пределами 7-битного диапазона ASCII.'´
+-->
+
+""",
+        },
         "Парадигмы программирования": """
 # Императивная (КАК)
 
@@ -1864,47 +2203,6 @@ CSRF-атаки заставляют пользователя выполнять
 """,
         "Encodings": """
 ![encoding.png](General/encoding.png)
-""",
-        "SOLID": """
-# SOLID
-
-## S
-**Single Responsibility** (Принцип единственной ответственности)
-Каждый класс должен отвечать только за одну операцию
-
-## O
-**Open-Closed** (Принцип открытости-закрытости)
-Классы должны быть открыты для расширения, но закрыты для модификации
-
-## L
-**Liskov Substitution** (Принцип подстановки Барбары Лисков)
-Если П является подтипом Т, то любые объекты типа Т, присутствующие в программе,
-могут заменяться объектами типа П без негативных последствий для функциональности программы
-
-## I
-**Interface Segregation** (Принцип разделения интерфейсов)
-Не следует ставить клиент в зависимость от методов, которые он не использует
-
-## D
-**Dependency Inversion** (Принцип инверсии зависимостей)
-Модули верхнего уровня не должны зависеть от модулей нижнего уровня
-И те, и другие должны зависеть от абстракций
-Абстракции не должны зависеть от деталей
-Детали должны зависеть от абстракций
-
-Модули (или классы) верхнего уровня = классы, которые выполняют операцию при помощи инструмента
-Модули (или классы) нижнего уровня = инструменты, которые нужны для выполнения операций
-Абстракции – представляют интерфейс, соединяющий два класса
-Детали = специфические характеристики работы инструмента
-
-Согласно данному принципу, класс не должен соединяться с инструментом, который применяет для выполнения операции
-Вместо этого он должен быть соединён с интерфейсом, который поможет установить связь между инструментом и классом
-
-Кроме того, принцип гласит, что ни интерфейс, ни класс, не обязаны вникать в специфику работы инструмента
-Напротив, это инструмент должен подходить под требования интерфейса
-
-
-[https://habr.com/ru/companies/productivity_inside/articles/505430/](https://habr.com/ru/companies/productivity_inside/articles/505430/)
 """,
         "Big O Notation": """
 **O-нотация** (Big O Notation) — это математическая нотация, которая описывает поведение алгоритмов
@@ -2212,294 +2510,6 @@ crontab -r [-u user]
 [https://en.wikipedia.org/wiki/Glob_(programming)](https://en.wikipedia.org/wiki/Glob_(programming))
 
 Для сложной фильтрации в Python лучше использовать [`fnmatch`](?Languages/Python/Libraries/System/fnmatch)
-
-""",
-        "ACID": """
-# ACID
-Основы транзакций в базах данных
-
-**ACID** — это набор свойств, которые обеспечивают надежность и корректность транзакций в базах данных
-
-### Atomicity (Атомарность)
-**Всё или ничего** Транзакция выполняется полностью или не выполняется вовсе
-**Если ошибка -> откат всех изменений** Если происходит сбой, система гарантирует откат всех изменений, чтобы база данных осталась в корректном состоянии
-
-### Consistency (Согласованность)**
-**Транзакция переводит базу в согласованное состояние** После выполнения транзакции база данных переходит из одного согласованного состояния в другое
-**Ограничения целостности соблюдены** Внутренние правила базы (например, ограничения целостности) остаются соблюдены
-
-### Isolation (Изолированность)**
-**Транзакции независимы** Одновременное выполнение нескольких транзакций не влияет на их результат
-**Никаких "грязных" данных между транзакциями** Каждая транзакция выполняется так, как если бы она была единственной в системе
-
-### Durability (Долговечность)**
-После подтверждения транзакции её изменения сохраняются, даже если произойдет сбой системы
-
-
-## Пример
-
-Допустим, мы переводим деньги с одного счёта на другой
-
-- **Atomicity**: Если произошёл сбой, то либо оба изменения (списание и зачисление) будут отменены, либо выполнены вместе
-- **Consistency**: Сумма денег на обоих счетах остаётся одинаковой до и после транзакции
-- **Isolation**: Другие транзакции не видят промежуточных состояний, например, когда деньги списаны, но ещё не зачислены
-- **Durability**: После подтверждения транзакции данные о переводе сохранятся даже при сбое системы
-
-""",
-        "BNF EBNF": r"""
-# Полезные ссылки
-
-- [Wikipedia: Форма Бэкуса — Наура](https://ru.wikipedia.org/wiki/Форма_Бэкуса_—_Наура)
-- [Wikipedia: BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)
-- [Wikipedia: EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form)
-
-
-
-# BNF
-Backus-Naur Form
-Форма Бэкуса — Наура
-
-**BNF** – формальная нотация для описания синтаксиса языков программирования и других структур данных
-
-<table>
-<tbody>
-<tr>
-<td>Терминалы</td>
-<td colspan="2">Конкретные символы (литералы), которые появляются в языке</td>
-</tr>
-<tr>
-<td>Нетерминалы</td>
-<td colspan="2">Абстрактные символы (метки), описывающие группы структур</td>
-</tr>
-<tr>
-<td>Продукции</td>
-<td colspan="2">Правила, задающие преобразование нетерминалов</td>
-</tr>
-<tr>
-<td rowspan="3">Метасимволы</td>
-<td><code>&lt;</code> и <code>&gt;</code></td>
-<td>Для обозначения нетерминалов</td>
-</tr>
-<tr>
-<td><code>::=</code></td>
-<td>Оператор определения ("разворачивается в")</td>
-</tr>
-<tr>
-<td><code>|</code></td>
-<td>Альтернатива ("или")</td>
-</tr>
-</tbody>
-</table>
-
-
-# EBNF
-Extended Backus-Naur Form
-
-**EBNF** расширяет возможности [BNF](#BNF)
-
-|                 |                                  |
-|-----------------|----------------------------------|
-| `{...}` или `*` | Любое количество раз (включая 0) |
-| `[...]`         | 0 или 1 раз (опциональность)     | <!-- или `?`-->
-| `+`             | 1 или более раз                  |
-| `(...)`         | Для объединения элементов        |
-| `"a" ... "z"`   | Диапазоны                        |
-
-# Таблица символов
-Стандарт [ISO/IEC 14977](https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf)
-
-| Употребление                   | Нотация     | Альтернатива | Значение                |
-|--------------------------------|-------------|--------------|-------------------------|
-| Определение                    | `=`         |              |                         |
-| Конкатенация                   | `,`         |              |                         |
-| Окончание                      | `;`         | `.`          |                         |
-| Чередование                    | `|`         |              |                         |
-| Необязательный                 | `[ ... ]`   | `(/ ... /)`  | Ни одного раза или один |
-| Повторение                     | `{ ... }`   | `(: ... :)`  | Ни одного или более раз |
-| Группировка                    | `( ... )`   |              |                         |
-| Клеммная строка                | `" ... "`   | `' ... '`    |                         |
-| Комментарий                    | `(* ... *)` |              |                         |
-| Специальная последовательность | `? ... ?`   |              |                         |
-| Исключение                     | `-`         |              |                         |
-
-|     |                             |
-|-----|-----------------------------|
-| `*` | repetition-symbol           |
-| `-` | except-symbol               |
-| `,` | concatenate-symbol          |
-| `|` | definition-separator-symbol |
-| `=` | defining-symbol             |
-| `;` | terminator-symbol           |
-| `.` | terminator-symbol           |
-
-# BNF of BNF
-```ebnf
-<syntax>         ::= <rule> | <rule> <syntax>
-<rule>           ::= <opt-whitespace> "<" <rule-name> ">" <opt-whitespace> "::=" <opt-whitespace> <expression> <line-end>
-<opt-whitespace> ::= " " <opt-whitespace> | ""
-<expression>     ::= <list> | <list> <opt-whitespace> "|" <opt-whitespace> <expression>
-<line-end>       ::= <opt-whitespace> <EOL> | <line-end> <line-end>
-<list>           ::= <term> | <term> <opt-whitespace> <list>
-<term>           ::= <literal> | "<" <rule-name> ">"
-<literal>        ::= '"' <text1> '"' | "'" <text2> "'"
-<text1>          ::= "" | <character1> <text1>
-<text2>          ::= "" | <character2> <text2>
-<character>      ::= <letter> | <digit> | <symbol>
-<letter>         ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
-                   | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
-                   | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
-                   | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
-<digit>          ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-<symbol>         ::= "|" | " " | "!" | "#" | "$" | "%" | "&" | "(" | ")" | "*" | "+"
-                   | "," | "-" | "." | "/" | ":" | ";" | ">" | "=" | "<" | "?" | "@"
-                   | "[" | "\" | "]" | "^" | "_" | "`" | "{" | "}" | "~"
-<character1>     ::= <character> | "'"
-<character2>     ::= <character> | '"'
-<rule-name>      ::= <letter> | <rule-name> <rule-char>
-<rule-char>      ::= <letter> | <digit> | "-"
-```
-
-# EBNF of EBNF
-
-```ebnf
-letter = "A" | "B" | "C" | "D" | "E" | "F" | "G"
-       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
-       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
-       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
-       | "c" | "d" | "e" | "f" | "g" | "h" | "i"
-       | "j" | "k" | "l" | "m" | "n" | "o" | "p"
-       | "q" | "r" | "s" | "t" | "u" | "v" | "w"
-       | "x" | "y" | "z";
-
-digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
-
-symbol = "[" | "]" | "{" | "}" | "(" | ")" | "<" | ">"
-       | "'" | '"' | "=" | "|" | "." | "," | ";" | "-" 
-       | "+" | "*" | "?" | "\n" | "\t" | "\r" | "\f" | "\b";
-
-character = letter | digit | symbol | "_" | " ";
-identifier = letter, {letter | digit | "_"};
-
-S = {" " | "\n" | "\t" | "\r" | "\f" | "\b"};
-
-terminal = "'", character - "'", {character - "'"}, "'"
-         | '"', character - '"', {character - '"'}, '"';
-
-terminator = ";" | ".";
-
-term = "(", S, rhs, S, ")"
-     | "[", S, rhs, S, "]"
-     | "{", S, rhs, S, "}"
-     | terminal
-     | identifier;
-
-factor = term, S, "?"
-       | term, S, "*"
-       | term, S, "+"
-       | term, S, "-", S, term
-       | term, S;
-
-concatenation = (S, factor, S, ","?)+;
-alternation = (S, concatenation, S, "|"?)+;
-
-rhs = alternation;
-lhs = identifier;
-
-rule = lhs, S, "=", S, rhs, S, terminator;
-
-grammar = (S, rule, S)*;
-```
-
-# Примеры
-
-```ebnf
-<expression> ::= <term> | <expression> "+" <term>
-<term>       ::= <factor> | <term> "*" <factor>
-<factor>     ::= <number> | "(" <expression> ")"
-<number>     ::= <digit> | <number> <digit>
-<digit>      ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-```
-
-```ebnf
-<expression> ::= <term> | <expression> "+" <term>
-<term>       ::= <factor> { "*" <factor> }
-<factor>     ::= <number> | "(" <expression> ")"
-<number>     ::= <digit> { <digit> }
-<digit>      ::= "0" ... "9"
-```
-
-
-Обычный приоритет переопределяется следующими парами квадратных скобок:
-
-|      |                         |                         |      |
-|:-----|:------------------------|------------------------:|-----:|
-| `(*` | start-comment-symbol    |      end-comment-symbol | `*)` |
-| `'`  | first-quote-symbol      |      first-quote-symbol |  `'` |
-| `(`  | start-group-symbol      |        end-group-symbol |  `)` |
-| `[`  | start-option-symbol     |       end-option-symbol |  `]` |
-| `{`  | start-repeat-symbol     |       end-repeat-symbol |  `}` |
-| `?`  | special-sequence-symbol | special-sequence-symbol |  `?` |
-| `"`  | second-quote-symbol     |     second-quote-symbol |  `"` |
-| `-`  | -symbol                 |                         |      |
-
-
-aa = "A";                   (* A                             *)
-bb = 3 * aa, "B";           (* AAAB                          *)
-cc = 3 * [aa], "C";         (* C AC AAC AAAC                 *)
-dd = {aa}, "D";             (* D AD AAD AAAD AAAAD etc…      *)
-ee = aa, {aa}, "E";         (* AE AAE AAAE AAAAE AAAAAE etc… *)
-ff = 3 * aa, 3 * [aa], "F"; (* AAAF AAAAF AAAAAF AAAAAAF     *)
-gg = {3 * aa}, "G";         (* G AAAG AAAAAAG etc…           *)
-hh = (aa | bb | cc), "H";   (* AH AAABH CH ACH AACH AAACH    *)
-```
-
-
-| Metalanguage symbol         | Normal representation |
-|-----------------------------|-----------------------|
-| concatenate-symbol          | `,`                   |
-| defining-symbol             | `=`                   |
-| definition-separator-symbol | `|`                   |
-| except-symbol               | `-`                   |
-| first-quote-symbol          | `´`                   |
-| repetition-symbol           | `*`                   |
-| second-quote-symbol         | `"`                   |
-| special-sequence-symbol     | `?`                   |
-| start-comment-symbol<br>end-comment-symbol | `(*`<br>`*)` |
-| start-group-symbol<br>end-group-symbol     | `(`<br>`)`   |
-| start-option-symbol<br>end-option-symbol   | `[`<br>`]`   |
-| start-repeat-symbol<br>end-repeat-symbol   | `{`<br>`}`   |
-| terminator-symbol           | `;`                   |
-
-
-# Полезные шаблоны
-
-### Арифметические выражения
-```ebnf
-<expr>   ::= <term> | <expr> "+" <term> | <expr> "-" <term>
-<term>   ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
-<factor> ::= <number> | "(" <expr> ")"
-<number> ::= <digit> | <number> <digit>
-<digit>  ::= "0" | "1" | ... | "9"
-```
-
-### JSON
-```ebnf
-<object>   ::= "{" <members> "}"
-<members>  ::= <pair> | <pair> "," <members>
-<pair>     ::= <string> ":" <value>
-<array>    ::= "[" <elements> "]"
-<elements> ::= <value> | <value> "," <elements>
-<value>    ::= <string> | <number> | <object> | <array> | "true" | "false" | "null"
-<string>   ::= "\"" { <char> } "\""
-<number>   ::= <digit> { <digit> }
-```
-
-<!--
-Первый символ в кавычках представляет собой апостроф в соответствии с определением ISO/IEC 646:1991,
-то есть Юникодом U+0027 (); шрифт, используемый в ISO/IEC 14977:1996(E), делает его очень похожим на острый, Unicode U+00B4 (), поэтому иногда возникает путаница.
-Тем не менее, стандарт ISO Extended BNF ссылается на ISO/IEC 646:1991, «7-битный кодированный набор символов ISO для обмена информацией»
-в качестве нормативного справочника и не упоминает какие-либо другие наборы символов, поэтому формально нет путаницы с символами Юникода за пределами 7-битного диапазона ASCII.'´
--->
 
 """,
     },
@@ -27277,24 +27287,24 @@ code
         "Python": {
             "Examples": {
                 "list comprehension tips": """
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = [
-    item
-    for tpl in list_of_tuples
-    for item in tpl
-]
-print(result_list)
+```pycon
+>>> list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+>>> result_list = [
+...     item
+...     for tpl in list_of_tuples
+...     for item in tpl
+... ]
+>>> print(result_list)
 [1, 2, 3, 4, 5, 6]
 ```
-```python
-list_of_tuples = [(1, 2), (3, 4), (5, 6)]
-result_list = []
-for tpl in list_of_tuples:
-    for item in tpl:
-        result_list.append(item)
-
-print(result_list)
+```pycon
+>>> list_of_tuples = [(1, 2), (3, 4), (5, 6)]
+>>> result_list = []
+>>> for tpl in list_of_tuples:
+...     for item in tpl:
+...         result_list.append(item)
+... 
+>>> print(result_list)
 [1, 2, 3, 4, 5, 6]
 ```
 """,
@@ -28159,7 +28169,7 @@ python -m pip install -r requirements.txt
 
 `PYPRECODE`
 ```python
-import sys,os,re,requests,telebot,time,arrow;from datetime import datetime,timedelta;from uuid import uuid4;from table2string import print_table;from pyperclip import paste, copy;TeleBot=telebot.TeleBot;uuid=lambda: str(uuid4()).replace('-', '');unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text);html_escape = lambda text: ''.join(f'&#x{ord(x):x};' for x in text);re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');sqrt = lambda x, p=2: pow(x, (1 / p));rgb_to_hex = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper();hex_to_rgb = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4));color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args);print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
+import sys,os,re,requests,time,arrow,html,urllib.parse,math;from uuid import uuid4;from pathlib import Path;from pyperclip import paste, copy;from datetime import datetime,timedelta;from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment;sqrt = lambda x, p=2: pow(x, (1 / p));uuid=lambda: str(uuid4()).replace('-', '');unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text);html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: ''.join(f'&#x{ord(x):x};' for x in text), re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote;rgb_to_hex, hex_to_rgb = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper(), lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4));color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args);__, dir = lambda a: not a.startswith('__'), lambda o, func=None: [a for a in dir(o) if func(a)];print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
 ```
 
 ```path
@@ -28175,17 +28185,17 @@ from datetime import datetime,timedelta
 from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
 
 sqrt = lambda x, p=2: pow(x, (1 / p))
-uuid=lambda: str(uuid4()).replace("-", "")
+uuid=lambda: str(uuid4()).replace('-', '')
 
-unicode_escape = lambda text: "".join(fr"\U{ord(x):0>8x}" for x in text)
+unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text)
 
-html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: "".join(f"&#x{ord(x):x};" for x in text), re.compile(r"(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)")
+html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: ''.join(f'&#x{ord(x):x};' for x in text), re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)')
 url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote
 
-rgb_to_hex, hex_to_rgb = lambda r, g, b: "#{:02x}{:02x}{:02x}".format(r, g, b).upper(), lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+rgb_to_hex, hex_to_rgb = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper(), lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4))
 color = lambda *args: hex_to_rgb(*args) if len(args) == 1 else rgb_to_hex(*args)
 
-__, dir = lambda a: not a.startswith("__"), lambda o, func=None: [a for a in dir(o) if func(a)]
+__, dir = lambda a: not a.startswith('__'), lambda o, func=None: [a for a in dir(o) if func(a)]
 
 print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
 ```
