@@ -2516,6 +2516,204 @@ crontab -r [-u user]
     "Languages": {
         "Python": {
             "Libraries": {
+                "Table of contents": r"""
+
+# [github.com/python/cpython/tree/main/Lib](https://github.com/python/cpython/tree/main/Lib)
+
+| Name                                                                      | Description |
+|---------------------------------------------------------------------------|-------------|
+| \_\_phello\_\_                                                            | 
+| _pyrepl                                                                   | 
+| asyncio                                                                   | 
+| [collections](?Languages/Python/Libraries/Python/collections)             | 
+| [concurrent](?Languages/Python/Libraries/System/concurrent)               | 
+| ctypes                                                                    | 
+| [curses](?Languages/Python/Libraries/Python/curses)                       | 
+| dbm                                                                       | 
+| email                                                                     | 
+| encodings                                                                 | 
+| ensurepip                                                                 | 
+| html                                                                      | 
+| http                                                                      | 
+| idlelib                                                                   | 
+| [importlib](?Languages/Python/Libraries/Python/importlib)                 | 
+| json                                                                      | 
+| [logging](?Languages/Python/Libraries/Python/logging)                     | 
+| [multiprocessing](?Languages/Python/Libraries/System/multiprocessing)     | 
+| pathlib                                                                   | 
+| pydoc_data                                                                | 
+| re                                                                        | 
+| site-packages                                                             |--
+| sqlite3                                                                   | 
+| sysconfig                                                                 | 
+| test                                                                      |--
+| [tkinter](?Languages/Python/Libraries/GUI/tkinter/)                       | 
+| tomllib                                                                   | 
+| turtledemo                                                                | 
+| [unittest](?Languages/Python/Libraries/Python/unittest)                   | 
+| urllib                                                                    | 
+| venv                                                                      | 
+| wsgiref                                                                   | 
+| [xml](?Languages/Python/Libraries/Data%20types/xml)                       | 
+| xmlrpc                                                                    | 
+| [zipfile](?Languages/Python/Libraries/Python/zipfile)                     | 
+| zoneinfo                                                                  | 
+|                                                                           | 
+| \_\_future\_\_                                                            | 
+| \_\_hello\_\_                                                             | 
+| _aix_support                                                              | 
+| _android_support                                                          | 
+| _apple_support                                                            | 
+| _collections_abc                                                          | 
+| _colorize                                                                 | 
+| _compat_pickle                                                            | 
+| _compression                                                              | 
+| _ios_support                                                              | 
+| _markupbase                                                               | 
+| _opcode_metadata                                                          | 
+| _osx_support                                                              | 
+| _py_abc                                                                   | 
+| _pydatetime                                                               | 
+| _pydecimal                                                                | 
+| _pyio                                                                     | 
+| _pylong                                                                   | 
+| _sitebuiltins                                                             | 
+| _strptime                                                                 | 
+| _threading_local                                                          | 
+| _weakrefset                                                               | 
+| [abc](?Languages/Python/Libraries/Python/abc)                             | 
+| annotationlib                                                             | 
+| antigravity                                                               | 
+| [argparse](?Languages/Python/Libraries/Information/argparse)              | 
+| [ast](?Languages/Python/Libraries/Python/ast)                             | 
+| [base64](?Languages/Python/Libraries/Information/base64)                  | 
+| [bdb](?Languages/Python/Libraries/Python/bdb)                             | 
+| [bisect](?Languages/Python/Libraries/Algorithms/bisect)                   | 
+| bz2                                                                       | 
+| cProfile                                                                  | 
+| calendar                                                                  | 
+| cmd                                                                       | 
+| code                                                                      | 
+| codecs                                                                    | 
+| codeop                                                                    | 
+| colorsys                                                                  | 
+| compileall                                                                | 
+| configparser                                                              | 
+| [contextlib](?Languages/Python/Libraries/Python/contextlib)               | 
+| contextvars                                                               | 
+| copy                                                                      | 
+| copyreg                                                                   | 
+| csv                                                                       | 
+| dataclasses                                                               | 
+| [datetime](?Languages/Python/Libraries/Information/datetime)              | 
+| [decimal](?Languages/Python/Libraries/Information/decimal)                | 
+| [difflib](?Languages/Python/Libraries/Information/difflib)                | 
+| [dis](?Languages/Python/Libraries/Python/dis/)                            | 
+| [doctest](?Languages/Python/Libraries/Python/doctests/)                   | 
+| [enum](?Languages/Python/Libraries/Data%20types/enum)                     | 
+| [filecmp](?Languages/Python/Libraries/System/filecmp)                     | 
+| [fileinput](?Languages/Python/Libraries/Python/fileinput)                 | 
+| [fnmatch](?Languages/Python/Libraries/System/fnmatch)                     | 
+| [fractions](?Languages/Python/Libraries/Information/fractions)            | 
+| ftplib                                                                    | 
+| [functools](?Languages/Python/Libraries/Python/functools)                 | 
+| [genericpath](?Languages/Python/Libraries/System/genericpath)             | 
+| [getopt](?Languages/Python/Libraries/System/getopt)                       | 
+| [getpass](?Languages/Python/Libraries/Python/getpass)                     | 
+| [gettext](?Languages/Python/Libraries/Other/gettext)                      | 
+| [glob](?Languages/Python/Libraries/System/glob)                           | 
+| [graphlib](?Languages/Python/Libraries/Data%20types/graphlib)             | 
+| gzip                                                                      | 
+| hashlib                                                                   | 
+| [heapq](?Languages/Python/Libraries/Data%20types/heapq)                   | 
+| [hmac](?Languages/Python/Libraries/Algorithms/hmac)                       | 
+| imaplib                                                                   | 
+| [inspect](?Languages/Python/Libraries/Python/inspect)                     | 
+| [io](?Languages/Python/Libraries/System/io)                               | 
+| ipaddress                                                                 | 
+| [keyword](?Languages/Python/Libraries/Python/keyword)                     | 
+| [linecache](?Languages/Python/Libraries/Other/linecache)                  | 
+| [locale](?Languages/Python/Libraries/Other/locale)                        | 
+| [lzma](?Languages/Python/Libraries/Algorithms/lzma)                       | 
+| mailbox                                                                   | 
+| mimetypes                                                                 | 
+| modulefinder                                                              | 
+| [netrc](?Languages/Python/Libraries/Data%20types/netrc)                   | 
+| [ntpath](?Languages/Python/Libraries/System/Windows/ntpath)               | 
+| nturl2path                                                                | 
+| numbers                                                                   | 
+| opcode                                                                    | 
+| [operator](?Languages/Python/Libraries/Python/operator)                   | 
+| [optparse](?Languages/Python/Libraries/System/optparse)                   | 
+| [os](?Languages/Python/Libraries/System/os/)                              | 
+| pdb                                                                       | 
+| pickle                                                                    | 
+| pickletools                                                               | 
+| pkgutil                                                                   | 
+| platform                                                                  | 
+| plistlib                                                                  | 
+| poplib                                                                    | 
+| [posixpath](?Languages/Python/Libraries/System/Unix/posixpath)            | 
+| pprint                                                                    | 
+| profile                                                                   | 
+| [pstats](?Languages/Python/Libraries/Python/pstats)                       | 
+| pty                                                                       | 
+| py_compile                                                                | 
+| [pyclbr](?Languages/Python/Libraries/Python/pyclbr)                       | 
+| pydoc                                                                     | 
+| [queue](?Languages/Python/Libraries/Data%20types/queue)                   | 
+| [quopri](?Languages/Python/Libraries/Other/quopri)                        | 
+| [random](?Languages/Python/Libraries/Information/random)                  | 
+| [reprlib](?Languages/Python/Libraries/Python/reprlib)                     | 
+| [rlcompleter](?Languages/Python/Libraries/Python/rlcompleter)             | 
+| [runpy](?Languages/Python/Libraries/Python/runpy)                         | 
+| [sched](?Languages/Python/Libraries/Other/sched)                          | 
+| secrets                                                                   | 
+| selectors                                                                 | 
+| shelve                                                                    | 
+| [shlex](?Languages/Python/Libraries/Information/shlex)                    | 
+| shutil                                                                    | 
+| [signal](?Languages/Python/Libraries/System/Unix/signal)                  | 
+| site                                                                      | 
+| smtplib                                                                   | 
+| socket                                                                    | 
+| socketserver                                                              | 
+| sre_compile                                                               | 
+| sre_constants                                                             | 
+| sre_parse                                                                 | 
+| ssl                                                                       | 
+| [stat](?Languages/Python/Libraries/System/stat)                           | 
+| statistics                                                                | 
+| [string](?Languages/Python/Libraries/Information/string)                  | 
+| stringprep                                                                | 
+| struct                                                                    | 
+| [subprocess](?Languages/Python/Libraries/System/subprocess)               | 
+| symtable                                                                  | 
+| [tabnanny](?Languages/Python/Libraries/Python/tabnanny)                   | 
+| tarfile                                                                   | 
+| tempfile                                                                  | 
+| [textwrap](?Languages/Python/Libraries/Information/textwrap)              | 
+| this                                                                      | 
+| threading                                                                 | 
+| timeit                                                                    | 
+| token                                                                     | 
+| tokenize                                                                  | 
+| [trace](?Languages/Python/Libraries/Python/trace)                         | 
+| [traceback](?Languages/Python/Libraries/Python/traceback)                 | 
+| tracemalloc                                                               | 
+| tty                                                                       | 
+| turtle                                                                    | 
+| types                                                                     | 
+| [typing](?Languages/Python/Libraries/Python/typing)                       | 
+| uuid                                                                      | 
+| [warnings](?Languages/Python/Libraries/Python/warnings)                   | 
+| [wave](?Languages/Python/Libraries/Data%20types/wave)                     | 
+| weakref                                                                   | 
+| webbrowser                                                                | 
+| [zipapp](?Languages/Python/Libraries/Python/zipapp)                       | 
+| [zipimport](?Languages/Python/Libraries/Python/zipimport)                 | 
+
+""",
                 "System": {
                     "Windows": {
                         "nt": r"""
@@ -18495,7 +18693,7 @@ print(a is b)  # True
 ```
 ''',
             },
-            "OperatorPrecedence": """
+            "Operator Precedence": """
 Приоритетность операторов от высокой до самой низкой.
 
 | Операторы                                                    | Применение                                 |
