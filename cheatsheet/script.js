@@ -472,7 +472,11 @@ function generateDirectoryLink(kpath) {
 
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
-        if (a.target == "" && a.getAttribute("href")[0] !== "#") {
+        if (
+            a.target == ""
+            && a.getAttribute("href")[0] !== "#"
+            && a.getAttribute("href")[0] !== "?"
+        ) {
             a.target="_blank";
         }
     });

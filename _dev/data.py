@@ -6478,9 +6478,9 @@ textsize            Возвращает размер текста.
 генерирования справочной информации и сообщений об ошибках.
 
 Вот несколько примеров использования библиотеки argparse в Python:
-Простой скрипт
 
 ```python
+# Простой скрипт
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -6497,6 +6497,7 @@ python script.py hello
 ```
 
 Аргументы с флагами
+# Аргументы с флагами
 
 ```python
 import argparse
@@ -6515,7 +6516,7 @@ if args.verbosity:
 python script.py --verbosity
 ```
 
-Опциональный аргумент
+# Опциональный аргумент
 
 ```python
 import argparse
@@ -6534,7 +6535,7 @@ if args.number:
 python script.py --number 5
 ```
 
-Обязательный аргумент
+# Обязательный аргумент
 
 ```python
 import argparse
@@ -6552,7 +6553,7 @@ print(args.filename)
 python script.py filename.txt
 ```
 
-Группировка аргументов
+# Группировка аргументов
 
 ```python
 import argparse
@@ -6578,7 +6579,7 @@ python script.py --verbose или python script.py --quiet
 
 
 
-Позиционные аргументы с выбором
+# Позиционные аргументы с выбором
 
 ```python
 import argparse
@@ -6605,7 +6606,7 @@ else:
 python script.py add 5 3
 ```
 
-Описание программы и аргументов
+# Описание программы и аргументов
 
 ```python
 import argparse
@@ -6635,7 +6636,7 @@ python script.py --help
 
 
 
-Парсинг аргументов из файла
+# Парсинг аргументов из файла
 
 ```python
 import argparse
@@ -6668,7 +6669,7 @@ add 5 3
 python script.py @args.txt
 ```
 
-Аргумент со значением по умолчанию
+# Аргумент со значением по умолчанию
 
 ```python
 import argparse
@@ -18484,7 +18485,7 @@ print(a is b)  # True
 ```
 ''',
             },
-            "Operator precedence": """
+            "OperatorPrecedence": """
 Приоритетность операторов от высокой до самой низкой.
 
 | Операторы                                                    | Применение                                 |
