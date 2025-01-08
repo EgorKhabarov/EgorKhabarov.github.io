@@ -6491,13 +6491,22 @@ args = parser.parse_args()
 print(args.echo)
 ```
 
-Для запуска скрипта нужно использовать команду
-
-```bash
+> ```bash
 python script.py hello
 ```
+> hello
 
-Аргументы с флагами
+> ```bash
+python script.py -h
+```
+> usage: script.py [-h] echo
+> 
+> positional arguments:
+>   echo        echo the string you use here
+> 
+> options:
+>   -h, --help  show this help message and exit
+
 # Аргументы с флагами
 
 ```python
