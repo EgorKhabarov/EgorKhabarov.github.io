@@ -6479,8 +6479,9 @@ textsize            Возвращает размер текста.
 
 Вот несколько примеров использования библиотеки argparse в Python:
 
-```python
 # Простой скрипт
+
+```python@script.py
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -6690,7 +6691,7 @@ print(args.num * 2)
 python script.py --verbosity --num 3
 ```
 
-Поддержка субкоманд
+# Поддержка субкоманд
 
 ```python
 import argparse
