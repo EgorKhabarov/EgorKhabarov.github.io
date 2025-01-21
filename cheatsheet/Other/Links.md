@@ -181,6 +181,10 @@
 <td>HTTP headers</td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">developer.mozilla.org</a><br><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">en.wikipedia.org</a></td>
 </tr>
+<tr>
+<td>simpleicons.org</td>
+<td><a href="https://simpleicons.org/">https://simpleicons.org/</a></td>
+</tr>
 </tbody>
 </table>
 <h1>General</h1>

@@ -19364,6 +19364,77 @@ match (x, y):
 
 [https://habr.com/ru/articles/62203/](https://habr.com/ru/articles/62203/)
 """,
+            "noinspection.txt": """
+```python@noinspection.txt
+# noinspection PyPep8
+# noinspection PyPep8Naming
+# noinspection PyTypeChecker
+# noinspection PyAbstractClass
+# noinspection PyArgumentEqualDefault
+# noinspection PyArgumentList
+# noinspection PyAssignmentToLoopOrWithParameter
+# noinspection PyAttributeOutsideInit
+# noinspection PyAugmentAssignment
+# noinspection PyBroadException
+# noinspection PyByteLiteral
+# noinspection PyCallByClass
+# noinspection PyChainedComparsons
+# noinspection PyClassHasNoInit
+# noinspection PyClassicStyleClass
+# noinspection PyComparisonWithNone
+# noinspection PyCompatibility
+# noinspection PyDecorator
+# noinspection PyDefaultArgument
+# noinspection PyDictCreation
+# noinspection PyDictDuplicateKeys
+# noinspection PyDocstringTypes
+# noinspection PyExceptClausesOrder
+# noinspection PyExceptionInheritance
+# noinspection PyFromFutureImport
+# noinspection PyGlobalUndefined
+# noinspection PyIncorrectDocstring
+# noinspection PyInitNewSignature
+# noinspection PyInterpreter
+# noinspection PyListCreation
+# noinspection PyMandatoryEncoding
+# noinspection PyMethodFirstArgAssignment
+# noinspection PyMethodMayBeStatic
+# noinspection PyMethodOverriding
+# noinspection PyMethodParameters
+# noinspection PyMissingConstructor
+# noinspection PyMissingOrEmptyDocstring
+# noinspection PyNestedDecorators
+# noinspection PynonAsciiChar
+# noinspection PyNoneFunctionAssignment
+# noinspection PyOldStyleClasses
+# noinspection PyPackageRequirements
+# noinspection PyPropertyAccess
+# noinspection PyPropertyDefinition
+# noinspection PyProtectedMember
+# noinspection PyRaisingNewStyleClass
+# noinspection PyRedeclaration
+# noinspection PyRedundantParentheses
+# noinspection PySetFunctionToLiteral
+# noinspection PySimplifyBooleanCheck
+# noinspection PySingleQuotedDocstring
+# noinspection PyStatementEffect
+# noinspection PyStringException
+# noinspection PyStringFormat
+# noinspection PySuperArguments
+# noinspection PyTrailingSemicolon
+# noinspection PyTupleAssignmentBalance
+# noinspection PyTupleItemAssignment
+# noinspection PyUnboundLocalVariable
+# noinspection PyUnnecessaryBackslash
+# noinspection PyUnreachableCode
+# noinspection PyUnresolvedReferences
+# noinspection PyUnusedLocal
+# noinspection ReturnValueFromInit
+# noinspection SpellCheckingInspection
+# noinspection PyShadowingNames
+# noinspection PyCallingNonCallable
+```
+""",
         },
         "RegExp": {
             "RegExp": r"""
@@ -27344,6 +27415,7 @@ Runner.instance_.setSpeed(1000)
 | MIME types                      | [https://mimetype.io/all-types](https://mimetype.io/all-types)   |
 | Список MIME типов               | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)     |
 | HTTP headers                    | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
+| simpleicons.org                 | [https://simpleicons.org/](https://simpleicons.org/) |
 
 
 # General
