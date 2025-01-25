@@ -14,37 +14,37 @@
 <tr>
 <td><code>subprocess.run()</code></td>
 <td>Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта <code>CompletedProcess</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+<td><code>result = subprocess.run(["ls", "-l"])</code></td>
 </tr>
 <tr>
 <td><code>subprocess.Popen()</code></td>
 <td>Запускает новый процесс и возвращает объект <code>Popen</code>,<br>который можно использовать для взаимодействия с процессом</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+<td><code>process = subprocess.Popen(["ls", "-l"])</code></td>
 </tr>
 <tr>
 <td><code>subprocess.call()</code></td>
 <td>Выполняет команду и возвращает код завершения процесса</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">return_code</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+<td><code>return_code = subprocess.call(["ls", "-l"])</code></td>
 </tr>
 <tr>
 <td><code>subprocess.check_call()</code></td>
 <td>Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+<td><code>subprocess.check_call(["ls", "-l"])</code></td>
 </tr>
 <tr>
 <td><code>subprocess.check_output()</code></td>
 <td>Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span><br></pre></div></pre></div></div></td>
+<td><code>output = subprocess.check_output(["ls", "-l"])</code></td>
 </tr>
 <tr>
 <td><code>subprocess.getoutput()</code></td>
 <td>Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><code>output = subprocess.getoutput("ls -l")</code></td>
 </tr>
 <tr>
 <td><code>subprocess.getstatusoutput()</code></td>
 <td>Выполняет команду и возвращает кортеж (код завершения, вывод)</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">status</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getstatusoutput</span><span class="p">(</span><span class="s2">&quot;ls -l&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><code>status, output = subprocess.getstatusoutput("ls -l")</code></td>
 </tr>
 </tbody>
 </table>
@@ -61,42 +61,42 @@
 <tr>
 <td><code>Popen.poll()</code></td>
 <td>Проверяет завершился ли процесс.<br>Возвращает код завершения или <code>None</code>, если процесс ещё выполняется</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>status = process.poll()</code></td>
 </tr>
 <tr>
 <td><code>Popen.wait()</code></td>
 <td>Ожидает завершения процесса и возвращает код завершения</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">return_code</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>return_code = process.wait()</code></td>
 </tr>
 <tr>
 <td><code>Popen.communicate()</code></td>
 <td>Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><code>stdout, stderr = process.communicate(input_data)</code></td>
 </tr>
 <tr>
 <td><code>Popen.terminate()</code></td>
 <td>Посылает процессу сигнал <code>SIGTERM</code>, запрашивая его завершение</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>process.terminate()</code></td>
 </tr>
 <tr>
 <td><code>Popen.kill()</code></td>
 <td>Принудительно завершает процесс, посылая сигнал <code>SIGKILL</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>process.kill()</code></td>
 </tr>
 <tr>
 <td><code>Popen.stdin</code></td>
 <td>Стандартный поток ввода процесса (если установлен <code>stdin=subprocess.PIPE</code>)</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">process</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;data&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td><code>process.stdin.write(b"data")</code></td>
 </tr>
 <tr>
 <td><code>Popen.stdout</code></td>
 <td>Стандартный поток вывода процесса (если установлен <code>stdout=subprocess.PIPE</code>)</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>output = process.stdout.read()</code></td>
 </tr>
 <tr>
 <td><code>Popen.stderr</code></td>
 <td>Стандартный поток ошибок процесса (если установлен <code>stderr=subprocess.PIPE</code>)</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">error_output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><br></pre></div></pre></div></div></td>
+<td><code>error_output = process.stderr.read()</code></td>
 </tr>
 </tbody>
 </table>

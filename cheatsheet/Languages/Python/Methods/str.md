@@ -225,7 +225,7 @@
 <tr>
 <td style="text-align: left;">str.isspace()</td>
 <td style="text-align: left;"><code>True</code>, если строка состоит из пробелов</td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;     &quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br></pre></div></pre></div></div></td>
+<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot; </span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td style="text-align: left;">str.istitle()</td>

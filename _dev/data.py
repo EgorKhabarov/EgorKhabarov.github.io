@@ -1,4 +1,4 @@
-from _dev.utils import to_table_code_py, to_table_code_java, to_table_code_sql
+from _dev.utils import to_table_code_py
 
 
 DICT = {
@@ -3883,28 +3883,28 @@ divide(1, 0)
 
 # Основные функции
 
-| Функция                        | Описание                                                                                                          | Пример использования         |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------------|------------------------------|
-| `subprocess.run()`             | Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта `CompletedProcess`        | {subprocess_run}             |
-| `subprocess.Popen()`           | Запускает новый процесс и возвращает объект `Popen`,<br>который можно использовать для взаимодействия с процессом | {subprocess_Popen}           |
-| `subprocess.call()`            | Выполняет команду и возвращает код завершения процесса                                                            | {subprocess_call}            |
-| `subprocess.check_call()`      | Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой                                     | {subprocess_check_call}      |
-| `subprocess.check_output()`    | Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение              | {subprocess_check_output}    |
-| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия | {subprocess_getoutput}       |
-| `subprocess.getstatusoutput()` | Выполняет команду и возвращает кортеж (код завершения, вывод)                                                     | {subprocess_getstatusoutput} |
+| Функция                        | Описание                                                                                                          | Пример использования                                   |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `subprocess.run()`             | Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта `CompletedProcess`        | `result = subprocess.run(["ls", "-l"])`                |
+| `subprocess.Popen()`           | Запускает новый процесс и возвращает объект `Popen`,<br>который можно использовать для взаимодействия с процессом | `process = subprocess.Popen(["ls", "-l"])`             |
+| `subprocess.call()`            | Выполняет команду и возвращает код завершения процесса                                                            | `return_code = subprocess.call(["ls", "-l"])`          |
+| `subprocess.check_call()`      | Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой                                     | `subprocess.check_call(["ls", "-l"])`                  |
+| `subprocess.check_output()`    | Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение              | `output = subprocess.check_output(["ls", "-l"])`       |
+| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия | `output = subprocess.getoutput("ls -l")`               |
+| `subprocess.getstatusoutput()` | Выполняет команду и возвращает кортеж (код завершения, вывод)                                                     | `status, output = subprocess.getstatusoutput("ls -l")` |
 
 ## Класс Popen
 
-| Метод                 | Описание                                                                                                   | Пример использования |
-|-----------------------|------------------------------------------------------------------------------------------------------------|----------------------|
-| `Popen.poll()`        | Проверяет завершился ли процесс.<br>Возвращает код завершения или `None`, если процесс ещё выполняется     | {popen_poll}         |
-| `Popen.wait()`        | Ожидает завершения процесса и возвращает код завершения                                                    | {popen_wait}         |
-| `Popen.communicate()` | Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок | {popen_communicate}  |
-| `Popen.terminate()`   | Посылает процессу сигнал `SIGTERM`, запрашивая его завершение                                              | {popen_terminate}    |
-| `Popen.kill()`        | Принудительно завершает процесс, посылая сигнал `SIGKILL`                                                  | {popen_kill}         |
-| `Popen.stdin`         | Стандартный поток ввода процесса (если установлен `stdin=subprocess.PIPE`)                                 | {popen_stdin}        |
-| `Popen.stdout`        | Стандартный поток вывода процесса (если установлен `stdout=subprocess.PIPE`)                               | {popen_stdout}       |
-| `Popen.stderr`        | Стандартный поток ошибок процесса (если установлен `stderr=subprocess.PIPE`)                               | {popen_stderr}       |
+| Метод                 | Описание                                                                                                   | Пример использования                               |
+|-----------------------|------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| `Popen.poll()`        | Проверяет завершился ли процесс.<br>Возвращает код завершения или `None`, если процесс ещё выполняется     | `status = process.poll()`                          |
+| `Popen.wait()`        | Ожидает завершения процесса и возвращает код завершения                                                    | `return_code = process.wait()`                     |
+| `Popen.communicate()` | Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок | `stdout, stderr = process.communicate(input_data)` |
+| `Popen.terminate()`   | Посылает процессу сигнал `SIGTERM`, запрашивая его завершение                                              | `process.terminate()`                              |
+| `Popen.kill()`        | Принудительно завершает процесс, посылая сигнал `SIGKILL`                                                  | `process.kill()`                                   |
+| `Popen.stdin`         | Стандартный поток ввода процесса (если установлен `stdin=subprocess.PIPE`)                                 | `process.stdin.write(b"data")`                     |
+| `Popen.stdout`        | Стандартный поток вывода процесса (если установлен `stdout=subprocess.PIPE`)                               | `output = process.stdout.read()`                   |
+| `Popen.stderr`        | Стандартный поток ошибок процесса (если установлен `stderr=subprocess.PIPE`)                               | `error_output = process.stderr.read()`             |
 
 ## Управление потоками ввода-вывода
 
@@ -3947,7 +3947,7 @@ import subprocess
 try:
   subprocess.check_call(["false"])
 except subprocess.CalledProcessError as e:
-  print(f"Процесс завершился с ошибкой: {{e.returncode}}")
+  print(f"Процесс завершился с ошибкой: {e.returncode}")
 ```
 
 ### Запуск процесса с передачей данных на ввод
@@ -3991,26 +3991,7 @@ print(stdout.decode())  # "Hello, World!\n"
 - [Официальная документация](https://docs.python.org/3/library/subprocess.html)
 - [Real Python - Guide to Subprocess](https://realpython.com/python-subprocess/)
 
-""".format(
-                        subprocess_run=to_table_code_py('result = subprocess.run(["ls", "-l"])'),
-                        subprocess_Popen=to_table_code_py('process = subprocess.Popen(["ls", "-l"])'),
-                        subprocess_call=to_table_code_py('return_code = subprocess.call(["ls", "-l"])'),
-                        subprocess_check_call=to_table_code_py('subprocess.check_call(["ls", "-l"])'),
-                        subprocess_check_output=to_table_code_py('output = subprocess.check_output(["ls", "-l"])'),
-                        subprocess_getoutput=to_table_code_py('output = subprocess.getoutput("ls -l")'),
-                        subprocess_getstatusoutput=to_table_code_py(
-                            'status, output = subprocess.getstatusoutput("ls -l")'
-                        ),
-                        popen_poll=to_table_code_py("status = process.poll()"),
-                        popen_wait=to_table_code_py("return_code = process.wait()"),
-                        popen_communicate=to_table_code_py("stdout, stderr = process.communicate(input_data)"),
-                        popen_terminate=to_table_code_py("process.terminate()"),
-                        popen_kill=to_table_code_py("process.kill()"),
-                        popen_stdin=to_table_code_py('process.stdin.write(b"data")'),
-                        popen_stdout=to_table_code_py("output = process.stdout.read()"),
-                        popen_stderr=to_table_code_py("error_output = process.stderr.read()"),
-
-                    ),
+""",
                     "multiprocessing": r"""
 Библиотека "multiprocessing" используется в Python для поддержки параллельного выполнения кода, основанного на процессах.
 Она предоставляет возможность создания и управления процессами, а также обмена данными между ними.
@@ -4169,12 +4150,12 @@ if keyboard.is_pressed("A"):  # Проверка, нажата ли клавиш
 
 # Основные функции и их описание
 
-| Функция                 | Описание                                                                                                        | Пример использования  |
-|-------------------------|-----------------------------------------------------------------------------------------------------------------|-----------------------|
-| `fnmatch.fnmatch()`     | Сопоставляет строку с шаблоном.<br>Регистро**зависимо** на Unix и регистро**независимо** на Windows             | {fnmatch_fnmatch}     |
-| `fnmatch.fnmatchcase()` | Сопоставляет строку с шаблоном с учетом регистра на всех платформах                                             | {fnmatch_fnmatchcase} |
-| `fnmatch.filter()`      | Фильтрует список строк, оставляя только те, которые соответствуют шаблону                                       | {fnmatch_filter}      |
-| `fnmatch.translate()`   | Преобразует шаблон в регулярное выражение,<br>которое можно использовать с `re` для более сложных сопоставлений | {fnmatch_translate}   |
+| Функция                 | Описание                                                                                                        | Пример использования                             |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| `fnmatch.fnmatch()`     | Сопоставляет строку с шаблоном.<br>Регистро**зависимо** на Unix и регистро**независимо** на Windows             | `fnmatch.fnmatch("foo.txt", "*.txt")`            |
+| `fnmatch.fnmatchcase()` | Сопоставляет строку с шаблоном с учетом регистра на всех платформах                                             | `fnmatch.fnmatchcase("Foo.txt", "*.TXT")`        |
+| `fnmatch.filter()`      | Фильтрует список строк, оставляя только те, которые соответствуют шаблону                                       | `fnmatch.filter(["foo.txt", "bar.py"], "*.txt")` |
+| `fnmatch.translate()`   | Преобразует шаблон в регулярное выражение,<br>которое можно использовать с `re` для более сложных сопоставлений | `pattern = fnmatch.translate("*.txt")`           |
 
 # Специальные символы в шаблонах
 
@@ -4255,12 +4236,7 @@ print(hidden_files)  # [".bashrc", ".gitignore"]
 
 - [Официальная документация](https://docs.python.org/3/library/fnmatch.html)
 - [Real Python - Guide to Filename Matching](https://realpython.com/lessons/filename-matching/)
-""".format(
-                        fnmatch_fnmatch=to_table_code_py('fnmatch.fnmatch("foo.txt", "*.txt")'),
-                        fnmatch_fnmatchcase=to_table_code_py('fnmatch.fnmatchcase("Foo.txt", "*.TXT")'),
-                        fnmatch_filter=to_table_code_py('fnmatch.filter(["foo.txt", "bar.py"], "*.txt")'),
-                        fnmatch_translate=to_table_code_py('pattern = fnmatch.translate("*.txt")'),
-                    ),
+""",
                     "glob": r"""
 Библиотека "glob" предназначена для поиска файлов с использованием шаблонов и расширений в заданном каталоге.
 
@@ -16056,7 +16032,7 @@ print(weak_obj())  # Выведет None, так как объект удале�
                     isnumeric="",
                     isprintable="",
                     isspace=to_table_code_py(
-                        '>>> " \t".isspace()\nTrue\n>>> "a".isspace()\nFalse'
+                        '>>> " \\t".isspace()\nTrue\n>>> "a".isspace()\nFalse'
                     ),
                     istitle=to_table_code_py(
                         '>>> "Aa".istitle()\nTrue\n'
@@ -20134,32 +20110,32 @@ public class HashMapExample {
 
 Класс для работы с целыми числами произвольной длины
 
-| Метод                                | Описание                                                             | Пример использования            |
-|--------------------------------------|----------------------------------------------------------------------|---------------------------------|
-| `BigInteger(String val)`             | Создает объект из строки                                             | {BigInteger_BigInteger}         |
-| `BigInteger.valueOf(long val)`       | Создает объект из `long`                                             | {BigInteger_valueOf}            |
-| `add(BigInteger val)`                | Складывает два числа                                                 | {BigInteger_add}                |
-| `subtract(BigInteger val)`           | Вычитает одно число из другого                                       | {BigInteger_subtract}           |
-| `multiply(BigInteger val)`           | Умножает два числа                                                   | {BigInteger_multiply}           |
-| `divide(BigInteger val)`             | Делит одно число на другое (целочисленное деление)                   | {BigInteger_divide}             |
-| `remainder(BigInteger val)`          | Остаток от деления                                                   | {BigInteger_remainder}          |
-| `divideAndRemainder(BigInteger val)` | Возвращает массив с результатом<br>целочисленного деления и остатком | {BigInteger_divideAndRemainder} |
-| `pow(int exponent)`                  | Возводит число в степень                                             | {BigInteger_pow}                |
-| `mod(BigInteger val)`                | Остаток от деления для положительных чисел (модуль)                  | {BigInteger_mod}                |
-| `gcd(BigInteger val)`                | НОД двух чисел                                                       | {BigInteger_gcd}                |
-| `abs()`                              | Возвращает абсолютное значение числа                                 | {BigInteger_abs}                |
-| `negate()`                           | Возвращает отрицательное значение числа                              | {BigInteger_negate}             |
-| `compareTo(BigInteger val)`          | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше)        | {BigInteger_compareTo}          |
-| `toString()`                         | Преобразует число в строку                                           | {BigInteger_toString}           |
-| `isProbablePrime(int certainty)`     | Проверяет, является ли число<br>простым с заданной вероятностью      | {BigInteger_isProbablePrime}    |
+| Метод                                | Описание                                                             | Пример использования                                       |
+|--------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------|
+| `BigInteger(String val)`             | Создает объект из строки                                             | `BigInteger num = new BigInteger("12345678901234567890");` |
+| `BigInteger.valueOf(long val)`       | Создает объект из `long`                                             | `BigInteger num = BigInteger.valueOf(42);`                 |
+| `add(BigInteger val)`                | Складывает два числа                                                 | `BigInteger sum = a.add(b);`                               |
+| `subtract(BigInteger val)`           | Вычитает одно число из другого                                       | `BigInteger diff = a.subtract(b);`                         |
+| `multiply(BigInteger val)`           | Умножает два числа                                                   | `BigInteger product = a.multiply(b);`                      |
+| `divide(BigInteger val)`             | Делит одно число на другое (целочисленное деление)                   | `BigInteger quotient = a.divide(b);`                       |
+| `remainder(BigInteger val)`          | Остаток от деления                                                   | `BigInteger rem = a.remainder(b);`                         |
+| `divideAndRemainder(BigInteger val)` | Возвращает массив с результатом<br>целочисленного деления и остатком | `BigInteger[] result = a.divideAndRemainder(b);`           |
+| `pow(int exponent)`                  | Возводит число в степень                                             | `BigInteger power = a.pow(3);`                             |
+| `mod(BigInteger val)`                | Остаток от деления для положительных чисел (модуль)                  | `BigInteger mod = a.mod(b);`                               |
+| `gcd(BigInteger val)`                | НОД двух чисел                                                       | `BigInteger gcd = a.gcd(b);`                               |
+| `abs()`                              | Возвращает абсолютное значение числа                                 | `BigInteger absVal = a.abs();`                             |
+| `negate()`                           | Возвращает отрицательное значение числа                              | `BigInteger neg = a.negate();`                             |
+| `compareTo(BigInteger val)`          | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше)        | `int cmp = a.compareTo(b);`                                |
+| `toString()`                         | Преобразует число в строку                                           | `String str = a.toString();`                               |
+| `isProbablePrime(int certainty)`     | Проверяет, является ли число<br>простым с заданной вероятностью      | `boolean isPrime = a.isProbablePrime(10);`                 |
 
 ### Пример использования `BigInteger`
 
 ```java
 import java.math.BigInteger;
 
-public class BigIntegerExample {{
-    public static void main(String[] args) {{
+public class BigIntegerExample {
+    public static void main(String[] args) {
         BigInteger a = new BigInteger("123456789012345678901234567890");
         BigInteger b = new BigInteger("987654321098765432109876543210");
 
@@ -20170,8 +20146,8 @@ public class BigIntegerExample {{
         System.out.println("Сумма: " + sum);
         System.out.println("Произведение: " + product);
         System.out.println("Квадрат: " + power);
-    }}
-}}
+    }
+}
 // Сумма: 1111111110111111111011111111100
 // Произведение: 121932631137021795226185032733622923332237463801111263526900
 // Квадрат: 15241578753238836750495351562536198787501905199875019052100
@@ -20181,29 +20157,29 @@ public class BigIntegerExample {{
 
 Класс для работы с числами с плавающей точкой произвольной точности
 
-| Метод                                                               | Описание                                                      | Пример использования            |
-|---------------------------------------------------------------------|---------------------------------------------------------------|---------------------------------|
-| `BigDecimal(String val)`                                            | Создает объект из строки                                      | {BigDecimal_BigDecimal}         |
-| `BigDecimal.valueOf(double val)`                                    | Создает объект из `double`                                    | {BigDecimal_valueOf}            |
-| `add(BigDecimal val)`                                               | Складывает два числа                                          | {BigDecimal_add}                |
-| `subtract(BigDecimal val)`                                          | Вычитает одно число из другого                                | {BigDecimal_subtract}           |
-| `multiply(BigDecimal val)`                                          | Умножает два числа                                            | {BigDecimal_multiply}           |
-| `divide(BigDecimal val, int scale,`<br>`RoundingMode roundingMode)` | Делит числа с указанием<br>точности и метода округления       | {BigDecimal_divide}             |
-| `remainder(BigDecimal val)`                                         | Остаток от деления                                            | {BigDecimal_remainder}          |
-| `setScale(int newScale,`<br>`RoundingMode roundingMode)`            | Изменяет точность числа с указанием метода округления         | {BigDecimal_setScale}           |
-| `compareTo(BigDecimal val)`                                         | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше) | {BigDecimal_compareTo}          |
-| `toString()`                                                        | Преобразует число в строку                                    | {BigDecimal_toString}           |
-| `scale()`                                                           | Возвращает текущую точность числа                             | {BigDecimal_scale}              |
-| `precision()`                                                       | Возвращает общее количество значащих цифр                     | {BigDecimal_precision}          |
-| `stripTrailingZeros()`                                              | Убирает незначащие нули после запятой                         | {BigDecimal_stripTrailingZeros} |
+| Метод                                                               | Описание                                                      | Пример использования                                          |
+|---------------------------------------------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|
+| `BigDecimal(String val)`                                            | Создает объект из строки                                      | `BigDecimal num = new BigDecimal("12345.6789");`              |
+| `BigDecimal.valueOf(double val)`                                    | Создает объект из `double`                                    | `BigDecimal num = BigDecimal.valueOf(12345.6789);`            |
+| `add(BigDecimal val)`                                               | Складывает два числа                                          | `BigDecimal sum = a.add(b);`                                  |
+| `subtract(BigDecimal val)`                                          | Вычитает одно число из другого                                | `BigDecimal diff = a.subtract(b);`                            |
+| `multiply(BigDecimal val)`                                          | Умножает два числа                                            | `BigDecimal product = a.multiply(b);`                         |
+| `divide(BigDecimal val, int scale,`<br>`RoundingMode roundingMode)` | Делит числа с указанием<br>точности и метода округления       | `BigDecimal quotient = a.divide(b, 2, RoundingMode.HALF_UP);` |
+| `remainder(BigDecimal val)`                                         | Остаток от деления                                            | `BigDecimal rem = a.remainder(b);`                            |
+| `setScale(int newScale,`<br>`RoundingMode roundingMode)`            | Изменяет точность числа с указанием метода округления         | `BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);`    |
+| `compareTo(BigDecimal val)`                                         | Сравнивает числа: `-1` (меньше),<br>`0` (равны), `1` (больше) | `int cmp = a.compareTo(b);`                                   |
+| `toString()`                                                        | Преобразует число в строку                                    | `String str = a.toString();`                                  |
+| `scale()`                                                           | Возвращает текущую точность числа                             | `int scale = a.scale();`                                      |
+| `precision()`                                                       | Возвращает общее количество значащих цифр                     | `int precision = a.precision();`                              |
+| `stripTrailingZeros()`                                              | Убирает незначащие нули после запятой                         | `BigDecimal stripped = a.stripTrailingZeros();`               |
 
 ### Пример использования `BigDecimal`
 ```java
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class BigDecimalExample {{
-    public static void main(String[] args) {{
+public class BigDecimalExample {
+    public static void main(String[] args) {
         BigDecimal a = new BigDecimal("12345.6789");
         BigDecimal b = new BigDecimal("0.001");
 
@@ -20214,8 +20190,8 @@ public class BigDecimalExample {{
         System.out.println("Сумма: " + sum);
         System.out.println("Разность: " + diff);
         System.out.println("С округлением: " + scaled);
-    }}
-}}
+    }
+}
 ```
 
 ### Заметки
@@ -20229,47 +20205,7 @@ BigDecimal b = new BigDecimal("0.1"); // Точно
     - `RoundingMode.FLOOR` — округление вниз
     - `RoundingMode.CEILING` — округление вверх
 
-""".format(
-                        BigInteger_BigInteger=to_table_code_java(
-                            'BigInteger num = new BigInteger("12345678901234567890");'
-                        ),
-                        BigInteger_valueOf=to_table_code_java("BigInteger num = BigInteger.valueOf(42);"),
-                        BigInteger_add=to_table_code_java("BigInteger sum = a.add(b);"),
-                        BigInteger_subtract=to_table_code_java("BigInteger diff = a.subtract(b);"),
-                        BigInteger_multiply=to_table_code_java("BigInteger product = a.multiply(b);"),
-                        BigInteger_divide=to_table_code_java("BigInteger quotient = a.divide(b);"),
-                        BigInteger_remainder=to_table_code_java("BigInteger rem = a.remainder(b);"),
-                        BigInteger_divideAndRemainder=to_table_code_java(
-                            "BigInteger[] result = a.divideAndRemainder(b);"
-                        ),
-                        BigInteger_pow=to_table_code_java("BigInteger power = a.pow(3);"),
-                        BigInteger_mod=to_table_code_java("BigInteger mod = a.mod(b);"),
-                        BigInteger_gcd=to_table_code_java("BigInteger gcd = a.gcd(b);"),
-                        BigInteger_abs=to_table_code_java("BigInteger absVal = a.abs();"),
-                        BigInteger_negate=to_table_code_java("BigInteger neg = a.negate();"),
-                        BigInteger_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
-                        BigInteger_toString=to_table_code_java("String str = a.toString();"),
-                        BigInteger_isProbablePrime=to_table_code_java("boolean isPrime = a.isProbablePrime(10);"),
-                        BigDecimal_BigDecimal=to_table_code_java('BigDecimal num = new BigDecimal("12345.6789");'),
-                        BigDecimal_valueOf=to_table_code_java("BigDecimal num = BigDecimal.valueOf(12345.6789);"),
-                        BigDecimal_add=to_table_code_java("BigDecimal sum = a.add(b);"),
-                        BigDecimal_subtract=to_table_code_java("BigDecimal diff = a.subtract(b);"),
-                        BigDecimal_multiply=to_table_code_java("BigDecimal product = a.multiply(b);"),
-                        BigDecimal_divide=to_table_code_java(
-                            "BigDecimal quotient = a.divide(b, 2, RoundingMode.HALF_UP);"
-                        ),
-                        BigDecimal_remainder=to_table_code_java("BigDecimal rem = a.remainder(b);"),
-                        BigDecimal_setScale=to_table_code_java(
-                            "BigDecimal scaled = a.setScale(2, RoundingMode.HALF_UP);"
-                        ),
-                        BigDecimal_compareTo=to_table_code_java("int cmp = a.compareTo(b);"),
-                        BigDecimal_toString=to_table_code_java("String str = a.toString();"),
-                        BigDecimal_scale=to_table_code_java("int scale = a.scale();"),
-                        BigDecimal_precision=to_table_code_java("int precision = a.precision();"),
-                        BigDecimal_stripTrailingZeros=to_table_code_java(
-                            "BigDecimal stripped = a.stripTrailingZeros();"
-                        ),
-                    ),
+""",
                 },
             },
             "Built-in": {
@@ -20286,34 +20222,34 @@ String s2 = new String("World");
 
 # Методы
 
-| Метод                                                            | Описание                                                               | Пример использования  |
-|------------------------------------------------------------------|------------------------------------------------------------------------|-----------------------|
-| `.charAt(int index)`                                             | Возвращает символ по указанному индексу                                | {charAt}              |
-| `.length()`                                                      | Возвращает длину строки                                                | {length}              |
-| `.concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | {concat}              |
-| `.contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | {contains}            |
-| `.equals(Object obj)`                                            | Проверяет строки на равенство                                          | {equals}              |
-| `.equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | {equalsIgnoreCase}    |
-| `.startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | {startsWith}          |
-| `.endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | {endsWith}            |
-| `.indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | {indexOf}             |
-| `.lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | {lastIndexOf}         |
-| `.substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | {substring}           |
-| `.substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | {substring_2}         |
-| `.toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | {toLowerCase}         |
-| `.toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | {toUpperCase}         |
-| `.trim()`                                                        | Удаляет начальные и конечные пробелы                                   | {trim}                |
-| `.replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | {replace}             |
-| `.replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | {replace_2}           |
-| `.split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | {split}               |
-| `.matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | {matches}             |
-| `.isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | {isEmpty}             |
-| `.intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | {intern}              |
-| `.toCharArray()`                                                 | Преобразует строку в массив символов                                   | {toCharArray}         |
-| `.compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | {compareTo}           |
-| `.compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | {compareToIgnoreCase} |
-| `.format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | {format}              |
-| `.join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | {join}                |
+| Метод                                                            | Описание                                                               | Пример использования                                                                       |
+|------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `.charAt(int index)`                                             | Возвращает символ по указанному индексу                                | `char c = "Hello".charAt(1); // 'e'`                                                       |
+| `.length()`                                                      | Возвращает длину строки                                                | `int len = "Hello".length(); // 5`                                                         |
+| `.concat(String str)`                                            | Склеивает две строки, возвращает новую строку                          | `String s = "Hello".concat(" World"); // "Hello World"`                                    |
+| `.contains(CharSequence)`                                        | Проверяет, содержит ли строка<br>указанную последовательность символов | `boolean b = "Hello".contains("ll"); // true`                                              |
+| `.equals(Object obj)`                                            | Проверяет строки на равенство                                          | `boolean b = "Hello".equals("hello");// false`                                             |
+| `.equalsIgnoreCase(String str)`                                  | Проверяет строки на равенство, игнорируя регистр символов              | `boolean b = "Hello".equalsIgnoreCase("hello"); // true`                                   |
+| `.startsWith(String prefix)`                                     | Проверяет, начинается ли строка с указанного префикса                  | `boolean b = "Hello".startsWith("He"); // true`                                            |
+| `.endsWith(String suffix)`                                       | Проверяет, заканчивается ли строка указанным суффиксом                 | `boolean b = "Hello".endsWith("lo"); // true`                                              |
+| `.indexOf(String str)`                                           | Возвращает индекс первого вхождения подстроки                          | `int idx = "Hello".indexOf("l"); // 2`                                                     |
+| `.lastIndexOf(String str)`                                       | Возвращает индекс последнего вхождения подстроки                       | `int idx = "Hello".lastIndexOf("l"); // 3`                                                 |
+| `.substring`<br>(int beginIndex)                                 | Возвращает подстроку, начиная с указанного индекса                     | `String sub = "Hello".substring(2); // "llo"`                                              |
+| `.substring`<br>(int beginIndex, int endIndex)                   | Возвращает подстроку с указанного<br>начала до конца (не включая)      | `String sub = "Hello".substring(1, 4); // "ell"`                                           |
+| `.toLowerCase()`                                                 | Возвращает новую строку, переведенную в нижний регистр                 | `String s = "HELLO".toLowerCase(); // "hello"`                                             |
+| `.toUpperCase()`                                                 | Возвращает новую строку, переведенную в верхний регистр                | `String s = "hello".toUpperCase(); // "HELLO"`                                             |
+| `.trim()`                                                        | Удаляет начальные и конечные пробелы                                   | `String s = "  Hello  ".trim(); // "Hello"`                                                |
+| `.replace`<br>(char oldChar, char newChar)                       | Заменяет все вхождения одного символа на другой                        | `String s = "Hello".replace('l', 'p'); // "Heppo"`                                         |
+| `.replace`<br>(CharSequence target,<br>CharSequence replacement) | Заменяет все вхождения одной<br>последовательности символов на другую  | `String s = "Hello".replace("ll", "yy"); // "Heyyo"`                                       |
+| `.split(String regex)`                                           | Разделяет строку по указанному регулярному выражению                   | `String[] arr = "a,b,c".split(",");`<br>`Arrays.toString("a,b,c".split(",")) // [a, b, c]` |
+| `.matches(String regex)`                                         | Проверяет, соответствует ли строка регулярному выражению               | `boolean b = "abc".matches("[a-z]+"); // true`                                             |
+| `.isEmpty()`                                                     | Проверяет, пуста ли строка (имеет длину 0)                             | `boolean b = "".isEmpty(); // true`                                                        |
+| `.intern()`                                                      | Возвращает строку из пула строк или добавляет её туда                  | `String s = "Hello".intern(); // "Hello"`                                                  |
+| `.toCharArray()`                                                 | Преобразует строку в массив символов                                   | `char[] arr = "Hello".toCharArray(); // "Hello"`                                           |
+| `.compareTo(String anotherString)`                               | Сравнивает строки лексикографически                                    | `int cmp = "abc".compareTo("abd"); // -1`                                                  |
+| `.compareToIgnoreCase(String str)`                               | Лексикографическое сравнение<br>строк без учета регистра               | `int cmp = "abc".compareToIgnoreCase("ABC"); // 0`                                         |
+| `.format(String format, Object... args)`                         | Возвращает отформатированную<br>строку на основе переданных аргументов | `String s = String.format("Hello %s", "World"); // "Hello World"`                          |
+| `.join`<br>(CharSequence delimiter,<br>CharSequence... elements) | Объединяет элементы в строку с указанным разделителем                  | `String s = String.join(", ", "a", "b", "c"); // "a, b, c"`                                |
 
 # Примеры использования
 
@@ -20353,39 +20289,7 @@ boolean contains = s.contains("ell");  // true
 String formatted = String.format("Name: %s, Age: %d", "Alice", 30);
 System.out.println(formatted);  // "Name: Alice, Age: 30"
 ```
-
-""".format(
-                    charAt=to_table_code_java('char c = "Hello".charAt(1);\n// \'e\''),
-                    length=to_table_code_java('int len = "Hello".length();\n// 5'),
-                    concat=to_table_code_java('String s = "Hello".concat(" World");\n// "Hello World"'),
-                    contains=to_table_code_java('boolean b = "Hello".contains("ll");\n// true'),
-                    equals=to_table_code_java('boolean b = "Hello".equals("hello");\n// false'),
-                    equalsIgnoreCase=to_table_code_java('boolean b = "Hello".equalsIgnoreCase("hello");\n// true'),
-                    startsWith=to_table_code_java('boolean b = "Hello".startsWith("He");\n// true'),
-                    endsWith=to_table_code_java('boolean b = "Hello".endsWith("lo");\n// true'),
-                    indexOf=to_table_code_java('int idx = "Hello".indexOf("l");\n// 2'),
-                    lastIndexOf=to_table_code_java('int idx = "Hello".lastIndexOf("l");\n// 3'),
-                    substring=to_table_code_java('String sub = "Hello".substring(2);\n// "llo"'),
-                    substring_2=to_table_code_java('String sub = "Hello".substring(1, 4);\n// "ell"'),
-                    toLowerCase=to_table_code_java('String s = "HELLO".toLowerCase();\n// "hello"'),
-                    toUpperCase=to_table_code_java('String s = "hello".toUpperCase();\n// "HELLO"'),
-                    trim=to_table_code_java('String s = "  Hello  ".trim();\n// "Hello"'),
-                    replace=to_table_code_java('String s = "Hello".replace(\'l\', \'p\');\n// "Heppo"'),
-                    replace_2=to_table_code_java('String s = "Hello".replace("ll", "yy");\n// "Heyyo"'),
-                    split=to_table_code_java(
-                        'String[] arr = "a,b,c".split(",");\n'
-                        'Arrays.toString("a,b,c".split(","))\n'
-                        '[a, b, c]'
-                    ),
-                    matches=to_table_code_java('boolean b = "abc".matches("[a-z]+");\n// true'),
-                    isEmpty=to_table_code_java('boolean b = "".isEmpty();\n// true'),
-                    intern=to_table_code_java('String s = "Hello".intern();\n// "Hello"'),
-                    toCharArray=to_table_code_java('char[] arr = "Hello".toCharArray();\n// "Hello"'),
-                    compareTo=to_table_code_java('int cmp = "abc".compareTo("abd");\n// -1'),
-                    compareToIgnoreCase=to_table_code_java('int cmp = "abc".compareToIgnoreCase("ABC");\n// 0'),
-                    format=to_table_code_java('String s = String.format("Hello %s", "World");\n// "Hello World"'),
-                    join=to_table_code_java('String s = String.join(", ", "a", "b", "c");\n// "a, b, c"'),
-                ),
+""",
                 "Integer": """
 `Integer` — это класс-оболочка для типа `int` в Java, предоставляющий дополнительные методы для работы с целыми числами.
 
@@ -20402,55 +20306,32 @@ int num = obj;    // Автораспаковка
 | `Integer.MIN_VALUE` | `-2,147,483,648` |
 | `Integer.MAX_VALUE` | `2,147,483,647`  |
 
-| Метод                                   | Описание                                                                                            | Пример использования  |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------|
-| `.valueOf(String s)`                    | Преобразует строку в объект `Integer`                                                               | {valueOf_String}      |
-| `.valueOf(int i)`                       | Возвращает объект `Integer`, представляющий указанное значение `int`                                | {valueOf_int}         |
-| `.parseInt(String s)`                   | Преобразует строку в примитивное значение `int`                                                     | {parseInt_String}     |
-| `.parseInt`<br>(String s, int radix)    | Преобразует строку в число указанной системы счисления                                              | {parseInt_String_int} |
-| `.toString(int i)`                      | Преобразует число `int` в строку                                                                    | {toString_int}        |
-| `.toString`<br>(int i, int radix)       | Преобразует число в строку указанной системы счисления                                              | {toString_int_int}    |
-| `.compare(int x, int y)`                | Сравнивает два числа.<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`    | {compare}             |
-| `.compareTo`<br>(Integer another)       | Сравнивает текущий объект `Integer` с другим                                                        | {compareTo}           |
-| `.max(int a, int b)`                    | Возвращает большее из двух чисел                                                                    | {max}                 |
-| `.min(int a, int b)`                    | Возвращает меньшее из двух чисел                                                                    | {min}                 |
-| `.sum(int a, int b)`                    | Возвращает сумму двух чисел                                                                         | {sum}                 |
-| `.bitCount(int i)`                      | Возвращает количество установленных битов<br>в числе (единиц в бинарной записи числа)               | {bitCount}            |
-| `.highestOneBit(int i)`                 | Возвращает число, в котором установлен<br>только самый старший значащий бит исходного числа         | {highestOneBit}       |
-| `.lowestOneBit(int i)`                  | Возвращает число, в котором установлен<br>только младший значащий бит исходного числа               | {lowestOneBit}        |
-| `.reverse(int i)`                       | Возвращает число с битами, расположенными в обратном порядке                                        | {reverse}             |
-| `.reverseBytes(int i)`                  | Возвращает число с байтами, расположенными в обратном порядке                                       | {reverseBytes}        |
-| `.rotateLeft`<br>(int i, int distance)  | Сдвигает биты числа влево циклически на указанное количество позиций                                | {rotateLeft}          |
-| `.rotateRight`<br>(int i, int distance) | Сдвигает биты числа вправо циклически на указанное количество позиций                               | {rotateRight}         |
-| `.signum(int i)`                        | Возвращает знак числа: `1` для положительных,<br>`-1` для отрицательных, `0` для нуля               | {signum}              |
-| `.decode(String nm)`                    | Преобразует строку с числом в десятичной,<br>шестнадцатеричной или восьмеричной системе в `Integer` | {decode}              |
-| `.getInteger(String nm)`                | Возвращает значение свойства системы с именем<br>`nm`, интерпретируя его как число                  | {getInteger}          |
-| `.hashCode(int value)`                  | Хэш-код для числа                                                                                   | {hashCode}            |
+| Метод                                   | Описание                                                                                            | Пример использования                                            |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `.valueOf(String s)`                    | Преобразует строку в объект `Integer`                                                               | `Integer num = Integer.valueOf("42"); // 42`                    |
+| `.valueOf(int i)`                       | Возвращает объект `Integer`, представляющий указанное значение `int`                                | `Integer num = Integer.valueOf(42); // 42`                      |
+| `.parseInt(String s)`                   | Преобразует строку в примитивное значение `int`                                                     | `int num = Integer.parseInt("42"); // 42`                       |
+| `.parseInt`<br>(String s, int radix)    | Преобразует строку в число указанной системы счисления                                              | `int num = Integer.parseInt("2A", 16); // 42`                   |
+| `.toString(int i)`                      | Преобразует число `int` в строку                                                                    | `String str = Integer.toString(42); // "42"`                    |
+| `.toString`<br>(int i, int radix)       | Преобразует число в строку указанной системы счисления                                              | `String str = Integer.toString(42, 16); // "2a"`                |
+| `.compare(int x, int y)`                | Сравнивает два числа.<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`    | `int result = Integer.compare(42, 24); // 1`                    |
+| `.compareTo`<br>(Integer another)       | Сравнивает текущий объект `Integer` с другим                                                        | `Integer num = 42;`<br>`int result = num.compareTo(24); // 1`   |
+| `.max(int a, int b)`                    | Возвращает большее из двух чисел                                                                    | `int max = Integer.max(42, 24); // 42`                          |
+| `.min(int a, int b)`                    | Возвращает меньшее из двух чисел                                                                    | `int min = Integer.min(42, 24); // 24`                          |
+| `.sum(int a, int b)`                    | Возвращает сумму двух чисел                                                                         | `int sum = Integer.sum(42, 24); // 66`                          |
+| `.bitCount(int i)`                      | Возвращает количество установленных битов<br>в числе (единиц в бинарной записи числа)               | `int bits = Integer.bitCount(42); // 3`                         |
+| `.highestOneBit(int i)`                 | Возвращает число, в котором установлен<br>только самый старший значащий бит исходного числа         | `int highBit = Integer.highestOneBit(42); // 32`                |
+| `.lowestOneBit(int i)`                  | Возвращает число, в котором установлен<br>только младший значащий бит исходного числа               | `int lowBit = Integer.lowestOneBit(42); // 2`                   |
+| `.reverse(int i)`                       | Возвращает число с битами, расположенными в обратном порядке                                        | `int reversed = Integer.reverse(42); // 1409286144`             |
+| `.reverseBytes(int i)`                  | Возвращает число с байтами, расположенными в обратном порядке                                       | `int reversedBytes = Integer.reverseBytes(42); // 704643072`    |
+| `.rotateLeft`<br>(int i, int distance)  | Сдвигает биты числа влево циклически на указанное количество позиций                                | `int rotated = Integer.rotateLeft(42, 2); // 168`               |
+| `.rotateRight`<br>(int i, int distance) | Сдвигает биты числа вправо циклически на указанное количество позиций                               | `int rotated = Integer.rotateRight(42, 2); // -2147483638`      |
+| `.signum(int i)`                        | Возвращает знак числа: `1` для положительных,<br>`-1` для отрицательных, `0` для нуля               | `int sign = Integer.signum(-42); // -1`                         |
+| `.decode(String nm)`                    | Преобразует строку с числом в десятичной,<br>шестнадцатеричной или восьмеричной системе в `Integer` | `Integer num = Integer.decode("0x2A"); // 42`                   |
+| `.getInteger(String nm)`                | Возвращает значение свойства системы с именем<br>`nm`, интерпретируя его как число                  |                                                                 |
+| `.hashCode(int value)`                  | Хэш-код для числа                                                                                   | `int hash = Integer.hashCode(42); // 42`                        |
 
-""".format(
-                    valueOf_String=to_table_code_java('Integer num = Integer.valueOf("42");\n// 42'),
-                    valueOf_int=to_table_code_java('Integer num = Integer.valueOf(42);\n// 42'),
-                    parseInt_String=to_table_code_java('int num = Integer.parseInt("42");\n// 42'),
-                    parseInt_String_int=to_table_code_java('int num = Integer.parseInt("2A", 16);\n// 42'),
-                    toString_int=to_table_code_java('String str = Integer.toString(42);\n// "42"'),
-                    toString_int_int=to_table_code_java('String str = Integer.toString(42, 16);\n// "2a"'),
-                    compare=to_table_code_java('int result = Integer.compare(42, 24);\n// 1'),
-                    compareTo=to_table_code_java('Integer num = 42;\nint result = num.compareTo(24);\n// 1'),
-                    max=to_table_code_java('int max = Integer.max(42, 24);\n// 42'),
-                    min=to_table_code_java('int min = Integer.min(42, 24);\n// 24'),
-                    sum=to_table_code_java('int sum = Integer.sum(42, 24);\n// 66'),
-                    bitCount=to_table_code_java('int bits = Integer.bitCount(42);\n// 3'),
-                    highestOneBit=to_table_code_java('int highBit = Integer.highestOneBit(42);\n// 32'),
-                    lowestOneBit=to_table_code_java('int lowBit = Integer.lowestOneBit(42);\n// 2'),
-                    reverse=to_table_code_java('int reversed = Integer.reverse(42);\n// 1409286144'),
-                    reverseBytes=to_table_code_java('int reversedBytes = Integer.reverseBytes(42);\n// 704643072'),
-                    rotateLeft=to_table_code_java('int rotated = Integer.rotateLeft(42, 2);\n// 168'),
-                    rotateRight=to_table_code_java('int rotated = Integer.rotateRight(42, 2);\n// -2147483638'),
-                    signum=to_table_code_java('int sign = Integer.signum(-42);\n// -1'),
-                    decode=to_table_code_java('Integer num = Integer.decode("0x2A");\n// 42'),
-                    getInteger=to_table_code_java(''),
-                    hashCode=to_table_code_java('int hash = Integer.hashCode(42);\n// 42'),
-                ),
+""",
                 "Character": """
 ```java
 int x = 65535;
@@ -21092,25 +20973,26 @@ public class MultipleBoundsExample {
 
 Может принимать неограниченное количество аргументов одного типа.
 ```java
-public class Main {{
-    public static void printNumbers(int... numbers) {{
-        for (int number : numbers) {{
+public class Main {
+    public static void printNumbers(int... numbers) {
+        for (int number : numbers) {
             System.out.print(number + " ");
-        }}
+        }
         System.out.println();
-    }}
+    }
 
-    public static void main(String[] args) {{
+    public static void main(String[] args) {
         printNumbers(1, 2, 3, 4, 5);
 
-        int[] numbersArray = {{1, 2, 3, 4, 5}};
+        int[] numbersArray = {1, 2, 3, 4, 5};
         printNumbers(numbersArray);
-    }}
-}}
+        // 1 2 3 4 5
+        // 1 2 3 4 5
+    }
+}
 ```
 
-<div style="width:max-content;">{output}</div>
-""".format(output=to_table_code_java("1 2 3 4 5\n1 2 3 4 5")),
+""",
             },
             "Классы": {
                 "Объекты, конструкторы": """
@@ -21203,16 +21085,16 @@ p.y = 6;
                 "Методы": {
                     "Методы": """
 ```java
-public class Main {{
-    public static void foo() {{
+public class Main {
+    public static void foo() {
         // ...
-    }}
-}}
+    }
+}
 ```
 
-|        |                                                                                                                              |
-|--------|------------------------------------------------------------------------------------------------------------------------------|
-| static | Метод принадлежит классу, а не конкретному экземпляру класса.<br>Мы можем вызвать этот метод из другого класса так: {static} |
+|        |                                                                                                                                  |
+|--------|----------------------------------------------------------------------------------------------------------------------------------|
+| static | Метод принадлежит классу, а не конкретному экземпляру класса.<br>Мы можем вызвать этот метод из другого класса так: `Main.foo()` |
 
 **void** значит, что этот метод не возвращает значение.
 Методы могут возвращать значение в Java и оно должно быть определено при объявлении метода.
@@ -21220,11 +21102,11 @@ public class Main {{
 Пример объявления метода, возвращающего значение типа `int` – сумму двух своих параметров типа `int`:
 
 ```java
-int sum(int a, int b){{
+int sum(int a, int b) {
       int x;
       x = a + b;
       return x;
-}}
+}
 ```
 
 При вызове метода, например, `sum(5, 3)`, параметры `5` и `3` передаются в метод, как значения соответственно `a` и `b`,
@@ -21236,22 +21118,20 @@ int sum(int a, int b){{
 
 
 ```java
-class Point {{
+class Point {
     ... // Наш код ранее
-    void printPoint() {{
+    void printPoint() {
         System.out.println("(" + x + "," + y + ")");
-    }}
+    }
 
-    Point center(Point other) {{
+    Point center(Point other) {
         // Возвращает центр между этой и другой точками
         // Заметьте, мы используем целое число, поэтому не получим точное значение
         return new Point((x + other.x) / 2, (y + other.y) / 2);
-    }}
-}}
+    }
+}
 ```
-""".format(
-                        static=to_table_code_java("Main.foo()")
-                    ),
+""",
                     "Не статические методы": """
 # Не статические методы
 
@@ -22165,7 +22045,10 @@ The available modifiers are as follows.
 который определяет окно данных, над которыми будут выполняться операции.
 Например, чтобы вычислить среднее значение поля `Зарплата` для каждой строки в таблице, можно использовать следующий запрос:
 
-{okonnie_func}
+```sql
+SELECT AVERAGE(Salary) OVER (PARTITION BY Department)
+  FROM Employees;
+```
 
 В этом примере функция `AVERAGE` вычисляет среднее значение поля `Зарплата` для каждой группы строк
 
@@ -22179,7 +22062,17 @@ The available modifiers are as follows.
 такими как `ORDER BY` и `ROWS`/`RANGE`, чтобы определить окно данных более точно.
 Например, чтобы вычислить среднее значение поля "Зарплата" для каждого отдела,
 но учитывая только последние 3 месяца, можно использовать следующий запрос:
-{partition_by}
+
+```sql
+SELECT AVERAGE(Salary)
+  OVER (
+       PARTITION BY Department
+       ORDER BY Month
+       ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+  )
+FROM Employees;
+```
+
 В этом примере функция `AVERAGE` будет вычислять среднее значение поля `Зарплата`
 для каждой партиции (то есть для каждого отдела), учитывая только строки,
 упорядоченные по полю `Месяц` и относящиеся к
@@ -22192,38 +22085,22 @@ The available modifiers are as follows.
 в терминах количества строк, находящихся до текущей строки.
 Например, чтобы вычислить сумму последних 3 строк в таблице, можно использовать следующий запрос:
 
-{preceding}
+```sql
+SELECT SUM(Value)
+  OVER (
+           ORDER BY Id
+           ROWS BETWEEN 2
+           PRECEDING AND CURRENT ROW
+       )
+  FROM Table;
+```
 
 В этом примере функция `SUM` будет вычислять сумму значений поля `Value` для каждой строки,
 учитывая только строки, упорядоченные по полю `Id` и находящиеся до текущей строки на 2 строки (включая текущую).
 Оператор `PRECEDING` может использоваться совместно с другими операторами, такими как `PARTITION BY` и `RANGE`,
 чтобы определить окно данных более точно.
 
-""".format(
-                    okonnie_func=to_table_code_sql(
-                        "SELECT AVERAGE(Salary)\n"
-                        "  OVER (PARTITION BY Department)\n"
-                        "  FROM Employees;"
-                    ),
-                    partition_by=to_table_code_sql(
-                        "SELECT AVERAGE(Salary)\n"
-                        "  OVER (\n"
-                        "       PARTITION BY Department\n"
-                        "       ORDER BY Month\n"
-                        "       ROWS BETWEEN 2 PRECEDING AND CURRENT ROW\n"
-                        "  )\n"
-                        "FROM Employees;"
-                    ),
-                    preceding=to_table_code_sql(
-                        "SELECT SUM(Value)\n"
-                        "  OVER (\n"
-                        "           ORDER BY Id\n"
-                        "           ROWS BETWEEN 2\n"
-                        "           PRECEDING AND CURRENT ROW\n"
-                        "       )\n"
-                        "  FROM Table;"
-                    ),
-                ),
+""",
                 "JOIN": """
 |                                                   |                                                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

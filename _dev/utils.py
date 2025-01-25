@@ -1,10 +1,25 @@
 import sys
+from pathlib import Path
+from typing import Generator, Any, Callable
 
+import git
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 
 
+try:
+    repo: git.Repo = git.Repo(r"..")
+except git.exc.InvalidGitRepositoryError:
+    raise
+
+try:
+    branch: str = repo.active_branch.name
+except TypeError:
+    branch = repo.head.commit.hexsha[:8]
+
+
+# TODO удалить
 reserved_filenames = [
     filename
     for filenames in map(
@@ -167,6 +182,7 @@ def set_unselectable(text: str, sep: str = "\n"):
     return sep.join(lines)
 
 
+# TODO удалить
 def to_table_code(lang: str, code: str):
     formatter = HtmlFormatter(style="default")
     lexer = get_lexer_by_name(lang, stripall=True)
@@ -189,19 +205,31 @@ def to_table_code(lang: str, code: str):
     return result
 
 
+# TODO удалить
 def to_table_code_py(code: str) -> str:
     return to_table_code("python", code)
 
 
+# TODO удалить
 def to_table_code_java(code: str) -> str:
     return to_table_code("java", code)
 
 
+# TODO удалить
 def to_table_code_sql(code: str) -> str:
     return to_table_code("sql", code)
 
 
 def check_dict_keys(d: dict, c: int = 0, path: list = None) -> tuple[bool | int, list | None]:
+    """
+    Рекурсивно обходит словарь и проверяет ключи на правила именования файлов и папок в файловой системе
+    TODO удалить
+
+    :param d:
+    :param c:
+    :param path:
+    :return:
+    """
     if path is None:
         path = []
 
@@ -242,3 +270,15 @@ def print_progress_bar(x: int, y: int, name: str, text: str = None):
         f"\r[{arrow:<{bar_length}}][{name:<20}][{int(progress * 100):>3}%][{x:>3}/{y:>3}] >>> {text: <100}"
     )
     sys.stdout.flush()
+
+
+def get_git_diff(
+    filter_func: Callable[[str], bool] = lambda p: True,
+    type_func: type[str | Path] = str,
+) -> Generator[str | Path, Any, None]:
+    return (
+        type_func(diff.a_path)
+        for diff in repo.head.commit.diff(None)
+        if diff.a_path.startswith(r"cheatsheet/") and filter_func(diff.a_path)
+    )
+
