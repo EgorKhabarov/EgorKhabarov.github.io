@@ -202,7 +202,9 @@ hr {
   border-radius: 0px;
 }
 
-#cheatsheet_field > p > img {width: 55em;}
+#cheatsheet_field > p > img {
+    max-width: 55em;
+}
 
 /* Папка с кнопками */
 .button_folder {
