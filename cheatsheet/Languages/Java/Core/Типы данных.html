@@ -1,0 +1,83 @@
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte</code></td>
+<td>Число</td>
+<td>1 байт</td>
+<td>-128<br>127<br><code>2**7</code></td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>Число</td>
+<td>2 байта</td>
+<td>-32 768<br>32 767<br><code>2**15</code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>Число</td>
+<td>4 байта</td>
+<td>-2 147 483 648<br>2 147 483 647<br><code>2**31</code></td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>Число</td>
+<td>8 байтов</td>
+<td>–9 223 372 036 854 775 808<br>9 223 372 036 854 775 807<br><code>2**63</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Число с плавающей точкой</td>
+<td>4 байта</td>
+<td>-3.4*1038<br>3.4*1038</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>Число с плавающей точкой</td>
+<td>8 байтов</td>
+<td>±4.9*10-324<br>±1.8*10308</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>true</code> или <code>false</code></td>
+<td>1 байт</td>
+<td></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Один символ <code>'a'</code></td>
+<td>2 байта</td>
+<td></td>
+</tr>
+<tr>
+<td><code>String</code></td>
+<td>Текст <code>"Text"</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>String – не примитив</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.5</span><span class="p">;</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="mf">4.5</span><span class="p">;</span>
+<span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">4.5f</span><span class="p">;</span><span class="w"> </span><span class="c1">// (f – более короткий способ объявить float)</span>
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;g&#39;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Who let the dogs out?&quot;</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Who who who who!&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span>
+<span class="c1">// В Java нет перегрузки операторов!</span>
+<span class="c1">// Оператор + определен только для строк,</span>
+<span class="c1">// вы никогда не увидите его с другими объектами, только с примитивами.</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I have &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; cookies&quot;</span><span class="p">;</span>
+</pre></div></div></div>

@@ -1,0 +1,39 @@
+<h1>Переопределение методов</h1>
+<p>Кроме перегрузки существует также замещение, или переопределение методов (англ. overriding).
+Замещение происходит, когда класс потомок (подкласс) определяет некоторый метод,
+который уже есть в родительском классе (суперклассе), таким образом новый метод заменяет метод суперкласса.
+У нового метода подкласса должны быть те же параметры или сигнатура, тип возвращаемого результата,
+что и у метода родительского класса.</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Thought</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Я себя чувствую как стрекоза, попавшая в параллельную вселенную.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Advice</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thought</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w">  </span><span class="c1">// Аннотация @Override с Java 5 является необязательной, но весьма полезной</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Внимание: Даты в календаре ближе, чем кажутся.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Класс <code>Thought</code> представляет собой суперкласс и обеспечивает вызов метода <code>message()</code>.
+Подкласс, называемый <code>Advice</code>, наследует каждый метод класса <code>Thought</code>.
+Однако, класс <code>Advice</code> переопределяет метод <code>message()</code>, замещая функционал, описанный в классе <code>Thought</code>.</p>
+<p>В Java, когда подкласс содержит метод, переопределяющий метод суперкласса,
+то он может помимо своего метода вызывать и метод суперкласса при помощи ключевого слова <code>super</code>.</p>
+<p>Например, нижеследующий вариант выводит оба сообщения при вызове метода подкласса:</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Advice</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thought</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Внимание: Даты в календаре ближе, чем кажутся.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">message</span><span class="p">();</span><span class="w"> </span><span class="c1">// Вызов версии метода родительского класса</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Существуют методы, которые подкласс не может переопределять.
+Например, в Java метод, объявленный с ключевым словом <code>final</code>, не может быть переопределён.
+Методы, объявленные как <code>private</code> или <code>static</code> не могут быть переопределены,
+поскольку это соответствует неявному использованию <code>final</code>.</p>

@@ -1,0 +1,67 @@
+<h1>Индексирование базы данных</h1>
+<p>Процесс создания специальной структуры данных, которая позволяет быстро находить нужные записи в базе данных.
+Индексы могут быть созданы для отдельных полей или сочетаний полей в таблице базы данных.
+Как правило, индексы упорядочивают записи в базе данных по определенному полю или полям,
+что позволяет быстро находить нужные записи путем поиска в упорядоченном списке.
+Индексы также могут улучшить производительность базы данных при выполнении
+различных операций, таких как сортировка и группировка данных.</p>
+<h1>AVERAGE (функция среднего)</h1>
+<p>Функция, которая вычисляет среднее значение выборки данных.
+Она работает так: суммирует все значения в выборке и делит результат на количество значений.
+Например, если у нас есть таблица с четырьмя строками и одним столбцом, содержащим числа <code>10</code>, <code>20</code>, <code>30</code> и <code>40</code>,
+то среднее значение будет равно <code>25</code>.
+Это можно посчитать, суммируя все числа <code>(10 + 20 + 30 + 40)</code>
+и деля полученный результат <code>100</code> на количество чисел <code>4</code>, что даст <code>25</code>.</p>
+<h1>Оконные функции</h1>
+<p>Функции баз данных, которые выполняют операции над наборами данных, называемыми "окнами".
+Окна - это наборы строк в таблице, которые определяются каким-либо критерием
+(например, временным интервалом, порядковым номером и т. д.).
+Оконные функции позволяют совершать различные операции над этими наборами строк,
+например, вычислять агрегатные функции (среднее, сумма, минимум и т. д.),
+применять фильтры и группировки, выполнять ранжирование.
+Оконные функции обычно используются с оператором <code>OVER</code>,
+который определяет окно данных, над которыми будут выполняться операции.
+Например, чтобы вычислить среднее значение поля <code>Зарплата</code> для каждой строки в таблице, можно использовать следующий запрос:</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">AVERAGE</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Department</span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">Employees</span><span class="p">;</span>
+</pre></div></div></div>
+
+<p>В этом примере функция <code>AVERAGE</code> вычисляет среднее значение поля <code>Зарплата</code> для каждой группы строк</p>
+<h1>PARTITION BY</h1>
+<p>Это часть оконных функций в базах данных, который используется для разбиения
+набора строк на группы, называемые "партициями".Каждая партиция - это набор строк
+с общими свойствами, определяемыми критерием, указанным в <code>PARTITION BY</code>
+Может использоваться совместно с другими операторами,
+такими как <code>ORDER BY</code> и <code>ROWS</code>/<code>RANGE</code>, чтобы определить окно данных более точно.
+Например, чтобы вычислить среднее значение поля "Зарплата" для каждого отдела,
+но учитывая только последние 3 месяца, можно использовать следующий запрос:</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">AVERAGE</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span>
+<span class="w">  </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">       </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Department</span>
+<span class="w">       </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">Month</span>
+<span class="w">       </span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">PRECEDING</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">CURRENT</span><span class="w"> </span><span class="k">ROW</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Employees</span><span class="p">;</span>
+</pre></div></div></div>
+
+<p>В этом примере функция <code>AVERAGE</code> будет вычислять среднее значение поля <code>Зарплата</code>
+для каждой партиции (то есть для каждого отдела), учитывая только строки,
+упорядоченные по полю <code>Месяц</code> и относящиеся к
+последним 3 месяцам (включая текущий).</p>
+<h1>PRECEDING</h1>
+<p>Это часть оконных функций в базах данных, который используется для определения окна данных
+в терминах количества строк, находящихся до текущей строки.
+Например, чтобы вычислить сумму последних 3 строк в таблице, можно использовать следующий запрос:</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">Value</span><span class="p">)</span>
+<span class="w">  </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">           </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Id</span>
+<span class="w">           </span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">           </span><span class="n">PRECEDING</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">CURRENT</span><span class="w"> </span><span class="k">ROW</span>
+<span class="w">       </span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="k">Table</span><span class="p">;</span>
+</pre></div></div></div>
+
+<p>В этом примере функция <code>SUM</code> будет вычислять сумму значений поля <code>Value</code> для каждой строки,
+учитывая только строки, упорядоченные по полю <code>Id</code> и находящиеся до текущей строки на 2 строки (включая текущую).
+Оператор <code>PRECEDING</code> может использоваться совместно с другими операторами, такими как <code>PARTITION BY</code> и <code>RANGE</code>,
+чтобы определить окно данных более точно.</p>

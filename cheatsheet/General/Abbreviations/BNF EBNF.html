@@ -1,0 +1,396 @@
+<h1>Полезные ссылки</h1>
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/Форма_Бэкуса_—_Наура">Wikipedia: Форма Бэкуса — Наура</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Wikipedia: BNF</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">Wikipedia: EBNF</a></li>
+</ul>
+<h1>BNF</h1>
+<p>Backus-Naur Form
+Форма Бэкуса — Наура</p>
+<p><strong>BNF</strong> – формальная нотация для описания синтаксиса языков программирования и других структур данных</p>
+<table>
+<tbody>
+<tr>
+<td>Терминалы</td>
+<td colspan="2">Конкретные символы (литералы), которые появляются в языке</td>
+</tr>
+<tr>
+<td>Нетерминалы</td>
+<td colspan="2">Абстрактные символы (метки), описывающие группы структур</td>
+</tr>
+<tr>
+<td>Продукции</td>
+<td colspan="2">Правила, задающие преобразование нетерминалов</td>
+</tr>
+<tr>
+<td rowspan="3">Метасимволы</td>
+<td><code>&lt;</code> и <code>&gt;</code></td>
+<td>Для обозначения нетерминалов</td>
+</tr>
+<tr>
+<td><code>::=</code></td>
+<td>Оператор определения ("разворачивается в")</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>Альтернатива ("или")</td>
+</tr>
+</tbody>
+</table>
+
+<h1>EBNF</h1>
+<p>Extended Backus-Naur Form</p>
+<p><strong>EBNF</strong> расширяет возможности <a href="#BNF">BNF</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{...}</code> или <code>*</code></td>
+<td>Любое количество раз (включая 0)</td>
+</tr>
+<tr>
+<td><code>[...]</code></td>
+<td>0 или 1 раз (опциональность)</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>1 или более раз</td>
+</tr>
+<tr>
+<td><code>(...)</code></td>
+<td>Для объединения элементов</td>
+</tr>
+<tr>
+<td><code>"a" ... "z"</code></td>
+<td>Диапазоны</td>
+</tr>
+</tbody>
+</table>
+<h1>Таблица символов</h1>
+<p>Стандарт <a href="https://www.cl.cam.ac.uk/~mgk25/iso-14977.pdf">ISO/IEC 14977</a></p>
+<table>
+<thead>
+<tr>
+<th>Употребление</th>
+<th>Нотация</th>
+<th>Альтернатива</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Определение</td>
+<td><code>=</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Конкатенация</td>
+<td><code>,</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Окончание</td>
+<td><code>;</code></td>
+<td><code>.</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Чередование</td>
+<td><code>|</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Необязательный</td>
+<td><code>[ ... ]</code></td>
+<td><code>(/ ... /)</code></td>
+<td>Ни одного раза или один</td>
+</tr>
+<tr>
+<td>Повторение</td>
+<td><code>{ ... }</code></td>
+<td><code>(: ... :)</code></td>
+<td>Ни одного или более раз</td>
+</tr>
+<tr>
+<td>Группировка</td>
+<td><code>( ... )</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Клеммная строка</td>
+<td><code>" ... "</code></td>
+<td><code>' ... '</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Комментарий</td>
+<td><code>(* ... *)</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Специальная последовательность</td>
+<td><code>? ... ?</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Исключение</td>
+<td><code>-</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>repetition-symbol</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>except-symbol</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>concatenate-symbol</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>definition-separator-symbol</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>defining-symbol</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>terminator-symbol</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>terminator-symbol</td>
+</tr>
+</tbody>
+</table>
+<h1>BNF of BNF</h1>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="err">&lt;</span><span class="k">syntax</span><span class="err">&gt;</span>         <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">rule</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">rule</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">syntax</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">rule</span><span class="err">&gt;</span>           <span class="err">::=</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="s2">&quot;&lt;&quot;</span> <span class="err">&lt;</span><span class="k">rule-name</span><span class="err">&gt;</span> <span class="s2">&quot;&gt;&quot;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="s2">&quot;::=&quot;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">line-end</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="err">::=</span> <span class="s2">&quot; &quot;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;&quot;</span>
+<span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">list</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">list</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="s2">&quot;|&quot;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">line-end</span><span class="err">&gt;</span>       <span class="err">::=</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">EOL</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">line-end</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">line-end</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">list</span><span class="err">&gt;</span>           <span class="err">::=</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">opt-whitespace</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">list</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>           <span class="err">::=</span> <span class="err">&lt;</span><span class="k">literal</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;&lt;&quot;</span> <span class="err">&lt;</span><span class="k">rule-name</span><span class="err">&gt;</span> <span class="s2">&quot;&gt;&quot;</span>
+<span class="err">&lt;</span><span class="k">literal</span><span class="err">&gt;</span>        <span class="err">::=</span> <span class="s1">&#39;&quot;&#39;</span> <span class="err">&lt;</span><span class="k">text1</span><span class="err">&gt;</span> <span class="s1">&#39;&quot;&#39;</span> <span class="p">|</span> <span class="s2">&quot;&#39;&quot;</span> <span class="err">&lt;</span><span class="k">text2</span><span class="err">&gt;</span> <span class="s2">&quot;&#39;&quot;</span>
+<span class="err">&lt;</span><span class="k">text1</span><span class="err">&gt;</span>          <span class="err">::=</span> <span class="s2">&quot;&quot;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">character1</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">text1</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">text2</span><span class="err">&gt;</span>          <span class="err">::=</span> <span class="s2">&quot;&quot;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">character2</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">text2</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">character</span><span class="err">&gt;</span>      <span class="err">::=</span> <span class="err">&lt;</span><span class="k">letter</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">symbol</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">letter</span><span class="err">&gt;</span>         <span class="err">::=</span> <span class="s2">&quot;A&quot;</span> <span class="p">|</span> <span class="s2">&quot;B&quot;</span> <span class="p">|</span> <span class="s2">&quot;C&quot;</span> <span class="p">|</span> <span class="s2">&quot;D&quot;</span> <span class="p">|</span> <span class="s2">&quot;E&quot;</span> <span class="p">|</span> <span class="s2">&quot;F&quot;</span> <span class="p">|</span> <span class="s2">&quot;G&quot;</span> <span class="p">|</span> <span class="s2">&quot;H&quot;</span> <span class="p">|</span> <span class="s2">&quot;I&quot;</span> <span class="p">|</span> <span class="s2">&quot;J&quot;</span> <span class="p">|</span> <span class="s2">&quot;K&quot;</span> <span class="p">|</span> <span class="s2">&quot;L&quot;</span> <span class="p">|</span> <span class="s2">&quot;M&quot;</span>
+                   <span class="p">|</span> <span class="s2">&quot;N&quot;</span> <span class="p">|</span> <span class="s2">&quot;O&quot;</span> <span class="p">|</span> <span class="s2">&quot;P&quot;</span> <span class="p">|</span> <span class="s2">&quot;Q&quot;</span> <span class="p">|</span> <span class="s2">&quot;R&quot;</span> <span class="p">|</span> <span class="s2">&quot;S&quot;</span> <span class="p">|</span> <span class="s2">&quot;T&quot;</span> <span class="p">|</span> <span class="s2">&quot;U&quot;</span> <span class="p">|</span> <span class="s2">&quot;V&quot;</span> <span class="p">|</span> <span class="s2">&quot;W&quot;</span> <span class="p">|</span> <span class="s2">&quot;X&quot;</span> <span class="p">|</span> <span class="s2">&quot;Y&quot;</span> <span class="p">|</span> <span class="s2">&quot;Z&quot;</span>
+                   <span class="p">|</span> <span class="s2">&quot;a&quot;</span> <span class="p">|</span> <span class="s2">&quot;b&quot;</span> <span class="p">|</span> <span class="s2">&quot;c&quot;</span> <span class="p">|</span> <span class="s2">&quot;d&quot;</span> <span class="p">|</span> <span class="s2">&quot;e&quot;</span> <span class="p">|</span> <span class="s2">&quot;f&quot;</span> <span class="p">|</span> <span class="s2">&quot;g&quot;</span> <span class="p">|</span> <span class="s2">&quot;h&quot;</span> <span class="p">|</span> <span class="s2">&quot;i&quot;</span> <span class="p">|</span> <span class="s2">&quot;j&quot;</span> <span class="p">|</span> <span class="s2">&quot;k&quot;</span> <span class="p">|</span> <span class="s2">&quot;l&quot;</span> <span class="p">|</span> <span class="s2">&quot;m&quot;</span>
+                   <span class="p">|</span> <span class="s2">&quot;n&quot;</span> <span class="p">|</span> <span class="s2">&quot;o&quot;</span> <span class="p">|</span> <span class="s2">&quot;p&quot;</span> <span class="p">|</span> <span class="s2">&quot;q&quot;</span> <span class="p">|</span> <span class="s2">&quot;r&quot;</span> <span class="p">|</span> <span class="s2">&quot;s&quot;</span> <span class="p">|</span> <span class="s2">&quot;t&quot;</span> <span class="p">|</span> <span class="s2">&quot;u&quot;</span> <span class="p">|</span> <span class="s2">&quot;v&quot;</span> <span class="p">|</span> <span class="s2">&quot;w&quot;</span> <span class="p">|</span> <span class="s2">&quot;x&quot;</span> <span class="p">|</span> <span class="s2">&quot;y&quot;</span> <span class="p">|</span> <span class="s2">&quot;z&quot;</span>
+<span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>          <span class="err">::=</span> <span class="s2">&quot;0&quot;</span> <span class="p">|</span> <span class="s2">&quot;1&quot;</span> <span class="p">|</span> <span class="s2">&quot;2&quot;</span> <span class="p">|</span> <span class="s2">&quot;3&quot;</span> <span class="p">|</span> <span class="s2">&quot;4&quot;</span> <span class="p">|</span> <span class="s2">&quot;5&quot;</span> <span class="p">|</span> <span class="s2">&quot;6&quot;</span> <span class="p">|</span> <span class="s2">&quot;7&quot;</span> <span class="p">|</span> <span class="s2">&quot;8&quot;</span> <span class="p">|</span> <span class="s2">&quot;9&quot;</span>
+<span class="err">&lt;</span><span class="k">symbol</span><span class="err">&gt;</span>         <span class="err">::=</span> <span class="s2">&quot;|&quot;</span> <span class="p">|</span> <span class="s2">&quot; &quot;</span> <span class="p">|</span> <span class="s2">&quot;!&quot;</span> <span class="p">|</span> <span class="s2">&quot;#&quot;</span> <span class="p">|</span> <span class="s2">&quot;$&quot;</span> <span class="p">|</span> <span class="s2">&quot;%&quot;</span> <span class="p">|</span> <span class="s2">&quot;&amp;&quot;</span> <span class="p">|</span> <span class="s2">&quot;(&quot;</span> <span class="p">|</span> <span class="s2">&quot;)&quot;</span> <span class="p">|</span> <span class="s2">&quot;*&quot;</span> <span class="p">|</span> <span class="s2">&quot;+&quot;</span>
+                   <span class="p">|</span> <span class="s2">&quot;,&quot;</span> <span class="p">|</span> <span class="s2">&quot;-&quot;</span> <span class="p">|</span> <span class="s2">&quot;.&quot;</span> <span class="p">|</span> <span class="s2">&quot;/&quot;</span> <span class="p">|</span> <span class="s2">&quot;:&quot;</span> <span class="p">|</span> <span class="s2">&quot;;&quot;</span> <span class="p">|</span> <span class="s2">&quot;&gt;&quot;</span> <span class="p">|</span> <span class="s2">&quot;=&quot;</span> <span class="p">|</span> <span class="s2">&quot;&lt;&quot;</span> <span class="p">|</span> <span class="s2">&quot;?&quot;</span> <span class="p">|</span> <span class="s2">&quot;@&quot;</span>
+                   <span class="p">|</span> <span class="s2">&quot;[&quot;</span> <span class="p">|</span> <span class="s2">&quot;\&quot;</span> <span class="p">|</span> <span class="s2">&quot;]&quot;</span> <span class="p">|</span> <span class="s2">&quot;^&quot;</span> <span class="p">|</span> <span class="s2">&quot;_&quot;</span> <span class="p">|</span> <span class="s2">&quot;&#x60;&quot;</span> <span class="p">|</span> <span class="s2">&quot;{&quot;</span> <span class="p">|</span> <span class="s2">&quot;}&quot;</span> <span class="p">|</span> <span class="s2">&quot;~&quot;</span>
+<span class="err">&lt;</span><span class="k">character1</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">character</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;&#39;&quot;</span>
+<span class="err">&lt;</span><span class="k">character2</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">character</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s1">&#39;&quot;&#39;</span>
+<span class="err">&lt;</span><span class="k">rule-name</span><span class="err">&gt;</span>      <span class="err">::=</span> <span class="err">&lt;</span><span class="k">letter</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">rule-name</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">rule-char</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">rule-char</span><span class="err">&gt;</span>      <span class="err">::=</span> <span class="err">&lt;</span><span class="k">letter</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;-&quot;</span>
+</pre></div></div></div>
+
+<h1>EBNF of EBNF</h1>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="k">letter </span><span class="o">=</span> <span class="s2">&quot;A&quot;</span> <span class="p">|</span> <span class="s2">&quot;B&quot;</span> <span class="p">|</span> <span class="s2">&quot;C&quot;</span> <span class="p">|</span> <span class="s2">&quot;D&quot;</span> <span class="p">|</span> <span class="s2">&quot;E&quot;</span> <span class="p">|</span> <span class="s2">&quot;F&quot;</span> <span class="p">|</span> <span class="s2">&quot;G&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;H&quot;</span> <span class="p">|</span> <span class="s2">&quot;I&quot;</span> <span class="p">|</span> <span class="s2">&quot;J&quot;</span> <span class="p">|</span> <span class="s2">&quot;K&quot;</span> <span class="p">|</span> <span class="s2">&quot;L&quot;</span> <span class="p">|</span> <span class="s2">&quot;M&quot;</span> <span class="p">|</span> <span class="s2">&quot;N&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;O&quot;</span> <span class="p">|</span> <span class="s2">&quot;P&quot;</span> <span class="p">|</span> <span class="s2">&quot;Q&quot;</span> <span class="p">|</span> <span class="s2">&quot;R&quot;</span> <span class="p">|</span> <span class="s2">&quot;S&quot;</span> <span class="p">|</span> <span class="s2">&quot;T&quot;</span> <span class="p">|</span> <span class="s2">&quot;U&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;V&quot;</span> <span class="p">|</span> <span class="s2">&quot;W&quot;</span> <span class="p">|</span> <span class="s2">&quot;X&quot;</span> <span class="p">|</span> <span class="s2">&quot;Y&quot;</span> <span class="p">|</span> <span class="s2">&quot;Z&quot;</span> <span class="p">|</span> <span class="s2">&quot;a&quot;</span> <span class="p">|</span> <span class="s2">&quot;b&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;c&quot;</span> <span class="p">|</span> <span class="s2">&quot;d&quot;</span> <span class="p">|</span> <span class="s2">&quot;e&quot;</span> <span class="p">|</span> <span class="s2">&quot;f&quot;</span> <span class="p">|</span> <span class="s2">&quot;g&quot;</span> <span class="p">|</span> <span class="s2">&quot;h&quot;</span> <span class="p">|</span> <span class="s2">&quot;i&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;j&quot;</span> <span class="p">|</span> <span class="s2">&quot;k&quot;</span> <span class="p">|</span> <span class="s2">&quot;l&quot;</span> <span class="p">|</span> <span class="s2">&quot;m&quot;</span> <span class="p">|</span> <span class="s2">&quot;n&quot;</span> <span class="p">|</span> <span class="s2">&quot;o&quot;</span> <span class="p">|</span> <span class="s2">&quot;p&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;q&quot;</span> <span class="p">|</span> <span class="s2">&quot;r&quot;</span> <span class="p">|</span> <span class="s2">&quot;s&quot;</span> <span class="p">|</span> <span class="s2">&quot;t&quot;</span> <span class="p">|</span> <span class="s2">&quot;u&quot;</span> <span class="p">|</span> <span class="s2">&quot;v&quot;</span> <span class="p">|</span> <span class="s2">&quot;w&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;x&quot;</span> <span class="p">|</span> <span class="s2">&quot;y&quot;</span> <span class="p">|</span> <span class="s2">&quot;z&quot;</span><span class="p">;</span>
+
+<span class="k">digit </span><span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="p">|</span> <span class="s2">&quot;1&quot;</span> <span class="p">|</span> <span class="s2">&quot;2&quot;</span> <span class="p">|</span> <span class="s2">&quot;3&quot;</span> <span class="p">|</span> <span class="s2">&quot;4&quot;</span> <span class="p">|</span> <span class="s2">&quot;5&quot;</span> <span class="p">|</span> <span class="s2">&quot;6&quot;</span> <span class="p">|</span> <span class="s2">&quot;7&quot;</span> <span class="p">|</span> <span class="s2">&quot;8&quot;</span> <span class="p">|</span> <span class="s2">&quot;9&quot;</span><span class="p">;</span>
+
+<span class="k">symbol </span><span class="o">=</span> <span class="s2">&quot;[&quot;</span> <span class="p">|</span> <span class="s2">&quot;]&quot;</span> <span class="p">|</span> <span class="s2">&quot;{&quot;</span> <span class="p">|</span> <span class="s2">&quot;}&quot;</span> <span class="p">|</span> <span class="s2">&quot;(&quot;</span> <span class="p">|</span> <span class="s2">&quot;)&quot;</span> <span class="p">|</span> <span class="s2">&quot;&lt;&quot;</span> <span class="p">|</span> <span class="s2">&quot;&gt;&quot;</span>
+       <span class="p">|</span> <span class="s2">&quot;&#39;&quot;</span> <span class="p">|</span> <span class="s1">&#39;&quot;&#39;</span> <span class="p">|</span> <span class="s2">&quot;=&quot;</span> <span class="p">|</span> <span class="s2">&quot;|&quot;</span> <span class="p">|</span> <span class="s2">&quot;.&quot;</span> <span class="p">|</span> <span class="s2">&quot;,&quot;</span> <span class="p">|</span> <span class="s2">&quot;;&quot;</span> <span class="p">|</span> <span class="s2">&quot;-&quot;</span> 
+       <span class="p">|</span> <span class="s2">&quot;+&quot;</span> <span class="p">|</span> <span class="s2">&quot;*&quot;</span> <span class="p">|</span> <span class="s2">&quot;?&quot;</span> <span class="p">|</span> <span class="s2">&quot;\n&quot;</span> <span class="p">|</span> <span class="s2">&quot;\t&quot;</span> <span class="p">|</span> <span class="s2">&quot;\r&quot;</span> <span class="p">|</span> <span class="s2">&quot;\f&quot;</span> <span class="p">|</span> <span class="s2">&quot;\b&quot;</span><span class="p">;</span>
+
+<span class="k">character </span><span class="o">=</span> <span class="k">letter </span><span class="p">|</span> <span class="k">digit </span><span class="p">|</span> <span class="k">symbol </span><span class="p">|</span> <span class="s2">&quot;_&quot;</span> <span class="p">|</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+<span class="k">identifier </span><span class="o">=</span> <span class="k">letter</span><span class="p">,</span> <span class="p">{</span><span class="k">letter </span><span class="p">|</span> <span class="k">digit </span><span class="p">|</span> <span class="s2">&quot;_&quot;</span><span class="p">};</span>
+
+<span class="k">S </span><span class="o">=</span> <span class="p">{</span><span class="s2">&quot; &quot;</span> <span class="p">|</span> <span class="s2">&quot;\n&quot;</span> <span class="p">|</span> <span class="s2">&quot;\t&quot;</span> <span class="p">|</span> <span class="s2">&quot;\r&quot;</span> <span class="p">|</span> <span class="s2">&quot;\f&quot;</span> <span class="p">|</span> <span class="s2">&quot;\b&quot;</span><span class="p">};</span>
+
+<span class="k">terminal </span><span class="o">=</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="k">character - </span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="p">{</span><span class="k">character - </span><span class="s2">&quot;&#39;&quot;</span><span class="p">},</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="p">|</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="k">character - </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="k">character - </span><span class="s1">&#39;&quot;&#39;</span><span class="p">},</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">;</span>
+
+<span class="k">terminator </span><span class="o">=</span> <span class="s2">&quot;;&quot;</span> <span class="p">|</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+
+<span class="k">term </span><span class="o">=</span> <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">rhs</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;)&quot;</span>
+     <span class="p">|</span> <span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">rhs</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span>
+     <span class="p">|</span> <span class="s2">&quot;{&quot;</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">rhs</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;}&quot;</span>
+     <span class="p">|</span> <span class="k">terminal</span>
+     <span class="p">|</span> <span class="k">identifier</span><span class="p">;</span>
+
+<span class="k">factor </span><span class="o">=</span> <span class="k">term</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span>
+       <span class="p">|</span> <span class="k">term</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span>
+       <span class="p">|</span> <span class="k">term</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span>
+       <span class="p">|</span> <span class="k">term</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">term</span>
+       <span class="p">|</span> <span class="k">term</span><span class="p">,</span> <span class="k">S</span><span class="p">;</span>
+
+<span class="k">concatenation </span><span class="o">=</span> <span class="p">(</span><span class="k">S</span><span class="p">,</span> <span class="k">factor</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="ni">?)+;</span>
+<span class="ni">alternation = (S, concatenation, S, &quot;|&quot;?</span><span class="p">)</span><span class="err">+</span><span class="p">;</span>
+
+<span class="k">rhs </span><span class="o">=</span> <span class="k">alternation</span><span class="p">;</span>
+<span class="k">lhs </span><span class="o">=</span> <span class="k">identifier</span><span class="p">;</span>
+
+<span class="k">rule </span><span class="o">=</span> <span class="k">lhs</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">rhs</span><span class="p">,</span> <span class="k">S</span><span class="p">,</span> <span class="k">terminator</span><span class="p">;</span>
+
+<span class="k">grammar </span><span class="o">=</span> <span class="p">(</span><span class="k">S</span><span class="p">,</span> <span class="k">rule</span><span class="p">,</span> <span class="k">S</span><span class="p">)</span><span class="err">*</span><span class="p">;</span>
+</pre></div></div></div>
+
+<h1>Примеры</h1>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;+&quot;</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>       <span class="err">::=</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span>
+<span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>      <span class="err">::=</span> <span class="s2">&quot;0&quot;</span> <span class="p">|</span> <span class="s2">&quot;1&quot;</span> <span class="p">|</span> <span class="s2">&quot;2&quot;</span> <span class="p">|</span> <span class="s2">&quot;3&quot;</span> <span class="p">|</span> <span class="s2">&quot;4&quot;</span> <span class="p">|</span> <span class="s2">&quot;5&quot;</span> <span class="p">|</span> <span class="s2">&quot;6&quot;</span> <span class="p">|</span> <span class="s2">&quot;7&quot;</span> <span class="p">|</span> <span class="s2">&quot;8&quot;</span> <span class="p">|</span> <span class="s2">&quot;9&quot;</span>
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;+&quot;</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>       <span class="err">::=</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="p">{</span> <span class="s2">&quot;*&quot;</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="p">}</span>
+<span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expression</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span>
+<span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">{</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">}</span>
+<span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>      <span class="err">::=</span> <span class="s2">&quot;0&quot;</span> <span class="p">.</span><span class="err">..</span> <span class="err">&quot;9&quot;</span>
+</pre></div></div></div>
+
+<p>Обычный приоритет переопределяется следующими парами квадратных скобок:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;"></th>
+<th style="text-align: right;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>(*</code></td>
+<td style="text-align: left;">start-comment-symbol</td>
+<td style="text-align: right;">end-comment-symbol</td>
+<td style="text-align: right;"><code>*)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>'</code></td>
+<td style="text-align: left;">first-quote-symbol</td>
+<td style="text-align: right;">first-quote-symbol</td>
+<td style="text-align: right;"><code>'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>(</code></td>
+<td style="text-align: left;">start-group-symbol</td>
+<td style="text-align: right;">end-group-symbol</td>
+<td style="text-align: right;"><code>)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[</code></td>
+<td style="text-align: left;">start-option-symbol</td>
+<td style="text-align: right;">end-option-symbol</td>
+<td style="text-align: right;"><code>]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>{</code></td>
+<td style="text-align: left;">start-repeat-symbol</td>
+<td style="text-align: right;">end-repeat-symbol</td>
+<td style="text-align: right;"><code>}</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>?</code></td>
+<td style="text-align: left;">special-sequence-symbol</td>
+<td style="text-align: right;">special-sequence-symbol</td>
+<td style="text-align: right;"><code>?</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"</code></td>
+<td style="text-align: left;">second-quote-symbol</td>
+<td style="text-align: right;">second-quote-symbol</td>
+<td style="text-align: right;"><code>"</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;">-symbol</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>aa = "A";                   (<em> A                             </em>)
+bb = 3 * aa, "B";           (<em> AAAB                          </em>)
+cc = 3 * [aa], "C";         (<em> C AC AAC AAAC                 </em>)
+dd = {aa}, "D";             (<em> D AD AAD AAAD AAAAD etc…      </em>)
+ee = aa, {aa}, "E";         (<em> AE AAE AAAE AAAAE AAAAAE etc… </em>)
+ff = 3 * aa, 3 * [aa], "F"; (<em> AAAF AAAAF AAAAAF AAAAAAF     </em>)
+gg = {3 * aa}, "G";         (<em> G AAAG AAAAAAG etc…           </em>)
+hh = (aa | bb | cc), "H";   (<em> AH AAABH CH ACH AACH AAACH    </em>)</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>| Metalanguage symbol         | Normal representation |
+|-----------------------------|-----------------------|
+| concatenate-symbol          | &#x60;,&#x60;                   |
+| defining-symbol             | &#x60;=&#x60;                   |
+| definition-separator-symbol | &#x60;|&#x60;                   |
+| except-symbol               | &#x60;-&#x60;                   |
+| first-quote-symbol          | &#x60;´&#x60;                   |
+| repetition-symbol           | &#x60;*&#x60;                   |
+| second-quote-symbol         | &#x60;&quot;&#x60;                   |
+| special-sequence-symbol     | &#x60;?&#x60;                   |
+| start-comment-symbol&lt;br&gt;end-comment-symbol | &#x60;(*&#x60;&lt;br&gt;&#x60;*)&#x60; |
+| start-group-symbol&lt;br&gt;end-group-symbol     | &#x60;(&#x60;&lt;br&gt;&#x60;)&#x60;   |
+| start-option-symbol&lt;br&gt;end-option-symbol   | &#x60;[&#x60;&lt;br&gt;&#x60;]&#x60;   |
+| start-repeat-symbol&lt;br&gt;end-repeat-symbol   | &#x60;{&#x60;&lt;br&gt;&#x60;}&#x60;   |
+| terminator-symbol           | &#x60;;&#x60;                   |
+
+
+# Полезные шаблоны
+
+### Арифметические выражения
+</pre></div></div></div>
+<p>ebnf
+<expr>   ::= <term> | <expr> "+" <term> | <expr> "-" <term>
+<term>   ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
+<factor> ::= <number> | "(" <expr> ")"
+<number> ::= <digit> | <number> <digit>
+<digit>  ::= "0" | "1" | ... | "9"</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>### JSON
+</pre></div></div></div>
+<p>ebnf</p>
+<object>   ::= "{" <members> "}"
+<members>  ::= <pair> | <pair> "," <members>
+<pair>     ::= <string> ":" <value>
+<array>    ::= "[" <elements> "]"
+<elements> ::= <value> | <value> "," <elements>
+<value>    ::= <string> | <number> | <object> | <array> | "true" | "false" | "null"
+<string>   ::= "\"" { <char> } "\""
+<number>   ::= <digit> { <digit> }
+```
+
+<!--
+Первый символ в кавычках представляет собой апостроф в соответствии с определением ISO/IEC 646:1991,
+то есть Юникодом U+0027 (); шрифт, используемый в ISO/IEC 14977:1996(E), делает его очень похожим на острый, Unicode U+00B4 (), поэтому иногда возникает путаница.
+Тем не менее, стандарт ISO Extended BNF ссылается на ISO/IEC 646:1991, «7-битный кодированный набор символов ISO для обмена информацией»
+в качестве нормативного справочника и не упоминает какие-либо другие наборы символов, поэтому формально нет путаницы с символами Юникода за пределами 7-битного диапазона ASCII.'´
+-->

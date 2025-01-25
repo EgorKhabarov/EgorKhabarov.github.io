@@ -1,0 +1,84 @@
+<p>Многие языки программирования предоставляют классы для работы с файлами и директориями проекта.
+Язык C++ обладает множеством классов для записи и чтения данных из файлов.</p>
+<p>Работа с файлами
+При работе с файлами всегда необходимо помнить две вещи:</p>
+<p>Перед началом работы с файлом его необходимо открыть;
+После завершения работы с файлом его необходимо закрыть.</p>
+<p>Если файл не открыт или же неверно открыт, то вы не можете полноценно работать с его содержимым.</p>
+<p>С закрытием все проще, но и коварнее. Если вы не закроете файл, то программа будет работать верно,
+тем не менее, чем больше будет открытых файлов, тем больше программа будет перегружена и в какой-то момент она просто зависнет или выключиться.</p>
+<p>Исключения и файлы
+Поскольку не всегда известно будет ли файл в проекте или на компьютере пользователя,
+то всегда лучше открывать файлы за счёт использования исключений.
+Выполняйте открытие файлов в блоке try catch и тем самым вы обезопасите себя от любых непредвиденных обстоятельств.</p>
+<p>Запись данных в файл
+При записи данных в файл его изначально необходимо открыть. Для этого в языке C++ используется класс ofstream:</p>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="c1">// Создание/открытие файла &quot;examples.txt&quot;</span>
+<span class="n">ofstream</span><span class="w"> </span><span class="n">itproger_file</span><span class="p">(</span><span class="s">&quot;examples.txt&quot;</span><span class="p">);</span>
+<span class="c1">// Можно было использовать метод open</span>
+<span class="c1">// ofstream itproger_file;</span>
+<span class="c1">// itproger_file.open(&quot;examples.txt&quot;);</span>
+<span class="c1">// но первая запись короче, поэтому стоит использовать её</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">itproger_file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Проверяем открыт ли файл</span>
+<span class="w">    </span><span class="n">itproger_file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Simple text&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Записываем текст в файл</span>
+<span class="w">    </span><span class="n">itproger_file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// Всегда необходимо закрывать файл</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="c1">// Если файл не удалось открыть, тогда выдаем ошибку</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+</pre></div></div></div>
+
+<p>Таким образом мы можем открыть файл и поместить в него любую информацию.</p>
+<p>При открытии файла можно указать режим открытия. Существуют несколько режимов и все они представлены на фото ниже:</p>
+<p>Константа         Описание
+ios_base::in      открыть файл для чтения
+ios base::out     открыть файл для записи
+ios base::ate     при открытии переместить указатель в конец файла
+ios_base::app     открыть файл для записи в конец файла
+ios_base::trunc   удалить содержимое файла, если он существует
+ios_base::binary  открытие файла в двоичном режиме</p>
+<p>Режим необходимо прописывать в качестве второго параметра при открытии файла:</p>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Открываем файл для записи в него текста</span>
+<span class="w">    </span><span class="n">ofstream</span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ios_base</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Проверяем открыт ли сам файл</span>
+<span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Simple world&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Записываем текст в начало файла</span>
+<span class="w">        </span><span class="n">textFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// Закрываем файл</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Чтение данных из файла
+Для чтения данных файл необходимо также изначально открыть и в конце закрыть.
+Чтобы прочесть содержимое файла используется класс ifstream:</p>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// здесь будет храниться промежуточный текст,</span>
+<span class="w">    </span><span class="c1">// который мы будем считывать из файла</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="w">    </span><span class="n">ifstream</span><span class="w"> </span><span class="n">some_file</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// открываем файл для чтения</span>
+
+<span class="w">    </span><span class="c1">// считываем лишь первое слово и помещаем в переменную temp</span>
+<span class="w">    </span><span class="n">some_file</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// выводим эту переменную</span>
+
+<span class="w">    </span><span class="c1">// Считываем определенное количество символов - 100</span>
+<span class="w">    </span><span class="c1">// и записываем их в нашу переменную</span>
+<span class="w">    </span><span class="n">some_file</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">some_file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span><span class="w"> </span><span class="c1">// Закрываем файл</span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Отображаем переменную temp</span>
+
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div></div>

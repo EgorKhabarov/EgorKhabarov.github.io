@@ -1,0 +1,42 @@
+<h3>Cross-Site Scripting (XSS)</h3>
+<p>XSS-атаки позволяют злоумышленникам внедрять вредоносный JavaScript-код
+на страницы сайта, который затем выполняется в браузерах пользователей.
+Это может использоваться для кражи данных, таких как cookie-файлы, сессии или для проведения фишинговых атак.
+<strong>Экранирование данных!</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>&lt;</code></td>
+<td style="text-align: left;"><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>&gt;</code></td>
+<td style="text-align: left;"><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>&amp;</code></td>
+<td style="text-align: left;"><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>"</code></td>
+<td style="text-align: left;"><code>&amp;quot;</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>'</code></td>
+<td style="text-align: left;"><code>&amp;#39;</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Cross-Site Request Forgery (CSRF)</h3>
+<p>CSRF-атаки заставляют пользователя выполнять нежелательные действия на сайте,
+на который он в данный момент авторизован, без его ведома.
+Это может включать изменение пароля, перевод средств или выполнение других действий от имени пользователя.</p>
+<p><strong>Использование CSRF-токенов</strong>
+Встраивайте уникальный токен в каждую форму или запрос, который необходимо проверить на стороне сервера.
+Токен должен быть уникален для каждого сеанса или формы и должен проверяться при обработке запросов.</p>

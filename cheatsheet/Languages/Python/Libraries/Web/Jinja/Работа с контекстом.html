@@ -1,0 +1,29 @@
+<h3>Работа с контекстом</h3>
+<!--{% raw %}-->
+<ul>
+<li><strong>Передача данных в шаблон</strong>: При рендеринге шаблона данные передаются в него через контекст.
+В контексте могут находиться переменные, которые используются для заполнения шаблона.</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;Hello, {{ name }}!&quot;</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>  <span class="c1"># &quot;Hello, Alice!&quot;</span>
+</pre></div></div></div>
+<ul>
+<li><strong>Контекстные переменные</strong>: Переменные, переданные в шаблон, доступны только в пределах текущего рендеринга.
+Однако, в <code>Jinja3</code> можно использовать и глобальные переменные или функции, которые доступны во всех шаблонах.</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span> <span class="cp">%}</span>
+<span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">greeting</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{{</span> <span class="nv">user.name</span> <span class="cp">}}</span><span class="x">!&lt;/p&gt;</span>
+</pre></div></div></div>
+<ul>
+<li><strong>Вложенные контексты</strong>: Внутри шаблона можно создавать вложенные контексты, используя директивы <code>{% with %}</code> или <code>{% set %}</code>.</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">with</span> <span class="nv">message</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span> <span class="cp">%}</span>
+<span class="x">    &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">message</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{{</span> <span class="nv">user.name</span> <span class="cp">}}</span><span class="x">!&lt;/p&gt;</span>
+<span class="cp">{%</span> <span class="k">endwith</span> <span class="cp">%}</span>
+</pre></div></div></div>
+
+<p>Это позволяет гибко управлять видимостью и доступностью данных в разных частях шаблона.</p>
+<!--{% endraw %}-->

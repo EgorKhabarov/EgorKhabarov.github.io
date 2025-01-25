@@ -1,0 +1,125 @@
+<p>Бинарные операторы и создание флагов</p>
+<h1>Бинарные операторы</h1>
+<p>Бинарные операторы работают с числами на уровне битов.
+Они позволяют выполнять операции на двоичных представлениях целых чисел, манипулируя отдельными битами.</p>
+<h3>Основные бинарные операторы</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>И</strong></td>
+<td><code>&amp;</code></td>
+<td>Возвращает 1, если оба соответствующих бита — 1</td>
+</tr>
+<tr>
+<td><strong>ИЛИ</strong></td>
+<td><code>&amp;#x7c;</code></td>
+<td>Возвращает 1, если хотя бы один из соответствующих битов — 1</td>
+</tr>
+<tr>
+<td><strong>ИСКЛЮЧАЮЩАЯ ИЛИ</strong></td>
+<td><code>^</code></td>
+<td>Возвращает 1, если один из соответствующих битов — 1, но не оба</td>
+</tr>
+<tr>
+<td>Отрицание</td>
+<td><code>~</code></td>
+<td>Инвертирует каждый бит числа (включая знак)</td>
+</tr>
+<tr>
+<td>Сдвиг влево</td>
+<td><code>&lt;&lt;</code></td>
+<td>Сдвигает биты числа влево, добавляя справа нули</td>
+</tr>
+<tr>
+<td>Сдвиг вправо</td>
+<td><code>&gt;&gt;</code></td>
+<td>Сдвигает биты числа вправо, заполняя левую часть нулями<br>(или единицами для отрицательных чисел в зависимости от представления)</td>
+</tr>
+</tbody>
+</table>
+<h3>Пример использования бинарных операторов</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mb">0b1100</span>  <span class="c1"># bin(12)  # Число 12 в двоичном формате</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mb">0b1010</span>  <span class="c1"># bin(10)  # Число 10 в двоичном формате</span>
+
+<span class="c1"># Побитовая И</span>
+<span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>  <span class="c1"># 0b1000 -&gt; 8</span>
+
+<span class="c1"># Побитовая ИЛИ</span>
+<span class="n">a</span> <span class="o">|</span> <span class="n">b</span>  <span class="c1"># 0b1110 -&gt; 14</span>
+
+<span class="c1"># Побитовая исключающая ИЛИ</span>
+<span class="n">a</span> <span class="o">^</span> <span class="n">b</span>  <span class="c1"># 0b0110 -&gt; 6</span>
+
+<span class="c1"># Сдвиг влево</span>
+<span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>  <span class="c1"># 0b110000 -&gt; 48</span>
+
+<span class="c1"># Сдвиг вправо</span>
+<span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span>  <span class="c1"># 0b0011 -&gt; 3</span>
+</pre></div></div></div>
+
+<h2>Создание флагов с помощью бинарных операторов</h2>
+<p>Флаги в программировании часто используются для установки нескольких состояний в одном числе,
+используя каждый бит как отдельный индикатор.
+Для этого применяют <strong>битовые маски</strong> и бинарные операторы.</p>
+<h3>Флаги доступа к файлу</h3>
+<p>Представим, что у нас есть система с несколькими правами доступа: чтение, запись и исполнение.
+Эти права можно представить как биты:</p>
+<ul>
+<li>Чтение (1-й бит): <code>0b001</code> (или <code>1</code>)</li>
+<li>Запись (2-й бит): <code>0b010</code> (или <code>2</code>)</li>
+<li>Исполнение (3-й бит): <code>0b100</code> (или <code>4</code>)</li>
+</ul>
+<p>Мы можем комбинировать их с помощью бинарных операторов</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># Флаги доступа</span>
+<span class="n">READ</span> <span class="o">=</span> <span class="mb">0b001</span>    <span class="c1"># Чтение</span>
+<span class="n">WRITE</span> <span class="o">=</span> <span class="mb">0b010</span>   <span class="c1"># Запись</span>
+<span class="n">EXECUTE</span> <span class="o">=</span> <span class="mb">0b100</span> <span class="c1"># Исполнение</span>
+
+<span class="c1"># Установка прав чтения и записи</span>
+<span class="n">permissions</span> <span class="o">=</span> <span class="n">READ</span> <span class="o">|</span> <span class="n">WRITE</span>  <span class="c1"># 0b011 -&gt; 3</span>
+
+<span class="c1"># Проверка прав чтения</span>
+<span class="n">can_read</span> <span class="o">=</span> <span class="n">permissions</span> <span class="o">&amp;</span> <span class="n">READ</span> <span class="o">!=</span> <span class="mi">0</span>  <span class="c1"># True, т.к. чтение разрешено</span>
+
+<span class="c1"># Проверка прав записи</span>
+<span class="n">can_write</span> <span class="o">=</span> <span class="n">permissions</span> <span class="o">&amp;</span> <span class="n">WRITE</span> <span class="o">!=</span> <span class="mi">0</span>  <span class="c1"># True, т.к. запись разрешена</span>
+
+<span class="c1"># Проверка прав исполнения</span>
+<span class="n">can_execute</span> <span class="o">=</span> <span class="n">permissions</span> <span class="o">&amp;</span> <span class="n">EXECUTE</span> <span class="o">!=</span> <span class="mi">0</span>  <span class="c1"># False, т.к. исполнение не разрешено</span>
+
+<span class="c1"># Добавление прав исполнения</span>
+<span class="n">permissions</span> <span class="o">|=</span> <span class="n">EXECUTE</span>  <span class="c1"># Теперь 0b111 -&gt; 7</span>
+
+<span class="c1"># Снятие прав записи</span>
+<span class="n">permissions</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">WRITE</span>  <span class="c1"># Теперь 0b101 -&gt; 5</span>
+</pre></div></div></div>
+
+<h3>enum.Flag</h3>
+<p>В Python начиная с версии 3.6 можно использовать класс <code>Flag</code> из модуля <code>enum</code>,
+чтобы создать флаги с более понятным интерфейсом</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Flag</span><span class="p">,</span> <span class="n">auto</span>
+
+<span class="k">class</span> <span class="nc">Permissions</span><span class="p">(</span><span class="n">Flag</span><span class="p">):</span>
+    <span class="n">READ</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">WRITE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">EXECUTE</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+<span class="c1"># Установка флагов</span>
+<span class="n">permissions</span> <span class="o">=</span> <span class="n">Permissions</span><span class="o">.</span><span class="n">READ</span> <span class="o">|</span> <span class="n">Permissions</span><span class="o">.</span><span class="n">WRITE</span>
+
+<span class="c1"># Проверка флагов</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Permissions</span><span class="o">.</span><span class="n">READ</span> <span class="ow">in</span> <span class="n">permissions</span><span class="p">)</span>    <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Permissions</span><span class="o">.</span><span class="n">EXECUTE</span> <span class="ow">in</span> <span class="n">permissions</span><span class="p">)</span> <span class="c1"># False</span>
+
+<span class="c1"># Добавление флага</span>
+<span class="n">permissions</span> <span class="o">|=</span> <span class="n">Permissions</span><span class="o">.</span><span class="n">EXECUTE</span>
+</pre></div></div></div>
+
+<p><code>auto()</code> в <code>enum.Flag</code> автоматически назначает уникальные битовые значения каждому флагу</p>

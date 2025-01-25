@@ -1,0 +1,310 @@
+<p>Вот шпаргалка по основным атрибутам и функциям из библиотеки <strong><code>os</code></strong> Python.
+Это один из модулей, который предоставляет интерфейс к операционной системе
+и поддерживает множество системных вызовов.</p>
+<h1>Основные классы</h1>
+<table>
+<thead>
+<tr>
+<th>Класс</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DirEntry</code></td>
+<td>Объект, представляющий запись в каталоге. Используется в <code>os.scandir()</code> для повышения производительности</td>
+</tr>
+<tr>
+<td><code>PathLike</code></td>
+<td>Протокол, поддерживающий объекты, которые могут быть использованы как пути</td>
+</tr>
+</tbody>
+</table>
+<h1>Константы</h1>
+<table>
+<thead>
+<tr>
+<th>Константа</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EX_OK</code></td>
+<td>Код успешного завершения программы</td>
+</tr>
+<tr>
+<td><code>F_OK</code></td>
+<td>Флаг, указывающий, что нужно проверять существование файла (для <code>os.access()</code>)</td>
+</tr>
+<tr>
+<td><code>O_APPEND</code></td>
+<td>Открыть файл для добавления в конец</td>
+</tr>
+<tr>
+<td><code>O_CREAT</code></td>
+<td>Создать файл, если он не существует</td>
+</tr>
+<tr>
+<td><code>O_EXCL</code></td>
+<td>В сочетании с <code>O_CREAT</code> вызывает ошибку, если файл уже существует</td>
+</tr>
+<tr>
+<td><code>O_RDONLY</code></td>
+<td>Открыть файл только для чтения</td>
+</tr>
+<tr>
+<td><code>O_WRONLY</code></td>
+<td>Открыть файл только для записи</td>
+</tr>
+<tr>
+<td><code>O_RDWR</code></td>
+<td>Открыть файл для чтения и записи</td>
+</tr>
+<tr>
+<td><code>P_WAIT</code></td>
+<td>Приостанавливает выполнение до завершения дочернего процесса</td>
+</tr>
+<tr>
+<td><code>P_NOWAIT</code></td>
+<td>Не ожидает завершения дочернего процесса (неблокирующий режим)</td>
+</tr>
+<tr>
+<td><code>SEEK_SET</code></td>
+<td>Начать чтение или запись с начала файла</td>
+</tr>
+<tr>
+<td><code>SEEK_CUR</code></td>
+<td>Начать с текущей позиции в файле</td>
+</tr>
+<tr>
+<td><code>SEEK_END</code></td>
+<td>Начать с конца файла</td>
+</tr>
+<tr>
+<td><code>R_OK</code>, <code>W_OK</code>, <code>X_OK</code></td>
+<td>Проверка прав на чтение, запись, выполнение файла (используется в <code>os.access()</code>)</td>
+</tr>
+</tbody>
+</table>
+<h1>Работа с файлами и директориями</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chdir(path)</code></td>
+<td>Изменить текущий рабочий каталог на <code>path</code></td>
+</tr>
+<tr>
+<td><code>getcwd()</code></td>
+<td>Возвращает текущий рабочий каталог в виде строки</td>
+</tr>
+<tr>
+<td><code>listdir(path)</code></td>
+<td>Возвращает список файлов и директорий в каталоге <code>path</code></td>
+</tr>
+<tr>
+<td><code>mkdir(path)</code></td>
+<td>Создаёт новую директорию по пути <code>path</code></td>
+</tr>
+<tr>
+<td><code>makedirs(name)</code></td>
+<td>Создаёт директорию по указанному пути, включая промежуточные каталоги</td>
+</tr>
+<tr>
+<td><code>remove(path)</code></td>
+<td>Удаляет файл по пути <code>path</code></td>
+</tr>
+<tr>
+<td><code>removedirs(name)</code></td>
+<td>Удаляет директорию и все промежуточные каталоги, если они пусты</td>
+</tr>
+<tr>
+<td><code>rename(src, dst)</code></td>
+<td>Переименовывает файл или директорию с <code>src</code> на <code>dst</code></td>
+</tr>
+<tr>
+<td><code>rmdir(path)</code></td>
+<td>Удаляет пустую директорию</td>
+</tr>
+<tr>
+<td><code>scandir(path)</code></td>
+<td>Возвращает итератор <code>DirEntry</code> объектов для каталога <code>path</code></td>
+</tr>
+<tr>
+<td><code>stat(path)</code></td>
+<td>Возвращает информацию о файле или каталоге по пути <code>path</code></td>
+</tr>
+<tr>
+<td><code>walk(top)</code></td>
+<td>Рекурсивно обходит дерево каталогов, начиная с <code>top</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Работа с процессами</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getpid()</code></td>
+<td>Возвращает идентификатор текущего процесса</td>
+</tr>
+<tr>
+<td><code>getppid()</code></td>
+<td>Возвращает идентификатор родительского процесса</td>
+</tr>
+<tr>
+<td><code>kill(pid, sig)</code></td>
+<td>Отправляет сигнал процессу с идентификатором <code>pid</code></td>
+</tr>
+<tr>
+<td><code>system(command)</code></td>
+<td>Выполняет команду в системной оболочке</td>
+</tr>
+<tr>
+<td><code>popen(command)</code></td>
+<td>Открывает канал для выполнения команды <code>command</code> в системной оболочке</td>
+</tr>
+<tr>
+<td><code>waitpid(pid, options)</code></td>
+<td>Ожидает завершения дочернего процесса</td>
+</tr>
+</tbody>
+</table>
+<h1>Работа с правами доступа</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chmod(path, mode)</code></td>
+<td>Изменяет права доступа к файлу или каталогу</td>
+</tr>
+<tr>
+<td><code>access(path, mode)</code></td>
+<td>Проверяет, можно ли получить доступ к файлу или каталогу по пути <code>path</code> с указанными правами <code>mode</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Работа с окружением</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>environ</code></td>
+<td>Переменные окружения, представленные в виде словаря</td>
+</tr>
+<tr>
+<td><code>getenv(key)</code></td>
+<td>Возвращает значение переменной окружения <code>key</code></td>
+</tr>
+<tr>
+<td><code>putenv(key, value)</code></td>
+<td>Устанавливает переменную окружения <code>key</code> со значением <code>value</code></td>
+</tr>
+<tr>
+<td><code>unsetenv(key)</code></td>
+<td>Удаляет переменную окружения <code>key</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Разное</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>urandom(n)</code></td>
+<td>Возвращает случайную строку байт длиной <code>n</code>, используя системный источник энтропии</td>
+</tr>
+<tr>
+<td><code>cpu_count()</code></td>
+<td>Возвращает количество процессоров в системе</td>
+</tr>
+<tr>
+<td><code>startfile(path)</code></td>
+<td>Открывает файл с помощью программы, связанной с его типом (только Windows)</td>
+</tr>
+<tr>
+<td><code>add_dll_directory(path)</code></td>
+<td>Добавляет каталог, в котором могут быть найдены библиотеки DLL (только Windows)</td>
+</tr>
+</tbody>
+</table>
+<h1>Флаги открытия файлов (для функции <code>open()</code>)</h1>
+<table>
+<thead>
+<tr>
+<th>Флаг</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>O_APPEND</code></td>
+<td>Добавление данных в конец файла</td>
+</tr>
+<tr>
+<td><code>O_CREAT</code></td>
+<td>Создать файл, если он не существует</td>
+</tr>
+<tr>
+<td><code>O_RDONLY</code></td>
+<td>Открыть файл только для чтения</td>
+</tr>
+<tr>
+<td><code>O_WRONLY</code></td>
+<td>Открыть файл только для записи</td>
+</tr>
+<tr>
+<td><code>O_RDWR</code></td>
+<td>Открыть файл для чтения и записи</td>
+</tr>
+</tbody>
+</table>
+<h1>Системные вызовы и управление процессами</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spawnl()</code>, <code>spawnle()</code></td>
+<td>Создают новый процесс и исполняют программу в новом процессе</td>
+</tr>
+<tr>
+<td><code>spawnv()</code>, <code>spawnve()</code></td>
+<td>Варианты с передачей аргументов в виде списка</td>
+</tr>
+<tr>
+<td><code>execl()</code>, <code>execle()</code></td>
+<td>Выполняют программу, заменяя текущий процесс на новый</td>
+</tr>
+</tbody>
+</table>

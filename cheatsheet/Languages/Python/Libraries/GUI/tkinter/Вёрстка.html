@@ -1,0 +1,87 @@
+<p>Вёрстка в Tkinter строится с помощью трех основных менеджеров размещения виджетов</p>
+<p><strong><code>pack()</code></strong> — базовый менеджер для вертикального или горизонтального размещения виджетов
+<strong><code>grid()</code></strong> — позволяет создавать таблицы, размещая виджеты по строкам и столбцам
+<strong><code>place()</code></strong> — предоставляет возможность абсолютного позиционирования с указанием координат</p>
+<h3>pack()</h3>
+<p>Метод <code>pack()</code> размещает виджеты по порядку: сверху вниз или слева направо (по умолчанию сверху вниз)
+Можно использовать параметры для управления тем, как виджеты растягиваются и заполняют доступное пространство</p>
+<h4>Основные параметры</h4>
+<ul>
+<li><code>side</code> — указывает, с какой стороны будет размещен виджет. Возможные значения: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></li>
+<li><code>fill</code> — задает, как виджет будет растягиваться: по горизонтали (<code>x</code>), вертикали (<code>y</code>), или по обеим осям (<code>both</code>)</li>
+<li><code>expand</code> — если <code>True</code>, виджет будет занимать доступное пространство при расширении окна</li>
+<li><code>padx</code> и <code>pady</code> — задают отступы вокруг виджета по горизонтали и вертикали</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+
+<span class="n">btn1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button 1&quot;</span><span class="p">)</span>
+<span class="n">btn1</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">btn2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button 2&quot;</span><span class="p">)</span>
+<span class="n">btn2</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">btn3</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button 3&quot;</span><span class="p">)</span>
+<span class="n">btn3</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div></div></div>
+
+<h3>grid()</h3>
+<p>Метод <code>grid()</code> позволяет размещать виджеты в сетке, указывая строки (<code>row</code>) и столбцы (<code>column</code>)
+Это мощный инструмент для создания сложных интерфейсов с более контролируемым расположением элементов</p>
+<h4>Основные параметры</h4>
+<ul>
+<li><code>row</code> — строка, в которой будет расположен виджет (нумерация с 0)</li>
+<li><code>column</code> — столбец, в котором будет расположен виджет (нумерация с 0)</li>
+<li><code>columnspan</code> — сколько столбцов должен занимать виджет</li>
+<li><code>rowspan</code> — сколько строк должен занимать виджет</li>
+<li><code>padx</code> и <code>pady</code> — отступы внутри ячеек по горизонтали и вертикали</li>
+<li><code>sticky</code> — позволяет растягивать виджет по сторонам света: <code>n</code>, <code>s</code>, <code>e</code>, <code>w</code>. Например, <code>sticky="nsew"</code> растягивает виджет во все стороны</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+
+<span class="n">label1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Label 1&quot;</span><span class="p">)</span>
+<span class="n">label1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">label2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Label 2&quot;</span><span class="p">)</span>
+<span class="n">label2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;ew&quot;</span><span class="p">)</span>
+
+<span class="n">label3</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Label 3&quot;</span><span class="p">)</span>
+<span class="n">label3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;ew&quot;</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div></div></div>
+
+<h3>place()</h3>
+<p>Метод <code>place()</code> дает возможность размещать виджеты, указывая точные координаты
+Это более низкоуровневый способ управления расположением, где можно контролировать каждую позицию</p>
+<h4>Основные параметры</h4>
+<ul>
+<li><code>x</code> и <code>y</code> — задают координаты верхнего левого угла виджета относительно окна</li>
+<li><code>relx</code> и <code>rely</code> — задают относительные координаты (от 0 до 1) для размещения виджета по ширине и высоте окна</li>
+<li><code>width</code> и <code>height</code> — задают фиксированную ширину и высоту виджета</li>
+<li><code>relwidth</code> и <code>relheight</code> — задают относительную ширину и высоту (от 0 до 1) относительно окна</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+
+<span class="n">btn1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button 1&quot;</span><span class="p">)</span>
+<span class="n">btn1</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">btn2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Button 2&quot;</span><span class="p">)</span>
+<span class="n">btn2</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">relx</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rely</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div></div></div>
+
+<h3>Когда использовать разные менеджеры</h3>
+<ul>
+<li><strong><code>pack()</code></strong>, когда нужно просто разместить виджеты один за другим.</li>
+<li><strong><code>grid()</code></strong> подходит для более сложных макетов с табличным размещением (например, формы).</li>
+<li><strong><code>place()</code></strong> полезен, если нужно точное позиционирование, но обычно это менее гибкий способ, чем другие.</li>
+</ul>

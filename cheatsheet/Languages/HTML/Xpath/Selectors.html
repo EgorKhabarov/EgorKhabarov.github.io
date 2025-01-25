@@ -1,0 +1,271 @@
+<h1>Descendant selectors</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h1</td>
+<td>//h1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>div p</td>
+<td>//div//p</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ul &gt; li</td>
+<td>//ul/li</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ul &gt; li &gt; a</td>
+<td>//ul/li/a</td>
+<td></td>
+</tr>
+<tr>
+<td>div &gt; *</td>
+<td>//div/*</td>
+<td></td>
+</tr>
+<tr>
+<td>:root</td>
+<td>/</td>
+<td>?</td>
+</tr>
+<tr>
+<td>:root &gt; body</td>
+<td>/body</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Attribute selectors</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#id</td>
+<td>//*[@id="id"]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>.class</td>
+<td>//*[@class="class"] …kinda</td>
+<td></td>
+</tr>
+<tr>
+<td>input[type="submit"]</td>
+<td>//input[@type="submit"]</td>
+<td></td>
+</tr>
+<tr>
+<td>a#abc[for="xyz"]</td>
+<td>//a[@id="abc"][@for="xyz"]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>a[rel]</td>
+<td>//a[@rel]</td>
+<td></td>
+</tr>
+<tr>
+<td>a[href^='/']</td>
+<td>//a[starts-with(@href, '/')]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>a[href$='pdf']</td>
+<td>//a[ends-with(@href, '.pdf')]</td>
+<td></td>
+</tr>
+<tr>
+<td>a[href*='://']</td>
+<td>//a[contains(@href, '://')]</td>
+<td></td>
+</tr>
+<tr>
+<td>a[rel~='help']</td>
+<td>//a[contains(@rel, 'help')] …kinda</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Order selectors</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ul &gt; li:first-of-type</td>
+<td>//ul/li[1]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>ul &gt; li:nth-of-type(2)</td>
+<td>//ul/li[2]</td>
+<td></td>
+</tr>
+<tr>
+<td>ul &gt; li:last-of-type</td>
+<td>//ul/li[last()]</td>
+<td></td>
+</tr>
+<tr>
+<td>li#id:first-of-type</td>
+<td>//li[1][@id="id"]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>a:first-child</td>
+<td>//*[1][name()="a"]</td>
+<td></td>
+</tr>
+<tr>
+<td>a:last-child</td>
+<td>//*[last()][name()="a"]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Siblings</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h1 ~ ul</td>
+<td>//h1/following-sibling::ul</td>
+<td>?</td>
+</tr>
+<tr>
+<td>h1 + ul</td>
+<td>//h1/following-sibling::ul[1]</td>
+<td></td>
+</tr>
+<tr>
+<td>h1 ~ #id</td>
+<td>//h1/following-sibling::[@id="id"]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>jQuery</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$('ul &gt; li').parent()</td>
+<td>//ul/li/..</td>
+<td>?</td>
+</tr>
+<tr>
+<td>$('li').closest('section')</td>
+<td>//li/ancestor-or-self::section</td>
+<td></td>
+</tr>
+<tr>
+<td>$('a').attr('href')</td>
+<td>//a/@href</td>
+<td>?</td>
+</tr>
+<tr>
+<td>$('span').text()</td>
+<td>//span/text()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Other things</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h1:not([id])</td>
+<td>//h1[not(@id)]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Text match</td>
+<td>//button[text()="Submit"]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Text match (substring)</td>
+<td>//button[contains(text(),"Go")]</td>
+<td></td>
+</tr>
+<tr>
+<td>Arithmetic</td>
+<td>//product[@price &gt; 2.50]</td>
+<td></td>
+</tr>
+<tr>
+<td>Has children</td>
+<td>//ul[*]</td>
+<td></td>
+</tr>
+<tr>
+<td>Has children (specific)</td>
+<td>//ul[li]</td>
+<td></td>
+</tr>
+<tr>
+<td>Or logic</td>
+<td>//a[@name or @href]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Union (joins results)</td>
+<td>//a</td>
+<td>//div</td>
+</tr>
+</tbody>
+</table>
+<h1>Class check</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>//div[contains(concat(' ',normalize-space(@class),' '),' foobar ')]</td>
+</tr>
+</tbody>
+</table>
+<p>Xpath doesn’t have the “check if part of space-separated list” operator, so this is the workaround (source).</p>

@@ -1,0 +1,233 @@
+<h1>Числовые типы</h1>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Размер</th>
+<th>Описание</th>
+<th>Диапазон</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>smallint</td>
+<td>2 байта</td>
+<td>Целое в небольшом диапазоне</td>
+<td>-32768 .. +32767</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>4 байта</td>
+<td>Типичный выбор для целых чисел</td>
+<td>-2147483648 .. +2147483647</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>8 байт</td>
+<td>Целое в большом диапазоне</td>
+<td>-9223372036854775808 .. 9223372036854775807</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>переменный</td>
+<td>Вещественное число с указанной точностью</td>
+<td>до 131072 цифр до десятичной точки и до 16383 — после</td>
+</tr>
+<tr>
+<td>numeric</td>
+<td>переменный</td>
+<td>Вещественное число с указанной точностью</td>
+<td>до 131072 цифр до десятичной точки и до 16383 — после</td>
+</tr>
+<tr>
+<td>real</td>
+<td>4 байта</td>
+<td>Вещественное число с переменной точностью</td>
+<td>точность в пределах 6 десятичных цифр</td>
+</tr>
+<tr>
+<td>double precision</td>
+<td>8 байт</td>
+<td>Вещественное число с переменной точностью</td>
+<td>точность в пределах 15 десятичных цифр</td>
+</tr>
+<tr>
+<td>smallserial</td>
+<td>2 байта</td>
+<td>Небольшое целое с автоувеличением</td>
+<td>1 .. 32767</td>
+</tr>
+<tr>
+<td>serial</td>
+<td>4 байта</td>
+<td>Целое с автоувеличением</td>
+<td>1 .. 2147483647</td>
+</tr>
+<tr>
+<td>bigserial</td>
+<td>8 байт</td>
+<td>Большое целое с автоувеличением</td>
+<td>1 .. 9223372036854775807</td>
+</tr>
+</tbody>
+</table>
+<p><code>numeric</code> стоит использовать для различных "денежных" вещей, где недопустимо "потерять копейку на округлениях":</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">1415926</span><span class="p">::</span><span class="nb">real</span><span class="p">;</span>
+<span class="c1">--     3.1415925 - чуток потеряли</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">1415926</span><span class="p">::</span><span class="nb">numeric</span><span class="p">;</span>
+<span class="c1">--     3.1415926 - а тут все четко</span>
+</pre></div></div></div>
+
+<p><code>serial</code>-псевдотипы (аналог <code>AUTO_INCREMENT / IDENTITY</code> из других СУБД),
+Позволяют определить поля с автоматически формируемым возрастающим значением "по умолчанию": <code>1, 2, 3, ...</code></p>
+<p>Нет <code>unsigned</code> - все числовые типы знаковые, поэтому "честно" положить диапазон <code>[0x00000000..0xFFFFFFFF]</code> в <code>integer</code> не получится,
+только со смещением "наполовину"</p>
+<h1>Символьные типы</h1>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>character varying(n), varchar(n)</td>
+<td>Строка ограниченной переменной длины</td>
+</tr>
+<tr>
+<td>character(n), char(n), bpchar(n)</td>
+<td>Строка фиксированной длины, дополненная пробелами</td>
+</tr>
+<tr>
+<td>bpchar</td>
+<td>Строка неограниченной переменной длины с удалением пробелов</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Строка неограниченной переменной длины</td>
+</tr>
+</tbody>
+</table>
+<p>Указание ограничения длины не дает никаких бонусов.
+За исключением случаев, когда вам действительно требуется ограничить длину записываемого в поле
+Например, для 2-буквенного кода страны.</p>
+<h1>Типы даты/времени</h1>
+<p><a href="https://postgrespro.ru/docs/postgresql/16/datatype-datetime">Дата и время</a> в <code>PostgreSQL</code>, технически, хранятся как целочисленные,
+со значением от <a href="https://github.com/postgres/postgres/blob/871fe4917e1e92304bdcc2ab779de7416492c6de/src/include/datatype/timestamp.h#L235">POSTGRES_EPOCH</a>(01.01.2000) в соответствующих единицах (микросекундах или сутках):</p>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Размер</th>
+<th>Описание</th>
+<th>Наименьшее значение</th>
+<th>Наибольшее значение</th>
+<th>Точность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timestamp [(p)] [without time zone]</td>
+<td>8 байт</td>
+<td>Дата и время (без часового пояса)</td>
+<td>4713 до н. э</td>
+<td>294276 н. э</td>
+<td>1 микросекунда</td>
+</tr>
+<tr>
+<td>timestamp [(p)] with time zone</td>
+<td>8 байт</td>
+<td>Дата и время (с часовым поясом)</td>
+<td>4713 до н. э</td>
+<td>294276 н. э</td>
+<td>1 микросекунда</td>
+</tr>
+<tr>
+<td>date</td>
+<td>4 байта</td>
+<td>Дата (без времени суток)</td>
+<td>4713 до н. э</td>
+<td>5874897 н. э</td>
+<td>1 день</td>
+</tr>
+<tr>
+<td>time [(p)] [without time zone]</td>
+<td>8 байт</td>
+<td>Время суток (без даты)</td>
+<td>00:00:00</td>
+<td>24:00:00</td>
+<td>1 микросекунда</td>
+</tr>
+<tr>
+<td>time [(p)] with time zone</td>
+<td>12 байт</td>
+<td>Время дня (без даты), с часовым поясом</td>
+<td>00:00:00+1559</td>
+<td>24:00:00-1559</td>
+<td>1 микросекунда</td>
+</tr>
+<tr>
+<td>interval [ поля ] [(p)]</td>
+<td>16 байт</td>
+<td>Временной интервал</td>
+<td>-178000000 лет</td>
+<td>178000000 лет</td>
+<td>1 микросекунда</td>
+</tr>
+</tbody>
+</table>
+<p>В этом их отличие от некоторых других СУБД, где  может храниться как текстовая строка.</p>
+<p>Арифметические операции как над числами над <code>timestamp</code> тоже допустимы, в том числе преобразование к Unix time (время от <code>01.01.1970</code>)</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">::</span><span class="nb">date</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 2023-12-31 - за день до</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">::</span><span class="nb">date</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s1">&#39;1 hour&#39;</span><span class="p">::</span><span class="nb">interval</span><span class="p">;</span>
+<span class="c1">-- 2023-12-31 16:00:00 - за 8 часов до</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">extract</span><span class="p">(</span><span class="n">epoch</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">::</span><span class="k">timestamp</span><span class="p">);</span>
+<span class="c1">-- 1704067200 - превратили timestamp в double precision</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;1970-01-01 00:00:00&#39;</span><span class="p">::</span><span class="k">timestamp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1704067200</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="s1">&#39;1 second&#39;</span><span class="p">::</span><span class="nb">interval</span><span class="p">;</span>
+<span class="c1">-- 2024-01-01 00:00:00 - ... и обратно</span>
+</pre></div></div></div>
+
+<p>Во временном значении можно использовать часовой пояс <code>with time zone</code>
+или указывать сохраняемую точность (<code>timestamp(0)</code> означает хранение "до секунд").</p>
+<h1>Логический тип</h1>
+<table>
+<thead>
+<tr>
+<th>Имя</th>
+<th>Размер</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>1 байт</td>
+<td>Состояние: истина или ложь</td>
+</tr>
+</tbody>
+</table>
+<p>Он может принимать значения <code>TRUE</code>/<code>FALSE</code> и <code>NULL</code>, равно как и любой другой тип.</p>
+<h1>Специальные типы данных</h1>
+<p>Помимо базовых типов, "из коробки" <code>PostgreSQL</code> предоставляет массу других, более специализированных, типов:</p>
+<ul>
+<li>двоичные данные</li>
+<li>перечисления</li>
+<li>геометрические</li>
+<li>сетевые адреса</li>
+<li>битовые строки</li>
+<li>вектора текстового поиска</li>
+<li>UUID</li>
+<li>XML</li>
+<li>JSON</li>
+<li>массивы</li>
+<li>диапазоны</li>
+</ul>
+<p>Например, всякие картографические сервисы любят использовать <a href="https://postgrespro.ru/docs/postgresql/16/datatype-geometric">геометрические типы</a> данных с расширением <code>PostGIS</code>,
+а слабоструктурированные данные можно хранить в <a href="https://postgrespro.ru/docs/postgresql/16/datatype-json">JSON</a>, причем ничуть не хуже какой-нибудь <code>MongoDB</code>,
+а идентификаторы в распределенных системах - в <a href="https://postgrespro.ru/docs/postgresql/16/datatype-uuid">UUID</a>.</p>
+<p>Если вдруг и этих типов вам окажется мало – можно <a href="https://postgrespro.ru/docs/postgresql/16/sql-createtype">создать свой</a> и работать с ним как с любым другим полем.
+Главное, правильно его описать, задать соответствующие функции ввода-вывода, хранения и обработки.</p>
+<p>Вообще, PostgreSQL очень хорошо расширяем, поэтому <code>EXTENSION</code>'ы, которые для него можно найти и подключить,
+составляют достаточно весомую часть его преимуществ по отношению к другим СУБД.</p>

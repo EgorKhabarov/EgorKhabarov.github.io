@@ -1,0 +1,14 @@
+<p>GitHub UserName <input style="border-style: none;display: inline-block;background-color: #191919;min-width: 154px;font-size: 16px;padding: 2px;border: 1px solid #2B2B2B;color: #AFB1B3;height: 100%;" placeholder="UserName" type="username" id="github-username-input" oninput="element=this.parentElement.nextElementSibling.nextElementSibling.lastChild.firstChild.firstChild;lines=element.innerHTML.split('\n');for(var i=0;i&lt;lines.length;i++){if (!this.value){v='github-username'} else {v=this.value};if(i === 0           ){lines[i]=lines[i].substring(0,153)+v+'&quot;\</span>';}};element.innerHTML=lines.join('\n')"></p>
+<p>Email           <input style="border-style: none;display: inline-block;background-color: #191919;min-width: 154px;font-size: 16px;padding: 2px;border: 1px solid #2B2B2B;color: #AFB1B3;height: 100%;" placeholder="Email"    type="email"    id="github-email-input"    oninput="element=this.parentElement.nextElementSibling                   .lastChild.firstChild.firstChild;lines=element.innerHTML.split('\n');for(var i=0;i&lt;lines.length;i++){if (!this.value){v='github-email'   } else {v=this.value};if(i === 1){lines[i]=lines[i].substring(0,141)+v+'&quot;\</span>';};if(i === 2){lines[i]=lines[i].substring(0,135)+v+'&quot;\</span>';}};element.innerHTML=lines.join('\n')"></p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;github-username&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;github-email&quot;</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;github-email&quot;</span>
+
+
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>ssh-agent<span class="w"> </span>-s<span class="k">)</span><span class="s2">&quot;</span>
+ssh-add<span class="w"> </span>~/.ssh/id_rsa
+</pre></div></div></div>
+
+<p><code>ssh-keygen -t rsa -b 4096 -C "github-email"</code></p>
+<p>Скопировать содержимое <code>id_rsa.pub</code> и вставить в ключи для деплоя в репозиторий</p>
+<p><code>git clone git@github.com:github-username/github-repo-name.git</code></p>

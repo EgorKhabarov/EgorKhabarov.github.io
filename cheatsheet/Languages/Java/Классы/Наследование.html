@@ -1,0 +1,61 @@
+<p>Наследование в Java позволяет повторно использовать код одного класса в другом классе,
+то есть вы можете унаследовать новый класс от уже существующего класса.</p>
+<p>Главный наследуемый класс в Java называют родительским классам, или суперклассом.
+Наследующий класс называют дочерним классом, или подклассом.
+Подкласс наследует все поля и свойства суперкласса,
+а также может иметь свои поля и свойства, отсутствующие в классе-родителе.</p>
+<p>Пример наследования
+Рассмотрим класс под названием Shape (Форма).
+Shape является базовым классом, от которого наследуются другие формы, таких как прямоугольник, квадрат, круг и т.д.</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Поскольку это просто общая «форма», метод  вычисления площади area() будет возвращать ноль.
+Чтобы узнать площадь конкретной фигуры, нужно создать подкласс, унаследованный от класса Shape, и в нем переопределить метод area().</p>
+<p>От класса Shape  наследуется класс Circle, который тоже представляет собой форму.</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// ключевое слово &quot;extends&quot; означает наследование</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="p">;</span><span class="w"> </span><span class="c1">// константа</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">diameter</span><span class="p">;</span><span class="w"> </span><span class="c1">// любое число, представляющее диаметр этого круга</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">diameter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// конструктор</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">diameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diameter</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diameter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Метод area() базового класса наследуется классом Circle и становится доступен в нем, но нам нужно переопределить метод area()
+в классе Circle, таким образом, чтобы он вычислял площадь круга.</p>
+<p>Преимущество использования наследования в том, что вы можете написать код,
+который можно применить к ряду классов, расширяющих более общий класс.</p>
+<p>Создадим  класс Main, и в нем напишем метод, который вычисляет большую площадь двух фигур:</p>
+<div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Shape</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Shape</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Shape</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLargerShape</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;The area of the larger shape is: &quot;</span><span class="o">+</span><span class="n">larger</span><span class="p">.</span><span class="na">area</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="nf">getLargerShape</span><span class="p">(</span><span class="n">Shape</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="na">area</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">area</span><span class="p">())</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<p>Как вы можете видеть, метод getLargerShape() не требует указания определенного типа фигуры для его двух параметров.
+В качестве параметров для этого метода можно использовать экземпляр любого класса, который наследует тип Shape.
+Можно использовать экземпляр класса круг, прямоугольник, треугольник, трапеция, и т.д. – до тех пор, как они наследуют класс формы.</p>
