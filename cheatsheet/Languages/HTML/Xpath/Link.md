@@ -1,1 +1,1 @@
-<p>Шпаргалка взята с сайта <a href="https://devhints.io/xpath">https://devhints.io/xpath</a></p>
+Шпаргалка взята с сайта [https://devhints.io/xpath](https://devhints.io/xpath)

@@ -1,1 +1,1 @@
-<p><img alt="encoding.png" src="General/encoding.png" /></p>
+![encoding.png](General/encoding.png)

@@ -1,52 +1,66 @@
-<p>Библиотека "pygetwindow" используется для управления окнами в операционной системе с помощью Python.
-Она предоставляет функции для поиска, получения информации о размерах и позиции окон, а также для управления их видимостью и активностью.</p>
-<p>Методы и подмодули библиотеки "pygetwindow":</p>
-<p><code>getAllTitles()</code>: Возвращает список заголовков всех открытых окон.
-<code>getWindowsWithTitle(title)</code>: Возвращает список окон с указанным заголовком.
-<code>getWindowGeometry(window)</code>: Возвращает геометрию (размеры и позицию) указанного окна.
-<code>getWindowAt(x, y)</code>: Возвращает окно, находящееся по указанным координатам.
-<code>getActiveWindow()</code>: Возвращает активное окно.
-<code>getWindowBorders(window)</code>: Возвращает границы указанного окна.
-<code>getWindowRect(window)</code>: Возвращает прямоугольник, охватывающий указанное окно.
-<code>getWindowPID(window)</code>: Возвращает идентификатор процесса, связанного с указанным окном.
-<code>getWindowProcessID(window)</code>: Возвращает идентификатор процесса, связанного с указанным окном.
-<code>getWindowThreadID(window)</code>: Возвращает идентификатор потока, связанного с указанным окном.
-<code>getWindowThreadProcessId(window)</code>: Возвращает идентификатор потока и процесса, связанных с указанным окном.</p>
-<p>Некоторые из самых часто используемых методов библиотеки "pygetwindow":</p>
-<p><code>getAllTitles()</code>: Возвращает список заголовков всех открытых окон.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygetwindow</span>
+Библиотека "pygetwindow" используется для управления окнами в операционной системе с помощью Python.
+Она предоставляет функции для поиска, получения информации о размерах и позиции окон, а также для управления их видимостью и активностью.
 
-<span class="n">window_titles</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getAllTitles</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">window_titles</span><span class="p">)</span>
-</pre></div></div></div>
+Методы и подмодули библиотеки "pygetwindow":
 
-<p><code>getWindowsWithTitle(title)</code>: Возвращает список окон с указанным заголовком.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygetwindow</span>
+`getAllTitles()`: Возвращает список заголовков всех открытых окон.
+`getWindowsWithTitle(title)`: Возвращает список окон с указанным заголовком.
+`getWindowGeometry(window)`: Возвращает геометрию (размеры и позицию) указанного окна.
+`getWindowAt(x, y)`: Возвращает окно, находящееся по указанным координатам.
+`getActiveWindow()`: Возвращает активное окно.
+`getWindowBorders(window)`: Возвращает границы указанного окна.
+`getWindowRect(window)`: Возвращает прямоугольник, охватывающий указанное окно.
+`getWindowPID(window)`: Возвращает идентификатор процесса, связанного с указанным окном.
+`getWindowProcessID(window)`: Возвращает идентификатор процесса, связанного с указанным окном.
+`getWindowThreadID(window)`: Возвращает идентификатор потока, связанного с указанным окном.
+`getWindowThreadProcessId(window)`: Возвращает идентификатор потока и процесса, связанных с указанным окном.
 
-<span class="n">windows</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getWindowsWithTitle</span><span class="p">(</span><span class="s2">&quot;Notepad&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">windows</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">window</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-</pre></div></div></div>
+Некоторые из самых часто используемых методов библиотеки "pygetwindow":
 
-<p><code>getActiveWindow()</code>: Возвращает активное окно.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygetwindow</span>
+`getAllTitles()`: Возвращает список заголовков всех открытых окон.
 
-<span class="n">active_window</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getActiveWindow</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">active_window</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-</pre></div></div></div>
+```python
+import pygetwindow
 
-<p><code>getWindowGeometry(window)</code>: Возвращает геометрию (размеры и позицию) указанного окна.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygetwindow</span>
+window_titles = pygetwindow.getAllTitles()
+print(window_titles)
+```
 
-<span class="n">window</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getWindowsWithTitle</span><span class="p">(</span><span class="s2">&quot;Notepad&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">geometry</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getWindowGeometry</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span>
-</pre></div></div></div>
+`getWindowsWithTitle(title)`: Возвращает список окон с указанным заголовком.
 
-<p><code>getWindowRect(window)</code>: Возвращает прямоугольник, охватывающий указанное окно.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygetwindow</span>
+```python
+import pygetwindow
 
-<span class="n">window</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getWindowsWithTitle</span><span class="p">(</span><span class="s2">&quot;Notepad&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">rect</span> <span class="o">=</span> <span class="n">pygetwindow</span><span class="o">.</span><span class="n">getWindowRect</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
-</pre></div></div></div>
+windows = pygetwindow.getWindowsWithTitle("Notepad")
+for window in windows:
+    print(window.title)
+```
+
+`getActiveWindow()`: Возвращает активное окно.
+
+```python
+import pygetwindow
+
+active_window = pygetwindow.getActiveWindow()
+print(active_window.title)
+```
+
+`getWindowGeometry(window)`: Возвращает геометрию (размеры и позицию) указанного окна.
+
+```python
+import pygetwindow
+
+window = pygetwindow.getWindowsWithTitle("Notepad")[0]
+geometry = pygetwindow.getWindowGeometry(window)
+print(geometry)
+```
+
+`getWindowRect(window)`: Возвращает прямоугольник, охватывающий указанное окно.
+
+```python
+import pygetwindow
+
+window = pygetwindow.getWindowsWithTitle("Notepad")[0]
+rect = pygetwindow.getWindowRect(window)
+print(rect)
+```

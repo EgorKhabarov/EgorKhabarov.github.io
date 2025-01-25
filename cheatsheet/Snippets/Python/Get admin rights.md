@@ -1,41 +1,45 @@
-<h1>Windows</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">ctypes</span>
+# Windows
+
+```python
+import sys
+import os
+import ctypes
 
 
-<span class="k">def</span> <span class="nf">is_admin</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">shell32</span><span class="o">.</span><span class="n">IsUserAnAdmin</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin() != 0
+    except:
+        return False
 
-<span class="c1"># Если скрипт не запущен от имени администратора, перезапускаем его с правами администратора</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">is_admin</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Необходимы права администратора, перезапускаем скрипт...&quot;</span><span class="p">)</span>
-    <span class="c1"># Перезапуск скрипта с правами администратора</span>
-    <span class="n">ctypes</span><span class="o">.</span><span class="n">windll</span><span class="o">.</span><span class="n">shell32</span><span class="o">.</span><span class="n">ShellExecuteW</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;runas&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+# Если скрипт не запущен от имени администратора, перезапускаем его с правами администратора
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    # Перезапуск скрипта с правами администратора
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, ' '.join(sys.argv), None, 1)
+    sys.exit(0)
 
-<span class="c1"># Ваш код, который требует прав администратора</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Скрипт запущен с правами администратора!&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```
 
-<h1>Linux / macOS</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
+# Linux / macOS
 
-<span class="c1"># Проверка, запущен ли скрипт с правами администратора</span>
-<span class="k">def</span> <span class="nf">is_admin</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">geteuid</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+```python
+import os
+import sys
+import subprocess
 
-<span class="c1"># Если скрипт не запущен с правами администратора, перезапускаем его с использованием sudo</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">is_admin</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Необходимы права администратора, перезапускаем скрипт...&quot;</span><span class="p">)</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;sudo&quot;</span><span class="p">,</span> <span class="s2">&quot;python3&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+# Проверка, запущен ли скрипт с правами администратора
+def is_admin():
+    return os.geteuid() == 0
 
-<span class="c1"># Ваш код, который требует прав администратора</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Скрипт запущен с правами администратора!&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+# Если скрипт не запущен с правами администратора, перезапускаем его с использованием sudo
+if not is_admin():
+    print("Необходимы права администратора, перезапускаем скрипт...")
+    subprocess.check_call(["sudo", "python3"] + sys.argv)
+    sys.exit(0)
+
+# Ваш код, который требует прав администратора
+print("Скрипт запущен с правами администратора!")
+```

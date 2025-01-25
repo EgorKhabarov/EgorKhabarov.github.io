@@ -1,54 +1,37 @@
-<p>Модуль queue предоставляет различные классы для реализации очередей в Python.
-Очереди используются для хранения и управления элементами данных в порядке "первым поступил - первым обслужен".</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Queue(maxsize)</td>
-<td>Создает новую очередь с максимальным размером maxsize</td>
-</tr>
-<tr>
-<td>q.put(item)</td>
-<td>Добавляет элемент item в очередь q</td>
-</tr>
-<tr>
-<td>q.get()</td>
-<td>Удаляет и возвращает элемент из очереди q</td>
-</tr>
-<tr>
-<td>q.empty()</td>
-<td>Возвращает True, если очередь q пуста, иначе False</td>
-</tr>
-<tr>
-<td>q.full()</td>
-<td>Возвращает True, если очередь q полна, иначе False</td>
-</tr>
-<tr>
-<td>q.qsize()</td>
-<td>Возвращает количество элементов в очереди q</td>
-</tr>
-</tbody>
-</table>
-<p><strong>put(item)</strong> Добавляет элемент в очередь.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
-<span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">qsize</span><span class="p">())</span>  <span class="c1"># 2</span>
-</pre></div></div></div>
+Модуль queue предоставляет различные классы для реализации очередей в Python.
+Очереди используются для хранения и управления элементами данных в порядке "первым поступил - первым обслужен".
 
-<p><strong>get()</strong> Удаляет и возвращает первый элемент из очереди.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
-<span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>  <span class="c1"># 1</span>
-</pre></div></div></div>
+| Метод          | Описание                                              |
+|----------------|-------------------------------------------------------|
+| Queue(maxsize) | Создает новую очередь с максимальным размером maxsize |
+| q.put(item)    | Добавляет элемент item в очередь q                    |
+| q.get()        | Удаляет и возвращает элемент из очереди q             |
+| q.empty()      | Возвращает True, если очередь q пуста, иначе False    |
+| q.full()       | Возвращает True, если очередь q полна, иначе False    |
+| q.qsize()      | Возвращает количество элементов в очереди q           |
 
-<p><strong>empty()</strong> Проверяет, пуста ли очередь.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">empty</span><span class="p">())</span>  <span class="c1"># True</span>
-</pre></div></div></div>
+
+**put(item)** Добавляет элемент в очередь.
+
+```python
+q = Queue()
+q.put(1)
+q.put(2)
+print(q.qsize())  # 2
+```
+
+**get()** Удаляет и возвращает первый элемент из очереди.
+
+```python
+q = Queue()
+q.put(1)
+q.put(2)
+print(q.get())  # 1
+```
+
+**empty()** Проверяет, пуста ли очередь.
+
+```python
+q = Queue()
+print(q.empty())  # True
+```

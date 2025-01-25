@@ -1,1 +1,1 @@
-<p><a href="https://devhints.io/kotlin">https://devhints.io/kotlin</a></p>
+[https://devhints.io/kotlin](https://devhints.io/kotlin)

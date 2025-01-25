@@ -1,45 +1,57 @@
-<p>Библиотека "certifi" в Python используется для работы с сертификатами в криптографии.
+Библиотека "certifi" в Python используется для работы с сертификатами в криптографии.
 Она предоставляет набор корневых сертификатов, которые могут быть использованы
-для проверки подлинности SSL-соединений при выполнении запросов HTTP.</p>
-<p>Методы и подмодули "certifi":
+для проверки подлинности SSL-соединений при выполнении запросов HTTP.
+
+Методы и подмодули "certifi":
 Подмодуль "cacertifi": содержит корневые сертификаты, предназначенные для проверки SSL-соединений.
-Функция <code>where()</code>: возвращает путь к файлу с набором корневых сертификатов.
-Функция <code>contents()</code>: возвращает содержимое файла с корневыми сертификатами в виде строки.
-Функция <code>old_where()</code>: возвращает путь к предыдущей версии файла с корневыми сертификатами.
-Функция <code>old_contents()</code>: возвращает содержимое предыдущей версии файла с корневыми сертификатами.
-Функция <code>contents_bytes()</code>: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.</p>
-<p>Некоторые часто используемые методы "certifi":
-Функция <code>where()</code>: возвращает путь к файлу с набором корневых сертификатов.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">certifi</span>
+Функция `where()`: возвращает путь к файлу с набором корневых сертификатов.
+Функция `contents()`: возвращает содержимое файла с корневыми сертификатами в виде строки.
+Функция `old_where()`: возвращает путь к предыдущей версии файла с корневыми сертификатами.
+Функция `old_contents()`: возвращает содержимое предыдущей версии файла с корневыми сертификатами.
+Функция `contents_bytes()`: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.
 
-<span class="n">file_path</span> <span class="o">=</span> <span class="n">certifi</span><span class="o">.</span><span class="n">where</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-</pre></div></div></div>
+Некоторые часто используемые методы "certifi":
+Функция `where()`: возвращает путь к файлу с набором корневых сертификатов.
 
-<p>Функция <code>contents()</code>: возвращает содержимое файла с корневыми сертификатами в виде строки.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">certifi</span>
+```python
+import certifi
 
-<span class="n">cert_contents</span> <span class="o">=</span> <span class="n">certifi</span><span class="o">.</span><span class="n">contents</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cert_contents</span><span class="p">)</span>
-</pre></div></div></div>
+file_path = certifi.where()
+print(file_path)
+```
 
-<p>Функция <code>old_where()</code>: возвращает путь к предыдущей версии файла с корневыми сертификатами.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">certifi</span>
+Функция `contents()`: возвращает содержимое файла с корневыми сертификатами в виде строки.
 
-<span class="n">old_file_path</span> <span class="o">=</span> <span class="n">certifi</span><span class="o">.</span><span class="n">old_where</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">old_file_path</span><span class="p">)</span>
-</pre></div></div></div>
+```python
+import certifi
 
-<p>Функция <code>old_contents()</code>: возвращает содержимое предыдущей версии файла с корневыми сертификатами.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">certifi</span>
+cert_contents = certifi.contents()
+print(cert_contents)
+```
 
-<span class="n">old_cert_contents</span> <span class="o">=</span> <span class="n">certifi</span><span class="o">.</span><span class="n">old_contents</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">old_cert_contents</span><span class="p">)</span>
-</pre></div></div></div>
+Функция `old_where()`: возвращает путь к предыдущей версии файла с корневыми сертификатами.
 
-<p>Функция <code>contents_bytes()</code>: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">certifi</span>
+```python
+import certifi
 
-<span class="n">cert_bytes</span> <span class="o">=</span> <span class="n">certifi</span><span class="o">.</span><span class="n">contents_bytes</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cert_bytes</span><span class="p">)</span>
-</pre></div></div></div>
+old_file_path = certifi.old_where()
+print(old_file_path)
+```
+
+Функция `old_contents()`: возвращает содержимое предыдущей версии файла с корневыми сертификатами.
+
+```python
+import certifi
+
+old_cert_contents = certifi.old_contents()
+print(old_cert_contents)
+```
+
+Функция `contents_bytes()`: возвращает содержимое файла с корневыми сертификатами в виде байтовой строки.
+
+```python
+import certifi
+
+cert_bytes = certifi.contents_bytes()
+print(cert_bytes)
+```

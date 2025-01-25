@@ -1,103 +1,115 @@
-<p><code>mypy</code> — это статический анализатор типов для Python.
+`mypy` — это статический анализатор типов для Python.
 Он помогает разработчикам выявлять ошибки в типах на этапе компиляции, до выполнения программы.
 Это полезно для больших проектов, где сложно отследить все возможные ошибки типов во время выполнения.
-В отличие от стандартного динамического поведения Python, с помощью <code>mypy</code> можно явно аннотировать типы переменных,
-аргументов функций и возвращаемых значений, чтобы повысить безопасность кода.</p>
-<h1>Основные особенности и функции</h1>
-<h3>Аннотация типов</h3>
-<ul>
-<li><code>mypy</code> использует встроенную систему аннотаций типов в Python 3.5+.</li>
-<li>Аннотации типов добавляются с помощью синтаксиса Python для аргументов функций, возвращаемых значений и переменных.</li>
-</ul>
-<h3>Поддержка стандартных типов</h3>
-<ul>
-<li><code>mypy</code> поддерживает типы из стандартной библиотеки <code>typing</code>: <code>List</code>, <code>Dict</code>, <code>Tuple</code>, <code>Union</code> и другие.</li>
-</ul>
-<h3>Поддержка статической и динамической типизации</h3>
-<ul>
-<li>Модели, не аннотированные типами, остаются динамическими.</li>
-<li>Можно комбинировать статическую и динамическую типизацию.</li>
-</ul>
-<h1>Пример использования <code>mypy</code></h1>
-<h3>Установка</h3>
-<p>Для установки <code>mypy</code> используйте команду:</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mypy
-</pre></div></div></div>
+В отличие от стандартного динамического поведения Python, с помощью `mypy` можно явно аннотировать типы переменных,
+аргументов функций и возвращаемых значений, чтобы повысить безопасность кода.
 
-<h3>Аннотация типов</h3>
-<p>Аннотации типов можно добавлять непосредственно в код:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
-</pre></div></div></div>
+# Основные особенности и функции
 
-<p>Здесь <code>name</code> — строка (<code>str</code>), и функция должна возвращать строку.
-Если типы будут несоответствующими, <code>mypy</code> выдаст предупреждение.</p>
-<h3>Проверка типов</h3>
-<p>Чтобы запустить проверку типов с помощью <code>mypy</code>, выполните команду:</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>your_script.py
-</pre></div></div></div>
+### Аннотация типов
+- `mypy` использует встроенную систему аннотаций типов в Python 3.5+.
+- Аннотации типов добавляются с помощью синтаксиса Python для аргументов функций, возвращаемых значений и переменных.
 
-<h1>Примеры аннотаций и их использования</h1>
-<h3>Аннотации для переменных</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">y</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
-<span class="n">z</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</pre></div></div></div>
+### Поддержка стандартных типов
+- `mypy` поддерживает типы из стандартной библиотеки `typing`: `List`, `Dict`, `Tuple`, `Union` и другие.
 
-<h3>Аннотации для функций</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+### Поддержка статической и динамической типизации
+- Модели, не аннотированные типами, остаются динамическими.
+- Можно комбинировать статическую и динамическую типизацию.
 
-<span class="k">def</span> <span class="nf">process_data</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</pre></div></div></div>
+# Пример использования `mypy`
 
-<h3>Optional</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+### Установка
+Для установки `mypy` используйте команду:
+```bash
+pip install mypy
+```
 
-<span class="k">def</span> <span class="nf">get_user_name</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">user_id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;Alice&quot;</span>
-    <span class="k">return</span> <span class="kc">None</span>
-</pre></div></div></div>
+### Аннотация типов
+Аннотации типов можно добавлять непосредственно в код:
 
-<h3>Union</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+```python
+def greeting(name: str) -> str:
+    return "Hello " + name
+```
 
-<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Processing number </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Processing string </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div></div></div>
+Здесь `name` — строка (`str`), и функция должна возвращать строку.
+Если типы будут несоответствующими, `mypy` выдаст предупреждение.
 
-<h3>TypedDict</h3>
-<p><code>TypedDict</code> позволяет аннотировать словари с заранее известными ключами.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+### Проверка типов
+Чтобы запустить проверку типов с помощью `mypy`, выполните команду:
+```bash
+mypy your_script.py
+```
 
-<span class="k">class</span> <span class="nc">Point</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
+# Примеры аннотаций и их использования
 
-<span class="k">def</span> <span class="nf">process_point</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="n">Point</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+### Аннотации для переменных
+```python
+x: int = 10
+y: str = "Hello"
+z: List[int] = [1, 2, 3]
+```
 
-<span class="n">point</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
-<span class="n">process_point</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>  <span class="c1"># Успешно</span>
-</pre></div></div></div>
+### Аннотации для функций
+```python
+def add(a: int, b: int) -> int:
+    return a + b
 
-<h3>Mypy конфигурация</h3>
-<p>Mypy может быть настроен через файл конфигурации <code>mypy.ini</code> или <code>setup.cfg</code></p>
-<div class="code_element"><div class="lang_line"><text>ini</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ini"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
-<span class="na">python_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3.9</span>
-<span class="na">ignore_missing_imports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
-<span class="na">disallow_untyped_calls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
-<span class="na">strict_optional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span>
-</pre></div></div></div>
+def process_data(data: List[str]) -> None:
+    for item in data:
+        print(item)
+```
 
-<ul>
-<li><code>python_version</code> — указывает версию Python.</li>
-<li><code>ignore_missing_imports</code> — игнорирует отсутствующие модули.</li>
-<li><code>disallow_untyped_calls</code> — запрещает вызов неаннотированных функций.</li>
-<li><code>strict_optional</code> — включает строгую проверку для <code>Optional</code>.</li>
-</ul>
+### Optional
+```python
+from typing import Optional
+
+def get_user_name(user_id: int) -> Optional[str]:
+    if user_id == 1:
+        return "Alice"
+    return None
+```
+
+### Union
+```python
+from typing import Union
+
+def process(value: Union[int, str]) -> str:
+    if isinstance(value, int):
+        return f"Processing number {value}"
+    return f"Processing string {value}"
+```
+
+### TypedDict
+`TypedDict` позволяет аннотировать словари с заранее известными ключами.
+```python
+from typing import TypedDict
+
+class Point(TypedDict):
+    x: int
+    y: int
+
+def process_point(p: Point) -> None:
+    print(p["x"], p["y"])
+
+point = {"x": 10, "y": 20}
+process_point(point)  # Успешно
+```
+
+### Mypy конфигурация
+
+Mypy может быть настроен через файл конфигурации `mypy.ini` или `setup.cfg`
+
+```ini
+[mypy]
+python_version = 3.9
+ignore_missing_imports = True
+disallow_untyped_calls = True
+strict_optional = True
+```
+
+- `python_version` — указывает версию Python.
+- `ignore_missing_imports` — игнорирует отсутствующие модули.
+- `disallow_untyped_calls` — запрещает вызов неаннотированных функций.
+- `strict_optional` — включает строгую проверку для `Optional`.

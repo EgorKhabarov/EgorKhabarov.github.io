@@ -1,69 +1,40 @@
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>notepad<span class="w"> </span><span class="s2">&quot;C:/Program Files/PostgreSQL/16/data/pg_hba.conf&quot;</span>
-</pre></div></div></div>
+```bash
+notepad "C:/Program Files/PostgreSQL/16/data/pg_hba.conf"
+```
 
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>net<span class="w"> </span>stop<span class="w"> </span>postgresql-x64-16
-net<span class="w"> </span>start<span class="w"> </span>postgresql-x64-16
-</pre></div></div></div>
+```bash
+net stop postgresql-x64-16
+net start postgresql-x64-16
+```
 
-<h1>Запись может быть сделана в одном из семи форматов</h1>
-<blockquote>
-<p>local      база  пользователь  метод-аутентификации  [параметры-аутентификации]
-host       база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
-hostssl    база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
-hostnossl  база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
-host       база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]
-hostssl    база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]
-hostnossl  база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>local</td>
-<td>Unix-сокеты</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Подключения по <code>TCP/IP</code>. С <code>SSL</code> и без <code>SSL</code></td>
-</tr>
-<tr>
-<td>hostssl</td>
-<td>Подключения по <code>TCP/IP</code> с применением шифрования <code>SSL</code></td>
-</tr>
-<tr>
-<td>hostnossl</td>
-<td>Противоположен <code>hostssl</code>. Подключения по <code>TCP/IP</code> без шифрования <code>SSL</code></td>
-</tr>
-<tr>
-<td>база</td>
-<td>- <code>all</code> - все базы данных<br>- <code>sameuser</code> - имя запрашиваемой базы данных совпадает с именем запрашиваемого пользователя<br>- <code>samerole</code> - запрашиваемый пользователь должен быть членом роли с таким же именем, как и у запрашиваемой базы данных.<br>  (<code>samegroup</code> — это устаревший, но допустимый вариант значения <code>samerole</code>.)<br>  Суперпользователи не становятся членами роли автоматически из-за <code>samerole</code>,<br>  а только если они являются явными членами роли, прямо или косвенно, и не только из-за того, что они суперпользователи.<br>- <code>replication</code> - если запрашивается подключение для физической репликации (для таких подключений не выбирается какая-то конкретная база данных).<br>Любое другое значение воспринимается как имя определённой базы <code>Postgres Pro</code>.<br>Несколько имён баз данных можно указать, разделяя их запятыми.<br>Файл, содержащий имена баз данных, можно указать, поставив знак <code>@</code> в начале его имени</td>
-</tr>
-<tr>
-<td>пользователь</td>
-<td>- <code>all</code> - все пользователи.<br>  Имя группы начинается с <code>+</code>.<br>  (В <code>Postgres Pro</code> нет никакой разницы между пользователем и группой; знак + означает «совпадение любых ролей,<br>   которые прямо или косвенно являются членами роли», тогда как имя без знака <code>+</code> является подходящим только для этой конкретной роли.)<br>  Суперпользователь рассматривается как член роли, только если он явно является членом этой роли, прямо или косвенно,<br>  а не только потому, что он является суперпользователем.<br>Несколько имён пользователей можно указать, разделяя их запятыми.<br>Файл, содержащий имена пользователей, можно указать, поставив знак <code>@</code> в начале его имени</td>
-</tr>
-<tr>
-<td>адрес</td>
-<td>ip/mask<br>- <code>all</code> - любой IP-адрес<br>- <code>samehost</code> - любые IP-адреса данного сервера- <br>- <code>samenet</code> - любой адрес любой подсети, к которой сервер подключён напрямую<br><br>Имени, начинающееся с точки <code>.</code>, соответствует суффиксу актуального имени узла.<br>Так, <code>.example.com</code> будет соответствовать <code>foo.example.com</code> (а не только <code>example.com</code>).<br>Это поле применимо только к записям <code>host</code>, <code>hostssl</code> и <code>hostnossl</code></td>
-</tr>
-<tr>
-<td>метод-аутентификации</td>
-<td>- <code>trust</code> - Разрешает безусловное подключение.<br>  Этот метод позволяет тому, кто может подключиться к серверу с базой данных <code>Postgres Pro</code>,<br>  войти под любым желаемым пользователем <code>Postgres Pro</code> без введения пароля и без какой-либо другой аутентификации. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-TRUST">Подробности</a><br>- <code>reject</code> - Отклоняет подключение безусловно.<br>  Полезна для «фильтрации» некоторых серверов группы, например, строка <code>reject</code> может отклонить попытку подключения одного компьютера,<br>  при этом следующая строка позволяет подключиться остальным компьютерам в той же сети.<br>- <code>scram-sha-256</code> Проверяет пароль пользователя, производя аутентификацию <code>SCRAM-SHA-256</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD">Подробности</a><br>- <code>md5</code> Проверяет пароль пользователя, производя аутентификацию <code>SCRAM-SHA-256</code> или <code>MD5</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD">Подробности</a><br>- <code>password</code> Требует для аутентификации введения клиентом незашифрованного пароля.<br>  Поскольку пароль посылается простым текстом через сеть, такой способ не стоит использовать, если сеть не вызывает доверия. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD">Подробности</a><br>- <code>gss</code> Для аутентификации пользователя использует <code>GSSAPI</code>. Этот способ доступен только для подключений по <code>TCP/IP</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#GSSAPI-AUTH">Подробности</a><br>- <code>sspi</code> Для аутентификации пользователя использует <code>SSPI</code>. Способ доступен только для <code>Windows</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#SSPI-AUTH">Подробности</a><br>- <code>ident</code> Получает имя пользователя операционной системы клиента, связываясь с сервером <code>Ident</code>,<br>  и проверяет, соответствует ли оно имени пользователя базы данных.<br>  Аутентификация ident может использоваться только для подключений по <code>TCP/IP</code>.<br>  Для локальных подключений применяется аутентификация peer. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-IDENT">Подробности</a><br>- <code>peer</code> Получает имя пользователя операционной системы клиента из операционной системы и проверяет,<br>  соответствует ли оно имени пользователя запрашиваемой базы данных.<br>  Доступно только для локальных подключений. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PEER">Подробности</a><br>- <code>ldap</code> Проводит аутентификацию, используя сервер <code>LDAP</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-LDAP">Подробности</a><br>- <code>radius</code> Проводит аутентификацию, используя сервер <code>RADIUS</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-RADIUS">Подробности</a><br>- <code>cert</code> Проводит аутентификацию, используя клиентский сертификат <code>SSL</code>. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-CERT">Подробности</a><br>- <code>pam</code> Проводит аутентификацию, используя службу подключаемых модулей аутентификации <code>PAM</code>, предоставляемую операционной системой. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PAM">Подробности</a><br>- <code>bsd</code> Проводит аутентификацию, используя службу аутентификации <code>BSD</code>, предоставляемую операционной системой. <a href="https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-BSD">Подробности</a></td>
-</tr>
-<tr>
-<td>параметры-аутентификации</td>
-<td><code>имя=значение</code><br><code>clientcert</code> можно задать в любой записи hostssl.<br>Если он равен <code>1</code>, клиент должен представить подходящий (доверенный) сертификат <code>SSL</code>,<br>в дополнение к другим требованиям метода проверки подлинности</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Удалённое соединение по <code>TCP/IP</code> невозможно, если сервер запущен без определения соответствующих значений
-для параметра конфигурации <code>listen_addresses</code>, поскольку по умолчанию система принимает подключения по <code>TCP/IP</code>
-только для локального адреса замыкания <code>localhost</code>.</p>
-</blockquote>
-<p><a href="https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf">https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf</a></p>
+# Запись может быть сделана в одном из семи форматов
+
+> local      база  пользователь  метод-аутентификации  [параметры-аутентификации]
+> host       база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
+> hostssl    база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
+> hostnossl  база  пользователь  адрес  метод-аутентификации  [параметры-аутентификации]
+> host       база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]
+> hostssl    база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]
+> hostnossl  база  пользователь  IP-адрес  IP-маска  метод-аутентификации  [параметры-аутентификации]
+
+
+|                          |        |
+|--------------------------|--------|
+| local                    | Unix-сокеты                                                             |
+| host                     | Подключения по `TCP/IP`. С `SSL` и без `SSL`                            |
+| hostssl                  | Подключения по `TCP/IP` с применением шифрования `SSL`                  |
+| hostnossl                | Противоположен `hostssl`. Подключения по `TCP/IP` без шифрования `SSL`  |
+| база                     | - `all` - все базы данных<br>- `sameuser` - имя запрашиваемой базы данных совпадает с именем запрашиваемого пользователя<br>- `samerole` - запрашиваемый пользователь должен быть членом роли с таким же именем, как и у запрашиваемой базы данных.<br>  (`samegroup` — это устаревший, но допустимый вариант значения `samerole`.)<br>  Суперпользователи не становятся членами роли автоматически из-за `samerole`,<br>  а только если они являются явными членами роли, прямо или косвенно, и не только из-за того, что они суперпользователи.<br>- `replication` - если запрашивается подключение для физической репликации (для таких подключений не выбирается какая-то конкретная база данных).<br>Любое другое значение воспринимается как имя определённой базы `Postgres Pro`.<br>Несколько имён баз данных можно указать, разделяя их запятыми.<br>Файл, содержащий имена баз данных, можно указать, поставив знак `@` в начале его имени  |
+| пользователь             | - `all` - все пользователи.<br>  Имя группы начинается с `+`.<br>  (В `Postgres Pro` нет никакой разницы между пользователем и группой; знак + означает «совпадение любых ролей,<br>   которые прямо или косвенно являются членами роли», тогда как имя без знака `+` является подходящим только для этой конкретной роли.)<br>  Суперпользователь рассматривается как член роли, только если он явно является членом этой роли, прямо или косвенно,<br>  а не только потому, что он является суперпользователем.<br>Несколько имён пользователей можно указать, разделяя их запятыми.<br>Файл, содержащий имена пользователей, можно указать, поставив знак `@` в начале его имени  |
+| адрес                    | ip/mask<br>- `all` - любой IP-адрес<br>- `samehost` - любые IP-адреса данного сервера- <br>- `samenet` - любой адрес любой подсети, к которой сервер подключён напрямую<br><br>Имени, начинающееся с точки `.`, соответствует суффиксу актуального имени узла.<br>Так, `.example.com` будет соответствовать `foo.example.com` (а не только `example.com`).<br>Это поле применимо только к записям `host`, `hostssl` и `hostnossl`  |
+| метод-аутентификации     | - `trust` - Разрешает безусловное подключение.<br>  Этот метод позволяет тому, кто может подключиться к серверу с базой данных `Postgres Pro`,<br>  войти под любым желаемым пользователем `Postgres Pro` без введения пароля и без какой-либо другой аутентификации. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-TRUST)<br>- `reject` - Отклоняет подключение безусловно.<br>  Полезна для «фильтрации» некоторых серверов группы, например, строка `reject` может отклонить попытку подключения одного компьютера,<br>  при этом следующая строка позволяет подключиться остальным компьютерам в той же сети.<br>- `scram-sha-256` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `md5` Проверяет пароль пользователя, производя аутентификацию `SCRAM-SHA-256` или `MD5`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `password` Требует для аутентификации введения клиентом незашифрованного пароля.<br>  Поскольку пароль посылается простым текстом через сеть, такой способ не стоит использовать, если сеть не вызывает доверия. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PASSWORD)<br>- `gss` Для аутентификации пользователя использует `GSSAPI`. Этот способ доступен только для подключений по `TCP/IP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#GSSAPI-AUTH)<br>- `sspi` Для аутентификации пользователя использует `SSPI`. Способ доступен только для `Windows`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#SSPI-AUTH)<br>- `ident` Получает имя пользователя операционной системы клиента, связываясь с сервером `Ident`,<br>  и проверяет, соответствует ли оно имени пользователя базы данных.<br>  Аутентификация ident может использоваться только для подключений по `TCP/IP`.<br>  Для локальных подключений применяется аутентификация peer. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-IDENT)<br>- `peer` Получает имя пользователя операционной системы клиента из операционной системы и проверяет,<br>  соответствует ли оно имени пользователя запрашиваемой базы данных.<br>  Доступно только для локальных подключений. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PEER)<br>- `ldap` Проводит аутентификацию, используя сервер `LDAP`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-LDAP)<br>- `radius` Проводит аутентификацию, используя сервер `RADIUS`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-RADIUS)<br>- `cert` Проводит аутентификацию, используя клиентский сертификат `SSL`. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-CERT)<br>- `pam` Проводит аутентификацию, используя службу подключаемых модулей аутентификации `PAM`, предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-PAM)<br>- `bsd` Проводит аутентификацию, используя службу аутентификации `BSD`, предоставляемую операционной системой. [Подробности](https://postgrespro.ru/docs/postgrespro/10/auth-methods#AUTH-BSD) |
+| параметры-аутентификации | `имя=значение`<br>`clientcert` можно задать в любой записи hostssl.<br>Если он равен `1`, клиент должен представить подходящий (доверенный) сертификат `SSL`,<br>в дополнение к другим требованиям метода проверки подлинности  |
+
+
+
+
+> Удалённое соединение по `TCP/IP` невозможно, если сервер запущен без определения соответствующих значений
+> для параметра конфигурации `listen_addresses`, поскольку по умолчанию система принимает подключения по `TCP/IP`
+> только для локального адреса замыкания `localhost`.
+
+[https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf](https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf)

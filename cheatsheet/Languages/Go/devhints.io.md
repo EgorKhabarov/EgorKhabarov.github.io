@@ -1,1 +1,1 @@
-<p><a href="?Other/Links#go">Go cheatsheet</a></p>
+[Go cheatsheet](?Other/Links#go)

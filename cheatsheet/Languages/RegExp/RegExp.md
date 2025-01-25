@@ -1,522 +1,309 @@
-<p>Регуля́рные выраже́ния — формальный язык, используемый в компьютерных программах,
+Регуля́рные выраже́ния — формальный язык, используемый в компьютерных программах,
 работающих с текстом, для поиска и осуществления манипуляций с подстроками в тексте,
 основанный на использовании метасимволов.
 Для поиска используется строка-образец, состоящая из символов и
-метасимволов и задающая правило поиска.</p>
-<h1>Обозначения</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.</code></td>
-<td>Один любой символ, кроме новой строки <code>\n</code></td>
-</tr>
-<tr>
-<td><code>\d</code></td>
-<td>Любая цифра ≈<code>[0-9]</code></td>
-</tr>
-<tr>
-<td><code>\D</code></td>
-<td>Любой символ, кроме цифры ≈<code>[^0-9]</code></td>
-</tr>
-<tr>
-<td><code>\s</code></td>
-<td>Любой пробельный символ (пробел, табуляция, конец строки и т.п.) ≈<code>[ \f\n\r\t\v]</code></td>
-</tr>
-<tr>
-<td><code>\S</code></td>
-<td>Любой не пробельный символ</td>
-</tr>
-<tr>
-<td><code>\w</code></td>
-<td>Любая буква (то, что может быть частью слова), а также цифры и <code>_</code></td>
-</tr>
-<tr>
-<td><code>\W</code></td>
-<td>Любая не-буква, не-цифра и не подчёркивание</td>
-</tr>
-<tr>
-<td><code>[ ]</code></td>
-<td>Один из символов в скобках, а также любой символ из диапазона <code>a-z</code> <code>0-9</code><br>Буква <code>ё</code> не включается в общий диапазон букв!<br>Если нужен минус, его нужно указать последним или первым<br>Внутри скобок нужно экранировать только <code>]</code> и <code>\</code></td>
-</tr>
-<tr>
-<td><code>[^ ]</code></td>
-<td>Любой символ, кроме перечисленных</td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>Начало всего текста или начало строчки текста, если <code>flags=re.MULTILINE</code></td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>Конец всего текста или конец строчки текста, если <code>flags=re.MULTILINE</code></td>
-</tr>
-<tr>
-<td><code>\A</code></td>
-<td>Строго начало всего текста</td>
-</tr>
-<tr>
-<td><code>\Z</code></td>
-<td>Строго конец всего текста</td>
-</tr>
-<tr>
-<td><code>\b</code></td>
-<td>Начало или конец слова (слева пусто или не-буква, справа буква и наоборот)</td>
-</tr>
-<tr>
-<td><code>\B</code></td>
-<td>Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы</td>
-</tr>
-</tbody>
-</table>
-<h1>Квантификаторы</h1>
-<p>Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
-группы символов или класса символов, находящихся в регулярном выражении перед ним.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{n}</code></td>
-<td>Ровно <code>n</code> повторений</td>
-</tr>
-<tr>
-<td><code>{m,n}</code></td>
-<td>От <code>m</code> до <code>n</code> повторений включительно</td>
-</tr>
-<tr>
-<td><code>{m,}</code></td>
-<td>Не менее <code>m</code> повторений</td>
-</tr>
-<tr>
-<td><code>{,n}</code></td>
-<td>Не более <code>n</code> повторений</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>Ноль или одно вхождение, синоним <code>{0,1}</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>Ноль или более, синоним <code>{0,}</code></td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>Одно или более, синоним <code>{1,}</code></td>
-</tr>
-<tr>
-<td><code>*?</code> <code>+?</code> <code>??</code><br><code>{m,n}?</code> <code>{,n}?</code> <code>{m,}?</code></td>
-<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов</td>
-</tr>
-</tbody>
-</table>
-<h1>Условные выражения</h1>
-<table>
-<thead>
-<tr>
-<th>Условное выражение</th>
-<th></th>
-<th>Регулярка</th>
-<th>Соответствие</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>(?=.)</code></td>
-<td>Позитивный просмотр вперёд</td>
-<td><code>Людовик(?=XVI)</code></td>
-<td>ЛюдовикXV, <mark style="background-color: #999999">Людовик</mark>XVI, <mark style="background-color: #999999">Людовик</mark>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
-</tr>
-<tr>
-<td><code>(?!.)</code></td>
-<td>Негативный просмотр вперёд</td>
-<td><code>Людовик(?!XVI)</code></td>
-<td><mark style="background-color: #999999">Людовик</mark>XV, ЛюдовикXVI, ЛюдовикXVIII, <mark style="background-color: #999999">Людовик</mark>LXVII, <mark style="background-color: #999999">Людовик</mark>XXL</td>
-</tr>
-<tr>
-<td><code>(?&lt;=.)</code></td>
-<td>Позитивный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
-<td><code>(?&lt;=Сергей )Иванов</code></td>
-<td>Сергей <mark style="background-color: #999999">Иванов</mark>, Игорь Иванов</td>
-</tr>
-<tr>
-<td><code>(?&lt;!.)</code></td>
-<td>Негативный просмотр назад</td>
-<td><code>(?&lt;!Сергей )Иванов</code></td>
-<td>Сергей Иванов, Игорь <mark style="background-color: #999999">Иванов</mark></td>
-</tr>
-</tbody>
-</table>
-<h2>Выполнить операции в зависимости от того, была ли захвачена определенная группа.</h2>
-<p>Формат условного выражения:</p>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(?(condition)true-regex|false-regex)
-</pre></div></div></div>
+метасимволов и задающая правило поиска.
 
-<ul>
-<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы).</li>
-<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно.</li>
-<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально).</li>
-</ul>
-<h3>Примеры условных выражений</h3>
-<h4>Проверка наличия захваченной группы</h4>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)?(?(1)b|c)
-</pre></div></div></div>
 
-<ul>
-<li><code>a</code> — необязательная группа.</li>
-<li><code>b</code> — применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена).</li>
-<li><code>c</code> — применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена).</li>
-</ul>
-<p>Совпадение: <code>ab</code> или <code>c</code>.</p>
-<h4>Условные выражения с несколькими группами</h4>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
-</pre></div></div></div>
+# Обозначения
 
-<ul>
-<li><code>a</code> — первая группа.</li>
-<li>Если группа 1 захвачена, проверяется <code>b</code>.</li>
-<li>Если группа 1 не захвачена, проверяется <code>c</code>.</li>
-<li><code>d</code> — необязательная группа, которая захватывается, если предыдущий шаблон совпал.</li>
-</ul>
-<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code>.</p>
-<h1>Группы захвата</h1>
-<table>
-<thead>
-<tr>
-<th>Группа захвата</th>
-<th>Название</th>
-<th>Регулярка</th>
-<th>Соответствие</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>(?:pattern)</code></td>
-<td>Незахватывающая группа</td>
-<td><code>(?:abc|def)</code></td>
-<td>123 <mark style="background-color: #999999">abc</mark> 456</td>
-</tr>
-<tr>
-<td><code>(pattern)</code></td>
-<td>Неименованная группа захвата</td>
-<td><code>(123)</code></td>
-<td>0<mark style="background-color: #999999">123</mark>4<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;0(123)4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;01234&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 123</span><br><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 123</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 01234</span><br><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 01234</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># 01234</span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td><code>\1</code></td>
-<td>Неименованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы<br>по номеру порядка их появления в регулярном выражении</td>
-<td><code>(\d+)-\1</code></td>
-<td>1 <mark style="background-color: #999999">1-1</mark> <mark style="background-color: #999999">123-123</mark></td>
-</tr>
-<tr>
-<td><code>(?P&lt;name&gt;pattern)</code></td>
-<td>Именованная группа захвата</td>
-<td><code>My name is (?P&lt;name&gt;\w+)</code></td>
-<td>My name is <mark style="background-color: #999999">John</mark><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span> \<br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>  <span class="c1"># John</span><br><span class="n">m</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>        <span class="c1"># John</span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td><code>(?P=name)</code></td>
-<td>Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени</td>
-<td><code>(?P&lt;word&gt;\w+)\s+(?P=word)</code></td>
-<td><mark style="background-color: #999999">hello hello</mark></td>
-</tr>
-</tbody>
-</table>
-<h1>Другое</h1>
-<table>
-<thead>
-<tr>
-<th>Паттерн</th>
-<th>Название</th>
-<th>Регулярка</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>(?&gt;pattern)</code></td>
-<td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала</td>
-<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад</td>
-<td><mark style="background-color: #999999">1234</mark></td>
-</tr>
-<tr>
-<td><code>(?R)</code> или <code>(?0)</code></td>
-<td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя</td>
-<td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
-<td><mark style="background-color: #999999">(a(b)c)</mark></td>
-</tr>
-<tr>
-<td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
-<td>Условные выражения<br>с именованными группами</td>
-<td></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1\&#x7c;&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-</tbody>
-</table>
-<h1>Флаги</h1>
-<p><a href="https://docs.python.org/3/library/re.html#flags">https://docs.python.org/3/library/re.html#flags</a></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>re.A</code><br><code>re.ASCII</code></td>
-<td><code>(?a)</code></td>
-<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII</td>
-</tr>
-<tr>
-<td><code>re.I</code><br><code>re.IGNORECASE</code></td>
-<td><code>(?i)</code></td>
-<td>Не различать заглавные и маленькие буквы. Работает медленнее, но иногда удобно</td>
-</tr>
-<tr>
-<td><code>re.M</code><br><code>re.MULTILINE</code></td>
-<td><code>(?m)</code></td>
-<td>Специальные символы <code>^</code> и <code>$</code> соответствуют началу и концу каждой строки</td>
-</tr>
-<tr>
-<td><code>re.S</code><br><code>re.DOTALL</code></td>
-<td><code>(?s)</code></td>
-<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
-</tr>
-<tr>
-<td><code>re.X</code><br><code>re.VERBOSE</code></td>
-<td><code>(?x)</code></td>
-<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><span class="p">,</span><br>   <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">,</span><br><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br><br><span class="c1"># Wrong!</span><br><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?s)</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><br><span class="p">)</span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td><code>re.L</code><br><code>re.LOCALE</code></td>
-<td><code>(?L)</code></td>
-<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов</td>
-</tr>
-<tr>
-<td><code>re.U</code><br><code>re.UNICODE</code></td>
-<td></td>
-<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости</td>
-</tr>
-<tr>
-<td><code>re.DEBUG</code></td>
-<td></td>
-<td>Отображение отладочной информации о скомпилированном выражении</td>
-</tr>
-<tr>
-<td><code>re.NOFLAG</code></td>
-<td></td>
-<td>С версии 3.11</td>
-</tr>
-</tbody>
-</table>
-<h2>Использование модификаторов</h2>
-<p>Можно объединять в одну группу: <code>(?i-sm)</code> (включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>)
+|        |                                                                                   |
+|--------|-----------------------------------------------------------------------------------|
+| `.`    | Один любой символ, кроме новой строки `\n`                                        |
+| `\d`   | Любая цифра ≈`[0-9]`                                                              |
+| `\D`   | Любой символ, кроме цифры ≈`[^0-9]`                                               |
+| `\s`   | Любой пробельный символ (пробел, табуляция, конец строки и т.п.) ≈`[ \f\n\r\t\v]` |
+| `\S`   | Любой не пробельный символ                                                        |
+| `\w`   | Любая буква (то, что может быть частью слова), а также цифры и `_`                |
+| `\W`   | Любая не-буква, не-цифра и не подчёркивание                                       |
+| `[ ]`  | Один из символов в скобках, а также любой символ из диапазона `a-z` `0-9`<br>Буква `ё` не включается в общий диапазон букв!<br>Если нужен минус, его нужно указать последним или первым<br>Внутри скобок нужно экранировать только `]` и `\` |
+| `[^ ]` | Любой символ, кроме перечисленных                                                 |
+| `^`    | Начало всего текста или начало строчки текста, если `flags=re.MULTILINE`          |
+| `$`    | Конец всего текста или конец строчки текста, если `flags=re.MULTILINE`            |
+| `\A`   | Строго начало всего текста                                                        |
+| `\Z`   | Строго конец всего текста                                                         |
+| `\b`   | Начало или конец слова (слева пусто или не-буква, справа буква и наоборот)        |
+| `\B`   | Не граница слова: либо и слева, и справа буквы, либо и слева, и справа НЕ буквы   |
+
+
+# Квантификаторы
+
+Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
+группы символов или класса символов, находящихся в регулярном выражении перед ним.
+
+|                                                  |                                            |
+|--------------------------------------------------|--------------------------------------------|
+| `{n}`                                          | Ровно `n` повторений                       |
+| `{m,n}`                                        | От `m` до `n` повторений включительно      |
+| `{m,}`                                         | Не менее `m` повторений                    |
+| `{,n}`                                         | Не более `n` повторений                    |
+| `?`                                              | Ноль или одно вхождение, синоним `{0,1}` |
+| `*`                                              | Ноль или более, синоним `{0,}`           |
+| `+`                                              | Одно или более, синоним `{1,}`           |
+| `*?` `+?` `??`<br>`{m,n}?` `{,n}?` `{m,}?` | По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление `?` делает их ленивыми, они захватывают минимально возможное число символов |
+
+
+# Условные выражения
+
+| Условное выражение |                                                                          | Регулярка            | Соответствие                                                                                                                                                                                                                                               |
+|--------------------|--------------------------------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `(?=.)`            | Позитивный просмотр вперёд                                               | `Людовик(?=XVI)`     | ЛюдовикXV, =={background-color: #999999}Людовик==XVI, =={background-color: #999999}Людовик==XVIII, ЛюдовикLXVII, ЛюдовикXXL                                                                |
+| `(?!.)`            | Негативный просмотр вперёд                                               | `Людовик(?!XVI)`     | =={background-color: #999999}Людовик==XV, ЛюдовикXVI, ЛюдовикXVIII, =={background-color: #999999}Людовик==LXVII, =={background-color: #999999}Людовик==XXL |
+| `(?<=.)`           | Позитивный просмотр назад<br>**Длина шаблона должна быть фиксированной** | `(?<=Сергей )Иванов` | Сергей =={background-color: #999999}Иванов==, Игорь Иванов                                                                                                                                                                 |
+| `(?<!.)`           | Негативный просмотр назад                                                | `(?<!Сергей )Иванов` | Сергей Иванов, Игорь =={background-color: #999999}Иванов==                                                                                                                                                                 |
+
+## Выполнить операции в зависимости от того, была ли захвачена определенная группа.
+
+Формат условного выражения:
+
+```regexp
+(?(condition)true-regex|false-regex)
+```
+
+- `condition`: Условие, которое проверяется. Обычно это номер группы захвата (например, `1` для первой группы).
+- `true-regex`: Регулярное выражение, которое применяется, если условие истинно.
+- `false-regex`: Регулярное выражение, которое применяется, если условие ложно (опционально).
+
+### Примеры условных выражений
+
+#### Проверка наличия захваченной группы
+
+```regexp
+(a)?(?(1)b|c)
+```
+
+- `a` — необязательная группа.
+- `b` — применяется, если `a` присутствует (т.е., если группа 1 захвачена).
+- `c` — применяется, если `a` отсутствует (т.е., если группа 1 не захвачена).
+
+Совпадение: `ab` или `c`.
+
+#### Условные выражения с несколькими группами
+
+```regexp
+(a)(?(1)b|c)(d)?
+```
+
+- `a` — первая группа.
+- Если группа 1 захвачена, проверяется `b`.
+- Если группа 1 не захвачена, проверяется `c`.
+- `d` — необязательная группа, которая захватывается, если предыдущий шаблон совпал.
+
+Совпадение: `abd` или `cd` или `ab` или `c`.
+
+
+# Группы захвата
+
+| Группа захвата      | Название                                                                                | Регулярка                   | Соответствие                                                                                            |
+|---------------------|-----------------------------------------------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------|
+| `(?:pattern)`       | Незахватывающая группа                                                                  | `(?:abc|def)`               | 123 =={background-color: #999999}abc== 456                              |
+| `(pattern)`         | Неименованная группа захвата                                                            | `(123)`                     | 0=={background-color: #999999}123==4<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;0(123)4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;01234&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 123</span><br><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 123</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 01234</span><br><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 01234</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># 01234</span><br></pre></div></pre></div></div>               |
+| `\1`                | Неименованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы<br>по номеру порядка их появления в регулярном выражении |  `(\d+)-\1`                  | 1 =={background-color: #999999}1-1== =={background-color: #999999}123-123== |
+| `(?P<name>pattern)` | Именованная группа захвата                                                              | `My name is (?P<name>\w+)`  | My name is =={background-color: #999999}John==<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span> \<br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>  <span class="c1"># John</span><br><span class="n">m</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>        <span class="c1"># John</span><br></pre></div></pre></div></div> |
+| `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени | `(?P<word>\w+)\s+(?P=word)` | =={background-color: #999999}hello hello==                              |
+
+
+# Другое
+
+| Паттерн                                   | Название | Регулярка |   |
+|-------------------------------------------|----------|-----------|---|
+| `(?>pattern)`                             | Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала | `(?>\d{3})\d`<br>Эта конструкция сначала пытается<br>сопоставить `\d{3}`, а затем `\d`.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад | =={background-color: #999999}1234== |
+| `(?R)` или `(?0)`                         | Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя | `\((?:[^()]+|(?R))*\)`<br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br>`re.error: unknown extension ?R at position 13` | =={background-color: #999999}(a(b)c)== |
+| `(?P<name1>pattern1|(?P<name2>pattern2))` | Условные выражения<br>с именованными группами |  | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name1&gt;pattern1\&#x7c;&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="sa">r</span><span class="s2">&quot;(?P&lt;name2&gt;pattern2))&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span>    <span class="s2">&quot;pattern2&quot;</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">)</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span><br><span class="unselectable"><span class="p">{</span></span><br><span class="unselectable">    <span class="s2">&quot;name1&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable">    <span class="s2">&quot;name2&quot;</span><span class="p">:</span> <span class="s2">&quot;pattern2&quot;</span><span class="p">,</span></span><br><span class="unselectable"><span class="p">}</span></span><br></pre></div></pre></div></div> |
+
+
+# Флаги
+
+[https://docs.python.org/3/library/re.html#flags](https://docs.python.org/3/library/re.html#flags)
+
+|                           |        |        |
+|---------------------------|--------|--------|
+| `re.A`<br>`re.ASCII`      | `(?a)` | По умолчанию `\w`, `\W`, `\b`, `\B`, `\d`, `\D`, `\s`, `\S` соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII |
+| `re.I`<br>`re.IGNORECASE` | `(?i)` | Не различать заглавные и маленькие буквы. Работает медленнее, но иногда удобно |
+| `re.M`<br>`re.MULTILINE`  | `(?m)` | Специальные символы `^` и `$` соответствуют началу и концу каждой строки |
+| `re.S`<br>`re.DOTALL`     | `(?s)` | По умолчанию символ `\n` конца строки не подходит под точку. С этим флагом точка — вообще любой символ |
+| `re.X`<br>`re.VERBOSE`    | `(?x)` | Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как `*?`, `(?:` или `(?P<...>`. Например, и не допускаются.<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><span class="p">,</span><br>   <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">,</span><br><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br><br><span class="c1"># Wrong!</span><br><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">   </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?s)</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><br><span class="p">)</span><br></pre></div></pre></div></div> |
+| `re.L`<br>`re.LOCALE`     | `(?L)` | Сделать `\w`, `\W`, `\b`, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов |
+| `re.U`<br>`re.UNICODE`    |        | В Python 3 символы Unicode сопоставляются по умолчанию для `str` шаблонов.<br>Поэтому этот флаг является избыточным, **не имеет никакого эффекта**<br>и сохраняется только для обратной совместимости |
+| `re.DEBUG`                |        | Отображение отладочной информации о скомпилированном выражении |
+| `re.NOFLAG`               |        | С версии 3.11 |
+
+## Использование модификаторов
+
+Можно объединять в одну группу: `(?i-sm)` (включает режим `i` и выключает режимы `s` и `m`)
 Если требуется только в пределах группы, то шаблон после двоеточия.
-Например, <code>(?-i)(?i:A)bc</code> найдёт <code>abc</code> и <code>Abc</code>, но не <code>ABC</code>.</p>
-<h1>Команды</h1>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет совпадение в начале строки</td>
-</tr>
-<tr>
-<td>re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет первое совпадение в строке</td>
-</tr>
-<tr>
-<td>re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
-<td>Возвращает список всех непересекающихся совпадений в строке</td>
-</tr>
-<tr>
-<td>re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
-<td>Возвращает итератор по всем совпадениям в строке</td>
-</tr>
-<tr>
-<td>re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
-<td>Заменяет совпадения в строке на указанный текст</td>
-</tr>
-<tr>
-<td>re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
-<td>То же, что и <code>re.sub()</code>, но также возвращает количество замен</td>
-</tr>
-<tr>
-<td>re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
-<td>Разбивает строку по шаблону и возвращает список строк</td>
-</tr>
-<tr>
-<td>re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Проверяет, полностью ли строка соответствует шаблону</td>
-</tr>
-<tr>
-<td>re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0       <br>) -&gt; Pattern[AnyStr]</td>
-<td>Компилирует регулярное выражение в объект регулярного выражения</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет совпадение в начале строки</td>
-</tr>
-<tr>
-<td>re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Ищет первое совпадение в строке</td>
-</tr>
-<tr>
-<td>re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; list</td>
-<td>Возвращает список всех непересекающихся совпадений в строке</td>
-</tr>
-<tr>
-<td>re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Iterator[Match[str]]</td>
-<td>Возвращает итератор по всем совпадениям в строке</td>
-</tr>
-<tr>
-<td>re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; str</td>
-<td>Заменяет совпадения в строке на указанный текст</td>
-</tr>
-<tr>
-<td>re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str | (Match[str]) -&gt; str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int | RegexFlag = 0<br>) -&gt; tuple[str, int]</td>
-<td>То же, что и <code>re.compile(...).sub()</code>, но также возвращает количество замен</td>
-</tr>
-<tr>
-<td>re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int | RegexFlag = 0          <br>) -&gt; list[str]</td>
-<td>Разбивает строку по шаблону и возвращает список строк</td>
-</tr>
-<tr>
-<td>re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int | RegexFlag = 0                             <br>) -&gt; Match[str] | None</td>
-<td>Проверяет, полностью ли строка соответствует шаблону</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
-<span class="unselectable"><span class="o">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
-<span class="unselectable"><span class="n">Некоторые</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span> <span class="n">слова</span> <span class="n">подозрительны</span><span class="p">:</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">7</span><span class="p">)],</span> <span class="p">[</span><span class="n">censored</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span><span class="o">.</span></span>
-</pre></div></div></div>
+Например, `(?-i)(?i:A)bc` найдёт `abc` и `Abc`, но не `ABC`.
 
-<h1>Примеры</h1>
-<h3>Номер кредитки</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>[0-9]{13,16}
-</pre></div></div></div>
 
-<h3>ICQ</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>([1-9])+(?:-?\d){4,}
-</pre></div></div></div>
+# Команды
 
-<h3>Набор из букв и цифр (латиница)</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>^[a-zA-Z0-9]+$
-</pre></div></div></div>
+| Метод                                                                                                                                                                                                                                 | Описание                                                        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет совпадение в начале строки                                 |
+| re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет первое совпадение в строке                                 |
+| re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                 | Возвращает список всех непересекающихся совпадений в строке     |
+| re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator[Match[str]] | Возвращает итератор по всем совпадениям в строке                |
+| re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                  | Заменяет совпадения в строке на указанный текст                 |
+| re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple[str, int]      | То же, что и `re.sub()`, но также возвращает количество замен   |
+| re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list[str]            | Разбивает строку по шаблону и возвращает список строк           |
+| re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Проверяет, полностью ли строка соответствует шаблону            |
+| re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0       <br>) -> Pattern[AnyStr]                                                                                          | Компилирует регулярное выражение в объект регулярного выражения |
 
-<h3>Набор из букв и цифр (латиница + кириллица)</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>^[а-яА-ЯёЁa-zA-Z0-9]+$
-</pre></div></div></div>
+| Метод                                                                                                                                                                                                     | Описание                                                       |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет совпадение в начале строки                               |
+| re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Ищет первое совпадение в строке                               |
+| re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                 | Возвращает список всех непересекающихся совпадений в строке   |
+| re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator[Match[str]] | Возвращает итератор по всем совпадениям в строке              |
+| re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                  | Заменяет совпадения в строке на указанный текст               |
+| re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple[str, int]      | То же, что и `re.compile(...).sub()`, но также возвращает количество замен |
+| re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list[str]            | Разбивает строку по шаблону и возвращает список строк         |
+| re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match[str] \| None   | Проверяет, полностью ли строка соответствует шаблону          |
 
-<h3>Домен (например seo-zona.ru)</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
-</pre></div></div></div>
 
-<h3>IPv4</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
-</pre></div></div></div>
+<br>
 
-<h3>IPv6</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>((^|:)([0-9a-fA-F]{0,4})){1,8}$
-</pre></div></div></div>
+```python
+>>> import re
+>>> def func(m):
+...     return f"[censored({len(m[0])})]"
+...
+>>> text = "Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед."
+>>> print(re.sub(r"\b[хХxX]\w*", func, text))
+Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)].
+```
 
-<h3>Имя пользователя</h3>
-<p>(с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква)</p>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
-</pre></div></div></div>
 
-<h3>Дата в формате YYYY-MM-DD</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
-</pre></div></div></div>
+# Примеры
 
-<h3>Дата в формате <code>DD/MM/YYYY</code></h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
-</pre></div></div></div>
+### Номер кредитки
 
-<h3>Целые числа и числа с плавающей точкой (разделитель точка)</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>\-?\d+(\.\d{0,})?
-</pre></div></div></div>
+```regexp
+[0-9]{13,16}
+```
 
-<h3>UUID</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
-</pre></div></div></div>
+### ICQ
 
-<h3>Широта или долгота</h3>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>-?\d{1,3}\.\d+
-</pre></div></div></div>
+```regexp
+([1-9])+(?:-?\d){4,}
+```
 
-<h2>Пример атомарной группы</h2>
-<p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
-<ol>
-<li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code>.</li>
-<li>После успешного совпадения с <code>a</code>, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.</li>
-<li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code>.</li>
-<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
-</ol>
-<h3>Пример кода</h3>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span> <span class="nn">re</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">atomic_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&gt;a|ab)c&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">simple_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># Обычная группа</span>
-<span class="unselectable"><span class="go">abc</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span>  <span class="c1"># Атомарная группа</span>
-<span class="unselectable"><span class="go">None</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">print</span><span class="p">(</span><span class="n">atomic_group</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;ac&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
-<span class="unselectable"><span class="go">ac</span>
-</span></pre></div></div></div>
+### Набор из букв и цифр (латиница)
 
-<h1>Бэктрекинг</h1>
-<p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
+```regexp
+^[a-zA-Z0-9]+$
+```
+
+### Набор из букв и цифр (латиница + кириллица)
+
+```regexp
+^[а-яА-ЯёЁa-zA-Z0-9]+$
+```
+
+### Домен (например seo-zona.ru)
+
+```regexp
+^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
+```
+
+### IPv4
+
+```regexp
+((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)
+```
+
+### IPv6
+
+```regexp
+((^|:)([0-9a-fA-F]{0,4})){1,8}$
+```
+
+### Имя пользователя
+(с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква)
+
+```regexp
+^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$
+```
+
+### Дата в формате YYYY-MM-DD
+
+```regexp
+[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+```
+
+### Дата в формате `DD/MM/YYYY`
+
+```regexp
+(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d
+```
+
+### Целые числа и числа с плавающей точкой (разделитель точка)
+
+```regexp
+\-?\d+(\.\d{0,})?
+```
+
+### UUID
+
+```regexp
+^[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}$
+```
+
+### Широта или долгота
+
+```regexp
+-?\d{1,3}\.\d+
+```
+
+## Пример атомарной группы
+
+Возьмем выражение `(?>a|ab)c` и строку `abc`:
+
+1. Сначала регулярное выражение пытается сопоставить `a` внутри атомарной группы `(?>a|ab)`.
+2. После успешного совпадения с `a`, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.
+3. Затем выражение пытается сопоставить `c`, что не удается, потому что следующий символ `b`.
+4. В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить `ab` вместо `a`.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.
+
+### Пример кода
+
+```pycon
+>>> import re
+>>> simple_group = re.compile(r"(a|ab)c")
+>>> atomic_group = re.compile(r"(?>a|ab)c")
+>>> print(simple_group.search("abc").group())  # Обычная группа
+abc
+>>> print(atomic_group.search("abc"))  # Атомарная группа
+None
+>>> print(atomic_group.search("ac").group())
+ac
+```
+
+
+# Бэктрекинг
+
+**Бэктрекинг (backtracking)** — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению.
-Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
-<h2>Пример бэктрекинга</h2>
-<p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
-<ol>
-<li>Начало сопоставления с <code>a</code> — успех.</li>
-<li>Далее идет <code>(b|c)*</code>, которое может захватить любое количество <code>b</code> или <code>c</code>. Сначала регулярное выражение захватывает все <code>b</code>: <code>abbb</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbb</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
-</ol>
-<p>Теперь возьмем строку <code>abbcd</code>:</p>
-<ol>
-<li>Начало сопоставления с <code>a</code> — успех.</li>
-<li>Далее идет <code>(b|c)*</code>, которое снова захватывает все <code>b</code>: <code>abb</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abb</code>. Это неудача, потому что следующий символ <code>c</code>.</li>
-<li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
-</ol>
-<h1>Особенности в разных языках</h1>
-<h2>Java</h2>
-<h3>&amp;&amp; ^</h3>
-<p><code>[\w&amp;&amp;[^_]]</code> - Любой символ, подходящий под <code>\w</code>, кроме <code>_</code>.</p>
+Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.
+
+## Пример бэктрекинга
+
+Рассмотрим регулярное выражение `a(b|c)*d` и строку `abbbd`:
+
+1. Начало сопоставления с `a` — успех.
+2. Далее идет `(b|c)*`, которое может захватить любое количество `b` или `c`. Сначала регулярное выражение захватывает все `b`: `abbb`.
+3. Теперь шаблон пытается сопоставить `d` после `abbb`. Строка заканчивается на `d`, и совпадение успешно завершается.
+
+Теперь возьмем строку `abbcd`:
+
+1. Начало сопоставления с `a` — успех.
+2. Далее идет `(b|c)*`, которое снова захватывает все `b`: `abb`.
+3. Теперь шаблон пытается сопоставить `d` после `abb`. Это неудача, потому что следующий символ `c`.
+4. Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему `b`, теперь пробует совпадение с `c`: `abbc`.
+5. Теперь шаблон пытается сопоставить `d` после `abbc`. Строка заканчивается на `d`, и совпадение успешно завершается.
+
+# Особенности в разных языках
+
+## Java
+
+### && ^
+`[\w&&[^_]]` - Любой символ, подходящий под `\w`, кроме `_`.

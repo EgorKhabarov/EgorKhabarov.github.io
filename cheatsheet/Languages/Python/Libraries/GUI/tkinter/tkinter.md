@@ -1,259 +1,241 @@
-<p><strong>Tkinter</strong> — это стандартная библиотека Python для создания графических пользовательских интерфейсов (GUI).
-Она проста в использовании и подходит для создания небольших приложений с интерфейсом.</p>
-<p>Tkinter является встроенной библиотекой в Python, поэтому обычно не требует установки. Для проверки правильности установки можно запустить:</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>tkinter
-</pre></div></div></div>
+**Tkinter** — это стандартная библиотека Python для создания графических пользовательских интерфейсов (GUI).
+Она проста в использовании и подходит для создания небольших приложений с интерфейсом.
 
-<h1>Основные компоненты</h1>
-<h2>Основное окно (root)</h2>
-<p>Пример создания главного окна приложения</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+Tkinter является встроенной библиотекой в Python, поэтому обычно не требует установки. Для проверки правильности установки можно запустить:
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;400x300&quot;</span><span class="p">)</span>  <span class="c1"># Установка размеров окна</span>
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>  <span class="c1"># Запуск цикла обработки событий</span>
-</pre></div></div></div>
+```bash
+python -m tkinter
+```
 
-<h2>Виджеты (Widgets)</h2>
-<p>Tkinter предоставляет множество виджетов для создания интерфейса</p>
-<table>
-<thead>
-<tr>
-<th>Виджет</th>
-<th>Описание</th>
-<th>Пример использования</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Label</code></td>
-<td>Текстовая метка</td>
-<td><code>label = tk.Label(root, text="Hello, Tkinter!")</code></td>
-</tr>
-<tr>
-<td><code>Button</code></td>
-<td>Кнопка</td>
-<td><code>button = tk.Button(root, text="Click Me")</code></td>
-</tr>
-<tr>
-<td><code>Entry</code></td>
-<td>Однострочное текстовое поле</td>
-<td><code>entry = tk.Entry(root)</code></td>
-</tr>
-<tr>
-<td><code>Text</code></td>
-<td>Многострочное текстовое поле</td>
-<td><code>text = tk.Text(root)</code></td>
-</tr>
-<tr>
-<td><code>Checkbutton</code></td>
-<td>Флажок</td>
-<td><code>check = tk.Checkbutton(root, text="Check me")</code></td>
-</tr>
-<tr>
-<td><code>Radiobutton</code></td>
-<td>Переключатель</td>
-<td><code>radio = tk.Radiobutton(root, text="Option 1")</code></td>
-</tr>
-<tr>
-<td><code>Listbox</code></td>
-<td>Список элементов</td>
-<td><code>listbox = tk.Listbox(root)</code></td>
-</tr>
-<tr>
-<td><code>Scale</code></td>
-<td>Ползунок</td>
-<td><code>scale = tk.Scale(root, from_=0, to=100)</code></td>
-</tr>
-<tr>
-<td><code>Menu</code></td>
-<td>Меню</td>
-<td>Создается для окна или других виджетов</td>
-</tr>
-<tr>
-<td><code>Canvas</code></td>
-<td>Холст для рисования графики</td>
-<td><code>canvas = tk.Canvas(root, width=400, height=300)</code></td>
-</tr>
-<tr>
-<td><code>Frame</code></td>
-<td>Контейнер для других виджетов</td>
-<td><code>frame = tk.Frame(root)</code></td>
-</tr>
-<tr>
-<td><code>Scrollbar</code></td>
-<td>Полоса прокрутки</td>
-<td><code>scrollbar = tk.Scrollbar(root)</code></td>
-</tr>
-</tbody>
-</table>
-<h3>Пример использования нескольких виджетов</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+# Основные компоненты
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+## Основное окно (root)
 
-<span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Enter your name:&quot;</span><span class="p">)</span>
-<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+Пример создания главного окна приложения
+```python
+import tkinter as tk
 
-<span class="n">entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+root = tk.Tk()
+root.title("My App")
+root.geometry("400x300")  # Установка размеров окна
+root.mainloop()  # Запуск цикла обработки событий
+```
 
-<span class="n">button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
-<span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+## Виджеты (Widgets)
 
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div></div></div>
+Tkinter предоставляет множество виджетов для создания интерфейса
 
-<h2>Обработчики событий</h2>
-<p>Для того чтобы связывать события, такие как нажатие кнопки, с действиями в коде,
-используется параметр <code>command</code> для кнопок и других элементов</p>
-<p>Пример с обработкой нажатия кнопки</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_button_click</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button clicked!&quot;</span><span class="p">)</span>
+| Виджет        | Описание                      | Пример использования                              |
+|---------------|-------------------------------|---------------------------------------------------|
+| `Label`       | Текстовая метка               | `label = tk.Label(root, text="Hello, Tkinter!")`  |
+| `Button`      | Кнопка                        | `button = tk.Button(root, text="Click Me")`       |
+| `Entry`       | Однострочное текстовое поле   | `entry = tk.Entry(root)`                          |
+| `Text`        | Многострочное текстовое поле  | `text = tk.Text(root)`                            |
+| `Checkbutton` | Флажок                        | `check = tk.Checkbutton(root, text="Check me")`   |
+| `Radiobutton` | Переключатель                 | `radio = tk.Radiobutton(root, text="Option 1")`   |
+| `Listbox`     | Список элементов              | `listbox = tk.Listbox(root)`                      |
+| `Scale`       | Ползунок                      | `scale = tk.Scale(root, from_=0, to=100)`         |
+| `Menu`        | Меню                          | Создается для окна или других виджетов            |
+| `Canvas`      | Холст для рисования графики   | `canvas = tk.Canvas(root, width=400, height=300)` |
+| `Frame`       | Контейнер для других виджетов | `frame = tk.Frame(root)`                          |
+| `Scrollbar`   | Полоса прокрутки              | `scrollbar = tk.Scrollbar(root)`                  |
 
-<span class="n">button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Click Me&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">on_button_click</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-</pre></div></div></div>
+### Пример использования нескольких виджетов
 
-<h2>Организация виджетов</h2>
-<p>Tkinter предоставляет три метода для управления расположением виджетов: <code>pack</code>, <code>grid</code>, и <code>place</code></p>
-<h3>Метод <code>pack()</code></h3>
-<p>Простой метод для последовательного размещения виджетов сверху вниз или слева направо</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+```python
+import tkinter as tk
 
-<h3>Метод <code>grid()</code></h3>
-<p>Позволяет размещать виджеты в виде таблицы, указывая строки и столбцы</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div></div></div>
+root = tk.Tk()
 
-<h3>Метод <code>place()</code></h3>
-<p>Точный контроль над позицией виджета по координатам (x, y)</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-</pre></div></div></div>
+label = tk.Label(root, text="Enter your name:")
+label.pack()
 
-<h2>Окна сообщений</h2>
-<p>Tkinter предоставляет модули для отображения окон сообщений</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+entry = tk.Entry(root)
+entry.pack()
 
-<span class="c1"># Сообщение об ошибке</span>
-<span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Something went wrong!&quot;</span><span class="p">)</span>
+button = tk.Button(root, text="Submit", command=lambda: print(entry.get()))
+button.pack()
 
-<span class="c1"># Сообщение с подтверждением</span>
-<span class="n">messagebox</span><span class="o">.</span><span class="n">askquestion</span><span class="p">(</span><span class="s2">&quot;Confirm&quot;</span><span class="p">,</span> <span class="s2">&quot;Are you sure?&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+root.mainloop()
+```
 
-<h2>Меню</h2>
-<p>Меню можно добавить к главному окну с помощью виджета <code>Menu</code></p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">menubar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Menu</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+## Обработчики событий
 
-<span class="c1"># Создаем меню &quot;File&quot;</span>
-<span class="n">file_menu</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Menu</span><span class="p">(</span><span class="n">menubar</span><span class="p">,</span> <span class="n">tearoff</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">file_menu</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;New&quot;</span><span class="p">)</span>
-<span class="n">file_menu</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Open&quot;</span><span class="p">)</span>
-<span class="n">file_menu</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Save&quot;</span><span class="p">)</span>
-<span class="n">file_menu</span><span class="o">.</span><span class="n">add_separator</span><span class="p">()</span>
-<span class="n">file_menu</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Exit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span>
-<span class="n">menubar</span><span class="o">.</span><span class="n">add_cascade</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;File&quot;</span><span class="p">,</span> <span class="n">menu</span><span class="o">=</span><span class="n">file_menu</span><span class="p">)</span>
+Для того чтобы связывать события, такие как нажатие кнопки, с действиями в коде,
+используется параметр `command` для кнопок и других элементов
 
-<span class="c1"># Устанавливаем меню в окно</span>
-<span class="n">root</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">menu</span><span class="o">=</span><span class="n">menubar</span><span class="p">)</span>
-</pre></div></div></div>
+Пример с обработкой нажатия кнопки
+```python
+def on_button_click():
+    print("Button clicked!")
 
-<h2>Работа с графикой (Canvas)</h2>
-<p><code>Canvas</code> позволяет рисовать простые графические элементы: линии, овалы, прямоугольники, текст и изображения.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+button = tk.Button(root, text="Click Me", command=on_button_click)
+button.pack()
+```
 
-<span class="c1"># Рисование прямоугольника</span>
-<span class="n">canvas</span><span class="o">.</span><span class="n">create_rectangle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+## Организация виджетов
 
-<span class="c1"># Рисование круга</span>
-<span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+Tkinter предоставляет три метода для управления расположением виджетов: `pack`, `grid`, и `place`
 
-<span class="c1"># Рисование текста</span>
-<span class="n">canvas</span><span class="o">.</span><span class="n">create_text</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, Canvas&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-</pre></div></div></div>
+### Метод `pack()`
 
-<h2>Полоса прокрутки (Scrollbar)</h2>
-<p>Полосы прокрутки могут быть добавлены к элементам <code>Listbox</code>, <code>Text</code>, или <code>Canvas</code></p>
-<p>Пример добавления полосы прокрутки к текстовому полю</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">scrollbar</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Scrollbar</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="n">scrollbar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+Простой метод для последовательного размещения виджетов сверху вниз или слева направо
+```python
+label.pack(side="top")
+button.pack(side="bottom")
+```
 
-<span class="n">text</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">yscrollcommand</span><span class="o">=</span><span class="n">scrollbar</span><span class="o">.</span><span class="n">set</span><span class="p">)</span>
-<span class="n">text</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+### Метод `grid()`
 
-<span class="n">scrollbar</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">yview</span><span class="p">)</span>
-</pre></div></div></div>
+Позволяет размещать виджеты в виде таблицы, указывая строки и столбцы
+```python
+label.grid(row=0, column=0)
+entry.grid(row=0, column=1)
+button.grid(row=1, column=1)
+```
 
-<h1>Примеры</h1>
-<h3>Простое приложение</h3>
-<p>Создадим простое приложение для ввода текста и кнопки, которая выводит этот текст в консоль</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+### Метод `place()`
 
-<span class="k">def</span> <span class="nf">show_text</span><span class="p">():</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You entered: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+Точный контроль над позицией виджета по координатам (x, y)
+```python
+button.place(x=50, y=100)
+```
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simple App&quot;</span><span class="p">)</span>
+## Окна сообщений
 
-<span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Enter some text:&quot;</span><span class="p">)</span>
-<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+Tkinter предоставляет модули для отображения окон сообщений
 
-<span class="n">entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+```python
+from tkinter import messagebox
 
-<span class="n">button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">show_text</span><span class="p">)</span>
-<span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+# Сообщение об ошибке
+messagebox.showerror("Error", "Something went wrong!")
 
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div></div></div>
+# Сообщение с подтверждением
+messagebox.askquestion("Confirm", "Are you sure?")
+```
 
-<h3>Калькулятор</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+## Меню
 
-<span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">cget</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;=&quot;</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">screen</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-            <span class="n">screen</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="n">screen</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
-        <span class="n">screen</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">current</span> <span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="n">screen</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">current</span> <span class="o">+</span> <span class="n">text</span><span class="p">)</span>
+Меню можно добавить к главному окну с помощью виджета `Menu`
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-<span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;400x600&quot;</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Calculator&quot;</span><span class="p">)</span>
+```python
+menubar = tk.Menu(root)
 
-<span class="n">screen</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
-<span class="n">entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">textvar</span><span class="o">=</span><span class="n">screen</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Arial 20&quot;</span><span class="p">,</span> <span class="n">bd</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="s2">&quot;sunken&quot;</span><span class="p">)</span>
-<span class="n">entry</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ipadx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+# Создаем меню "File"
+file_menu = tk.Menu(menubar, tearoff=0)
+file_menu.add_command(label="New")
+file_menu.add_command(label="Open")
+file_menu.add_command(label="Save")
+file_menu.add_separator()
+file_menu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=file_menu)
 
-<span class="n">buttons</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">],</span>
-    <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">]</span>
-<span class="p">]</span>
+# Устанавливаем меню в окно
+root.config(menu=menubar)
+```
 
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">buttons</span><span class="p">:</span>
-    <span class="n">frame</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-    <span class="n">frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">btn</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-        <span class="n">button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">btn</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Arial 18&quot;</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button-1&gt;&quot;</span><span class="p">,</span> <span class="n">on_click</span><span class="p">)</span>
+## Работа с графикой (Canvas)
 
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div></div></div>
+`Canvas` позволяет рисовать простые графические элементы: линии, овалы, прямоугольники, текст и изображения.
+
+```python
+canvas = tk.Canvas(root, width=400, height=300)
+canvas.pack()
+
+# Рисование прямоугольника
+canvas.create_rectangle(50, 50, 150, 150, fill="blue")
+
+# Рисование круга
+canvas.create_oval(200, 50, 300, 150, fill="green")
+
+# Рисование текста
+canvas.create_text(200, 200, text="Hello, Canvas", font=("Arial", 20))
+```
+
+## Полоса прокрутки (Scrollbar)
+
+Полосы прокрутки могут быть добавлены к элементам `Listbox`, `Text`, или `Canvas`
+
+Пример добавления полосы прокрутки к текстовому полю
+```python
+scrollbar = tk.Scrollbar(root)
+scrollbar.pack(side="right", fill="y")
+
+text = tk.Text(root, yscrollcommand=scrollbar.set)
+text.pack(side="left", fill="both")
+
+scrollbar.config(command=text.yview)
+```
+
+# Примеры
+### Простое приложение
+
+Создадим простое приложение для ввода текста и кнопки, которая выводит этот текст в консоль
+
+```python
+import tkinter as tk
+
+def show_text():
+    text = entry.get()
+    print(f"You entered: {text}")
+
+root = tk.Tk()
+root.title("Simple App")
+
+label = tk.Label(root, text="Enter some text:")
+label.pack()
+
+entry = tk.Entry(root)
+entry.pack()
+
+button = tk.Button(root, text="Submit", command=show_text)
+button.pack()
+
+root.mainloop()
+```
+
+### Калькулятор
+
+```python
+import tkinter as tk
+
+def on_click(event):
+    text = event.widget.cget("text")
+    if text == "=":
+        try:
+            result = eval(screen.get())
+            screen.set(result)
+        except:
+            screen.set("Error")
+    elif text == "C":
+        screen.set("")
+    else:
+        current = screen.get()
+        screen.set(current + text)
+
+root = tk.Tk()
+root.geometry("400x600")
+root.title("Calculator")
+
+screen = tk.StringVar()
+entry = tk.Entry(root, textvar=screen, font="Arial 20", bd=10, relief="sunken")
+entry.pack(fill="both", ipadx=8, padx=10, pady=10)
+
+buttons = [
+    ["7", "8", "9", "/"],
+    ["4", "5", "6", "*"],
+    ["1", "2", "3", "-"],
+    ["C", "0", "=", "+"]
+]
+
+for row in buttons:
+    frame = tk.Frame(root)
+    frame.pack()
+    for btn in row:
+        button = tk.Button(frame, text=btn, font="Arial 18", padx=10, pady=10)
+        button.pack(side="left", fill="both", expand=True)
+        button.bind("<Button-1>", on_click)
+
+root.mainloop()
+```

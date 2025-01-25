@@ -1,279 +1,96 @@
-<h1>Python</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Описание</th>
-<th style="text-align: left;">Ссылка</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Дорожная карта</td>
-<td style="text-align: left;"><a href="https://roadmap.sh/python">https://roadmap.sh/python</a> <a href="https://roadmap.sh/backend">https://roadmap.sh/backend</a> <a href="https://roadmap.sh/roadmaps">https://roadmap.sh/roadmaps</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Sorting Algorithms</td>
-<td style="text-align: left;"><a href="https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm">https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm</a><br><a href="https://realpython.com/sorting-algorithms-python/">https://realpython.com/sorting-algorithms-python/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">логирование</td>
-<td style="text-align: left;"><a href="https://habr.com/ru/companies/wunderfund/articles/683880/">https://habr.com/ru/companies/wunderfund/articles/683880/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">re</td>
-<td style="text-align: left;"><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf">https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf</a><br><a href="https://www.exlab.net/files/tools/sheets/regexp/regexp.png">https://www.exlab.net/files/tools/sheets/regexp/regexp.png</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Recursive Regular Expressions</td>
-<td style="text-align: left;"><a href="http://www.rexegg.com/regex-recursion.html">http://www.rexegg.com/regex-recursion.html</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Магические методы</td>
-<td style="text-align: left;"><a href="https://habr.com/ru/post/186608/">https://habr.com/ru/post/186608/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Unit Tests</td>
-<td style="text-align: left;"><a href="https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/">https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Асинхронность</td>
-<td style="text-align: left;"><a href="https://habr.com/ru/articles/421625/">https://habr.com/ru/articles/421625/</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Лексический анализ. Документация Python</td>
-<td style="text-align: left;"><a href="https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion">https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">string</td>
-<td style="text-align: left;"><a href="https://digitology.tech/docs/python_3/library/string.html">https://digitology.tech/docs/python_3/library/string.html</a></td>
-</tr>
-</tbody>
-</table>
-<h1>Python Другое</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"></th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Алгоритм генерации судоку</td>
-<td style="text-align: left;"><a href="https://habr.com/ru/articles/192102/">https://habr.com/ru/articles/192102/</a><br><a href="https://habr.com/ru/post/249899/">https://habr.com/ru/post/249899/</a><br><a href="https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html">https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Компиляторы и трансляторы кода Python</td>
-<td style="text-align: left;"><a href="https://egorovegor.ru/python-compiler-and-translator/">https://egorovegor.ru/python-compiler-and-translator/</a><br><a href="https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89">https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">N + 1 query</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<h1>Java</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Android Components</td>
-<td><a href="https://m2.material.io/components?platform=android">https://m2.material.io/components?platform=android</a></td>
-</tr>
-</tbody>
-</table>
-<h1>C++</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Дорожная карта</td>
-<td><a href="https://habr.com/ru/specials/726724/">https://habr.com/ru/specials/726724/</a><br><a href="https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/">https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/</a><br><a href="https://en.cppreference.com/w/">https://en.cppreference.com/w/</a></td>
-</tr>
-</tbody>
-</table>
-<h1>Go</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Go cheatsheet</td>
-<td><a href="https://devhints.io/go">https://devhints.io/go</a></td>
-</tr>
-</tbody>
-</table>
-<h1>GIT GitHub</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Git и Github. Простые рецепты</td>
-<td><a href="https://habr.com/ru/articles/273897/">https://habr.com/ru/articles/273897/</a></td>
-</tr>
-<tr>
-<td>Книга</td>
-<td><a href="https://git-scm.com/book/ru/v2">https://git-scm.com/book/ru/v2</a></td>
-</tr>
-</tbody>
-</table>
-<h1>HTML</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Мнемоники_в_HTML<br>HTML escape</td>
-<td><a href="https://ru.wikipedia.org/wiki/Мнемоники_в_HTML">https://ru.wikipedia.org/wiki/Мнемоники_в_HTML</a></td>
-</tr>
-<tr>
-<td>SVG</td>
-<td><a href="https://flowbite.com/icons/">https://flowbite.com/icons/</a></td>
-</tr>
-<tr>
-<td>codepen.io</td>
-<td><a href="https://codepen.io/">https://codepen.io/</a></td>
-</tr>
-<tr>
-<td>svgrepo.com</td>
-<td><a href="https://www.svgrepo.com/">https://www.svgrepo.com/</a></td>
-</tr>
-<tr>
-<td>SVG</td>
-<td><a href="https://fonts.google.com/icons">https://fonts.google.com/icons</a></td>
-</tr>
-<tr>
-<td>font</td>
-<td><a href="https://fonts.google.com/">https://fonts.google.com/</a></td>
-</tr>
-<tr>
-<td>MIME types</td>
-<td><a href="https://mimetype.io/all-types">https://mimetype.io/all-types</a></td>
-</tr>
-<tr>
-<td>Список MIME типов</td>
-<td><a href="https://ru.wikipedia.org/wiki/Список_MIME-типов">wikipedia</a></td>
-</tr>
-<tr>
-<td>HTTP headers</td>
-<td><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">developer.mozilla.org</a><br><a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">en.wikipedia.org</a></td>
-</tr>
-<tr>
-<td>simpleicons.org</td>
-<td><a href="https://simpleicons.org/">https://simpleicons.org/</a></td>
-</tr>
-</tbody>
-</table>
-<h1>General</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Управляющие символы</td>
-<td><a href="https://ru.wikipedia.org/wiki/Управляющие_символы">https://ru.wikipedia.org/wiki/Управляющие_символы</a></td>
-</tr>
-<tr>
-<td>Каретная нотация</td>
-<td><a href="https://ru.wikipedia.org/wiki/Каретная_нотация">https://ru.wikipedia.org/wiki/Каретная_нотация</a></td>
-</tr>
-<tr>
-<td>Па́ттерны проектирования<br>Design Patterns</td>
-<td><a href="https://ru.wikipedia.org/wiki/Design_Patterns">https://ru.wikipedia.org/wiki/Design_Patterns</a></td>
-</tr>
-<tr>
-<td>ASCII</td>
-<td><a href="https://ru.wikipedia.org/wiki/ASCII">https://ru.wikipedia.org/wiki/ASCII</a></td>
-</tr>
-<tr>
-<td>ANSI Escape Code</td>
-<td><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedia.org/wiki/ANSI_escape_code</a></td>
-</tr>
-<tr>
-<td>ANSI Command Line</td>
-<td><a href="https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html">https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html</a></td>
-</tr>
-<tr>
-<td>ANSI Escape Code GitHub gist</td>
-<td><a href="https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797">https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797</a></td>
-</tr>
-</tbody>
-</table>
-<h1>Downloads</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Python</td>
-<td><a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a><br><a href="https://github.com/python/cpython">https://github.com/python/cpython</a></td>
-</tr>
-<tr>
-<td>Java</td>
-<td><a href="https://www.oracle.com/java/technologies/downloads/#java">https://www.oracle.com/java/technologies/downloads/#java</a></td>
-</tr>
-<tr>
-<td>GIT</td>
-<td><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></td>
-</tr>
-<tr>
-<td>PyCharm</td>
-<td><a href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a></td>
-</tr>
-<tr>
-<td>IntelliJ IDEA</td>
-<td><a href="https://www.jetbrains.com/idea/download/">https://www.jetbrains.com/idea/download/</a><br><a href="https://github.com/JetBrains/intellij-community">https://github.com/JetBrains/intellij-community</a></td>
-</tr>
-<tr>
-<td>Docker</td>
-<td><a href="https://www.docker.com/get-started/">https://www.docker.com/get-started/</a><br><a href="https://github.com/docker/for-win">https://github.com/docker/for-win</a></td>
-</tr>
-<tr>
-<td>DBeaver</td>
-<td><a href="https://dbeaver.io/download/">https://dbeaver.io/download/</a><br><a href="https://github.com/dbeaver/dbeaver">https://github.com/dbeaver/dbeaver</a></td>
-</tr>
-<tr>
-<td>Windows Terminal</td>
-<td><a href="https://apps.microsoft.com/detail/9n0dx20hk701">https://apps.microsoft.com/detail/9n0dx20hk701</a><br><a href="https://github.com/microsoft/terminal">https://github.com/microsoft/terminal</a></td>
-</tr>
-<tr>
-<td>DevToys</td>
-<td><a href="https://devtoys.app/">https://devtoys.app/</a><br><a href="https://github.com/DevToys-app/DevToys">https://github.com/DevToys-app/DevToys</a></td>
-</tr>
-<tr>
-<td>SQLiteStudio</td>
-<td><a href="https://sqlitestudio.pl/">https://sqlitestudio.pl/</a><br><a href="https://github.com/pawelsalawa/sqlitestudio">https://github.com/pawelsalawa/sqlitestudio</a></td>
-</tr>
-</tbody>
-</table>
+# Python
+
+| Описание                                | Ссылка |
+|:----------------------------------------|:-------|
+| Дорожная карта                          | [https://roadmap.sh/python](https://roadmap.sh/python) [https://roadmap.sh/backend](https://roadmap.sh/backend) [https://roadmap.sh/roadmaps](https://roadmap.sh/roadmaps) |
+| Sorting Algorithms                      | [https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm](https://www.tutorialspoint.com/python_data_structure/python_sorting_algorithms.htm)<br>[https://realpython.com/sorting-algorithms-python/](https://realpython.com/sorting-algorithms-python/) |
+| логирование                             | [https://habr.com/ru/companies/wunderfund/articles/683880/](https://habr.com/ru/companies/wunderfund/articles/683880/) |
+| re                                      | [https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf](https://www.exlab.net/files/tools/sheets/regexp/regexp.pdf)<br>[https://www.exlab.net/files/tools/sheets/regexp/regexp.png](https://www.exlab.net/files/tools/sheets/regexp/regexp.png) |
+| Recursive Regular Expressions           | [http://www.rexegg.com/regex-recursion.html](http://www.rexegg.com/regex-recursion.html) |
+| Магические методы                       | [https://habr.com/ru/post/186608/](https://habr.com/ru/post/186608/) |
+| Unit Tests                              | [https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/](https://machinelearningmastery.com/a-gentle-introduction-to-unit-testing-in-python/) |
+| Асинхронность                           | [https://habr.com/ru/articles/421625/](https://habr.com/ru/articles/421625/) |
+| Лексический анализ. Документация Python | [https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion](https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion) |
+| string                                  | [https://digitology.tech/docs/python_3/library/string.html](https://digitology.tech/docs/python_3/library/string.html) |
+
+
+# Python Другое
+
+|                                       |                                                                             |
+|:--------------------------------------|:----------------------------------------------------------------------------|
+| Алгоритм генерации судоку             | [https://habr.com/ru/articles/192102/](https://habr.com/ru/articles/192102/)<br>[https://habr.com/ru/post/249899/](https://habr.com/ru/post/249899/)<br>[https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html](https://www.cs.mcgill.ca/~aassaf9/python/algorithm_x.html) |
+| Компиляторы и трансляторы кода Python | [https://egorovegor.ru/python-compiler-and-translator/](https://egorovegor.ru/python-compiler-and-translator/)<br>[https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89](https://medium.com/doctolib/understanding-and-fixing-n-1-query-30623109fe89) |
+| N + 1 query                           |                                                                             |
+
+
+# Java
+
+|   |   |
+|---|---|
+| Android Components | [https://m2.material.io/components?platform=android](https://m2.material.io/components?platform=android)
+
+
+# C++
+
+|                |                                                                  |
+|----------------|------------------------------------------------------------------|
+| Дорожная карта | [https://habr.com/ru/specials/726724/](https://habr.com/ru/specials/726724/)<br>[https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/](https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/)<br>[https://en.cppreference.com/w/](https://en.cppreference.com/w/)                                   |
+
+
+# Go
+
+|               |                                                  |
+|---------------|--------------------------------------------------|
+| Go cheatsheet | [https://devhints.io/go](https://devhints.io/go) |
+
+
+# GIT GitHub
+
+|                               |                                      |
+|-------------------------------|--------------------------------------|
+| Git и Github. Простые рецепты | [https://habr.com/ru/articles/273897/](https://habr.com/ru/articles/273897/) |
+| Книга                         | [https://git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2)       |
+
+
+# HTML
+
+|                                 |                                                                  |
+|---------------------------------|------------------------------------------------------------------|
+| Мнемоники_в_HTML<br>HTML escape | [https://ru.wikipedia.org/wiki/Мнемоники_в_HTML](https://ru.wikipedia.org/wiki/Мнемоники_в_HTML) |
+| SVG                             | [https://flowbite.com/icons/](https://flowbite.com/icons/)       |
+| codepen.io                      | [https://codepen.io/](https://codepen.io/)                       |
+| svgrepo.com                     | [https://www.svgrepo.com/](https://www.svgrepo.com/)             |
+| SVG                             | [https://fonts.google.com/icons](https://fonts.google.com/icons) |
+| font                            | [https://fonts.google.com/](https://fonts.google.com/)           |
+| MIME types                      | [https://mimetype.io/all-types](https://mimetype.io/all-types)   |
+| Список MIME типов               | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)     |
+| HTTP headers                    | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
+| simpleicons.org                 | [https://simpleicons.org/](https://simpleicons.org/) |
+
+
+# General
+
+|       |          |
+|-------|----------|
+| Управляющие символы | [https://ru.wikipedia.org/wiki/Управляющие_символы](https://ru.wikipedia.org/wiki/Управляющие_символы) |
+| Каретная нотация    | [https://ru.wikipedia.org/wiki/Каретная_нотация](https://ru.wikipedia.org/wiki/Каретная_нотация)       |
+| Па́ттерны проектирования<br>Design Patterns | [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns) |
+| ASCII | [https://ru.wikipedia.org/wiki/ASCII](https://ru.wikipedia.org/wiki/ASCII) |
+| ANSI Escape Code | [https://en.wikipedia.org/wiki/ANSI_escape_code](https://en.wikipedia.org/wiki/ANSI_escape_code) |
+| ANSI Command Line | [https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html) |
+| ANSI Escape Code GitHub gist | [https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797) |
+
+# Downloads
+
+|                  |   |
+|------------------|---|
+| Python           | [https://www.python.org/downloads/](https://www.python.org/downloads/)<br>[https://github.com/python/cpython](https://github.com/python/cpython) |
+| Java             | [https://www.oracle.com/java/technologies/downloads/#java](https://www.oracle.com/java/technologies/downloads/#java) |
+| GIT              | [https://git-scm.com/downloads](https://git-scm.com/downloads) |
+| PyCharm          | [https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/) |
+| IntelliJ IDEA    | [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)<br>[https://github.com/JetBrains/intellij-community](https://github.com/JetBrains/intellij-community) |
+| Docker           | [https://www.docker.com/get-started/](https://www.docker.com/get-started/)<br>[https://github.com/docker/for-win](https://github.com/docker/for-win) |
+| DBeaver          | [https://dbeaver.io/download/](https://dbeaver.io/download/)<br>[https://github.com/dbeaver/dbeaver](https://github.com/dbeaver/dbeaver) |
+| Windows Terminal | [https://apps.microsoft.com/detail/9n0dx20hk701](https://apps.microsoft.com/detail/9n0dx20hk701)<br>[https://github.com/microsoft/terminal](https://github.com/microsoft/terminal) |
+| DevToys          | [https://devtoys.app/](https://devtoys.app/)<br>[https://github.com/DevToys-app/DevToys](https://github.com/DevToys-app/DevToys) |
+| SQLiteStudio     | [https://sqlitestudio.pl/](https://sqlitestudio.pl/)<br>[https://github.com/pawelsalawa/sqlitestudio](https://github.com/pawelsalawa/sqlitestudio) |

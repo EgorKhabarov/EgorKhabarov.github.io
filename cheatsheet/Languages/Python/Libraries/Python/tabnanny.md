@@ -1,27 +1,17 @@
-<p>Модуль tabnanny в Python используется для проверки исходных файлов
-на наличие проблем с табуляцией, которые могут вызвать синтаксические ошибки.</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>process_tokens(tokens)</td>
-<td>Проверяет токены файла на проблемы с табуляцией</td>
-</tr>
-<tr>
-<td>NannyToken(token)</td>
-<td>Конструктор класса токенов, используемый для проверки</td>
-</tr>
-</tbody>
-</table>
-<p><strong>process_tokens(tokens)</strong> Проверяет токены файла на наличие проблем с табуляцией.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tokenize</span>
-<span class="kn">from</span> <span class="nn">tabnanny</span> <span class="kn">import</span> <span class="n">process_tokens</span>
+Модуль tabnanny в Python используется для проверки исходных файлов
+на наличие проблем с табуляцией, которые могут вызвать синтаксические ошибки.
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.py&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">process_tokens</span><span class="p">(</span><span class="n">tokenize</span><span class="o">.</span><span class="n">generate_tokens</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">))</span>
-</pre></div></div></div>
+| Метод                  | Описание                                              |
+|------------------------|-------------------------------------------------------|
+| process_tokens(tokens) | Проверяет токены файла на проблемы с табуляцией       |
+| NannyToken(token)      | Конструктор класса токенов, используемый для проверки |
+
+**process_tokens(tokens)** Проверяет токены файла на наличие проблем с табуляцией.
+
+```python
+import tokenize
+from tabnanny import process_tokens
+
+with open("file.py", "rb") as f:
+    process_tokens(tokenize.generate_tokens(f.readline))
+```

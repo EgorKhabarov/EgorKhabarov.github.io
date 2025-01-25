@@ -1,722 +1,201 @@
-<h1>Арифметические операции</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __eq__(self, other) -&gt; bool:</code></td>
-<td>self <code>==</code> other</td>
-<td>Равенство</td>
-</tr>
-<tr>
-<td><code>def __ge__(self, other) -&gt; bool:</code></td>
-<td>self <code>&gt;=</code> other</td>
-<td>Больше или равен</td>
-</tr>
-<tr>
-<td><code>def __gt__(self, other) -&gt; bool:</code></td>
-<td>self <code>&gt;</code> other</td>
-<td>Больше</td>
-</tr>
-<tr>
-<td><code>def __le__(self, other) -&gt; bool:</code></td>
-<td>self <code>&lt;=</code> other</td>
-<td>Mеньше или равен</td>
-</tr>
-<tr>
-<td><code>def __lt__(self, other) -&gt; bool:</code></td>
-<td>self <code>&lt;</code> other</td>
-<td>Меньше</td>
-</tr>
-<tr>
-<td><code>def __ne__(self, other) -&gt; bool:</code></td>
-<td>self <code>!=</code> other</td>
-<td>Не равен</td>
-</tr>
-<tr>
-<td><code>def __or__(self, other):</code></td>
-<td>self <code>|</code> other</td>
-<td>Побитовое <strong>ИЛИ</strong></td>
-</tr>
-<tr>
-<td><code>def __add__(self, other):</code></td>
-<td>self <code>+</code> other</td>
-<td>Сложение</td>
-</tr>
-<tr>
-<td><code>def __and__(self, other):</code></td>
-<td>self <code>&amp;</code> other</td>
-<td>Побитовое <strong>И</strong></td>
-</tr>
-<tr>
-<td><code>def __ior__(self, other):</code></td>
-<td>self <code>|=</code> other</td>
-<td>Побитовое <strong>ИЛИ</strong> с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __mod__(self, other):</code></td>
-<td>self <code>%</code> other</td>
-<td>Остаток от деления</td>
-</tr>
-<tr>
-<td><code>def __mul__(self, other):</code></td>
-<td>self <code>*</code> other</td>
-<td>Умножение</td>
-</tr>
-<tr>
-<td><code>def __ror__(self, other):</code></td>
-<td>self <code>|</code> other</td>
-<td>Побитовое ИЛИ с обратным присваиванием</td>
-</tr>
-<tr>
-<td><code>def __sub__(self, other):</code></td>
-<td>self <code>-</code> other</td>
-<td>Вычитание</td>
-</tr>
-<tr>
-<td><code>def __xor__(self, other):</code></td>
-<td>self <code>^</code> other</td>
-<td>Побитовое <strong>ИСКЛЮЧАЮЩЕЕ ИЛИ</strong></td>
-</tr>
-<tr>
-<td><code>def __iadd__(self, other):</code></td>
-<td>self <code>+=</code> other</td>
-<td>Сложение с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __iand__(self, other):</code></td>
-<td>self <code>&amp;=</code> other</td>
-<td>Побитовое <strong>И</strong> с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __idiv__(self, other):</code></td>
-<td>self <code>/=</code> other</td>
-<td>Деление с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __imod__(self, other):</code></td>
-<td>self <code>%=</code> other</td>
-<td>Взятие остатка от деления с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __imul__(self, other):</code></td>
-<td>self <code>*=</code> other</td>
-<td>Умножение с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __ipow__(self, other):</code></td>
-<td>self <code>**=</code> other</td>
-<td>Возведение в степень с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __isub__(self, other):</code></td>
-<td>self <code>-=</code> other</td>
-<td>Вычитание с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __ixor__(self, other):</code></td>
-<td>self <code>^=</code> other</td>
-<td>Побитовое <strong>ИСКЛЮЧАЮЩЕЕ ИЛИ</strong> с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __radd__(self, other):</code></td>
-<td>other <code>+</code> self</td>
-<td>Сложение справа</td>
-</tr>
-<tr>
-<td><code>def __rand__(self, other):</code></td>
-<td>other <code>&amp;</code> self</td>
-<td>Выполняет побитовое <strong>И</strong> справа</td>
-</tr>
-<tr>
-<td><code>def __rdiv__(self, other):</code></td>
-<td>other <code>/</code> self</td>
-<td>Деление справа</td>
-</tr>
-<tr>
-<td><code>def __divmod__(self, other):</code></td>
-<td><code>divmod</code>(self, other)</td>
-<td>Деление с остатком</td>
-</tr>
-<tr>
-<td><code>def __rdivmod__(self, other):</code></td>
-<td><code>divmod</code>(other, self)</td>
-<td>Деление с остатком справа</td>
-</tr>
-<tr>
-<td><code>def __rmod__(self, other):</code></td>
-<td>other <code>%</code> self</td>
-<td>Взятие остатка от деления справа</td>
-</tr>
-<tr>
-<td><code>def __rmul__(self, other):</code></td>
-<td>other <code>*</code> self</td>
-<td>Умножение справа</td>
-</tr>
-<tr>
-<td><code>def __rpow__(self, other):</code></td>
-<td>other <code>**</code> self</td>
-<td>Возведение в степень справа</td>
-</tr>
-<tr>
-<td><code>def __rsub__(self, other):</code></td>
-<td>other <code>-</code> self</td>
-<td>Вычитание справа</td>
-</tr>
-<tr>
-<td><code>def __rxor__(self, other):</code></td>
-<td>other <code>^</code> self</td>
-<td>Побитовое <strong>ИСКЛЮЧАЮЩЕЕ ИЛИ</strong> справа</td>
-</tr>
-<tr>
-<td><code>def __floordiv__(self, other):</code></td>
-<td>self <code>//</code> other</td>
-<td>Целочисленное деление</td>
-</tr>
-<tr>
-<td><code>def __ilshift__(self, other):</code></td>
-<td>self <code>&lt;&lt;=</code> other</td>
-<td>Побитовый сдвиг влево с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __imatmul__(self, other):</code></td>
-<td>self <code>@=</code> other</td>
-<td>Матричное умножение с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __irshift__(self, other):</code></td>
-<td>self <code>&gt;&gt;=</code> other</td>
-<td>Побитовый сдвиг вправо с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __itruediv__(self, other):</code></td>
-<td>self <code>/=</code> other</td>
-<td>Деление с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __rlshift__(self, other):</code></td>
-<td>other <code>&lt;&lt;</code> self</td>
-<td>Побитовый сдвиг влево справа</td>
-</tr>
-<tr>
-<td><code>def __rmatmul__(self, other):</code></td>
-<td>other <code>@</code> self</td>
-<td>Матричное умножение справа</td>
-</tr>
-<tr>
-<td><code>def __matmul__(self, other):</code></td>
-<td>self <code>@</code> other</td>
-<td>Матричное умножение</td>
-</tr>
-<tr>
-<td><code>def __rrshift__(self, other):</code></td>
-<td>other <code>&gt;&gt;</code> self</td>
-<td>Побитовый сдвиг вправо справа</td>
-</tr>
-<tr>
-<td><code>def __rtruediv__(self, other):</code></td>
-<td>other <code>/</code> self</td>
-<td>Деление справа</td>
-</tr>
-<tr>
-<td><code>def __truediv__(self, other):</code></td>
-<td>self <code>/</code> other</td>
-<td>Деление</td>
-</tr>
-<tr>
-<td><code>def __lshift__(self, other):</code></td>
-<td>self <code>&lt;&lt;</code> other</td>
-<td>Побитовый сдвиг влево</td>
-</tr>
-<tr>
-<td><code>def __rshift__(self, other):</code></td>
-<td>self <code>&gt;&gt;</code> other</td>
-<td>Побитовый сдвиг вправо</td>
-</tr>
-<tr>
-<td><code>def __ifloordiv__(self, other):</code></td>
-<td>self <code>//=</code> other</td>
-<td>Целочисленное деление с присваиванием</td>
-</tr>
-<tr>
-<td><code>def __rfloordiv__(self, other):</code></td>
-<td>other <code>//</code> self</td>
-<td>Целочисленное деление справа</td>
-</tr>
-<tr>
-<td><code>def __pos__(self):</code></td>
-<td><code>+</code>self</td>
-<td>Положительное значение объекта</td>
-</tr>
-<tr>
-<td><code>def __neg__(self):</code></td>
-<td><code>-</code>self</td>
-<td>Отрицательное значение объекта</td>
-</tr>
-<tr>
-<td><code>def __invert__(self):</code></td>
-<td><code>~</code>self</td>
-<td>Инвертированное значение объекта</td>
-</tr>
-</tbody>
-</table>
-<h1>func call</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __pow__(self, power, modulo=None):</code></td>
-<td><code>pow</code>(self, power, modulo)</td>
-<td>Возведение в степень</td>
-</tr>
-<tr>
-<td><code>def __abs__(self):</code></td>
-<td><code>abs</code>(self)</td>
-<td>Абсолютное значение объекта</td>
-</tr>
-<tr>
-<td><code>def __hex__(self):</code></td>
-<td><code>hex</code>(self)</td>
-<td>Строковое представление объекта в<br>шестнадцатеричной системе счисления</td>
-</tr>
-<tr>
-<td><code>def __float__(self):</code></td>
-<td><code>float</code>(self)</td>
-<td>Представление объекта в виде числа с плавающей запятой</td>
-</tr>
-<tr>
-<td><code>def __bytes__(self):</code></td>
-<td><code>bytes</code>(self)</td>
-<td>Байтовое представление объекта</td>
-</tr>
-<tr>
-<td><code>def __long__(self):</code></td>
-<td><code>int</code>(self)</td>
-<td>Длинное целочисленное представление объекта</td>
-</tr>
-<tr>
-<td><code>def __int__(self):</code></td>
-<td><code>int</code>(self)</td>
-<td>Целочисленное представление объекта</td>
-</tr>
-<tr>
-<td><code>def __bool__(self) -&gt; bool:</code></td>
-<td><code>bool</code>(self)</td>
-<td>Булево значение</td>
-</tr>
-<tr>
-<td><code>def __oct__(self):</code></td>
-<td><code>oct</code>(self)</td>
-<td>Строковое представление объекта в<br>восьмеричной системе счисления</td>
-</tr>
-<tr>
-<td><code>def __len__(self):</code></td>
-<td><code>len</code>(self)</td>
-<td>Возвращает длину объекта</td>
-</tr>
-<tr>
-<td><code>def __str__(self):</code></td>
-<td><code>str</code>(self)</td>
-<td>Строковое представление объекта</td>
-</tr>
-<tr>
-<td><code>def __hash__(self):</code></td>
-<td><code>hash</code>(self)</td>
-<td>Хеш-значение объекта</td>
-</tr>
-<tr>
-<td><code>def __iter__(self):</code></td>
-<td><code>iter</code>(self)</td>
-<td>Итератор объекта</td>
-</tr>
-<tr>
-<td><code>def __next__(self):</code></td>
-<td><code>next</code>(self)</td>
-<td>Следующий элемент в итерации</td>
-</tr>
-<tr>
-<td><code>def __round__(self, n=None):</code></td>
-<td><code>round</code>(self, n)</td>
-<td>Округленное значение</td>
-</tr>
-<tr>
-<td><code>def __complex__(self):</code></td>
-<td><code>complex</code>(self)</td>
-<td>Комплексное представление</td>
-</tr>
-<tr>
-<td><code>def __reversed__(self):</code></td>
-<td><code>reversed</code>(self)</td>
-<td>Возвращает обратный итератор объекта</td>
-</tr>
-<tr>
-<td><code>def __unicode__(self):</code></td>
-<td><code>unicode</code>(self)</td>
-<td>Строковое представление объекта (<code>Python 2</code>)</td>
-</tr>
-<tr>
-<td><code>def __instancecheck__(self, instance) -&gt; bool:</code></td>
-<td><code>isinstance</code>(obj, cls)</td>
-<td>Проверяет, является ли объект экземпляром класса</td>
-</tr>
-<tr>
-<td><code>def __subclasscheck__(self, subclass) -&gt; bool:</code></td>
-<td><code>issubclass</code>(subclass, cls)</td>
-<td>Является ли класс подклассом другого класса</td>
-</tr>
-<tr>
-<td><code>def __call__(self, *args, **kwargs):</code></td>
-<td><code>self(*args, **kwargs)</code></td>
-<td>Вызывает объект как функцию</td>
-</tr>
-<tr>
-<td><code>def __repr__(self):</code></td>
-<td><code>repr</code>(self)</td>
-<td>Строковое представление объекта</td>
-</tr>
-<tr>
-<td><code>def __subclasshook__(cls, __subclass):</code></td>
-<td><code>issubclass</code>(Subclass, MyClass)</td>
-<td>Проверяет, является ли класс подклассом другого класса</td>
-</tr>
-<tr>
-<td><code>def __dir__(self):</code></td>
-<td><code>dir</code>(self)</td>
-<td>Список атрибутов и методов объекта</td>
-</tr>
-<tr>
-<td><code>def __format__(self, format_spec):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="s2">&quot;{0:</span><span class="si">{format_spec}</span><span class="s2">}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><br></pre></div></pre></div></div></td>
-<td>Форматированную строку объекта</td>
-</tr>
-<tr>
-<td><code>def __cmp__(self, other) -&gt; int:</code></td>
-<td><code>cmp</code>(self, other)</td>
-<td>Сравнивает объекты и возвращает <code>-1</code>, <code>0</code> или <code>1</code></td>
-</tr>
-<tr>
-<td><code>def __aiter__(self):</code></td>
-<td><code>aiter</code>(self)</td>
-<td>Асинхронный итератор объекта</td>
-</tr>
-<tr>
-<td><code>def __anext__(self):</code></td>
-<td><code>anext</code>(self)</td>
-<td>Возвращает следующий элемент в асинхронной итерации</td>
-</tr>
-<tr>
-<td><code>def __coerce__(self, other):</code></td>
-<td><code>coerce</code>(self, other)</td>
-<td>Преобразует объект к общему типу с другим объектом</td>
-</tr>
-<tr>
-<td><code>def __index__(self):</code></td>
-<td><code>operator.index</code>(self)</td>
-<td>Целочисленное представление объекта<br>для использования в индексации</td>
-</tr>
-<tr>
-<td><code>def __floor__(self):</code></td>
-<td><code>math.floor</code>(self)</td>
-<td>Наибольшее целое число, меньшее или равное объекту</td>
-</tr>
-<tr>
-<td><code>def __trunc__(self):</code></td>
-<td><code>math.trunc</code>(self)</td>
-<td>Усеченное значение объекта</td>
-</tr>
-<tr>
-<td><code>def __ceil__(self):</code></td>
-<td><code>math.ceil</code>(self)</td>
-<td>Наименьшее целое число, большее или равное объекту</td>
-</tr>
-<tr>
-<td><code>def __copy__(self):</code></td>
-<td><code>copy.copy</code>(self)</td>
-<td>Создает поверхностную копию объекта</td>
-</tr>
-<tr>
-<td><code>def __deepcopy__(self, memodict={}):</code></td>
-<td><code>copy.deepcopy</code>(self)</td>
-<td>Создает глубокую копию объекта</td>
-</tr>
-<tr>
-<td><code>def __sizeof__(self):</code></td>
-<td><code>sys.getsizeof</code>(self)</td>
-<td>Возвращает размер объекта в байтах</td>
-</tr>
-<tr>
-<td><code>def __fspath__(self):</code></td>
-<td><code>os.fspath</code>(self)</td>
-<td>Возвращает строковое представление<br>объекта для использования в функции <code>fspath</code></td>
-</tr>
-</tbody>
-</table>
-<h1>Контейнеры</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __getitem__(self, item):</code></td>
-<td>self[item]</td>
-<td>Элемент по индексу или ключу</td>
-</tr>
-<tr>
-<td><code>def __missing__(self, key):</code></td>
-<td>self[key]</td>
-<td>Вызывается при отсутствии ключа в объекте</td>
-</tr>
-<tr>
-<td><code>def __contains__(self, item) -&gt; bool:</code></td>
-<td>item <code>in</code> self</td>
-<td>Содержится ли элемент в объекте</td>
-</tr>
-<tr>
-<td><code>def __setslice__(self, i, j, sequence):</code></td>
-<td>self[i:j] = sequence</td>
-<td>Заменяет срез объекта указанной последовательностью</td>
-</tr>
-<tr>
-<td><code>def __delattr__(self, item):</code></td>
-<td><code>del</code> self.item</td>
-<td>Удаляет атрибут объекта</td>
-</tr>
-<tr>
-<td><code>def __delitem__(self, key):</code></td>
-<td><code>del</code> self[key]</td>
-<td>Удаляет элемент по ключу</td>
-</tr>
-<tr>
-<td><code>def __delslice__(self, i, j):</code></td>
-<td><code>del</code> self[i:j]</td>
-<td>Удаляет срез из объекта</td>
-</tr>
-<tr>
-<td><code>def __get__(self, instance, owner):</code></td>
-<td>value = self.<code>__get__</code>(instance, owner)</td>
-<td>Возвращает значение атрибута объекта в классе-дескрипторе</td>
-</tr>
-</tbody>
-</table>
-<h1>Классы</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __new__(cls, *args, **kwargs):</code></td>
-<td>instance = MyClass(args)</td>
-<td>Создает новый обьект</td>
-</tr>
-<tr>
-<td><code>def __init__(self):</code></td>
-<td>instance = MyClass(args)</td>
-<td>При инициализации нового экземпляра объекта</td>
-</tr>
-<tr>
-<td><code>def __class__(self):</code></td>
-<td>obj_class = obj.<code>__class__()</code></td>
-<td>Возвращает класс объекта</td>
-</tr>
-<tr>
-<td><code>def __del__(self):</code></td>
-<td><code>del</code> self</td>
-<td>При удалении объекта</td>
-</tr>
-<tr>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span><br>    <span class="nd">@classmethod</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;prepare&#95;&#95;</span><span class="p">(</span><span class="n">metacls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">):</span><br>        <span class="k">return</span> <span class="p">{}</span><br></pre></div></pre></div></div></td>
-<td>metacls.<code>__prepare__</code>(name, bases)<br><details><summary>Example</summary><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;setitem&#95;&#95;</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span><br>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span><br>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">&#95;&#95;setitem&#95;&#95;</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span><br><br><span class="k">class</span> <span class="nc">CustomMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span><br>    <span class="nd">@classmethod</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;prepare&#95;&#95;</span><span class="p">(</span><span class="n">metacls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">CustomDict</span><span class="p">):</span><br>        <span class="k">return</span> <span class="n">custom_dict</span><span class="p">()</span><br><br><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">CustomMeta</span><span class="p">):</span><br>    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><br>    <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><br><br><br><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">&quot;&#95;&#95;module&#95;&#95;&quot; = &quot;&#95;&#95;main&#95;&#95;&quot;</span><br><span class="sd">&quot;&#95;&#95;qualname&#95;&#95;&quot; = &quot;MyClass&quot;</span><br><span class="sd">&quot;x&quot; = 10</span><br><span class="sd">&quot;y&quot; = 20</span><br><span class="sd">&quot;&quot;&quot;</span><br></pre></div></pre></div></div></details></td>
-<td>Словарь для использования в качестве<br>пространства имен класса перед его созданием<br>Например для добавления специфической<br>логики при добавлении новых атрибутов</td>
-</tr>
-<tr>
-<td><code>def __delete__(self, instance):</code></td>
-<td><code>del</code> instance.self</td>
-<td>Удаляет атрибут объекта</td>
-</tr>
-<tr>
-<td><code>def __init_subclass__(cls, **kwargs):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Subclass</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">Subclass</span><span class="o">.</span><span class="n">&#95;&#95;init_subclass&#95;&#95;</span><span class="p">()</span><br></pre></div></pre></div></div></td>
-<td>Вызывается при создании подкласса</td>
-</tr>
-<tr>
-<td><code>def __mro_entries__(self, bases):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Base1</span><span class="p">,</span> <span class="n">Base2</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MyMeta</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">&#95;&#95;mro_entries&#95;&#95;</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span><br></pre></div></pre></div></div></td>
-<td>Возвращает кортеж для обновления <code>MRO</code><br>(Method Resolution Order)</td>
-</tr>
-<tr>
-<td><code>def __getinitargs__(self):</code></td>
-<td>args = self.<code>__getinitargs__()</code></td>
-<td>Кортеж аргументов для использования при создании объекта</td>
-</tr>
-<tr>
-<td><code>def __set_name__(self, owner, name):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span><br>    <span class="n">attr</span> <span class="o">=</span> <span class="n">MyDescriptor</span><span class="p">()</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">&#95;&#95;set_name&#95;&#95;</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span> <span class="s2">&quot;attr&quot;</span><span class="p">)</span><br></pre></div></pre></div></div></td>
-<td>Вызывается при установке имени атрибута в классе</td>
-</tr>
-<tr>
-<td><code>def __getnewargs__(self):</code></td>
-<td>args = self.<code>__getnewargs__()</code></td>
-<td>Возвращает аргументы для использования<br>при создании нового экземпляра объекта</td>
-</tr>
-<tr>
-<td><code>def __getattribute__(self, item):</code></td>
-<td>value = self.<code>__getattribute__</code>("attr")</td>
-<td>Возвращает значение атрибута объекта<br><strong>Управляет всеми запросами атрибутов</strong></td>
-</tr>
-<tr>
-<td><code>def __getattr__(self, item):</code></td>
-<td>value = self.<code>__getattr__</code>("attr")</td>
-<td>Вызывается при обращении<br>к несуществующему атрибуту объекта<br><strong>Когда <code>__getattribute__</code> не находит атрибут</strong></td>
-</tr>
-<tr>
-<td><code>def __await__(self):</code></td>
-<td><code>await</code> self</td>
-<td>Возвращает объект, поддерживающий асинхронное ожидание</td>
-</tr>
-<tr>
-<td><code>def __set__(self, instance, value):</code></td>
-<td>instance.attr = value</td>
-<td>Устанавливает значение атрибута в экземпляре класса</td>
-</tr>
-<tr>
-<td><code>def __class_getitem__(cls, item):</code></td>
-<td>item_type = MyGenericClass.<code>__class_getitem__</code>(Item)</td>
-<td>Обобщенный тип объекта</td>
-</tr>
-<tr>
-<td><code>def __setattr__(self, key, value):</code></td>
-<td>self.key = value</td>
-<td>Устанавливает значение атрибута объекта</td>
-</tr>
-<tr>
-<td><code>def __setitem__(self, key, value):</code></td>
-<td>self[key] = value</td>
-<td>Устанавливает значение элемента по ключу в объекте</td>
-</tr>
-</tbody>
-</table>
-<h1>with as</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __enter__(self):</code></td>
-<td><code>with self as x:</code></td>
-<td>Выполняет код при входе в блок <code>with</code></td>
-</tr>
-<tr>
-<td><code>def __aenter__(self):</code></td>
-<td><code>async with self as x:</code></td>
-<td>Вызывается при входе в асинхронный<br>контекстный блок</td>
-</tr>
-<tr>
-<td><code>def __aexit__(self, exc_type, exc_val, exc_tb):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;aexit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div></td>
-<td>Вызывается при выходе из асинхронного контекстного блока</td>
-</tr>
-<tr>
-<td><code>def __exit__(self, exc_type, exc_val, exc_tb):</code></td>
-<td><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;exit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div></td>
-<td>Вызывается при выходе из контекстного блока</td>
-</tr>
-</tbody>
-</table>
-<h1>Pickle</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Пример</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>def __setstate__(self, state):</code></td>
-<td>obj.<code>__setstate__</code>(state)</td>
-<td>Восстанавливает состояние объекта</td>
-</tr>
-<tr>
-<td><code>def __reduce_ex__(self, protocol):</code></td>
-<td><code>pickle.loads(pickle.dumps(self, protocol))</code></td>
-<td>Возвращает данные для использования в процессе<br>сериализации объекта с протоколом</td>
-</tr>
-<tr>
-<td><code>def __getstate__(self):</code></td>
-<td><code>pickle.loads(pickle.dumps(self).__getstate__())</code></td>
-<td>Возвращает состояние объекта для использования<br>в процессе сериализации</td>
-</tr>
-<tr>
-<td><code>def __reduce__(self):</code></td>
-<td><code>pickle.loads(pickle.dumps(self))</code></td>
-<td>Возвращает данные для использования<br>в процессе сериализации объекта</td>
-</tr>
-</tbody>
-</table>
-<h1>Примеры</h1>
-<h2>__class_getitem__</h2>
-<p>Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами <code>generics</code>.
-Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code>.</p>
-<h3>Обобщённые классы (Generics)</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Класс вызван с параметром: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span>
+# Арифметические операции
 
-<span class="n">MyClass</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-</pre></div></div></div>
+| Функция                            | Пример                | Описание                                      |
+|------------------------------------|-----------------------|-----------------------------------------------|
+| `def __eq__(self, other) -> bool:` | self `==` other       | Равенство                                     |
+| `def __ge__(self, other) -> bool:` | self `>=` other       | Больше или равен                              |
+| `def __gt__(self, other) -> bool:` | self `>` other        | Больше                                        |
+| `def __le__(self, other) -> bool:` | self `<=` other       | Mеньше или равен                              |
+| `def __lt__(self, other) -> bool:` | self `<` other        | Меньше                                        |
+| `def __ne__(self, other) -> bool:` | self `!=` other       | Не равен                                      |
+| `def __or__(self, other):`         | self `|` other        | Побитовое **ИЛИ**                             |
+| `def __add__(self, other):`        | self `+` other        | Сложение                                      |
+| `def __and__(self, other):`        | self `&` other        | Побитовое **И**                               |
+| `def __ior__(self, other):`        | self `|=` other       | Побитовое **ИЛИ** с присваиванием             |
+| `def __mod__(self, other):`        | self `%` other        | Остаток от деления                            |
+| `def __mul__(self, other):`        | self `*` other        | Умножение                                     |
+| `def __ror__(self, other):`        | self `|` other        | Побитовое ИЛИ с обратным присваиванием        |
+| `def __sub__(self, other):`        | self `-` other        | Вычитание                                     |
+| `def __xor__(self, other):`        | self `^` other        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ**                 |
+| `def __iadd__(self, other):`       | self `+=` other       | Сложение с присваиванием                      |
+| `def __iand__(self, other):`       | self `&=` other       | Побитовое **И** с присваиванием               |
+| `def __idiv__(self, other):`       | self `/=` other       | Деление с присваиванием                       |
+| `def __imod__(self, other):`       | self `%=` other       | Взятие остатка от деления с присваиванием     |
+| `def __imul__(self, other):`       | self `*=` other       | Умножение с присваиванием                     |
+| `def __ipow__(self, other):`       | self `**=` other      | Возведение в степень с присваиванием          |
+| `def __isub__(self, other):`       | self `-=` other       | Вычитание с присваиванием                     |
+| `def __ixor__(self, other):`       | self `^=` other       | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** с присваиванием |
+| `def __radd__(self, other):`       | other `+` self        | Сложение справа                               |
+| `def __rand__(self, other):`       | other `&` self        | Выполняет побитовое **И** справа              |
+| `def __rdiv__(self, other):`       | other `/` self        | Деление справа                                |
+| `def __divmod__(self, other):`     | `divmod`(self, other) | Деление с остатком                            |
+| `def __rdivmod__(self, other):`    | `divmod`(other, self) | Деление с остатком справа                     |
+| `def __rmod__(self, other):`       | other `%` self        | Взятие остатка от деления справа              |
+| `def __rmul__(self, other):`       | other `*` self        | Умножение справа                              |
+| `def __rpow__(self, other):`       | other `**` self       | Возведение в степень справа                   |
+| `def __rsub__(self, other):`       | other `-` self        | Вычитание справа                              |
+| `def __rxor__(self, other):`       | other `^` self        | Побитовое **ИСКЛЮЧАЮЩЕЕ ИЛИ** справа          |
+| `def __floordiv__(self, other):`   | self `//` other       | Целочисленное деление                         |
+| `def __ilshift__(self, other):`    | self `<<=` other      | Побитовый сдвиг влево с присваиванием         |
+| `def __imatmul__(self, other):`    | self `@=` other       | Матричное умножение с присваиванием           |
+| `def __irshift__(self, other):`    | self `>>=` other      | Побитовый сдвиг вправо с присваиванием        |
+| `def __itruediv__(self, other):`   | self `/=` other       | Деление с присваиванием                       |
+| `def __rlshift__(self, other):`    | other `<<` self       | Побитовый сдвиг влево справа                  |
+| `def __rmatmul__(self, other):`    | other `@` self        | Матричное умножение справа                    |
+| `def __matmul__(self, other):`     | self `@` other        | Матричное умножение                           |
+| `def __rrshift__(self, other):`    | other `>>` self       | Побитовый сдвиг вправо справа                 |
+| `def __rtruediv__(self, other):`   | other `/` self        | Деление справа                                |
+| `def __truediv__(self, other):`    | self `/` other        | Деление                                       |
+| `def __lshift__(self, other):`     | self `<<` other       | Побитовый сдвиг влево                         |
+| `def __rshift__(self, other):`     | self `>>` other       | Побитовый сдвиг вправо                        |
+| `def __ifloordiv__(self, other):`  | self `//=` other      | Целочисленное деление с присваиванием         |
+| `def __rfloordiv__(self, other):`  | other `//` self       | Целочисленное деление справа                  |
+| `def __pos__(self):`               | `+`self               | Положительное значение объекта                |
+| `def __neg__(self):`               | `-`self               | Отрицательное значение объекта                |
+| `def __invert__(self):`            | `~`self               | Инвертированное значение объекта              |
 
-<h3>Пример для создания обобщённых классов</h3>
-<p><code>__class_getitem__</code> часто используется в таких библиотеках,
-как <code>typing</code>, для создания обобщённых <code>generics</code> классов.</p>
-<h4>Пример реализации собственного Generic-класса:</h4>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyGeneric</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">]&quot;</span>
+# func call
 
-<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>  <span class="c1"># MyGeneric[int]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span>  <span class="c1"># MyGeneric[str]</span>
-</pre></div></div></div>
+| Функция                                          | Пример                          | Описание                                                                           |
+|--------------------------------------------------|---------------------------------|------------------------------------------------------------------------------------|
+| `def __pow__(self, power, modulo=None):`         | `pow`(self, power, modulo)      | Возведение в степень                                                               |
+| `def __abs__(self):`                             | `abs`(self)                     | Абсолютное значение объекта                                                        |
+| `def __hex__(self):`                             | `hex`(self)                     | Строковое представление объекта в<br>шестнадцатеричной системе счисления           |
+| `def __float__(self):`                           | `float`(self)                   | Представление объекта в виде числа с плавающей запятой                             |
+| `def __bytes__(self):`                           | `bytes`(self)                   | Байтовое представление объекта                                                     |
+| `def __long__(self):`                            | `int`(self)                     | Длинное целочисленное представление объекта                                        |
+| `def __int__(self):`                             | `int`(self)                     | Целочисленное представление объекта                                                |
+| `def __bool__(self) -> bool:`                    | `bool`(self)                    | Булево значение                                                                    |
+| `def __oct__(self):`                             | `oct`(self)                     | Строковое представление объекта в<br>восьмеричной системе счисления                |
+| `def __len__(self):`                             | `len`(self)                     | Возвращает длину объекта                                                           |
+| `def __str__(self):`                             | `str`(self)                     | Строковое представление объекта                                                    |
+| `def __hash__(self):`                            | `hash`(self)                    | Хеш-значение объекта                                                               |
+| `def __iter__(self):`                            | `iter`(self)                    | Итератор объекта                                                                   |
+| `def __next__(self):`                            | `next`(self)                    | Следующий элемент в итерации                                                       |
+| `def __round__(self, n=None):`                   | `round`(self, n)                | Округленное значение                                                               |
+| `def __complex__(self):`                         | `complex`(self)                 | Комплексное представление                                                          |
+| `def __reversed__(self):`                        | `reversed`(self)                | Возвращает обратный итератор объекта                                               |
+| `def __unicode__(self):`                         | `unicode`(self)                 | Строковое представление объекта (`Python 2`)                                       |
+| `def __instancecheck__(self, instance) -> bool:` | `isinstance`(obj, cls)          | Проверяет, является ли объект экземпляром класса                                   |
+| `def __subclasscheck__(self, subclass) -> bool:` | `issubclass`(subclass, cls)     | Является ли класс подклассом другого класса                                        |
+| `def __call__(self, *args, **kwargs):`           | `self(*args, **kwargs)`         | Вызывает объект как функцию                                                        |
+| `def __repr__(self):`                            | `repr`(self)                    | Строковое представление объекта                                                    |
+| `def __subclasshook__(cls, __subclass):`         | `issubclass`(Subclass, MyClass) | Проверяет, является ли класс подклассом другого класса                             |
+| `def __dir__(self):`                             | `dir`(self)                     | Список атрибутов и методов объекта                                                 |
+| `def __format__(self, format_spec):`             | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="s2">&quot;{0:</span><span class="si">{format_spec}</span><span class="s2">}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><br></pre></div></pre></div></div>                    | Форматированную строку объекта                                                     |
+| `def __cmp__(self, other) -> int:`               | `cmp`(self, other)              | Сравнивает объекты и возвращает `-1`, `0` или `1`                                  |
+| `def __aiter__(self):`                           | `aiter`(self)                   | Асинхронный итератор объекта                                                       |
+| `def __anext__(self):`                           | `anext`(self)                   | Возвращает следующий элемент в асинхронной итерации                                |
+| `def __coerce__(self, other):`                   | `coerce`(self, other)           | Преобразует объект к общему типу с другим объектом                                 |
+| `def __index__(self):`                           | `operator.index`(self)          | Целочисленное представление объекта<br>для использования в индексации              |
+| `def __floor__(self):`                           | `math.floor`(self)              | Наибольшее целое число, меньшее или равное объекту                                 |
+| `def __trunc__(self):`                           | `math.trunc`(self)              | Усеченное значение объекта                                                         |
+| `def __ceil__(self):`                            | `math.ceil`(self)               | Наименьшее целое число, большее или равное объекту                                 |
+| `def __copy__(self):`                            | `copy.copy`(self)               | Создает поверхностную копию объекта                                                |
+| `def __deepcopy__(self, memodict={}):`         | `copy.deepcopy`(self)           | Создает глубокую копию объекта                                                     |
+| `def __sizeof__(self):`                          | `sys.getsizeof`(self)           | Возвращает размер объекта в байтах                                                 |
+| `def __fspath__(self):`                          | `os.fspath`(self)               | Возвращает строковое представление<br>объекта для использования в функции `fspath` |
 
-<h3>Зачем нужен <code>__class_getitem__</code>?</h3>
-<ol>
-<li><strong>Работа с аннотациями типов.</strong> Он упрощает создание обобщённых классов, таких как <code>List[int]</code>
-или <code>Dict[str, int]</code>, поддерживая работу с типами в библиотеках, связанных с проверкой типов.</li>
-<li><strong>Интерфейсы для собственных классов.</strong> Если вы создаёте классы, которые должны поддерживать функциональность,
-связанную с типами или шаблонами, метод <code>__class_getitem__</code> позволит вам реализовать подобную логику.</li>
-<li><strong>Гибкость.</strong> Он позволяет передавать классу параметры,
-которые могут управлять тем, как класс себя ведёт или что возвращает.</li>
-</ol>
-<p><code>__class_getitem__</code> может работать в связке с другими магическими методами для более сложных конструкций.
-Например, его можно использовать вместе с методами <code>__getitem__</code>, <code>__setitem__</code>
-для создания классов, которые поддерживают индексацию и динамическое изменение поведения.</p>
-<p>Магический метод <code>__class_getitem__</code> — это мощный инструмент для работы с обобщёнными типами и аннотациями.
+# Контейнеры
+
+| Функция                                   | Пример                                  | Описание                                                  |
+|-------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
+| `def __getitem__(self, item):`            | self[item]                              | Элемент по индексу или ключу                              |
+| `def __missing__(self, key):`             | self[key]                               | Вызывается при отсутствии ключа в объекте                 |
+| `def __contains__(self, item) -> bool:`   | item `in` self                          | Содержится ли элемент в объекте                           |
+| `def __setslice__(self, i, j, sequence):` | self[i:j] = sequence                    | Заменяет срез объекта указанной последовательностью       |
+| `def __delattr__(self, item):`            | `del` self.item                         | Удаляет атрибут объекта                                   |
+| `def __delitem__(self, key):`             | `del` self[key]                         | Удаляет элемент по ключу                                  |
+| `def __delslice__(self, i, j):`           | `del` self[i:j]                         | Удаляет срез из объекта                                   |
+| `def __get__(self, instance, owner):`     | value = self.`__get__`(instance, owner) | Возвращает значение атрибута объекта в классе-дескрипторе |
+
+# Классы
+
+| Функция                                 | Пример                                               | Описание                                                                         |
+|-----------------------------------------|------------------------------------------------------|----------------------------------------------------------------------------------|
+| `def __new__(cls, *args, **kwargs):`    | instance = MyClass(args)                             | Создает новый обьект                                                             |
+| `def __init__(self):`                   | instance = MyClass(args)                             | При инициализации нового экземпляра объекта                                      |
+| `def __class__(self):`                  | obj_class = obj.`__class__()`                        | Возвращает класс объекта                                                         |
+| `def __del__(self):`                    | `del` self                                           | При удалении объекта                                                             |
+| <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span><br>    <span class="nd">@classmethod</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;prepare&#95;&#95;</span><span class="p">(</span><span class="n">metacls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">):</span><br>        <span class="k">return</span> <span class="p">{}</span><br></pre></div></pre></div></div>                           | metacls.`__prepare__`(name, bases)<br><details><summary>Example</summary><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;setitem&#95;&#95;</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span><br>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span><br>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">&#95;&#95;setitem&#95;&#95;</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span><br><br><span class="k">class</span> <span class="nc">CustomMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span><br>    <span class="nd">@classmethod</span><br>    <span class="k">def</span> <span class="fm">&#95;&#95;prepare&#95;&#95;</span><span class="p">(</span><span class="n">metacls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">custom_dict</span><span class="o">=</span><span class="n">CustomDict</span><span class="p">):</span><br>        <span class="k">return</span> <span class="n">custom_dict</span><span class="p">()</span><br><br><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">CustomMeta</span><span class="p">):</span><br>    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><br>    <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><br><br><br><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">&quot;&#95;&#95;module&#95;&#95;&quot; = &quot;&#95;&#95;main&#95;&#95;&quot;</span><br><span class="sd">&quot;&#95;&#95;qualname&#95;&#95;&quot; = &quot;MyClass&quot;</span><br><span class="sd">&quot;x&quot; = 10</span><br><span class="sd">&quot;y&quot; = 20</span><br><span class="sd">&quot;&quot;&quot;</span><br></pre></div></pre></div></div></details>                   | Словарь для использования в качестве<br>пространства имен класса перед его созданием<br>Например для добавления специфической<br>логики при добавлении новых атрибутов |
+| `def __delete__(self, instance):`       | `del` instance.self                                  | Удаляет атрибут объекта                                                          |
+| `def __init_subclass__(cls, **kwargs):` | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Subclass</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">Subclass</span><span class="o">.</span><span class="n">&#95;&#95;init_subclass&#95;&#95;</span><span class="p">()</span><br></pre></div></pre></div></div>                                  | Вызывается при создании подкласса                                                |
+| `def __mro_entries__(self, bases):`     | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">Base1</span><span class="p">,</span> <span class="n">Base2</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MyMeta</span><span class="p">):</span><br>    <span class="k">pass</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">&#95;&#95;mro_entries&#95;&#95;</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span><br></pre></div></pre></div></div>                                    | Возвращает кортеж для обновления `MRO`<br>(Method Resolution Order)              |
+| `def __getinitargs__(self):`            | args = self.`__getinitargs__()`                      | Кортеж аргументов для использования при создании объекта                         |
+| `def __set_name__(self, owner, name):`  | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span><br>    <span class="n">attr</span> <span class="o">=</span> <span class="n">MyDescriptor</span><span class="p">()</span><br><span class="n">MyClass</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">&#95;&#95;set_name&#95;&#95;</span><span class="p">(</span><span class="n">MyClass</span><span class="p">,</span> <span class="s2">&quot;attr&quot;</span><span class="p">)</span><br></pre></div></pre></div></div>                                       | Вызывается при установке имени атрибута в классе                                 |
+| `def __getnewargs__(self):`             | args = self.`__getnewargs__()`                       | Возвращает аргументы для использования<br>при создании нового экземпляра объекта |
+| `def __getattribute__(self, item):`     | value = self.`__getattribute__`("attr")              | Возвращает значение атрибута объекта<br>**Управляет всеми запросами атрибутов**  |
+| `def __getattr__(self, item):`          | value = self.`__getattr__`("attr")                   | Вызывается при обращении<br>к несуществующему атрибуту объекта<br>**Когда `__getattribute__` не находит атрибут** |
+| `def __await__(self):`                  | `await` self                                         | Возвращает объект, поддерживающий асинхронное ожидание                           |
+| `def __set__(self, instance, value):`   | instance.attr = value                                | Устанавливает значение атрибута в экземпляре класса                              |
+| `def __class_getitem__(cls, item):`     | item_type = MyGenericClass.`__class_getitem__`(Item) | Обобщенный тип объекта                                                           |
+| `def __setattr__(self, key, value):`    | self.key = value                                     | Устанавливает значение атрибута объекта                                          |
+| `def __setitem__(self, key, value):`    | self[key] = value                                    | Устанавливает значение элемента по ключу в объекте                               |
+
+# with as
+
+| Функция                                           | Пример                  | Описание                                                 |
+|---------------------------------------------------|-------------------------|----------------------------------------------------------|
+| `def __enter__(self):`                            | `with self as x:`       | Выполняет код при входе в блок `with`                    |
+| `def __aenter__(self):`                           | `async with self as x:` | Вызывается при входе в асинхронный<br>контекстный блок   |
+| `def __aexit__(self, exc_type, exc_val, exc_tb):` | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;aexit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div>             | Вызывается при выходе из асинхронного контекстного блока |
+| `def __exit__(self, exc_type, exc_val, exc_tb):`  | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="k">with</span> <span class="bp">self</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span><br>    <span class="k">pass</span><br><span class="bp">self</span><span class="o">.</span><span class="fm">&#95;&#95;exit&#95;&#95;</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span><br></pre></div></pre></div></div>              | Вызывается при выходе из контекстного блока              |
+
+# Pickle
+
+| Функция                              | Пример                                            | Описание                                                                            |
+|--------------------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------|
+| `def __setstate__(self, state):`     | obj.`__setstate__`(state)                         | Восстанавливает состояние объекта                                                   |
+| `def __reduce_ex__(self, protocol):` | `pickle.loads(pickle.dumps(self, protocol))`      | Возвращает данные для использования в процессе<br>сериализации объекта с протоколом |
+| `def __getstate__(self):`            | `pickle.loads(pickle.dumps(self).__getstate__())` | Возвращает состояние объекта для использования<br>в процессе сериализации           |
+| `def __reduce__(self):`              | `pickle.loads(pickle.dumps(self))`                | Возвращает данные для использования<br>в процессе сериализации объекта              |
+
+
+# Примеры
+
+## \_\_class_getitem\_\_
+
+Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами `generics`.
+Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации `[]`.
+
+### Обобщённые классы (Generics)
+```python
+class MyClass:
+    def __class_getitem__(cls, item):
+        print(f"Класс вызван с параметром: {item}")
+        return cls
+
+MyClass[int]
+```
+
+### Пример для создания обобщённых классов
+`__class_getitem__` часто используется в таких библиотеках,
+как `typing`, для создания обобщённых `generics` классов.
+
+#### Пример реализации собственного Generic-класса:
+
+```python
+class MyGeneric:
+    def __class_getitem__(cls, item):
+        return f"{cls.__name__}[{item.__name__}]"
+
+print(MyGeneric[int])  # MyGeneric[int]
+print(MyGeneric[str])  # MyGeneric[str]
+```
+
+### Зачем нужен `__class_getitem__`?
+
+1. **Работа с аннотациями типов.** Он упрощает создание обобщённых классов, таких как `List[int]`
+или `Dict[str, int]`, поддерживая работу с типами в библиотеках, связанных с проверкой типов.
+2. **Интерфейсы для собственных классов.** Если вы создаёте классы, которые должны поддерживать функциональность,
+связанную с типами или шаблонами, метод `__class_getitem__` позволит вам реализовать подобную логику.
+3. **Гибкость.** Он позволяет передавать классу параметры,
+которые могут управлять тем, как класс себя ведёт или что возвращает.
+
+`__class_getitem__` может работать в связке с другими магическими методами для более сложных конструкций.
+Например, его можно использовать вместе с методами `__getitem__`, `__setitem__`
+для создания классов, которые поддерживают индексацию и динамическое изменение поведения.
+
+Магический метод `__class_getitem__` — это мощный инструмент для работы с обобщёнными типами и аннотациями.
 С его помощью можно реализовывать гибкие и типизированные API,
-которые позволяют делать код более понятным и удобным для сопровождения.</p>
+которые позволяют делать код более понятным и удобным для сопровождения.

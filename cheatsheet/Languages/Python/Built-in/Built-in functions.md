@@ -1,229 +1,286 @@
-<h2>slice</h2>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># [2, 3, 4]</span>
-<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">][</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>  <span class="c1"># [2, 3, 4]</span>
-</pre></div></div></div>
+## slice
 
-<h2>frozenset</h2>
-<p>Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>  <span class="c1"># frozenset({1, 2, 3, 4})</span>
-</pre></div></div></div>
+```python
+print([1, 2, 3, 4, 5][1:4])  # [2, 3, 4]
+print([1, 2, 3, 4, 5][slice(1, 4)])  # [2, 3, 4]
+```
 
-<h2>memoryview</h2>
-<p>Доступ к буферу памяти объекта без копирования его данных.</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">))</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># доступ к нулевому индексу представления памяти</span>
-<span class="unselectable"><span class="go">65</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytes</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># создать байт из представления памяти</span>
-<span class="unselectable"><span class="go">b&quot;AB&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">list</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># создать список из представления памяти</span>
-<span class="unselectable"><span class="go">[65, 66, 67]</span>
-</span></pre></div></div></div>
+## frozenset
+Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов.
 
-<h2>hasattr</h2>
-<p>Для проверки наличия атрибута (метода или свойства) у объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">my_attr</span> <span class="o">=</span> <span class="mi">42</span>
+```python
+print(frozenset([1, 2, 2, 3, 4]))  # frozenset({1, 2, 3, 4})
+```
 
-<span class="n">my_obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">my_obj</span><span class="p">,</span> <span class="s2">&quot;my_attr&quot;</span><span class="p">))</span>  <span class="c1"># True</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">my_obj</span><span class="p">,</span> <span class="s2">&quot;non_existent_attr&quot;</span><span class="p">))</span>  <span class="c1"># False</span>
-</pre></div></div></div>
+## memoryview
+Доступ к буферу памяти объекта без копирования его данных.
 
-<h2>reversed</h2>
-<p>Для переворачивания последовательности (sequence).</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">reversed_list</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">reversed_list</span><span class="p">))</span>  <span class="c1"># [5, 4, 3, 2, 1]</span>
-</pre></div></div></div>
+```pycon
+>>> mv = memoryview(bytearray("ABC", "UTF-8"))
+>>> mv[0]           # доступ к нулевому индексу представления памяти
+65
+>>> bytes(mv[0:2])  # создать байт из представления памяти
+b"AB"
+>>> list(mv[0:3])   # создать список из представления памяти
+[65, 66, 67]
+```
 
-<h2>&#95;&#95;import&#95;&#95;</h2>
-<p>Для импорта модуля во время выполнения программы.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">math</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;math&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># 3.141592653589793</span>
-</pre></div></div></div>
+## hasattr
+Для проверки наличия атрибута (метода или свойства) у объекта.
 
-<h2>staticmethod</h2>
-<p>Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">my_static_method</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a static method&quot;</span><span class="p">)</span>
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
 
-<span class="n">MyClass</span><span class="o">.</span><span class="n">my_static_method</span><span class="p">()</span>  <span class="c1"># This is a static method</span>
-</pre></div></div></div>
+my_obj = MyClass()
+print(hasattr(my_obj, "my_attr"))  # True
+print(hasattr(my_obj, "non_existent_attr"))  # False
+```
 
-<h2>setattr</h2>
-<p>Для установки значения атрибута объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">my_attr</span> <span class="o">=</span> <span class="mi">42</span>
+## reversed
+Для переворачивания последовательности (sequence).
 
-<span class="n">my_obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="nb">setattr</span><span class="p">(</span><span class="n">my_obj</span><span class="p">,</span> <span class="s2">&quot;my_attr&quot;</span><span class="p">,</span> <span class="mi">43</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_obj</span><span class="o">.</span><span class="n">my_attr</span><span class="p">)</span>  <span class="c1"># 43</span>
-</pre></div></div></div>
+```python
+my_list = [1, 2, 3, 4, 5]
+reversed_list = reversed(my_list)
+print(list(reversed_list))  # [5, 4, 3, 2, 1]
+```
 
-<h2>property</h2>
-<p>Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span> <span class="o">=</span> <span class="mi">42</span>
+## &#95;&#95;import&#95;&#95;
+Для импорта модуля во время выполнения программы.
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span>
+```python
+math = __import__("math")
+print(math.pi)  # 3.141592653589793
+```
 
-    <span class="nd">@my_attr</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span>
-</pre></div></div></div>
+## staticmethod
+Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса).
 
-<h2>object</h2>
-<p>Базовый класс, от которого наследуются все остальные классы в Python.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div></div></div>
+```python
+class MyClass:
+    @staticmethod
+    def my_static_method():
+        print("This is a static method")
 
-<h2>locals</h2>
-<p>Для получения словаря с локальными переменными в текущем контексте выполнения.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+MyClass.my_static_method()  # This is a static method
+```
 
-<span class="n">my_func</span><span class="p">()</span>  <span class="c1"># {&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
-</pre></div></div></div>
+## setattr
+Для установки значения атрибута объекта.
 
-<h2>globals</h2>
-<p>Для получения словаря с глобальными переменными в текущем модуле.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">my_var</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>  <span class="c1"># {&quot;__name__&quot;: &quot;__main__&quot;, &quot;__doc__&quot;: None, &quot;__package__&quot;: None, &quot;my_var&quot;: 42, ...}</span>
-</pre></div></div></div>
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
 
-<h2>getattr</h2>
-<p>Для получения значения атрибута объекта по его имени.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">my_attr</span> <span class="o">=</span> <span class="mi">42</span>
+my_obj = MyClass()
+setattr(my_obj, "my_attr", 43)
+print(my_obj.my_attr)  # 43
+```
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">MyClass</span><span class="p">(),</span> <span class="s2">&quot;my_attr&quot;</span><span class="p">))</span>  <span class="c1"># 42</span>
-</pre></div></div></div>
+## property
+Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут.
 
-<h2>complex</h2>
-<p>Для создания комплексного числа.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># (1+2j)</span>
-</pre></div></div></div>
+```python
+class MyClass:
+    def __init__(self):
+        self._my_attr = 42
 
-<h2>compile</h2>
-<p>Для компиляции строки с кодом Python в объект-код.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;print(&quot;Hello, world!&quot;)&#39;</span><span class="p">,</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">))</span>  <span class="c1"># Hello, world!</span>
-</pre></div></div></div>
+    @property
+    def my_attr(self):
+        return self._my_attr
 
-<h2>bytearray</h2>
-<p>Изменяемый тип данных, представляющий собой массив байтов.
-Последовательность целых чисел в диапазоне <code>0 ≤ X &lt; 256</code></p>
-<p>Параметр <strong>source</strong> можно использовать для начальной инициализации массива:
-Если source является строкой, вы также должны указать кодировку encoding и опционально <strong>errors</strong>
-Если source является целым числом, массив будет иметь размер <strong>source</strong> и инициализирован байтами со значением <code>0</code>
+    @my_attr.setter
+    def my_attr(self, value):
+        self._my_attr
+```
+
+## object
+Базовый класс, от которого наследуются все остальные классы в Python.
+
+```python
+class MyClass(object):
+    pass
+```
+
+## locals
+Для получения словаря с локальными переменными в текущем контексте выполнения.
+
+```python
+def my_func():
+    a = 1
+    b = 2
+    print(locals())
+
+my_func()  # {"a": 1, "b": 2}
+```
+
+## globals
+Для получения словаря с глобальными переменными в текущем модуле.
+
+```python
+my_var = 42
+print(globals())  # {"__name__": "__main__", "__doc__": None, "__package__": None, "my_var": 42, ...}
+```
+
+## getattr
+Для получения значения атрибута объекта по его имени.
+
+```python
+class MyClass:
+    def __init__(self):
+        self.my_attr = 42
+
+print(getattr(MyClass(), "my_attr"))  # 42
+```
+
+## complex
+Для создания комплексного числа.
+
+```python
+print(complex(1, 2))  # (1+2j)
+```
+
+## compile
+Для компиляции строки с кодом Python в объект-код.
+
+```python
+exec(compile('print("Hello, world!")', "<string>", "exec"))  # Hello, world!
+```
+
+## bytearray
+Изменяемый тип данных, представляющий собой массив байтов.
+Последовательность целых чисел в диапазоне `0 ≤ X < 256`
+
+Параметр **source** можно использовать для начальной инициализации массива:
+Если source является строкой, вы также должны указать кодировку encoding и опционально **errors**
+Если source является целым числом, массив будет иметь размер **source** и инициализирован байтами со значением `0`
 Если source является объектом, то он должен поддерживать интерфейс буфера.
 Для инициализации массива байт будет использован буфер, предназначенный для чтения.
-Если <strong>source</strong> является итерируемым объектом, его элементами должны быть целыми числами в диапазоне <code>0 ≤ X &lt; 256</code>.
+Если **source** является итерируемым объектом, его элементами должны быть целыми числами в диапазоне `0 ≤ X < 256`.
 Этими числами и будет инициализирован массив.
-Если <strong>source</strong> не передан, вернет пустой <strong>bytearray</strong></p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">bytearray</span><span class="p">(</span><span class="s2">&quot;Привет, Python!&quot;</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="go">bytearray(b&quot;\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python!&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="unselectable"><span class="go">bytearray(b&quot;\x00\x00\x00\x00\x00&quot;)</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytearray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="unselectable"><span class="go">bytearray(b&quot;\x01\x02\x03&quot;)</span>
-</span></pre></div></div></div>
+Если **source** не передан, вернет пустой **bytearray**
 
-<h2>abs</h2>
-<p>Получения абсолютного значения числа.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">))</span>  <span class="c1"># 42</span>
-</pre></div></div></div>
+```pycon
+>>> bytearray("Привет, Python!", "UTF-8")
+bytearray(b"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python!")
+>>> bytearray(5)
+bytearray(b"\x00\x00\x00\x00\x00")
+>>> bytearray([1, 2, 3])
+bytearray(b"\x01\x02\x03")
+```
 
-<h2>bin</h2>
-<p>Получения двоичного представления числа.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>  <span class="c1"># 0b101010</span>
-</pre></div></div></div>
+## abs
+Получения абсолютного значения числа.
 
-<h2>bytes</h2>
-<p>Неизменяемый тип данных, представляющий собой массив байтов.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># b&quot;\x01\x02\x03\x04\x05&quot;</span>
-</pre></div></div></div>
+```python
+print(abs(-42))  # 42
+```
 
-<h2>callable</h2>
-<p>Является ли объект вызываемым (т.е. функцией или методом).</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
-    <span class="k">pass</span>
+## bin
+Получения двоичного представления числа.
 
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">my_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+```python
+print(bin(42))  # 0b101010
+```
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">my_func</span><span class="p">))</span>  <span class="c1"># True</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">my_method</span><span class="p">))</span>  <span class="c1"># True</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">callable</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>  <span class="c1"># False</span>
-</pre></div></div></div>
+## bytes
+Неизменяемый тип данных, представляющий собой массив байтов.
 
-<h2>chr</h2>
-<p>Получение символа Unicode по его коду.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>  <span class="c1"># &quot;a&quot;</span>
-</pre></div></div></div>
+```python
+print(bytes([1, 2, 3, 4, 5]))  # b"\x01\x02\x03\x04\x05"
+```
 
-<h2>classmethod</h2>
-<p>Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="n">my_class_attr</span> <span class="o">=</span> <span class="mi">42</span>
+## callable
+Является ли объект вызываемым (т.е. функцией или методом).
 
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">my_class_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">my_class_attr</span><span class="p">)</span>
+```python
+def my_func():
+    pass
 
-<span class="n">MyClass</span><span class="o">.</span><span class="n">my_class_method</span><span class="p">()</span>  <span class="c1"># 42</span>
-</pre></div></div></div>
+class MyClass:
+    def my_method(self):
+        pass
 
-<h2>delattr</h2>
-<p>Удаление атрибута объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="n">my_attr</span> <span class="o">=</span> <span class="mi">42</span>
+print(callable(my_func))  # True
+print(callable(MyClass().my_method))  # True
+print(callable(42))  # False
+```
 
-<span class="n">my_obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="nb">delattr</span><span class="p">(</span><span class="n">my_obj</span><span class="p">,</span> <span class="s2">&quot;my_attr&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">my_obj</span><span class="p">,</span> <span class="s2">&quot;my_attr&quot;</span><span class="p">))</span>  <span class="c1"># False</span>
-</pre></div></div></div>
+## chr
+Получение символа Unicode по его коду.
 
-<h2>dir</h2>
-<p>Получение списка всех атрибутов объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>  <span class="c1"># [&quot;__add__&quot;, &quot;__class__&quot;, &quot;__contains__&quot;, ...]</span>
-</pre></div></div></div>
+```python
+print(chr(97))  # "a"
+```
 
-<h2>divmod</h2>
-<p>Получения частного и остатка от деления двух чисел.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># (8, 2)</span>
-</pre></div></div></div>
+## classmethod
+Создание метода класса. Этот метод может быть вызван без создания экземпляра класса.
 
-<h2>filter</h2>
-<p>Фильтрация элементов последовательности с помощью функции.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])))</span>  <span class="c1"># [2, 4]</span>
-</pre></div></div></div>
+```python
+class MyClass:
+    my_class_attr = 42
 
-<h2>oct</h2>
-<p>Получение восьмеричного представления числа.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">oct</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>  <span class="c1"># 0o52</span>
-</pre></div></div></div>
+    @classmethod
+    def my_class_method(cls):
+        print(cls.my_class_attr)
 
-<h2>nonlocal</h2>
-<p>Объявление переменной из внешней области видимости внутри функции.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
-    <span class="n">my_var</span> <span class="o">=</span> <span class="mi">42</span>
-    <span class="k">def</span> <span class="nf">inner_func</span><span class="p">():</span>
-        <span class="k">nonlocal</span> <span class="n">my_var</span>
-        <span class="n">my_var</span> <span class="o">=</span> <span class="mi">43</span>
-    <span class="n">inner_func</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">my_var</span><span class="p">)</span>
+MyClass.my_class_method()  # 42
+```
 
-<span class="n">my_func</span><span class="p">()</span>  <span class="c1"># 43</span>
-</pre></div></div></div>
+## delattr
+Удаление атрибута объекта.
+
+```python
+class MyClass:
+    my_attr = 42
+
+my_obj = MyClass()
+delattr(my_obj, "my_attr")
+print(hasattr(my_obj, "my_attr"))  # False
+```
+
+## dir
+Получение списка всех атрибутов объекта.
+
+```python
+print(dir([1, 2, 3]))  # ["__add__", "__class__", "__contains__", ...]
+```
+
+## divmod
+Получения частного и остатка от деления двух чисел.
+
+```python
+print(divmod(42, 5))  # (8, 2)
+```
+
+## filter
+Фильтрация элементов последовательности с помощью функции.
+
+```python
+print(list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5])))  # [2, 4]
+```
+
+## oct
+Получение восьмеричного представления числа.
+
+```python
+print(oct(42))  # 0o52
+```
+
+## nonlocal
+Объявление переменной из внешней области видимости внутри функции.
+
+```python
+def my_func():
+    my_var = 42
+    def inner_func():
+        nonlocal my_var
+        my_var = 43
+    inner_func()
+    print(my_var)
+
+my_func()  # 43
+```

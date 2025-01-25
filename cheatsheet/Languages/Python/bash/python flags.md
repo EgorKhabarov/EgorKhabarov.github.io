@@ -1,54 +1,18 @@
-<table>
-<thead>
-<tr>
-<th>Флаг</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-c</code></td>
-<td>Выполнить однострочный Python-код из командной строки</td>
-</tr>
-<tr>
-<td><code>-m</code></td>
-<td>Запустить указанный Python-модуль как скрипт</td>
-</tr>
-<tr>
-<td><code>-i</code> <code>—interactive</code></td>
-<td>Запускает интерпретатор Python в интерактивном режиме после выполнения скрипта</td>
-</tr>
-<tr>
-<td><code>-O</code> <code>—optimize</code></td>
-<td>Включает режим оптимизации, который удаляет отладочную информацию и выполняет оптимизации в байт-коде.<br>Это может уменьшить размер файлов <code>.pyc</code> и улучшить производительность, но осложнить отладку</td>
-</tr>
-<tr>
-<td><code>-B</code> <code>—dont-write-bytecode</code></td>
-<td>Предотвращает запись байт-кода (<code>.pyc</code> файлов) на диск</td>
-</tr>
-<tr>
-<td><code>-v</code> <code>—verbose</code></td>
-<td>Выводит подробные сообщения о том, какие модули импортируются<br>и какие файлы открываются в процессе выполнения программы</td>
-</tr>
-<tr>
-<td><code>-q</code> <code>—quiet</code></td>
-<td>Уменьшает уровень вывода, игнорируя сообщения о запуске и прочие информационные сообщения</td>
-</tr>
-<tr>
-<td><code>-E</code> <code>—ignore-environment</code></td>
-<td>Игнорировать переменные окружения,<br>которые обычно влияют на поведение Python, такие как <code>PYTHONPATH</code></td>
-</tr>
-<tr>
-<td><code>-u</code> <code>—unbuffered</code></td>
-<td>Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных</td>
-</tr>
-<tr>
-<td><code>-h</code> <code>—help</code></td>
-<td>Выведет список всех доступных флагов и их описания</td>
-</tr>
-</tbody>
-</table>
-<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>&gt;python -h
+| Флаг                        | Описание |
+|-----------------------------|----------|
+| `-c`                        | Выполнить однострочный Python-код из командной строки |
+| `-m`                        | Запустить указанный Python-модуль как скрипт |
+| `-i` `—interactive`         | Запускает интерпретатор Python в интерактивном режиме после выполнения скрипта |
+| `-O` `—optimize`            | Включает режим оптимизации, который удаляет отладочную информацию и выполняет оптимизации в байт-коде.<br>Это может уменьшить размер файлов `.pyc` и улучшить производительность, но осложнить отладку |
+| `-B` `—dont-write-bytecode` | Предотвращает запись байт-кода (`.pyc` файлов) на диск |
+| `-v` `—verbose`             | Выводит подробные сообщения о том, какие модули импортируются<br>и какие файлы открываются в процессе выполнения программы |
+| `-q` `—quiet`               | Уменьшает уровень вывода, игнорируя сообщения о запуске и прочие информационные сообщения |
+| `-E` `—ignore-environment`  | Игнорировать переменные окружения,<br>которые обычно влияют на поведение Python, такие как `PYTHONPATH` |
+| `-u` `—unbuffered`          | Переключает режим не буферизованного ввода/вывода.<br>Полезно при работе с каналами и потоками данных,<br>чтобы гарантировать более немедленную обработку данных |
+| `-h` `—help`                | Выведет список всех доступных флагов и их описания |
+
+```
+>python -h
 usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options (and corresponding environment variables):
 -b     : issue warnings about str(bytes_instance), str(bytearray_instance)
@@ -70,7 +34,7 @@ Options (and corresponding environment variables):
 -P     : do not prepend a potentially unsafe path to sys.path; also PYTHONSAFEPATH
 -q     : do not print version and copyright messages on interactive startup
 -s     : do not add user site directory to sys.path; also PYTHONNOUSERSITE
--S     : do not imply &quot;import site&quot; on initialization
+-S     : do not imply "import site" on initialization
 -u     : force the stdout and stderr streams to be unbuffered;
          this option has no effect on stdin; also PYTHONUNBUFFERED=x
 -v     : verbose (trace import statements); also PYTHONVERBOSE=x
@@ -90,4 +54,4 @@ Arguments:
 file   : program read from script file
 -      : program read from stdin (default; interactive mode if a tty)
 arg ...: arguments passed to program in sys.argv[1:]
-</pre></div></div></div>
+```

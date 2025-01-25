@@ -1,177 +1,137 @@
-<p><strong>Unittest</strong> — это встроенная библиотека Python для написания и выполнения тестов.
+**Unittest** — это встроенная библиотека Python для написания и выполнения тестов.
 Она реализует функциональность для написания модульных тестов (unit tests),
-которая позволяет автоматизировать проверку корректности работы кода.</p>
-<h2>Основные компоненты и структура тестов в Unittest</h2>
-<h3>Основные классы и методы</h3>
-<table>
-<thead>
-<tr>
-<th>Класс/Метод</th>
-<th>Описание</th>
-<th>Пример использования</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>unittest.TestCase</code></td>
-<td>Базовый класс, от которого наследуются все классы с тестами</td>
-<td><code>class MyTests(unittest.TestCase): ...</code></td>
-</tr>
-<tr>
-<td><code>setUp()</code></td>
-<td>Метод, который запускается перед каждым тестом. Инициализирует окружение для теста</td>
-<td><code>def setUp(self): self.db = Database()</code></td>
-</tr>
-<tr>
-<td><code>tearDown()</code></td>
-<td>Метод, который запускается после каждого теста. Очищает ресурсы, если нужно</td>
-<td><code>def tearDown(self): self.db.close()</code></td>
-</tr>
-<tr>
-<td><code>assertEqual(a, b)</code></td>
-<td>Проверяет, что <code>a</code> и <code>b</code> равны</td>
-<td><code>self.assertEqual(result, 10)</code></td>
-</tr>
-<tr>
-<td><code>assertNotEqual(a, b)</code></td>
-<td>Проверяет, что <code>a</code> и <code>b</code> не равны</td>
-<td><code>self.assertNotEqual(result, 5)</code></td>
-</tr>
-<tr>
-<td><code>assertTrue(x)</code></td>
-<td>Проверяет, что условие <code>x</code> истинно (True)</td>
-<td><code>self.assertTrue(condition)</code></td>
-</tr>
-<tr>
-<td><code>assertFalse(x)</code></td>
-<td>Проверяет, что условие <code>x</code> ложно (False)</td>
-<td><code>self.assertFalse(is_valid)</code></td>
-</tr>
-<tr>
-<td><code>assertIsNone(x)</code></td>
-<td>Проверяет, что объект <code>x</code> равен <code>None</code></td>
-<td><code>self.assertIsNone(value)</code></td>
-</tr>
-<tr>
-<td><code>assertIsNotNone(x)</code></td>
-<td>Проверяет, что объект <code>x</code> не равен <code>None</code></td>
-<td><code>self.assertIsNotNone(result)</code></td>
-</tr>
-<tr>
-<td><code>assertIn(a, b)</code></td>
-<td>Проверяет, что объект <code>a</code> содержится в объекте <code>b</code></td>
-<td><code>self.assertIn(element, container)</code></td>
-</tr>
-<tr>
-<td><code>assertNotIn(a, b)</code></td>
-<td>Проверяет, что объект <code>a</code> не содержится в объекте <code>b</code></td>
-<td><code>self.assertNotIn(item, list)</code></td>
-</tr>
-<tr>
-<td><code>assertRaises</code></td>
-<td>Проверяет, что вызываемая функция бросает указанное исключение</td>
-<td><code>with self.assertRaises(ValueError): func_that_raises()</code></td>
-</tr>
-</tbody>
-</table>
-<h3>Пример тестового класса</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+которая позволяет автоматизировать проверку корректности работы кода.
+
+## Основные компоненты и структура тестов в Unittest
+
+### Основные классы и методы
+
+| Класс/Метод            | Описание                                                                           | Пример использования                                     |
+|------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------|
+| `unittest.TestCase`    | Базовый класс, от которого наследуются все классы с тестами                        | `class MyTests(unittest.TestCase): ...`                  |
+| `setUp()`              | Метод, который запускается перед каждым тестом. Инициализирует окружение для теста | `def setUp(self): self.db = Database()`                  |
+| `tearDown()`           | Метод, который запускается после каждого теста. Очищает ресурсы, если нужно        | `def tearDown(self): self.db.close()`                    |
+| `assertEqual(a, b)`    | Проверяет, что `a` и `b` равны                                                     | `self.assertEqual(result, 10)`                           |
+| `assertNotEqual(a, b)` | Проверяет, что `a` и `b` не равны                                                  | `self.assertNotEqual(result, 5)`                         |
+| `assertTrue(x)`        | Проверяет, что условие `x` истинно (True)                                          | `self.assertTrue(condition)`                             |
+| `assertFalse(x)`       | Проверяет, что условие `x` ложно (False)                                           | `self.assertFalse(is_valid)`                             |
+| `assertIsNone(x)`      | Проверяет, что объект `x` равен `None`                                             | `self.assertIsNone(value)`                               |
+| `assertIsNotNone(x)`   | Проверяет, что объект `x` не равен `None`                                          | `self.assertIsNotNone(result)`                           |
+| `assertIn(a, b)`       | Проверяет, что объект `a` содержится в объекте `b`                                 | `self.assertIn(element, container)`                      |
+| `assertNotIn(a, b)`    | Проверяет, что объект `a` не содержится в объекте `b`                              | `self.assertNotIn(item, list)`                           |
+| `assertRaises`         | Проверяет, что вызываемая функция бросает указанное исключение                     | `with self.assertRaises(ValueError): func_that_raises()` |
+
+### Пример тестового класса
+
+```python
+import unittest
 
 
-<span class="k">class</span> <span class="nc">TestMathFunctions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+class TestMathFunctions(unittest.TestCase):
+    def setUp(self):
+        self.a = 10
+        self.b = 5
 
-    <span class="k">def</span> <span class="nf">test_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+    def test_add(self):
+        result = self.a + self.b
+        self.assertEqual(result, 15)
 
-    <span class="k">def</span> <span class="nf">test_subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    def test_subtract(self):
+        result = self.a - self.b
+        self.assertEqual(result, 5)
 
-    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Здесь можно освободить ресурсы</span>
-        <span class="k">pass</span>
+    def tearDown(self):
+        # Здесь можно освободить ресурсы
+        pass
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div></div></div>
+if __name__ == "__main__":
+    unittest.main()
+```
 
-<h3>Запуск тестов</h3>
-<p>Через командную строку</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_module.py
-</pre></div></div></div>
-<p>Запуск всех тестов в файле</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
-</pre></div></div></div>
+### Запуск тестов
 
-<h3>Организация тестов</h3>
-<p>Тесты обычно организуются в классы, наследуемые от <code>unittest.TestCase</code>
-Каждый метод в классе, начинающийся с <code>test_</code>, будет считаться отдельным тестом</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+Через командную строку
+```bash
+python -m unittest test_module.py
+```
+Запуск всех тестов в файле
+```bash
+python -m unittest discover
+```
+
+### Организация тестов
+
+Тесты обычно организуются в классы, наследуемые от `unittest.TestCase`
+Каждый метод в классе, начинающийся с `test_`, будет считаться отдельным тестом
+
+```python
+import unittest
 
 
-<span class="k">class</span> <span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s2">&quot;FOO&quot;</span><span class="p">)</span>
+class TestStringMethods(unittest.TestCase):
+    def test_upper(self):
+        self.assertEqual("foo".upper(), "FOO")
 
-    <span class="k">def</span> <span class="nf">test_isupper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="s2">&quot;FOO&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
+    def test_isupper(self):
+        self.assertTrue("FOO".isupper())
+        self.assertFalse("Foo".isupper())
 
-    <span class="k">def</span> <span class="nf">test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">])</span>
-        <span class="c1"># Проверка исключения</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    def test_split(self):
+        s = "hello world"
+        self.assertEqual(s.split(), ["hello", "world"])
+        # Проверка исключения
+        with self.assertRaises(TypeError):
+            s.split(2)
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div></div></div>
+if __name__ == "__main__":
+    unittest.main()
+```
 
-<h3>Скип тестов</h3>
-<p>Можно пропустить тест, если его выполнение в текущий момент не нужно, с помощью декоратора <code>@unittest.skip</code></p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+### Скип тестов
 
-<span class="k">class</span> <span class="nc">TestSkipped</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Причина пропуска&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">test_skipped</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fail</span><span class="p">(</span><span class="s2">&quot;Этот тест будет пропущен&quot;</span><span class="p">)</span>
+Можно пропустить тест, если его выполнение в текущий момент не нужно, с помощью декоратора `@unittest.skip`
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-</pre></div></div></div>
+```python
+import unittest
 
-<p>Также можно использовать другие формы скипа
-<code>@unittest.skipIf(condition, "reason")</code>: Пропустить тест, если условие истинно
-<code>@unittest.skipUnless(condition, "reason")</code>: Пропустить тест, если условие ложно</p>
-<h3>Параметры командной строки</h3>
-<p>Запуск тестов можно модифицировать с помощью параметров командной строки
-- <code>-v</code>: Запуск тестов с более подробным выводом (<strong>verbose</strong>)
-- <code>-q</code>: Уменьшение подробности вывода (<strong>quiet mode</strong>)
-- <code>-f</code>: Остановка на первом неудачном тесте</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>-v<span class="w"> </span>test_module
-</pre></div></div></div>
+class TestSkipped(unittest.TestCase):
+    @unittest.skip("Причина пропуска")
+    def test_skipped(self):
+        self.fail("Этот тест будет пропущен")
 
-<h3>Дополнительные возможности</h3>
-<ul>
-<li><strong>Параметризация тестов</strong>: С помощью библиотеки <code>unittest.TestLoader</code>, можно запускать тесты динамически</li>
-</ul>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromTestCase</span><span class="p">(</span><span class="n">TestMathFunctions</span><span class="p">)</span>
-<span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
-</pre></div></div></div>
+if __name__ == "__main__":
+    unittest.main()
+```
 
-<ul>
-<li><strong>Mocking (имитация объектов)</strong>: Python предоставляет отдельную библиотеку для моков — <code>unittest.mock</code>,
-которая может быть полезна для тестирования внешних зависимостей, API, баз данных и других компонентов.</li>
-</ul>
-<h3>Полезные библиотеки для улучшения тестирования</h3>
-<ul>
-<li><strong><code>unittest.mock</code></strong> — для создания мока (имитации объектов) в тестах.</li>
-<li><strong><code>nose2</code></strong> — расширенная библиотека для тестирования с дополнительными возможностями.</li>
-<li><strong><code>pytest</code></strong> — популярная библиотека для тестирования,
-которая поддерживает <code>unittest</code>, но предлагает более гибкие возможности</li>
-</ul>
+Также можно использовать другие формы скипа
+`@unittest.skipIf(condition, "reason")`: Пропустить тест, если условие истинно
+`@unittest.skipUnless(condition, "reason")`: Пропустить тест, если условие ложно
+
+### Параметры командной строки
+
+Запуск тестов можно модифицировать с помощью параметров командной строки
+- `-v`: Запуск тестов с более подробным выводом (**verbose**)
+- `-q`: Уменьшение подробности вывода (**quiet mode**)
+- `-f`: Остановка на первом неудачном тесте
+
+```bash
+python -m unittest -v test_module
+```
+
+### Дополнительные возможности
+
+- **Параметризация тестов**: С помощью библиотеки `unittest.TestLoader`, можно запускать тесты динамически
+
+```python
+suite = unittest.TestLoader().loadTestsFromTestCase(TestMathFunctions)
+unittest.TextTestRunner().run(suite)
+```
+
+- **Mocking (имитация объектов)**: Python предоставляет отдельную библиотеку для моков — `unittest.mock`,
+которая может быть полезна для тестирования внешних зависимостей, API, баз данных и других компонентов.
+
+### Полезные библиотеки для улучшения тестирования
+- **`unittest.mock`** — для создания мока (имитации объектов) в тестах.
+- **`nose2`** — расширенная библиотека для тестирования с дополнительными возможностями.
+- **`pytest`** — популярная библиотека для тестирования,
+которая поддерживает `unittest`, но предлагает более гибкие возможности

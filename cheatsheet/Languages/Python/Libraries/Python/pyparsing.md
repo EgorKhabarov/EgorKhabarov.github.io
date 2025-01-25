@@ -1,29 +1,39 @@
-<p>Библиотека "pyparsing" используется для анализа и разбора текстовых данных в языке программирования Python.
-Она предоставляет возможность создавать грамматики и правила для разбора сложных структур данных.</p>
-<p>Методы модуля "pyparsing" и его подмодулей:</p>
-<p>parseString(string) - Разбирает строку в соответствии с определенной грамматикой и возвращает структурированные данные.
+Библиотека "pyparsing" используется для анализа и разбора текстовых данных в языке программирования Python.
+Она предоставляет возможность создавать грамматики и правила для разбора сложных структур данных.
+
+Методы модуля "pyparsing" и его подмодулей:
+
+parseString(string) - Разбирает строку в соответствии с определенной грамматикой и возвращает структурированные данные.
 Word(alphas) - Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.
 nums - Подмодуль, содержащий грамматические правила для разбора числовых значений.
 CaselessLiteral(string) - Определяет грамматическое правило для разбора нечувствительных к регистру строк.
-QuotedString(quoteChar) - Определяет грамматическое правило для разбора строки, заключенной в кавычки.</p>
-<p>Самые часто используемые методы "pyparsing" с их кратким описанием и примером кода:</p>
-<p>parseString(string): Разбирает строку в соответствии с грамматикой и возвращает структурированные данные.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyparsing</span> <span class="kn">import</span> <span class="n">Word</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">nums</span>
+QuotedString(quoteChar) - Определяет грамматическое правило для разбора строки, заключенной в кавычки.
 
-<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Word</span><span class="p">(</span><span class="n">alphas</span><span class="p">)</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># [&quot;Hello&quot;]</span>
-</pre></div></div></div>
+Самые часто используемые методы "pyparsing" с их кратким описанием и примером кода:
 
-<p>Word(alphas): Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyparsing</span> <span class="kn">import</span> <span class="n">Word</span><span class="p">,</span> <span class="n">alphas</span>
+parseString(string): Разбирает строку в соответствии с грамматикой и возвращает структурированные данные.
 
-<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;Hello123&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Word</span><span class="p">(</span><span class="n">alphas</span><span class="p">)</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># [&quot;Hello&quot;]</span>
-</pre></div></div></div>
+```python
+from pyparsing import Word, alphas, nums
 
-<p>QuotedString(quoteChar): Определяет грамматическое правило для разбора строки, заключенной в кавычки.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyparsing</span> <span class="kn">import</span> <span class="n">QuotedString</span>
+data = "Hello World"
+print(Word(alphas).parseString(data))  # ["Hello"]
+```
 
-<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;&quot;Hello World&quot;&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">QuotedString</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># [&quot;Hello World&quot;]</span>
-</pre></div></div></div>
+Word(alphas): Определяет грамматическое правило для разбора последовательности символов, состоящей только из букв.
+
+```python
+from pyparsing import Word, alphas
+
+data = "Hello123"
+print(Word(alphas).parseString(data))  # ["Hello"]
+```
+
+QuotedString(quoteChar): Определяет грамматическое правило для разбора строки, заключенной в кавычки.
+
+```python
+from pyparsing import QuotedString
+
+data = '"Hello World"'
+print(QuotedString('"').parseString(data))  # ["Hello World"]
+```

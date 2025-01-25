@@ -1,771 +1,194 @@
-<h1><a href="https://github.com/python/cpython/tree/main/Lib">github.com/python/cpython/tree/main/Lib</a></h1>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>__phello__</td>
-<td></td>
-</tr>
-<tr>
-<td>_pyrepl</td>
-<td></td>
-</tr>
-<tr>
-<td>asyncio</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/collections">collections</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/concurrent">concurrent</a></td>
-<td></td>
-</tr>
-<tr>
-<td>ctypes</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/curses">curses</a></td>
-<td></td>
-</tr>
-<tr>
-<td>dbm</td>
-<td></td>
-</tr>
-<tr>
-<td>email</td>
-<td></td>
-</tr>
-<tr>
-<td>encodings</td>
-<td></td>
-</tr>
-<tr>
-<td>ensurepip</td>
-<td></td>
-</tr>
-<tr>
-<td>html</td>
-<td></td>
-</tr>
-<tr>
-<td>http</td>
-<td></td>
-</tr>
-<tr>
-<td>idlelib</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/importlib">importlib</a></td>
-<td></td>
-</tr>
-<tr>
-<td>json</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/logging">logging</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/multiprocessing">multiprocessing</a></td>
-<td></td>
-</tr>
-<tr>
-<td>pathlib</td>
-<td></td>
-</tr>
-<tr>
-<td>pydoc_data</td>
-<td></td>
-</tr>
-<tr>
-<td>re</td>
-<td></td>
-</tr>
-<tr>
-<td>site-packages</td>
-<td>--</td>
-</tr>
-<tr>
-<td>sqlite3</td>
-<td></td>
-</tr>
-<tr>
-<td>sysconfig</td>
-<td></td>
-</tr>
-<tr>
-<td>test</td>
-<td>--</td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/GUI/tkinter/">tkinter</a></td>
-<td></td>
-</tr>
-<tr>
-<td>tomllib</td>
-<td></td>
-</tr>
-<tr>
-<td>turtledemo</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/unittest">unittest</a></td>
-<td></td>
-</tr>
-<tr>
-<td>urllib</td>
-<td></td>
-</tr>
-<tr>
-<td>venv</td>
-<td></td>
-</tr>
-<tr>
-<td>wsgiref</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/xml">xml</a></td>
-<td></td>
-</tr>
-<tr>
-<td>xmlrpc</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/zipfile">zipfile</a></td>
-<td></td>
-</tr>
-<tr>
-<td>zoneinfo</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>__future__</td>
-<td></td>
-</tr>
-<tr>
-<td>__hello__</td>
-<td></td>
-</tr>
-<tr>
-<td>_aix_support</td>
-<td></td>
-</tr>
-<tr>
-<td>_android_support</td>
-<td></td>
-</tr>
-<tr>
-<td>_apple_support</td>
-<td></td>
-</tr>
-<tr>
-<td>_collections_abc</td>
-<td></td>
-</tr>
-<tr>
-<td>_colorize</td>
-<td></td>
-</tr>
-<tr>
-<td>_compat_pickle</td>
-<td></td>
-</tr>
-<tr>
-<td>_compression</td>
-<td></td>
-</tr>
-<tr>
-<td>_ios_support</td>
-<td></td>
-</tr>
-<tr>
-<td>_markupbase</td>
-<td></td>
-</tr>
-<tr>
-<td>_opcode_metadata</td>
-<td></td>
-</tr>
-<tr>
-<td>_osx_support</td>
-<td></td>
-</tr>
-<tr>
-<td>_py_abc</td>
-<td></td>
-</tr>
-<tr>
-<td>_pydatetime</td>
-<td></td>
-</tr>
-<tr>
-<td>_pydecimal</td>
-<td></td>
-</tr>
-<tr>
-<td>_pyio</td>
-<td></td>
-</tr>
-<tr>
-<td>_pylong</td>
-<td></td>
-</tr>
-<tr>
-<td>_sitebuiltins</td>
-<td></td>
-</tr>
-<tr>
-<td>_strptime</td>
-<td></td>
-</tr>
-<tr>
-<td>_threading_local</td>
-<td></td>
-</tr>
-<tr>
-<td>_weakrefset</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/abc">abc</a></td>
-<td></td>
-</tr>
-<tr>
-<td>annotationlib</td>
-<td></td>
-</tr>
-<tr>
-<td>antigravity</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/argparse">argparse</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/ast">ast</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/base64">base64</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/bdb">bdb</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Algorithms/bisect">bisect</a></td>
-<td></td>
-</tr>
-<tr>
-<td>bz2</td>
-<td></td>
-</tr>
-<tr>
-<td>cProfile</td>
-<td></td>
-</tr>
-<tr>
-<td>calendar</td>
-<td></td>
-</tr>
-<tr>
-<td>cmd</td>
-<td></td>
-</tr>
-<tr>
-<td>code</td>
-<td></td>
-</tr>
-<tr>
-<td>codecs</td>
-<td></td>
-</tr>
-<tr>
-<td>codeop</td>
-<td></td>
-</tr>
-<tr>
-<td>colorsys</td>
-<td></td>
-</tr>
-<tr>
-<td>compileall</td>
-<td></td>
-</tr>
-<tr>
-<td>configparser</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/contextlib">contextlib</a></td>
-<td></td>
-</tr>
-<tr>
-<td>contextvars</td>
-<td></td>
-</tr>
-<tr>
-<td>copy</td>
-<td></td>
-</tr>
-<tr>
-<td>copyreg</td>
-<td></td>
-</tr>
-<tr>
-<td>csv</td>
-<td></td>
-</tr>
-<tr>
-<td>dataclasses</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/datetime">datetime</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/decimal">decimal</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/difflib">difflib</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/dis/">dis</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/doctests/">doctest</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/enum">enum</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/filecmp">filecmp</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/fileinput">fileinput</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/fnmatch">fnmatch</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/fractions">fractions</a></td>
-<td></td>
-</tr>
-<tr>
-<td>ftplib</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/functools">functools</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/genericpath">genericpath</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/getopt">getopt</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/getpass">getpass</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Other/gettext">gettext</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/glob">glob</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/graphlib">graphlib</a></td>
-<td></td>
-</tr>
-<tr>
-<td>gzip</td>
-<td></td>
-</tr>
-<tr>
-<td>hashlib</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/heapq">heapq</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Algorithms/hmac">hmac</a></td>
-<td></td>
-</tr>
-<tr>
-<td>imaplib</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/inspect">inspect</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/io">io</a></td>
-<td></td>
-</tr>
-<tr>
-<td>ipaddress</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/keyword">keyword</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Other/linecache">linecache</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Other/locale">locale</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Algorithms/lzma">lzma</a></td>
-<td></td>
-</tr>
-<tr>
-<td>mailbox</td>
-<td></td>
-</tr>
-<tr>
-<td>mimetypes</td>
-<td></td>
-</tr>
-<tr>
-<td>modulefinder</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/netrc">netrc</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/Windows/ntpath">ntpath</a></td>
-<td></td>
-</tr>
-<tr>
-<td>nturl2path</td>
-<td></td>
-</tr>
-<tr>
-<td>numbers</td>
-<td></td>
-</tr>
-<tr>
-<td>opcode</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/operator">operator</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/optparse">optparse</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/os/">os</a></td>
-<td></td>
-</tr>
-<tr>
-<td>pdb</td>
-<td></td>
-</tr>
-<tr>
-<td>pickle</td>
-<td></td>
-</tr>
-<tr>
-<td>pickletools</td>
-<td></td>
-</tr>
-<tr>
-<td>pkgutil</td>
-<td></td>
-</tr>
-<tr>
-<td>platform</td>
-<td></td>
-</tr>
-<tr>
-<td>plistlib</td>
-<td></td>
-</tr>
-<tr>
-<td>poplib</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/Unix/posixpath">posixpath</a></td>
-<td></td>
-</tr>
-<tr>
-<td>pprint</td>
-<td></td>
-</tr>
-<tr>
-<td>profile</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/pstats">pstats</a></td>
-<td></td>
-</tr>
-<tr>
-<td>pty</td>
-<td></td>
-</tr>
-<tr>
-<td>py_compile</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/pyclbr">pyclbr</a></td>
-<td></td>
-</tr>
-<tr>
-<td>pydoc</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/queue">queue</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Other/quopri">quopri</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/random">random</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/reprlib">reprlib</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/rlcompleter">rlcompleter</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/runpy">runpy</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Other/sched">sched</a></td>
-<td></td>
-</tr>
-<tr>
-<td>secrets</td>
-<td></td>
-</tr>
-<tr>
-<td>selectors</td>
-<td></td>
-</tr>
-<tr>
-<td>shelve</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/shlex">shlex</a></td>
-<td></td>
-</tr>
-<tr>
-<td>shutil</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/Unix/signal">signal</a></td>
-<td></td>
-</tr>
-<tr>
-<td>site</td>
-<td></td>
-</tr>
-<tr>
-<td>smtplib</td>
-<td></td>
-</tr>
-<tr>
-<td>socket</td>
-<td></td>
-</tr>
-<tr>
-<td>socketserver</td>
-<td></td>
-</tr>
-<tr>
-<td>sre_compile</td>
-<td></td>
-</tr>
-<tr>
-<td>sre_constants</td>
-<td></td>
-</tr>
-<tr>
-<td>sre_parse</td>
-<td></td>
-</tr>
-<tr>
-<td>ssl</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/stat">stat</a></td>
-<td></td>
-</tr>
-<tr>
-<td>statistics</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/string">string</a></td>
-<td></td>
-</tr>
-<tr>
-<td>stringprep</td>
-<td></td>
-</tr>
-<tr>
-<td>struct</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/System/subprocess">subprocess</a></td>
-<td></td>
-</tr>
-<tr>
-<td>symtable</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/tabnanny">tabnanny</a></td>
-<td></td>
-</tr>
-<tr>
-<td>tarfile</td>
-<td></td>
-</tr>
-<tr>
-<td>tempfile</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Information/textwrap">textwrap</a></td>
-<td></td>
-</tr>
-<tr>
-<td>this</td>
-<td></td>
-</tr>
-<tr>
-<td>threading</td>
-<td></td>
-</tr>
-<tr>
-<td>timeit</td>
-<td></td>
-</tr>
-<tr>
-<td>token</td>
-<td></td>
-</tr>
-<tr>
-<td>tokenize</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/trace">trace</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/traceback">traceback</a></td>
-<td></td>
-</tr>
-<tr>
-<td>tracemalloc</td>
-<td></td>
-</tr>
-<tr>
-<td>tty</td>
-<td></td>
-</tr>
-<tr>
-<td>turtle</td>
-<td></td>
-</tr>
-<tr>
-<td>types</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/typing">typing</a></td>
-<td></td>
-</tr>
-<tr>
-<td>uuid</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/warnings">warnings</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Data%20types/wave">wave</a></td>
-<td></td>
-</tr>
-<tr>
-<td>weakref</td>
-<td></td>
-</tr>
-<tr>
-<td>webbrowser</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/zipapp">zipapp</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="?Languages/Python/Libraries/Python/zipimport">zipimport</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+# [github.com/python/cpython/tree/main/Lib](https://github.com/python/cpython/tree/main/Lib)
+
+| Name                                                                      | Description |
+|---------------------------------------------------------------------------|-------------|
+| \_\_phello\_\_                                                            | 
+| _pyrepl                                                                   | 
+| asyncio                                                                   | 
+| [collections](?Languages/Python/Libraries/Python/collections)             | 
+| [concurrent](?Languages/Python/Libraries/System/concurrent)               | 
+| ctypes                                                                    | 
+| [curses](?Languages/Python/Libraries/Python/curses)                       | 
+| dbm                                                                       | 
+| email                                                                     | 
+| encodings                                                                 | 
+| ensurepip                                                                 | 
+| html                                                                      | 
+| http                                                                      | 
+| idlelib                                                                   | 
+| [importlib](?Languages/Python/Libraries/Python/importlib)                 | 
+| json                                                                      | 
+| [logging](?Languages/Python/Libraries/Python/logging)                     | 
+| [multiprocessing](?Languages/Python/Libraries/System/multiprocessing)     | 
+| pathlib                                                                   | 
+| pydoc_data                                                                | 
+| re                                                                        | 
+| site-packages                                                             |--
+| sqlite3                                                                   | 
+| sysconfig                                                                 | 
+| test                                                                      |--
+| [tkinter](?Languages/Python/Libraries/GUI/tkinter/)                       | 
+| tomllib                                                                   | 
+| turtledemo                                                                | 
+| [unittest](?Languages/Python/Libraries/Python/unittest)                   | 
+| urllib                                                                    | 
+| venv                                                                      | 
+| wsgiref                                                                   | 
+| [xml](?Languages/Python/Libraries/Data%20types/xml)                       | 
+| xmlrpc                                                                    | 
+| [zipfile](?Languages/Python/Libraries/Python/zipfile)                     | 
+| zoneinfo                                                                  | 
+|                                                                           | 
+| \_\_future\_\_                                                            | 
+| \_\_hello\_\_                                                             | 
+| _aix_support                                                              | 
+| _android_support                                                          | 
+| _apple_support                                                            | 
+| _collections_abc                                                          | 
+| _colorize                                                                 | 
+| _compat_pickle                                                            | 
+| _compression                                                              | 
+| _ios_support                                                              | 
+| _markupbase                                                               | 
+| _opcode_metadata                                                          | 
+| _osx_support                                                              | 
+| _py_abc                                                                   | 
+| _pydatetime                                                               | 
+| _pydecimal                                                                | 
+| _pyio                                                                     | 
+| _pylong                                                                   | 
+| _sitebuiltins                                                             | 
+| _strptime                                                                 | 
+| _threading_local                                                          | 
+| _weakrefset                                                               | 
+| [abc](?Languages/Python/Libraries/Python/abc)                             | 
+| annotationlib                                                             | 
+| antigravity                                                               | 
+| [argparse](?Languages/Python/Libraries/Information/argparse)              | 
+| [ast](?Languages/Python/Libraries/Python/ast)                             | 
+| [base64](?Languages/Python/Libraries/Information/base64)                  | 
+| [bdb](?Languages/Python/Libraries/Python/bdb)                             | 
+| [bisect](?Languages/Python/Libraries/Algorithms/bisect)                   | 
+| bz2                                                                       | 
+| cProfile                                                                  | 
+| calendar                                                                  | 
+| cmd                                                                       | 
+| code                                                                      | 
+| codecs                                                                    | 
+| codeop                                                                    | 
+| colorsys                                                                  | 
+| compileall                                                                | 
+| configparser                                                              | 
+| [contextlib](?Languages/Python/Libraries/Python/contextlib)               | 
+| contextvars                                                               | 
+| copy                                                                      | 
+| copyreg                                                                   | 
+| csv                                                                       | 
+| dataclasses                                                               | 
+| [datetime](?Languages/Python/Libraries/Information/datetime)              | 
+| [decimal](?Languages/Python/Libraries/Information/decimal)                | 
+| [difflib](?Languages/Python/Libraries/Information/difflib)                | 
+| [dis](?Languages/Python/Libraries/Python/dis/)                            | 
+| [doctest](?Languages/Python/Libraries/Python/doctests/)                   | 
+| [enum](?Languages/Python/Libraries/Data%20types/enum)                     | 
+| [filecmp](?Languages/Python/Libraries/System/filecmp)                     | 
+| [fileinput](?Languages/Python/Libraries/Python/fileinput)                 | 
+| [fnmatch](?Languages/Python/Libraries/System/fnmatch)                     | 
+| [fractions](?Languages/Python/Libraries/Information/fractions)            | 
+| ftplib                                                                    | 
+| [functools](?Languages/Python/Libraries/Python/functools)                 | 
+| [genericpath](?Languages/Python/Libraries/System/genericpath)             | 
+| [getopt](?Languages/Python/Libraries/System/getopt)                       | 
+| [getpass](?Languages/Python/Libraries/Python/getpass)                     | 
+| [gettext](?Languages/Python/Libraries/Other/gettext)                      | 
+| [glob](?Languages/Python/Libraries/System/glob)                           | 
+| [graphlib](?Languages/Python/Libraries/Data%20types/graphlib)             | 
+| gzip                                                                      | 
+| hashlib                                                                   | 
+| [heapq](?Languages/Python/Libraries/Data%20types/heapq)                   | 
+| [hmac](?Languages/Python/Libraries/Algorithms/hmac)                       | 
+| imaplib                                                                   | 
+| [inspect](?Languages/Python/Libraries/Python/inspect)                     | 
+| [io](?Languages/Python/Libraries/System/io)                               | 
+| ipaddress                                                                 | 
+| [keyword](?Languages/Python/Libraries/Python/keyword)                     | 
+| [linecache](?Languages/Python/Libraries/Other/linecache)                  | 
+| [locale](?Languages/Python/Libraries/Other/locale)                        | 
+| [lzma](?Languages/Python/Libraries/Algorithms/lzma)                       | 
+| mailbox                                                                   | 
+| mimetypes                                                                 | 
+| modulefinder                                                              | 
+| [netrc](?Languages/Python/Libraries/Data%20types/netrc)                   | 
+| [ntpath](?Languages/Python/Libraries/System/Windows/ntpath)               | 
+| nturl2path                                                                | 
+| numbers                                                                   | 
+| opcode                                                                    | 
+| [operator](?Languages/Python/Libraries/Python/operator)                   | 
+| [optparse](?Languages/Python/Libraries/System/optparse)                   | 
+| [os](?Languages/Python/Libraries/System/os/)                              | 
+| pdb                                                                       | 
+| pickle                                                                    | 
+| pickletools                                                               | 
+| pkgutil                                                                   | 
+| platform                                                                  | 
+| plistlib                                                                  | 
+| poplib                                                                    | 
+| [posixpath](?Languages/Python/Libraries/System/Unix/posixpath)            | 
+| pprint                                                                    | 
+| profile                                                                   | 
+| [pstats](?Languages/Python/Libraries/Python/pstats)                       | 
+| pty                                                                       | 
+| py_compile                                                                | 
+| [pyclbr](?Languages/Python/Libraries/Python/pyclbr)                       | 
+| pydoc                                                                     | 
+| [queue](?Languages/Python/Libraries/Data%20types/queue)                   | 
+| [quopri](?Languages/Python/Libraries/Other/quopri)                        | 
+| [random](?Languages/Python/Libraries/Information/random)                  | 
+| [reprlib](?Languages/Python/Libraries/Python/reprlib)                     | 
+| [rlcompleter](?Languages/Python/Libraries/Python/rlcompleter)             | 
+| [runpy](?Languages/Python/Libraries/Python/runpy)                         | 
+| [sched](?Languages/Python/Libraries/Other/sched)                          | 
+| secrets                                                                   | 
+| selectors                                                                 | 
+| shelve                                                                    | 
+| [shlex](?Languages/Python/Libraries/Information/shlex)                    | 
+| shutil                                                                    | 
+| [signal](?Languages/Python/Libraries/System/Unix/signal)                  | 
+| site                                                                      | 
+| smtplib                                                                   | 
+| socket                                                                    | 
+| socketserver                                                              | 
+| sre_compile                                                               | 
+| sre_constants                                                             | 
+| sre_parse                                                                 | 
+| ssl                                                                       | 
+| [stat](?Languages/Python/Libraries/System/stat)                           | 
+| statistics                                                                | 
+| [string](?Languages/Python/Libraries/Information/string)                  | 
+| stringprep                                                                | 
+| struct                                                                    | 
+| [subprocess](?Languages/Python/Libraries/System/subprocess)               | 
+| symtable                                                                  | 
+| [tabnanny](?Languages/Python/Libraries/Python/tabnanny)                   | 
+| tarfile                                                                   | 
+| tempfile                                                                  | 
+| [textwrap](?Languages/Python/Libraries/Information/textwrap)              | 
+| this                                                                      | 
+| threading                                                                 | 
+| timeit                                                                    | 
+| token                                                                     | 
+| tokenize                                                                  | 
+| [trace](?Languages/Python/Libraries/Python/trace)                         | 
+| [traceback](?Languages/Python/Libraries/Python/traceback)                 | 
+| tracemalloc                                                               | 
+| tty                                                                       | 
+| turtle                                                                    | 
+| types                                                                     | 
+| [typing](?Languages/Python/Libraries/Python/typing)                       | 
+| uuid                                                                      | 
+| [warnings](?Languages/Python/Libraries/Python/warnings)                   | 
+| [wave](?Languages/Python/Libraries/Data%20types/wave)                     | 
+| weakref                                                                   | 
+| webbrowser                                                                | 
+| [zipapp](?Languages/Python/Libraries/Python/zipapp)                       | 
+| [zipimport](?Languages/Python/Libraries/Python/zipimport)                 |

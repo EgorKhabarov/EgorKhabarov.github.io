@@ -1,21 +1,25 @@
-<h1>Flyweight (Легковес)</h1>
-<p><strong>Описание</strong>: Оптимизация использования памяти за счёт разделения общих данных между множеством объектов.</p>
-<p><strong>Когда использовать</strong>: Когда нужно создать много мелких объектов, которые имеют общие части данных.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Flyweight</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_state</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">shared_state</span> <span class="o">=</span> <span class="n">shared_state</span>
+# Flyweight (Легковес)
 
-<span class="k">class</span> <span class="nc">FlyweightFactory</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_flyweights</span> <span class="o">=</span> <span class="p">{}</span>
+**Описание**: Оптимизация использования памяти за счёт разделения общих данных между множеством объектов.
 
-    <span class="k">def</span> <span class="nf">get_flyweight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shared_state</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">shared_state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flyweights</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_flyweights</span><span class="p">[</span><span class="n">shared_state</span><span class="p">]</span> <span class="o">=</span> <span class="n">Flyweight</span><span class="p">(</span><span class="n">shared_state</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flyweights</span><span class="p">[</span><span class="n">shared_state</span><span class="p">]</span>
+**Когда использовать**: Когда нужно создать много мелких объектов, которые имеют общие части данных.
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">FlyweightFactory</span><span class="p">()</span>
-<span class="n">flyweight1</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">get_flyweight</span><span class="p">(</span><span class="s2">&quot;shared&quot;</span><span class="p">)</span>
-<span class="n">flyweight2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">get_flyweight</span><span class="p">(</span><span class="s2">&quot;shared&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">flyweight1</span> <span class="ow">is</span> <span class="n">flyweight2</span><span class="p">)</span>  <span class="c1"># True</span>
-</pre></div></div></div>
+```python
+class Flyweight:
+    def __init__(self, shared_state):
+        self.shared_state = shared_state
+
+class FlyweightFactory:
+    def __init__(self):
+        self._flyweights = {}
+
+    def get_flyweight(self, shared_state):
+        if shared_state not in self._flyweights:
+            self._flyweights[shared_state] = Flyweight(shared_state)
+        return self._flyweights[shared_state]
+
+factory = FlyweightFactory()
+flyweight1 = factory.get_flyweight("shared")
+flyweight2 = factory.get_flyweight("shared")
+print(flyweight1 is flyweight2)  # True
+```

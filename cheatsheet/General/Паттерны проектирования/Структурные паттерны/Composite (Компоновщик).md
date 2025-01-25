@@ -1,39 +1,42 @@
-<h3>Composite (Компоновщик)</h3>
-<p>Паттерн Компоновщик позволяет работать с группами объектов так же, как с отдельными объектами.
-Это удобно для представления иерархических структур.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Graphic</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+### Composite (Компоновщик)
+
+Паттерн Компоновщик позволяет работать с группами объектов так же, как с отдельными объектами.
+Это удобно для представления иерархических структур.
+
+```python
+class Graphic:
+    def render(self):
+        pass
 
 
-<span class="k">class</span> <span class="nc">Line</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering a line&quot;</span><span class="p">)</span>
+class Line(Graphic):
+    def render(self):
+        print("Rendering a line")
 
 
-<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering a rectangle&quot;</span><span class="p">)</span>
+class Rectangle(Graphic):
+    def render(self):
+        print("Rendering a rectangle")
 
 
-<span class="k">class</span> <span class="nc">GraphicGroup</span><span class="p">(</span><span class="n">Graphic</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">graphics</span> <span class="o">=</span> <span class="p">[]</span>
+class GraphicGroup(Graphic):
+    def __init__(self):
+        self.graphics = []
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graphic</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">graphic</span><span class="p">)</span>
+    def add(self, graphic):
+        self.graphics.append(graphic)
 
-    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">graphic</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graphics</span><span class="p">:</span>
-            <span class="n">graphic</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+    def render(self):
+        for graphic in self.graphics:
+            graphic.render()
 
 
-<span class="n">group</span> <span class="o">=</span> <span class="n">GraphicGroup</span><span class="p">()</span>
-<span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Line</span><span class="p">())</span>
-<span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">())</span>
-<span class="n">group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Line</span><span class="p">())</span>
-<span class="n">group</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="c1"># Rendering a line</span>
-<span class="c1"># Rendering a rectangle</span>
-<span class="c1"># Rendering a line</span>
-</pre></div></div></div>
+group = GraphicGroup()
+group.add(Line())
+group.add(Rectangle())
+group.add(Line())
+group.render()
+# Rendering a line
+# Rendering a rectangle
+# Rendering a line
+```

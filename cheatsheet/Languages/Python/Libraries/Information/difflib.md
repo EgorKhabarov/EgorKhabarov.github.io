@@ -1,201 +1,232 @@
-<h4>SequenceMatcher</h4>
-<p>Сравнение двух последовательностей и определение степени их сходства.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+#### SequenceMatcher
+Сравнение двух последовательностей и определение степени их сходства.
 
-<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;Hello, everyone!&quot;</span>
+```python
+import difflib
 
-<span class="n">matcher</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
-<span class="n">ratio</span> <span class="o">=</span> <span class="n">matcher</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+s1 = "Hello, world!"
+s2 = "Hello, everyone!"
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Similarity ratio: </span><span class="si">{</span><span class="n">ratio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+matcher = difflib.SequenceMatcher(None, s1, s2)
+ratio = matcher.ratio()
 
-<span class="sd">&quot;&quot;&quot;Similarity ratio: 0.6206896551724138&quot;&quot;&quot;</span>
-</pre></div></div></div>
+print(f"Similarity ratio: {ratio}")
 
-<h4>get_close_matches</h4>
-<p>Нахождение наиболее похожей строки в наборе строк на основе заданной строки.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+"""Similarity ratio: 0.6206896551724138"""
+```
 
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
-<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;grea&quot;</span>
 
-<span class="n">matches</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">get_close_matches</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
+#### get_close_matches
+Нахождение наиболее похожей строки в наборе строк на основе заданной строки.
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Closest matches: </span><span class="si">{</span><span class="n">matches</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+```python
+import difflib
 
-<span class="sd">&quot;&quot;&quot;Closest matches: [&quot;green&quot;]&quot;&quot;&quot;</span>
-</pre></div></div></div>
+colors = ["red", "green", "blue", "yellow"]
+color = "grea"
 
-<h4>unified_diff</h4>
-<p>Генерация отчета о различиях между двумя последовательностями.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+matches = difflib.get_close_matches(color, colors)
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
+print(f"Closest matches: {matches}")
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
+"""Closest matches: ["green"]"""
+```
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+#### unified_diff
+Генерация отчета о различиях между двумя последовательностями.
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">---</span>
+```python
+import difflib
 
-<span class="sd">+++</span>
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
 
-<span class="sd">@@ -1,3 +1,3 @@</span>
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
-<span class="sd"> Lorem ipsum dolor sit amet,</span>
-<span class="sd"> consectetur adipiscing elit,</span>
-<span class="sd">-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-<span class="sd">+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div></div></div>
+d = difflib.unified_diff(text1.splitlines(), text2.splitlines())
 
-<h4>HtmlDiff</h4>
-<p>Генерация отчета о различиях между двумя последовательностями в формате HTML.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+print("\n".join(d))
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
+"""
+---
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
++++
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">HtmlDiff</span><span class="p">()</span><span class="o">.</span><span class="n">make_file</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+@@ -1,3 +1,3 @@
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;diff.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-</pre></div></div></div>
+ Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
++sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+"""
+```
 
-<h4>context_diff</h4>
-<p>Генерация отчета о различиях между двумя последовательностями в формате context diff.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+#### HtmlDiff
+Генерация отчета о различиях между двумя последовательностями в формате HTML.
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
+```python
+import difflib
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">context_diff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+d = difflib.HtmlDiff().make_file(text1.splitlines(), text2.splitlines())
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">***</span>
+with open("diff.html", "w") as f:
+    f.writelines(d)
+```
 
-<span class="sd">---</span>
 
-<span class="sd">***************</span>
 
-<span class="sd">*** 1,3 ****</span>
 
-<span class="sd">  Lorem ipsum dolor sit amet,</span>
-<span class="sd">  consectetur adipiscing elit,</span>
-<span class="sd">! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-<span class="sd">--- 1,3 ----</span>
 
-<span class="sd">  Lorem ipsum dolor sit amet,</span>
-<span class="sd">  consectetur adipiscing elit,</span>
-<span class="sd">! sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div></div></div>
 
-<h4>ndiff</h4>
-<p>Генерация отчета о различиях между двумя последовательностями в формате ndiff.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">ndiff</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Lorem ipsum dolor sit amet,</span>
-<span class="sd">  consectetur adipiscing elit,</span>
-<span class="sd">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-<span class="sd">?                                                          ^</span>
 
-<span class="sd">+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
-<span class="sd">?                                                          ^^</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div></div></div>
 
-<h4>isjunk и ignore</h4>
-<p>Использование пользовательских функций для игнорирования символов при сравнении последовательностей.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
 
-<span class="k">def</span> <span class="nf">isjunk</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">]</span>
+#### context_diff
+Генерация отчета о различиях между двумя последовательностями в формате context diff.
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
+```python
+import difflib
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
 
-<span class="n">matcher</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">SequenceMatcher</span><span class="p">(</span><span class="n">isjunk</span><span class="p">,</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">)</span>
-<span class="n">ratio</span> <span class="o">=</span> <span class="n">matcher</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Similarity ratio: </span><span class="si">{</span><span class="n">ratio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+d = difflib.context_diff(text1.splitlines(), text2.splitlines())
 
-<span class="sd">&quot;&quot;&quot;Similarity ratio: 0.9878542510121457&quot;&quot;&quot;</span>
-</pre></div></div></div>
+print("\n".join(d))
 
-<h4>reduce_func</h4>
-<p>Использование пользовательской функции для преобразования различий в отчете о сравнении.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">difflib</span>
+"""
+***
 
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;&quot;&quot;</span>
+---
 
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span>
-<span class="s2">consectetur adipiscing elit,</span>
-<span class="s2">sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&quot;&quot;&quot;</span>
+***************
 
-<span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">Differ</span><span class="p">()</span>
-<span class="n">diff</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">text1</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+*** 1,3 ****
 
-<span class="k">def</span> <span class="nf">reduce_func</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;- &quot;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&quot;</span><span class="n">color</span><span class="p">:</span><span class="n">red</span><span class="s2">&quot;&gt;</span><span class="si">{s}</span><span class="s2">&lt;/span&gt;&quot;</span>
-    <span class="k">elif</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;+ &quot;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;span style=&quot;</span><span class="n">color</span><span class="p">:</span><span class="n">green</span><span class="s2">&quot;&gt;</span><span class="si">{s}</span><span class="s2">&lt;/span&gt;&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">s</span>
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+--- 1,3 ----
 
-<span class="n">diff</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">reduce_func</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
-<span class="n">diff</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+! sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+"""
+```
 
-<span class="nb">print</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+#### ndiff
+Генерация отчета о различиях между двумя последовательностями в формате ndiff.
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">  Lorem ipsum dolor sit amet,</span>
-<span class="sd">  consectetur adipiscing elit,</span>
-<span class="sd">&lt;span style=&quot;color:red&quot;&gt;- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/span&gt;</span>
-<span class="sd">?                                                          ^</span>
+```python
+import difflib
 
-<span class="sd">&lt;span style=&quot;color:green&quot;&gt;+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.&lt;/span&gt;</span>
-<span class="sd">?                                                          ^^</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div></div></div>
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.ndiff(text1.splitlines(), text2.splitlines())
+
+print("\n".join(d))
+
+"""
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+?                                                          ^
+
++ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.
+?                                                          ^^
+"""
+```
+
+#### isjunk и ignore
+Использование пользовательских функций для игнорирования символов при сравнении последовательностей.
+
+```python
+import difflib
+
+def isjunk(s):
+    return s in [" ", "\n"]
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+matcher = difflib.SequenceMatcher(isjunk, text1, text2)
+ratio = matcher.ratio()
+
+print(f"Similarity ratio: {ratio}")
+
+"""Similarity ratio: 0.9878542510121457"""
+```
+
+#### reduce_func
+Использование пользовательской функции для преобразования различий в отчете о сравнении.
+
+```python
+import difflib
+
+text1 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."""
+
+text2 = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua."""
+
+d = difflib.Differ()
+diff = d.compare(text1.splitlines(), text2.splitlines())
+
+def reduce_func(s):
+    if s.startswith("- "):
+        return f"<span style="color:red">{s}</span>"
+    elif s.startswith("+ "):
+        return f"<span style="color:green">{s}</span>"
+    else:
+        return s
+
+diff = map(reduce_func, diff)
+diff = "\n".join(diff)
+
+print(diff)
+
+"""
+  Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit,
+<span style="color:red">- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+?                                                          ^
+
+<span style="color:green">+ sed do eiusmod tempor incididunt ut labore et dolore magnus aliqua.</span>
+?                                                          ^^
+"""
+```

@@ -1,224 +1,113 @@
-<p>Библиотека <code>subprocess</code> в Python используется для запуска новых процессов, выполнения команд в системе,
+Библиотека `subprocess` в Python используется для запуска новых процессов, выполнения команд в системе,
 а также для управления стандартными потоками ввода, вывода и ошибок.
-Эта библиотека предоставляет мощный интерфейс для взаимодействия с внешними процессами.</p>
-<h1>Основные функции</h1>
-<table>
-<thead>
-<tr>
-<th>Функция</th>
-<th>Описание</th>
-<th>Пример использования</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>subprocess.run()</code></td>
-<td>Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта <code>CompletedProcess</code></td>
-<td><code>result = subprocess.run(["ls", "-l"])</code></td>
-</tr>
-<tr>
-<td><code>subprocess.Popen()</code></td>
-<td>Запускает новый процесс и возвращает объект <code>Popen</code>,<br>который можно использовать для взаимодействия с процессом</td>
-<td><code>process = subprocess.Popen(["ls", "-l"])</code></td>
-</tr>
-<tr>
-<td><code>subprocess.call()</code></td>
-<td>Выполняет команду и возвращает код завершения процесса</td>
-<td><code>return_code = subprocess.call(["ls", "-l"])</code></td>
-</tr>
-<tr>
-<td><code>subprocess.check_call()</code></td>
-<td>Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой</td>
-<td><code>subprocess.check_call(["ls", "-l"])</code></td>
-</tr>
-<tr>
-<td><code>subprocess.check_output()</code></td>
-<td>Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение</td>
-<td><code>output = subprocess.check_output(["ls", "-l"])</code></td>
-</tr>
-<tr>
-<td><code>subprocess.getoutput()</code></td>
-<td>Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия</td>
-<td><code>output = subprocess.getoutput("ls -l")</code></td>
-</tr>
-<tr>
-<td><code>subprocess.getstatusoutput()</code></td>
-<td>Выполняет команду и возвращает кортеж (код завершения, вывод)</td>
-<td><code>status, output = subprocess.getstatusoutput("ls -l")</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Класс Popen</h2>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-<th>Пример использования</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Popen.poll()</code></td>
-<td>Проверяет завершился ли процесс.<br>Возвращает код завершения или <code>None</code>, если процесс ещё выполняется</td>
-<td><code>status = process.poll()</code></td>
-</tr>
-<tr>
-<td><code>Popen.wait()</code></td>
-<td>Ожидает завершения процесса и возвращает код завершения</td>
-<td><code>return_code = process.wait()</code></td>
-</tr>
-<tr>
-<td><code>Popen.communicate()</code></td>
-<td>Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок</td>
-<td><code>stdout, stderr = process.communicate(input_data)</code></td>
-</tr>
-<tr>
-<td><code>Popen.terminate()</code></td>
-<td>Посылает процессу сигнал <code>SIGTERM</code>, запрашивая его завершение</td>
-<td><code>process.terminate()</code></td>
-</tr>
-<tr>
-<td><code>Popen.kill()</code></td>
-<td>Принудительно завершает процесс, посылая сигнал <code>SIGKILL</code></td>
-<td><code>process.kill()</code></td>
-</tr>
-<tr>
-<td><code>Popen.stdin</code></td>
-<td>Стандартный поток ввода процесса (если установлен <code>stdin=subprocess.PIPE</code>)</td>
-<td><code>process.stdin.write(b"data")</code></td>
-</tr>
-<tr>
-<td><code>Popen.stdout</code></td>
-<td>Стандартный поток вывода процесса (если установлен <code>stdout=subprocess.PIPE</code>)</td>
-<td><code>output = process.stdout.read()</code></td>
-</tr>
-<tr>
-<td><code>Popen.stderr</code></td>
-<td>Стандартный поток ошибок процесса (если установлен <code>stderr=subprocess.PIPE</code>)</td>
-<td><code>error_output = process.stderr.read()</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Управление потоками ввода-вывода</h2>
-<p>Пример взаимодействия с процессом через потоки ввода-вывода:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+Эта библиотека предоставляет мощный интерфейс для взаимодействия с внешними процессами.
 
-<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-    <span class="p">[</span><span class="s2">&quot;grep&quot;</span><span class="p">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">],</span>
-    <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
-<span class="p">)</span>
+# Основные функции
 
-<span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;text</span><span class="se">\n</span><span class="s2">pattern</span><span class="se">\n</span><span class="s2">another line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;pattern\n&quot;</span>
-</pre></div></div></div>
+| Функция                        | Описание                                                                                                          | Пример использования                                   |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| `subprocess.run()`             | Выполняет команду, ожидает завершения процесса<br>и возвращает результат в виде объекта `CompletedProcess`        | `result = subprocess.run(["ls", "-l"])`                |
+| `subprocess.Popen()`           | Запускает новый процесс и возвращает объект `Popen`,<br>который можно использовать для взаимодействия с процессом | `process = subprocess.Popen(["ls", "-l"])`             |
+| `subprocess.call()`            | Выполняет команду и возвращает код завершения процесса                                                            | `return_code = subprocess.call(["ls", "-l"])`          |
+| `subprocess.check_call()`      | Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой                                     | `subprocess.check_call(["ls", "-l"])`                  |
+| `subprocess.check_output()`    | Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение              | `output = subprocess.check_output(["ls", "-l"])`       |
+| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия | `output = subprocess.getoutput("ls -l")`               |
+| `subprocess.getstatusoutput()` | Выполняет команду и возвращает кортеж (код завершения, вывод)                                                     | `status, output = subprocess.getstatusoutput("ls -l")` |
 
-<h1>Примеры использования</h1>
-<h3>Простой запуск команды</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+## Класс Popen
 
-<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>
-</pre></div></div></div>
+| Метод                 | Описание                                                                                                   | Пример использования                               |
+|-----------------------|------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| `Popen.poll()`        | Проверяет завершился ли процесс.<br>Возвращает код завершения или `None`, если процесс ещё выполняется     | `status = process.poll()`                          |
+| `Popen.wait()`        | Ожидает завершения процесса и возвращает код завершения                                                    | `return_code = process.wait()`                     |
+| `Popen.communicate()` | Отправляет данные на стандартный ввод процесса<br>и получает данные из стандартного вывода и вывода ошибок | `stdout, stderr = process.communicate(input_data)` |
+| `Popen.terminate()`   | Посылает процессу сигнал `SIGTERM`, запрашивая его завершение                                              | `process.terminate()`                              |
+| `Popen.kill()`        | Принудительно завершает процесс, посылая сигнал `SIGKILL`                                                  | `process.kill()`                                   |
+| `Popen.stdin`         | Стандартный поток ввода процесса (если установлен `stdin=subprocess.PIPE`)                                 | `process.stdin.write(b"data")`                     |
+| `Popen.stdout`        | Стандартный поток вывода процесса (если установлен `stdout=subprocess.PIPE`)                               | `output = process.stdout.read()`                   |
+| `Popen.stderr`        | Стандартный поток ошибок процесса (если установлен `stderr=subprocess.PIPE`)                               | `error_output = process.stderr.read()`             |
 
-<h3>Получение вывода команды</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+## Управление потоками ввода-вывода
 
-<span class="nb">print</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;Hello, World!\n&quot;</span>
-</pre></div></div></div>
+Пример взаимодействия с процессом через потоки ввода-вывода:
 
-<h3>Проверка кода завершения</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+```python
+import subprocess
 
-<span class="k">try</span><span class="p">:</span>
-  <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;false&quot;</span><span class="p">])</span>
-<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Процесс завершился с ошибкой: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+process = subprocess.Popen(
+    ["grep", "pattern"],
+    stdin=subprocess.PIPE,
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE
+)
 
-<h3>Запуск процесса с передачей данных на ввод</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+stdout, stderr = process.communicate(input=b"text\npattern\nanother line\n")
+print(stdout.decode())  # "pattern\n"
+```
 
-<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;cat&quot;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-<span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;Hello, World!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1"># &quot;Hello, World!\n&quot;</span>
-</pre></div></div></div>
+# Примеры использования
 
-<h1>Исключения</h1>
-<table>
-<thead>
-<tr>
-<th>Исключение</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>subprocess.CalledProcessError</code></td>
-<td>Вызывается, если процесс завершился с ненулевым кодом возврата</td>
-</tr>
-<tr>
-<td><code>subprocess.TimeoutExpired</code></td>
-<td>Вызывается, если процесс не завершился в течение указанного времени (используется с <code>timeout</code>)</td>
-</tr>
-<tr>
-<td><code>subprocess.SubprocessError</code></td>
-<td>Базовое исключение для всех исключений, связанных с <code>subprocess</code></td>
-</tr>
-</tbody>
-</table>
-<h1>Полезные параметры</h1>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>stdin</code></td>
-<td>Определяет источник стандартного ввода процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
-</tr>
-<tr>
-<td><code>stdout</code></td>
-<td>Определяет место, куда будет направлен стандартный вывод процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
-</tr>
-<tr>
-<td><code>stderr</code></td>
-<td>Определяет место, куда будет направлен стандартный поток ошибок процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
-</tr>
-<tr>
-<td><code>shell</code></td>
-<td>Если <code>True</code>, команда будет выполнена через оболочку (shell). Будьте осторожны, так как это может быть небезопасно</td>
-</tr>
-<tr>
-<td><code>cwd</code></td>
-<td>Устанавливает текущий рабочий каталог для процесса</td>
-</tr>
-<tr>
-<td><code>env</code></td>
-<td>Определяет переменные окружения для процесса</td>
-</tr>
-<tr>
-<td><code>universal_newlines</code></td>
-<td>Если <code>True</code>, ввод-вывод будет интерпретироваться как текст (строки), а не байты</td>
-</tr>
-<tr>
-<td><code>timeout</code></td>
-<td>Определяет максимальное время ожидания завершения процесса, после чего будет вызвано исключение <code>TimeoutExpired</code></td>
-</tr>
-</tbody>
-</table>
-<h1>Советы по безопасности</h1>
-<ol>
-<li><strong>Избегайте использования <code>shell=True</code></strong>, особенно с данными, полученными от пользователя, так как это может привести к уязвимостям типа <code>shell injection</code>.</li>
-<li><strong>Используйте абсолютные пути</strong> к командам для повышения безопасности и предсказуемости поведения скрипта.</li>
-<li><strong>Управляйте таймаутами</strong> для долгих процессов с помощью параметра <code>timeout</code>.</li>
-</ol>
-<h1>Полезные ссылки</h1>
-<ul>
-<li><a href="https://docs.python.org/3/library/subprocess.html">Официальная документация</a></li>
-<li><a href="https://realpython.com/python-subprocess/">Real Python - Guide to Subprocess</a></li>
-</ul>
+### Простой запуск команды
+```python
+import subprocess
+
+subprocess.run(["ls", "-l"])
+```
+
+### Получение вывода команды
+```python
+import subprocess
+
+print(subprocess.check_output(["echo", "Hello, World!"]).decode())  # "Hello, World!\n"
+```
+
+### Проверка кода завершения
+```python
+import subprocess
+
+try:
+  subprocess.check_call(["false"])
+except subprocess.CalledProcessError as e:
+  print(f"Процесс завершился с ошибкой: {e.returncode}")
+```
+
+### Запуск процесса с передачей данных на ввод
+```python
+import subprocess
+
+process = subprocess.Popen(["cat"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+stdout, _ = process.communicate(input=b"Hello, World!\n")
+print(stdout.decode())  # "Hello, World!\n"
+```
+
+# Исключения
+
+| Исключение                      | Описание                                                                                       |
+|---------------------------------|------------------------------------------------------------------------------------------------|
+| `subprocess.CalledProcessError` | Вызывается, если процесс завершился с ненулевым кодом возврата                                 |
+| `subprocess.TimeoutExpired`     | Вызывается, если процесс не завершился в течение указанного времени (используется с `timeout`) |
+| `subprocess.SubprocessError`    | Базовое исключение для всех исключений, связанных с `subprocess`                               |
+
+# Полезные параметры
+
+| Параметр             | Описание                                                                                                                            |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `stdin`              | Определяет источник стандартного ввода процесса (например, `subprocess.PIPE`, `None`, или файловый объект)                          |
+| `stdout`             | Определяет место, куда будет направлен стандартный вывод процесса (например, `subprocess.PIPE`, `None`, или файловый объект)        |
+| `stderr`             | Определяет место, куда будет направлен стандартный поток ошибок процесса (например, `subprocess.PIPE`, `None`, или файловый объект) |
+| `shell`              | Если `True`, команда будет выполнена через оболочку (shell). Будьте осторожны, так как это может быть небезопасно                   |
+| `cwd`                | Устанавливает текущий рабочий каталог для процесса                                                                                  |
+| `env`                | Определяет переменные окружения для процесса                                                                                        |
+| `universal_newlines` | Если `True`, ввод-вывод будет интерпретироваться как текст (строки), а не байты                                                     |
+| `timeout`            | Определяет максимальное время ожидания завершения процесса, после чего будет вызвано исключение `TimeoutExpired`                    |
+
+# Советы по безопасности
+
+1. **Избегайте использования `shell=True`**, особенно с данными, полученными от пользователя, так как это может привести к уязвимостям типа `shell injection`.
+2. **Используйте абсолютные пути** к командам для повышения безопасности и предсказуемости поведения скрипта.
+3. **Управляйте таймаутами** для долгих процессов с помощью параметра `timeout`.
+
+# Полезные ссылки
+
+- [Официальная документация](https://docs.python.org/3/library/subprocess.html)
+- [Real Python - Guide to Subprocess](https://realpython.com/python-subprocess/)

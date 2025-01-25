@@ -1,104 +1,112 @@
-<h1>Visitor (Посетитель)</h1>
-<p><strong>Описание</strong>: Позволяет добавлять новые операции к объектам без изменения их классов.
-Определяет операцию, которая может быть выполнена для каждого элемента структуры объектов.</p>
-<p><strong>Когда использовать</strong>: Когда нужно выполнять операции над элементами структуры объектов, не изменяя сами элементы.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Element</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="k">pass</span>
+# Visitor (Посетитель)
 
-<span class="k">class</span> <span class="nc">Visitor</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">visit_concrete_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">pass</span>
+**Описание**: Позволяет добавлять новые операции к объектам без изменения их классов.
+Определяет операцию, которая может быть выполнена для каждого элемента структуры объектов.
 
-    <span class="k">def</span> <span class="nf">visit_concrete_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">pass</span>
+**Когда использовать**: Когда нужно выполнять операции над элементами структуры объектов, не изменяя сами элементы.
 
-<span class="k">class</span> <span class="nc">ConcreteElementA</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="n">visitor</span><span class="o">.</span><span class="n">visit_concrete_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+```python
+class Element:
+    def accept(self, visitor):
+        pass
 
-<span class="k">class</span> <span class="nc">ConcreteElementB</span><span class="p">(</span><span class="n">Element</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="n">visitor</span><span class="o">.</span><span class="n">visit_concrete_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+class Visitor:
+    def visit_concrete_element_a(self, element):
+        pass
 
-<span class="k">class</span> <span class="nc">ConcreteVisitor</span><span class="p">(</span><span class="n">Visitor</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">visit_concrete_element_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;Visited ConcreteElementA&quot;</span>
+    def visit_concrete_element_b(self, element):
+        pass
 
-    <span class="k">def</span> <span class="nf">visit_concrete_element_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;Visited ConcreteElementB&quot;</span>
+class ConcreteElementA(Element):
+    def accept(self, visitor):
+        visitor.visit_concrete_element_a(self)
 
+class ConcreteElementB(Element):
+    def accept(self, visitor):
+        visitor.visit_concrete_element_b(self)
 
-<span class="n">element_a</span> <span class="o">=</span> <span class="n">ConcreteElementA</span><span class="p">()</span>
-<span class="n">element_b</span> <span class="o">=</span> <span class="n">ConcreteElementB</span><span class="p">()</span>
-<span class="n">visitor</span> <span class="o">=</span> <span class="n">ConcreteVisitor</span><span class="p">()</span>
+class ConcreteVisitor(Visitor):
+    def visit_concrete_element_a(self, element):
+        return "Visited ConcreteElementA"
 
-<span class="nb">print</span><span class="p">(</span><span class="n">visitor</span><span class="o">.</span><span class="n">visit_concrete_element_a</span><span class="p">(</span><span class="n">element_a</span><span class="p">))</span>  <span class="c1"># Visited ConcreteElementA</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">visitor</span><span class="o">.</span><span class="n">visit_concrete_element_b</span><span class="p">(</span><span class="n">element_b</span><span class="p">))</span>  <span class="c1"># Visited ConcreteElementB</span>
-</pre></div></div></div>
-
-<h2>Example</h2>
-<p>Предположим, у нас есть разные типы документов: PDFDocument и WordDocument.
-Мы хотим добавить операцию экспорта в разные форматы (например, в HTML), не изменяя сами классы документов.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+    def visit_concrete_element_b(self, element):
+        return "Visited ConcreteElementB"
 
 
-<span class="k">class</span> <span class="nc">Document</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="k">pass</span>
+element_a = ConcreteElementA()
+element_b = ConcreteElementB()
+visitor = ConcreteVisitor()
 
-<span class="k">class</span> <span class="nc">PDFDocument</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="n">visitor</span><span class="o">.</span><span class="n">visit_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+print(visitor.visit_concrete_element_a(element_a))  # Visited ConcreteElementA
+print(visitor.visit_concrete_element_b(element_b))  # Visited ConcreteElementB
+```
 
-    <span class="k">def</span> <span class="nf">pdf_specific_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;PDF content&quot;</span>
+## Example
 
-<span class="k">class</span> <span class="nc">WordDocument</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
-        <span class="n">visitor</span><span class="o">.</span><span class="n">visit_word</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+Предположим, у нас есть разные типы документов: PDFDocument и WordDocument.
+Мы хотим добавить операцию экспорта в разные форматы (например, в HTML), не изменяя сами классы документов.
 
-    <span class="k">def</span> <span class="nf">word_specific_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;Word content&quot;</span>
-
-<span class="k">class</span> <span class="nc">Visitor</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">visit_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdf_doc</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">visit_word</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_doc</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-<span class="k">class</span> <span class="nc">ExportToHTMLVisitor</span><span class="p">(</span><span class="n">Visitor</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">visit_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdf_doc</span><span class="p">):</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">pdf_doc</span><span class="o">.</span><span class="n">pdf_specific_operation</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting PDF to HTML: </span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">visit_word</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word_doc</span><span class="p">):</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">word_doc</span><span class="o">.</span><span class="n">word_specific_operation</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exporting Word to HTML: </span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+```python
+from abc import ABC, abstractmethod
 
 
-<span class="n">pdf_doc</span> <span class="o">=</span> <span class="n">PDFDocument</span><span class="p">()</span>
-<span class="n">word_doc</span> <span class="o">=</span> <span class="n">WordDocument</span><span class="p">()</span>
+class Document(ABC):
+    @abstractmethod
+    def accept(self, visitor):
+        pass
 
-<span class="n">visitor</span> <span class="o">=</span> <span class="n">ExportToHTMLVisitor</span><span class="p">()</span>
+class PDFDocument(Document):
+    def accept(self, visitor):
+        visitor.visit_pdf(self)
 
-<span class="n">pdf_doc</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
-<span class="n">word_doc</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
-</pre></div></div></div>
+    def pdf_specific_operation(self):
+        return "PDF content"
 
-<h3>Как это работает на практике</h3>
-<ul>
-<li><strong>Минимальные изменения в классах объектов</strong>: Единственное, что требуется добавить в классы, — это метод <code>accept</code>.
+class WordDocument(Document):
+    def accept(self, visitor):
+        visitor.visit_word(self)
+
+    def word_specific_operation(self):
+        return "Word content"
+
+class Visitor(ABC):
+    @abstractmethod
+    def visit_pdf(self, pdf_doc):
+        pass
+
+    @abstractmethod
+    def visit_word(self, word_doc):
+        pass
+
+class ExportToHTMLVisitor(Visitor):
+    def visit_pdf(self, pdf_doc):
+        content = pdf_doc.pdf_specific_operation()
+        print(f"Exporting PDF to HTML: {content}")
+
+    def visit_word(self, word_doc):
+        content = word_doc.word_specific_operation()
+        print(f"Exporting Word to HTML: {content}")
+
+
+pdf_doc = PDFDocument()
+word_doc = WordDocument()
+
+visitor = ExportToHTMLVisitor()
+
+pdf_doc.accept(visitor)
+word_doc.accept(visitor)
+```
+
+
+### Как это работает на практике
+
+- **Минимальные изменения в классах объектов**: Единственное, что требуется добавить в классы, — это метод `accept`.
 Это небольшое изменение открывает возможность для множества новых операций (посетителей). Все остальное остается неизменным.
 Это ограничение паттерна: чтобы объект мог взаимодействовать с посетителем,
-он должен поддерживать механизм "принятия" посетителя через метод <code>accept</code>.</li>
-<li><strong>Легкость добавления новых операций</strong>: Если требуется добавить новую операцию, нужно просто создать нового посетителя,
+он должен поддерживать механизм "принятия" посетителя через метод `accept`.
+- **Легкость добавления новых операций**: Если требуется добавить новую операцию, нужно просто создать нового посетителя,
 реализующего эту операцию. Сами классы объектов при этом не меняются.
-Это и есть суть паттерна <code>Visitor</code> — отделение алгоритма от структуры данных.</li>
-</ul>
-<p>Это позволяет разделить ответственность: сами классы объектов отвечают за свои данные и базовое поведение,
-а все дополнительные операции выносятся в посетителей.</p>
+Это и есть суть паттерна `Visitor` — отделение алгоритма от структуры данных.
+
+Это позволяет разделить ответственность: сами классы объектов отвечают за свои данные и базовое поведение,
+а все дополнительные операции выносятся в посетителей.

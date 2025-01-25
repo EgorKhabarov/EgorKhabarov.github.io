@@ -1,83 +1,22 @@
-<p>Приоритетность операторов от высокой до самой низкой.</p>
-<table>
-<thead>
-<tr>
-<th>Операторы</th>
-<th>Применение</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{}</code> <code>()</code></td>
-<td>Скобки (объединение)</td>
-</tr>
-<tr>
-<td><code>f(args)</code></td>
-<td>Вызов функции</td>
-</tr>
-<tr>
-<td><code>x[index:index]</code></td>
-<td>Срез</td>
-</tr>
-<tr>
-<td><code>x[index]</code></td>
-<td>Получение по индексу</td>
-</tr>
-<tr>
-<td><code>x.attribute</code></td>
-<td>Ссылка на атрибут</td>
-</tr>
-<tr>
-<td><code>**</code></td>
-<td>Возведение в степень</td>
-</tr>
-<tr>
-<td><code>~x</code> <code>+x</code> <code>-x</code></td>
-<td>Положительное, отрицательное число</td>
-</tr>
-<tr>
-<td><code>*</code> <code>/</code> <code>//</code> <code>%</code></td>
-<td>Умножение, деление, остаток</td>
-</tr>
-<tr>
-<td><code>+</code> <code>—</code></td>
-<td>Сложение, вычитание</td>
-</tr>
-<tr>
-<td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
-<td>Сдвиг влево/вправо</td>
-</tr>
-<tr>
-<td><code>&amp;</code></td>
-<td>Побитовое <strong>И</strong></td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>Побитовое <strong>ИЛИ</strong> <strong>НЕ</strong></td>
-</tr>
-<tr>
-<td><code>|</code></td>
-<td>Побитовое <strong>ИЛИ</strong></td>
-</tr>
-<tr>
-<td><code>in</code> <code>not in</code> <code>is</code> <code>is not</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>&lt;&gt;</code> <code>!=</code> <code>==</code></td>
-<td>Сравнение, принадлежность, тождественность</td>
-</tr>
-<tr>
-<td><code>not</code></td>
-<td>Булево <strong>НЕ</strong></td>
-</tr>
-<tr>
-<td><code>and</code></td>
-<td>Булево <strong>И</strong></td>
-</tr>
-<tr>
-<td><code>or</code></td>
-<td>Булево <strong>ИЛИ</strong></td>
-</tr>
-<tr>
-<td><code>lambda</code></td>
-<td>Лямбда-выражение</td>
-</tr>
-</tbody>
-</table>
+Приоритетность операторов от высокой до самой низкой.
+
+| Операторы                                                    | Применение                                 |
+|--------------------------------------------------------------|--------------------------------------------|
+| `{}` `()`                                                    | Скобки (объединение)                       |
+| `f(args)`                                                    | Вызов функции                              |
+| `x[index:index]`                                             | Срез                                       |
+| `x[index]`                                                   | Получение по индексу                       |
+| `x.attribute`                                                | Ссылка на атрибут                          |
+| `**`                                                         | Возведение в степень                       |
+| `~x` `+x` `-x`                                               | Положительное, отрицательное число         |
+| `*` `/` `//` `%`                                             | Умножение, деление, остаток                |
+| `+` `—`                                                      | Сложение, вычитание                        |
+| `<<` `>>`                                                    | Сдвиг влево/вправо                         |
+| `&`                                                          | Побитовое **И**                            |
+| `^`                                                          | Побитовое **ИЛИ** **НЕ**                   |
+| `|`                                                          | Побитовое **ИЛИ**                          |
+| `in` `not in` `is` `is not` `<` `<=` `>` `>=` `<>` `!=` `==` | Сравнение, принадлежность, тождественность |
+| `not`                                                        | Булево **НЕ**                              |
+| `and`                                                        | Булево **И**                               |
+| `or`                                                         | Булево **ИЛИ**                             |
+| `lambda`                                                     | Лямбда-выражение                           |

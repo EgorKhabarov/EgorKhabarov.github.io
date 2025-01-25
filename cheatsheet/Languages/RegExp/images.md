@@ -1,3 +1,3 @@
-<p><img alt="regexp.png" src="Languages/RegExp/regexp.png" />
-<img alt="to template.png" src="Languages/RegExp/to template.png" />
-<img alt="lookaround.png" src="Languages/RegExp/lookaround.png" /></p>
+![regexp.png](Languages/RegExp/regexp.png)
+![to template.png](Languages/RegExp/to template.png)
+![lookaround.png](Languages/RegExp/lookaround.png)

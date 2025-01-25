@@ -1,45 +1,48 @@
-<h3>Facade (Фасад)</h3>
-<p>Паттерн Фасад предоставляет унифицированный интерфейс к набору интерфейсов в подсистеме, упрощая использование сложных систем.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CPU</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">freeze</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freezing CPU&quot;</span><span class="p">)</span>
+### Facade (Фасад)
 
-    <span class="k">def</span> <span class="nf">jump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumping to </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+Паттерн Фасад предоставляет унифицированный интерфейс к набору интерфейсов в подсистеме, упрощая использование сложных систем.
 
-    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Executing instructions&quot;</span><span class="p">)</span>
+```python
+class CPU:
+    def freeze(self):
+        print("Freezing CPU")
 
+    def jump(self, position):
+        print(f"Jumping to {position}")
 
-<span class="k">class</span> <span class="nc">Memory</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading data from </span><span class="si">{</span><span class="n">position</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    def execute(self):
+        print("Executing instructions")
 
 
-<span class="k">class</span> <span class="nc">HardDrive</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lba</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reading </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2"> bytes from LBA </span><span class="si">{</span><span class="n">lba</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">&quot;data&quot;</span>
+class Memory:
+    def load(self, position, data):
+        print(f"Loading data from {position} to {data}")
 
 
-<span class="k">class</span> <span class="nc">ComputerFacade</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span> <span class="o">=</span> <span class="n">CPU</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hard_drive</span> <span class="o">=</span> <span class="n">HardDrive</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">freeze</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hard_drive</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">4096</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">jump</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cpu</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+class HardDrive:
+    def read(self, lba, size):
+        print(f"Reading {size} bytes from LBA {lba}")
+        return "data"
 
 
-<span class="n">computer</span> <span class="o">=</span> <span class="n">ComputerFacade</span><span class="p">()</span>
-<span class="n">computer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<span class="c1"># Freezing CPU</span>
-<span class="c1"># Reading 4096 bytes from LBA 1024</span>
-<span class="c1"># Loading data from 0 to data</span>
-<span class="c1"># Jumping to 0</span>
-<span class="c1"># Executing instructions</span>
-</pre></div></div></div>
+class ComputerFacade:
+    def __init__(self):
+        self.cpu = CPU()
+        self.memory = Memory()
+        self.hard_drive = HardDrive()
+
+    def start(self):
+        self.cpu.freeze()
+        self.memory.load(0, self.hard_drive.read(1024, 4096))
+        self.cpu.jump(0)
+        self.cpu.execute()
+
+
+computer = ComputerFacade()
+computer.start()
+# Freezing CPU
+# Reading 4096 bytes from LBA 1024
+# Loading data from 0 to data
+# Jumping to 0
+# Executing instructions
+```

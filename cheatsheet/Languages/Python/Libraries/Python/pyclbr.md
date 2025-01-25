@@ -1,72 +1,60 @@
-<p>Библиотека "pyclbr" в Python используется для анализа и чтения исходного кода классов и функций в модуле.
-Она позволяет получить информацию о структуре программы, такую как классы, методы, атрибуты и их связи.</p>
-<p>Таблица методов модуля "pyclbr" и его подмодулей:</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>readmodule()</code></td>
-<td>Читает и анализирует модуль, возвращая словарь классов и функций.</td>
-</tr>
-<tr>
-<td><code>readmodule_ex()</code></td>
-<td>Похож на <code>readmodule()</code>, но также возвращает дополнительную информацию о модуле.</td>
-</tr>
-<tr>
-<td><code>Class</code></td>
-<td>Класс, представляющий отдельный класс из исходного кода.</td>
-</tr>
-<tr>
-<td><code>Function</code></td>
-<td>Класс, представляющий отдельную функцию из исходного кода.</td>
-</tr>
-<tr>
-<td><code>Module</code></td>
-<td>Класс, представляющий модуль и его структуру.</td>
-</tr>
-</tbody>
-</table>
-<p><code>readmodule()</code> Читает и анализирует модуль, возвращая словарь классов и функций.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+Библиотека "pyclbr" в Python используется для анализа и чтения исходного кода классов и функций в модуле.
+Она позволяет получить информацию о структуре программы, такую как классы, методы, атрибуты и их связи.
 
-<span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">readmodule</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
+Таблица методов модуля "pyclbr" и его подмодулей:
 
-<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+   Метод              | Описание
+   ------------------ | -------------------------------------------------------
+   `readmodule()`     | Читает и анализирует модуль, возвращая словарь классов и функций.
+   `readmodule_ex()`  | Похож на `readmodule()`, но также возвращает дополнительную информацию о модуле.
+   `Class`            | Класс, представляющий отдельный класс из исходного кода.
+   `Function`         | Класс, представляющий отдельную функцию из исходного кода.
+   `Module`           | Класс, представляющий модуль и его структуру.
 
-<p><code>Class</code> Класс, представляющий отдельный класс из исходного кода.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+`readmodule()` Читает и анализирует модуль, возвращая словарь классов и функций.
 
-<span class="n">class_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Class</span><span class="p">(</span><span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
+```python
+import pyclbr
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+module_data = pyclbr.readmodule("module_name")
 
-<p><code>Function</code> Класс, представляющий отдельную функцию из исходного кода.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+for class_name, class_data in module_data.items():
+    print(f"Class: {class_name}")
+    for method_name, method_data in class_data.methods.items():
+        print(f"Method: {method_name}")
+```
 
-<span class="n">function_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s2">&quot;function_name&quot;</span><span class="p">)</span>
+`Class` Класс, представляющий отдельный класс из исходного кода.
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Function: </span><span class="si">{</span><span class="n">function_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Start line: </span><span class="si">{</span><span class="n">function_data</span><span class="o">.</span><span class="n">lineno</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+```python
+import pyclbr
 
-<p><code>Module</code> Класс, представляющий модуль и его структуру.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclbr</span>
+class_data = pyclbr.Class("class_name")
 
-<span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Module</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
+print(f"Class: {class_data.name}")
+for method_name, method_data in class_data.methods.items():
+    print(f"Method: {method_name}")
+```
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Module: </span><span class="si">{</span><span class="n">module_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+`Function` Класс, представляющий отдельную функцию из исходного кода.
+
+```python
+import pyclbr
+
+function_data = pyclbr.Function("function_name")
+
+print(f"Function: {function_data.name}")
+print(f"Start line: {function_data.lineno}")
+```
+
+`Module` Класс, представляющий модуль и его структуру.
+
+```python
+import pyclbr
+
+module_data = pyclbr.Module("module_name")
+
+print(f"Module: {module_data.name}")
+for class_name, class_data in module_data.classes.items():
+    print(f"Class: {class_name}")
+```

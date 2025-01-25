@@ -1,1 +1,1 @@
-<p>StringBuffer synchronized // заставляет ждать остальные потоки</p>
+StringBuffer synchronized // заставляет ждать остальные потоки

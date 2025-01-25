@@ -1,67 +1,75 @@
-<p>from decimal import Decimal</p>
-<p>Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double.
+from decimal import Decimal
+
+Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double.
 Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений.
-Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.</p>
-<p>Класс Decimal
-Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.
 
-<span class="c1"># Создание десятичного числа</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.5&quot;</span><span class="p">)</span>
+Класс Decimal
+Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i
 
-<span class="c1"># Арифметические операции</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># 12.5</span>
-<span class="n">a</span> <span class="o">-</span> <span class="n">b</span>  <span class="c1"># 8.5</span>
-<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>  <span class="c1"># 21.0</span>
-<span class="n">a</span> <span class="o">/</span> <span class="n">b</span>  <span class="c1"># 5.25</span>
+```python
+from decimal import Decimal
 
-<span class="c1"># Округление</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">))</span>  <span class="c1"># 10.50</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">))</span>   <span class="c1"># 10.5</span>
+# Создание десятичного числа
+a = Decimal("10.5")
 
-<span class="c1"># Преобразование в разные форматы</span>
-<span class="n">a</span><span class="o">.</span><span class="n">to_eng_string</span><span class="p">()</span>     <span class="c1"># &quot;10.5&quot;</span>
-<span class="n">a</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>  <span class="c1"># (21, 2)</span>
-</pre></div></div></div>
+# Арифметические операции
+b = Decimal("2")
+a + b  # 12.5
+a - b  # 8.5
+a * b  # 21.0
+a / b  # 5.25
 
-<p>Класс Context
-Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">Context</span>
+# Округление
+a.quantize(Decimal("1.00"))  # 10.50
+a.quantize(Decimal("0.1"))   # 10.5
 
-<span class="c1"># Создание контекста округления</span>
-<span class="n">ctx</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">prec</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>
+# Преобразование в разные форматы
+a.to_eng_string()     # "10.5"
+a.as_integer_ratio()  # (21, 2)
+```
 
-<span class="c1"># Создание десятичного числа с использованием контекста</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.5&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+Класс Context
+Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:
 
-<span class="c1"># Арифметические операции с использованием контекста</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+```python
+from decimal import Decimal, Context
 
-<span class="c1"># Округление с использованием контекста</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-</pre></div></div></div>
+# Создание контекста округления
+ctx = Context(prec=3, rounding=ROUND_HALF_UP)
 
-<p>Функции округления
-Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">ROUND_HALF_UP</span><span class="p">,</span> <span class="n">ROUND_HALF_DOWN</span><span class="p">,</span> <span class="n">ROUND_CEILING</span><span class="p">,</span> <span class="n">ROUND_FLOOR</span>
+# Создание десятичного числа с использованием контекста
+a = Decimal("10.5", context=ctx)
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.555&quot;</span><span class="p">)</span>
+# Арифметические операции с использованием контекста
+b = Decimal("2", context=ctx)
+c = a + b
+d = a - b
+e = a * b
+f = a / b
 
-<span class="c1"># Округление до двух знаков с округлением до ближайшего</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 10.56</span>
+# Округление с использованием контекста
+g = a.quantize(Decimal("1.00"), context=ctx)
+h = a.quantize(Decimal("0.1"), context=ctx)
+```
 
-<span class="c1"># Округление до двух знаков с округлением в меньшую сторону</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_FLOOR</span><span class="p">)</span>  <span class="c1"># 10.55</span>
+Функции округления
+Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:
 
-<span class="c1"># Округление до целого числа, округление до ближайшего</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 11</span>
+```python
+from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_DOWN, ROUND_CEILING, ROUND_FLOOR
 
-<span class="c1"># Округление до целого числа, округление в большую сторону</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_CEILING</span><span class="p">)</span>  <span class="c1"># 11</span>
-</pre></div></div></div>
+a = Decimal("10.555")
+
+# Округление до двух знаков с округлением до ближайшего
+a.quantize(Decimal("1.00"), rounding=ROUND_HALF_UP)  # 10.56
+
+# Округление до двух знаков с округлением в меньшую сторону
+a.quantize(Decimal("1.00"), rounding=ROUND_FLOOR)  # 10.55
+
+# Округление до целого числа, округление до ближайшего
+a.quantize(Decimal("1"), rounding=ROUND_HALF_UP)  # 11
+
+# Округление до целого числа, округление в большую сторону
+a.quantize(Decimal("1"), rounding=ROUND_CEILING)  # 11
+```

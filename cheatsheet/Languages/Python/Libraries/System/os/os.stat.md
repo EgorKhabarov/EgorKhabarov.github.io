@@ -1,127 +1,81 @@
-<p>Функция <code>os.stat()</code> используется для получения информации о файле или каталоге по его пути.
-Она возвращает объект <code>os.stat_result</code>, который содержит различные атрибуты, описывающие состояние файла.</p>
-<h1>Синтаксис</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dir_fd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">follow_symlinks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div></div></div>
+Функция `os.stat()` используется для получения информации о файле или каталоге по его пути.
+Она возвращает объект `os.stat_result`, который содержит различные атрибуты, описывающие состояние файла.
 
-<h1>Параметры</h1>
-<ul>
-<li><code>path</code> - Путь к файлу или директории. Может быть как абсолютным, так и относительным</li>
-<li><code>dir_fd</code> - Дескриптор каталога; если задан, <code>path</code> интерпретируется как относительный путь относительно этого каталога</li>
-<li><code>follow_symlinks</code> - Указывает, нужно ли следовать символическим ссылкам</li>
-</ul>
-<h1>Возвращаемый объект <code>os.stat_result</code></h1>
-<p>Результат вызова <code>os.stat()</code> — объект <code>os.stat_result</code>, который является кортежем с именованными полями:</p>
-<table>
-<thead>
-<tr>
-<th>Атрибут</th>
-<th>Описание</th>
-<th><strong>Пример значения</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>st_mode</code></td>
-<td>Флаг режима файла, включая тип файла и права доступа</td>
-<td><code>33188</code> (файл)</td>
-</tr>
-<tr>
-<td><code>st_ino</code></td>
-<td>Номер inode (индексного дескриптора) файла</td>
-<td><code>12345678</code></td>
-</tr>
-<tr>
-<td><code>st_dev</code></td>
-<td>Идентификатор устройства, на котором расположен файл</td>
-<td><code>2049</code></td>
-</tr>
-<tr>
-<td><code>st_nlink</code></td>
-<td>Количество жестких ссылок на файл</td>
-<td><code>1</code></td>
-</tr>
-<tr>
-<td><code>st_uid</code></td>
-<td>Идентификатор пользователя (UID) владельца файла</td>
-<td><code>1000</code></td>
-</tr>
-<tr>
-<td><code>st_gid</code></td>
-<td>Идентификатор группы (GID) владельца файла</td>
-<td><code>1000</code></td>
-</tr>
-<tr>
-<td><code>st_size</code></td>
-<td>Размер файла в байтах</td>
-<td><code>1024</code></td>
-</tr>
-<tr>
-<td><code>st_atime</code></td>
-<td>Время последнего доступа к файлу в секундах с начала эпохи Unix</td>
-<td><code>1609459200.0</code></td>
-</tr>
-<tr>
-<td><code>st_mtime</code></td>
-<td>Время последней модификации файла в секундах с начала эпохи Unix</td>
-<td><code>1609459200.0</code></td>
-</tr>
-<tr>
-<td><code>st_ctime</code></td>
-<td>Время изменения метаданных файла или создания файла (на Windows)</td>
-<td><code>1609459200.0</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Пример использования</h2>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">time</span>
+# Синтаксис
+```python
+os.stat(path, *, dir_fd=None, follow_symlinks=True)
+```
+
+# Параметры
+- `path` - Путь к файлу или директории. Может быть как абсолютным, так и относительным
+- `dir_fd` - Дескриптор каталога; если задан, `path` интерпретируется как относительный путь относительно этого каталога
+- `follow_symlinks` - Указывает, нужно ли следовать символическим ссылкам
+
+# Возвращаемый объект `os.stat_result`
+Результат вызова `os.stat()` — объект `os.stat_result`, который является кортежем с именованными полями:
+
+| Атрибут    | Описание                                                         | **Пример значения** |
+|------------|------------------------------------------------------------------|---------------------|
+| `st_mode`  | Флаг режима файла, включая тип файла и права доступа             | `33188` (файл)      |
+| `st_ino`   | Номер inode (индексного дескриптора) файла                       | `12345678`          |
+| `st_dev`   | Идентификатор устройства, на котором расположен файл             | `2049`              |
+| `st_nlink` | Количество жестких ссылок на файл                                | `1`                 |
+| `st_uid`   | Идентификатор пользователя (UID) владельца файла                 | `1000`              |
+| `st_gid`   | Идентификатор группы (GID) владельца файла                       | `1000`              |
+| `st_size`  | Размер файла в байтах                                            | `1024`              |
+| `st_atime` | Время последнего доступа к файлу в секундах с начала эпохи Unix  | `1609459200.0`      |
+| `st_mtime` | Время последней модификации файла в секундах с начала эпохи Unix | `1609459200.0`      |
+| `st_ctime` | Время изменения метаданных файла или создания файла (на Windows) | `1609459200.0`      |
+
+## Пример использования
+```python
+import os
+import time
 
 
-<span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">)</span>
+stat_info = os.stat("example.txt")
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Размер файла: </span><span class="si">{</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_size</span><span class="si">}</span><span class="s2"> байт&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Последний доступ: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_atime</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Последняя модификация: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Права доступа: </span><span class="si">{</span><span class="nb">oct</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+print(f"Размер файла: {stat_info.st_size} байт")
+print(f"Последний доступ: {time.ctime(stat_info.st_atime)}")
+print(f"Последняя модификация: {time.ctime(stat_info.st_mtime)}")
+print(f"Права доступа: {oct(stat_info.st_mode)}")
+```
 
-<h1>Полезные функции для анализа <code>st_mode</code></h1>
-<p>Флаг <code>st_mode</code> может содержать информацию о правах доступа и типе файла.
-Для упрощения анализа можно использовать следующие функции из модуля <a target="_self" href="?Languages/Python/Libraries/System/stat" class="wikilink">stat</a>:</p>
-<ul>
-<li><code>stat.S_ISDIR(mode)</code> - Проверяет, является ли файл директорией</li>
-<li><code>stat.S_ISREG(mode)</code> - Проверяет, является ли файл обычным файлом</li>
-<li><code>stat.S_IMODE(mode)</code> - Возвращает права доступа в формате <code>0777</code></li>
-</ul>
-<h2>Пример использования функций из <code>stat</code></h2>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">stat</span>
+# Полезные функции для анализа `st_mode`
+Флаг `st_mode` может содержать информацию о правах доступа и типе файла.
+Для упрощения анализа можно использовать следующие функции из модуля [[Languages/Python/Libraries/System/stat]]:
 
-<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;example.txt&quot;</span>
-<span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+- `stat.S_ISDIR(mode)` - Проверяет, является ли файл директорией
+- `stat.S_ISREG(mode)` - Проверяет, является ли файл обычным файлом
+- `stat.S_IMODE(mode)` - Возвращает права доступа в формате `0777`
 
-<span class="k">if</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_ISDIR</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это директория.&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_ISREG</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это обычный файл.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это другой тип файла.&quot;</span><span class="p">)</span>
+## Пример использования функций из `stat`
+```python
+import os
+import stat
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Права доступа: </span><span class="si">{</span><span class="nb">oct</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">S_IMODE</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+path = "example.txt"
+stat_info = os.stat(path)
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size of file:&quot;</span><span class="p">,</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last accessed time:&quot;</span><span class="p">,</span> <span class="n">stat_info</span><span class="o">.</span><span class="n">st_atime</span><span class="p">)</span>
-</pre></div></div></div>
+if stat.S_ISDIR(stat_info.st_mode):
+    print(f"{path} — это директория.")
+elif stat.S_ISREG(stat_info.st_mode):
+    print(f"{path} — это обычный файл.")
+else:
+    print(f"{path} — это другой тип файла.")
 
-<h3>Частые применения</h3>
-<ol>
-<li>Проверка размера файла — чтобы убедиться, что файл не пустой или не превышает определенного размера</li>
-<li>Проверка прав доступа — для проверки или изменения прав доступа перед выполнением операций над файлом</li>
-<li>Анализ времени изменения файла — для выполнения действий на основе того, как давно файл был изменен</li>
-</ol>
-<h1>Полезные ссылки</h1>
-<ul>
-<li><a href="https://docs.python.org/3/library/os.html#os.stat">Официальная документация os.stat</a></li>
-<li><a href="https://docs.python.org/3/library/stat.html">Документация модуля stat</a></li>
-</ul>
+print(f"Права доступа: {oct(stat.S_IMODE(stat_info.st_mode))}")
+
+print("Size of file:", stat_info.st_size)
+print("Last accessed time:", stat_info.st_atime)
+```
+
+
+### Частые применения
+1. Проверка размера файла — чтобы убедиться, что файл не пустой или не превышает определенного размера
+2. Проверка прав доступа — для проверки или изменения прав доступа перед выполнением операций над файлом
+3. Анализ времени изменения файла — для выполнения действий на основе того, как давно файл был изменен
+
+# Полезные ссылки
+- [Официальная документация os.stat](https://docs.python.org/3/library/os.html#os.stat)
+- [Документация модуля stat](https://docs.python.org/3/library/stat.html)

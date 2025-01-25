@@ -1,6 +1,7 @@
 <h1>egorkhabarov.github.io/cheatsheet</h1>
 
-<p><a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="cheatsheet_badge.svg"/></a></p>
+<a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="cheatsheet_badge.svg"/></a>
+
 <table><thead><tr><th style="text-align: center;">Icon</th><th style="text-align: left;">Description</th></tr></thead><tbody>
 
 <tr><td style="text-align: center;"><svg class="yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd">

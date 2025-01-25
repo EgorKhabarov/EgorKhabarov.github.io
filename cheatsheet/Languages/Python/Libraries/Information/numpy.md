@@ -1,1 +1,1 @@
-<p><img alt="numpy.py" src="Languages/Python/Libraries/Information/numpy.png" /></p>
+![numpy.py](Languages/Python/Libraries/Information/numpy.png)

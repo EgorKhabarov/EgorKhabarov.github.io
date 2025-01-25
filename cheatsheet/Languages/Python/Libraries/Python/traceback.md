@@ -1,44 +1,52 @@
-<p>Библиотека "traceback" используется в Python для отображения трассировки стека, то есть печати
+Библиотека "traceback" используется в Python для отображения трассировки стека, то есть печати
 информации об исключении и последующих вызовах функций, которые привели к возникновению исключения.
-Она помогает в отладке и идентификации причин возникновения ошибок в программе.</p>
-<p>Методы и подмодули библиотеки "traceback" включают:
-<code>traceback.print_tb(tb, limit=None, file=None)</code> - выводит трассировку стека в заданный файл (по умолчанию в sys.stdout) в виде списка строк.
-<code>traceback.print_exception(etype, value, tb, limit=None, file=None)</code> - выводит полную информацию об исключении, включая тип и значение исключения, трассировку стека и подробности.
-<code>traceback.print_exc(limit=None, file=None, chain=True)</code> - выводит трассировку стека последнего возникшего исключения.
-<code>traceback.format_tb(tb, limit=None)</code> - возвращает трассировку стека в виде списка строк.
-<code>traceback.format_exception(etype, value, tb, limit=None)</code> - возвращает полную информацию об исключении в виде списка строк.
-<code>traceback.format_exc(limit=None, chain=True)</code> - возвращает трассировку стека последнего возникшего исключения в виде строки.</p>
-<p>Некоторые из наиболее часто используемых методов в библиотеке "traceback" включают:
-Метод <code>print_tb()</code> используется для вывода трассировки стека в стандартном выводе.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traceback</span>
+Она помогает в отладке и идентификации причин возникновения ошибок в программе.
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># некоторый код, в котором может произойти исключение</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="n">traceback</span><span class="o">.</span><span class="n">print_tb</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div></div></div>
+Методы и подмодули библиотеки "traceback" включают:
+`traceback.print_tb(tb, limit=None, file=None)` - выводит трассировку стека в заданный файл (по умолчанию в sys.stdout) в виде списка строк.
+`traceback.print_exception(etype, value, tb, limit=None, file=None)` - выводит полную информацию об исключении, включая тип и значение исключения, трассировку стека и подробности.
+`traceback.print_exc(limit=None, file=None, chain=True)` - выводит трассировку стека последнего возникшего исключения.
+`traceback.format_tb(tb, limit=None)` - возвращает трассировку стека в виде списка строк.
+`traceback.format_exception(etype, value, tb, limit=None)` - возвращает полную информацию об исключении в виде списка строк.
+`traceback.format_exc(limit=None, chain=True)` - возвращает трассировку стека последнего возникшего исключения в виде строки.
 
-<p>Метод <code>print_exception()</code> используется для вывода полной информации об исключении, включая тип, значение и трассировку стека.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traceback</span>
+Некоторые из наиболее часто используемых методов в библиотеке "traceback" включают:
+Метод `print_tb()` используется для вывода трассировки стека в стандартном выводе.
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># некоторый код, в котором может произойти исключение</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="n">traceback</span><span class="o">.</span><span class="n">print_exception</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
-</pre></div></div></div>
+```python
+import traceback
 
-<p>Метод <code>format_exc()</code> используется для получения трассировки стека последнего возникшего исключения в виде строки.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">traceback</span>
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    traceback.print_tb(sys.exc_info()[2])
+```
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># некоторый код, в котором может произойти исключение</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="n">error_traceback</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">error_traceback</span><span class="p">)</span>
-</pre></div></div></div>
+Метод `print_exception()` используется для вывода полной информации об исключении, включая тип, значение и трассировку стека.
 
-<p>Помните, что без дополнительного контекста исключения и вашего кода, приведенные примеры могут не работать напрямую.
-Не забывайте адаптировать их под свои потребности и проверять документацию для более подробной информации о библиотеке "traceback".</p>
+```python
+import traceback
+
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    traceback.print_exception(*sys.exc_info())
+```
+
+Метод `format_exc()` используется для получения трассировки стека последнего возникшего исключения в виде строки.
+
+```python
+import traceback
+
+try:
+    # некоторый код, в котором может произойти исключение
+    x = 1 / 0
+except:
+    error_traceback = traceback.format_exc()
+    print(error_traceback)
+```
+
+Помните, что без дополнительного контекста исключения и вашего кода, приведенные примеры могут не работать напрямую.
+Не забывайте адаптировать их под свои потребности и проверять документацию для более подробной информации о библиотеке "traceback".

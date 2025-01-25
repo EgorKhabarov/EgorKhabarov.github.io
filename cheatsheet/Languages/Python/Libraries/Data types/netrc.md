@@ -1,30 +1,36 @@
-<p>Библиотека "netrc" в Python используется для работы с файлами .netrc, которые содержат информацию о пользователях,
-паролях и хостах для автоматической аутентификации при подключении к удаленным серверам.</p>
-<p>Методы модуля "netrc":
-<code>netrc.netrc(file)</code> - создает объект, представляющий файл .netrc.
-<code>netrc.hosts()</code> - возвращает список имен хостов из файла .netrc.
-<code>netrc.host(host)</code> - возвращает объект, представляющий информацию о конкретном хосте.
-<code>netrc.authenticators(host)</code> - возвращает кортеж с именем пользователя, паролем и аутентификационным методом для указанного хоста.</p>
-<p>Самые часто используемые методы:
-<code>netrc.hosts()</code> - возвращает список хостов из файла .netrc.
-<code>netrc.authenticators(host)</code> - возвращает информацию об аутентификации для указанного хоста.</p>
-<p><code>netrc.authenticators(host)</code>:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">netrc</span>
+Библиотека "netrc" в Python используется для работы с файлами .netrc, которые содержат информацию о пользователях,
+паролях и хостах для автоматической аутентификации при подключении к удаленным серверам.
 
-<span class="k">def</span> <span class="nf">get_credentials</span><span class="p">(</span><span class="n">hostname</span><span class="p">):</span>
-    <span class="n">credentials</span> <span class="o">=</span> <span class="n">netrc</span><span class="o">.</span><span class="n">netrc</span><span class="p">()</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">authenticators</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
-        <span class="n">username</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">auth</span>
-        <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
+Методы модуля "netrc":
+`netrc.netrc(file)` - создает объект, представляющий файл .netrc.
+`netrc.hosts()` - возвращает список имен хостов из файла .netrc.
+`netrc.host(host)` - возвращает объект, представляющий информацию о конкретном хосте.
+`netrc.authenticators(host)` - возвращает кортеж с именем пользователя, паролем и аутентификационным методом для указанного хоста.
 
-<span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;example.com&quot;</span>
-<span class="n">credentials</span> <span class="o">=</span> <span class="n">get_credentials</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">credentials</span><span class="p">:</span>
-    <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">credentials</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authenticated on </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2"> with username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> and password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No credentials found for </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
+Самые часто используемые методы:
+`netrc.hosts()` - возвращает список хостов из файла .netrc.
+`netrc.authenticators(host)` - возвращает информацию об аутентификации для указанного хоста.
+
+
+`netrc.authenticators(host)`:
+
+```python
+import netrc
+
+def get_credentials(hostname):
+    credentials = netrc.netrc()
+    auth = credentials.authenticators(hostname)
+    if auth:
+        username, _, password = auth
+        return username, password
+    else:
+        return None
+
+hostname = "example.com"
+credentials = get_credentials(hostname)
+if credentials:
+    username, password = credentials
+    print(f"Authenticated on {hostname} with username: {username} and password: {password}")
+else:
+    print(f"No credentials found for {hostname}")
+```

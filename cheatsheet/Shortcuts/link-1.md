@@ -1,1 +1,1 @@
-<p>Languages/Python/fstrings</p>
+Languages/Python/fstrings

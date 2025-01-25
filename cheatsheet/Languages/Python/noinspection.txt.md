@@ -1,68 +1,69 @@
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `noinspection.txt`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable" title="noinspection.txt">Download code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># noinspection PyPep8</span>
-<span class="c1"># noinspection PyPep8Naming</span>
-<span class="c1"># noinspection PyTypeChecker</span>
-<span class="c1"># noinspection PyAbstractClass</span>
-<span class="c1"># noinspection PyArgumentEqualDefault</span>
-<span class="c1"># noinspection PyArgumentList</span>
-<span class="c1"># noinspection PyAssignmentToLoopOrWithParameter</span>
-<span class="c1"># noinspection PyAttributeOutsideInit</span>
-<span class="c1"># noinspection PyAugmentAssignment</span>
-<span class="c1"># noinspection PyBroadException</span>
-<span class="c1"># noinspection PyByteLiteral</span>
-<span class="c1"># noinspection PyCallByClass</span>
-<span class="c1"># noinspection PyChainedComparsons</span>
-<span class="c1"># noinspection PyClassHasNoInit</span>
-<span class="c1"># noinspection PyClassicStyleClass</span>
-<span class="c1"># noinspection PyComparisonWithNone</span>
-<span class="c1"># noinspection PyCompatibility</span>
-<span class="c1"># noinspection PyDecorator</span>
-<span class="c1"># noinspection PyDefaultArgument</span>
-<span class="c1"># noinspection PyDictCreation</span>
-<span class="c1"># noinspection PyDictDuplicateKeys</span>
-<span class="c1"># noinspection PyDocstringTypes</span>
-<span class="c1"># noinspection PyExceptClausesOrder</span>
-<span class="c1"># noinspection PyExceptionInheritance</span>
-<span class="c1"># noinspection PyFromFutureImport</span>
-<span class="c1"># noinspection PyGlobalUndefined</span>
-<span class="c1"># noinspection PyIncorrectDocstring</span>
-<span class="c1"># noinspection PyInitNewSignature</span>
-<span class="c1"># noinspection PyInterpreter</span>
-<span class="c1"># noinspection PyListCreation</span>
-<span class="c1"># noinspection PyMandatoryEncoding</span>
-<span class="c1"># noinspection PyMethodFirstArgAssignment</span>
-<span class="c1"># noinspection PyMethodMayBeStatic</span>
-<span class="c1"># noinspection PyMethodOverriding</span>
-<span class="c1"># noinspection PyMethodParameters</span>
-<span class="c1"># noinspection PyMissingConstructor</span>
-<span class="c1"># noinspection PyMissingOrEmptyDocstring</span>
-<span class="c1"># noinspection PyNestedDecorators</span>
-<span class="c1"># noinspection PynonAsciiChar</span>
-<span class="c1"># noinspection PyNoneFunctionAssignment</span>
-<span class="c1"># noinspection PyOldStyleClasses</span>
-<span class="c1"># noinspection PyPackageRequirements</span>
-<span class="c1"># noinspection PyPropertyAccess</span>
-<span class="c1"># noinspection PyPropertyDefinition</span>
-<span class="c1"># noinspection PyProtectedMember</span>
-<span class="c1"># noinspection PyRaisingNewStyleClass</span>
-<span class="c1"># noinspection PyRedeclaration</span>
-<span class="c1"># noinspection PyRedundantParentheses</span>
-<span class="c1"># noinspection PySetFunctionToLiteral</span>
-<span class="c1"># noinspection PySimplifyBooleanCheck</span>
-<span class="c1"># noinspection PySingleQuotedDocstring</span>
-<span class="c1"># noinspection PyStatementEffect</span>
-<span class="c1"># noinspection PyStringException</span>
-<span class="c1"># noinspection PyStringFormat</span>
-<span class="c1"># noinspection PySuperArguments</span>
-<span class="c1"># noinspection PyTrailingSemicolon</span>
-<span class="c1"># noinspection PyTupleAssignmentBalance</span>
-<span class="c1"># noinspection PyTupleItemAssignment</span>
-<span class="c1"># noinspection PyUnboundLocalVariable</span>
-<span class="c1"># noinspection PyUnnecessaryBackslash</span>
-<span class="c1"># noinspection PyUnreachableCode</span>
-<span class="c1"># noinspection PyUnresolvedReferences</span>
-<span class="c1"># noinspection PyUnusedLocal</span>
-<span class="c1"># noinspection ReturnValueFromInit</span>
-<span class="c1"># noinspection SpellCheckingInspection</span>
-<span class="c1"># noinspection PyShadowingNames</span>
-<span class="c1"># noinspection PyCallingNonCallable</span>
-</pre></div></div></div>
+```python@noinspection.txt
+# noinspection PyPep8
+# noinspection PyPep8Naming
+# noinspection PyTypeChecker
+# noinspection PyAbstractClass
+# noinspection PyArgumentEqualDefault
+# noinspection PyArgumentList
+# noinspection PyAssignmentToLoopOrWithParameter
+# noinspection PyAttributeOutsideInit
+# noinspection PyAugmentAssignment
+# noinspection PyBroadException
+# noinspection PyByteLiteral
+# noinspection PyCallByClass
+# noinspection PyChainedComparsons
+# noinspection PyClassHasNoInit
+# noinspection PyClassicStyleClass
+# noinspection PyComparisonWithNone
+# noinspection PyCompatibility
+# noinspection PyDecorator
+# noinspection PyDefaultArgument
+# noinspection PyDictCreation
+# noinspection PyDictDuplicateKeys
+# noinspection PyDocstringTypes
+# noinspection PyExceptClausesOrder
+# noinspection PyExceptionInheritance
+# noinspection PyFromFutureImport
+# noinspection PyGlobalUndefined
+# noinspection PyIncorrectDocstring
+# noinspection PyInitNewSignature
+# noinspection PyInterpreter
+# noinspection PyListCreation
+# noinspection PyMandatoryEncoding
+# noinspection PyMethodFirstArgAssignment
+# noinspection PyMethodMayBeStatic
+# noinspection PyMethodOverriding
+# noinspection PyMethodParameters
+# noinspection PyMissingConstructor
+# noinspection PyMissingOrEmptyDocstring
+# noinspection PyNestedDecorators
+# noinspection PynonAsciiChar
+# noinspection PyNoneFunctionAssignment
+# noinspection PyOldStyleClasses
+# noinspection PyPackageRequirements
+# noinspection PyPropertyAccess
+# noinspection PyPropertyDefinition
+# noinspection PyProtectedMember
+# noinspection PyRaisingNewStyleClass
+# noinspection PyRedeclaration
+# noinspection PyRedundantParentheses
+# noinspection PySetFunctionToLiteral
+# noinspection PySimplifyBooleanCheck
+# noinspection PySingleQuotedDocstring
+# noinspection PyStatementEffect
+# noinspection PyStringException
+# noinspection PyStringFormat
+# noinspection PySuperArguments
+# noinspection PyTrailingSemicolon
+# noinspection PyTupleAssignmentBalance
+# noinspection PyTupleItemAssignment
+# noinspection PyUnboundLocalVariable
+# noinspection PyUnnecessaryBackslash
+# noinspection PyUnreachableCode
+# noinspection PyUnresolvedReferences
+# noinspection PyUnusedLocal
+# noinspection ReturnValueFromInit
+# noinspection SpellCheckingInspection
+# noinspection PyShadowingNames
+# noinspection PyCallingNonCallable
+```

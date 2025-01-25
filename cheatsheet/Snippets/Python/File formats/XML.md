@@ -1,68 +1,72 @@
-<h1>XML - eXtensible Markup Language</h1>
-<p>Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
+# XML - eXtensible Markup Language
+
+Расширяемый язык разметки, который используется для хранения и обмена структурированными данными.
 Он использует теги для определения структуры данных и может быть использован для хранения
 всех видов данных, включая текст, изображения и мультимедиа.
-<code>XML</code> широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.</p>
-<div class="code_element"><div class="lang_line"><text>xml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;note&gt;</span>
-<span class="nt">&lt;to&gt;</span>Tove<span class="nt">&lt;/to&gt;</span>
-<span class="nt">&lt;from&gt;</span>Jani<span class="nt">&lt;/from&gt;</span>
-<span class="nt">&lt;heading&gt;</span>Reminder<span class="nt">&lt;/heading&gt;</span>
-<span class="nt">&lt;body&gt;</span>Don&#39;t<span class="w"> </span>forget<span class="w"> </span>me<span class="w"> </span>this<span class="w"> </span>weekend!<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/note&gt;</span>
-</pre></div></div></div>
+`XML` широко используется в Интернете для хранения и обмена данными между веб-сервисами и приложениями.
 
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># config = ET.Element(&quot;config&quot;)</span>
-<span class="c1"># bot = ET.SubElement(config, &quot;BOT&quot;)</span>
-<span class="c1"># ET.SubElement(bot, &quot;bot_name&quot;).text = &quot;&quot;</span>
-<span class="c1"># ET.SubElement(bot, &quot;token&quot;).text = &quot;&quot;</span>
-<span class="c1"># tree = ET.ElementTree(config)</span>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+```
 
-<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">xml</span>
+```python
+# config = ET.Element("config")
+# bot = ET.SubElement(config, "BOT")
+# ET.SubElement(bot, "bot_name").text = ""
+# ET.SubElement(bot, "token").text = ""
+# tree = ET.ElementTree(config)
 
-<span class="k">def</span> <span class="nf">dict_to_xml</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">root_node</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">root_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">root_node</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root_node</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-            <span class="n">dict_to_xml</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">node</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">root_node</span>
+import xml.etree.ElementTree as xml
 
-<span class="k">def</span> <span class="nf">xml_to_dict</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-    <span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">:</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span> <span class="k">else</span> <span class="kc">None</span><span class="p">}</span>
-    <span class="n">children</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">children</span><span class="p">:</span>
-        <span class="n">dd</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">xml_to_dict</span><span class="p">,</span> <span class="n">children</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dc</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">dd</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">:</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dd</span><span class="o">.</span><span class="n">items</span><span class="p">()}}</span>
-    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
-        <span class="n">dct</span><span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s2">&quot;@&quot;</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-    <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">children</span> <span class="ow">or</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">text</span><span class="p">:</span>
-                <span class="n">dct</span><span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">][</span><span class="s2">&quot;#text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">dct</span><span class="p">[</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">text</span>
-    <span class="k">return</span> <span class="n">dct</span>
+def dict_to_xml(dct, root_node=None):
+    if root_node is None:
+        root_node = xml.Element("root")
+    for key, value in dct.items():
+        node = xml.SubElement(root_node, key)
+        if isinstance(value, dict):
+            dict_to_xml(value, node)
+        else:
+            node.text = str(value)
+    return root_node
 
-<span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BOT&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;bot_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}}</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">dict_to_xml</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">ElementTree</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+def xml_to_dict(root):
+    from collections import defaultdict
+    dct = {root.tag: {} if root.attrib else None}
+    children = list(root)
+    if children:
+        dd = defaultdict(list)
+        for dc in map(xml_to_dict, children):
+            for k, v in dc.items():
+                dd[k].append(v)
+        dct = {root.tag: {k: v[0] if len(v) == 1 else v for k, v in dd.items()}}
+    if root.attrib:
+        dct[root.tag].update(("@" + k, v) for k, v in root.attrib.items())
+    if root.text:
+        text = root.text.strip()
+        if children or root.attrib:
+            if text:
+                dct[root.tag]["#text"] = text
+        else:
+            dct[root.tag] = text
+    return dct
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">tree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+config = {"BOT": {"bot_name": "", "token": ""}}
+config = dict_to_xml(config)
+tree = xml.ElementTree(config)
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+with open("config.xml", "wb") as file:
+    tree.write(file, encoding="utf-8", xml_declaration=True)
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">xml_to_dict</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-</pre></div></div></div>
+with open("config.xml", "r") as file:
+    tree = xml.parse(file)
+
+root = tree.getroot()
+config = xml_to_dict(root)
+print(config)
+```

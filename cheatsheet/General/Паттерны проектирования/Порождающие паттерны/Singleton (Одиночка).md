@@ -1,18 +1,22 @@
-<h2>Singleton (Одиночка)</h2>
-<p><strong>Описание:</strong> Гарантирует, что у класса есть только <strong>один экземпляр</strong>,
-и предоставляет глобальную точку доступа к этому экземпляру.</p>
-<p><strong>Когда использовать:</strong> Когда нужно ограничить создание объекта одним экземпляром,
-например, для логгера, подключения к базе данных, конфигурационного объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Singleton</span><span class="p">:</span>
-    <span class="n">_instance</span> <span class="o">=</span> <span class="kc">None</span>
+## Singleton (Одиночка)
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="p">:</span>
-            <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Singleton</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span>
+**Описание:** Гарантирует, что у класса есть только **один экземпляр**,
+и предоставляет глобальную точку доступа к этому экземпляру.
+
+**Когда использовать:** Когда нужно ограничить создание объекта одним экземпляром,
+например, для логгера, подключения к базе данных, конфигурационного объекта.
+
+```python
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
 
 
-<span class="n">singleton1</span> <span class="o">=</span> <span class="n">Singleton</span><span class="p">()</span>
-<span class="n">singleton2</span> <span class="o">=</span> <span class="n">Singleton</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">singleton1</span> <span class="ow">is</span> <span class="n">singleton2</span><span class="p">)</span>  <span class="c1"># True</span>
-</pre></div></div></div>
+singleton1 = Singleton()
+singleton2 = Singleton()
+print(singleton1 is singleton2)  # True
+```

@@ -1,89 +1,43 @@
-<p><code>lp &lt;user|group&gt; &lt;playername&gt; permission &lt;set|unset&gt; &lt;permission&gt; &lt;true|false&gt;</code>
-<code>lp &lt;user|group&gt; &lt;playername&gt; parent &lt;add|remove|addtemp|removetemp&gt; &lt;permission&gt; &lt;true|false&gt;</code>
-<code>lp verbose command &lt;playername&gt; &lt;command&gt;</code></p>
-<h1>Placeholders</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>%luckperms_prefix%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_suffix%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_meta_&lt;metakey&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_prefix_element_&lt;element&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_suffix_element_&lt;element&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_context_&lt;contextkey&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_groups%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_primary_group_name%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_has_permission_&lt;permission&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_inherits_permission_&lt;permission&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_check_permission_&lt;permission&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_in_group_&lt;group&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_inherits_group_&lt;group&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_on_track_&lt;track&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_has_groups_on_track_&lt;track&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_highest_group_by_weight%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_lowest_group_by_weight%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_first_group_on_tracks_&lt;tracks&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_last_group_on_tracks_&lt;tracks&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_expiry_time_&lt;permission&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_inherited_expiry_time_&lt;permission&gt;%</code></td>
-</tr>
-<tr>
-<td><code>%luckperms_group_expiry_time_&lt;groupname&gt;%</code></td>
-</tr>
-</tbody>
-</table>
-<h1>config</h1>
-<h3>server</h3>
-<p>Поставить <code>global</code> чтобы игнорировать контекст сервера</p>
-<div class="code_element"><div class="lang_line"><text>yml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>server: global
-</pre></div></div></div>
-<p>Чтобы учитывать контекст</p>
-<div class="code_element"><div class="lang_line"><text>yml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>server: servername
-</pre></div></div></div>
-<div class="code_element"><div class="lang_line"><text>yml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>storage-method: MariaDB
-</pre></div></div></div>
+`lp <user|group> <playername> permission <set|unset> <permission> <true|false>`
+`lp <user|group> <playername> parent <add|remove|addtemp|removetemp> <permission> <true|false>`
+`lp verbose command <playername> <command>`
+
+# Placeholders
+|                                                  |
+|--------------------------------------------------|
+| `%luckperms_prefix%`                             |
+| `%luckperms_suffix%`                             |
+| `%luckperms_meta_<metakey>%`                     |
+| `%luckperms_prefix_element_<element>%`           |
+| `%luckperms_suffix_element_<element>%`           |
+| `%luckperms_context_<contextkey>%`               |
+| `%luckperms_groups%`                             |
+| `%luckperms_primary_group_name%`                 |
+| `%luckperms_has_permission_<permission>%`        |
+| `%luckperms_inherits_permission_<permission>%`   |
+| `%luckperms_check_permission_<permission>%`      |
+| `%luckperms_in_group_<group>%`                   |
+| `%luckperms_inherits_group_<group>%`             |
+| `%luckperms_on_track_<track>%`                   |
+| `%luckperms_has_groups_on_track_<track>%`        |
+| `%luckperms_highest_group_by_weight%`            |
+| `%luckperms_lowest_group_by_weight%`             |
+| `%luckperms_first_group_on_tracks_<tracks>%`     |
+| `%luckperms_last_group_on_tracks_<tracks>%`      |
+| `%luckperms_expiry_time_<permission>%`           |
+| `%luckperms_inherited_expiry_time_<permission>%` |
+| `%luckperms_group_expiry_time_<groupname>%`      |
+
+# config
+### server
+Поставить `global` чтобы игнорировать контекст сервера
+```yml
+server: global
+```
+Чтобы учитывать контекст
+```yml
+server: servername
+```
+```yml
+storage-method: MariaDB
+```

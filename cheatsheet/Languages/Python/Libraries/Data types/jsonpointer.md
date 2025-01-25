@@ -1,36 +1,46 @@
-<p>Библиотека "jsonpointer" используется для работы с указателями JSON (JSON pointers).
-Она предоставляет функциональность для создания, обновления и извлечения данных из JSON-структур с использованием указателей.</p>
-<p>Методы модуля "jsonpointer" и их краткое описание:</p>
-<p><code>resolve_pointer(json_obj, pointer)</code>: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.
-<code>set_pointer(json_obj, pointer, value)</code>: Устанавливает значение по указателю JSON в JSON-объекте.
-<code>remove_pointer(json_obj, pointer)</code>: Удаляет значение по указателю JSON из JSON-объекта.
-<code>list_pointers(json_obj)</code>: Возвращает список всех указателей JSON в JSON-объекте.
-<code>escape_pointer(pointer)</code>: Экранирует специальные символы в указателе JSON.</p>
-<p>Некоторые из самых часто используемых методов "jsonpointer" и их краткое описание:</p>
-<p><code>resolve_pointer(json_obj, pointer)</code>: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jsonpointer</span>
+Библиотека "jsonpointer" используется для работы с указателями JSON (JSON pointers).
+Она предоставляет функциональность для создания, обновления и извлечения данных из JSON-структур с использованием указателей.
 
-<span class="n">json_obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="s2">&quot;/name&quot;</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">jsonpointer</span><span class="o">.</span><span class="n">resolve_pointer</span><span class="p">(</span><span class="n">json_obj</span><span class="p">,</span> <span class="n">pointer</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># John</span>
-</pre></div></div></div>
+Методы модуля "jsonpointer" и их краткое описание:
 
-<p><code>set_pointer(json_obj, pointer, value)</code>: Устанавливает значение по указателю JSON в JSON-объекте.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jsonpointer</span>
+`resolve_pointer(json_obj, pointer)`: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.
+`set_pointer(json_obj, pointer, value)`: Устанавливает значение по указателю JSON в JSON-объекте.
+`remove_pointer(json_obj, pointer)`: Удаляет значение по указателю JSON из JSON-объекта.
+`list_pointers(json_obj)`: Возвращает список всех указателей JSON в JSON-объекте.
+`escape_pointer(pointer)`: Экранирует специальные символы в указателе JSON.
 
-<span class="n">json_obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="s2">&quot;/name&quot;</span>
-<span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Jane&quot;</span>
-<span class="n">jsonpointer</span><span class="o">.</span><span class="n">set_pointer</span><span class="p">(</span><span class="n">json_obj</span><span class="p">,</span> <span class="n">pointer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json_obj</span><span class="p">)</span>  <span class="c1"># {&quot;name&quot;: &quot;Jane&quot;, &quot;age&quot;: 30}</span>
-</pre></div></div></div>
+Некоторые из самых часто используемых методов "jsonpointer" и их краткое описание:
 
-<p><code>remove_pointer(json_obj, pointer)</code>: Удаляет значение по указателю JSON из JSON-объекта.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jsonpointer</span>
+`resolve_pointer(json_obj, pointer)`: Разрешает указатель JSON и возвращает соответствующее значение из JSON-объекта.
 
-<span class="n">json_obj</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="s2">&quot;/name&quot;</span>
-<span class="n">jsonpointer</span><span class="o">.</span><span class="n">remove_pointer</span><span class="p">(</span><span class="n">json_obj</span><span class="p">,</span> <span class="n">pointer</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json_obj</span><span class="p">)</span>  <span class="c1"># {&quot;age&quot;: 30}</span>
-</pre></div></div></div>
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+value = jsonpointer.resolve_pointer(json_obj, pointer)
+print(value)  # John
+```
+
+`set_pointer(json_obj, pointer, value)`: Устанавливает значение по указателю JSON в JSON-объекте.
+
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+value = "Jane"
+jsonpointer.set_pointer(json_obj, pointer, value)
+print(json_obj)  # {"name": "Jane", "age": 30}
+```
+
+`remove_pointer(json_obj, pointer)`: Удаляет значение по указателю JSON из JSON-объекта.
+
+```python
+import jsonpointer
+
+json_obj = {"name": "John", "age": 30}
+pointer = "/name"
+jsonpointer.remove_pointer(json_obj, pointer)
+print(json_obj)  # {"age": 30}
+```

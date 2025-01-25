@@ -1,89 +1,42 @@
-<p>Библиотека "gc" в Python используется для управления сборкой мусора.
-Она предоставляет функции и методы для контроля за автоматическим освобождением памяти, которая больше не используется программой.</p>
-<p>Методы модуля "gc" и его подмодулей:</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gc.disable()</td>
-<td>Отключает автоматическую сборку мусора.</td>
-</tr>
-<tr>
-<td>gc.enable()</td>
-<td>Включает автоматическую сборку мусора.</td>
-</tr>
-<tr>
-<td>gc.collect()</td>
-<td>Принудительно запускает сборку мусора.</td>
-</tr>
-<tr>
-<td>gc.get_threshold()</td>
-<td>Возвращает текущие пороги сборки мусора.</td>
-</tr>
-<tr>
-<td>gc.set_threshold(threshold)</td>
-<td>Устанавливает пороги сборки мусора.</td>
-</tr>
-<tr>
-<td>gc.get_count()</td>
-<td>Возвращает количество сборок мусора, проведенных до сих пор.</td>
-</tr>
-<tr>
-<td>gc.get_objects()</td>
-<td>Возвращает список всех объектов, находящихся в памяти.</td>
-</tr>
-</tbody>
-</table>
-<p>Самые часто используемые методы в библиотеке "gc":</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-<th>Пример кода</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>gc.collect()</td>
-<td>Принудительно запускает сборку мусора</td>
-<td>gc.collect()</td>
-</tr>
-<tr>
-<td>gc.get_threshold()</td>
-<td>Возвращает текущие пороги сборки мусора</td>
-<td>threshold = gc.get_threshold()</td>
-</tr>
-<tr>
-<td>gc.set_threshold(threshold)</td>
-<td>Устанавливает пороги сборки мусора</td>
-<td>gc.set_threshold(700, 10, 10)</td>
-</tr>
-<tr>
-<td>gc.get_count()</td>
-<td>Возвращает количество сборок мусора, проведенных до сих пор</td>
-<td>count = gc.get_count()</td>
-</tr>
-</tbody>
-</table>
-<p>Этот код показывает использование метода gc.collect(), который принудительно запускает сборку мусора:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gc</span>
+Библиотека "gc" в Python используется для управления сборкой мусора.
+Она предоставляет функции и методы для контроля за автоматическим освобождением памяти, которая больше не используется программой.
 
-<span class="c1"># Создание объектов</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+Методы модуля "gc" и его подмодулей:
 
-<span class="c1"># Удаление ссылок на объекты</span>
-<span class="k">del</span> <span class="n">x</span>
-<span class="k">del</span> <span class="n">y</span>
+Метод                     | Описание
+-------------------------|---------------------------------------
+gc.disable()              | Отключает автоматическую сборку мусора.
+gc.enable()               | Включает автоматическую сборку мусора.
+gc.collect()              | Принудительно запускает сборку мусора.
+gc.get_threshold()        | Возвращает текущие пороги сборки мусора.
+gc.set_threshold(threshold) | Устанавливает пороги сборки мусора.
+gc.get_count()            | Возвращает количество сборок мусора, проведенных до сих пор.
+gc.get_objects()          | Возвращает список всех объектов, находящихся в памяти.
 
-<span class="c1"># Принудительная сборка мусора</span>
-<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-</pre></div></div></div>
-<p>Надеюсь, это поможет вам понять и использовать библиотеку "gc" в Python.
-Если у вас возникнут дополнительные вопросы, не стесняйтесь задавать их.</p>
+Самые часто используемые методы в библиотеке "gc":
+
+Метод                       | Описание                                                           | Пример кода
+----------------------------|--------------------------------------------------------------------|-------------------
+gc.collect()                | Принудительно запускает сборку мусора                              | gc.collect()
+gc.get_threshold()          | Возвращает текущие пороги сборки мусора                            | threshold = gc.get_threshold()
+gc.set_threshold(threshold) | Устанавливает пороги сборки мусора                                 | gc.set_threshold(700, 10, 10)
+gc.get_count()              | Возвращает количество сборок мусора, проведенных до сих пор        | count = gc.get_count()
+
+Этот код показывает использование метода gc.collect(), который принудительно запускает сборку мусора:
+
+```python
+import gc
+
+# Создание объектов
+x = [1, 2, 3]
+y = [4, 5, 6]
+
+# Удаление ссылок на объекты
+del x
+del y
+
+# Принудительная сборка мусора
+gc.collect()
+```
+Надеюсь, это поможет вам понять и использовать библиотеку "gc" в Python.
+Если у вас возникнут дополнительные вопросы, не стесняйтесь задавать их.
