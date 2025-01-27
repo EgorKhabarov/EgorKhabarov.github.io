@@ -643,19 +643,6 @@ function onclickSearchButton(element) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Якорь
-    const anchor = getAnchor();
-    if (anchor) {
-        console.log(`Anchor found: "${anchor}"`);
-        anchor_element = document.getElementById(anchor);
-        if (anchor_element) {
-            anchor_element.scrollIntoView({block: "start"});
-        }
-    }
-
-    // Поиск
-    search_input.addEventListener("input", function() {performSearch()});
-
     // Изменялка размеров #cheatsheet_buttons и #cheatsheet_field
     rpanrResize.addEventListener("mousedown", mD);
     rpanrResize.addEventListener("touchstart", mD);
@@ -740,6 +727,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 changeTitle(getPathFilename(arg))
             } else {
                 PutHtmlText(getCheatSheet("README.md"));
+            }
+
+            // Поиск
+            search_input.addEventListener("input", function() {performSearch()});
+
+            // Якорь
+            const anchor = getAnchor();
+            if (anchor) {
+                console.log(`Anchor found: "${anchor}"`);
+                anchor_element = document.getElementById(anchor);
+                if (anchor_element) {
+                    anchor_element.scrollIntoView({block: "start"});
+                }
             }
         });
 });

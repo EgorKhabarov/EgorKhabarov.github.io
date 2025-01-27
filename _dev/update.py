@@ -5,8 +5,7 @@ from bs4 import BeautifulSoup
 
 from _dev.markup import to_markup
 from _dev.index_html_generator import generate_buttons
-from _dev.utils import get_files, update_svg_badge, get_git_diff
-
+from _dev.utils import get_files, update_svg_badge, get_git_diff, dict_walk
 
 start_time = time.perf_counter()
 
@@ -52,6 +51,28 @@ print(f"Found {unused_files_count} unused files")
 for unused_file in unused_files:
     print(f'    Delete unused file "{unused_file}"')
     ...
+
+
+# update index.json
+with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
+    index_json = json.load(index_json_file)
+index_json_cheatsheet_list = []
+for directory, dirnames, filenames in dict_walk(index_json):
+    for filename in filenames:
+        if filename in (".",):
+            continue
+        path = f"{directory}/{filename}".lstrip("/")
+        index_json_cheatsheet_list.append(path)
+cheatsheet_set = set(path.removesuffix(".md") for path in cheatsheet_list)
+index_json_set = set(index_json_cheatsheet_list)
+diff_new = cheatsheet_set - index_json_set
+diff_del = index_json_set - cheatsheet_set
+if diff_new:
+    print(f"New cheat sheets {diff_new}")
+if diff_del:
+    print(f"Delete cheat sheets {diff_del}")
+# TODO Добавлять и удалять нужные файлы
+# TODO Протестить правильно ли работает
 
 
 # generate buttons.html file

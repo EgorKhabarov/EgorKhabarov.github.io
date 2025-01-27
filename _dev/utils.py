@@ -311,7 +311,7 @@ def update_svg_badge(cheatsheet_count: int = 0):
 
 def dict_walk(d: dict[str, str | dict[str, str | dict]], __now_dir: tuple[str, ...] = ()):
     """
-    for directory, dirnames, filenames,  in dict_walk(...):
+    for directory, dirnames, filenames in dict_walk(...):
 
     :param d:
     :param __now_dir:
