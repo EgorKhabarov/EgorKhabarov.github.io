@@ -67,149 +67,168 @@
     },
     "Languages": {
         "Python": {
+            ".": "color: violet\n",
             "Libraries": {
+                ".": "color: green\n",
                 "Table of contents": "",
                 "System": {
+                    ".": "color: green\n",
                     "Windows": {
-                        "nt": "",
-                        "ntpath": ""
+                        ".": "color: green\n",
+                        "nt": "color: green\n",
+                        "ntpath": "color: green\n"
                     },
                     "Unix": {
-                        "posix": "",
-                        "posixpath": "",
-                        "signal": "",
-                        "grp": ""
+                        ".": "color: green\n",
+                        "posix": "color: green\n",
+                        "posixpath": "color: green\n",
+                        "signal": "color: green\n",
+                        "grp": "color: green\n"
                     },
                     "os": {
+                        ".": "color: green\n",
                         "index": "",
-                        "os 2": "",
-                        "os.path": "",
-                        "os.stat": ""
+                        "os 2": "color: green\n",
+                        "os.path": "color: green\n",
+                        "os.stat": "color: green\n"
                     },
-                    "io": "",
-                    "sys": "",
-                    "subprocess": "",
-                    "multiprocessing": "",
-                    "concurrent": "",
-                    "keyboard": "",
-                    "fnmatch": "",
-                    "glob": "",
-                    "resource": "",
-                    "stat": "",
-                    "getopt": "",
-                    "optparse": "",
-                    "genericpath": "",
-                    "gc": "",
-                    "filecmp": "",
-                    "pymsgbox": "",
-                    "pygetwindow": "",
-                    "psutil": "",
-                    "fcntl": "",
-                    "watchdog": ""
+                    "io": "color: green\n",
+                    "sys": "color: green\n",
+                    "subprocess": "color: green\n",
+                    "multiprocessing": "color: green\n",
+                    "concurrent": "color: green\n",
+                    "keyboard": "color: green\n",
+                    "fnmatch": "color: green\n",
+                    "glob": "color: green\n",
+                    "resource": "color: green\n",
+                    "stat": "color: green\n",
+                    "getopt": "color: green\n",
+                    "optparse": "color: green\n",
+                    "genericpath": "color: green\n",
+                    "gc": "color: green\n",
+                    "filecmp": "color: green\n",
+                    "pymsgbox": "color: green\n",
+                    "pygetwindow": "color: green\n",
+                    "psutil": "color: green\n",
+                    "fcntl": "color: green\n",
+                    "watchdog": "color: green\n"
                 },
                 "Data types": {
-                    "xml": "",
-                    "jsonschema": "",
-                    "jsonpointer": "",
-                    "queue": "",
-                    "enum": "",
-                    "heapq": "",
-                    "graphlib": "",
-                    "wave": "",
-                    "netrc": ""
+                    ".": "color: green\n",
+                    "xml": "color: green\n",
+                    "jsonschema": "color: green\n",
+                    "jsonpointer": "color: green\n",
+                    "queue": "color: green\n",
+                    "enum": "color: green\n",
+                    "heapq": "color: green\n",
+                    "graphlib": "color: green\n",
+                    "wave": "color: green\n",
+                    "netrc": "color: green\n"
                 },
                 "Information": {
-                    "math": "",
-                    "textwrap": "",
-                    "time": "",
-                    "datetime": "",
-                    "decimal": "",
-                    "fractions": "",
-                    "difflib": "",
-                    "random": "",
+                    ".": "color: green\n",
+                    "math": "color: green\n",
+                    "textwrap": "color: green\n",
+                    "time": "color: green\n",
+                    "datetime": "color: lblue\n",
+                    "decimal": "color: green\n",
+                    "fractions": "color: green\n",
+                    "difflib": "color: green\n",
+                    "random": "color: green\n",
                     "PIL": {
-                        "ImageDraw.Draw": ""
+                        ".": "color: green\n",
+                        "ImageDraw.Draw": "color: green\n"
                     },
-                    "argparse": "",
-                    "shlex": "",
-                    "base64": "",
-                    "binhex": "",
-                    "string": "",
-                    "rich": "",
-                    "numpy": ""
+                    "argparse": "color: green\n",
+                    "shlex": "color: green\n",
+                    "base64": "color: green\n",
+                    "binhex": "color: green\n",
+                    "string": "color: green\n",
+                    "rich": "color: green\n",
+                    "numpy": "color: lblue\n"
                 },
                 "Python": {
+                    ".": "color: green\n",
                     "markdown": {
-                        "extensions": ""
+                        ".": "color: green\n",
+                        "extensions": "color: green\n"
                     },
                     "doctests": {
+                        ".": "color: green\n",
                         "doctests": "",
                         "comments": ""
                     },
-                    "typing": "",
-                    "itertools": "",
-                    "collections": "",
-                    "functools": "",
-                    "cachetools": "",
-                    "contextlib": "",
-                    "setuptools": "",
-                    "importlib": "",
-                    "logging": "",
-                    "tabnanny": "",
-                    "atexit": "",
-                    "pstats": "",
-                    "getpass": "",
-                    "reprlib": "",
-                    "trace": "",
-                    "traceback": "",
-                    "warnings": "",
-                    "keyword": "",
-                    "frozenlist": "",
-                    "runpy": "",
-                    "zipimport": "",
-                    "zipapp": "",
-                    "zipfile": "",
-                    "marshal": "",
-                    "formatter": "",
-                    "pyparsing": "",
-                    "pyclbr": "",
-                    "gast": "",
-                    "bdb": "",
-                    "faulthandler": "",
-                    "gtts": "",
-                    "rlcompleter": "",
-                    "fileinput": "",
-                    "abc": "",
-                    "inspect": "",
-                    "operator": "",
-                    "ast": "",
-                    "mypy": "",
-                    "unittest": "",
-                    "unittest.mock": "",
-                    "curses": "",
+                    "typing": "color: green\n",
+                    "itertools": "color: green\n",
+                    "collections": "color: green\n",
+                    "functools": "color: green\n",
+                    "cachetools": "color: green\n",
+                    "contextlib": "color: green\n",
+                    "setuptools": "color: green\n",
+                    "importlib": "color: green\n",
+                    "logging": "color: green\n",
+                    "tabnanny": "color: green\n",
+                    "atexit": "color: green\n",
+                    "pstats": "color: green\n",
+                    "getpass": "color: green\n",
+                    "reprlib": "color: green\n",
+                    "trace": "color: green\n",
+                    "traceback": "color: green\n",
+                    "warnings": "color: green\n",
+                    "keyword": "color: green\n",
+                    "frozenlist": "color: green\n",
+                    "runpy": "color: green\n",
+                    "zipimport": "color: green\n",
+                    "zipapp": "color: green\n",
+                    "zipfile": "color: green\n",
+                    "marshal": "color: green\n",
+                    "formatter": "color: green\n",
+                    "pyparsing": "color: green\n",
+                    "pyclbr": "color: green\n",
+                    "gast": "color: green\n",
+                    "bdb": "color: green\n",
+                    "faulthandler": "color: green\n",
+                    "gtts": "color: green\n",
+                    "rlcompleter": "color: green\n",
+                    "fileinput": "color: green\n",
+                    "abc": "color: green\n",
+                    "inspect": "color: green\n",
+                    "operator": "color: green\n",
+                    "ast": "color: green\n",
+                    "mypy": "color: green\n",
+                    "unittest": "color: green\n",
+                    "unittest.mock": "color: green\n",
+                    "curses": "color: green\n",
                     "dis": {
+                        ".": "color: green\n",
                         "dis": "",
                         "byte code": ""
                     }
                 },
                 "Algorithms": {
-                    "bisect": "",
-                    "hmac": "",
-                    "zlib": "",
-                    "lzma": "",
-                    "table2string": ""
+                    ".": "color: green\n",
+                    "bisect": "color: green\n",
+                    "hmac": "color: green\n",
+                    "zlib": "color: green\n",
+                    "lzma": "color: green\n",
+                    "table2string": "color: red\n"
                 },
                 "Web": {
+                    ".": "color: green\n",
                     "Django": {
+                        ".": "color: green\n",
                         "Команды": ""
                     },
                     "Flask": {
+                        ".": "color: green\n",
                         "Типы переменных": ""
                     },
                     "FastAPI": {
+                        ".": "color: green\n",
                         "index": ""
                     },
                     "Jinja": {
+                        ".": "color: green\n",
                         "index": "",
                         "Базовый синтаксис": "",
                         "Управляющие структуры": "",
@@ -220,18 +239,21 @@
                         "Безопасность": "",
                         "Лучшие практики": ""
                     },
-                    "webcolors": "",
-                    "certifi": "",
-                    "grpc": ""
+                    "webcolors": "color: green\n",
+                    "certifi": "color: green\n",
+                    "grpc": "color: green\n"
                 },
                 "GUI": {
+                    ".": "color: green\n",
                     "tkinter": {
+                        ".": "color: green\n",
                         "tkinter": "",
                         "Методы": "",
                         "config": "",
                         "Вёрстка": ""
                     },
                     "PyQT5": {
+                        ".": "color: green\n",
                         "PyQT5": "",
                         "QTWidgets": "",
                         "QTWidgets 2": "",
@@ -239,20 +261,22 @@
                     }
                 },
                 "DataBases": {
-                    "SQLAlchemy": "",
-                    "peewee": "",
-                    "pony": ""
+                    ".": "color: green\n",
+                    "SQLAlchemy": "color: green\n",
+                    "peewee": "color: green\n",
+                    "pony": "color: green\n"
                 },
                 "Other": {
-                    "wheel": "",
-                    "linecache": "",
-                    "sched": "",
-                    "packaging": "",
-                    "notebook": "",
-                    "quopri": "",
-                    "errno": "",
-                    "locale": "",
-                    "gettext": ""
+                    ".": "color: green\n",
+                    "wheel": "color: green\n",
+                    "linecache": "color: green\n",
+                    "sched": "color: green\n",
+                    "packaging": "color: green\n",
+                    "notebook": "color: green\n",
+                    "quopri": "color: green\n",
+                    "errno": "color: green\n",
+                    "locale": "color: green\n",
+                    "gettext": "color: green\n"
                 }
             },
             "Methods": {
@@ -304,10 +328,12 @@
             "noinspection.txt": ""
         },
         "RegExp": {
+            ".": "color: violet\n",
             "RegExp": "",
-            "images": ""
+            "images": "color: lblue\n"
         },
         "Java": {
+            ".": "color: violet\n",
             "java": {
                 "util": {
                     "function": {
@@ -375,10 +401,12 @@
             "IO": ""
         },
         "Kotlin": {
+            ".": "color: violet\n",
             "index": "",
             "Android": ""
         },
         "SQL": {
+            ".": "color: violet\n",
             "SQLite3": {
                 "Date And Time Format": "",
                 "Разное": "",
@@ -393,17 +421,19 @@
                 "Типы данных": "",
                 "pg_hba.conf": "",
                 "CREATE": "",
-                "Картинки": ""
+                "Картинки": "color: lblue\n"
             },
-            "Картинки": "",
+            "Картинки": "color: lblue\n",
             "DESC и ASC": "",
             "JOIN": ""
         },
         "Dockerfile": {
-            "Dockerfile": "",
+            ".": "color: violet\n",
+            "Dockerfile": "color: lblue\n",
             "RUN mkdir -p": ""
         },
         "JavaScript": {
+            ".": "color: violet\n",
             "Списки": "",
             "for": "",
             "handlebar": "",
@@ -411,6 +441,7 @@
             "Ключевые слова для объявления переменных и констант": ""
         },
         "CSS": {
+            ".": "color: violet\n",
             "css-text": {
                 "Backgrounds": "",
                 "Border": "",
@@ -432,12 +463,13 @@
                 "outlin": "",
                 "relative measurement": ""
             },
-            "css-img": "",
-            "Селекторы": "",
-            "Единицы измерения": "",
+            "css-img": "color: lblue\n",
+            "Селекторы": "color: lblue\n",
+            "Единицы измерения": "color: lblue\n",
             "Переносы строк": ""
         },
         "HTML": {
+            ".": "color: violet\n",
             "Теги": "",
             "Символы и экранирование": "",
             "tag input": "",
@@ -453,6 +485,7 @@
             }
         },
         "Cpp": {
+            ".": "color: violet\n",
             "Типы данных": "",
             "if-else,switch-case": "",
             "rand": "",
@@ -487,6 +520,7 @@
             "malloc": ""
         },
         "Bash": {
+            ".": "color: violet\n",
             "help": "",
             "Переменные окружения": "",
             "Bash": "",
@@ -494,9 +528,11 @@
             "Curl": ""
         },
         "LaTex": {
+            ".": "color: violet\n",
             "Элементы": ""
         },
         "Go": {
+            ".": "color: violet\n",
             "devhints.io": ""
         }
     },
@@ -523,51 +559,55 @@
         "Chrome Dino": "",
         "Alt Symbols": "",
         "Links": "",
-        "TODO": "",
+        "TODO": "color: red\n",
         "Markdown": ""
     },
     "Snippets": {
         "Python": {
             "Examples": {
-                "list comprehension tips": "",
-                "Multiplication of lists": ""
+                ".": "color: brown\n",
+                "list comprehension tips": "color: brown\n",
+                "Multiplication of lists": "color: brown\n"
             },
             "File formats": {
-                "JSON": "",
-                "YAML": "",
-                "TOML": "",
-                "INI": "",
-                "XML": "",
-                "CSV": "",
-                "SQLite3 to CSV": "",
-                "Vedis db": "",
-                "TinyDB (json)": ""
+                ".": "color: brown\n",
+                "JSON": "color: brown\n",
+                "YAML": "color: brown\n",
+                "TOML": "color: brown\n",
+                "INI": "color: brown\n",
+                "XML": "color: brown\n",
+                "CSV": "color: brown\n",
+                "SQLite3 to CSV": "color: brown\n",
+                "Vedis db": "color: brown\n",
+                "TinyDB (json)": "color: brown\n"
             },
             "Problems": {
-                "Пирамида граф": "",
-                "Определитель матрицы": "",
-                "Минимальное максимальное число матрицы cpp": "",
-                "str - int": "",
-                "fib": "",
-                "converters": "",
-                "quicksort": "",
-                "словарь обращение через точку": "",
-                "download telegram emoji": ""
+                ".": "color: brown\n",
+                "Пирамида граф": "color: brown\n",
+                "Определитель матрицы": "color: brown\n",
+                "Минимальное максимальное число матрицы cpp": "color: brown\n",
+                "str - int": "color: brown\n",
+                "fib": "color: brown\n",
+                "converters": "color: brown\n",
+                "quicksort": "color: brown\n",
+                "словарь обращение через точку": "color: brown\n",
+                "download telegram emoji": "color: brown\n"
             },
-            "Get admin rights": "",
-            "PYPRECODE": ""
+            "Get admin rights": "color: brown\n",
+            "PYPRECODE": "color: brown\n"
         },
         "Java": {
-            "snippet 1": ""
+            "snippet 1": "color: brown\n"
         },
         "JavaScript": {
-            "js YouTube": ""
+            "js YouTube": "color: brown\n"
         }
     },
     "Shortcuts": {
         "link-1": "",
         "link-2": "",
         "Java": {
+            ".": "folder-open: true\n",
             "link-3": "",
             "link-4": ""
         }

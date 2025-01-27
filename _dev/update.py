@@ -57,9 +57,7 @@ for unused_file in unused_files:
 # generate buttons.html file
 with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
     index_json = json.load(index_json_file)
-with open("../cheatsheet/metadata.json", "r", encoding="UTF-8") as metadata_json_file:
-    metadata_json = json.load(metadata_json_file)
-buttons_html = generate_buttons(index_json, metadata_json)[0]
+buttons_html = generate_buttons(index_json)[0]
 with open("../cheatsheet/_buttons.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(buttons_html, "html.parser").prettify())
 

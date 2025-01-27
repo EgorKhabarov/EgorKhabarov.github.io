@@ -1,5 +1,6 @@
 import os
 
+import yaml
 from bs4 import BeautifulSoup
 
 
@@ -74,35 +75,34 @@ def format_folder_cheatsheet_button(title: str, svg: str, kpath: str, vpath: str
     )
 
 
-def generate_buttons(
-    dictionary: dict,
-    metadata: dict,
-    directory: str = "",
-) -> tuple[str, str, int]:
+def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
     text_list = []
     for key, value in dictionary.items():
+        if key in ("index", "."):
+            continue
+
         title = key.replace(" ", "&nbsp;").replace("-", "&#8288;-&#8288;")
         path = f"{directory}/{key}".replace("\\", "/").lstrip("/")
         if isinstance(value, dict):
             path += "/"
 
-        current_metadata = metadata.get(path, default_value)
+        current_metadata_str = value if isinstance(value, str) else str(value.get("."))
+        current_metadata = yaml.safe_load(current_metadata_str)
+        if isinstance(current_metadata, str | None):
+            current_metadata = default_value
 
         if key.startswith("link-") and key.removeprefix("link-").isdigit():
             with open(f"../cheatsheet/{path}.md") as link_file:
                 value = link_file.read()
-            color = current_metadata.get("color")
-            if not color:
-                color = metadata.get(
-                    value.removesuffix("index") if value.endswith("/index") else value,
-                    default_value,
-                ).get("color", "white")
+            color = current_metadata.get("color", "white")
+            # if not color:
+            #     color = metadata.get(
+            #         value.removesuffix("index") if value.endswith("/index") else value,
+            #         default_value,
+            #     ).get("color", "white")
             svg = link.format(color=color)
             title = value.removesuffix("index") if value.endswith("/index") else value.removesuffix("")
             text_list.append(format_link_button(title=title, svg=svg, vpath=value))
-            continue
-
-        if key == "index":
             continue
 
         #  print(f"{directory}/{key}".strip("/"))
@@ -111,7 +111,7 @@ def generate_buttons(
         directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict) and "index" in value:
-            button_folder_data = generate_buttons(value, metadata, key_path)[0]
+            button_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
             vpath = f"{directory_e}/{key}/index"
             svg = folder.format(color=current_metadata.get("color", "yellow"))
@@ -127,7 +127,7 @@ def generate_buttons(
                 )
             )
         elif isinstance(value, dict):
-            button_folder_data = generate_buttons(value, metadata, key_path)[0]
+            button_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
             svg = folder.format(color=current_metadata.get("color", "yellow"))
             css_display = "block" if current_metadata.get("folder-open") else "none"
