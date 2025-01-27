@@ -1,0 +1,576 @@
+{
+    "General": {
+        "GIT": {
+            "Команды": "",
+            "gitignore": "",
+            "Setup deploy key": "",
+            "git": "",
+            "submodule": ""
+        },
+        "Паттерны проектирования": {
+            "index": "",
+            "Порождающие паттерны": {
+                "Singleton (Одиночка)": "",
+                "Factory (Фабрика)": "",
+                "Abstract Factory (Абстрактная фабрика)": "",
+                "Builder (Строитель)": "",
+                "Prototype (Прототип)": ""
+            },
+            "Структурные паттерны": {
+                "Adapter (Адаптер)": "",
+                "Bridge (Мост)": "",
+                "Composite (Компоновщик)": "",
+                "Decorator (Декоратор)": "",
+                "Facade (Фасад)": "",
+                "Flyweight (Легковес)": "",
+                "Proxy (Заместитель)": ""
+            },
+            "Поведенческие паттерны": {
+                "Chain of Responsibility (Цепочка обязанностей)": "",
+                "Command (Команда)": "",
+                "Interpreter (Интерпретатор)": "",
+                "Iterator (Итератор)": "",
+                "Mediator (Посредник)": "",
+                "Memento (Снимок)": "",
+                "Observer (Наблюдатель)": "",
+                "State (Состояние)": "",
+                "Strategy (Стратегия)": "",
+                "Template Method (Шаблонный метод)": "",
+                "Visitor (Посетитель)": ""
+            },
+            "Антипаттерны": ""
+        },
+        "HTTP": {
+            "HTTР": "",
+            "Заголовки": "",
+            "Коды ответов": "",
+            "Networking Protocols": ""
+        },
+        "Abbreviations": {
+            "Table of contents": "",
+            "SOLID": "",
+            "ACID": "",
+            "BNF EBNF": ""
+        },
+        "Парадигмы программирования": "",
+        "ip": "",
+        "ООП": "",
+        "Interpreter Compiler": "",
+        "sync async": "",
+        "Угрозы безопасности": "",
+        "Google Search": "",
+        "Encodings": "",
+        "Big O Notation": "",
+        "Бинарные операторы": "",
+        "Cron": "",
+        "Glob": ""
+    },
+    "Languages": {
+        "Python": {
+            "Libraries": {
+                "Table of contents": "",
+                "System": {
+                    "Windows": {
+                        "nt": "",
+                        "ntpath": ""
+                    },
+                    "Unix": {
+                        "posix": "",
+                        "posixpath": "",
+                        "signal": "",
+                        "grp": ""
+                    },
+                    "os": {
+                        "index": "",
+                        "os 2": "",
+                        "os.path": "",
+                        "os.stat": ""
+                    },
+                    "io": "",
+                    "sys": "",
+                    "subprocess": "",
+                    "multiprocessing": "",
+                    "concurrent": "",
+                    "keyboard": "",
+                    "fnmatch": "",
+                    "glob": "",
+                    "resource": "",
+                    "stat": "",
+                    "getopt": "",
+                    "optparse": "",
+                    "genericpath": "",
+                    "gc": "",
+                    "filecmp": "",
+                    "pymsgbox": "",
+                    "pygetwindow": "",
+                    "psutil": "",
+                    "fcntl": "",
+                    "watchdog": ""
+                },
+                "Data types": {
+                    "xml": "",
+                    "jsonschema": "",
+                    "jsonpointer": "",
+                    "queue": "",
+                    "enum": "",
+                    "heapq": "",
+                    "graphlib": "",
+                    "wave": "",
+                    "netrc": ""
+                },
+                "Information": {
+                    "math": "",
+                    "textwrap": "",
+                    "time": "",
+                    "datetime": "",
+                    "decimal": "",
+                    "fractions": "",
+                    "difflib": "",
+                    "random": "",
+                    "PIL": {
+                        "ImageDraw.Draw": ""
+                    },
+                    "argparse": "",
+                    "shlex": "",
+                    "base64": "",
+                    "binhex": "",
+                    "string": "",
+                    "rich": "",
+                    "numpy": ""
+                },
+                "Python": {
+                    "markdown": {
+                        "extensions": ""
+                    },
+                    "doctests": {
+                        "doctests": "",
+                        "comments": ""
+                    },
+                    "typing": "",
+                    "itertools": "",
+                    "collections": "",
+                    "functools": "",
+                    "cachetools": "",
+                    "contextlib": "",
+                    "setuptools": "",
+                    "importlib": "",
+                    "logging": "",
+                    "tabnanny": "",
+                    "atexit": "",
+                    "pstats": "",
+                    "getpass": "",
+                    "reprlib": "",
+                    "trace": "",
+                    "traceback": "",
+                    "warnings": "",
+                    "keyword": "",
+                    "frozenlist": "",
+                    "runpy": "",
+                    "zipimport": "",
+                    "zipapp": "",
+                    "zipfile": "",
+                    "marshal": "",
+                    "formatter": "",
+                    "pyparsing": "",
+                    "pyclbr": "",
+                    "gast": "",
+                    "bdb": "",
+                    "faulthandler": "",
+                    "gtts": "",
+                    "rlcompleter": "",
+                    "fileinput": "",
+                    "abc": "",
+                    "inspect": "",
+                    "operator": "",
+                    "ast": "",
+                    "mypy": "",
+                    "unittest": "",
+                    "unittest.mock": "",
+                    "curses": "",
+                    "dis": {
+                        "dis": "",
+                        "byte code": ""
+                    }
+                },
+                "Algorithms": {
+                    "bisect": "",
+                    "hmac": "",
+                    "zlib": "",
+                    "lzma": "",
+                    "table2string": ""
+                },
+                "Web": {
+                    "Django": {
+                        "Команды": ""
+                    },
+                    "Flask": {
+                        "Типы переменных": ""
+                    },
+                    "FastAPI": {
+                        "index": ""
+                    },
+                    "Jinja": {
+                        "index": "",
+                        "Базовый синтаксис": "",
+                        "Управляющие структуры": "",
+                        "Фильтры и функции": "",
+                        "Шаблонные наследования": "",
+                        "Инклюды и импорт": "",
+                        "Работа с контекстом": "",
+                        "Безопасность": "",
+                        "Лучшие практики": ""
+                    },
+                    "webcolors": "",
+                    "certifi": "",
+                    "grpc": ""
+                },
+                "GUI": {
+                    "tkinter": {
+                        "tkinter": "",
+                        "Методы": "",
+                        "config": "",
+                        "Вёрстка": ""
+                    },
+                    "PyQT5": {
+                        "PyQT5": "",
+                        "QTWidgets": "",
+                        "QTWidgets 2": "",
+                        "MVP": ""
+                    }
+                },
+                "DataBases": {
+                    "SQLAlchemy": "",
+                    "peewee": "",
+                    "pony": ""
+                },
+                "Other": {
+                    "wheel": "",
+                    "linecache": "",
+                    "sched": "",
+                    "packaging": "",
+                    "notebook": "",
+                    "quopri": "",
+                    "errno": "",
+                    "locale": "",
+                    "gettext": ""
+                }
+            },
+            "Methods": {
+                "Magic methods": "",
+                "Magic attributes": "",
+                "str": "",
+                "int": "",
+                "float": "",
+                "list": "",
+                "tuple": "",
+                "dict": "",
+                "set": ""
+            },
+            "Decorators Closure": {
+                "Decorators Closure": "",
+                "dataclass": "",
+                "property": "",
+                "cached_property": "",
+                "staticmethod": "",
+                "classmethod": "",
+                "overload": "",
+                "singledispatch": "",
+                "final": ""
+            },
+            "bash": {
+                "python flags": "",
+                "pip flags": "",
+                "venv": "",
+                "requirements.txt": "",
+                "IPython": "",
+                "File formats": "",
+                "setup.py & pyproject.toml": ""
+            },
+            "Generators": {
+                "Методы": "",
+                "Атрибуты": "",
+                "yield from": ""
+            },
+            "Built-in": {
+                "Built-in functions": "",
+                "Exception": "",
+                "ExceptionGroup": "",
+                "metaclass": ""
+            },
+            "Operator Precedence": "",
+            "fstrings": "",
+            "match-case": "",
+            "MRO": "",
+            "noinspection.txt": ""
+        },
+        "RegExp": {
+            "RegExp": "",
+            "images": ""
+        },
+        "Java": {
+            "java": {
+                "util": {
+                    "function": {
+                        "index": "",
+                        "BiFunction": "",
+                        "Predicate": "",
+                        "BiPredicate": "",
+                        "Consumer": "",
+                        "BiConsumer": "",
+                        "Supplier": ""
+                    },
+                    "Scanner": "",
+                    "Arrays": "",
+                    "LinkedList": "",
+                    "ArrayList": "",
+                    "HashSet": "",
+                    "HashMap": ""
+                },
+                "math": {
+                    "BigInteger и BigDecimal": ""
+                }
+            },
+            "Built-in": {
+                "String": "",
+                "Integer": "",
+                "Character": "",
+                "StringBuilder от StringBuffer": ""
+            },
+            "Core": {
+                "Запуск": {
+                    "Запуск": "",
+                    "Аргументы": ""
+                },
+                "Типы данных": "",
+                "Логические операторы": "",
+                "Циклы": "",
+                "Массив (Array)": "",
+                "try, catch, finally": "",
+                "Исключения": "",
+                "Лямбда-выражения": "",
+                "Method reference": "",
+                "Пакеты": "",
+                "Генерики": "",
+                "Аргументы": ""
+            },
+            "Классы": {
+                "Объекты, конструкторы": "",
+                "Модификатор доступа": "",
+                "Методы": {
+                    "Методы": "",
+                    "Не статические методы": "",
+                    "Перегруженные методы": "",
+                    "Переопределение методов": "",
+                    "Абстрактные методы": ""
+                },
+                "Наследование": "",
+                "Анонимный класс": "",
+                "interface": "",
+                "abstract class": ""
+            },
+            "Annotations": {
+                "@FunctionalInterface": ""
+            },
+            "Generics": "",
+            "IO": ""
+        },
+        "Kotlin": {
+            "index": "",
+            "Android": ""
+        },
+        "SQL": {
+            "SQLite3": {
+                "Date And Time Format": "",
+                "Разное": "",
+                "JOIN": "",
+                "Операторы": "",
+                "Функции": ""
+            },
+            "MySQL MariaDB": {
+                "Типы данных": ""
+            },
+            "PostgreSQL": {
+                "Типы данных": "",
+                "pg_hba.conf": "",
+                "CREATE": "",
+                "Картинки": ""
+            },
+            "Картинки": "",
+            "DESC и ASC": "",
+            "JOIN": ""
+        },
+        "Dockerfile": {
+            "Dockerfile": "",
+            "RUN mkdir -p": ""
+        },
+        "JavaScript": {
+            "Списки": "",
+            "for": "",
+            "handlebar": "",
+            "Переменные": "",
+            "Ключевые слова для объявления переменных и констант": ""
+        },
+        "CSS": {
+            "css-text": {
+                "Backgrounds": "",
+                "Border": "",
+                "table": "",
+                "boxmodel": "",
+                "font": "",
+                "text": "",
+                "color_angles_time_frequency": "",
+                "animations": "",
+                "speech": "",
+                "transitions": "",
+                "ui": "",
+                "column": "",
+                "list and markers": "",
+                "absolute measurement": "",
+                "pseudo element": "",
+                "pseudo class": "",
+                "colors": "",
+                "outlin": "",
+                "relative measurement": ""
+            },
+            "css-img": "",
+            "Селекторы": "",
+            "Единицы измерения": "",
+            "Переносы строк": ""
+        },
+        "HTML": {
+            "Теги": "",
+            "Символы и экранирование": "",
+            "tag input": "",
+            "tag a": "",
+            "Xpath": {
+                "Link": "",
+                "Selectors": "",
+                "Expressions": "",
+                "Predicates": "",
+                "Functions": "",
+                "Axes": "",
+                "More examples": ""
+            }
+        },
+        "Cpp": {
+            "Типы данных": "",
+            "if-else,switch-case": "",
+            "rand": "",
+            "Циклы": "",
+            "try-catch": "",
+            "Массивы": "",
+            "Указатели": "",
+            "Динамические массивы": "",
+            "Символы и строки": "",
+            "Структуры данных": "",
+            "Перечисления (Enum)": "",
+            "Работа с файлами": "",
+            "Функции": "",
+            "Перегрузка функций": "",
+            "Математические операции": "",
+            "(Введение в ООП) Классы и объекты": "",
+            "Конструкторы и деструкторы": "",
+            "20 Дружественные функции": "",
+            "Дружественные классы": "",
+            "Указатель this": "",
+            "Наследование классов (ООП)": "",
+            "Шаблоны функций (template)": "",
+            "Шаблоны классов": "",
+            "end": "",
+            "ChatGPT": "",
+            "Разное": "",
+            "Операции над числами": "",
+            "for while": "",
+            "Массив": "",
+            "Строка": "",
+            "Указатели2": "",
+            "malloc": ""
+        },
+        "Bash": {
+            "help": "",
+            "Переменные окружения": "",
+            "Bash": "",
+            "ANSI": "",
+            "Curl": ""
+        },
+        "LaTex": {
+            "Элементы": ""
+        },
+        "Go": {
+            "devhints.io": ""
+        }
+    },
+    "Other": {
+        "Minecraft": {
+            "Server": {
+                "plugins": {
+                    "LuckPerms": ""
+                }
+            },
+            "Colors": "",
+            "Circle Generator": ""
+        },
+        "JetBrains IDE": {
+            "settings": "",
+            "font": ""
+        },
+        "ChatGPT": {
+            "Промты": ""
+        },
+        "GitHub": {
+            "Markdown": ""
+        },
+        "Chrome Dino": "",
+        "Alt Symbols": "",
+        "Links": "",
+        "TODO": "",
+        "Markdown": ""
+    },
+    "Snippets": {
+        "Python": {
+            "Examples": {
+                "list comprehension tips": "",
+                "Multiplication of lists": ""
+            },
+            "File formats": {
+                "JSON": "",
+                "YAML": "",
+                "TOML": "",
+                "INI": "",
+                "XML": "",
+                "CSV": "",
+                "SQLite3 to CSV": "",
+                "Vedis db": "",
+                "TinyDB (json)": ""
+            },
+            "Problems": {
+                "Пирамида граф": "",
+                "Определитель матрицы": "",
+                "Минимальное максимальное число матрицы cpp": "",
+                "str - int": "",
+                "fib": "",
+                "converters": "",
+                "quicksort": "",
+                "словарь обращение через точку": "",
+                "download telegram emoji": ""
+            },
+            "Get admin rights": "",
+            "PYPRECODE": ""
+        },
+        "Java": {
+            "snippet 1": ""
+        },
+        "JavaScript": {
+            "js YouTube": ""
+        }
+    },
+    "Shortcuts": {
+        "link-1": "",
+        "link-2": "",
+        "Java": {
+            "link-3": "",
+            "link-4": ""
+        }
+    },
+    "README": ""
+}

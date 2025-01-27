@@ -1,8 +1,10 @@
+import os
 import sys
 from pathlib import Path
 from typing import Generator, Any, Callable
 
 import git
+import requests
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
@@ -210,16 +212,6 @@ def to_table_code_py(code: str) -> str:
     return to_table_code("python", code)
 
 
-# TODO удалить
-def to_table_code_java(code: str) -> str:
-    return to_table_code("java", code)
-
-
-# TODO удалить
-def to_table_code_sql(code: str) -> str:
-    return to_table_code("sql", code)
-
-
 def check_dict_keys(d: dict, c: int = 0, path: list = None) -> tuple[bool | int, list | None]:
     """
     Рекурсивно обходит словарь и проверяет ключи на правила именования файлов и папок в файловой системе
@@ -272,13 +264,68 @@ def print_progress_bar(x: int, y: int, name: str, text: str = None):
     sys.stdout.flush()
 
 
-def get_git_diff(
+def get_files(
     filter_func: Callable[[str], bool] = lambda p: True,
     type_func: type[str | Path] = str,
 ) -> Generator[str | Path, Any, None]:
     return (
-        type_func(diff.a_path)
-        for diff in repo.head.commit.diff(None)
-        if diff.a_path.startswith(r"cheatsheet/") and filter_func(diff.a_path)
+        type_func(path.replace("\\", "/").removeprefix("../cheatsheet/"))
+        for directory, dirnames, filenames in os.walk("../cheatsheet")
+        for filename in filenames
+        if (path := os.path.join(directory, filename)) and None or filter_func(path)
     )
 
+
+def get_git_diff(
+    filter_func: Callable[[str], bool] = lambda p: True,
+    type_func: type[str | Path] = str,
+) -> Generator[str | Path, Any, None]:
+    for diff in repo.head.commit.diff(None):
+        if (
+            not diff.deleted_file
+            and diff.b_path.startswith(r"cheatsheet/")
+            and filter_func(diff.b_path)
+        ):
+            yield type_func(diff.b_path.removeprefix("cheatsheet/"))
+    for diff_path in repo.untracked_files:
+        if diff_path.startswith(r"cheatsheet/") and filter_func(diff_path):
+            yield type_func(diff_path.removeprefix("cheatsheet/"))
+
+
+def update_svg_badge(cheatsheet_count: int = 0):
+    try:
+        content = requests.get(
+            f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",
+            {
+                "style": "flat",
+                "logo": "github",
+                "label": "GitHub Pages",
+            },
+        ).content.decode()
+    except requests.exceptions.ConnectionError:
+        pass
+    else:
+        with open("../cheatsheet/cheatsheet_badge.svg", "w", encoding="utf-8") as file:
+            file.write(content)
+
+
+def dict_walk(d: dict[str, str | dict[str, str | dict]], __now_dir: tuple[str, ...] = ()):
+    """
+    for directory, dirnames, filenames,  in dict_walk(...):
+
+    :param d:
+    :param __now_dir:
+    :return:
+    """
+    directory = "/".join(__now_dir)
+    dirnames, dirs, filenames = [], [], []
+    for k, v in d.items():
+        if isinstance(v, dict):
+            dirs.append((k, v))
+            dirnames.append(k)
+        else:
+            filenames.append(k)
+    yield directory, dirnames, filenames
+    if dirs:
+        for k, v in dirs:
+            yield from dict_walk(v, __now_dir + (k,))

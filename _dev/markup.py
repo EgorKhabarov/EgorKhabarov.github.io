@@ -1,16 +1,12 @@
-import os
 import re
-from pathlib import Path
 
 import markdown
-import requests
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 from pygments.util import ClassNotFound
 
-from _dev.data import DICT
-from _dev.utils import set_unselectable, print_progress_bar
+from _dev.utils import set_unselectable
 
 
 formatter = HtmlFormatter(style="default")
@@ -98,87 +94,3 @@ def to_markup(markdown_text: str):
         "markdown.extensions.fenced_code",
     ]
     return markdown.markdown(highlighted_html, extensions=md_extensions)
-
-
-def create_files_and_folders(dictionary, directory: str = "../cheatsheet", x: int = 0, y: int = 0):
-    """
-    Рекурсивная функция, которая создает файлы и папки для каждого ключа-значения в словаре.
-
-    :param dictionary: Словарь, который нужно воссоздать в виде файлов и папок
-    :param directory: Директория, в которой нужно создать файлы и папки (по умолчанию - текущая директория)
-    :param x:
-    :param y:
-    """
-    generate_html = False
-
-    for key, value in dictionary.items():
-        key_path = os.path.join(directory, key)
-        print_progress_bar(x, y, "create cheatsheets", key_path.replace("\\", "/"))
-        key_path_html = key_path
-
-        if isinstance(value, str):
-            key_path_html = key_path + ".html"
-            key_path += ".md"
-
-        if isinstance(value, dict):
-            # Если значение - словарь, создаем папку и вызываем функцию рекурсивно
-            os.makedirs(key_path, exist_ok=True)
-            x = create_files_and_folders(value, key_path, x, y)
-        else:
-            x += 1
-            # Если значение - строка, создаем файл с содержимым строки
-            if generate_html:
-                with open(key_path_html, "w", encoding="utf-8") as f:
-                    f.write(to_markup(value.strip()))
-                with open(key_path, "w", encoding="utf-8") as f:
-                    f.write(value.strip())
-            else:
-                with open(key_path, "w", encoding="utf-8") as f:
-                    f.write(to_markup(value.strip()))
-
-    for directory, dirnames, filenames in os.walk("../cheatsheet"):
-        for dirname in dirnames:
-            dir_path = os.path.join(directory, dirname)
-            # Если директория пустая, удаляем ее
-            if not os.listdir(dir_path):
-                os.rmdir(dir_path)
-                # print(f"Удалена пустая директория: {dir_path}")
-    return x
-
-
-def create_files(cheatsheet_count: int, additional_path: str = ""):
-    dictionary = DICT
-    directory = Path("../cheatsheet")
-
-    if additional_path:
-        directory = directory.joinpath(additional_path)
-        for path in additional_path.strip("/").split("/"):
-            dictionary = dictionary[path]
-
-    create_files_and_folders(dictionary, directory=str(directory), y=cheatsheet_count - 1)
-
-    try:
-        content = requests.get(
-            f"https://img.shields.io/badge/{cheatsheet_count}%20cheatsheet-brightgreen",
-            {
-                "style": "flat",
-                "logo": "github",
-                "label": "GitHub Pages",
-            },
-        ).content.decode()
-    except requests.exceptions.ConnectionError:
-        pass
-    else:
-        with open("../cheatsheet/cheatsheet_badge.svg", "w", encoding="utf-8") as file_readme:
-            file_readme.write(content)
-
-
-def create_file(keys: tuple[str]):
-    filepath = f"cheatsheet\\" + "\\".join(keys) + ".md"
-    os.makedirs(filepath.rsplit("\\", maxsplit=1)[0], exist_ok=True)
-    value = DICT
-    for key in keys:
-        value = value[key]
-
-    with open(filepath, "w", encoding="utf-8") as file:
-        file.write(to_markup(value.strip()))

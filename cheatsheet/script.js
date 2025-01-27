@@ -643,16 +643,6 @@ function onclickSearchButton(element) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Аргументы URL
-    const arg = decodeURIComponent(getArgumentFromUrl());
-    if (arg !== "null") {
-        console.log(`Argument found: "${arg}"`);
-        DisplayCheatSheet(arg);
-        changeTitle(getPathFilename(arg))
-    } else {
-        PutHtmlText(getCheatSheet("README.md"));
-    }
-
     // Якорь
     const anchor = getAnchor();
     if (anchor) {
@@ -737,6 +727,21 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    fetch("_buttons.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
+        .then(() => {
+            // Аргументы URL
+            const arg = decodeURIComponent(getArgumentFromUrl());
+            if (arg !== "null") {
+                console.log(`Argument found: "${arg}"`);
+                DisplayCheatSheet(arg);
+                changeTitle(getPathFilename(arg))
+            } else {
+                PutHtmlText(getCheatSheet("README.md"));
+            }
+        });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
@@ -750,14 +755,6 @@ document.addEventListener("click", function(event) {
         document.body.removeChild(tempInput);
     }
 });
-
-
-let need_save_history = true;
-let history = {};
-let isCtrlPressed = false;
-let ismdwn = 0;
-let settings = loadSettings();
-let fileSuffix = ".md";  // ".html"
 
 
 /* rpanrResize */
@@ -792,3 +789,11 @@ function end() {
     document.body.removeEventListener("touchmove", mV);
     document.body.removeEventListener("touchend", end);
 }
+
+
+let need_save_history = true;
+let history = {};
+let isCtrlPressed = false;
+let ismdwn = 0;
+let settings = loadSettings();
+let fileSuffix = ".html";  // ".md"
