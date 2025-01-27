@@ -1,6 +1,6 @@
 import os
-import sys
 from pathlib import Path
+from collections import UserDict
 from typing import Generator, Any, Callable
 
 import git
@@ -19,46 +19,6 @@ try:
     branch: str = repo.active_branch.name
 except TypeError:
     branch = repo.head.commit.hexsha[:8]
-
-
-# TODO удалить
-reserved_filenames = [
-    filename
-    for filenames in map(
-        lambda l: (l, l + "."),
-        """
-CON
-PRN
-AUX
-NUL
-COM1
-COM2
-COM3
-COM4
-COM5
-COM6
-COM7
-COM8
-COM9
-LPT1
-LPT2
-LPT3
-LPT4
-LPT5
-LPT6
-LPT7
-LPT8
-LPT9
-CLOCK$
-CONIN$
-CONOUT$
-COM0
-PRN0
-LPT0
-""".strip().splitlines()
-    )
-    for filename in filenames
-]
 
 
 def set_unselectable(text: str, sep: str = "\n"):
@@ -212,58 +172,6 @@ def to_table_code_py(code: str) -> str:
     return to_table_code("python", code)
 
 
-def check_dict_keys(d: dict, c: int = 0, path: list = None) -> tuple[bool | int, list | None]:
-    """
-    Рекурсивно обходит словарь и проверяет ключи на правила именования файлов и папок в файловой системе
-    TODO удалить
-
-    :param d:
-    :param c:
-    :param path:
-    :return:
-    """
-    if path is None:
-        path = []
-
-    for k, v in d.items():
-        print_progress_bar(c, 0, "counting cheatsheets", k)
-        path.append(k)
-        if (
-            (not k)
-            or k == "."
-            or "\x00" in k
-            or set(k) & set("\\/:*?'\"<>|")
-            or k in reserved_filenames
-        ):
-            return False, path
-        if isinstance(v, dict):
-            res, errors = check_dict_keys(v, c, path)
-            if res is False:
-                return False, errors
-            c = res
-        else:
-            c += 1
-        path.pop()
-    return c, None
-
-
-def print_progress_bar(x: int, y: int, name: str, text: str = None):
-    bar_length = 50
-
-    if y == 0:
-        y = 100
-
-    progress = x / y
-    arrow = ("█" * int(progress * bar_length))
-    if len(arrow) > bar_length:
-        arrow = arrow[:bar_length]
-    text = text.removeprefix("../cheatsheet").strip("/").strip("\\")
-    sys.stdout.write(
-        f"\r[{arrow:<{bar_length}}][{name:<20}][{int(progress * 100):>3}%][{x:>3}/{y:>3}] >>> {text: <100}"
-    )
-    sys.stdout.flush()
-
-
 def get_files(
     filter_func: Callable[[str], bool] = lambda p: True,
     type_func: type[str | Path] = str,
@@ -329,3 +237,66 @@ def dict_walk(d: dict[str, str | dict[str, str | dict]], __now_dir: tuple[str, .
     if dirs:
         for k, v in dirs:
             yield from dict_walk(v, __now_dir + (k,))
+
+
+class PathDict(UserDict):
+    def __setitem__(self, key: str, value: str):
+        if "/" not in key:
+            return super().__setitem__(key, value)
+        path, key = key.rsplit("/", maxsplit=1)
+        self.__getitem__(path, _is_dir=True)[key] = value
+
+    def __delitem__(self, key: str):
+        # Удаляет значение или директорию по ключу
+        # Если ключ простой то удаляем обычным методом
+        if "/" not in key:
+            return super().__delitem__(key)
+        parent_dir, value = key.rsplit("/", maxsplit=1)
+        del self.__getitem__(parent_dir, _is_dir=True)[value]
+        while len(self.__getitem__(parent_dir, _is_dir=True).keys()) == 0:
+            parent_dir, *value = parent_dir.rsplit("/", maxsplit=1)
+            if not value:
+                del self.__getitem__("", _is_dir=True)[parent_dir]
+                break
+            del self.__getitem__(parent_dir, _is_dir=True)[value[0]]
+
+    def __getitem__(self, key: str, _is_dir: bool = False):
+        if not key:
+            return self.data
+        if "/" not in key:
+            if _is_dir:
+                return super().setdefault(key, {})
+            return super().__getitem__(key)
+        *path, key = key.split("/")
+        temp = self.data
+        for p in path:
+            temp = temp.setdefault(p, {})
+        if _is_dir:
+            return temp.setdefault(key, {})
+        return temp.setdefault(key, "")
+
+    def exist(self, key: str) -> bool:
+        temp = self.data
+        for p in key.split("/"):
+            try:
+                temp = temp[p]
+            except KeyError:
+                return False
+        return True
+
+
+def update_index_json(
+    index_json: dict[str, str | dict[str, str | dict]],
+    added_cheat_sheets: list[str],
+    removed_cheat_sheets: list[str],
+) -> dict[str, str | dict[str, str | dict]]:
+    path_dict = PathDict(index_json)
+
+    for added_cheat_sheet in added_cheat_sheets:
+        if not path_dict.exist(added_cheat_sheet):
+            path_dict[added_cheat_sheet] = ""
+
+    for removed_cheat_sheet in removed_cheat_sheets:
+        del path_dict[removed_cheat_sheet]
+
+    return path_dict.data
