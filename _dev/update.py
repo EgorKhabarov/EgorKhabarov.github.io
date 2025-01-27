@@ -64,7 +64,7 @@ for directory, dirnames, filenames in dict_walk(index_json):
         path = f"{directory}/{filename}".lstrip("/")
         index_json_cheatsheet_list.append(path)
 cheatsheet_set = set(path.removesuffix(".md") for path in cheatsheet_list)
-index_json_set = set(index_json_cheatsheet_list)
+index_json_set = set(path for path in index_json_cheatsheet_list if not path.split("/")[-1].startswith(":"))
 diff_new = cheatsheet_set - index_json_set
 diff_del = index_json_set - cheatsheet_set
 if diff_new:
