@@ -91,9 +91,10 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
         if isinstance(current_metadata, str | None):
             current_metadata = default_value
 
-        if key.startswith("link-") and key.removeprefix("link-").isdigit():
-            with open(f"../cheatsheet/{path}.md") as link_file:
-                value = link_file.read()
+        if key.startswith(":") and key.removeprefix(":"):
+            path = f"{directory}/{key.removeprefix(":")}".replace("\\", "/").lstrip("/")
+            with open(f"../cheatsheet/{path}.link", "r", encoding="UTF-8") as link_file:
+                value = link_file.read().strip()
             color = current_metadata.get("color", "white")
             # if not color:
             #     color = metadata.get(

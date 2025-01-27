@@ -51,7 +51,7 @@ function setDisplayBlock(element) {
         element.style.display = "block";
     }
 }
-function DisplayCheatSheet(vpath) {
+function DisplayCheatSheet(vpath, set_active=true) {
     isFolderCheatSheet = vpath.endsWith("/");
     vpath = isFolderCheatSheet ? vpath + "index" : removeSuffix(vpath, "/");
     kpath = getPathWithoutFilename(vpath);
@@ -81,11 +81,20 @@ function DisplayCheatSheet(vpath) {
             addArgumentToUrl(kpath+"/");
             return
         }
-        return PutHtmlText();
+        /*
+        Раскомментировать `return PutHtmlText();`
+        чтобы если нету соответствующей
+        кнопки для шпаргалки то показывать 404
+        */
+        // return PutHtmlText();
     }
 
-    changeActiveButton(velement);
-    velement.scrollIntoView({block: "center"});
+    if (velement) {
+        if (set_active) {
+            changeActiveButton(velement);
+        }
+        velement.scrollIntoView({block: "center"});
+    }
     cheatsheet_buttons.scrollLeft -= 200;
     GET(vpath);
 }
@@ -426,7 +435,7 @@ function GET(url) {
         cheatsheet = history[url];
         if (cheatsheet === undefined) {cheatsheet = "";}
     } else {
-        cheatsheet = getCheatSheet(url);
+        cheatsheet = getCheatSheet(url+fileSuffix);
         console.log(`GET "${url}"`)
     }
     PutHtmlText(cheatsheet);
@@ -638,7 +647,6 @@ function onclickSearchButton(element) {
     DisplayCheatSheet(vpath);
     changeTitle(getPathFilename(vpath));
     performSearch(true);
-
 }
 
 
@@ -720,13 +728,18 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
         .then(() => {
             // Аргументы URL
-            const arg = decodeURIComponent(getArgumentFromUrl());
+            arg = decodeURIComponent(getArgumentFromUrl());
+            if (arg === "README") {
+                arg = "null";
+            }
             if (arg !== "null") {
                 console.log(`Argument found: "${arg}"`);
                 DisplayCheatSheet(arg);
-                changeTitle(getPathFilename(arg))
+                changeTitle(getPathFilename(arg));
             } else {
-                PutHtmlText(getCheatSheet("README.md"));
+                arg = "README";
+                DisplayCheatSheet(arg, false);
+                changeTitle(getPathFilename(arg));
             }
 
             // Поиск

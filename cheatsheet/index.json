@@ -604,12 +604,12 @@
         }
     },
     "Shortcuts": {
-        "link-1": "",
-        "link-2": "",
+        ":languages-python-fstrings": "",
+        ":languages-regexp-regexp": "",
         "Java": {
             ".": "folder-open: true\n",
-            "link-3": "",
-            "link-4": ""
+            ":languages-java": "",
+            ":languages-java-классы": ""
         }
     },
     "README": ""
