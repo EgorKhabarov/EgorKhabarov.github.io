@@ -30,4 +30,4 @@ CMD ["python3", "main.py"]
 ENV BOT_TOKEN=""
 ```
 
-![docker.png](Languages/Dockerfile/docker.png)
+![docker.png](Languages/Other/Dockerfile/docker.png)

@@ -401,11 +401,6 @@
             "Generics": "",
             "IO": ""
         },
-        "Kotlin": {
-            ".": "color: violet\n",
-            "index": "",
-            "Android": ""
-        },
         "SQL": {
             ".": "color: violet\n",
             "SQLite3": {
@@ -427,11 +422,6 @@
             "Картинки": "color: lblue\n",
             "DESC и ASC": "",
             "JOIN": ""
-        },
-        "Dockerfile": {
-            ".": "color: violet\n",
-            "Dockerfile": "color: lblue\n",
-            "RUN mkdir -p": ""
         },
         "JavaScript": {
             ".": "color: violet\n",
@@ -528,13 +518,25 @@
             "ANSI": "",
             "Curl": ""
         },
-        "LaTex": {
-            ".": "color: violet\n",
-            "Элементы": ""
-        },
-        "Go": {
-            ".": "color: violet\n",
-            "devhints.io": ""
+        "Other": {
+            "Kotlin": {
+                ".": "color: violet\n",
+                "index": "",
+                "Android": ""
+            },
+            "Dockerfile": {
+                ".": "color: violet\n",
+                "Dockerfile": "color: lblue\n",
+                "RUN mkdir -p": ""
+            },
+            "Go": {
+                ".": "color: violet\n",
+                "devhints.io": ""
+            },
+            "LaTex": {
+                ".": "color: violet\n",
+                "Элементы": ""
+            }
         }
     },
     "Other": {
