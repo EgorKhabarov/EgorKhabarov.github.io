@@ -731,7 +731,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    fetch("_buttons.html")
+    fetch("buttons.html")
         .then(response => response.text())
         .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
         .then(() => {

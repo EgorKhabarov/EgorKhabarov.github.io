@@ -42,7 +42,7 @@ html_cheatsheet_list = list(get_files(lambda path: path.endswith(".html")))
 white_list_html_files = (
     "index.html",
     "404.html",
-    "_buttons.html",
+    "buttons.html",
 )
 unused_files = []
 for html_file in html_cheatsheet_list:
@@ -96,7 +96,7 @@ with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
 with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
     index_json = json.load(index_json_file)
 buttons_html = generate_buttons(index_json)[0]
-with open("../cheatsheet/_buttons.html", "w", encoding="utf-8") as file:
+with open("../cheatsheet/buttons.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(buttons_html, "html.parser").prettify())
 
 print(f"Done in \x1b[4m\x1b[1m{time.perf_counter()-start_time:.2f}\x1b[0m sec")
