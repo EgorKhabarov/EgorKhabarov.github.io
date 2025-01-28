@@ -14,7 +14,11 @@ formatter = HtmlFormatter(style="default")
 
 def code_block_callback(match: re.Match) -> str:
     code_block, language = match["code"], match["md_lang"] or match["pre_lang"] or ""
-    code_block = code_block.replace("<mark>", "==").replace('<mark style="">', "==").replace("</mark>", "==")
+    code_block = (
+        code_block.replace("<mark>", "==")
+        .replace('<mark style="">', "==")
+        .replace("</mark>", "==")
+    )
     if "@" in language:
         language, filename = language.split("@", maxsplit=1)
     else:
@@ -71,7 +75,7 @@ def to_markup(markdown_text: str):
     highlighted_html = re.sub(
         r"\[\[([^\n\]]+)]]",
         wikilink_func,
-        markdown_text
+        markdown_text,
     )
     # <mark>
     highlighted_html = re.sub(

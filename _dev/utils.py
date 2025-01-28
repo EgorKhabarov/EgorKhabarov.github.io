@@ -61,8 +61,7 @@ def set_unselectable(text: str, sep: str = "\n"):
                     )
                 ):
                     nextline = '<span class="o">&gt;&gt;&gt; </span></span>{}'.format(
-                        nextline
-                        .removeprefix('<span class="o">&gt;&gt;&gt;</span> ')
+                        nextline.removeprefix('<span class="o">&gt;&gt;&gt;</span> ')
                         .removeprefix('<span class="gp">&gt;&gt;&gt; </span>')
                         .removeprefix('<span class="o">>>></span> ')
                         .removeprefix('<span class="gp">>>> </span>')
@@ -148,7 +147,12 @@ def set_unselectable(text: str, sep: str = "\n"):
 def to_table_code(lang: str, code: str):
     formatter = HtmlFormatter(style="default")
     lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = highlight(code, lexer, formatter).strip().replace("\n", "<br>").replace("|", "&#x7c;")
+    highlighted_code = (
+        highlight(code, lexer, formatter)
+        .strip()
+        .replace("\n", "<br>")
+        .replace("|", "&#x7c;")
+    )
 
     if lang == "python" and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code:
         highlighted_code = set_unselectable(highlighted_code, "<br>")
@@ -217,7 +221,10 @@ def update_svg_badge(cheatsheet_count: int = 0):
             file.write(content)
 
 
-def dict_walk(d: dict[str, str | dict[str, str | dict]], __now_dir: tuple[str, ...] = ()):
+def dict_walk(
+    d: dict[str, str | dict[str, str | dict]],
+    __now_dir: tuple[str, ...] = (),
+):
     """
     for directory, dirnames, filenames in dict_walk(...):
 

@@ -55,7 +55,13 @@ def format_cheatsheet_button(title: str, svg: str, vpath: str, tags: str) -> str
     )
 
 
-def format_folder_button(title: str, svg: str, kpath: str, css_display: str, button_folder_data: str) -> str:
+def format_folder_button(
+    title: str,
+    svg: str,
+    kpath: str,
+    css_display: str,
+    button_folder_data: str,
+) -> str:
     return folder_button.format(
         title=title,
         svg=svg,
@@ -65,7 +71,14 @@ def format_folder_button(title: str, svg: str, kpath: str, css_display: str, but
     )
 
 
-def format_folder_cheatsheet_button(title: str, svg: str, kpath: str, vpath: str, css_display: str, button_folder_data: str) -> str:
+def format_folder_cheatsheet_button(
+    title: str,
+    svg: str,
+    kpath: str,
+    vpath: str,
+    css_display: str,
+    button_folder_data: str,
+) -> str:
     return folder_cheatsheet_button.format(
         title=title,
         svg=svg,
@@ -103,7 +116,11 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
             #         default_value,
             #     ).get("color", "white")
             svg = link.format(color=color)
-            title = value.removesuffix("index") if value.endswith("/index") else value.removesuffix("")
+            title = (
+                value.removesuffix("index")
+                if value.endswith("/index")
+                else value.removesuffix("")
+            )
             text_list.append(format_link_button(title=title, svg=svg, vpath=value))
             continue
 
