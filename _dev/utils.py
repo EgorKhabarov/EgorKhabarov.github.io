@@ -1,13 +1,9 @@
 import os
-from pathlib import Path
 from collections import UserDict
 from typing import Generator, Any, Callable
 
 import git
 import requests
-from pygments import highlight
-from pygments.formatters.html import HtmlFormatter
-from pygments.lexers import get_lexer_by_name
 
 
 try:
@@ -143,45 +139,11 @@ def set_unselectable(text: str, sep: str = "\n"):
     return sep.join(lines)
 
 
-# TODO удалить
-def to_table_code(lang: str, code: str):
-    formatter = HtmlFormatter(style="default")
-    lexer = get_lexer_by_name(lang, stripall=True)
-    highlighted_code = (
-        highlight(code, lexer, formatter)
-        .strip()
-        .replace("\n", "<br>")
-        .replace("|", "&#x7c;")
-    )
-
-    if lang == "python" and '<span class="o">&gt;&gt;&gt;</span> ' in highlighted_code:
-        highlighted_code = set_unselectable(highlighted_code, "<br>")
-
-    result = rf"""
-<div class="code" style="border-radius:.375rem .375rem;">
-<div class="highlight">
-<pre>
-{highlighted_code}
-</pre>
-</div>
-</div>
-""".strip().replace(
-        "\n", ""
-    )
-    return result
-
-
-# TODO удалить
-def to_table_code_py(code: str) -> str:
-    return to_table_code("python", code)
-
-
 def get_files(
-    filter_func: Callable[[str], bool] = lambda p: True,
-    type_func: type[str | Path] = str,
-) -> Generator[str | Path, Any, None]:
+    filter_func: Callable[[str], bool] = lambda p: True
+) -> Generator[str, Any, None]:
     return (
-        type_func(path.replace("\\", "/").removeprefix("../cheatsheet/"))
+        path.replace("\\", "/").removeprefix("../cheatsheet/")
         for directory, dirnames, filenames in os.walk("../cheatsheet")
         for filename in filenames
         if (path := os.path.join(directory, filename)) and None or filter_func(path)
@@ -189,19 +151,18 @@ def get_files(
 
 
 def get_git_diff(
-    filter_func: Callable[[str], bool] = lambda p: True,
-    type_func: type[str | Path] = str,
-) -> Generator[str | Path, Any, None]:
+    filter_func: Callable[[str], bool] = lambda p: True
+) -> Generator[str, Any, None]:
     for diff in repo.head.commit.diff(None):
         if (
             not diff.deleted_file
             and diff.b_path.startswith(r"cheatsheet/")
             and filter_func(diff.b_path)
         ):
-            yield type_func(diff.b_path.removeprefix("cheatsheet/"))
+            yield diff.b_path.removeprefix("cheatsheet/")
     for diff_path in repo.untracked_files:
         if diff_path.startswith(r"cheatsheet/") and filter_func(diff_path):
-            yield type_func(diff_path.removeprefix("cheatsheet/"))
+            yield diff_path.removeprefix("cheatsheet/")
 
 
 def update_svg_badge(cheatsheet_count: int = 0):

@@ -46,13 +46,13 @@ for updated_file_md in updated_files:
 
 
 # clean unused **.html files
-html_cheatsheet_list = list(get_files(lambda path: path.endswith(".html")))
+html_cheatsheet_list: list[str] = list(get_files(lambda path: path.endswith(".html")))
 white_list_html_files = (
     "index.html",
     "404.html",
     "buttons.html",
 )
-unused_files = []
+unused_files: list[str] = []
 for html_file in html_cheatsheet_list:
     if html_file in white_list_html_files:
         continue
