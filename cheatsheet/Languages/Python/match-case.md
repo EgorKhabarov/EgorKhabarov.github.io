@@ -4,13 +4,13 @@
 
 ## Синтаксис
 ```python
-match значение:
-    case шаблон1:
-        # Код для шаблона1
-    case шаблон2 if условие:
-        # Код для шаблона2 при выполнении условия
+match value:
+    case template1:
+        pass  # Код для template1
+    case template2 if condition:
+        pass  # Код для template2 при выполнении условия
     case _:
-        # Код по умолчанию (аналог else)
+        pass  # Код по умолчанию (аналог else)
 ```
 
 # Особенности и ключевые фишки

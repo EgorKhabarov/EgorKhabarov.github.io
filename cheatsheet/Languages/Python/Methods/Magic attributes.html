@@ -304,7 +304,7 @@
 <p>Магические методы <code>__cause__</code>, <code>__context__</code>, <code>__suppress_context__</code> и <code>__traceback__</code>
 позволяют более гибко управлять цепочкой исключений, контекстом и трассировками, что особенно полезно при перехвате,
 повторном возбуждении и обработке исключений.</p>
-<h3><strong>context</strong></h3>
+<h3>__context__</h3>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">try</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">try</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ошибка в вложенном блоке&quot;</span><span class="p">)</span>
@@ -315,12 +315,11 @@
 <span class="unselectable"><span class="go">Контекст ошибки: Ошибка в вложенном блоке</span>
 </span></pre></div></div></div>
 
-<h4>3. <strong><code>__suppress_context__</code></strong></h4>
+<h3>__suppress_context__</h3>
 <ul>
 <li><strong>Описание</strong>: Это булев атрибут, который у. .</li>
 <li><strong>Применение</strong>: Обычно используется в случае, если вы хотите исключить подробности предыдущих ошибок при повторном возбуждении исключений, чтобы они не появлялись в выводе трассировки.</li>
 </ul>
-<h5>Пример:</h5>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ошибка в блоке&quot;</span><span class="p">)</span>
@@ -333,11 +332,10 @@
 
 <p>В этом примере, несмотря на то что контекст существует, он не будет отображаться в traceback.</p>
 <hr />
-<h4>4. <strong><code>__traceback__</code></strong></h4>
+<h3>__traceback__</h3>
 <ul>
 <li><strong>Применение</strong>: Может быть полезен для отображения подробной информации о том, где произошла ошибка, или для передачи трассировки с одним исключением к другому.</li>
 </ul>
-<h5>Пример:</h5>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Произошла ошибка&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -353,7 +351,6 @@
 <p><strong>Применение</strong>: Используется для предотвращения удержания объектов в памяти, если они больше не нужны, и для работы с кэшами или другими объектами, где нужно контролировать жизненный цикл объектов.</p>
 </li>
 </ul>
-<h4>Пример:</h4>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>

@@ -70,7 +70,7 @@
 </tr>
 <tr>
 <td><code>def __ror__(self, other):</code></td>
-<td>self <code>|</code> other</td>
+<td>self  <code>|</code> other</td>
 <td>Побитовое ИЛИ с обратным присваиванием</td>
 </tr>
 <tr>
@@ -475,7 +475,7 @@
 <tr>
 <td><code>def __getitem__(self, item):</code></td>
 <td>self[item]</td>
-<td>Элемент по индексу или ключу</td>
+<td>Элемент по индексу или ключу или срезу (<code>slice</code>)</td>
 </tr>
 <tr>
 <td><code>def __missing__(self, key):</code></td>
@@ -483,9 +483,14 @@
 <td>Вызывается при отсутствии ключа в объекте</td>
 </tr>
 <tr>
-<td><code>def __contains__(self, item) -&gt; bool:</code></td>
-<td>item <code>in</code> self</td>
-<td>Содержится ли элемент в объекте</td>
+<td><code>def __setattr__(self, key, value):</code></td>
+<td>self.key = value</td>
+<td>Устанавливает значение атрибута объекта</td>
+</tr>
+<tr>
+<td><code>def __setitem__(self, key, value):</code></td>
+<td>self[key] = value</td>
+<td>Устанавливает значение элемента по ключу в объекте</td>
 </tr>
 <tr>
 <td><code>def __setslice__(self, i, j, sequence):</code></td>
@@ -508,9 +513,9 @@
 <td>Удаляет срез из объекта</td>
 </tr>
 <tr>
-<td><code>def __get__(self, instance, owner):</code></td>
-<td>value = self.<code>__get__</code>(instance, owner)</td>
-<td>Возвращает значение атрибута объекта в классе-дескрипторе</td>
+<td><code>def __contains__(self, item) -&gt; bool:</code></td>
+<td>item <code>in</code> self</td>
+<td>Содержится ли элемент в объекте</td>
 </tr>
 </tbody>
 </table>
@@ -595,24 +600,19 @@
 <td>Возвращает объект, поддерживающий асинхронное ожидание</td>
 </tr>
 <tr>
-<td><code>def __set__(self, instance, value):</code></td>
-<td>instance.attr = value</td>
-<td>Устанавливает значение атрибута в экземпляре класса</td>
-</tr>
-<tr>
 <td><code>def __class_getitem__(cls, item):</code></td>
 <td>item_type = MyGenericClass.<code>__class_getitem__</code>(Item)</td>
 <td>Обобщенный тип объекта</td>
 </tr>
 <tr>
-<td><code>def __setattr__(self, key, value):</code></td>
-<td>self.key = value</td>
-<td>Устанавливает значение атрибута объекта</td>
+<td><code>def __get__(self, instance, owner):</code></td>
+<td>value = self.<code>__get__</code>(instance, owner)</td>
+<td>Возвращает значение атрибута объекта в классе-дескрипторе</td>
 </tr>
 <tr>
-<td><code>def __setitem__(self, key, value):</code></td>
-<td>self[key] = value</td>
-<td>Устанавливает значение элемента по ключу в объекте</td>
+<td><code>def __set__(self, instance, value):</code></td>
+<td>instance.attr = value</td>
+<td>Устанавливает значение атрибута в экземпляре класса</td>
 </tr>
 </tbody>
 </table>
@@ -690,7 +690,9 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Класс вызван с параметром: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span>
 
-<span class="n">MyClass</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
+<span class="c1"># Класс вызван с параметром: &lt;class &#39;int&#39;&gt;</span>
+<span class="c1"># &lt;class &#39;__main__.MyClass&#39;&gt;</span>
 </pre></div></div></div>
 
 <h3>Пример для создания обобщённых классов</h3>
@@ -720,3 +722,22 @@
 <p>Магический метод <code>__class_getitem__</code> — это мощный инструмент для работы с обобщёнными типами и аннотациями.
 С его помощью можно реализовывать гибкие и типизированные API,
 которые позволяют делать код более понятным и удобным для сопровождения.</p>
+<h2>__getitem__</h2>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span><span class="w"> </span><span class="nc">Example</span><span class="p">:</span>
+<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<span class="unselectable"><span class="o">...</span> </span>        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="unselectable"><span class="gp">...</span></span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">ex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="unselectable"><span class="go">0</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">ex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="unselectable"><span class="go">slice(0, 1, None)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">ex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="go">slice(0, 1, 2)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">ex</span><span class="p">[:</span><span class="mi">5</span><span class="p">:]</span>
+<span class="unselectable"><span class="go">slice(None, 5, None)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">ex</span><span class="p">[::]</span>
+<span class="unselectable"><span class="go">slice(None, None, None)</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">ex</span><span class="p">[:]</span>
+<span class="unselectable"><span class="go">slice(None, None, None)</span>
+</span></pre></div></div></div>
