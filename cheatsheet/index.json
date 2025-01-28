@@ -325,7 +325,7 @@
             "Operator Precedence": "",
             "fstrings": "",
             "match-case": "",
-            "MRO": "",
+            "mro": "",
             "noinspection.txt": ""
         },
         "RegExp": {

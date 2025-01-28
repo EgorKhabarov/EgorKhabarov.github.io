@@ -40,11 +40,11 @@ enated.
 # Special blocks
 ```jinja
 {% filter e %}
-{% raw %}
+{% _raw %}
     This is a raw block where {{nothing is evaluated}}
     {% not even this %}
     and <html is escaped> too with "e" filter
-{% endraw %}
+{% _endraw %}
 {% endfilter %}
 
 {% macro myfunc(x) %}

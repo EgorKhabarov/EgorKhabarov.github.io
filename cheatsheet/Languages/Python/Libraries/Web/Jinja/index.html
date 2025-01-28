@@ -34,11 +34,11 @@
 
 <h1>Special blocks</h1>
 <div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">filter</span> <span class="nf">e</span> <span class="cp">%}</span>
-<span class="cp">{%</span> <span class="k">raw</span> <span class="cp">%}</span>
-    This is a raw block where {{nothing is evaluated}}
-    {% not even this %}
-    and &lt;html is escaped&gt; too with &quot;e&quot; filter
-<span class="cp">{%</span> <span class="k">endraw</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">_raw</span> <span class="cp">%}</span>
+<span class="x">    This is a raw block where </span><span class="cp">{{</span><span class="nv">nothing</span> <span class="k">is</span> <span class="nf">evaluated</span><span class="cp">}}</span>
+<span class="x">    </span><span class="cp">{%</span> <span class="k">not</span> <span class="nv">even</span> <span class="nv">this</span> <span class="cp">%}</span>
+<span class="x">    and &lt;html is escaped&gt; too with &quot;e&quot; filter</span>
+<span class="cp">{%</span> <span class="k">_endraw</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">endfilter</span> <span class="cp">%}</span>
 
 <span class="cp">{%</span> <span class="k">macro</span> <span class="nv">myfunc</span><span class="o">(</span><span class="nv">x</span><span class="o">)</span> <span class="cp">%}</span>
