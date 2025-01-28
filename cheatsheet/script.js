@@ -336,6 +336,8 @@ function performSearch(empty) {
         for (el of element)
             if (el.tagName === "BUTTON" && el.getAttribute("vpath")) {
                 vpath = el.getAttribute("vpath");
+                search_tags = (el.getAttribute("search-tags") || "").toLowerCase().trim().split(" ");
+
                 if (settings["settings_search_register_independence"]) {
                     vpath = vpath.toLowerCase();
                 }
@@ -348,9 +350,15 @@ function performSearch(empty) {
                         s2Array = s2Array.slice(-1);
                     }
                 };
-                if (s1Array.every(ss1 => s2Array.some(ss2 =>
-                    settings["settings_search_regex"] ? ss2.match(ss1) : ss2.includes(ss1 ? ss1 : null)
-                ))) {
+                if (
+                    s1Array.every(ss1 => s2Array.some(ss2 =>
+                        settings["settings_search_regex"] ? ss2.match(ss1) : ss2.includes(ss1 ? ss1 : null)
+                    ))
+                    || s1Array.every(ss1 => search_tags.some(tag =>
+                        tag.includes(ss1 ? ss1 : null)
+                        || (ss1 && tag ? ss1.includes(tag) : false)
+                    ))
+                ) {
                     results.push(el);
                 }
             } else {

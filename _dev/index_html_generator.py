@@ -25,7 +25,7 @@ link_button = """
 <button vpath="{vpath}" onclick="onclickLinkButton(this);" title="{title}">{svg}{title}</button>
 """
 cheatsheet_button = """
-<button vpath="{vpath}" onclick="onclickCheatSheetButton(this);" title="{title}">{svg}{title}</button>
+<button vpath="{vpath}"{tags} onclick="onclickCheatSheetButton(this);" title="{title}">{svg}{title}</button>
 """
 folder_button = """
 <button kpath="{kpath}" onclick="onclickFolderButton(this)" title="{title}">{svg}{title}</button>  
@@ -46,11 +46,12 @@ def format_link_button(title: str, svg: str, vpath: str) -> str:
     )
 
 
-def format_cheatsheet_button(title: str, svg: str, vpath: str) -> str:
+def format_cheatsheet_button(title: str, svg: str, vpath: str, tags: str) -> str:
     return cheatsheet_button.format(
         title=title,
         svg=svg,
         vpath=vpath,
+        tags=f' search-tags="{tags}"' if tags else "",
     )
 
 
@@ -106,8 +107,6 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
             text_list.append(format_link_button(title=title, svg=svg, vpath=value))
             continue
 
-        #  print(f"{directory}/{key}".strip("/"))
-
         key_path = os.path.join(directory, key)
         directory_e = directory.replace("\\", "/").strip("/")
 
@@ -144,11 +143,13 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
         else:
             vpath = f"{directory_e}/{key}".lstrip("/")
             svg = tag.format(color=current_metadata.get("color", "white"))
+            tags = current_metadata.get("tags")
             text_list.append(
                 format_cheatsheet_button(
                     title=title,
                     svg=svg,
                     vpath=vpath,
+                    tags=tags,
                 )
             )
     return "".join(text_list), directory
