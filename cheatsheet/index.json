@@ -281,15 +281,15 @@
                 }
             },
             "Methods": {
-                "Magic methods": "",
-                "Magic attributes": "",
-                "str": "",
-                "int": "",
-                "float": "",
-                "list": "",
-                "tuple": "",
-                "dict": "",
-                "set": ""
+                "Magic methods": "tags: __delattr__ __float__ __ge__ __mul__ __setslice__ __ror__ __len__ __setattr__\n    __init__ __long__ __prepare__ __repr__ __rshift__ __mod__ __sizeof__ __format__\n    __bool__ __idiv__ __rlshift__ __ior__ __getitem__ __and__ __setstate__ __ifloordiv__\n    __aiter__ __trunc__ __delitem__ __oct__ __anext__ __radd__ __set_name__ __reduce_ex__\n    __matmul__ __aenter__ __eq__ __truediv__ __ne__ __iand__ __sub__ __fspath__ __invert__\n    __int__ __floor__ __hex__ __subclasshook__ __rtruediv__ __delete__ __reversed__\n    __deepcopy__ __class__ __getstate__ __cmp__ __floordiv__ __rrshift__ __or__ __init_subclass__\n    __lt__ __await__ __itruediv__ __contains__ __mro_entries__ __round__ __exit__\n    __neg__ __coerce__ __rpow__ __missing__ __getinitargs__ __reduce__ __dir__ __set__\n    __index__ __ipow__ __copy__ __setitem__ __new__ __iadd__ __rdivmod__ __ixor__\n    __xor__ __rfloordiv__ __next__ __subclasscheck__ __imatmul__ __instancecheck__\n    __str__ __isub__ __ilshift__ __divmod__ __rdiv__ __imod__ __aexit__ __add__ __getattribute__\n    __le__ __enter__ __getnewargs__ __complex__ __irshift__ __hash__ __pos__ __lshift__\n    __call__ __rmod__ __get__ __rsub__ __rmul__ __rand__ __rmatmul__ __ceil__ __unicode__\n    __iter__ __gt__ __pow__ __del__ __class_getitem__ __rxor__ __getattr__ __delslice__\n    __imul__ __abs__ __bytes__\n",
+                "Magic attributes": "tags: __defaults__ __qualname__ __closure__ co_filename co_freevars co_nlocals __suppress_context__\n    co_exceptiontable co_lines __notes__ co_positions co_code __code__ co_name __package__\n    __weakref__ __file__ __traceback__ __annotations__ co_stacksize __cause__ __context__\n    co_varnames __spec__ __cached__ co_consts __name__ co_posonlyargcount __loader__\n    co_lnotab co_qualname co_names co_linetable co_cellvars co_firstlineno __builtins__\n    __globals__ __kwdefaults__ __doc__ co_flags co_kwonlyargcount replace co_argcount\n    __module__\n",
+                "str": "tags: format_map title isalpha rfind rpartition casefold upper join endswith rstrip\n    istitle split translate lower maketrans lstrip isspace find removesuffix isupper\n    capitalize rsplit rindex format isalnum isdigit startswith rjust partition center\n    encode isprintable isnumeric islower isdecimal splitlines strip index isascii\n    removeprefix ljust replace isidentifier swapcase count expandtabs zfill\n",
+                "int": "tags: denominator imag from_bytes real bit_count bit_length numerator as_integer_ratio\n    conjugate to_bytes\n",
+                "float": "tags: imag conjugate real hex as_integer_ratio fromhex is_integer\n",
+                "list": "tags: pop clear count append remove reverse sort index insert сору extend\n",
+                "tuple": "tags: index count\n",
+                "dict": "tags: get fromkeys clear pop update popitem keys values setdefault copy items\n",
+                "set": "tags: intersection_update discard remove add isdisjoint intersection pop symmetric_difference_update\n    update union difference_update copy issuperset difference clear symmetric_difference\n    issubset\n"
             },
             "Decorators Closure": {
                 "Decorators Closure": "",

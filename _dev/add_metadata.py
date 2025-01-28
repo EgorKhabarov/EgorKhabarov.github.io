@@ -10,17 +10,24 @@ def add_metadata(path_: str, metadata: dict) -> None:
     with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
         index_json: dict[str, str | dict[str, str | dict]] = json.load(index_json_file)
     path_dict = PathDict(index_json)
+    if not path_dict.exist(path_):
+        print(f'\x1b[31mThis path is not exist "{path_}"\x1b[0m')
+        return None
     result_metadata = yaml.safe_load(path_dict[path_]) or {}
     string_result_metadata = json.dumps(result_metadata, indent=4, ensure_ascii=False)
+    print(f'\x1b[31mPath "{path_}"\x1b[0m')
     print(f"\x1b[33mNow metadata\x1b[0m {string_result_metadata}")
 
     color = metadata.get("color") or None
     tags = (
         [
             str(tag)
-            for tag_ in metadata.get("tags")
+            for tag__ in metadata.get("tags")
+            if str(tag__)
+            for tag_ in tag__.strip().splitlines()
             if str(tag_)
-            for tag in tag_.strip().split(" ")
+            for tag in tag_.split(" ")
+            if str(tag)
         ]
         if any(metadata.get("tags", ()))
         else None
@@ -62,15 +69,25 @@ def get_h_tags(path_: str) -> list[str]:
     ]
 
 
-path = """
+path = (
+    """
 
 """.strip()
+    .removeprefix("https://egorkhabarov.github.io/cheatsheet/?")
+    .removeprefix("http://localhost:5000/cheatsheet/?")
+    .removesuffix(".md")
+    .removesuffix(".html")
+    .replace("%20", " ")
+)
 add_metadata(
     path,
     {
         "color": "",
         "tags": [
-            "",
+            """
+
+
+""",
             # *get_h_tags(path),
         ],
     },
