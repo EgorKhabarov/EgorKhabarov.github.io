@@ -18,9 +18,9 @@
 <span class="c1"># ET.SubElement(bot, &quot;token&quot;).text = &quot;&quot;</span>
 <span class="c1"># tree = ET.ElementTree(config)</span>
 
-<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">xml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xml.etree.ElementTree</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xml</span>
 
-<span class="k">def</span> <span class="nf">dict_to_xml</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">root_node</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dict_to_xml</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">root_node</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">root_node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">root_node</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -31,8 +31,8 @@
             <span class="n">node</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">root_node</span>
 
-<span class="k">def</span> <span class="nf">xml_to_dict</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">xml_to_dict</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
     <span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="n">root</span><span class="o">.</span><span class="n">tag</span><span class="p">:</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span> <span class="k">else</span> <span class="kc">None</span><span class="p">}</span>
     <span class="n">children</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">children</span><span class="p">:</span>

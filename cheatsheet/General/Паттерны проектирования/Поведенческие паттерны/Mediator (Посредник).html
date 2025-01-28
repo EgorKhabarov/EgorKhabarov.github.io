@@ -1,31 +1,31 @@
 <h1>Mediator (Посредник)</h1>
 <p><strong>Описание</strong>: Определяет объект, инкапсулирующий взаимодействие между наборами объектов, чтобы предотвратить их прямую связь.</p>
 <p><strong>Когда использовать</strong>: Когда нужно уменьшить связанность между объектами и централизовать управление их взаимодействием.</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mediator</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mediator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="k">pass</span>
 
-<span class="k">class</span> <span class="nc">ConcreteMediator</span><span class="p">(</span><span class="n">Mediator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component1</span><span class="p">,</span> <span class="n">component2</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConcreteMediator</span><span class="p">(</span><span class="n">Mediator</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component1</span><span class="p">,</span> <span class="n">component2</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_component1</span> <span class="o">=</span> <span class="n">component1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_component2</span> <span class="o">=</span> <span class="n">component2</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_component1</span><span class="o">.</span><span class="n">mediator</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_component2</span><span class="o">.</span><span class="n">mediator</span> <span class="o">=</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">sender</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_component1</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;event1&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_component2</span><span class="o">.</span><span class="n">do_action</span><span class="p">()</span>
         <span class="k">elif</span> <span class="n">sender</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_component2</span> <span class="ow">and</span> <span class="n">event</span> <span class="o">==</span> <span class="s2">&quot;event2&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_component1</span><span class="o">.</span><span class="n">do_action</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="nc">Component</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Component</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mediator</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">do_action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_action</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Action performed&quot;</span>
 
-    <span class="k">def</span> <span class="nf">trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mediator</span><span class="o">.</span><span class="n">notify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
 
 
