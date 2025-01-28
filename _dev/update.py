@@ -10,6 +10,7 @@ from _dev.index_html_generator import generate_buttons
 from _dev.utils import get_files, update_svg_badge, get_git_diff, dict_walk, update_index_json
 
 
+update_all = False
 init(autoreset=True)
 start_time = time.perf_counter()
 
@@ -22,7 +23,7 @@ update_svg_badge(cheatsheet_count)
 
 
 # get list of updated cheat sheets
-updated_files = list(get_git_diff(lambda path: path.endswith(".md")))
+updated_files = list((get_files if update_all else get_git_diff)(lambda path: path.endswith(".md")))
 updated_files_count = len(updated_files)
 print(f"Found \x1b[4m\x1b[1m{updated_files_count}\x1b[0m updated files")
 
