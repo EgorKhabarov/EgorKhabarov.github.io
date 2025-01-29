@@ -4,7 +4,10 @@
             "Table of contents": "",
             "SOLID": "",
             "ACID": "",
-            "BNF EBNF": ""
+            "BNF EBNF": "",
+            "ip": "",
+            "ООП": "",
+            "Big O Notation": ""
         },
         "Паттерны проектирования": {
             "index": "",
@@ -53,14 +56,11 @@
             "Networking Protocols": ""
         },
         "Парадигмы программирования": "",
-        "ip": "",
-        "ООП": "",
         "Interpreter Compiler": "",
         "sync async": "",
         "Угрозы безопасности": "",
         "Google Search": "",
         "Encodings": "",
-        "Big O Notation": "",
         "Бинарные операторы": "",
         "Cron": "",
         "Glob": ""
