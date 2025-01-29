@@ -193,7 +193,7 @@ grammar = (S, rule, S)*;
 | `"`  | second-quote-symbol     |     second-quote-symbol |  `"` |
 | `-`  | -symbol                 |                         |      |
 
-
+```ebnf
 aa = "A";                   (* A                             *)
 bb = 3 * aa, "B";           (* AAAB                          *)
 cc = 3 * [aa], "C";         (* C AC AAC AAAC                 *)
@@ -205,22 +205,21 @@ hh = (aa | bb | cc), "H";   (* AH AAABH CH ACH AACH AAACH    *)
 ```
 
 
-| Metalanguage symbol         | Normal representation |
-|-----------------------------|-----------------------|
-| concatenate-symbol          | `,`                   |
-| defining-symbol             | `=`                   |
-| definition-separator-symbol | `|`                   |
-| except-symbol               | `-`                   |
-| first-quote-symbol          | `´`                   |
-| repetition-symbol           | `*`                   |
-| second-quote-symbol         | `"`                   |
-| special-sequence-symbol     | `?`                   |
-| start-comment-symbol<br>end-comment-symbol | `(*`<br>`*)` |
-| start-group-symbol<br>end-group-symbol     | `(`<br>`)`   |
-| start-option-symbol<br>end-option-symbol   | `[`<br>`]`   |
-| start-repeat-symbol<br>end-repeat-symbol   | `{`<br>`}`   |
-| terminator-symbol           | `;`                   |
-
+| Metalanguage symbol                        | Normal representation |
+|--------------------------------------------|-----------------------|
+| concatenate-symbol                         | `,`                   |
+| defining-symbol                            | `=`                   |
+| definition-separator-symbol                | <code>\|</code>       |
+| except-symbol                              | `-`                   |
+| first-quote-symbol                         | `´`                   |
+| repetition-symbol                          | `*`                   |
+| second-quote-symbol                        | `"`                   |
+| special-sequence-symbol                    | `?`                   |
+| start-comment-symbol<br>end-comment-symbol | `(*`<br>`*)`          |
+| start-group-symbol<br>end-group-symbol     | `(`<br>`)`            |
+| start-option-symbol<br>end-option-symbol   | `[`<br>`]`            |
+| start-repeat-symbol<br>end-repeat-symbol   | `{`<br>`}`            |
+| terminator-symbol                          | `;`                   |
 
 # Полезные шаблоны
 

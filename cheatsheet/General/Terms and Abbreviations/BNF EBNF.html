@@ -340,53 +340,97 @@
 </tr>
 </tbody>
 </table>
-<p>aa = "A";                   (<em> A                             </em>)
-bb = 3 * aa, "B";           (<em> AAAB                          </em>)
-cc = 3 * [aa], "C";         (<em> C AC AAC AAAC                 </em>)
-dd = {aa}, "D";             (<em> D AD AAD AAAD AAAAD etc…      </em>)
-ee = aa, {aa}, "E";         (<em> AE AAE AAAE AAAAE AAAAAE etc… </em>)
-ff = 3 * aa, 3 * [aa], "F"; (<em> AAAF AAAAF AAAAAF AAAAAAF     </em>)
-gg = {3 * aa}, "G";         (<em> G AAAG AAAAAAG etc…           </em>)
-hh = (aa | bb | cc), "H";   (<em> AH AAABH CH ACH AACH AAACH    </em>)</p>
-<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>| Metalanguage symbol         | Normal representation |
-|-----------------------------|-----------------------|
-| concatenate-symbol          | &#x60;,&#x60;                   |
-| defining-symbol             | &#x60;=&#x60;                   |
-| definition-separator-symbol | &#x60;|&#x60;                   |
-| except-symbol               | &#x60;-&#x60;                   |
-| first-quote-symbol          | &#x60;´&#x60;                   |
-| repetition-symbol           | &#x60;*&#x60;                   |
-| second-quote-symbol         | &#x60;&quot;&#x60;                   |
-| special-sequence-symbol     | &#x60;?&#x60;                   |
-| start-comment-symbol&lt;br&gt;end-comment-symbol | &#x60;(*&#x60;&lt;br&gt;&#x60;*)&#x60; |
-| start-group-symbol&lt;br&gt;end-group-symbol     | &#x60;(&#x60;&lt;br&gt;&#x60;)&#x60;   |
-| start-option-symbol&lt;br&gt;end-option-symbol   | &#x60;[&#x60;&lt;br&gt;&#x60;]&#x60;   |
-| start-repeat-symbol&lt;br&gt;end-repeat-symbol   | &#x60;{&#x60;&lt;br&gt;&#x60;}&#x60;   |
-| terminator-symbol           | &#x60;;&#x60;                   |
-
-
-# Полезные шаблоны
-
-### Арифметические выражения
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="k">aa </span><span class="o">=</span> <span class="s2">&quot;A&quot;</span><span class="p">;</span>                   <span class="cm">(* A                             *)</span>
+<span class="k">bb </span><span class="o">=</span> <span class="err">3</span> <span class="err">*</span> <span class="k">aa</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">;</span>           <span class="cm">(* AAAB                          *)</span>
+<span class="k">cc </span><span class="o">=</span> <span class="err">3</span> <span class="err">*</span> <span class="p">[</span><span class="k">aa</span><span class="p">],</span> <span class="s2">&quot;C&quot;</span><span class="p">;</span>         <span class="cm">(* C AC AAC AAAC                 *)</span>
+<span class="k">dd </span><span class="o">=</span> <span class="p">{</span><span class="k">aa</span><span class="p">},</span> <span class="s2">&quot;D&quot;</span><span class="p">;</span>             <span class="cm">(* D AD AAD AAAD AAAAD etc…      *)</span>
+<span class="k">ee </span><span class="o">=</span> <span class="k">aa</span><span class="p">,</span> <span class="p">{</span><span class="k">aa</span><span class="p">},</span> <span class="s2">&quot;E&quot;</span><span class="p">;</span>         <span class="cm">(* AE AAE AAAE AAAAE AAAAAE etc… *)</span>
+<span class="k">ff </span><span class="o">=</span> <span class="err">3</span> <span class="err">*</span> <span class="k">aa</span><span class="p">,</span> <span class="err">3</span> <span class="err">*</span> <span class="p">[</span><span class="k">aa</span><span class="p">],</span> <span class="s2">&quot;F&quot;</span><span class="p">;</span> <span class="cm">(* AAAF AAAAF AAAAAF AAAAAAF     *)</span>
+<span class="k">gg </span><span class="o">=</span> <span class="p">{</span><span class="err">3</span> <span class="err">*</span> <span class="k">aa</span><span class="p">},</span> <span class="s2">&quot;G&quot;</span><span class="p">;</span>         <span class="cm">(* G AAAG AAAAAAG etc…           *)</span>
+<span class="k">hh </span><span class="o">=</span> <span class="p">(</span><span class="k">aa </span><span class="p">|</span> <span class="k">bb </span><span class="p">|</span> <span class="k">cc</span><span class="p">),</span> <span class="s2">&quot;H&quot;</span><span class="p">;</span>   <span class="cm">(* AH AAABH CH ACH AACH AAACH    *)</span>
 </pre></div></div></div>
-<p>ebnf
-<expr>   ::= <term> | <expr> "+" <term> | <expr> "-" <term>
-<term>   ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
-<factor> ::= <number> | "(" <expr> ")"
-<number> ::= <digit> | <number> <digit>
-<digit>  ::= "0" | "1" | ... | "9"</p>
-<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>### JSON
+
+<table>
+<thead>
+<tr>
+<th>Metalanguage symbol</th>
+<th>Normal representation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concatenate-symbol</td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td>defining-symbol</td>
+<td><code>=</code></td>
+</tr>
+<tr>
+<td>definition-separator-symbol</td>
+<td><code>|</code></td>
+</tr>
+<tr>
+<td>except-symbol</td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td>first-quote-symbol</td>
+<td><code>´</code></td>
+</tr>
+<tr>
+<td>repetition-symbol</td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td>second-quote-symbol</td>
+<td><code>"</code></td>
+</tr>
+<tr>
+<td>special-sequence-symbol</td>
+<td><code>?</code></td>
+</tr>
+<tr>
+<td>start-comment-symbol<br>end-comment-symbol</td>
+<td><code>(*</code><br><code>*)</code></td>
+</tr>
+<tr>
+<td>start-group-symbol<br>end-group-symbol</td>
+<td><code>(</code><br><code>)</code></td>
+</tr>
+<tr>
+<td>start-option-symbol<br>end-option-symbol</td>
+<td><code>[</code><br><code>]</code></td>
+</tr>
+<tr>
+<td>start-repeat-symbol<br>end-repeat-symbol</td>
+<td><code>{</code><br><code>}</code></td>
+</tr>
+<tr>
+<td>terminator-symbol</td>
+<td><code>;</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Полезные шаблоны</h1>
+<h3>Арифметические выражения</h3>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="err">&lt;</span><span class="k">expr</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">expr</span><span class="err">&gt;</span> <span class="s2">&quot;+&quot;</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">expr</span><span class="err">&gt;</span> <span class="s2">&quot;-&quot;</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span>   <span class="err">::=</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="s2">&quot;*&quot;</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">term</span><span class="err">&gt;</span> <span class="s2">&quot;/&quot;</span> <span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">factor</span><span class="err">&gt;</span> <span class="err">::=</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;(&quot;</span> <span class="err">&lt;</span><span class="k">expr</span><span class="err">&gt;</span> <span class="s2">&quot;)&quot;</span>
+<span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="err">::=</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span>  <span class="err">::=</span> <span class="s2">&quot;0&quot;</span> <span class="p">|</span> <span class="s2">&quot;1&quot;</span> <span class="p">|</span> <span class="p">.</span><span class="err">..</span> <span class="err">|</span> <span class="err">&quot;9&quot;</span>
 </pre></div></div></div>
-<p>ebnf</p>
-<object>   ::= "{" <members> "}"
-<members>  ::= <pair> | <pair> "," <members>
-<pair>     ::= <string> ":" <value>
-<array>    ::= "[" <elements> "]"
-<elements> ::= <value> | <value> "," <elements>
-<value>    ::= <string> | <number> | <object> | <array> | "true" | "false" | "null"
-<string>   ::= "\"" { <char> } "\""
-<number>   ::= <digit> { <digit> }
-```
+
+<h3>JSON</h3>
+<div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="err">&lt;</span><span class="k">object</span><span class="err">&gt;</span>   <span class="err">::</span><span class="o">=</span> <span class="s2">&quot;{&quot;</span> <span class="err">&lt;</span><span class="k">members</span><span class="err">&gt;</span> <span class="s2">&quot;}&quot;</span>
+<span class="err">&lt;</span><span class="k">members</span><span class="err">&gt;</span>  <span class="err">::=</span> <span class="err">&lt;</span><span class="k">pair</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">pair</span><span class="err">&gt;</span> <span class="s2">&quot;,&quot;</span> <span class="err">&lt;</span><span class="k">members</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">pair</span><span class="err">&gt;</span>     <span class="err">::=</span> <span class="err">&lt;</span><span class="k">string</span><span class="err">&gt;</span> <span class="s2">&quot;:&quot;</span> <span class="err">&lt;</span><span class="k">value</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">array</span><span class="err">&gt;</span>    <span class="err">::=</span> <span class="s2">&quot;[&quot;</span> <span class="err">&lt;</span><span class="k">elements</span><span class="err">&gt;</span> <span class="s2">&quot;]&quot;</span>
+<span class="err">&lt;</span><span class="k">elements</span><span class="err">&gt;</span> <span class="err">::=</span> <span class="err">&lt;</span><span class="k">value</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">value</span><span class="err">&gt;</span> <span class="s2">&quot;,&quot;</span> <span class="err">&lt;</span><span class="k">elements</span><span class="err">&gt;</span>
+<span class="err">&lt;</span><span class="k">value</span><span class="err">&gt;</span>    <span class="err">::=</span> <span class="err">&lt;</span><span class="k">string</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">object</span><span class="err">&gt;</span> <span class="p">|</span> <span class="err">&lt;</span><span class="k">array</span><span class="err">&gt;</span> <span class="p">|</span> <span class="s2">&quot;true&quot;</span> <span class="p">|</span> <span class="s2">&quot;false&quot;</span> <span class="p">|</span> <span class="s2">&quot;null&quot;</span>
+<span class="err">&lt;</span><span class="k">string</span><span class="err">&gt;</span>   <span class="err">::=</span> <span class="s2">&quot;\&quot;&quot; { &lt;char&gt; } &quot;</span><span class="err">\</span><span class="s2">&quot;&quot;</span>
+<span class="err">&lt;</span><span class="k">number</span><span class="err">&gt;</span>   <span class="err">::=</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">{</span> <span class="err">&lt;</span><span class="k">digit</span><span class="err">&gt;</span> <span class="p">}</span>
+</pre></div></div></div>
 
 <!--
 Первый символ в кавычках представляет собой апостроф в соответствии с определением ISO/IEC 646:1991,
