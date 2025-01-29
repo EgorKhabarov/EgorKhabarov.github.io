@@ -9,10 +9,11 @@ from _dev.markup import to_markup
 from _dev.index_html_generator import generate_buttons
 from _dev.utils import (
     get_files,
-    update_svg_badge,
-    get_git_diff,
     dict_walk,
+    get_git_diff,
+    update_svg_badge,
     update_index_json,
+    get_git_diff_moved_from_cheat_sheet_dict,
 )
 
 
@@ -99,7 +100,13 @@ if added_cheat_sheets:
     print(f"  \x1b[32mAdded cheat sheets {added_cheat_sheets}\x1b[0m")
 if removed_cheat_sheets:
     print(f"  \x1b[31mRemoved cheat sheets {removed_cheat_sheets}\x1b[0m")
-index_json = update_index_json(index_json, added_cheat_sheets, removed_cheat_sheets)
+moved_cheat_sheets = get_git_diff_moved_from_cheat_sheet_dict(lambda path: path.endswith(".md"))
+index_json = update_index_json(
+    index_json,
+    added_cheat_sheets,
+    removed_cheat_sheets,
+    moved_cheat_sheets
+)
 with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
     json.dump(index_json, index_json_file, indent=4, ensure_ascii=False)
 

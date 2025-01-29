@@ -165,6 +165,34 @@ def get_git_diff(
             yield diff_path.removeprefix("cheatsheet/")
 
 
+def get_git_diff_moved_from_cheat_sheet_dict(
+    filter_func: Callable[[str], bool] = lambda p: True
+) -> dict[str, str]:
+    return {
+        diff.b_path.removeprefix("cheatsheet/").removesuffix(".md"): diff.a_path.removeprefix("cheatsheet/").removesuffix(".md")
+        for diff in repo.head.commit.diff(None)
+        if (
+            not diff.deleted_file
+            and diff.b_path.startswith(r"cheatsheet/")
+            and filter_func(diff.b_path)
+        )
+    }
+
+
+def get_sorted_cheat_sheets_list(index_json):
+    files = []
+
+    def recurse(directory: dict[str, str | dict[str, str | dict]], path: str = ""):
+        for key, value in directory.items():
+            if isinstance(value, dict):
+                recurse(value, f"{path}/{key}")
+            else:
+                files.append(f"{path}/{key}".strip("/"))
+
+    recurse(index_json)
+    return files
+
+
 def update_svg_badge(cheatsheet_count: int = 0):
     try:
         content = requests.get(
@@ -257,14 +285,42 @@ def update_index_json(
     index_json: dict[str, str | dict[str, str | dict]],
     added_cheat_sheets: list[str],
     removed_cheat_sheets: list[str],
+    moved_from_cheat_sheets_dict: dict[str, str],
 ) -> dict[str, str | dict[str, str | dict]]:
+    sorted_cheat_sheets_list = get_sorted_cheat_sheets_list(index_json)
+
+    key_func = get_index_decorator(sorted_cheat_sheets_list)
+    added_cheat_sheets = sorted(
+        added_cheat_sheets,
+        key=lambda key: key_func(moved_from_cheat_sheets_dict.get(key)),
+    )
+    removed_cheat_sheets = sorted(
+        removed_cheat_sheets,
+        key=key_func
+    )
+
     path_dict = PathDict(index_json)
 
     for added_cheat_sheet in added_cheat_sheets:
         if not path_dict.exist(added_cheat_sheet):
-            path_dict[added_cheat_sheet] = ""
+            value = ""
+            added_from_cheat_sheet = moved_from_cheat_sheets_dict.get(added_cheat_sheet)
+            if added_from_cheat_sheet and path_dict.exist(added_from_cheat_sheet):
+                value = path_dict[added_from_cheat_sheet]
+
+            path_dict[added_cheat_sheet] = value
 
     for removed_cheat_sheet in removed_cheat_sheets:
         del path_dict[removed_cheat_sheet]
 
     return path_dict.data
+
+
+def get_index_decorator(iterable: list):
+    def wrapper(key):
+        try:
+            return iterable.index(key)
+        except ValueError:
+            return None
+
+    return wrapper
