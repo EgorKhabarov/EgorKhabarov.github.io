@@ -169,7 +169,9 @@ def get_git_diff_moved_from_cheat_sheet_dict(
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> dict[str, str]:
     return {
-        diff.b_path.removeprefix("cheatsheet/").removesuffix(".md"): diff.a_path.removeprefix("cheatsheet/").removesuffix(".md")
+        diff.b_path.removeprefix("cheatsheet/")
+        .removesuffix(".md"): diff.a_path.removeprefix("cheatsheet/")
+        .removesuffix(".md")
         for diff in repo.head.commit.diff(None)
         if (
             not diff.deleted_file
@@ -294,10 +296,7 @@ def update_index_json(
         added_cheat_sheets,
         key=lambda key: key_func(moved_from_cheat_sheets_dict.get(key)),
     )
-    removed_cheat_sheets = sorted(
-        removed_cheat_sheets,
-        key=key_func
-    )
+    removed_cheat_sheets = sorted(removed_cheat_sheets, key=key_func)
 
     path_dict = PathDict(index_json)
 
