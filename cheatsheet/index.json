@@ -1,11 +1,10 @@
 {
     "General": {
-        "GIT": {
-            "Команды": "",
-            "gitignore": "",
-            "Setup deploy key": "",
-            "git": "",
-            "submodule": ""
+        "Terms and Abbreviations": {
+            "Table of contents": "",
+            "SOLID": "",
+            "ACID": "",
+            "BNF EBNF": ""
         },
         "Паттерны проектирования": {
             "index": "",
@@ -40,17 +39,18 @@
             },
             "Антипаттерны": ""
         },
+        "GIT": {
+            "Команды": "",
+            "gitignore": "",
+            "Setup deploy key": "",
+            "git": "",
+            "submodule": ""
+        },
         "HTTP": {
             "HTTР": "",
             "Заголовки": "",
             "Коды ответов": "",
             "Networking Protocols": ""
-        },
-        "Terms and Abbreviations": {
-            "Table of contents": "",
-            "SOLID": "",
-            "ACID": "",
-            "BNF EBNF": ""
         },
         "Парадигмы программирования": "",
         "ip": "",
