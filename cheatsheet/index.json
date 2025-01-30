@@ -60,9 +60,7 @@
             "Networking Protocols": ""
         },
         "Google Search": "",
-        "Encodings": "",
-        "Cron": "",
-        "Glob": ""
+        "Encodings": ""
     },
     "Languages": {
         "Python": {
@@ -536,7 +534,9 @@
             "LaTex": {
                 ".": "color: violet\n",
                 "Элементы": ""
-            }
+            },
+            "Cron": "color: violet\n",
+            "Glob": "color: violet\n"
         }
     },
     "Other": {
