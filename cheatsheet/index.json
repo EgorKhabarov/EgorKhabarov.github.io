@@ -61,7 +61,6 @@
         },
         "Google Search": "",
         "Encodings": "",
-        "Бинарные операторы": "",
         "Cron": "",
         "Glob": ""
     },
@@ -326,7 +325,8 @@
             "fstrings": "",
             "match-case": "",
             "mro": "",
-            "noinspection.txt": ""
+            "noinspection.txt": "",
+            "Бинарные операторы": ""
         },
         "RegExp": {
             ".": "color: violet\n",
