@@ -49,7 +49,7 @@ print(obj.hello())  # Hello, world!
 ```
 
 
-### Пример [[General/Паттерны%20проектирования/Порождающие%20паттерны/Singleton%20(Одиночка)]] с использованием метакласса
+### Пример [[General/Design%20patterns%20(Паттерны%20проектирования)/Creational%20patterns%20(Порождающие%20паттерны)/Singleton%20(Одиночка)]] с использованием метакласса
 
 ```python
 class SingletonMeta(type):

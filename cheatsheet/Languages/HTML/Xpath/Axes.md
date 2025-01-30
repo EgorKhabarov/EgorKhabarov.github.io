@@ -59,22 +59,23 @@ child:: is the default axis. This makes //a/b/c work.
 
 # Other axes
 
-| Axis               | Abbrev  | Notes                                        |
-|--------------------|---------|----------------------------------------------|
-| ancestor           |         |                                              |
-| ancestor-or-self   |         |                                              |
-| attribute          | @       |  @href is short for attribute::href          |
-| child              |         |  div is short for child::div                 |
-| descendant         |         |                                              |
-| descendant-or-self | //      | // is short for /descendant-or-self::node()/ |
-| namespace          |         |                                              |
-| self               | .       |  . is short for self::node()                 |
-| parent             | ..      | .. is short for parent::node()               |
-| following          |         |                                              |
-| following-sibling  |         |                                              |
-| preceding          |         |                                              |
-| preceding-sibling  |         |                                              |
-| There are other axes you can use.
+| Axis                             | Abbrev   | Notes                                        |
+|----------------------------------|----------|----------------------------------------------|
+| ancestor                         |          |                                              |
+| ancestor-or-self                 |          |                                              |
+| attribute                        | @        |  @href is short for attribute::href          |
+| child                            |          |  div is short for child::div                 |
+| descendant                       |          |                                              |
+| descendant-or-self               | //       | // is short for /descendant-or-self::node()/ |
+| namespace                        |          |                                              |
+| self                             | .        |  . is short for self::node()                 |
+| parent                           | ..       | .. is short for parent::node()               |
+| following                        |          |                                              |
+| following-sibling                |          |                                              |
+| preceding                        |          |                                              |
+| preceding-sibling                |          |                                              |
+
+There are other axes you can use
 
 # Unions
 
