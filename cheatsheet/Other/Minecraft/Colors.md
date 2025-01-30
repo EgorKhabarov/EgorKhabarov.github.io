@@ -17,13 +17,13 @@
 | dark_gray    | <div style="background-color: #555555;width: 50px;height: 15px;"></div> | `&8`  | `§8` | #`555555` | `85 85 85`    | `\u00A78` | `5592405`  |
 | black        | <div style="background-color: #000000;width: 50px;height: 15px;"></div> | `&0`  | `§0` | #`000000` | `0 0 0`       | `\u00A70` | `0`        |
 
-|            |    |
-|------------|----|
-| color name | string code, mostly used banner and items
-| chat       | start with the `§` character, used for chat, books and signs
-| motd       | Used in the server config for setting message of the day
-| hex code   | paint color and web css colors
-| decimal    | used for nbt data tags, setting potion and leather armour colors
+|            |                                                                  |
+|------------|------------------------------------------------------------------|
+| color name | string code, mostly used banner and items                        |
+| chat       | start with the `§` character, used for chat, books and signs     |
+| motd       | Used in the server config for setting message of the day         |
+| hex code   | paint color and web css colors                                   |
+| decimal    | used for nbt data tags, setting potion and leather armour colors |
 
 | style         | chat   | motd      |
 |---------------|--------|-----------|
