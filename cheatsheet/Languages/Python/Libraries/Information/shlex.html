@@ -1,19 +1,61 @@
-<p>Библиотека "shlex" в Python используется для разбивки строки на токены в соответствии с синтаксисом оболочки Unix.
-Она часто применяется при работе с командной строкой, парсинге аргументов командной строки и анализе ввода пользователя.</p>
-<p>Методы модуля и их мега краткое описание:</p>
-<p>shlex.split(s): Разбивает строку s на токены и возвращает список.
-shlex.quote(s): Возвращает квотированную версию строки s с учетом синтаксиса оболочки.
-shlex.join(args): Объединяет список аргументов args в одну строку с добавлением кавычек и экранированием.
-shlex.shlex([stream[, filename[, posix]]]): Создает объект парсера токенов для чтения из потока stream.
-    Опциональные параметры filename и posix устанавливают соответствующие атрибуты парсера.
-shlex.push_source(source): Вставляет новый источник токенов в стек парсера.
-shlex.pop_source(): Удаляет верхний источник токенов из стека парсера.
-shlex.get_token(): Возвращает следующий токен из текущего источника парсера.
-shlex.get_token_unquoted(): Возвращает следующий неквотированный токен из текущего источника парсера.</p>
-<p>Наиболее часто используемые методы "shlex" вместе с их кратким описанием и примерным кодом:</p>
-<p>shlex.split(s): Разбивает строку на токены и возвращает список.
-Пример: tokens = shlex.split("hello world")  # ["hello", "world"]</p>
-<p>shlex.quote(s): Возвращает квотированную версию строки с учетом синтаксиса оболочки.
-Пример: quoted = shlex.quote("Hello, World!")  # "Hello, World!"</p>
-<p>shlex.join(args): Объединяет список аргументов в строку с добавлением кавычек и экранированием.
-Пример: command = shlex.join(["ls", "-l", "<em>.txt"])  # 'ls -l "</em>.txt"'</p>
+<p>Библиотека "shlex" в Python используется для разбивки строки на токены в соответствии с синтаксисом оболочки Unix
+Она часто применяется при работе с командной строкой, парсинге аргументов командной строки и анализе ввода пользователя</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>split(s)</code></td>
+<td>Разбивает строку s на токены и возвращает список</td>
+</tr>
+<tr>
+<td><code>quote(s)</code></td>
+<td>Возвращает квотированную версию строки s с учетом синтаксиса оболочки</td>
+</tr>
+<tr>
+<td><code>join(args)</code></td>
+<td>Объединяет список аргументов args в одну строку с добавлением кавычек и экранированием</td>
+</tr>
+<tr>
+<td><code>shlex(\[stream\[, filename\[, posix]]])</code></td>
+<td>Создает объект парсера токенов для чтения из потока stream<br>Опциональные параметры filename и posix устанавливают соответствующие атрибуты парсера</td>
+</tr>
+<tr>
+<td><code>push_source(source)</code></td>
+<td>Вставляет новый источник токенов в стек парсера</td>
+</tr>
+<tr>
+<td><code>pop_source(</code></td>
+<td>Удаляет верхний источник токенов из стека парсера</td>
+</tr>
+<tr>
+<td><code>get_token()</code></td>
+<td>Возвращает следующий токен из текущего источника парсера</td>
+</tr>
+<tr>
+<td><code>get_token_unquoted()</code></td>
+<td>Возвращает следующий неквотированный токен из текущего источника парсера</td>
+</tr>
+</tbody>
+</table>
+<h3>split</h3>
+<p>Разбивает строку на токены и возвращает список</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="c1"># [&quot;hello&quot;, &quot;world&quot;]</span>
+</pre></div></div></div>
+
+<h3>quote</h3>
+<p>Возвращает квотированную версию строки с учетом синтаксиса оболочки</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">quoted</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="c1"># &quot;Hello, World!&quot;</span>
+</pre></div></div></div>
+
+<h1>join</h1>
+<p>Объединяет список аргументов в строку с добавлением кавычек и экранированием</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;*.txt&quot;</span><span class="p">])</span>
+<span class="c1"># &#39;ls -l &quot;*.txt&quot;&#39;</span>
+</pre></div></div></div>

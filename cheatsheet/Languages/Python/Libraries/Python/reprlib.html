@@ -1,38 +1,6 @@
-<p>Библиотека "reprlib" используется для создания ограниченных представлений (сокращений) объектов в строковом виде.
+<p>Библиотека <code>reprlib</code> используется для создания ограниченных представлений (сокращений) объектов в строковом виде
 Она предоставляет функциональность для генерации усеченных строковых представлений сложных объектов, таких как контейнеры,
-чтобы они были более читаемыми и компактными.</p>
-<p>Методы модуля "reprlib" и его подмодулей:</p>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>reprlib.repr()</td>
-<td>Возвращает сокращенное строковое представление объекта с ограничением символов.</td>
-</tr>
-<tr>
-<td>reprlib.aRepr()</td>
-<td>Возвращает сокращенное представление объекта, указывая максимальное количество символов и добавляя многоточие в конце при необходимости.</td>
-</tr>
-<tr>
-<td>reprlib.recursive_repr()</td>
-<td>Декоратор функции, который позволяет модифицировать стандартный метод <code>__repr__</code> для обработки рекурсивных вызовов.</td>
-</tr>
-<tr>
-<td>reprlib.dllist()</td>
-<td>Класс-контейнер, предоставляющий сокращенное строковое представление для двусвязного списка.</td>
-</tr>
-<tr>
-<td>reprlib.Repr()</td>
-<td>Класс, используемый для изменения поведения библиотеки "reprlib" путем настройки различных параметров.</td>
-</tr>
-</tbody>
-</table>
-<p>Список самых часто используемых методов, их описание и</p>
+чтобы они были более читаемыми и компактными</p>
 <table>
 <thead>
 <tr>
@@ -43,29 +11,29 @@
 </thead>
 <tbody>
 <tr>
-<td>reprlib.repr()</td>
-<td>Возвращает ограниченное строковое представление объекта</td>
-<td>obj = [1, 2, 3, 4, 5]; print(reprlib.repr(obj))</td>
+<td><code>repr()</code></td>
+<td>Возвращает сокращенное строковое представление объекта с ограничением символов</td>
+<td><code>obj = \[1, 2, 3, 4, 5]</code><br><code>print(reprlib.repr(obj))</code></td>
 </tr>
 <tr>
-<td>reprlib.aRepr()</td>
-<td>Возвращает сокращенное представление объекта с максимальным количеством символов и многоточием</td>
-<td>obj = "This is a long string"; print(reprlib.aRepr(obj, 10))</td>
+<td><code>aRepr()</code></td>
+<td>Возвращает сокращенное представление объекта, указывая максимальное<br>количество символов и добавляя многоточие в конце при необходимости</td>
+<td><code>obj = "This is a long string"</code><br><code>print(reprlib.aRepr(obj, 10))</code></td>
 </tr>
 <tr>
-<td>reprlib.recursive_repr()</td>
-<td>Декоратор для изменения поведения метода <code>__repr__</code> для обработки рекурсивных вызовов</td>
-<td>@reprlib.recursive_repr(); def <strong>repr</strong>(self): return "MyClass()"</td>
+<td><code>recursive_repr()</code></td>
+<td>Декоратор функции, который позволяет модифицировать стандартный<br>метод <code>__repr__</code> для обработки рекурсивных вызовов</td>
+<td><code>@reprlib.recursive_repr()</code><br><code>def __repr__(self): return "MyClass()"</code></td>
 </tr>
 <tr>
-<td>reprlib.dllist()</td>
-<td>Класс-контейнер для двусвязного списка с ограниченным строковым представлением</td>
-<td>dll = reprlib.dllist([1, 2, 3]); print(dll)</td>
+<td><code>dllist()</code></td>
+<td>Класс-контейнер, предоставляющий сокращенное строковое<br>представление для двусвязного списка</td>
+<td><code>dll = reprlib.dllist(\[1, 2, 3])</code><br><code>print(dll)</code></td>
 </tr>
 <tr>
-<td>reprlib.Repr()</td>
-<td>Класс для настройки поведения библиотеки "reprlib"</td>
-<td>r = reprlib.Repr(); r.maxstring = 20; obj = "This is a long string"; print(r.repr(obj))</td>
+<td><code>Repr()</code></td>
+<td>Класс, используемый для изменения поведения библиотеки<br>"reprlib" путем настройки различных параметров</td>
+<td><code>r = reprlib.Repr()</code><br><code>r.maxstring = 20</code><br><code>obj = "This is a long string"</code><br><code>print(r.repr(obj))</code></td>
 </tr>
 </tbody>
 </table>
