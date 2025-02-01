@@ -156,6 +156,11 @@
                         "doctests": "",
                         "comments": ""
                     },
+                    "dis": {
+                        ".": "color: green\n",
+                        "dis": "",
+                        "byte code": ""
+                    },
                     "typing": "color: green\n",
                     "itertools": "color: green\n",
                     "collections": "color: green\n",
@@ -196,12 +201,7 @@
                     "mypy": "color: green\n",
                     "unittest": "color: green\n",
                     "unittest.mock": "color: green\n",
-                    "curses": "color: green\n",
-                    "dis": {
-                        ".": "color: green\n",
-                        "dis": "",
-                        "byte code": ""
-                    }
+                    "curses": "color: green\n"
                 },
                 "Algorithms": {
                     ".": "color: green\n",
