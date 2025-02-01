@@ -1,32 +1,32 @@
-Библиотека "packaging" в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов.
-Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива.
+Библиотека `packaging` в Python используется для работы с упаковкой и распаковкой пакетов, а также для управления метаданными пакетов
+Она предоставляет функции для создания, проверки, обновления и распаковки пакетов в формате wheel или в формате сжатого архива
 
-Методы модуля "packaging" и его подмодулей:
+Методы и подмодули:
 
-Модуль packaging.version:
-parse(version_string): Парсит версию из строки и возвращает объект Version.
-Version: Класс для представления версии пакета.
+## packaging.version
+`parse(version_string)`: Парсит версию из строки и возвращает объект `Version`
+`Version`: Класс для представления версии пакета
 
-Модуль packaging.specifiers:
-Specifier: Класс для представления спецификации версии пакета.
-LegacySpecifier: Класс для представления устаревшей спецификации версии пакета.
-SpecifierSet: Класс для представления набора спецификаций версий пакета.
+## packaging.specifiers
+`Specifier`: Класс для представления спецификации версии пакета.
+`LegacySpecifier`: Класс для представления устаревшей спецификации версии пакета
+`SpecifierSet`: Класс для представления набора спецификаций версий пакета
 
-Модуль packaging.requirements:
-Requirement: Класс для представления требования к пакету.
+## packaging.requirements
+`Requirement`: Класс для представления требования к пакету
 
-Модуль packaging.markers:
-Marker: Класс для представления условий маркера.
-default_environment: Возвращает стандартное окружение.
+## packaging.markers
+`Marker`: Класс для представления условий маркера
+`default_environment`: Возвращает стандартное окружение
 
-Модуль packaging.tags:
-Tag: Класс для представления метки платформы.
-sys_tags(): Возвращает метки платформы для текущей системы.
+## packaging.tags
+`Tag`: Класс для представления метки платформы
+`sys_tags()`: Возвращает метки платформы для текущей системы
 
-Наиболее часто используемые методы в библиотеке "packaging":
+Наиболее часто используемые методы в библиотеке `packaging`
 
-parse(version_string): Парсит версию из строки и возвращает объект Version.
-
+### parse(version_string)
+Парсит версию из строки и возвращает объект `Version`
 ```python
 from packaging import version
 
@@ -35,8 +35,8 @@ parsed_version = version.parse(version_string)
 print(parsed_version)
 ```
 
-SpecifierSet(specifier_string): Создает набор спецификаций версий на основе строки.
-
+### SpecifierSet(specifier_string)
+Создает набор спецификаций версий на основе строки
 ```python
 from packaging.specifiers import SpecifierSet
 
@@ -45,8 +45,8 @@ specifier_set = SpecifierSet(specifier_string)
 print(specifier_set)
 ```
 
-Requirement(requirement_string): Создает требование к пакету на основе строки.
-
+### Requirement(requirement_string)
+Создает требование к пакету на основе строки
 ```python
 from packaging.requirements import Requirement
 
@@ -54,5 +54,3 @@ requirement_string = "numpy>=1.0"
 requirement = Requirement(requirement_string)
 print(requirement)
 ```
-
-Убедитесь, что у вас установлена библиотека "packaging" перед использованием этих методов.

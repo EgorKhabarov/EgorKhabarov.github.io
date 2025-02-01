@@ -20,12 +20,12 @@
 
 # Логические операции
 
-| Функция               | Описание                    | Пример                                  |
-|-----------------------|-----------------------------|-----------------------------------------|
-| `operator.and_(a, b)` | Логическое **И**: `a & b`   | `operator.and_(True, False)` => `False` |
-| `operator.or_(a, b)`  | Логическое **ИЛИ**: `a | b` | `operator.or_(True, False)` => `True`   |
-| `operator.xor(a, b)`  | Логическое **XOR**: `a ^ b` | `operator.xor(True, False)` => `True`   |
-| `operator.not_(a)`    | Логическое **НЕ**: `not a`  | `operator.not_(True)` => `False`        |
+| Функция               | Описание                                | Пример                                  |
+|-----------------------|-----------------------------------------|-----------------------------------------|
+| `operator.and_(a, b)` | Логическое **И**: `a & b`               | `operator.and_(True, False)` => `False` |
+| `operator.or_(a, b)`  | Логическое **ИЛИ**: <code>a \| b</code> | `operator.or_(True, False)` => `True`   |
+| `operator.xor(a, b)`  | Логическое **XOR**: `a ^ b`             | `operator.xor(True, False)` => `True`   |
+| `operator.not_(a)`    | Логическое **НЕ**: `not a`              | `operator.not_(True)` => `False`        |
 
 # Сравнения
 

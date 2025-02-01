@@ -1,14 +1,35 @@
-<p>Библиотека "netrc" в Python используется для работы с файлами .netrc, которые содержат информацию о пользователях,
-паролях и хостах для автоматической аутентификации при подключении к удаленным серверам.</p>
-<p>Методы модуля "netrc":
-<code>netrc.netrc(file)</code> - создает объект, представляющий файл .netrc.
-<code>netrc.hosts()</code> - возвращает список имен хостов из файла .netrc.
-<code>netrc.host(host)</code> - возвращает объект, представляющий информацию о конкретном хосте.
-<code>netrc.authenticators(host)</code> - возвращает кортеж с именем пользователя, паролем и аутентификационным методом для указанного хоста.</p>
+<p>Библиотека <code>netrc</code> в Python используется для работы с файлами <code>.netrc</code>, которые содержат информацию о пользователях
+паролях и хостах для автоматической аутентификации при подключении к удаленным серверам</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>netrc.netrc(file)</code></td>
+<td>Создает объект, представляющий файл <code>.netrc</code></td>
+</tr>
+<tr>
+<td><code>netrc.hosts()</code></td>
+<td>Возвращает список имен хостов из файла <code>.netrc</code></td>
+</tr>
+<tr>
+<td><code>netrc.host(host)</code></td>
+<td>Возвращает объект, представляющий информацию о конкретном хосте</td>
+</tr>
+<tr>
+<td><code>netrc.authenticators(host)</code></td>
+<td>Возвращает кортеж с именем пользователя, паролем и аутентификационным методом для указанного хоста</td>
+</tr>
+</tbody>
+</table>
 <p>Самые часто используемые методы:
 <code>netrc.hosts()</code> - возвращает список хостов из файла .netrc.
 <code>netrc.authenticators(host)</code> - возвращает информацию об аутентификации для указанного хоста.</p>
-<p><code>netrc.authenticators(host)</code>:</p>
+<h3>netrc.authenticators(host)</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">netrc</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_credentials</span><span class="p">(</span><span class="n">hostname</span><span class="p">):</span>
