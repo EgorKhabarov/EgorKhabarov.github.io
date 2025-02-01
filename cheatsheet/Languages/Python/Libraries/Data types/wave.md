@@ -1,31 +1,32 @@
-Библиотека "wave" используется в Python для работы с аудиофайлами формата WAV.
-Она позволяет открывать,
-создавать, записывать и обрабатывать звуковые файлы в формате WAV.
-Методы и подмодули библиотеки "wave" и их краткое описание:
+Библиотека `wave` используется в Python для работы с аудиофайлами формата WAV
+Она позволяет открывать, создавать, записывать и обрабатывать звуковые файлы в формате WAV
 
-wave.open(file, mode): Открывает WAV-файл с указанным именем файла и режимом доступа.
-wave.Wave_read.getnchannels(): Возвращает число каналов в WAV-файле (моно или стерео).
-wave.Wave_read.getsampwidth(): Возвращает размер образца в байтах.
-wave.Wave_read.getframerate(): Возвращает частоту дискретизации аудиофайла.
-wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.
-wave.Wave_read.readframes(n): Читает и возвращает n фреймов из аудиофайла.
-wave.Wave_write.setnchannels(nchannels): Устанавливает число каналов для нового WAV-файла.
-wave.Wave_write.setsampwidth(sampwidth): Устанавливает размер образца для нового WAV-файла.
-wave.Wave_write.setframerate(framerate): Устанавливает частоту дискретизации для нового WAV-файла.
-wave.Wave_write.writeframesraw(data): Записывает сырые байты аудио-данных в новый WAV-файл.
-wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.
+|                                      |                                                                 |
+|--------------------------------------|-----------------------------------------------------------------|
+| `open(file, mode)`                   | Открывает `WAV`-файл с указанным именем файла и режимом доступа |
+| `Wave_read.getnchannels()`           | Возвращает число каналов в `WAV`-файле (моно или стерео)        |
+| `Wave_read.getsampwidth()`           | Возвращает размер образца в байтах                              |
+| `Wave_read.getframerate()`           | Возвращает частоту дискретизации аудиофайла                     |
+| `Wave_read.getnframes()`             | Возвращает количество фреймов в аудиофайле                      |
+| `Wave_read.readframes(n)`            | Читает и возвращает `n` фреймов из аудиофайла                   |
+| `Wave_write.setnchannels(nchannels)` | Устанавливает число каналов для нового `WAV`-файла              |
+| `Wave_write.setsampwidth(sampwidth)` | Устанавливает размер образца для нового `WAV`-файла             |
+| `Wave_write.setframerate(framerate)` | Устанавливает частоту дискретизации для нового `WAV`-файла      |
+| `Wave_write.writeframesraw(data)`    | Записывает сырые байты аудио-данных в новый `WAV`-файл          |
+| `Wave_write.writeframes(data)`       | Записывает фреймы аудио-данных в новый `WAV`-файл               |
 
-
-wave.open(file, mode): Открывает WAV-файл для чтения или записи.
+#### open(file, mode)
+Открывает WAV-файл для чтения или записи
 
 ```python
 import wave
 
 with wave.open("audio.wav", "r") as wav_file:
-    # проведите необходимые операции с аудиофайлом
+    pass  # проведите необходимые операции с аудиофайлом
 ```
 
-wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.
+### Wave_read.getnframes()
+Возвращает количество фреймов в аудиофайле
 
 ```python
 import wave
@@ -35,7 +36,8 @@ with wave.open("audio.wav", "r") as wav_file:
     print(f"Number of frames: {num_frames}")
 ```
 
-wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.
+### Wave_write.writeframes(data)
+Записывает фреймы аудио-данных в новый WAV-файл
 
 ```python
 import wave

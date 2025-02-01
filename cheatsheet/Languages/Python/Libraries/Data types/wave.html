@@ -1,26 +1,69 @@
-<p>Библиотека "wave" используется в Python для работы с аудиофайлами формата WAV.
-Она позволяет открывать,
-создавать, записывать и обрабатывать звуковые файлы в формате WAV.
-Методы и подмодули библиотеки "wave" и их краткое описание:</p>
-<p>wave.open(file, mode): Открывает WAV-файл с указанным именем файла и режимом доступа.
-wave.Wave_read.getnchannels(): Возвращает число каналов в WAV-файле (моно или стерео).
-wave.Wave_read.getsampwidth(): Возвращает размер образца в байтах.
-wave.Wave_read.getframerate(): Возвращает частоту дискретизации аудиофайла.
-wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.
-wave.Wave_read.readframes(n): Читает и возвращает n фреймов из аудиофайла.
-wave.Wave_write.setnchannels(nchannels): Устанавливает число каналов для нового WAV-файла.
-wave.Wave_write.setsampwidth(sampwidth): Устанавливает размер образца для нового WAV-файла.
-wave.Wave_write.setframerate(framerate): Устанавливает частоту дискретизации для нового WAV-файла.
-wave.Wave_write.writeframesraw(data): Записывает сырые байты аудио-данных в новый WAV-файл.
-wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.</p>
-<p>wave.open(file, mode): Открывает WAV-файл для чтения или записи.</p>
+<p>Библиотека <code>wave</code> используется в Python для работы с аудиофайлами формата WAV
+Она позволяет открывать, создавать, записывать и обрабатывать звуковые файлы в формате WAV</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open(file, mode)</code></td>
+<td>Открывает <code>WAV</code>-файл с указанным именем файла и режимом доступа</td>
+</tr>
+<tr>
+<td><code>Wave_read.getnchannels()</code></td>
+<td>Возвращает число каналов в <code>WAV</code>-файле (моно или стерео)</td>
+</tr>
+<tr>
+<td><code>Wave_read.getsampwidth()</code></td>
+<td>Возвращает размер образца в байтах</td>
+</tr>
+<tr>
+<td><code>Wave_read.getframerate()</code></td>
+<td>Возвращает частоту дискретизации аудиофайла</td>
+</tr>
+<tr>
+<td><code>Wave_read.getnframes()</code></td>
+<td>Возвращает количество фреймов в аудиофайле</td>
+</tr>
+<tr>
+<td><code>Wave_read.readframes(n)</code></td>
+<td>Читает и возвращает <code>n</code> фреймов из аудиофайла</td>
+</tr>
+<tr>
+<td><code>Wave_write.setnchannels(nchannels)</code></td>
+<td>Устанавливает число каналов для нового <code>WAV</code>-файла</td>
+</tr>
+<tr>
+<td><code>Wave_write.setsampwidth(sampwidth)</code></td>
+<td>Устанавливает размер образца для нового <code>WAV</code>-файла</td>
+</tr>
+<tr>
+<td><code>Wave_write.setframerate(framerate)</code></td>
+<td>Устанавливает частоту дискретизации для нового <code>WAV</code>-файла</td>
+</tr>
+<tr>
+<td><code>Wave_write.writeframesraw(data)</code></td>
+<td>Записывает сырые байты аудио-данных в новый <code>WAV</code>-файл</td>
+</tr>
+<tr>
+<td><code>Wave_write.writeframes(data)</code></td>
+<td>Записывает фреймы аудио-данных в новый <code>WAV</code>-файл</td>
+</tr>
+</tbody>
+</table>
+<h4>open(file, mode)</h4>
+<p>Открывает WAV-файл для чтения или записи</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">wave</span>
 
 <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wav_file</span><span class="p">:</span>
-    <span class="c1"># проведите необходимые операции с аудиофайлом</span>
+    <span class="k">pass</span>  <span class="c1"># проведите необходимые операции с аудиофайлом</span>
 </pre></div></div></div>
 
-<p>wave.Wave_read.getnframes(): Возвращает количество фреймов в аудиофайле.</p>
+<h3>Wave_read.getnframes()</h3>
+<p>Возвращает количество фреймов в аудиофайле</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">wave</span>
 
 <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;audio.wav&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wav_file</span><span class="p">:</span>
@@ -28,7 +71,8 @@ wave.Wave_write.writeframes(data): Записывает фреймы аудио-
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of frames: </span><span class="si">{</span><span class="n">num_frames</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>wave.Wave_write.writeframes(data): Записывает фреймы аудио-данных в новый WAV-файл.</p>
+<h3>Wave_write.writeframes(data)</h3>
+<p>Записывает фреймы аудио-данных в новый WAV-файл</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">wave</span>
 
 <span class="n">new_frames</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x00\x00\x00\x00\x00\x00\x00</span><span class="s2">&quot;</span>  <span class="c1"># пример сырых байтов аудио-данных</span>
