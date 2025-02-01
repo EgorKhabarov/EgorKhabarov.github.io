@@ -1,13 +1,34 @@
-<p>Библиотека "binhex" в Python используется для преобразования двоичных данных в шестнадцатеричный формат и обратно.
-Она предоставляет функции для кодирования и декодирования данных, а также для чтения и записи файлов в формате binhex.</p>
-<p>Методы модуля "binhex" и его подмодулей:</p>
-<p>Модуль "binhex":
-binhex.hexlify(data): Преобразует двоичные данные в шестнадцатеричный формат.
-binhex.unhexlify(hexdata): Преобразует данные из шестнадцатеричного формата в двоичный формат.
-binhex.binhex(binfile, hexfile): Кодирует двоичный файл в файл в формате binhex.
-binhex.hexbin(hexfile, binfile): Декодирует файл в формате binhex в двоичный файл.</p>
-<p>Наиболее часто используемые методы:</p>
-<p>binhex.hexlify(data): Преобразует двоичные данные в шестнадцатеричный формат.</p>
+<p>Библиотека <code>binhex</code> в Python используется для преобразования двоичных данных в шестнадцатеричный формат и обратно
+Она предоставляет функции для кодирования и декодирования данных, а также для чтения и записи файлов в формате <code>binhex</code></p>
+<p>Методы модуля <code>binhex</code> и его подмодулей</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hexlify(data)</code></td>
+<td>Преобразует двоичные данные в шестнадцатеричный формат</td>
+</tr>
+<tr>
+<td><code>unhexlify(hexdata)</code></td>
+<td>Преобразует данные из шестнадцатеричного формата в двоичный формат</td>
+</tr>
+<tr>
+<td><code>binhex(binfile, hexfile)</code></td>
+<td>Кодирует двоичный файл в файл в формате binhex</td>
+</tr>
+<tr>
+<td><code>hexbin(hexfile, binfile)</code></td>
+<td>Декодирует файл в формате binhex в двоичный файл</td>
+</tr>
+</tbody>
+</table>
+<h3>hexlify</h3>
+<p>Преобразует двоичные данные в шестнадцатеричный формат</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">binhex</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, World!&quot;</span>
@@ -15,7 +36,8 @@ binhex.hexbin(hexfile, binfile): Декодирует файл в формате
 <span class="nb">print</span><span class="p">(</span><span class="n">hex_data</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>binhex.unhexlify(hexdata): Преобразует данные из шестнадцатеричного формата в двоичный формат.</p>
+<h3>unhexlify</h3>
+<p>Преобразует данные из шестнадцатеричного формата в двоичный формат</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">binhex</span>
 
 <span class="n">hex_data</span> <span class="o">=</span> <span class="s2">&quot;48656c6c6f2c20576f726c6421&quot;</span>
@@ -23,7 +45,8 @@ binhex.hexbin(hexfile, binfile): Декодирует файл в формате
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>binhex.binhex(binfile, hexfile): Кодирует двоичный файл в файл в формате binhex.</p>
+<h3>binhex</h3>
+<p>Кодирует двоичный файл в файл в формате <code>binhex</code></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">binhex</span>
 
 <span class="n">bin_file</span> <span class="o">=</span> <span class="s2">&quot;input.bin&quot;</span>
@@ -31,7 +54,8 @@ binhex.hexbin(hexfile, binfile): Декодирует файл в формате
 <span class="n">binhex</span><span class="o">.</span><span class="n">binhex</span><span class="p">(</span><span class="n">bin_file</span><span class="p">,</span> <span class="n">hex_file</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>binhex.hexbin(hexfile, binfile): Декодирует файл в формате binhex в двоичный файл.</p>
+<h3>hexbin</h3>
+<p>Декодирует файл в формате <code>binhex</code> в двоичный файл</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">binhex</span>
 
 <span class="n">hex_file</span> <span class="o">=</span> <span class="s2">&quot;input.hex&quot;</span>
