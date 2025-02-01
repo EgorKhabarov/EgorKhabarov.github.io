@@ -15,18 +15,18 @@ link_img = """
 """.strip()
 
 link_button = """
-<button vpath="{vpath}" onclick="onclickLinkButton(this);" title="{title}">{svg}{title}</button>
+<button vpath="{vpath}" class="link_button" title="{title}">{svg}{title}</button>
 """.strip()
 cheatsheet_button = """
-<button vpath="{vpath}"{tags} onclick="onclickCheatSheetButton(this);" title="{title}">{svg}{title}</button>
+<button vpath="{vpath}"{tags} class="cheatsheet_button" title="{title}">{svg}{title}</button>
 """.strip()
 folder_button = """
-<button kpath="{kpath}" onclick="onclickFolderButton(this)" title="{title}">{svg}{title}</button>  
-<div class="button_folder" style="display:{css_display};">{button_folder_data}</div>
+<button kpath="{kpath}" class="folder_button" title="{title}">{svg}{title}</button>  
+<div class="buttons_folder" style="display:{css_display};">{buttons_folder_data}</div>
 """.strip()
 folder_cheatsheet_button = """
-<button kpath="{kpath}" vpath="{vpath}" onclick="onclickFolderCheatSheetButton(this);" title="{title}">{svg}{title}</button>
-<div class="button_folder" style="display:{css_display};">{button_folder_data}</div>
+<button kpath="{kpath}" vpath="{vpath}" class="folder_cheatsheet_button" title="{title}">{svg}{title}</button>
+<div class="buttons_folder" style="display:{css_display};">{buttons_folder_data}</div>
 """.strip()
 
 default_value: dict = {}
@@ -83,14 +83,14 @@ def format_folder_button(
     svg: str,
     kpath: str,
     css_display: str,
-    button_folder_data: str,
+    buttons_folder_data: str,
 ) -> str:
     return folder_button.format(
         title=title,
         svg=svg,
         kpath=kpath,
         css_display=css_display,
-        button_folder_data=button_folder_data,
+        buttons_folder_data=buttons_folder_data,
     )
 
 
@@ -100,7 +100,7 @@ def format_folder_cheatsheet_button(
     kpath: str,
     vpath: str,
     css_display: str,
-    button_folder_data: str,
+    buttons_folder_data: str,
 ) -> str:
     return folder_cheatsheet_button.format(
         title=title,
@@ -108,7 +108,7 @@ def format_folder_cheatsheet_button(
         kpath=kpath,
         vpath=vpath,
         css_display=css_display,
-        button_folder_data=button_folder_data,
+        buttons_folder_data=buttons_folder_data,
     )
 
 
@@ -151,7 +151,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
         directory_e = directory.replace("\\", "/").strip("/")
 
         if isinstance(value, dict) and "index" in value:
-            button_folder_data = generate_buttons(value, key_path)[0]
+            buttons_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
             vpath = f"{directory_e}/{key}/index"
             svg = format_folder_svg(color=current_metadata.get("color", "yellow"))
@@ -163,11 +163,11 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
                     kpath=kpath,
                     vpath=vpath,
                     css_display=css_display,
-                    button_folder_data=button_folder_data,
+                    buttons_folder_data=buttons_folder_data,
                 )
             )
         elif isinstance(value, dict):
-            button_folder_data = generate_buttons(value, key_path)[0]
+            buttons_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
             svg = format_folder_svg(color=current_metadata.get("color", "yellow"))
             css_display = "block" if current_metadata.get("folder-open") else "none"
@@ -177,7 +177,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
                     svg=svg,
                     kpath=kpath,
                     css_display=css_display,
-                    button_folder_data=button_folder_data,
+                    buttons_folder_data=buttons_folder_data,
                 )
             )
         else:

@@ -210,7 +210,7 @@ hr {
 }
 
 /* Папка с кнопками */
-.button_folder {
+.buttons_folder {
   /*height: max-content;*/
   width: 0px; /*//initial; //max-content;*/
   border: 0px solid;

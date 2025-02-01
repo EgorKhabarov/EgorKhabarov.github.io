@@ -304,13 +304,13 @@ function performSearch(empty) {
     search_query = empty ? "" : search_input.value;
 
     if (search_query) {
-        search_button_folder.style.display = "block";
+        search_buttons_folder.style.display = "block";
     } else {
-        search_button_folder.style.display = "none"
+        search_buttons_folder.style.display = "none"
     }
     if (!search_query) {return}
     console.log("Search:", search_query);
-    search_button_folder.innerHTML = "";
+    search_buttons_folder.innerHTML = "";
     s1Array = [];
 
     if (settings["settings_search_regex"]) {
@@ -384,14 +384,14 @@ function performSearch(empty) {
             button.setAttribute("search_vpath", vpath);
             button.setAttribute("onclick", "onclickSearchButton(this);");
             button.setAttribute("title", title);
-            search_button_folder.appendChild(button);
+            search_buttons_folder.appendChild(button);
         });
     } else {
         button = document.createElement("button");
         button.textContent = "Nothing found";
         button.classList.add("button");
         button.setAttribute("title", "Nothing found");
-        search_button_folder.appendChild(button);
+        search_buttons_folder.appendChild(button);
     }
 }
 
@@ -762,6 +762,47 @@ document.addEventListener("DOMContentLoaded", function() {
                     anchor_element.scrollIntoView({block: "start"});
                 }
             }
+
+            `
+            link_button               onclickLinkButton
+            cheatsheet_button         onclickCheatSheetButton
+            folder_button             onclickFolderButton
+            folder_cheatsheet_button  onclickFolderCheatSheetButton
+            `
+
+            document.querySelectorAll(".link_button").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    onclickLinkButton(this)
+                });
+            });
+            document.querySelectorAll(".cheatsheet_button").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    onclickCheatSheetButton(this)
+                });
+            });
+            document.querySelectorAll(".folder_button").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    onclickFolderButton(this)
+                });
+            });
+            document.querySelectorAll(".folder_cheatsheet_button").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    onclickFolderCheatSheetButton(this)
+                });
+            });
+            document.querySelectorAll(".buttons_folder").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    if (this.id === "search_buttons_folder") {
+                        return;
+                    }
+                    toggleDisplay(this);
+                });
+            });
         });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
