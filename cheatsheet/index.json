@@ -562,8 +562,7 @@
         "Chrome Dino": "",
         "Alt Symbols": "",
         "Links": "",
-        "TODO": "color: red\n",
-        "Markdown": ""
+        "TODO": "color: red\n"
     },
     "Snippets": {
         "Python": {
@@ -615,5 +614,6 @@
             ":languages-java-классы": ""
         }
     },
-    "README": ""
+    "README": "",
+    "ABOUT": ""
 }
