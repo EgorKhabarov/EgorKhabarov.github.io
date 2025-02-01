@@ -1,17 +1,53 @@
-<p>Библиотека "base64" в Python используется для кодирования и декодирования данных в формате base64.
-Base64 является способом представления двоичных данных в виде текста, что удобно для передачи и хранения данных,
-которые не могут быть безопасно переданы в обычном двоичном формате.</p>
-<p>Методы модуля "base64" и его подмодулей:</p>
-<p>Модуль "base64":
-b64encode(data): Кодирует данные в формате base64.
-b64decode(data): Декодирует данные из формата base64.
-b64encodebytes(data): Кодирует данные в формате base64 и возвращает байтовую строку.
-b64decodebytes(data): Декодирует байтовую строку из формата base64 и возвращает декодированные данные.</p>
-<p>Подмодуль "base64.urlsafe":
-urlsafe_b64encode(data): Кодирует данные в формате base64 для URL без использования символов, которые могут вызывать проблемы в URL.
-urlsafe_b64decode(data): Декодирует данные из формата base64 для URL.</p>
-<p>Некоторые из самых часто используемых методов "base64" и их краткое описание:</p>
-<p>b64encode(data): Кодирует данные в формате base64.</p>
+<p>Библиотека <code>base64</code> в Python используется для кодирования и декодирования данных в формате <code>base64</code>
+<code>Base64</code> является способом представления двоичных данных в виде текста, что удобно для передачи и хранения данных,
+которые не могут быть безопасно переданы в обычном двоичном формате</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>b64encode</code></td>
+<td>Кодирует данные в формате <code>base64</code></td>
+</tr>
+<tr>
+<td><code>b64decode</code></td>
+<td>Декодирует данные из формата <code>base64</code></td>
+</tr>
+<tr>
+<td><code>b64encodebytes</code></td>
+<td>Кодирует данные в формате <code>base64</code> и возвращает байтовую строку</td>
+</tr>
+<tr>
+<td><code>b64decodebytes</code></td>
+<td>Декодирует байтовую строку из формата <code>base64</code> и возвращает декодированные данные</td>
+</tr>
+</tbody>
+</table>
+<p>Подмодуль <code>base64.urlsafe</code></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urlsafe_b64encode</td>
+<td>Кодирует данные в формате <code>base64</code> для <code>URL</code> без использования символов, которые могут вызывать проблемы в <code>URL</code></td>
+</tr>
+<tr>
+<td>urlsafe_b64decode</td>
+<td>Декодирует данные из формата <code>base64</code> для <code>URL</code></td>
+</tr>
+</tbody>
+</table>
+<h3>b64encode</h3>
+<p>Кодирует данные в формате <code>base64</code></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, World!&quot;</span>
@@ -19,7 +55,8 @@ urlsafe_b64decode(data): Декодирует данные из формата b
 <span class="nb">print</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>b64decode(data): Декодирует данные из формата base64.</p>
+<h3>b64decode</h3>
+<p>Декодирует данные из формата base64</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
 <span class="n">encoded_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;SGVsbG8sIFdvcmxkIQ==&quot;</span>
@@ -27,7 +64,8 @@ urlsafe_b64decode(data): Декодирует данные из формата b
 <span class="nb">print</span><span class="p">(</span><span class="n">decoded_data</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>urlsafe_b64encode(data): Кодирует данные в формате base64 для URL без использования символов, которые могут вызывать проблемы в URL.</p>
+<h3>urlsafe_b64encode</h3>
+<p>Кодирует данные в формате base64 для <code>URL</code> без использования символов, которые могут вызывать проблемы в <code>URL</code></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, World!&quot;</span>
@@ -35,7 +73,8 @@ urlsafe_b64decode(data): Декодирует данные из формата b
 <span class="nb">print</span><span class="p">(</span><span class="n">encoded_data</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>urlsafe_b64decode(data): Декодирует данные из формата base64 для URL.</p>
+<h3>urlsafe_b64decode</h3>
+<p>Декодирует данные из формата base64 для URL</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
 <span class="n">encoded_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;SGVsbG8sIFdvcmxkIQ==&quot;</span>
