@@ -33,4 +33,4 @@
 | `%Y.%m.%d %H:%M:%S`<br>`%Y-%m-%d %H:%M:%S` | `2012.12.31 12:34:56`<br>`2012-12-31 12:34:56`   |
 | `%Y-%m-%d_%H-%M-%S`                        | `2012-12-31_12-34-56`<br>Example: for file names |
 
-![datetime.png](Languages/Python/Libraries/datetime.png)
+![datetime.png](Languages/Python/Libraries/Information/datetime.png)

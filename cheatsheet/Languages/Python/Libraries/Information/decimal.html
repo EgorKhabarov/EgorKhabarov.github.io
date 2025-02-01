@@ -1,9 +1,9 @@
-<p>from decimal import Decimal</p>
-<p>Библиотека decimal предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных float и double.
-Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений.
-Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах.</p>
-<p>Класс Decimal
-Класс Decimal используется для создания и работы с десятичными числами с фиксированной точностью. Вот несколько примеров:i</p>
+<p><code>from decimal import Decimal</code></p>
+<p>Библиотека <code>decimal</code> предоставляет более точный способ работы с десятичными числами, чем встроенные типы данных <code>float</code> и <code>double</code>
+Она позволяет представлять числа с фиксированной точностью и позволяет управлять точностью вычислений
+Это может быть полезно в тех случаях, когда требуется точный результат, например, при финансовых расчетах</p>
+<h3>Decimal</h3>
+<p>Используется для создания и работы с десятичными числами с фиксированной точностью</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
 
 <span class="c1"># Создание десятичного числа</span>
@@ -25,8 +25,8 @@
 <span class="n">a</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>  <span class="c1"># (21, 2)</span>
 </pre></div></div></div>
 
-<p>Класс Context
-Класс Context представляет контекст округления, который управляет поведением операций с десятичными числами. Вот несколько примеров:</p>
+<h3>Context</h3>
+<p>Представляет контекст округления, который управляет поведением операций с десятичными числами</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">Context</span>
 
 <span class="c1"># Создание контекста округления</span>
@@ -47,8 +47,9 @@
 <span class="n">h</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>Функции округления
-Модуль decimal также предоставляет несколько функций округления, которые можно использовать с десятичными числами. Вот несколько примеров:</p>
+<h3>Функции округления</h3>
+<p>Модуль <code>decimal</code> также предоставляет несколько функций округления,
+которые можно использовать с десятичными числами</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">ROUND_HALF_UP</span><span class="p">,</span> <span class="n">ROUND_HALF_DOWN</span><span class="p">,</span> <span class="n">ROUND_CEILING</span><span class="p">,</span> <span class="n">ROUND_FLOOR</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.555&quot;</span><span class="p">)</span>
