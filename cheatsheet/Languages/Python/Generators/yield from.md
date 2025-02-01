@@ -25,7 +25,7 @@ def generator2():
     yield "E"
     yield "F"
 
-[letter for letter in generator2()]
+print([letter for letter in generator2()])
 # ["D", "A", "B", "C", "E", "F"]
 ```
 
