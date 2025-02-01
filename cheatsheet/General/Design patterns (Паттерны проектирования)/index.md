@@ -1,6 +1,8 @@
-# Паттерны проектирования
+# Design patterns (Паттерны проектирования)
 
-### Порождающие паттерны <img alt="C" src="General/Design patterns (Паттерны проектирования)/C.png" height="17">
+![patterns.png](General/Design patterns (Паттерны проектирования)/patterns.png)
+
+### Creational patterns (Порождающие паттерны)
 
 Порождающие паттерны проектирования фокусируются на процессах создания объектов.
 Они помогают абстрагировать процесс инстанцирования, что может быть полезным,
@@ -8,20 +10,17 @@
 Это позволяет создавать объекты более гибко и предотвращает жесткую связь между кодом и конкретными классами объектов.
 
 
-### Структурные паттерны <img alt="S" src="General/Design patterns (Паттерны проектирования)/S.png" height="17">
+### Structural patterns (Структурные паттерны)
 
 Структурные паттерны проектирования фокусируются на том, как компоненты системы (например, классы и объекты)
 могут быть объединены для создания более крупных и гибких структур.
 Эти паттерны помогают определить отношения между компонентами и обеспечивают гибкость и масштабируемость систем.
 
 
-### Поведенческие паттерны <img alt="B" src="General/Design patterns (Паттерны проектирования)/B.png" height="17">
+### Behavioral patterns (Поведенческие паттерны)
 
 Поведенческие паттерны проектирования фокусируются на взаимодействии и распределении обязанностей между объектами и классами.
 Они помогают определить, как объекты должны взаимодействовать друг с другом и как распределять ответственность между ними.
-
-
-![patterns.png](General/Design patterns (Паттерны проектирования)/patterns.png)
 
 - [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns)
     - [https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования](https://ru.wikipedia.org/wiki/Порождающие_шаблоны_проектирования)
@@ -45,6 +44,7 @@ color = {
     "orange": (254, 203, 158),
     "blue": (153, 205, 252),
     "green": (207, 252, 157),
+    "gray": (200, 200, 200),
 }
 pattern_color = {
     "C": color["blue"],
@@ -53,6 +53,7 @@ pattern_color = {
 }
 pattern = {
     "C": [
+        "Creational patterns (Порождающие паттерны)",
         "Singleton (Одиночка)",
         "Factory (Фабрика)",
         "Abstract Factory (Абстрактная фабрика)",
@@ -60,6 +61,7 @@ pattern = {
         "Prototype (Прототип)",
     ],
     "S": [
+        "Structural patterns (Структурные паттерны)",
         "Adapter (Адаптер)",
         "Bridge (Мост)",
         "Composite (Компоновщик)",
@@ -69,6 +71,7 @@ pattern = {
         "Proxy (Заместитель)",
     ],
     "B": [
+        "Behavioral patterns (Поведенческие паттерны)",
         "Chain of Responsibility (Цепочка обязанностей)",
         "Command (Команда)",
         "Interpreter (Интерпретатор)",
@@ -97,13 +100,15 @@ image_x = indent + sum(
 )
 image_y = indent + max(
     len(pattern_list) for pattern_list in pattern.values()
-) * (rectangle[1] + indent)
+) * (rectangle[1] + indent) + indent
 image = Image.new("RGB", (image_x, image_y), "#FFFFFF")
 draw = ImageDraw.Draw(image)
 
+line_y = indent+rectangle[1]+indent
 
 for pattern_type, pattern_list in pattern.items():
-    for pattern in pattern_list:
+    text_x = rectangle[0] + indent * 2 + font.getbbox(max(pattern_list, key=len))[2]
+    for row, pattern in enumerate(pattern_list):
         draw.rectangle(
             (now_x, now_y, now_x + rectangle[0], now_y + rectangle[1]),
             pattern_color[pattern_type],
@@ -122,11 +127,18 @@ for pattern_type, pattern_list in pattern.items():
             fill="#000000",
             font=font,
         )
-        draw.point((now_x, now_y), "#FF0000")
+        # draw.point((now_x, now_y), "#FF0000")
         now_y += rectangle[1] + indent
+        if row == 0:
+            now_y += indent
+            draw.line(
+                ((now_x, line_y), (now_x+text_x-indent, line_y)),
+                fill=color["gray"],
+                width=border,
+            )
 
     now_y = indent
-    now_x += rectangle[0] + indent * 2 + font.getbbox(max(pattern_list, key=len))[2]
+    now_x += text_x
 
 
 image.save("patterns.png", format="PNG")
