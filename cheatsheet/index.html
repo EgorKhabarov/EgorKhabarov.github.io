@@ -68,38 +68,40 @@
   <div class="overlay" id="settings_overlay">
   </div>
   <div class="popup" id="settings_popup">
-   <h3 style="margin-top: 0px;margin-bottom: 6px;">
-    Search
-   </h3>
-   <input id="settings_search_regex" style="width: 13px;height: 13px;" type="checkbox"/>
-   Поиск по регулярным выражениям
+   <h3 style="margin-top: 0px;margin-bottom: 6px;">Search</h3>
+   <div title="Поиск будет выполнятся по регулярному выражению">
+    <input id="settings_search_regex" style="width: 13px;height: 13px;" type="checkbox"/>
+    <span>Поиск по регулярным выражениям</span>
+   </div>
+   <div title="Поиск выполняется без учёта регистра запроса и данных">
+    <input id="settings_search_register_independence" style="width: 13px;height: 13px;" type="checkbox"/>
+    <span>Регистронезависимость поиска</span>
+   </div>
+   <div title="Если включено, то поиск будет выполнятся по всему пути до шпаргалки,
+включая все названия всех родительских папок.
+Если выключено, то поиск будет выполняться только по названию шпаргалки">
+    <input id="settings_search_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
+    <span>Поиск по всему пути (default вкл) /</span>
+    <br>
+    <svg height="13" width="20"></svg>
+    <span>Поиск по имени шпаргалки (выкл)</span>
+   </div>
+   <div title="В результатах поиска будет показываться полный путь до шпаргалки">
+    <input id="settings_search_show_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
+    <span>Показывать весь путь до шпаргалки</span>
+   </div>
    <br/>
-   <input id="settings_search_register_independence" style="width: 13px;height: 13px;" type="checkbox"/>
-   Регистронезависимость поиска
-   <br/>
-   <input id="settings_search_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
-   Поиск по всему пути (default вкл) /
-   <br/>
-   <svg height="13" width="20">
-   </svg>
-   Поиск по имени шпаргалки (выкл)
-   <br/>
-   <input id="settings_search_show_full_path" style="width: 13px;height: 13px;" type="checkbox"/>
-   Показывать весь путь до шпаргалки
-   <br/>
-   <input id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this)" style="width: 13px;height: 13px;" type="checkbox"/>
-   CSS предпросмотр Markdown
-   <br/>
-   <h3 style="margin-top: 0px;margin-bottom: 6px;">
-    CSS
-   </h3>
+   <h3 style="margin-top: 0px;margin-bottom: 6px;">CSS</h3>
    <textarea id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings)" rows="7"></textarea>
-   <button id="settings_reset_button">
-    Reset
-   </button>
-   <button id="settings_ok_button">
-    Ok
-   </button>
+   <div title="При просмотре шпаргалок будет имитироваться синтаксис Markdown
+Например будет подставляться символ хештега (#) перед заголовками
+и две звёздочки (**) перед и после жирного выделения">
+    <input id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this)" style="width: 13px;height: 13px;" type="checkbox"/>
+    <span>CSS предпросмотр Markdown</span>
+   </div>
+
+   <button id="settings_reset_button">Reset</button>
+   <button id="settings_ok_button">Ok</button>
   </div>
  </body>
 </html>
