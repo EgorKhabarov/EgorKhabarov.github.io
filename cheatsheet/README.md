@@ -1,6 +1,6 @@
 <h1>egorkhabarov.github.io/cheatsheet</h1>
 
-<a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="cheatsheet_badge.svg"/></a>
+<a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="cheatsheet_resources/badge.svg" style="height:1.667em;"/></a>
 
 <table><thead><tr><th style="text-align: center;">Icon</th><th style="text-align: left;">Description</th></tr></thead><tbody>
 

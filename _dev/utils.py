@@ -211,7 +211,7 @@ def update_svg_badge(cheatsheet_count: int = 0):
     except requests.exceptions.ConnectionError:
         pass
     else:
-        with open("../cheatsheet/cheatsheet_badge.svg", "w", encoding="utf-8") as file:
+        with open("../cheatsheet/cheatsheet_resources/badge.svg", "w", encoding="utf-8") as file:
             file.write(content)
 
 
