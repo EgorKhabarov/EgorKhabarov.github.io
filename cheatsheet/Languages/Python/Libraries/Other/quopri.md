@@ -4,18 +4,20 @@ Quoted-Printable - это способ представления непечат
 
 Методы и подмодули библиотеки "quopri":
 
-`quopri.encode(input, output, quotetabs=False)` - кодирует входные данные в формат Quoted-Printable и записывает результат в выходной поток.
-`quopri.decode(input, output, headers=False)` - декодирует входные данные из формата Quoted-Printable и записывает результат в выходной поток.
-`quopri.quote(data)` - возвращает строку, в которой данные закодированы в формате Quoted-Printable.
-`quopri.unquote(data)` - возвращает строку, в которой данные декодированы из формата Quoted-Printable.
-`quopri.encodestring(s)` - кодирует строку в формат Quoted-Printable и возвращает результат как строку.
-`quopri.decodestring(s)` - декодирует строку из формата Quoted-Printable и возвращает результат как строку.
+|                                                 |                                                                                               |
+|-------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `quopri.encode(input, output, quotetabs=False)` | кодирует входные данные в формат Quoted-Printable и записывает результат в выходной поток     |
+| `quopri.decode(input, output, headers=False)`   | декодирует входные данные из формата Quoted-Printable и записывает результат в выходной поток |
+| `quopri.quote(data)`                            | возвращает строку, в которой данные закодированы в формате Quoted-Printable                   |
+| `quopri.unquote(data)`                          | возвращает строку, в которой данные декодированы из формата Quoted-Printable                  |
+| `quopri.encodestring(s)`                        | кодирует строку в формат Quoted-Printable и возвращает результат как строку                   |
+| `quopri.decodestring(s)`                        | декодирует строку из формата Quoted-Printable и возвращает результат как строку               |
 
 Самые часто используемые методы:
 
-`quopri.encode(input, output, quotetabs=False)` - метод для кодирования данных в формат Quoted-Printable.
-Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи.
-
+### encode(input, output, quotetabs=False)
+Метод для кодирования данных в формат Quoted-Printable
+Можно использовать для безопасной передачи данных по электронной почте или другим каналам связи
 ```python
 import quopri
 
@@ -24,9 +26,10 @@ encoded_data = quopri.encode(input_data)
 print(encoded_data)
 ```
 
-`quopri.decode(input, output, headers=False)` - метод для декодирования данных из формата Quoted-Printable.
-Полезно при работе с данными, полученными из электронной почты или других источников, где данные могут быть закодированы в этом формате.
-
+### decode(input, output, headers=False)
+Метод для декодирования данных из формата Quoted-Printable
+Полезно при работе с данными, полученными из электронной почты или других источников,
+где данные могут быть закодированы в этом формате
 ```python
 import quopri
 

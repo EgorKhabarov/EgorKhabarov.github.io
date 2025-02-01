@@ -1,22 +1,25 @@
 <p>Библиотека "pstats" в Python используется для профилирования производительности программы.
 Она предоставляет возможность анализировать данные о времени выполнения и вызовах функций,
 что помогает оптимизировать код и улучшить его производительность.</p>
-<p>Методы и подмодули библиотеки "pstats" включают:</p>
-<p>"Stats" (статистика)
-    - "add" - добавляет данные о времени выполнения и вызовах функций в статистику.
-    - "print_stats" - выводит общую статистику по вызовам функций.
-    - "sort_stats" - сортирует статистику по различным критериям.
-    - "strip_dirs" - удаляет пути к файлам из статистики.
-    - "calc_callees" - вычисляет информацию о вызываемых функциях.
-    - "dump_stats" - сохраняет статистику в файл.</p>
-<p>"Profile" (профиль)
-    - "run" - запускает профилирование кода.
-    - "runcall" - профилирует отдельный вызов функции.
-    - "print_stats" - выводит статистику по профилированию.
-    - "dump_stats" - сохраняет статистику в файл.</p>
+<p>"Stats" (статистика)</p>
+<ul>
+<li><code>add</code> - добавляет данные о времени выполнения и вызовах функций в статистику.</li>
+<li><code>print_stats</code> - выводит общую статистику по вызовам функций.</li>
+<li><code>sort_stats</code> - сортирует статистику по различным критериям.</li>
+<li><code>strip_dirs</code> - удаляет пути к файлам из статистики.</li>
+<li><code>calc_callees</code> - вычисляет информацию о вызываемых функциях.</li>
+<li><code>dump_stats</code> - сохраняет статистику в файл.</li>
+</ul>
+<p>"Profile" (профиль)</p>
+<ul>
+<li><code>run</code> - запускает профилирование кода.</li>
+<li><code>runcall</code> - профилирует отдельный вызов функции.</li>
+<li><code>print_stats</code> - выводит статистику по профилированию.</li>
+<li><code>dump_stats</code> - сохраняет статистику в файл.</li>
+</ul>
 <p>Некоторые из наиболее часто используемых методов "pstats" включают:</p>
-<p>"print_stats()": Выводит основную статистику профилирования, включая время выполнения и количество вызовов функций.</p>
-<p>Пример кода, демонстрирующего его использование:</p>
+<h3>print_stats()</h3>
+<p>Выводит основную статистику профилирования, включая время выполнения и количество вызовов функций</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pstats</span>
 
 <span class="c1"># Создаем объект статистики</span>
@@ -26,8 +29,8 @@
 <span class="n">stats</span><span class="o">.</span><span class="n">print_stats</span><span class="p">()</span>
 </pre></div></div></div>
 
-<p>"sort_stats()": Сортирует статистику профилирования по выбранному критерию, такому как время выполнения или количество вызовов функций.</p>
-<p>Пример кода, демонстрирующего его использование:</p>
+<h3>sort_stats()</h3>
+<p>Сортирует статистику профилирования по выбранному критерию, такому как время выполнения или количество вызовов функций</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pstats</span>
 
 <span class="c1"># Создаем объект статистики</span>
@@ -39,5 +42,3 @@
 <span class="c1"># Выводим отсортированную статистику на экран</span>
 <span class="n">stats</span><span class="o">.</span><span class="n">print_stats</span><span class="p">()</span>
 </pre></div></div></div>
-
-<p>Пожалуйста, обратите внимание, что примеры кода могут требовать предварительной настройки и обработки профилировочных данных.</p>
