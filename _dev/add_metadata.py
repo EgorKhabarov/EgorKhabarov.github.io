@@ -7,6 +7,7 @@ path = (
 """.strip()
     .removeprefix("https://egorkhabarov.github.io/cheatsheet/?")
     .removeprefix("http://localhost:5000/cheatsheet/?")
+    .removeprefix("cheatsheet/")
     .removesuffix(".md")
     .removesuffix(".html")
     .replace("%20", " ")
