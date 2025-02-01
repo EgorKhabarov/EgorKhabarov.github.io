@@ -4,49 +4,49 @@
 
 <table><thead><tr><th style="text-align: center;">Icon</th><th style="text-align: left;">Description</th></tr></thead><tbody>
 
-<tr><td style="text-align: center;"><svg class="yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-</svg><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
-</svg></td><td style="text-align: left;">Обычная папка</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/yellow.svg" alt="folder_yellow" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/yellow.svg" alt="tag_yellow" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/yellow.svg" alt="link_yellow" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Обычная папка</td></tr>
 
-<tr><td style="text-align: center;"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path/>
-</svg><svg class="white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Обычная шпаргалка</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/white.svg" alt="folder_white" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/white.svg" alt="tag_white" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/white.svg" alt="link_white" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Обычная шпаргалка</td></tr>
 
-<tr><td style="text-align: center;"><svg class="green" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="green" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="green" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Библиотека</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/green.svg" alt="folder_green" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/green.svg" alt="tag_green" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/green.svg" alt="link_green" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Библиотека</td></tr>
 
-<tr><td style="text-align: center;"><svg class="red" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="red" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="red" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Важное</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/red.svg" alt="folder_red" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/red.svg" alt="tag_red" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/red.svg" alt="link_red" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Важное</td></tr>
 
-<tr><td style="text-align: center;"><svg class="pink" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="pink" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="pink" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;"></td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/pink.svg" alt="folder_pink" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/pink.svg" alt="tag_pink" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/pink.svg" alt="link_pink" class="css_img_22x22px_em"
+/></td><td style="text-align: left;"></td></tr>
 
-<tr><td style="text-align: center;"><svg class="violet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="violet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="violet" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Язык</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/violet.svg" alt="folder_violet" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/violet.svg" alt="tag_violet" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/violet.svg" alt="link_violet" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Язык</td></tr>
 
-<tr><td style="text-align: center;"><svg class="dblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="dblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="dblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;"></td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/dblue.svg" alt="folder_dblue" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/dblue.svg" alt="tag_dblue" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/dblue.svg" alt="link_dblue" class="css_img_22x22px_em"
+/></td><td style="text-align: left;"></td></tr>
 
-<tr><td style="text-align: center;"><svg class="lblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="lblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="lblue" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Картинки</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/lblue.svg" alt="folder_lblue" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/lblue.svg" alt="tag_lblue" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/lblue.svg" alt="link_lblue" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Картинки</td></tr>
 
-<tr><td style="text-align: center;"><svg class="brown" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"></path>
-</svg><svg class="brown" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"></path>
-</svg><svg class="brown" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg></td><td style="text-align: left;">Примеры кода</td></tr>
+<tr><td style="text-align: center;"><img src="cheatsheet_resources/folders/brown.svg" alt="folder_brown" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/tags/brown.svg" alt="tag_brown" class="css_img_22x22px_em"
+/><img src="cheatsheet_resources/links/brown.svg" alt="link_brown" class="css_img_22x22px_em"
+/></td><td style="text-align: left;">Примеры кода</td></tr>
 
 </tbody></table>
