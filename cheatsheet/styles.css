@@ -61,10 +61,13 @@ body {
   color: #AFB1B3;
   transition: background-color 0.2s ease-out;
   cursor: pointer;
+
+  gap: 4px;
 }
 #cheatsheet_buttons button:hover {background-color: #424242;}
 #cheatsheet_buttons button:active {transform: translateY(2px);}
 #cheatsheet_buttons button:focus {background-color: #525252;}
+#cheatsheet_buttons button img {width: 22px;height: 20px;}
 .active_button {background-color: #999999!important;color: #252525!important;}
 
 
@@ -339,16 +342,20 @@ hr {
   margin: 0 0 0 auto;
 }
 
-.yellow {color: rgb(249, 197, 83);}
-.green {color: rgb(60, 194, 58);}
-.white {color: rgb(218, 218, 218);}
-.pink {color: rgb(253, 99, 148);}
-.red {color: rgb(224, 53, 52);}
-.lblue {color: rgb(132, 184, 249);}
-.dblue {color: rgb(20, 114, 248);}
-.violet {color: rgb(140, 88, 133);}
-.brown {color: rgb(131, 83, 51);}
+.yellow {color:rgb(249, 197,  83)}
+.green  {color:rgb( 60, 194,  58)}
+.white  {color:rgb(218, 218, 218)}
+.pink   {color:rgb(253,  99, 148)}
+.red    {color:rgb(224,  53,  52)}
+.lblue  {color:rgb(132, 184, 249)}
+.dblue  {color:rgb( 20, 114, 248)}
+.violet {color:rgb(140,  88, 133)}
+.brown  {color:rgb(131,  83,  51)}
 
+.css_img_22x22px_em {
+  width: 1.834em;
+  height: 1.834em;
+}
 
 #settings_overlay {
   display: none; /* Скрыть оверлей по умолчанию */

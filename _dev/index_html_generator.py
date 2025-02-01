@@ -4,37 +4,61 @@ import yaml
 from bs4 import BeautifulSoup
 
 
-folder = """
-<svg class="{color}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="20" fill="currentColor" viewBox="2 0 26 24">
-  <path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"/>
-</svg>
+folder_img = """
+<img src="cheatsheet_resources/folders/{color}.svg" alt="folder_{color}">
 """.strip()
-tag = """
-<svg class="{color}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="20" fill="currentColor" viewBox="2 0 26 24">
-  <path d="M7.833 2c-.507 0-.98.216-1.318.576A1.92 1.92 0 0 0 6 3.89V21a1 1 0 0 0 1.625.78L12 18.28l4.375 3.5A1 1 0 0 0 18 21V3.889c0-.481-.178-.954-.515-1.313A1.808 1.808 0 0 0 16.167 2H7.833Z"/>
-</svg>
+tag_img = """
+<img src="cheatsheet_resources/tags/{color}.svg" alt="tag_{color}">
 """.strip()
-link = """
-<svg class="{color}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="none" viewBox="2 0 26 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg>
+link_img = """
+<img src="cheatsheet_resources/links/{color}.svg" alt="link_{color}">
 """.strip()
 
 link_button = """
 <button vpath="{vpath}" onclick="onclickLinkButton(this);" title="{title}">{svg}{title}</button>
-"""
+""".strip()
 cheatsheet_button = """
 <button vpath="{vpath}"{tags} onclick="onclickCheatSheetButton(this);" title="{title}">{svg}{title}</button>
-"""
+""".strip()
 folder_button = """
 <button kpath="{kpath}" onclick="onclickFolderButton(this)" title="{title}">{svg}{title}</button>  
 <div class="button_folder" style="display:{css_display};">{button_folder_data}</div>
-"""
+""".strip()
 folder_cheatsheet_button = """
 <button kpath="{kpath}" vpath="{vpath}" onclick="onclickFolderCheatSheetButton(this);" title="{title}">{svg}{title}</button>
 <div class="button_folder" style="display:{css_display};">{button_folder_data}</div>
-"""
+""".strip()
+
 default_value: dict = {}
+css_colors = {
+    "yellow": "color:rgb(249, 197, 83)",
+    "green": "color:rgb(60, 194, 58)",
+    "white": "color:rgb(218, 218, 218)",
+    "pink": "color:rgb(253, 99, 148)",
+    "red": "color:rgb(224, 53, 52)",
+    "lblue": "color:rgb(132, 184, 249)",
+    "dblue": "color:rgb(20, 114, 248)",
+    "violet": "color:rgb(140, 88, 133)",
+    "brown": "color:rgb(131, 83, 51)",
+}
+
+
+def format_folder_svg(color: str) -> str:
+    if color not in css_colors:
+        color = "folder"
+    return folder_img.format(color=color)
+
+
+def format_tag_svg(color: str) -> str:
+    if color not in css_colors:
+        color = "tag"
+    return tag_img.format(color=color)
+
+
+def format_link_svg(color: str) -> str:
+    if color not in css_colors:
+        color = "folder"
+    return link_img.format(color=color)
 
 
 def format_link_button(title: str, svg: str, vpath: str) -> str:
@@ -114,7 +138,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
             #         value.removesuffix("index") if value.endswith("/index") else value,
             #         default_value,
             #     ).get("color", "white")
-            svg = link.format(color=color)
+            svg = format_link_svg(color=color)
             title = (
                 value.removesuffix("index")
                 if value.endswith("/index")
@@ -130,7 +154,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
             button_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
             vpath = f"{directory_e}/{key}/index"
-            svg = folder.format(color=current_metadata.get("color", "yellow"))
+            svg = format_folder_svg(color=current_metadata.get("color", "yellow"))
             css_display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(
                 format_folder_cheatsheet_button(
@@ -145,7 +169,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
         elif isinstance(value, dict):
             button_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
-            svg = folder.format(color=current_metadata.get("color", "yellow"))
+            svg = format_folder_svg(color=current_metadata.get("color", "yellow"))
             css_display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(
                 format_folder_button(
@@ -158,7 +182,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
             )
         else:
             vpath = f"{directory_e}/{key}".lstrip("/")
-            svg = tag.format(color=current_metadata.get("color", "white"))
+            svg = format_tag_svg(color=current_metadata.get("color", "white"))
             tags = current_metadata.get("tags")
             text_list.append(
                 format_cheatsheet_button(
