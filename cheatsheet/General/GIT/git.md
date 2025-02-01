@@ -37,7 +37,7 @@
 | `git branch some_branch`                         | Создать новый бранч (ответвится от текущего)                                     |
 | `git checkout some_branch`                       | Переключиться на другую ветку (из тех, с которыми уже работаем)                  |
 | `git branch`                                     | Получаем список веток, с которыми работаем (звездочкой отмечена текущая ветвь)   |
-| `git branch -a # | grep something`               | Просмотреть все существующие ветви                                               |
+| <code>git branch -a # \| grep something</code>   | Просмотреть все существующие ветви                                               |
 | `git merge some_branch`                          | Замерджить some_branch в текущую ветку                                           |
 | `git branch -d some_branch`                      | Удалить бранч (после мерджа)                                                     |
 | `git branch -D some_branch`                      | Просто удалить бранч (тупиковая ветвь)                                           |
