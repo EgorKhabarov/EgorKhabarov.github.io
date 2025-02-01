@@ -8,6 +8,7 @@ from colorama import init
 from _dev.markup import to_markup
 from _dev.index_html_generator import generate_buttons
 from _dev.utils import (
+    repo,
     get_files,
     dict_walk,
     get_git_diff,
@@ -54,10 +55,24 @@ white_list_html_files = (
     "buttons.html",
 )
 unused_files: list[str] = []
+incorrect_name_files: list[tuple[str, str, str]] = []
+lower_cheatsheet_list: list[str] = [path.lower() for path in cheatsheet_list]
 for html_file in html_cheatsheet_list:
     if html_file in white_list_html_files:
         continue
     markdown_cheatsheet = f"{html_file.removesuffix(".html")}.md"
+    # Если имена файлов имеют разные регистры
+    if (
+        markdown_cheatsheet not in cheatsheet_list
+        and markdown_cheatsheet.lower() in lower_cheatsheet_list
+    ):
+        index = lower_cheatsheet_list.index(markdown_cheatsheet.lower())
+        markdown_cheatsheet = Path(markdown_cheatsheet)
+        dirpath = str(markdown_cheatsheet.parent).replace("\\", "/")
+        incorrect_filename = f"{markdown_cheatsheet.name.removesuffix(".md")}.html"
+        filename = f"{Path(cheatsheet_list[index]).name.removesuffix(".md")}.html"
+        incorrect_name_files.append((dirpath, incorrect_filename, filename))
+        continue
     if markdown_cheatsheet not in cheatsheet_list:
         unused_files.append(html_file)
 unused_files_count = len(unused_files)
@@ -75,6 +90,13 @@ for unused_file in unused_files:
         print(f'    \x1b[31mDelete empty directory "{directory_name}"\x1b[0m')
         unused_file_path.parent.rmdir()
         unused_file_path = unused_file_path.parent
+incorrect_name_files_count = len(incorrect_name_files)
+print(f"Found \x1b[4m\x1b[1m{incorrect_name_files_count}\x1b[0m files with incorrect name")
+for dirpath, incorrect_filename, filename in incorrect_name_files:
+    print(f'  \x1b[33mRename \x1b[32m"{dirpath}/{incorrect_filename}" \x1b[33mto \x1b[32m"{filename}"\x1b[0m')
+    from_path = f"cheatsheet/{dirpath}/{incorrect_filename}"
+    to_path = f"cheatsheet/{dirpath}/{filename}"
+    repo.git.mv(from_path, to_path)
 
 
 # update index.json
@@ -95,11 +117,11 @@ index_json_set = set(
 added_cheat_sheets = list(cheatsheet_set - index_json_set)
 removed_cheat_sheets = list(index_json_set - cheatsheet_set)
 modified_files_count = len(added_cheat_sheets) + len(removed_cheat_sheets)
-print(f"Found \x1b[4m\x1b[1m{modified_files_count}\x1b[0m modified files")
-if added_cheat_sheets:
-    print(f"  \x1b[32mAdded cheat sheets {added_cheat_sheets}\x1b[0m")
-if removed_cheat_sheets:
-    print(f"  \x1b[31mRemoved cheat sheets {removed_cheat_sheets}\x1b[0m")
+print(f"Found \x1b[4m\x1b[1m{modified_files_count}\x1b[0m differences with index.json")
+for added_cheat_sheet in added_cheat_sheets:
+    print(f"  \x1b[32mAdded cheat sheet {added_cheat_sheet}\x1b[0m")
+for removed_cheat_sheet in removed_cheat_sheets:
+    print(f"  \x1b[31mRemoved cheat sheet {removed_cheat_sheet}\x1b[0m")
 moved_cheat_sheets = get_git_diff_moved_from_cheat_sheet_dict(
     lambda path: path.endswith(".md")
 )
