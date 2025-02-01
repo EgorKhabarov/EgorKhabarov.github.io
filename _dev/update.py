@@ -51,8 +51,8 @@ for updated_file_md in updated_files:
 html_cheatsheet_list: list[str] = list(get_files(lambda path: path.endswith(".html")))
 white_list_html_files = (
     "index.html",
-    "404.html",
-    "buttons.html",
+    "cheatsheet_resources/404.html",
+    "cheatsheet_resources/buttons.html",
 )
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
@@ -132,11 +132,11 @@ with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
     json.dump(index_json, index_json_file, indent=4, ensure_ascii=False)
 
 
-# generate buttons.html file
+# generate cheatsheet_resources/buttons.html file
 with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
     index_json = json.load(index_json_file)
 buttons_html = generate_buttons(index_json)[0]
-with open("../cheatsheet/buttons.html", "w", encoding="utf-8") as file:
+with open("../cheatsheet/cheatsheet_resources/buttons.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(buttons_html, "html.parser").prettify())
 
 print(f"Done in \x1b[4m\x1b[1m{time.perf_counter()-start_time:.2f}\x1b[0m sec")

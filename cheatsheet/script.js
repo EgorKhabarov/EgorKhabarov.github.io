@@ -411,7 +411,7 @@ function getCheatSheet(url) {
 /* Вставить шпаргалку */
 function PutHtmlText(html) {
     if (!html) {
-        html = '<img alt="404.png" src="404.png">';
+        html = '<img alt="404.png" src="cheatsheet_resources/404.png">';
     }
 
     cheatsheet_field.innerHTML = html;
@@ -731,7 +731,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    fetch("buttons.html")
+    fetch("cheatsheet_resources/buttons.html")
         .then(response => response.text())
         .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
         .then(() => {
