@@ -569,7 +569,8 @@
             "Examples": {
                 ".": "color: brown\n",
                 "list comprehension tips": "color: brown\n",
-                "Multiplication of lists": "color: brown\n"
+                "Multiplication of lists": "color: brown\n",
+                "globals().update(dict)": "color: brown\n"
             },
             "File formats": {
                 ".": "color: brown\n",
