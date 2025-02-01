@@ -1,26 +1,85 @@
 <p>Библиотека "formatter" в Python используется для форматирования и стилизации
-текста в различных вариантах вывода, таких как консоль, файлы, строки и другие.
-2.
-Методы модуля "formatter":
-format_text(): Форматирует указанный текст в соответствии с заданными параметрами.
-stylize_text(): Применяет стилизацию к тексту, используя заданные форматы и цвета.
-capitalize_text(): Преобразует первую букву каждого слова в тексте в верхний регистр.
-align_text(): Выравнивает текст по заданному формату выравнивания (левому, правому или по центру).
-truncate_text(): Обрезает текст до указанной длины и добавляет многоточие в конце, если текст был обрезан.</p>
-<p>Подмодули "formatter":
-html_format: Включает методы для форматирования текста в формате HTML.
-csv_format: Содержит методы для форматирования текста в формате CSV.
-json_format: Включает методы для форматирования текста в формате JSON.
-xml_format: Содержит методы для форматирования текста в формате XML.
-pdf_format: Включает методы для форматирования текста в формате PDF.</p>
-<p>Самые часто используемые методы:
-format_text(text, format): Форматирует указанный текст с использованием заданного формата.</p>
-<p>formatted_text = formatter.format_text("Привет, мир!", "жирный")
-print(formatted_text)  # "Привет, мир!" в жирном формате.</p>
-<p>stylize_text(text, style): Применяет заданный стиль к указанному тексту.</p>
-<p>stylized_text = formatter.stylize_text("Привет, мир!", "красный")
-print(stylized_text)  # "Привет, мир!" в красном цвете.</p>
-<p>align_text(text, alignment): Выравнивает указанный текст по заданному формату выравнивания.</p>
-<p>aligned_text = formatter.align_text("Привет, мир!", "правый")
-print(aligned_text)  # "Привет, мир!" справа выровненным.</p>
-<p>Обратите внимание, что код представлен в качестве примера и может потребоваться дополнительная настройка и параметры для достижения желаемого результата.</p>
+текста в различных вариантах вывода, таких как консоль, файлы, строки и другие.</p>
+<h1>Методы модуля "formatter"</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format_text()</code></td>
+<td>Форматирует указанный текст в соответствии с заданными параметрами</td>
+</tr>
+<tr>
+<td><code>stylize_text()</code></td>
+<td>Применяет стилизацию к тексту, используя заданные форматы и цвета</td>
+</tr>
+<tr>
+<td><code>capitalize_text()</code></td>
+<td>Преобразует первую букву каждого слова в тексте в верхний регистр</td>
+</tr>
+<tr>
+<td><code>align_text()</code></td>
+<td>Выравнивает текст по заданному формату выравнивания (левому, правому или по центру)</td>
+</tr>
+<tr>
+<td><code>truncate_text()</code></td>
+<td>Обрезает текст до указанной длины и добавляет многоточие в конце, если текст был обрезан</td>
+</tr>
+</tbody>
+</table>
+<h1>Подмодули "formatter":</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>html_format</code></td>
+<td>Включает методы для форматирования текста в формате <code>HTML</code></td>
+</tr>
+<tr>
+<td><code>csv_format</code></td>
+<td>Содержит методы для форматирования текста в формате <code>CSV</code></td>
+</tr>
+<tr>
+<td><code>json_format</code></td>
+<td>Включает методы для форматирования текста в формате <code>JSON</code></td>
+</tr>
+<tr>
+<td><code>xml_format</code></td>
+<td>Содержит методы для форматирования текста в формате <code>XML</code></td>
+</tr>
+<tr>
+<td><code>pdf_format</code></td>
+<td>Включает методы для форматирования текста в формате <code>PDF</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Самые часто используемые методы</h3>
+<h3>format_text(text, format)</h3>
+<p>Форматирует указанный текст с использованием заданного формата</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">formatted_text</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format_text</span><span class="p">(</span><span class="s2">&quot;Привет, мир!&quot;</span><span class="p">,</span> <span class="s2">&quot;жирный&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_text</span><span class="p">)</span>
+<span class="c1"># &quot;Привет, мир!&quot; в жирном формате</span>
+</pre></div></div></div>
+
+<h3>stylize_text(text, style)</h3>
+<p>Применяет заданный стиль к указанному тексту</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">stylized_text</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">stylize_text</span><span class="p">(</span><span class="s2">&quot;Привет, мир!&quot;</span><span class="p">,</span> <span class="s2">&quot;красный&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stylized_text</span><span class="p">)</span>
+<span class="c1"># &quot;Привет, мир!&quot; в красном цвете</span>
+</pre></div></div></div>
+
+<h3>align_text(text, alignment)</h3>
+<p>Выравнивает указанный текст по заданному формату выравнивания</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">aligned_text</span> <span class="o">=</span> <span class="n">formatter</span><span class="o">.</span><span class="n">align_text</span><span class="p">(</span><span class="s2">&quot;Привет, мир!&quot;</span><span class="p">,</span> <span class="s2">&quot;правый&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aligned_text</span><span class="p">)</span>
+<span class="c1"># &quot;Привет, мир!&quot; справа выровненным</span>
+</pre></div></div></div>
