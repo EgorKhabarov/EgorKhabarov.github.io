@@ -686,6 +686,38 @@ function onclickSearchButton(element) {
 }
 
 
+/* rpanrResize */
+function mD(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение браузера
+    ismdwn = 1;
+    document.body.addEventListener("mousemove", mV);
+    document.body.addEventListener("mouseup", end);
+    document.body.addEventListener("touchmove", mV);
+    document.body.addEventListener("touchend", end);
+}
+function mV(event) {
+    let clientX;
+    if (event.type === "mousemove" || event.type === "mouseup") {
+        clientX = event.clientX;
+    } else if (event.type === "touchmove") {
+        clientX = event.touches[0].clientX;
+    }
+
+    if (ismdwn === 1) {
+        cheatsheet_buttons.style.flexBasis = clientX - 19 + "px"; //  - 48
+    } else {
+        end();
+    }
+}
+function end() {
+    ismdwn = 0;
+    document.body.removeEventListener("mousemove", mV);
+    document.body.removeEventListener("mouseup", end);
+    document.body.removeEventListener("touchmove", mV);
+    document.body.removeEventListener("touchend", end);
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
     // Изменялка размеров #cheatsheet_buttons и #cheatsheet_field
     rpanrResize.addEventListener("mousedown", mD);
@@ -711,15 +743,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     applySettings(settings);
     settings_css.innerHTML = settings.settings_css;
-    settings_popup.childNodes.forEach(element => {
-        if (element.tagName === "INPUT") {
-            element.addEventListener("change", (event) => {
-                settings[element.id] = event.target.checked;
-                console.log(`settings["${element.id}"] = "${event.target.checked}"`);
-                saveSettings(settings);
-                performSearch();
-            });
-        }
+
+    settings_popup.querySelectorAll("input").forEach(input_element => {
+        input_element.addEventListener("change", (event) => {
+            settings[input_element.id] = event.target.checked;
+            console.log(`settings["${input_element.id}"] = "${event.target.checked}"`);
+            saveSettings(settings);
+            performSearch();
+        });
     });
 
     css_markdown_preview_func(settings_css_markdown_preview);
@@ -845,40 +876,6 @@ document.addEventListener("click", function(event) {
         document.body.removeChild(tempInput);
     }
 });
-
-
-/* rpanrResize */
-function mD(event) {
-    event.preventDefault(); // Предотвращаем стандартное поведение браузера
-    ismdwn = 1;
-    document.body.addEventListener("mousemove", mV);
-    document.body.addEventListener("mouseup", end);
-    document.body.addEventListener("touchmove", mV);
-    document.body.addEventListener("touchend", end);
-}
-
-function mV(event) {
-    let clientX;
-    if (event.type === "mousemove" || event.type === "mouseup") {
-        clientX = event.clientX;
-    } else if (event.type === "touchmove") {
-        clientX = event.touches[0].clientX;
-    }
-
-    if (ismdwn === 1) {
-        cheatsheet_buttons.style.flexBasis = clientX - 19 + "px"; //  - 48
-    } else {
-        end();
-    }
-}
-
-function end() {
-    ismdwn = 0;
-    document.body.removeEventListener("mousemove", mV);
-    document.body.removeEventListener("mouseup", end);
-    document.body.removeEventListener("touchmove", mV);
-    document.body.removeEventListener("touchend", end);
-}
 
 
 let need_save_history = true;
