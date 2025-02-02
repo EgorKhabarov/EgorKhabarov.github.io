@@ -17,6 +17,7 @@ except git.exc.InvalidGitRepositoryError:
 try:
     branch: str = repo.active_branch.name
 except TypeError:
+    # If HEAD is detached
     branch = repo.head.commit.hexsha[:8]
 
 
@@ -323,7 +324,7 @@ def get_index_decorator(iterable: list):
         try:
             return iterable.index(key)
         except ValueError:
-            return None
+            return 0
 
     return wrapper
 
