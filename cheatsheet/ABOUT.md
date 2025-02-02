@@ -1,3 +1,163 @@
+# Headers
+
+# `#` 1
+## `##` 2
+### `###` 3
+#### `####` 4
+##### `#####` 5
+###### `######` 6
+
+---
+
+# Highlighting
+
+\*Italic\* - *Italic*
+\_Italic\_ - _Italic_
+
+\*\*Bold\*\* - **Bold**
+\_\_Bold\_\_ - __Bold__
+
+\*\*\*Bold & Italic\*\*\* - ***Bold & Italic***
+\_\_\_Bold & Italic\_\_\_ - ___Bold & Italic___
+\*\*\_Bold & Italic\_\*\* - **_Bold & Italic_**
+\_\*\*Bold & Italic\*\*\_ - _**Bold & Italic**_
+
+\`text\` - `text`
+
+\|\|text\|\| - ||text||
+
+&#x7e;&#x7e;text&#x7e;&#x7e; - ~~text~~
+
+&#x3d;&#x3d;mark&#x3d;&#x3d; - ==mark==
+
+&#x3d;&#x3d;{color:red;background-color:inherit;}mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
+
+`---` or `<hr>`
+
+---
+
+---
+
+# Table
+
+<div class="container-row">
+
+```pre
+code
+```
+&nbsp;&nbsp;
+````pre
+```pre
+code
+```
+````
+&nbsp;&nbsp;
+`````pre
+````pre
+```pre
+code
+```
+````
+`````
+
+</div>
+
+```table
+| c1 | c2 |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+```
+
+| c1 | c2 |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+
+```table
+|    |    |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+```
+
+|    |    |
+|----|----|
+| v1 | v2 |
+| v3 | v4 |
+
+# Blockquote
+
+> blockquote 1
+
+<br>
+
+>> blockquote 2
+
+<br>
+
+> blockquote 1
+>> blockquote 2
+>>> blockquote 3
+
+## Alerts
+
+```markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+Read more [here](?Other/GitHub/Markdown) and [here](https://docs.github.com/ru/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+<br>
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+<br>
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+<br>
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+<br>
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+<br>
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+<br>
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+>> 123
+>>> qweret
+> r
+> 1234tv
+
+---
+
+# SVG
 
 <table><thead><tr><th style="text-align: center;">Icon</th><th style="text-align: left;">Description</th></tr></thead><tbody>
 
@@ -47,94 +207,3 @@
 /></td><td style="text-align: left;">Примеры кода</td></tr>
 
 </tbody></table>
-
----
-
-# `#` 1
-## `##` 2
-### `###` 3
-#### `####` 4
-##### `#####` 5
-###### `######` 6
-
-&lt;hr&gt;
-<hr>
-
-\*Italic\* - *Italic*
-\_Italic\_ - _Italic_
-
-\*\*Bold\*\* - **Bold**
-\_\_Bold\_\_ - __Bold__
-
-\*\*\*Bold & Italic\*\*\* - ***Bold & Italic***
-\_\_\_Bold & Italic\_\_\_ - ___Bold & Italic___
-\*\*\_Bold & Italic\_\*\* - **_Bold & Italic_**
-\_\*\*Bold & Italic\*\*\_ - _**Bold & Italic**_
-
-\`text\` - `text`
-
-\|\|text\|\| - ||text||
-
-&#x7e;&#x7e;text&#x7e;&#x7e; - ~~text~~
-
-&#x3d;&#x3d;mark&#x3d;&#x3d; - ==mark==
-
-&#x3d;&#x3d;{color:red;background-color:inherit;}mark&#x3d;&#x3d; - =={color:red;background-color:inherit;}mark==
-
-<div class="container-row">
-
-```pre
-code
-```
-&nbsp;&nbsp;
-````pre
-```pre
-code
-```
-````
-&nbsp;&nbsp;
-`````pre
-````pre
-```pre
-code
-```
-````
-`````
-
-</div>
-
-```table
-| c1 | c2 |
-|----|----|
-| v1 | v2 |
-| v3 | v4 |
-```
-
-| c1 | c2 |
-|----|----|
-| v1 | v2 |
-| v3 | v4 |
-
-```table
-|    |    |
-|----|----|
-| v1 | v2 |
-| v3 | v4 |
-```
-
-|    |    |
-|----|----|
-| v1 | v2 |
-| v3 | v4 |
-
-> blockquote 1
->> blockquote 2
->>> blockquote 3
-
-<br>
-
-> blockquote 1
-
-<br>
-
->> blockquote 2

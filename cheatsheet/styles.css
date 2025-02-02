@@ -174,12 +174,24 @@ code {
 code:active {background-color: #373737;}
 
 blockquote {
-  background-color: #525252;
-  padding: 0px 1em;
-  border-radius: 0.5em;
-  margin-left: 0px;
-  margin-right: auto;
+    margin-left: 0px;
+    padding: 0px 1em;
+    color: #9198a1;
+    border-left: .50em solid #3d444d;
+    margin-top: 0;
 }
+blockquote>:last-child {
+    margin-bottom: 0;
+}
+.blockquote-note      {border-left: 0.5em solid #478be6;}
+.blockquote-tip       {border-left: 0.5em solid #57ab5a;}
+.blockquote-important {border-left: 0.5em solid #986ee2;}
+.blockquote-warning   {border-left: 0.5em solid #c69026;}
+.blockquote-caution   {border-left: 0.5em solid #e5534b;}
+.anchor {color: inherit;}
+.anchor:link {color: inherit;}
+.anchor:visited {color: inherit;}
+.anchor:hover {text-decoration: none;}
 
 summary {cursor: pointer;}
 
@@ -191,13 +203,13 @@ ul, ol {
 h1 h2 h3 h4 h5 h6 {flex-direction: column;}
 
 hr {
-  border-top-width: 4px;
+  border-top-width: 0.5em;
   border-bottom-width 4px
   border-top-style: none;
   border-bottom-style: none;
   border-left-style: none;
   border-right-style: none;
-  height: 1px; /* Толщина линии */
+  /* height: 1px; Толщина линии */
   width: max-container; /* Ширина на всю ширину контейнера */
   margin: 20px 0; /* Отступы сверху и снизу */
   opacity: 1; /* Устанавливаем непрозрачность */
