@@ -262,7 +262,8 @@
                     ".": "color: green\n",
                     "SQLAlchemy": "color: green\n",
                     "peewee": "color: green\n",
-                    "pony": "color: green\n"
+                    "pony": "color: green\n",
+                    "GitPython": "color: green\n"
                 },
                 "Other": {
                     ".": "color: green\n",
@@ -324,7 +325,8 @@
             "match-case": "",
             "mro": "",
             "noinspection.txt": "",
-            "Бинарные операторы": ""
+            "Бинарные операторы": "",
+            "for-else": ""
         },
         "RegExp": {
             ".": "color: violet\n",
