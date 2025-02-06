@@ -43,4 +43,5 @@ print(concrete_instance.my_method())  # Method implemented
 print(concrete_instance.my_property)  # Property value
 ```
 
-Абстрактный метод в `ABC` не имеет реализации и должен быть переопределён в дочернем классе.
+> [!IMPORTANT]
+> Абстрактный метод в `ABC` не имеет реализации и должен быть переопределён в дочернем классе.
