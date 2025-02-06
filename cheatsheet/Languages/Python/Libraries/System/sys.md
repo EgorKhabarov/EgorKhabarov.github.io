@@ -139,7 +139,6 @@ print("Новый предел рекурсии:", sys.getrecursionlimit())
 ```
 
 ### argv: Список аргументов командной строки
-
 ```python
 import sys
 
@@ -151,7 +150,6 @@ print(sys.argv[2])  # arg2
 ```
 
 ### stdin, stdout, stderr: Потоки ввода, вывода и ошибок
-
 ```python
 import sys
 data = sys.stdin.readline()
@@ -160,7 +158,6 @@ sys.stderr.write("Error occurred\n")
 ```
 
 ### platform: Название платформы
-
 ```python
 import sys
 
