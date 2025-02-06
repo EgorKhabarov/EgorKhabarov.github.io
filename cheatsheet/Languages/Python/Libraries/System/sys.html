@@ -1,244 +1,488 @@
-<p>Этот модуль предоставляет доступ к некоторым объектам, используемым или поддерживаемым
-интерпретатором, и к функциям, которые тесно взаимодействуют с интерпретатором.</p>
-<h1>Динамические объекты</h1>
+<h1>sys</h1>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>Атрибут / Метод</th>
+<th>Описание</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>argv</code></td>
-<td>Аргументы командной строки<br><code>argv[0]</code> — путь к скрипту, если он известен</td>
+<td><code>sys.__breakpointhook__</code></td>
+<td>Внутренняя функция для обработки <code>breakpoint()</code></td>
 </tr>
 <tr>
-<td><code>path</code></td>
-<td>Путь поиска модуля<br><code>path[0]</code> — каталог скрипта, иначе <code>""</code></td>
+<td><code>sys.__displayhook__</code></td>
+<td>Определяет, как результаты выводятся в интерактивном режиме</td>
 </tr>
 <tr>
-<td><code>modules</code></td>
+<td><code>sys.__doc__</code></td>
+<td>Документация модуля <code>sys</code></td>
+</tr>
+<tr>
+<td><code>sys.__excepthook__</code></td>
+<td>Обработчик необработанных исключений</td>
+</tr>
+<tr>
+<td><code>sys.__interactivehook__</code></td>
+<td>Хук, вызываемый при запуске интерактивного режима</td>
+</tr>
+<tr>
+<td><code>sys.__loader__</code></td>
+<td>Загрузчик модуля</td>
+</tr>
+<tr>
+<td><code>sys.__name__</code></td>
+<td>Имя модуля (<code>'sys'</code>)</td>
+</tr>
+<tr>
+<td><code>sys.__package__</code></td>
+<td>Имя пакета, к которому принадлежит модуль</td>
+</tr>
+<tr>
+<td><code>sys.__spec__</code></td>
+<td>Спецификация загрузки модуля</td>
+</tr>
+<tr>
+<td><code>sys.__stderr__</code></td>
+<td>Оригинальный поток ошибок</td>
+</tr>
+<tr>
+<td><code>sys.__stdin__</code></td>
+<td>Оригинальный поток ввода</td>
+</tr>
+<tr>
+<td><code>sys.__stdout__</code></td>
+<td>Оригинальный поток вывода</td>
+</tr>
+<tr>
+<td><code>sys.__unraisablehook__</code></td>
+<td>Хук для необрабатываемых исключений</td>
+</tr>
+<tr>
+<td><code>sys._base_executable</code></td>
+<td>Путь к исполняемому файлу базового интерпретатора</td>
+</tr>
+<tr>
+<td><code>sys._baserepl</code></td>
+<td>Внутренний механизм REPL Python</td>
+</tr>
+<tr>
+<td><code>sys._cached_windows_version</code></td>
+<td>Кэшированные данные о версии Windows</td>
+</tr>
+<tr>
+<td><code>sys._clear_internal_caches</code></td>
+<td>Очистка внутренних кэшей интерпретатора</td>
+</tr>
+<tr>
+<td><code>sys._clear_type_cache()</code></td>
+<td>Очистка кэша типов</td>
+</tr>
+<tr>
+<td><code>sys._current_exceptions</code></td>
+<td>Получает текущие исключения в потоках</td>
+</tr>
+<tr>
+<td><code>sys._current_frames</code></td>
+<td>Возвращает текущие фреймы выполнения всех потоков</td>
+</tr>
+<tr>
+<td><code>sys._debugmallocstats</code></td>
+<td>Выводит статистику выделения памяти в отладочном режиме</td>
+</tr>
+<tr>
+<td><code>sys._enablelegacywindowsfsencoding()</code></td>
+<td>Включает старую кодировку файловой системы Windows</td>
+</tr>
+<tr>
+<td><code>sys._framework</code></td>
+<td>Название фреймворка Python (если применимо)</td>
+</tr>
+<tr>
+<td><code>sys._get_cpu_count_config()</code></td>
+<td>Возвращает конфигурацию количества ядер CPU</td>
+</tr>
+<tr>
+<td><code>sys._getframe()</code></td>
+<td>Возвращает объект текущего стека вызовов</td>
+</tr>
+<tr>
+<td><code>sys._getframemodulename(frame)</code></td>
+<td>Получает имя модуля для фрейма</td>
+</tr>
+<tr>
+<td><code>sys._git</code></td>
+<td>Информация о версии Git, использованной при сборке Python</td>
+</tr>
+<tr>
+<td><code>sys._home</code></td>
+<td>Путь к домашнему каталогу интерпретатора</td>
+</tr>
+<tr>
+<td><code>sys._is_gil_enabled()</code></td>
+<td>Проверяет, включен ли GIL (Global Interpreter Lock)</td>
+</tr>
+<tr>
+<td><code>sys._is_interned(string)</code></td>
+<td>Проверяет, интернирована ли строка</td>
+</tr>
+<tr>
+<td><code>sys._setprofileallthreads(func)</code></td>
+<td>Устанавливает функцию профилирования для всех потоков</td>
+</tr>
+<tr>
+<td><code>sys._settraceallthreads(func)</code></td>
+<td>Устанавливает функцию трассировки для всех потоков</td>
+</tr>
+<tr>
+<td><code>sys._stdlib_dir</code></td>
+<td>Путь к стандартной библиотеке Python</td>
+</tr>
+<tr>
+<td><code>sys._vpath</code></td>
+<td>Виртуальный путь для модулей</td>
+</tr>
+<tr>
+<td><code>sys._xoptions</code></td>
+<td>Дополнительные опции интерпретатора Python</td>
+</tr>
+<tr>
+<td><code>sys.activate_stack_trampoline()</code></td>
+<td>Активация trampolining для управления стеком</td>
+</tr>
+<tr>
+<td><code>sys.deactivate_stack_trampoline()</code></td>
+<td>Деактивация trampolining</td>
+</tr>
+<tr>
+<td><code>sys.addaudithook(hook)</code></td>
+<td>Добавляет аудиторский хук</td>
+</tr>
+<tr>
+<td><code>sys.api_version</code></td>
+<td>Версия API интерпретатора Python</td>
+</tr>
+<tr>
+<td><code>sys.argv</code></td>
+<td>Список аргументов командной строки</td>
+</tr>
+<tr>
+<td><code>sys.audit(event, *args)</code></td>
+<td>Генерация события аудита</td>
+</tr>
+<tr>
+<td><code>sys.base_exec_prefix</code></td>
+<td>Базовый путь для исполняемых файлов Python</td>
+</tr>
+<tr>
+<td><code>sys.base_prefix</code></td>
+<td>Базовый путь установки Python</td>
+</tr>
+<tr>
+<td><code>sys.breakpointhook(*args)</code></td>
+<td>Функция-хук для <code>breakpoint()</code></td>
+</tr>
+<tr>
+<td><code>sys.builtin_module_names</code></td>
+<td>Кортеж встроенных модулей Python</td>
+</tr>
+<tr>
+<td><code>sys.byteorder</code></td>
+<td>Порядок байтов (<code>little</code> или <code>big</code>)</td>
+</tr>
+<tr>
+<td><code>sys.call_tracing(func, args)</code></td>
+<td>Запуск функции с трассировкой</td>
+</tr>
+<tr>
+<td><code>sys.copyright</code></td>
+<td>Информация об авторских правах Python</td>
+</tr>
+<tr>
+<td><code>sys.displayhook(value)</code></td>
+<td>Вывод значения в интерактивном режиме</td>
+</tr>
+<tr>
+<td><code>sys.dont_write_bytecode</code></td>
+<td>Отключает создание <code>.pyc</code> файлов</td>
+</tr>
+<tr>
+<td><code>sys.exc_info()</code></td>
+<td>Возвращает информацию о текущем исключении</td>
+</tr>
+<tr>
+<td><code>sys.excepthook(type, value, traceback)</code></td>
+<td>Устанавливает обработчик исключений</td>
+</tr>
+<tr>
+<td><code>sys.exception()</code></td>
+<td>Возвращает текущее исключение</td>
+</tr>
+<tr>
+<td><code>sys.exec_prefix</code></td>
+<td>Префикс каталога исполняемых файлов Python</td>
+</tr>
+<tr>
+<td><code>sys.executable</code></td>
+<td>Путь к интерпретатору Python</td>
+</tr>
+<tr>
+<td><code>sys.exit([код])</code></td>
+<td>Завершает выполнение программы</td>
+</tr>
+<tr>
+<td><code>sys.flags</code></td>
+<td>Флаги, переданные интерпретатору Python</td>
+</tr>
+<tr>
+<td><code>sys.float_info</code></td>
+<td>Информация о представлении чисел с плавающей запятой</td>
+</tr>
+<tr>
+<td><code>sys.float_repr_style</code></td>
+<td>Стиль представления чисел с плавающей точкой</td>
+</tr>
+<tr>
+<td><code>sys.get_asyncgen_hooks()</code></td>
+<td>Получает хуки для асинхронных генераторов</td>
+</tr>
+<tr>
+<td><code>sys.get_coroutine_origin_tracking_depth()</code></td>
+<td>Глубина отслеживания корутин</td>
+</tr>
+<tr>
+<td><code>sys.get_int_max_str_digits()</code></td>
+<td>Максимальное число цифр в строковом представлении int</td>
+</tr>
+<tr>
+<td><code>sys.getallocatedblocks()</code></td>
+<td>Возвращает число выделенных блоков памяти</td>
+</tr>
+<tr>
+<td><code>sys.getdefaultencoding()</code></td>
+<td>Возвращает кодировку по умолчанию</td>
+</tr>
+<tr>
+<td><code>sys.getfilesystemencodeerrors()</code></td>
+<td>Ошибки кодирования файловой системы</td>
+</tr>
+<tr>
+<td><code>sys.getfilesystemencoding()</code></td>
+<td>Возвращает кодировку файловой системы</td>
+</tr>
+<tr>
+<td><code>sys.getprofile()</code></td>
+<td>Получает текущий профайлер</td>
+</tr>
+<tr>
+<td><code>sys.getrecursionlimit()</code></td>
+<td>Возвращает текущий лимит рекурсии</td>
+</tr>
+<tr>
+<td><code>sys.getrefcount(obj)</code></td>
+<td>Количество ссылок на объект</td>
+</tr>
+<tr>
+<td><code>sys.getsizeof(obj)</code></td>
+<td>Возвращает размер объекта в байтах</td>
+</tr>
+<tr>
+<td><code>sys.getswitchinterval()</code></td>
+<td>Интервал переключения потоков Python</td>
+</tr>
+<tr>
+<td><code>sys.gettrace()</code></td>
+<td>Возвращает текущую функцию трассировки</td>
+</tr>
+<tr>
+<td><code>sys.getunicodeinternedsize(string)</code></td>
+<td>Размер интернированной строки в байтах</td>
+</tr>
+<tr>
+<td><code>sys.getwindowsversion()</code></td>
+<td>Информация о версии Windows</td>
+</tr>
+<tr>
+<td><code>sys.hash_info</code></td>
+<td>Информация о хэшировании Python</td>
+</tr>
+<tr>
+<td><code>sys.hexversion</code></td>
+<td>Версия Python в шестнадцатеричном формате</td>
+</tr>
+<tr>
+<td><code>sys.implementation</code></td>
+<td>Информация о реализации Python</td>
+</tr>
+<tr>
+<td><code>sys.int_info</code></td>
+<td>Информация о представлении int</td>
+</tr>
+<tr>
+<td><code>sys.intern(string)</code></td>
+<td>Интернирование строки</td>
+</tr>
+<tr>
+<td><code>sys.is_finalizing()</code></td>
+<td>Проверяет, завершается ли интерпретатор</td>
+</tr>
+<tr>
+<td><code>sys.is_stack_trampoline_active()</code></td>
+<td>Проверяет, активен ли stack trampoline</td>
+</tr>
+<tr>
+<td><code>sys.maxsize</code></td>
+<td>Максимальный размер целого числа</td>
+</tr>
+<tr>
+<td><code>sys.maxunicode</code></td>
+<td>Максимальный Unicode код</td>
+</tr>
+<tr>
+<td><code>sys.meta_path</code></td>
+<td>Список хуков импорта модулей</td>
+</tr>
+<tr>
+<td><code>sys.modules</code></td>
 <td>Словарь загруженных модулей</td>
 </tr>
 <tr>
-<td><code>displayhook</code></td>
-<td>Вызывается для отображения результатов в интерактивном сеансе</td>
+<td><code>sys.monitoring</code></td>
+<td>API для мониторинга выполнения Python</td>
 </tr>
 <tr>
-<td><code>excepthook</code></td>
-<td>Вызывается для обработки любого неперехваченного исключения, отличного от <code>SystemExit</code><br>Чтобы настроить печать в интерактивном сеансе или установить пользовательский<br>обработчик исключений верхнего уровня, назначьте другие функции для замены этих</td>
+<td><code>sys.orig_argv</code></td>
+<td>Исходный список аргументов командной строки</td>
 </tr>
 <tr>
-<td><code>stdin</code></td>
-<td>Стандартный объект входного файла<br><code>input()</code></td>
+<td><code>sys.path</code></td>
+<td>Пути поиска модулей</td>
 </tr>
 <tr>
-<td><code>stdout</code></td>
-<td>Стандартный объект выходного файла<br><code>print()</code></td>
+<td><code>sys.path_hooks</code></td>
+<td>Хуки обработки путей импорта</td>
 </tr>
 <tr>
-<td><code>stderr</code></td>
-<td>Стандартный объект ошибки; используется для сообщений об ошибках<br>Назначая им другие объекты файлов (или объекты, которые ведут себя как файлы),<br>можно перенаправить весь ввод-вывод интерпретатора</td>
+<td><code>sys.path_importer_cache</code></td>
+<td>Кэш импортёров для путей</td>
 </tr>
 <tr>
-<td><code>last_type</code></td>
+<td><code>sys.platform</code></td>
+<td>Название платформы (например, <code>win32</code>, <code>linux</code>)</td>
+</tr>
+<tr>
+<td><code>sys.platlibdir</code></td>
+<td>Директория платформо-зависимых библиотек</td>
+</tr>
+<tr>
+<td><code>sys.prefix</code></td>
+<td>Префикс установки Python</td>
+</tr>
+<tr>
+<td><code>sys.ps1</code>, <code>sys.ps2</code></td>
+<td>Промпты в интерактивном режиме</td>
+</tr>
+<tr>
+<td><code>sys.pycache_prefix</code></td>
+<td>Префикс каталога для кэша модулей</td>
+</tr>
+<tr>
+<td><code>sys.set_asyncgen_hooks(firstiter, finalizer)</code></td>
+<td>Устанавливает хуки асинхронных генераторов</td>
+</tr>
+<tr>
+<td><code>sys.set_coroutine_origin_tracking_depth(depth)</code></td>
+<td>Устанавливает глубину отслеживания корутин</td>
+</tr>
+<tr>
+<td><code>sys.set_int_max_str_digits(n)</code></td>
+<td>Устанавливает максимальное число цифр в <code>int</code></td>
+</tr>
+<tr>
+<td><code>sys.setprofile(func)</code></td>
+<td>Устанавливает профайлер</td>
+</tr>
+<tr>
+<td><code>sys.setrecursionlimit(n)</code></td>
+<td>Устанавливает лимит рекурсии</td>
+</tr>
+<tr>
+<td><code>sys.setswitchinterval(interval)</code></td>
+<td>Устанавливает интервал переключения потоков</td>
+</tr>
+<tr>
+<td><code>sys.settrace(func)</code></td>
+<td>Устанавливает трассировщик</td>
+</tr>
+<tr>
+<td><code>sys.stdin</code>, <code>sys.stdout</code>, <code>sys.stderr</code></td>
+<td>Потоки ввода, вывода и ошибок</td>
+</tr>
+<tr>
+<td><code>sys.stdlib_module_names</code></td>
+<td>Список модулей стандартной библиотеки</td>
+</tr>
+<tr>
+<td><code>sys.thread_info</code></td>
+<td>Информация о потоках Python</td>
+</tr>
+<tr>
+<td><code>sys.unraisablehook(unraisable)</code></td>
+<td>Обработчик необрабатываемых исключений</td>
+</tr>
+<tr>
+<td><code>sys.version</code></td>
+<td>Строка с версией Python</td>
+</tr>
+<tr>
+<td><code>sys.version_info</code></td>
+<td>Кортеж с деталями версии Python</td>
+</tr>
+<tr>
+<td><code>sys.warnoptions</code></td>
+<td>Опции предупреждений</td>
+</tr>
+<tr>
+<td><code>sys.winver</code></td>
+<td><strong>[только для Windows]</strong> Версия Windows API</td>
+</tr>
+<tr>
+<td><code>sys.dllhandle</code></td>
+<td><strong>[только для Windows]</strong> Дескриптор DLL интерпретатора Python</td>
+</tr>
+<tr>
+<td><code>sys.last_type</code></td>
 <td>Тип последнего неперехваченного исключения</td>
 </tr>
 <tr>
-<td><code>last_value</code></td>
+<td><code>sys.last_value</code></td>
 <td>Значение последнего неперехваченного исключения</td>
 </tr>
 <tr>
-<td><code>last_traceback</code></td>
+<td><code>sys.last_traceback</code></td>
 <td>Трассировка последнего неперехваченного исключения<br>Эти три доступны только в интерактивном сеансе после того, как<br>трассировка была напечатана</td>
 </tr>
 </tbody>
 </table>
-<h1>Статические объекты</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>builtin_module_names</code></td>
-<td>Кортеж имен модулей, встроенных в этот интерпретатор</td>
-</tr>
-<tr>
-<td><code>copyright</code></td>
-<td>Уведомление об авторских правах, относящееся к этому интерпретатору</td>
-</tr>
-<tr>
-<td><code>exec_prefix</code></td>
-<td>Префикс, используемый для поиска машинно-специфической библиотеки Python</td>
-</tr>
-<tr>
-<td><code>executable</code></td>
-<td>Абсолютный путь к исполняемому двоичному файлу интерпретатора Python</td>
-</tr>
-<tr>
-<td><code>float_info</code></td>
-<td>Именованный кортеж с информацией о реализации <code>float</code></td>
-</tr>
-<tr>
-<td><code>float_repr_style</code></td>
-<td>Строка, указывающая стиль вывода <code>repr()</code> для <code>float</code></td>
-</tr>
-<tr>
-<td><code>hash_info</code></td>
-<td>Именованный кортеж с информацией о хеш-алгоритме</td>
-</tr>
-<tr>
-<td><code>hexversion</code></td>
-<td>Информация о версии, закодированная как одно целое число</td>
-</tr>
-<tr>
-<td><code>implementation</code></td>
-<td>Информация о реализации Python</td>
-</tr>
-<tr>
-<td><code>int_info</code></td>
-<td>Именованный кортеж с информацией о реализации <code>int</code></td>
-</tr>
-<tr>
-<td><code>maxsize</code></td>
-<td>Наибольшая поддерживаемая длина контейнеров</td>
-</tr>
-<tr>
-<td><code>maxunicode</code></td>
-<td>Значение наибольшей кодовой точки <code>Unicode</code></td>
-</tr>
-<tr>
-<td><code>platform</code></td>
-<td>Идентификатор платформы</td>
-</tr>
-<tr>
-<td><code>prefix</code></td>
-<td>Префикс, используемый для поиска библиотеки Python</td>
-</tr>
-<tr>
-<td><code>thread_info</code></td>
-<td>Именованный кортеж с информацией о реализации потока</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td>Версия этого интерпретатора в виде строки</td>
-</tr>
-<tr>
-<td><code>version_info</code></td>
-<td>Информация о версии в виде именованного кортежа</td>
-</tr>
-<tr>
-<td><code>dllhandle</code></td>
-<td><strong>[только для Windows]</strong> целочисленный дескриптор библиотеки <code>DLL Python</code></td>
-</tr>
-<tr>
-<td><code>winver</code></td>
-<td><strong>[только для Windows]</strong> номер версии библиотеки <code>DLL Python</code></td>
-</tr>
-<tr>
-<td><code>_enablelegacywindowsfsencoding</code></td>
-<td><strong>[только для Windows]</strong></td>
-</tr>
-<tr>
-<td><code>__stdin__</code></td>
-<td>Исходный <code>stdin</code><br><strong>не трогать!</strong></td>
-</tr>
-<tr>
-<td><code>__stdout__</code></td>
-<td>Исходный <code>stdout</code><br><strong>не трогать!</strong></td>
-</tr>
-<tr>
-<td><code>__stderr__</code></td>
-<td>Исходный <code>stderr</code><br><strong>не трогать!</strong></td>
-</tr>
-<tr>
-<td><code>__displayhook__</code></td>
-<td>Исходный <code>displayhook</code><br><strong>не трогать!</strong></td>
-</tr>
-<tr>
-<td><code>__excepthook__</code></td>
-<td>Исходный <code>excepthook</code><br><strong>не трогать!</strong></td>
-</tr>
-</tbody>
-</table>
-<h1>Функции</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>displayhook()</code></td>
-<td>Вывести объект на экран и сохранить его в <code>builtins._</code></td>
-</tr>
-<tr>
-<td><code>excepthook()</code></td>
-<td>Вывести исключение и его трассировку в <code>sys.stderr</code></td>
-</tr>
-<tr>
-<td><code>exception()</code></td>
-<td>Вернуть активное исключение текущего потока</td>
-</tr>
-<tr>
-<td><code>exc_info()</code></td>
-<td>Вернуть информацию об активном исключении текущего потока</td>
-</tr>
-<tr>
-<td><code>exit()</code></td>
-<td>Выйти из интерпретатора, вызвав <code>SystemExit</code></td>
-</tr>
-<tr>
-<td><code>getdlopenflags()</code></td>
-<td>Вернуть флаги, которые будут использоваться для вызовов <code>dlopen()</code></td>
-</tr>
-<tr>
-<td><code>getprofile()</code></td>
-<td>Получить глобальную функцию профилирования</td>
-</tr>
-<tr>
-<td><code>getrefcount()</code></td>
-<td>Вернуть счетчик ссылок для объекта (плюс один :-)</td>
-</tr>
-<tr>
-<td><code>getrecursionlimit()</code></td>
-<td>Вернуть максимальную глубину рекурсии для интерпретатора</td>
-</tr>
-<tr>
-<td><code>getsizeof()</code></td>
-<td>Вернуть размер объекта в байтах</td>
-</tr>
-<tr>
-<td><code>gettrace()</code></td>
-<td>Получить глобальную функцию трассировки отладки</td>
-</tr>
-<tr>
-<td><code>setdlopenflags()</code></td>
-<td>Установить флаги, которые будут использоваться для вызовов <code>dlopen()</code></td>
-</tr>
-<tr>
-<td><code>setprofile()</code></td>
-<td>Установить глобальную функцию профилирования</td>
-</tr>
-<tr>
-<td><code>setrecursionlimit()</code></td>
-<td>Установить макс. глубина рекурсии для интерпретатора</td>
-</tr>
-<tr>
-<td><code>settrace()</code></td>
-<td>Установить глобальную функцию трассировки отладки</td>
-</tr>
-</tbody>
-</table>
-<h2>Примеры</h2>
-<h3>argv</h3>
+<h3>getsizeof: Измерение размера объекта</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Размер списка в байтах:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div></div></div>
+
+<h3>path: Добавление пути для поиска модулей</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/my/custom/path&quot;</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h3>setrecursionlimit: Изменение предела рекурсии</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Новый предел рекурсии:&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">())</span>
+</pre></div></div></div>
+
+<h3>argv: Список аргументов командной строки</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="c1"># Передаем два аргумента при запуске скрипта</span>
@@ -248,20 +492,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># arg2</span>
 </pre></div></div></div>
 
-<h3>stdin, stdout, stderr</h3>
+<h3>stdin, stdout, stderr: Потоки ввода, вывода и ошибок</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="c1"># Читаем данные из стандартного потока ввода</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-
-<span class="c1"># Пишем данные в стандартный поток вывода</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, world!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Пишем ошибки в стандартный поток ошибок</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Error occurred</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
-<h3>platform</h3>
+<h3>platform: Название платформы</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
@@ -270,36 +508,4 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Linux&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MacOS&quot;</span><span class="p">)</span>
-</pre></div></div></div>
-
-<h3>getsizeof</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 88 размер объекта в байтах</span>
-</pre></div></div></div>
-
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-<span class="p">[</span>
-    <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;C:/Users/User/AppData/Local/Programs/Python/Python311/python311.zip&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;C:/Users/User/AppData/Local/Programs/Python/Python311/DLLs&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;C:/Users/User/AppData/Local/Programs/Python/Python311/Lib&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;C:/Users/User/AppData/Local/Programs/Python/Python311&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;C:/Users/User/AppData/Local/Programs/Python/Python311/Lib/site-packages&quot;</span>
-<span class="p">]</span>
-</pre></div></div></div>
-
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
-
-<span class="n">divide</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="c1"># (&lt;class &quot;ZeroDivisionError&quot;&gt;, ZeroDivisionError(&quot;division by zero&quot;), &lt;traceback object&gt;)</span>
 </pre></div></div></div>

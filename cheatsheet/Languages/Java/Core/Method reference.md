@@ -36,12 +36,13 @@ class A {
 
 class MyButton {
     private IClick ic = null;
-        public void reg(IClick ic) { // Регистрация обработчика
+    public void reg(IClick ic) { // Регистрация обработчика
         this.ic = ic;
     }
     public void click() { // Нажатие кнопки
-        if (this.ic != null)
-        this.ic.onClick();
+        if (this.ic != null) {
+            this.ic.onClick();
+        }
     }
 }
 ```
