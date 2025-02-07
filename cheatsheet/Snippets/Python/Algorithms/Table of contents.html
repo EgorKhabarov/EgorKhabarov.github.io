@@ -1,0 +1,288 @@
+<h1>Sort</h1>
+<p><a href="https://github.com/amaargiru/pycore/blob/main/08_algorithms.ipynb">ссылка</a></p>
+<table>
+<thead>
+<tr>
+<th>Сортировка</th>
+<th>Преимущество</th>
+<th>Best</th>
+<th>Avg</th>
+<th>Worst</th>
+<th>Mem</th>
+<th>Stable</th>
+<th>Paral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/BubbleSort">Пузырьковая (Bubble)</a></td>
+<td>Простейшая реализация</td>
+<td><code>n</code></td>
+<td><code>n^2</code></td>
+<td><code>n^2</code></td>
+<td><code>1</code></td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/QuickSort">Быстрая (Quick)</a></td>
+<td>Хорошее быстродействие в среднем случае</td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n^2</code></td>
+<td><code>logn</code></td>
+<td><code>+/- (depends)</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/MergeSort">Слиянием (Merge)</a></td>
+<td>Может работать со структурами, к которым возможен только<br>последовательный доступ</td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n (depends)</code></td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/HeapSort">Пирамидальная (Heap)</a></td>
+<td>Предсказуемая производительность в наихудшем случае,<br>рекомендуется для почти отсортированных данных</td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>1</code></td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/InsertionSort">Вставками (Insertion)</a></td>
+<td>Рекомендуется для почти отсортированных данных или для<br>малого количества элементов</td>
+<td><code>n</code></td>
+<td><code>n^2</code></td>
+<td><code>n^2</code></td>
+<td><code>1</code></td>
+<td><code>+</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/Timsort">Timsort</a></td>
+<td>Комбинированный алгоритм.<br>Стандарт для <code>Python</code>, <code>Java</code>, <code>Swift</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>logn</code></td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/Introsort">Introsort</a></td>
+<td>Комбинированный алгоритм.<br>Стандарт для <code>.Net</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>n*logn</code></td>
+<td><code>logn</code></td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Sort/RadixSort">Поразрядная (Radix)</a></td>
+<td>Быстрая сортировка для целых чисел и строк</td>
+<td><code>n*w</code></td>
+<td><code>n*w</code></td>
+<td><code>n*w</code></td>
+<td><code>n+w</code></td>
+<td><code>+/- (depends)</code></td>
+<td><code>+</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Search</h1>
+<table>
+<thead>
+<tr>
+<th>Вид поиска</th>
+<th>Структура данных</th>
+<th>Avg</th>
+<th>Worst</th>
+<th>Mem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/LinearSearch">Линейный поиск</a></td>
+<td>Массив</td>
+<td><code>n</code></td>
+<td><code>n</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/BinarySearch">Бинарный поиск</a></td>
+<td>Отсортированный массив</td>
+<td><code>logn</code></td>
+<td><code>n</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/DFS">Поиск в глубину (DFS)</a></td>
+<td>Граф</td>
+<td></td>
+<td><code>V+E</code></td>
+<td><code>V</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/BFS">Поиск в ширину (BFS)</a></td>
+<td>Граф</td>
+<td></td>
+<td><code>V+E</code></td>
+<td><code>V</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/DijkstrasAlgorithm">Алгоритм Дейкстры</a></td>
+<td>Граф</td>
+<td><code>(V+E)logV</code></td>
+<td><code>(V+E)logV</code></td>
+<td><code>V</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Search/Алгоритм Беллмана-Форда">Алгоритм Беллмана-Форда</a></td>
+<td>Граф</td>
+<td><code>V*E</code></td>
+<td><code>V*E</code></td>
+<td><code>V</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Сравнение структур представления графов</h1>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Mem</th>
+<th>Add V</th>
+<th>Add E</th>
+<th>Remove V</th>
+<th>Remove E</th>
+<th>Проверка смежн. V</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Graph Representation Structures/Adjacency matrix">Матрица смежности (Adjacency matrix)</a></td>
+<td><code>V^2</code></td>
+<td><code>V^2</code></td>
+<td><code>1</code></td>
+<td><code>V^2</code></td>
+<td><code>1</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Graph Representation Structures/Incidence matrix">Матрица инцидентности (Incidence matrix)</a></td>
+<td><code>V*E</code></td>
+<td><code>V*E</code></td>
+<td><code>V*E</code></td>
+<td><code>V*E</code></td>
+<td><code>V*E</code></td>
+<td><code>E</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Graph Representation Structures/Adjacency list">Список смежности (Adjacency list)</a></td>
+<td><code>V+E</code></td>
+<td><code>1</code></td>
+<td><code>1</code></td>
+<td><code>V+E</code></td>
+<td><code>E</code></td>
+<td><code>V</code></td>
+</tr>
+<tr>
+<td><a href="?Snippets/Python/Algorithms/Graph Representation Structures/Incidence list">Список инцидентности (Incidence list)</a></td>
+<td><code>V+E</code></td>
+<td><code>1</code></td>
+<td><code>1</code></td>
+<td><code>E</code></td>
+<td><code>E</code></td>
+<td><code>E</code></td>
+</tr>
+</tbody>
+</table>
+<h1>P vs NP</h1>
+<p>Задачи класса <code>P</code> — реально вычислимые задачи (<a href="https://en.wikipedia.org/wiki/Cobham%27s_thesis">тезис Кобэма</a>), решаются за полиномиальное время
+<code>NP</code>-полные задачи — не разрешимы за полиномиальное время,
+но могут быть сведены к задачам разрешимости (да/нет),
+которые, в свою очередь, решаются за полиномиальное время.</p>
+<h1>Разделяй и властвуй</h1>
+<p>Разделяй и властвуй (divide and conquer) — способ решения сложных задач путём рекурсивного разбиения решаемой задачи на две или более подзадачи того же типа,
+но меньшего размера, и комбинировании их решений для получения ответа к исходной задаче;
+разбиения выполняются до тех пор, пока все подзадачи не окажутся элементарными</p>
+<h1>Динамическое программирование</h1>
+<p>Динамическое программирование — способ решения сложных задач путём разбиения их на более простые подзадачи.
+Он применим к задачам со структурой, выглядящей как набор перекрывающихся подзадач, сложность которых меньше исходной.
+Ключевая идея: как правило, чтобы решить поставленную задачу, требуется решить отдельные части задачи (подзадачи),\
+после чего объединить решения подзадач в одно общее решение.
+Часто многие из этих подзадач одинаковы.
+Подход динамического программирования состоит в том, чтобы решить каждую подзадачу только один раз, сократив тем самым количество вычислений
+Это особенно полезно в случаях, когда число повторяющихся подзадач экспоненциально велико</p>
+<h1>Жадные алгоритмы</h1>
+<p>Жадный алгоритм (greedy algorithm) — алгоритм, который на каждом шагу делает локально наилучший выбор в надежде, что итоговое решение будет оптимальным</p>
+<ul>
+<li>Как определить, даст ли жадный алгоритм оптимальное решение?
+В соответствии с теоремой Радо-Эдмондса, если система является <a href="http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%BE%D0%B8%D0%B4">матроидом</a>, то для произвольной весовой функции градиентный алгоритм всегда находит точное решение задачи.
+Следовательно, если доказать, что объект является матроидом, то жадный алгоритм будет выдавать оптимальный вариант</li>
+</ul>
+<p>Жадные алгоритмы проще и быстрее алгоритмов на базе динамического программирования.</p>
+<p>Различие между жадными алгоритмами и динамическим программированием можно пояснить так:
+на каждом шаге жадный алгоритм берет "самый жирный кусок", а потом уже пытается сделать наилучший выбор среди оставшихся,
+каковы бы они ни были; алгоритм динамического программирования принимает решение, просчитав заранее последствия для всех вариантов</p>
+<h1>Рекурсия</h1>
+<p>Рекурсия – определение функции через саму себя
+Логика рекурсивной функции как правило состоит из двух ветвей
+Длинная ветвь вызывает эту же функцию с другими параметрами, чтобы накопить результат
+Короткая ветвь определяет критерий выхода из рекурсии</p>
+<p>Рекурсия упрощает код и делает его декларативным
+Рекурсия поощряет мыслить функционально и избегать побочных эффектов</p>
+<p>Неоптимизированная рекурсия приводит к накладным расходам ресурсов
+При большом количестве итераций можно превысить лимит на число рекурсивных вызовов (recursion depth limit reached)</p>
+<h1>Хвостовая рекурсия</h1>
+<p>Особый вид рекурсии, когда функция заканчивается вызовом самой себя без дополнительных операторов
+Когда это условие выполняется, компилятор разворачивает рекурсию в цикл с одним стек-фреймом,
+просто меняя локальные переменные от итерации к итерации</p>
+<p>Так, классическое определение рекурсивного факториала <code>return N * fact(N - 1)</code> не поддерживает хвостовую рекурсию,
+потому что для каждого стек-фрейма придется хранить текущее значение N</p>
+<p>Чтобы сделать рекурсии хвостовой, добавляют параметры-аккумуляторы
+Благодаря им функция знает о своем текущем состоянии
+Пусть параметр <code>acc</code> по умолчанию равен <code>1</code>
+Тогда запись с хвостовой рекурсией будет выглядеть так:</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">acc</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">acc</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h2>Самые распространенные методы решения задач Leetcode</h2>
+<ul>
+<li>Метод скользящего окна (Sliding Window)</li>
+<li>Метод двух указателей (Two Pointers)</li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D1%86%D0%B8%D0%BA%D0%BB%D0%B0">Нахождение цикла</a> (Fast &amp; Slow Pointers)</li>
+<li>Интервальное слияние (Merge Intervals)</li>
+<li>Цикличная сортировка (Cyclic Sort)</li>
+<li>In-place Reversal для LinkedList (In-place Reversal of a LinkedList)</li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83">Поиск в ширину</a> (Tree Breadth-First Search)</li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D0%B3%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D1%83">Поиск в глубину</a> (Tree Depth First Search)</li>
+<li>Две кучи (Two Heaps)</li>
+<li>Подмножества (Subsets)</li>
+<li>Модифицированный бинарный поиск (Modified Binary Search)</li>
+<li>Побитовое исключающее ИЛИ (Bitwise XOR)</li>
+<li>Наибольшие K элементов (Top K Elements)</li>
+<li>K-образное слияние (K-way Merge)</li>
+<li>Задача о рюкзаке 0-1 (0/1 Knapsack)</li>
+<li>Задача о неограниченном рюкзаке (Unbounded Knapsack)</li>
+<li>Числа Фибоначчи (Fibonacci Numbers)</li>
+<li>Наибольшая последовательность-палиндром (Palindromic Subsequence)</li>
+<li>Наибольшая общая подстрока (Longest Common Substring)</li>
+<li>Топологическая сортировка (Topological Sort)</li>
+<li>Чтение префиксного дерева (Trie Traversal)</li>
+<li>Количество островов в матрице (Number of Island)</li>
+<li>Метод проб и ошибок (Trial &amp; Error)</li>
+<li>Система непересекающихся множеств (Union Find)</li>
+<li>Задача: найти уникальные маршруты (Unique Paths)</li>
+</ul>

@@ -1,0 +1,38 @@
+<h1>DFS (Поиск в глубину)</h1>
+<p>Метод обхода графа
+<code>Depth-first search</code> (<code>DFS</code>) можно чуть точнее перевести как <strong>поиск в первую очередь в глубину</strong>
+Соответственно, рекурсивный алгоритм поиска идет <strong>вглубь</strong> графа, насколько это возможно
+Есть нерекурсивные варианты алгоритма, разгружающие стек вызовов</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>5
+   / \
+  3   7
+ / \   \
+2   4 — 8
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">graph</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;5&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;7&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;3&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;7&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;8&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;2&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+  <span class="s2">&quot;4&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s2">&quot;8&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;8&quot;</span> <span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># Set to keep track of visited nodes of graph</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>  <span class="c1"># Function for DFS</span>
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">neighbour</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">neighbour</span><span class="p">)</span>
+
+<span class="n">dfs</span><span class="p">(</span><span class="n">visited</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">)</span>
+<span class="c1"># 5</span>
+<span class="c1"># 3</span>
+<span class="c1"># 2</span>
+<span class="c1"># 4</span>
+<span class="c1"># 8</span>
+<span class="c1"># 7</span>
+</pre></div></div></div>

@@ -12,6 +12,7 @@
 | Асинхронность                           | [https://habr.com/ru/articles/421625/](https://habr.com/ru/articles/421625/)                                                                                                                                                                                                       |
 | Лексический анализ. Документация Python | [https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion](https://digitology.tech/docs/python_3/reference/lexical_analysis.html#grammar-token-conversion)                                                                                   |
 | string                                  | [https://digitology.tech/docs/python_3/library/string.html](https://digitology.tech/docs/python_3/library/string.html)                                                                                                                                                             |
+| wtfpython                               | [https://github.com/satwikkansal/wtfpython](https://github.com/satwikkansal/wtfpython)                                                                                                                                                                                             |
 
 
 # Python Другое
