@@ -24,11 +24,12 @@
 | N + 1 query                           |                                                                                                                                                                                                                                                                                |
 
 
-# Java
+# Android
 
-|                    |                                                                                                          |
-|--------------------|----------------------------------------------------------------------------------------------------------|
-| Android Components | [https://m2.material.io/components?platform=android](https://m2.material.io/components?platform=android) |
+|                                      |                                                                                                          |
+|--------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Android Components Material Design 2 | [https://m2.material.io/components?platform=android](https://m2.material.io/components?platform=android) |
+| Android Components Material Design 3 | [https://m3.material.io/components](https://m3.material.io/components)                                   |
 
 
 # C++
@@ -53,7 +54,7 @@
 | Книга                         | [https://git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2)             |
 
 
-# HTML
+# HTML, Web, SVG, Fonts
 
 |                                 |                                                                                                                                                                    |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
