@@ -1,0 +1,313 @@
+<h1>numpy</h1>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arange</code></td>
+<td>Создает одномерный массив с равномерным шагом между элементами</td>
+</tr>
+<tr>
+<td><code>eye</code></td>
+<td>Создает единичную матрицу (2D-массив с единицами на диагонали)</td>
+</tr>
+<tr>
+<td><code>diag</code></td>
+<td>Извлекает диагональ из массива или создает диагональный массив</td>
+</tr>
+<tr>
+<td><code>concatenate</code></td>
+<td>Объединяет несколько массивов вдоль указанной оси</td>
+</tr>
+<tr>
+<td><code>split</code></td>
+<td>Разделяет массив на несколько частей</td>
+</tr>
+<tr>
+<td><code>argmin</code></td>
+<td>Возвращает индекс минимального значения в массиве</td>
+</tr>
+<tr>
+<td><code>argmax</code></td>
+<td>Возвращает индекс максимального значения в массиве</td>
+</tr>
+<tr>
+<td><code>dot</code></td>
+<td>Вычисляет скалярное произведение двух массивов</td>
+</tr>
+<tr>
+<td><code>matmul</code></td>
+<td>Выполняет матричное умножение двух массивов</td>
+</tr>
+<tr>
+<td><code>linalg.inv</code></td>
+<td>Вычисляет обратную матрицу</td>
+</tr>
+<tr>
+<td><code>linalg.det</code></td>
+<td>Вычисляет определитель матрицы</td>
+</tr>
+<tr>
+<td><code>linalg.eig</code></td>
+<td>Вычисляет собственные значения и собственные векторы матрицы</td>
+</tr>
+<tr>
+<td><code>random.rand</code></td>
+<td>Генерирует массив случайных чисел в диапазоне [0, 1)</td>
+</tr>
+<tr>
+<td><code>random.randint</code></td>
+<td>Генерирует массив случайных целых чисел</td>
+</tr>
+<tr>
+<td><code>random.normal</code></td>
+<td>Генерирует массив случайных чисел из нормального распределения</td>
+</tr>
+<tr>
+<td><code>random.choice</code></td>
+<td>Возвращает случайный элемент из массива или выборку из массива</td>
+</tr>
+<tr>
+<td><code>power</code></td>
+<td>Возводит элементы массива в указанную степень</td>
+</tr>
+<tr>
+<td><code>sqrt</code></td>
+<td>Вычисляет квадратный корень элементов массива</td>
+</tr>
+<tr>
+<td><code>log</code></td>
+<td>Вычисляет натуральный логарифм элементов массива</td>
+</tr>
+<tr>
+<td><code>sin</code>, <code>cos</code>, <code>tan</code></td>
+<td>Вычисляют тригонометрические функции (синус, косинус, тангенс)</td>
+</tr>
+<tr>
+<td><code>arcsin</code>, <code>arccos</code>, <code>arctan</code></td>
+<td>Обратные тригонометрические функции (арксинус, арккосинус, арктангенс)</td>
+</tr>
+<tr>
+<td><code>hypot</code></td>
+<td>Вычисляет гипотенузу вектора (эквивалентно ( \sqrt{x^2 + y^2} ))</td>
+</tr>
+<tr>
+<td><code>cross</code></td>
+<td>Вычисляет векторное произведение двух векторов</td>
+</tr>
+<tr>
+<td><code>outer</code></td>
+<td>Вычисляет внешнее произведение двух массивов</td>
+</tr>
+<tr>
+<td><code>cumsum</code></td>
+<td>Вычисляет кумулятивную сумму элементов массива</td>
+</tr>
+<tr>
+<td><code>cumprod</code></td>
+<td>Вычисляет кумулятивное произведение элементов массива</td>
+</tr>
+<tr>
+<td><code>diff</code></td>
+<td>Вычисляет разницу между соседними элементами массива</td>
+</tr>
+<tr>
+<td><code>clip</code></td>
+<td>Ограничивает значения массива минимальным и максимальным значениями</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>Округляет элементы массива вниз (к ближайшему меньшему целому)</td>
+</tr>
+<tr>
+<td><code>ceil</code></td>
+<td>Округляет элементы массива вверх (к ближайшему большему целому)</td>
+</tr>
+<tr>
+<td><code>expand_dims</code></td>
+<td>Увеличивает размерность массива, добавляя новую ось</td>
+</tr>
+<tr>
+<td><code>squeeze</code></td>
+<td>Убирает оси размера 1 из размерности массива</td>
+</tr>
+<tr>
+<td><code>ravel</code></td>
+<td>Преобразует массив в одномерный</td>
+</tr>
+<tr>
+<td><code>broadcast</code></td>
+<td>Расширяет меньший массив до совместимой формы для выполнения операций с другим массивом</td>
+</tr>
+<tr>
+<td><code>allclose</code></td>
+<td>Проверяет, все ли элементы двух массивов близки по значению</td>
+</tr>
+<tr>
+<td><code>isin</code></td>
+<td>Проверяет, принадлежат ли элементы массива указанному набору значений</td>
+</tr>
+<tr>
+<td><code>union1d</code></td>
+<td>Возвращает объединение двух массивов</td>
+</tr>
+<tr>
+<td><code>abs</code></td>
+<td>Вычисляет абсолютное значение для каждого элемента массива</td>
+</tr>
+<tr>
+<td><code>add</code></td>
+<td>Складывает два массива элемент-wise</td>
+</tr>
+<tr>
+<td><code>average</code></td>
+<td>Вычисляет среднее значение элементов массива с учетом весов</td>
+</tr>
+<tr>
+<td><code>asarray</code></td>
+<td>Преобразует входные данные в массив NumPy</td>
+</tr>
+<tr>
+<td><code>bitwise_and</code>, <code>bitwise_or</code>, <code>bitwise_xor</code></td>
+<td>Побитовые операции <code>AND</code>, <code>OR</code> и <code>XOR</code> над массивами</td>
+</tr>
+<tr>
+<td><code>convolve</code></td>
+<td>Выполняет свертку двух массивов</td>
+</tr>
+<tr>
+<td><code>cov</code></td>
+<td>Вычисляет ковариацию между двумя наборами данных</td>
+</tr>
+<tr>
+<td><code>exp</code>, <code>exp2</code></td>
+<td>Вычисляет экспоненту или 2^x для каждого элемента массива</td>
+</tr>
+<tr>
+<td><code>fft</code></td>
+<td>Выполняет быстрое преобразование Фурье</td>
+</tr>
+<tr>
+<td><code>flip</code>, <code>fliplr</code>, <code>flipud</code></td>
+<td>Переворачивает массив вдоль заданной оси</td>
+</tr>
+<tr>
+<td><code>gradient</code></td>
+<td>Вычисляет численную производную массива</td>
+</tr>
+<tr>
+<td><code>histogram</code>, <code>histogram2d</code>, <code>histogramdd</code></td>
+<td>Создает гистограмму данных</td>
+</tr>
+<tr>
+<td><code>identity</code></td>
+<td>Создает единичную матрицу заданного размера</td>
+</tr>
+<tr>
+<td><code>interp</code></td>
+<td>Выполняет линейную интерполяцию</td>
+</tr>
+<tr>
+<td><code>isclose</code></td>
+<td>Проверяет, близки ли элементы двух массивов с учетом точности</td>
+</tr>
+<tr>
+<td><code>isfinite</code>, <code>isinf</code>, <code>isnan</code></td>
+<td>Проверяет, является ли элемент конечным, бесконечным или <code>NaN</code></td>
+</tr>
+<tr>
+<td><code>linspace</code>, <code>logspace</code>, <code>geomspace</code></td>
+<td>Создает массивы чисел с линейным, логарифмическим или геометрическим распределением</td>
+</tr>
+<tr>
+<td><code>logical_and</code>, <code>logical_or</code>, <code>logical_not</code>, <code>logical_xor</code></td>
+<td>Логические операции над массивами</td>
+</tr>
+<tr>
+<td><code>mean</code>, <code>median</code>, <code>nanmean</code>, <code>nanmedian</code></td>
+<td>Вычисляет среднее или медиану, игнорируя <code>NaN</code>, если указано</td>
+</tr>
+<tr>
+<td><code>meshgrid</code></td>
+<td>Создает координатные сетки из одномерных массивов (например, для графиков)</td>
+</tr>
+<tr>
+<td><code>min</code>, <code>max</code>, <code>nanmin</code>, <code>nanmax</code></td>
+<td>Находит минимальные или максимальные значения массива с учетом <code>NaN</code></td>
+</tr>
+<tr>
+<td><code>ones</code>, <code>zeros</code>, <code>full</code>, <code>empty</code></td>
+<td>Создает массив, заполненный 1, 0, заданным значением или пустой массив</td>
+</tr>
+<tr>
+<td><code>percentile</code>, <code>quantile</code>, <code>nanpercentile</code></td>
+<td>Вычисляет процентили элементов массива (с учетом <code>NaN</code>, если нужно)</td>
+</tr>
+<tr>
+<td><code>polyfit</code>, <code>polyval</code>, <code>polyder</code>, <code>polyint</code></td>
+<td>Работа с полиномами: аппроксимация, вычисление значений, производной или интеграла</td>
+</tr>
+<tr>
+<td><code>reshape</code></td>
+<td>Изменяет форму массива без изменения данных</td>
+</tr>
+<tr>
+<td><code>roll</code></td>
+<td>Сдвигает элементы массива вдоль оси</td>
+</tr>
+<tr>
+<td><code>round</code>, <code>rint</code>, <code>fix</code></td>
+<td>Выполняет округление элементов массива различными способами</td>
+</tr>
+<tr>
+<td><code>set_printoptions</code></td>
+<td>Настраивает отображение массивов в выводе</td>
+</tr>
+<tr>
+<td><code>sort</code>, <code>argsort</code>, <code>lexsort</code></td>
+<td>Сортирует массив или возвращает индексы для сортировки</td>
+</tr>
+<tr>
+<td><code>stack</code>, <code>vstack</code>, <code>hstack</code>, <code>dstack</code></td>
+<td>Объединяет массивы вдоль новой или существующей оси</td>
+</tr>
+<tr>
+<td><code>std</code>, <code>var</code>, <code>nanstd</code>, <code>nanvar</code></td>
+<td>Вычисляет стандартное отклонение или дисперсию массива, игнорируя <code>NaN</code>, если указано</td>
+</tr>
+<tr>
+<td><code>sum</code>, <code>prod</code>, <code>nansum</code>, <code>nanprod</code></td>
+<td>Суммирует или перемножает элементы массива с учетом или игнорируя <code>NaN</code></td>
+</tr>
+<tr>
+<td><code>tile</code>, <code>repeat</code></td>
+<td>Повторяет массив указанное количество раз</td>
+</tr>
+<tr>
+<td><code>transpose</code>, <code>swapaxes</code></td>
+<td>Меняет местами оси массива</td>
+</tr>
+<tr>
+<td><code>triu</code>, <code>tril</code>, <code>diagflat</code></td>
+<td>Работа с верхними/нижними треугольными частями матриц или их диагоналями</td>
+</tr>
+<tr>
+<td><code>unique</code>, <code>in1d</code>, <code>intersect1d</code>, <code>setdiff1d</code></td>
+<td>Работа с уникальными элементами, пересечениями или разностями массивов</td>
+</tr>
+<tr>
+<td><code>where</code></td>
+<td>Возвращает индексы элементов, соответствующих условию</td>
+</tr>
+<tr>
+<td><code>zeros_like</code>, <code>ones_like</code>, <code>full_like</code></td>
+<td>Создает массивы на основе существующих с заданными значениями</td>
+</tr>
+</tbody>
+</table>
+<h1>numpy.png</h1>
+<p><img alt="numpy.py" src="Languages/Python/Libraries/Algorithms/numpy.png" /></p>

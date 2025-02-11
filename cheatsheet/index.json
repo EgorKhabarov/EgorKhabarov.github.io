@@ -11,7 +11,9 @@
             "Парадигмы программирования": "",
             "Interpreter Compiler": "",
             "sync async": "",
-            "Угрозы безопасности": ""
+            "Угрозы безопасности": "",
+            "REST": "",
+            "MVP": ""
         },
         "Design patterns (Паттерны проектирования)": {
             "index": "",
@@ -142,8 +144,7 @@
                     "base64": "color: green\n",
                     "binhex": "color: green\n",
                     "string": "color: green\n",
-                    "rich": "color: green\n",
-                    "numpy": "color: lblue\n"
+                    "rich": "color: green\n"
                 },
                 "Python": {
                     ".": "color: green\n",
@@ -209,6 +210,8 @@
                     "hmac": "color: green\n",
                     "zlib": "color: green\n",
                     "lzma": "color: green\n",
+                    "statistics": "color: green\n",
+                    "numpy": "color: lblue\n",
                     "table2string": "color: red\n"
                 },
                 "Web": {

@@ -1,0 +1,303 @@
+<h1>REST (Representational State Transfer)</h1>
+<p>REST — это архитектурный стиль для разработки распределённых систем, особенно веб-сервисов,
+который основывается на стандартных протоколах (обычно HTTP) и принципах взаимодействия клиент-сервер</p>
+<h2>Основные принципы</h2>
+<table>
+<thead>
+<tr>
+<th>Принцип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Клиент-Сервер</td>
+<td>Клиент и сервер разделены: клиент отвечает за интерфейс пользователя, сервер — за данные</td>
+</tr>
+<tr>
+<td>Без состояния (Stateless)</td>
+<td>Каждое обращение клиента к серверу должно быть независимым и содержать всю необходимую информацию</td>
+</tr>
+<tr>
+<td>Кэширование</td>
+<td>Ответы сервера могут кэшироваться для повышения производительности</td>
+</tr>
+<tr>
+<td>Единообразие интерфейса (Uniform Interface)</td>
+<td>Использование единых соглашений в API (например, стандартных HTTP-методов)</td>
+</tr>
+<tr>
+<td>Слои (Layered System)</td>
+<td>Система может состоять из нескольких слоёв (серверы, кэши, шлюзы и т.д.), причём клиент об этом не знает</td>
+</tr>
+<tr>
+<td>Код по требованию (Code on Demand)</td>
+<td>(Опционально) Сервер может передавать клиенту исполняемый код, например, JavaScript</td>
+</tr>
+</tbody>
+</table>
+<h2>Основные элементы</h2>
+<table>
+<thead>
+<tr>
+<th>Элемент</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ресурсы</td>
+<td>Объекты, к которым предоставляется доступ (например, "пользователи", "товары")</td>
+</tr>
+<tr>
+<td><code>URI</code> (Uniform Resource Identifier)</td>
+<td>Уникальный идентификатор ресурса, обычно URL (например, <code>/users/123</code>)</td>
+</tr>
+<tr>
+<td>Методы HTTP</td>
+<td>Определяют действие, которое выполняется над ресурсом</td>
+</tr>
+<tr>
+<td>Представления</td>
+<td>Данные, которые возвращает сервер в различных форматах (<code>JSON</code>, <code>XML</code>, <code>HTML</code> и др.)</td>
+</tr>
+</tbody>
+</table>
+<h2>HTTP-методы</h2>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Назначение</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Получение данных</td>
+<td><code>GET /users/123</code></td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Создание ресурса</td>
+<td><code>POST /users</code></td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Полное обновление ресурса</td>
+<td><code>PUT /users/123</code></td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Частичное обновление</td>
+<td><code>PATCH /users/123</code></td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Удаление ресурса</td>
+<td><code>DELETE /users/123</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Пример REST API</h1>
+<table>
+<thead>
+<tr>
+<th>Операция</th>
+<th>HTTP Метод</th>
+<th>URI</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Получить список пользователей</td>
+<td><code>GET</code></td>
+<td><code>/users</code></td>
+<td>Возвращает всех пользователей</td>
+</tr>
+<tr>
+<td>Получить пользователя</td>
+<td><code>GET</code></td>
+<td><code>/users/{id}</code></td>
+<td>Возвращает данные конкретного пользователя</td>
+</tr>
+<tr>
+<td>Создать пользователя</td>
+<td><code>POST</code></td>
+<td><code>/users</code></td>
+<td>Создаёт нового пользователя</td>
+</tr>
+<tr>
+<td>Обновить данные пользователя</td>
+<td><code>PUT</code></td>
+<td><code>/users/{id}</code></td>
+<td>Полностью обновляет данные пользователя</td>
+</tr>
+<tr>
+<td>Удалить пользователя</td>
+<td><code>DELETE</code></td>
+<td><code>/users/{id}</code></td>
+<td>Удаляет пользователя</td>
+</tr>
+</tbody>
+</table>
+<p><code>GET /users/123</code></p>
+<div class="code_element"><div class="lang_line"><text>json</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<h1>Коды состояния HTTP (HTTP Status Codes)</h1>
+<p><a target="_self" href="?General/HTTP/Status%20Codes" class="wikilink">Status Codes</a></p>
+<table>
+<thead>
+<tr>
+<th>Код</th>
+<th>Значение</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>OK</td>
+<td>Запрос выполнен успешно</td>
+</tr>
+<tr>
+<td><code>201</code></td>
+<td>Created</td>
+<td>Ресурс успешно создан (например, после <code>POST</code>-запроса)</td>
+</tr>
+<tr>
+<td><code>204</code></td>
+<td>No Content</td>
+<td>Успешно, но без возвращаемого содержимого (например, после <code>DELETE</code>)</td>
+</tr>
+<tr>
+<td><code>400</code></td>
+<td>Bad Request</td>
+<td>Неверный запрос (например, отсутствует обязательное поле)</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Unauthorized</td>
+<td>Требуется авторизация</td>
+</tr>
+<tr>
+<td><code>403</code></td>
+<td>Forbidden</td>
+<td>Доступ запрещён</td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Not Found</td>
+<td>Ресурс не найден</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Internal Server Error</td>
+<td>Ошибка на стороне сервера</td>
+</tr>
+</tbody>
+</table>
+<h1>Принципы построения RESTful API</h1>
+<table>
+<thead>
+<tr>
+<th>Принцип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Чёткая структура URL</td>
+<td>Используйте понятные и предсказуемые пути (<code>/users/123</code>)</td>
+</tr>
+<tr>
+<td>Использование HTTP-методов</td>
+<td>Каждый метод должен чётко соответствовать действию (<code>GET</code> для чтения, <code>POST</code> для создания)</td>
+</tr>
+<tr>
+<td>Смысловые коды состояния</td>
+<td>Возвращайте корректные HTTP-статусы (<code>200</code>, <code>404</code>, <code>500</code> и т.д.)</td>
+</tr>
+<tr>
+<td>Формат ответов</td>
+<td>Возвращайте структурированные данные (JSON или XML)</td>
+</tr>
+<tr>
+<td>Версионирование</td>
+<td>Реализуйте версионирование API (например, <code>/v1/users</code>)</td>
+</tr>
+</tbody>
+</table>
+<h1>Отличия REST от других архитектур</h1>
+<table>
+<thead>
+<tr>
+<th>Характеристика</th>
+<th>REST</th>
+<th>SOAP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Лёгкость</td>
+<td>Простая реализация на <code>HTTP</code></td>
+<td>Требует сложных <code>XML</code>-сообщений</td>
+</tr>
+<tr>
+<td>Форматы данных</td>
+<td><code>JSON</code>, <code>XML</code>, <code>HTML</code> и др</td>
+<td>Только <code>XML</code></td>
+</tr>
+<tr>
+<td>Гибкость</td>
+<td>Более гибкий</td>
+<td>Более строгий стандарт</td>
+</tr>
+</tbody>
+</table>
+<h1>REST vs RESTful</h1>
+<ul>
+<li>REST — архитектурный стиль  </li>
+<li>RESTful — практическая реализация REST-принципов в API</li>
+</ul>
+<h1>Пример реализации REST API на Python (Flask)</h1>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;john.doe@example.com&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jane Smith&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;jane.smith@example.com&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_users</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&lt;int:user_id&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">u</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span> <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;User not found&quot;</span><span class="p">}),</span> <span class="mi">404</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_user</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+    <span class="n">new_user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]}</span>
+    <span class="n">users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">new_user</span><span class="p">),</span> <span class="mi">201</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div></div></div>
