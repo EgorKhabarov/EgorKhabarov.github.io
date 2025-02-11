@@ -539,6 +539,12 @@
             },
             "Cron": "color: violet\n",
             "Glob": "color: violet\n"
+        },
+        "Android": {
+            "Components": {
+                "Toast": "",
+                "AlertDialog": ""
+            }
         }
     },
     "Other": {
@@ -549,7 +555,7 @@
                 }
             },
             "Colors": "",
-            "Circle Generator": ""
+            "Shape Generator": ""
         },
         "JetBrains IDE": {
             "settings": "",
