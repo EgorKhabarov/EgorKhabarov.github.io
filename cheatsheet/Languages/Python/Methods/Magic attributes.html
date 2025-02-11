@@ -219,6 +219,157 @@
 </tr>
 </tbody>
 </table>
+<h1>class</h1>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__class__</code></td>
+<td>Ссылка на класс объекта</td>
+</tr>
+<tr>
+<td><code>__subclasses__()</code></td>
+<td>Возвращает список подклассов</td>
+</tr>
+<tr>
+<td><code>__dict__</code></td>
+<td>Словарь атрибутов класса или экземпляра</td>
+</tr>
+<tr>
+<td><code>__slots__</code></td>
+<td>Оптимизация памяти, ограничивает атрибуты</td>
+</tr>
+<tr>
+<td><code>__bases__</code></td>
+<td>Кортеж родительских классов</td>
+</tr>
+<tr>
+<td><code>__mro__</code></td>
+<td>Порядок разрешения методов (Method Resolution Order)</td>
+</tr>
+<tr>
+<td><code>__weakref__</code></td>
+<td>Позволяет объектам поддерживать слабые ссылки на себя<br>Если объект имеет этот атрибут, это означает, что он может быть включён в слабую ссылку,<br>что предотвращает цикл ссылок, и объект может быть удалён сборщиком мусора,<br>даже если на него существуют ссылки<br>Используется для работы с кэшами или другими объектами, где нужно контролировать жизненный цикл объектов</td>
+</tr>
+<tr>
+<td><code>__static_attributes__</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__firstlineno__</code></td>
+<td>Он показывает номер первой строки кода в исходнике</td>
+</tr>
+<tr>
+<td><code>__text_signature__</code></td>
+<td>Строка с сигнатурой вызова, используется в inspect</td>
+</tr>
+<tr>
+<td><code>__flags__</code></td>
+<td>Флаги, характеризующие объект кода (используется в co_flags)</td>
+</tr>
+<tr>
+<td><code>__self__</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__func__</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__kwdefaults__</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__defaults__</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>__dict__</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="n">class_attr</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instance_attr</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  <span class="c1"># Словарь атрибутов класса</span>
+<span class="c1"># {&#39;__module__&#39;: &#39;__main__&#39;,</span>
+<span class="c1">#  &#39;__firstlineno__&#39;: 1,</span>
+<span class="c1">#  &#39;class_attr&#39;: 42,</span>
+<span class="c1">#  &#39;__init__&#39;: &lt;function MyClass.__init__ at 0x...&gt;,</span>
+<span class="c1">#  &#39;__static_attributes__&#39;: (&#39;instance_attr&#39;,),</span>
+<span class="c1">#  &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;MyClass&#39; objects&gt;,</span>
+<span class="c1">#  &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;MyClass&#39; objects&gt;,</span>
+<span class="c1">#  &#39;__doc__&#39;: None}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  <span class="c1"># Словарь атрибутов экземпляра</span>
+<span class="c1"># {&#39;instance_attr&#39;: 10}</span>
+</pre></div></div></div>
+
+<h2>__slots__</h2>
+<p>Использование <code>__slots__</code> позволяет ограничить атрибуты, которые можно добавлять к экземпляру класса,
+и экономит память, исключая создание <code>__dict__</code> для каждого экземпляра</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="c1"># Alice 30</span>
+<span class="c1"># Попытка добавить новый атрибут приведет к ошибке</span>
+<span class="c1"># obj.address = &quot;Wonderland&quot;  # AttributeError: &#39;MyClass&#39; object has no attribute &#39;address&#39;</span>
+</pre></div></div></div>
+
+<h2>__subclasses__</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child1</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child2</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Parent</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">())</span>
+<span class="c1"># [&lt;class &#39;__main__.Child1&#39;&gt;, &lt;class &#39;__main__.Child2&#39;&gt;]</span>
+</pre></div></div></div>
+
+<h2>__weakref__</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">weak_obj</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>  <span class="c1"># Создаем слабую ссылку на объект</span>
+<span class="c1"># Проверяем, что слабая ссылка ссылается на объект</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weak_obj</span><span class="p">()</span> <span class="ow">is</span> <span class="n">obj</span><span class="p">)</span>  <span class="c1"># True</span>
+<span class="k">del</span> <span class="n">obj</span>  <span class="c1"># Удаляем оригинальный объект</span>
+<span class="c1"># Теперь слабая ссылка возвращает None, так как объект был удален</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weak_obj</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div></div></div>
+
+<h2>__static_attributes__</h2>
+<p>(<strong>Python 3.13</strong>)</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="n">__static_attributes__</span><span class="p">)</span>
+<span class="c1"># (&#39;count&#39;, &#39;value&#39;)</span>
+</pre></div></div></div>
+
 <h1>Примеры использования</h1>
 <h3>Получение количества аргументов функции</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -316,10 +467,9 @@
 </span></pre></div></div></div>
 
 <h3>__suppress_context__</h3>
-<ul>
-<li><strong>Описание</strong>: Это булев атрибут, который у. .</li>
-<li><strong>Применение</strong>: Обычно используется в случае, если вы хотите исключить подробности предыдущих ошибок при повторном возбуждении исключений, чтобы они не появлялись в выводе трассировки.</li>
-</ul>
+<p>Это булев атрибут
+Обычно используется в случае, если вы хотите исключить подробности предыдущих ошибок
+при повторном возбуждении исключений, чтобы они не появлялись в выводе трассировки</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Ошибка в блоке&quot;</span><span class="p">)</span>
@@ -329,41 +479,12 @@
     <span class="n">e</span><span class="o">.</span><span class="n">__suppress_context__</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Подавляем контекст</span>
     <span class="k">raise</span> <span class="n">e</span>
 </pre></div></div></div>
-
-<p>В этом примере, несмотря на то что контекст существует, он не будет отображаться в traceback.</p>
-<hr />
+<p>В этом примере, несмотря на то что контекст существует, он не будет отображаться в traceback</p>
 <h3>__traceback__</h3>
-<ul>
-<li><strong>Применение</strong>: Может быть полезен для отображения подробной информации о том, где произошла ошибка, или для передачи трассировки с одним исключением к другому.</li>
-</ul>
+<p>Может быть полезен для отображения подробной информации о том, где произошла ошибка,
+или для передачи трассировки с одним исключением к другому</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Произошла ошибка&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Traceback: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">dir</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div></div></div>
-
-<h1>Атрибут <code>__weakref__</code></h1>
-<ul>
-<li>
-<p><strong>Описание</strong>: Этот атрибут позволяет объектам поддерживать слабые ссылки на себя. Если объект имеет атрибут <code>__weakref__</code>, это означает, что он может быть включён в слабую ссылку, что предотвращает цикл ссылок, и объект может быть удалён сборщиком мусора, даже если на него существуют ссылки.</p>
-</li>
-<li>
-<p><strong>Применение</strong>: Используется для предотвращения удержания объектов в памяти, если они больше не нужны, и для работы с кэшами или другими объектами, где нужно контролировать жизненный цикл объектов.</p>
-</li>
-</ul>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Объект удален&quot;</span><span class="p">)</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
-<span class="n">weak_obj</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-
-<span class="c1"># Прямая ссылка</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">weak_obj</span><span class="p">())</span>  <span class="c1"># Выведет объект</span>
-
-<span class="k">del</span> <span class="n">obj</span>  <span class="c1"># Удаление объекта</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">weak_obj</span><span class="p">())</span>  <span class="c1"># Выведет None, так как объект удален</span>
 </pre></div></div></div>
