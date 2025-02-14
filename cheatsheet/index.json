@@ -557,6 +557,10 @@
                     "LuckPerms": ""
                 }
             },
+            "Redstone": {
+                "Minecart": "",
+                "Sort": ""
+            },
             "Colors": "",
             "Shape Generator": ""
         },
