@@ -147,7 +147,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Функции</h2>
+<h1>Функции</h1>
 <table>
 <thead>
 <tr>
@@ -158,136 +158,171 @@
 <tbody>
 <tr>
 <td><code>MAX</code></td>
-<td>Возвращает максимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных.<br><code>SELECT MAX(amount) FROM sales;</code></td>
+<td>Возвращает максимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MAX(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>MIN</code></td>
-<td>Возвращает минимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных.<br><code>SELECT MIN(amount) FROM sales;</code></td>
+<td>Возвращает минимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MIN(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>SUM</code></td>
-<td>Возвращает сумму аргументов.<br>может использоваться только с числовыми типами данных.<br><code>SELECT SUM(amount) FROM sales;</code></td>
+<td>Возвращает сумму аргументов.<br>может использоваться только с числовыми типами данных<br><code>SELECT SUM(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>AVG</code></td>
-<td>Возвращает среднее арифметическое аргументов.<br>может использоваться только с числовыми типами данных.<br><code>SELECT AVG(amount) FROM sales;</code></td>
+<td>Возвращает среднее арифметическое аргументов.<br>может использоваться только с числовыми типами данных<br><code>SELECT AVG(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>COUNT</code></td>
-<td>Возвращает количество аргументов.<br>может использоваться с различными типами данных.<br><code>SELECT COUNT(amount) FROM sales;</code></td>
+<td>Возвращает количество аргументов.<br>может использоваться с различными типами данных<br><code>SELECT COUNT(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>CONCAT</code></td>
-<td>Соединяет строки.<br>может использоваться с типом данных строка.<br><code>SELECT CONCAT(first_name, ' ', last_name) as full_name FROM customers;</code></td>
+<td>Соединяет строки.<br>может использоваться с типом данных строка<br><code>SELECT CONCAT(first_name, ' ', last_name) as full_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>UPPER</code></td>
-<td>Преобразует строку в верхний регистр.<br>может использоваться с типом данных строка.<br><code>SELECT UPPER(first_name) as first_name, UPPER(last_name) as last_name FROM customers;</code></td>
+<td>Преобразует строку в верхний регистр.<br>может использоваться с типом данных строка<br><code>SELECT UPPER(first_name) as first_name, UPPER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>LOWER</code></td>
-<td>Преобразует строку в нижний регистр.<br>может использоваться с типом данных строка.<br><code>SELECT LOWER(first_name) as first_name, LOWER(last_name) as last_name FROM customers;</code></td>
+<td>Преобразует строку в нижний регистр.<br>может использоваться с типом данных строка<br><code>SELECT LOWER(first_name) as first_name, LOWER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>SUBSTR</code></td>
-<td>Извлекает подстроку из строки. (столбец, первый символ, количество символов)<br>может использоваться с типом данных строка.<br><code>SELECT SUBSTR(phone, 1, 3) as area_code FROM customers;</code></td>
+<td>Извлекает подстроку из строки. (столбец, первый символ, количество символов)<br>может использоваться с типом данных строка<br><code>SELECT SUBSTR(phone, 1, 3) as area_code FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>TRIM</code></td>
-<td>Удаляет пробелы из начала и конца строки.<br>может использоваться с типом данных строка.<br><code>SELECT TRIM(first_name) as first_name, last_name FROM customers;</code></td>
+<td>Удаляет пробелы из начала и конца строки.<br>может использоваться с типом данных строка<br><code>SELECT TRIM(first_name) as first_name, last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>LENGTH</code></td>
-<td>Возвращает количество символов в строке.<br>может использоваться с типом данных строка.<br><code>SELECT first_name, LENGTH(first_name) as name_length FROM customers;</code></td>
+<td>Возвращает количество символов в строке.<br>может использоваться с типом данных строка<br><code>SELECT first_name, LENGTH(first_name) as name_length FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>ROUND</code></td>
-<td>Округляет число до указанной точности. (столбец, кол-во знаков после запятой)<br>может использоваться с типом данных число.<br><code>SELECT product, ROUND(price, 2) as price FROM sales;</code></td>
+<td>Округляет число до указанной точности. (столбец, кол-во знаков после запятой)<br>может использоваться с типом данных число<br><code>SELECT product, ROUND(price, 2) as price FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>DATE</code></td>
-<td>Преобразует строку в формат даты. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных дата.<br><code>SELECT DATE(order_date) as order_date, product, price FROM orders;</code></td>
+<td>Преобразует строку в формат даты. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных дата<br><code>SELECT DATE(order_date) as order_date, product, price FROM orders;</code></td>
 </tr>
 <tr>
 <td><code>TIME</code></td>
-<td>Преобразует строку в формат времени. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных время.<br><code>SELECT TIME(meeting_time) as meeting_time, topic FROM meetings;</code></td>
+<td>Преобразует строку в формат времени. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных время<br><code>SELECT TIME(meeting_time) as meeting_time, topic FROM meetings;</code></td>
 </tr>
 <tr>
 <td><code>DATETIME</code></td>
-<td>Преобразует строку в формат даты и времени.<br>может использоваться с типом данных строка и возвращает тип данных дата/время.<br><code>SELECT DATETIME(event_date_time) as event_date_time, event_name FROM events;</code></td>
+<td>Преобразует строку в формат даты и времени.<br>может использоваться с типом данных строка и возвращает тип данных дата/время<br><code>SELECT DATETIME(event_date_time) as event_date_time, event_name FROM events;</code></td>
 </tr>
 <tr>
 <td><code>TIMESTAMP</code></td>
-<td>Преобразует строку в формат времени с меткой времени (timestamp). <br>может использоваться с типом данных строка и возвращает тип данных timestamp.<br><code>SELECT TIMESTAMP(log_timestamp) as log_timestamp, log_message FROM logs;</code></td>
+<td>Преобразует строку в формат времени с меткой времени (<code>timestamp</code>). <br>может использоваться с типом данных строка и возвращает тип данных <code>timestamp</code><br><code>SELECT TIMESTAMP(log_timestamp) as log_timestamp, log_message FROM logs;</code></td>
 </tr>
 <tr>
 <td><code>NOW</code></td>
-<td>Возвращает текущую дату и время.<br>не требует аргументов и возвращает тип данных timestamp.<br><code>INSERT INTO orders (order_date, product, price) VALUES (NOW(), 'Shoes', 59.99);</code></td>
+<td>Возвращает текущую дату и время.<br>не требует аргументов и возвращает тип данных <code>timestamp</code><br><code>INSERT INTO orders (order_date, product, price) VALUES (NOW(), 'Shoes', 59.99);</code></td>
 </tr>
 <tr>
 <td><code>COALESCE</code></td>
-<td>Принимает неограниченное количество аргументов и возвращает первый ненулевой аргумент (???)<br>может использоваться с типами данных число, строка, дата/время и возвращает тип данных, соответствующий первому ненулевому аргументу.<br><code>SELECT first_name, last_name, COALESCE(email, '') as email, COALESCE(phone, '') as phone FROM users;</code></td>
+<td>Принимает неограниченное количество аргументов и возвращает первый ненулевой аргумент (???)<br>может использоваться с типами данных число, строка, дата/время и возвращает тип данных, соответствующий первому ненулевому аргументу<br><code>SELECT first_name, last_name, COALESCE(email, '') as email, COALESCE(phone, '') as phone FROM users;</code></td>
 </tr>
 <tr>
 <td><code>ISNULL</code></td>
-<td>Проверяет, является ли значение нулевым (NULL).<br>принимает один аргумент и возвращает логическое значение true, если аргумент равен NULL, и false, если аргумент не равен NULL.<br><code>SELECT first_name, last_name, position FROM employees WHERE ISNULL(bonus);</code></td>
+<td>Проверяет, является ли значение нулевым (<code>NULL</code>).<br>принимает один аргумент и возвращает логическое значение <code>true</code>, если аргумент равен <code>NULL</code>, и <code>false</code>, если аргумент не равен <code>NULL</code><br><code>SELECT first_name, last_name, position FROM employees WHERE ISNULL(bonus);</code></td>
 </tr>
 <tr>
 <td><code>IFNULL</code></td>
-<td>Проверяет, является ли значение нулевым (NULL).<br>принимает два аргумента и возвращает первый аргумент, если он не равен NULL, и второй аргумент, если первый равен NULL.<br><code>SELECT name, price, IFNULL(description, 'No description') as description FROM products;</code></td>
+<td>Проверяет, является ли значение нулевым (<code>NULL</code>).<br>принимает два аргумента и возвращает первый аргумент, если он не равен <code>NULL</code>, и второй аргумент, если первый равен <code>NULL</code><br><code>SELECT name, price, IFNULL(description, 'No description') as description FROM products;</code></td>
 </tr>
 </tbody>
 </table>
-<p>CASE - позволяет условно выполнять различные действия в запросе SQL.
-       состоит из секций WHEN, THEN и ELSE, где WHEN указывает условие,
-       THEN - действие, которое нужно выполнить при выполнении условия,
-       а ELSE - действие, которое нужно выполнить, если условие не выполнено.
-       SELECT position, salary,
-       CASE
-       WHEN salary &gt; 40000 THEN 'High salary'
-       WHEN salary BETWEEN 30000 AND 40000 THEN 'Average salary'
-       ELSE 'Low salary'
-       END as salary_level
-       FROM employees;</p>
-<p>IIF (IF ELSE) - позволяет условно выполнять различные действия в запросе SQL.
-                принимает три аргумента: логическое выражение, возвращаемое значение при истинном условии и возвращаемое значение при ложном условии.</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">IIF</span><span class="p">(</span><span class="n">quantity</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;In stock&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Out of stock&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">stock_status</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="p">;</span>
+<h2>CASE</h2>
+<p>Позволяет условно выполнять различные действия в запросе SQL
+Состоит из секций <code>WHEN</code>, <code>THEN</code> и <code>ELSE</code>, где <code>WHEN</code> указывает условие,
+<code>THEN</code> - действие, которое нужно выполнить при выполнении условия,
+а <code>ELSE</code> - действие, которое нужно выполнить, если условие не выполнено</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">position</span><span class="p">,</span>
+<span class="w">       </span><span class="n">salary</span><span class="p">,</span>
+<span class="w">       </span><span class="k">CASE</span>
+<span class="w">           </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">40000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;High salary&#39;</span>
+<span class="w">           </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">30000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">40000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Average salary&#39;</span>
+<span class="w">           </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Low salary&#39;</span>
+<span class="w">       </span><span class="k">END</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">salary_level</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>ROW_NUMBER - используется для нумерации строк в результирующем наборе данных.
-             используется совместно с оператором ORDER BY для сортировки строк по определенному критерию.</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<h2>IIF (IF ELSE)</h2>
+<p>Позволяет условно выполнять различные действия в запросе SQL
+Принимает три аргумента: логическое выражение, возвращаемое значение при истинном условии
+и возвращаемое значение при ложном условии</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span><span class="p">,</span>
+<span class="w">       </span><span class="n">IIF</span><span class="p">(</span><span class="n">quantity</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;In stock&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Out of stock&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">stock_status</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">products</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>RANK - используется для нумерации строк в результирующем наборе данных.
-       используется совместно с оператором ORDER BY для сортировки строк по определенному критерию.
-       (Отличие RANK от ROW_NUMBER заключается в том, что RANK нумерует строки с учетом их значений.
-        Например, если у нас есть несколько строк с одинаковым значением, то RANK будет устанавливать им ранг
-        с учетом этого одинакового значения, а не просто нумеровать их в порядке возрастания.)
-       (Обратите внимание, что если бы у нас были строки с одинаковым значением количества, то они бы получили одинаковый ранг.)</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<h2>ROW_NUMBER</h2>
+<p>Используется для нумерации строк в результирующем наборе данных
+Используется совместно с оператором <code>ORDER BY</code> для сортировки строк по определенному критерию</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span>
+<span class="w">       </span><span class="n">product_name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">quantity</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>DENSE_RANK - используется для нумерации строк в результирующем наборе данных.
-             используется совместно с оператором ORDER BY для сортировки строк по определенному критерию.
-             (Отличие DENSE_RANK от RANK заключается в том, что DENSE_RANK нумерует строки с учетом их значений,
-              но не оставляет промежутки между рангами. Таким образом, если у нас есть несколько строк с одинаковым значением,
-              то DENSE_RANK будет устанавливать им ранг с учетом этого одинакового значения, но не оставляет промежутки между рангами.)
-             (Обратите внимание, что если бы у нас были строки с одинаковым значением количества, то они бы получили одинаковый ранг.
-              Отличие от RANK заключается в том, что DENSE_RANK не оставляет промежутки между рангами.)</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DENSE_RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<h2>RANK</h2>
+<p>Используется для нумерации строк в результирующем наборе данных
+Используется совместно с оператором <code>ORDER BY</code> для сортировки строк по определенному критерию
+Отличие <code>RANK</code> от <code>ROW_NUMBER</code> заключается в том, что <code>RANK</code> нумерует строки с учетом их значений
+Например, если у нас есть несколько строк с одинаковым значением, то <code>RANK</code> будет устанавливать им ранг
+с учетом этого одинакового значения, а не просто нумеровать их в порядке возрастания</p>
+<p>Обратите внимание, что если бы у нас были строки с одинаковым значением количества, то они бы получили одинаковый ранг</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span>
+<span class="w">       </span><span class="n">product_name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">quantity</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>NTILE - используется для разбиения результирующего набора данных на равные части.
-        используется совместно с оператором ORDER BY для сортировки строк по определенному критерию.
-        (разбить эту таблицу на 3 равные части и пронумеровать каждую строку с учетом ее нахождения в этой части)</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NTILE</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_num</span><span class="p">,</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<h2>DENSE_RANK</h2>
+<p>Используется для нумерации строк в результирующем наборе данных
+Используется совместно с оператором <code>ORDER BY</code> для сортировки строк по определенному критерию
+Отличие <code>DENSE_RANK</code> от <code>RANK</code> заключается в том, что <code>DENSE_RANK</code> нумерует строки с учетом их значений,
+но не оставляет промежутки между рангами
+Таким образом, если у нас есть несколько строк с одинаковым значением,
+то <code>DENSE_RANK</code> будет устанавливать им ранг с учетом этого одинакового значения, но не оставляет промежутки между рангами</p>
+<p>Обратите внимание, что если бы у нас были строки с одинаковым значением количества, то они бы получили одинаковый ранг
+Отличие от <code>RANK</code> заключается в том, что <code>DENSE_RANK</code> не оставляет промежутки между рангами</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DENSE_RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">row_num</span><span class="p">,</span>
+<span class="w">       </span><span class="n">product_name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">quantity</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>LAG - используется для получения значения из предыдущей строки результирующего набора данных.
-      используется для сравнения значений в разных строках или для вычисления разницы между значениями.
-      (получить таблицу с колонкой, содержащей разницу между ценой текущей строки и ценой предыдущей строки.)</p>
-<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">prev_price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">price_diff</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<h2>NTILE</h2>
+<p>Используется для разбиения результирующего набора данных на равные части
+Используется совместно с оператором <code>ORDER BY</code> для сортировки строк по определенному критерию
+Разбить эту таблицу на 3 равные части и пронумеровать каждую строку с учетом ее нахождения в этой части</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NTILE</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_num</span><span class="p">,</span>
+<span class="w">       </span><span class="n">product_name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">quantity</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+</pre></div></div></div>
+
+<h2>LAG</h2>
+<p>Используется для получения значения из предыдущей строки результирующего набора данных
+Используется для сравнения значений в разных строках или для вычисления разницы между значениями
+Получить таблицу с колонкой, содержащей разницу между ценой текущей строки и ценой предыдущей строки</p>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span><span class="p">,</span>
+<span class="w">       </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">prev_price</span><span class="p">,</span>
+<span class="w">       </span><span class="n">price</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">price_diff</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </pre></div></div></div>
 
 <table>
@@ -320,11 +355,11 @@
 </tr>
 <tr>
 <td><code>ASIN</code> (арксинус)</td>
-<td>Возвращает арксинус указанного числа<br>Арксинус - это угол, синус которого равен указанному числу<br>Функция ASIN может принимать любое число в диапазоне от -1 до 1, включительно, и возвращает угол в радианах<br><code>ASIN(0.5) = 0.52359877559829</code><br><code>ASIN(-1) = -1.5707963267949</code><br>Функция ASIN может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой синусов</td>
+<td>Возвращает арксинус указанного числа<br>Арксинус - это угол, синус которого равен указанному числу<br>Функция <code>ASIN</code> может принимать любое число в диапазоне от -1 до 1, включительно, и возвращает угол в радианах<br><code>ASIN(0.5) = 0.52359877559829</code><br><code>ASIN(-1) = -1.5707963267949</code><br>Функция <code>ASIN</code> может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой синусов</td>
 </tr>
 <tr>
 <td><code>ATAN</code> (арктангенс)</td>
-<td>Возвращает арктангенс указанного числа<br>Арктангенс - это угол, тангенс которого равен указанному числу<br>Функция ATAN может принимать любое число и возвращает угол в радианах<br><code>ATAN(1) = 0.78539816339745</code><br><code>ATAN(-2) = -1.10714871779409</code><br>Функция <code>ATAN</code> может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой тангенсов<br>(Пример использования функции <code>ATAN</code> в SQL запросе:<br><code>SELECT ATAN(2) as atan FROM DUAL;</code><br>Этот запрос выполнится и вернет арктангенс числа 2, то есть <code>1.10714871779409</code><br>Также функция <code>ATAN</code> может быть использована в качестве условия в <code>WHERE</code> клаузе, например:<br><code>SELECT * FROM points WHERE ATAN(y/x) &gt; 0.5;</code><br>В этом запросе будут выбраны точки, у которых угол между осью <code>X</code> и вектором из начала координат до точки больше <code>0.5</code> радиан)</td>
+<td>Возвращает арктангенс указанного числа<br>Арктангенс - это угол, тангенс которого равен указанному числу<br>Функция <code>ATAN</code> может принимать любое число и возвращает угол в радианах<br><code>ATAN(1) = 0.78539816339745</code><br><code>ATAN(-2) = -1.10714871779409</code><br>Функция <code>ATAN</code> может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой тангенсов<br>(Пример использования функции <code>ATAN</code> в SQL запросе:<br><code>SELECT ATAN(2) as atan FROM DUAL;</code><br>Этот запрос выполнится и вернет арктангенс числа 2, то есть <code>1.10714871779409</code><br>Также функция <code>ATAN</code> может быть использована в качестве условия в <code>WHERE</code> клаузе, например:<br><code>SELECT * FROM points WHERE ATAN(y/x) &gt; 0.5;</code><br>В этом запросе будут выбраны точки, у которых угол между осью <code>X</code> и вектором из начала координат до точки больше <code>0.5</code> радиан)</td>
 </tr>
 <tr>
 <td><code>ATAN2</code> (арктангенс 2)</td>
@@ -400,7 +435,7 @@
 </tr>
 <tr>
 <td><code>COT</code></td>
-<td>Возвращает котангенс угла в радианах<br>Котангенс угла равен обратному тангенсу угла<br><code>COT(угол в радианах)</code> <code>COT(PI() / 4)</code> <code>result 1</code><br>Функция COT работает так же, как и функция SIN и TAN, но ожидает угол в радианах.</td>
+<td>Возвращает котангенс угла в радианах<br>Котангенс угла равен обратному тангенсу угла<br><code>COT(угол в радианах)</code> <code>COT(PI() / 4)</code> <code>result 1</code><br>Функция <code>COT</code> работает так же, как и функция <code>SIN</code> и <code>TAN</code>, но ожидает угол в радианах.</td>
 </tr>
 </tbody>
 </table>
