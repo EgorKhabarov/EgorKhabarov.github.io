@@ -409,9 +409,9 @@
             "SQLite3": {
                 "Date And Time Format": "",
                 "Разное": "",
-                "JOIN": "",
                 "Операторы": "",
-                "Функции": ""
+                "Функции": "",
+                "CREATE TRIGGER": ""
             },
             "MySQL MariaDB": {
                 "Типы данных": ""

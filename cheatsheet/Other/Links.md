@@ -59,15 +59,16 @@
 |                                 |                                                                                                                                                                    |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Мнемоники_в_HTML<br>HTML escape | [https://ru.wikipedia.org/wiki/Мнемоники_в_HTML](https://ru.wikipedia.org/wiki/Мнемоники_в_HTML)                                                                   |
+| HTTP headers                    | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
+| Список MIME типов               | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)                                                                                                       |
+| MIME types                      | [https://mimetype.io/all-types](https://mimetype.io/all-types)                                                                                                     |
+| SVG                             | [https://fonts.google.com/icons](https://fonts.google.com/icons)                                                                                                   |
+| font                            | [https://fonts.google.com/](https://fonts.google.com/)                                                                                                             |
 | SVG                             | [https://flowbite.com/icons/](https://flowbite.com/icons/)                                                                                                         |
 | codepen.io                      | [https://codepen.io/](https://codepen.io/)                                                                                                                         |
 | svgrepo.com                     | [https://www.svgrepo.com/](https://www.svgrepo.com/)                                                                                                               |
-| SVG                             | [https://fonts.google.com/icons](https://fonts.google.com/icons)                                                                                                   |
-| font                            | [https://fonts.google.com/](https://fonts.google.com/)                                                                                                             |
-| MIME types                      | [https://mimetype.io/all-types](https://mimetype.io/all-types)                                                                                                     |
-| Список MIME типов               | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)                                                                                                       |
-| HTTP headers                    | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
 | simpleicons.org                 | [https://simpleicons.org/](https://simpleicons.org/)                                                                                                               |
+| flexboxlabs.netlify.app         | [https://flexboxlabs.netlify.app/](https://flexboxlabs.netlify.app/)                                                                                               |
 
 
 # General

@@ -84,3 +84,83 @@ try:
 except AttributeError as e:
     print(e)  # property 'height' of 'Rectangle' object has no setter
 ```
+
+---
+
+# Python example
+
+```python
+class MyProperty:
+    def __init__(self, fget=None, fset=None, fdel=None, doc=None):
+        self.fget = fget
+        self.fset = fset
+        self.fdel = fdel
+        self.__doc__ = doc
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self  # Позволяет доступ к дескриптору через класс
+        if self.fget is None:
+            raise AttributeError("unreadable attribute")
+        return self.fget(instance)
+
+    def __set__(self, instance, value):
+        if self.fset is None:
+            raise AttributeError("can't set attribute")
+        self.fset(instance, value)
+
+    def __delete__(self, instance):
+        if self.fdel is None:
+            raise AttributeError("can't delete attribute")
+        self.fdel(instance)
+
+    def getter(self, fget):
+        """
+        Создает новую копию дескриптора с новым геттером
+        """
+        return type(self)(fget, self.fset, self.fdel, self.__doc__)
+
+    def setter(self, fset):
+        """
+        Создает новую копию дескриптора с новым сеттером
+        """
+        return type(self)(self.fget, fset, self.fdel, self.__doc__)
+
+    def deleter(self, fdel):
+        """
+        Создает новую копию дескриптора с новым дилитером
+        """
+        return type(self)(self.fget, self.fset, fdel, self.__doc__)
+
+
+class MyClass:
+    def __init__(self, value):
+        self._value = value
+
+    @MyProperty
+    def value(self):
+        """
+        Это значение
+        """
+        return self._value
+
+    @value.setter
+    def value(self, new_value):
+        if new_value < 0:
+            raise ValueError("value must be >= 0")
+        self._value = new_value
+
+    @value.deleter
+    def value(self):
+        print("Удаление значения")
+        del self._value
+
+
+obj = MyClass(42)
+print(obj.value)  # 42
+
+obj.value = 10
+print(obj.value)  # 10
+
+del obj.value  # Удаление значения
+```

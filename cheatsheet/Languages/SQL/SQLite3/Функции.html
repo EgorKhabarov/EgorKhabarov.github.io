@@ -1,4 +1,153 @@
-<p>Функции:</p>
+<h1>SQLite Функции</h1>
+<h2>JSON</h2>
+<p><a href="https://www.sqlite.org/json1.html#jex">https://www.sqlite.org/json1.html#jex</a></p>
+<table>
+<thead>
+<tr>
+<th>Функция / Оператор</th>
+<th>Описание</th>
+<th>Пример использования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON(json)</td>
+<td>Преобразует строку в формат JSON</td>
+<td><code>JSON('{"name": "John", "age": 30}')</code><br>{"name":"John","age":30}</td>
+</tr>
+<tr>
+<td>JSONB(json)</td>
+<td><code>JSON</code>, но в бинарном формате<br>для более эффективного доступа</td>
+<td><code>JSONB('{"name": "John", "age": 30}')</code></td>
+</tr>
+<tr>
+<td>JSON_ARRAY(value1, value2, ...)</td>
+<td>Создает JSON массив из переданных аргументов</td>
+<td><code>JSON_ARRAY('apple', 'banana', 'cherry')</code><br>["apple","banana","cherry"]</td>
+</tr>
+<tr>
+<td>JSONB_ARRAY(value1, value2, ...)</td>
+<td><code>JSON_ARRAY</code>, но в бинарном формате</td>
+<td><code>JSONB_ARRAY('apple', 'banana', 'cherry')</code></td>
+</tr>
+<tr>
+<td>JSON_ARRAY_LENGTH(json, [path])</td>
+<td>Возвращает количество элементов<br>в массиве</td>
+<td><code>JSON_ARRAY_LENGTH('\["apple", "banana", "cherry"]')</code><br>3<br><code>JSON_ARRAY_LENGTH('\["apple", "banana", "cherry"]', '$')</code><br>3<br><code>JSON_ARRAY_LENGTH('{"fruits": \["apple", "banana", "cherry"]}', '$.fruits')</code><br>3</td>
+</tr>
+<tr>
+<td>JSON_ERROR_POSITION(json)</td>
+<td>Возвращает позицию ошибки в JSON строке,<br>если JSON недействителен</td>
+<td><code>JSON_ERROR_POSITION('{"name": "John", "age": 30,}')</code></td>
+</tr>
+<tr>
+<td>JSON_EXTRACT(json, path, ...)</td>
+<td>Извлекает значение по заданному пути</td>
+<td><code>JSON_EXTRACT('{"name": "John", "age": 30}', '$.name')</code><br>John</td>
+</tr>
+<tr>
+<td>JSONB_EXTRACT(json, path, ...)</td>
+<td><code>JSON_EXTRACT</code>, но работает с бинарными JSON данными</td>
+<td><code>JSONB_EXTRACT('{"name": "John", "age": 30}', '$.name')</code></td>
+</tr>
+<tr>
+<td>json -&gt; path</td>
+<td>Извлекает значение по заданному пути<br><code>JSON_EXTRACT</code></td>
+<td><code>'{"name": "John", "age": 30}' -&gt; '$.name'</code><br>John</td>
+</tr>
+<tr>
+<td>json -&gt;&gt; path</td>
+<td>Извлекает значение по заданному пути<br>и преобразует его в текст<br><code>JSON_EXTRACT</code></td>
+<td><code>'{"name": "John", "age": 30}' -&gt;&gt; '$.name'</code><br>John</td>
+</tr>
+<tr>
+<td>JSON_INSERT(json, path, value, ...)</td>
+<td>Вставляет новое значение по заданному пути</td>
+<td><code>JSON_INSERT('{"name": "John"}', '$.age', 30)</code><br>{"name":"John","age":30}</td>
+</tr>
+<tr>
+<td>JSONB_INSERT(json, path, value, ...)</td>
+<td><code>JSON_INSERT</code>, но с бинарными JSON данными</td>
+<td><code>JSONB_INSERT('{"name": "John"}', '$.age', 30)</code></td>
+</tr>
+<tr>
+<td>JSON_OBJECT(label1, value1, ...)</td>
+<td>Создает JSON объект из пар "ключ-значение"</td>
+<td><code>JSON_OBJECT('name', 'John', 'age', 30)</code><br>{"name":"John","age":30}</td>
+</tr>
+<tr>
+<td>JSONB_OBJECT(label1, value1, ...)</td>
+<td><code>JSON_OBJECT</code>, но в бинарном формате</td>
+<td><code>JSONB_OBJECT('name', 'John', 'age', 30)</code></td>
+</tr>
+<tr>
+<td>JSON_PATCH(json1, json2)</td>
+<td>Объединяет два JSON<br>значения из второго документа<br>перезаписывают значения из первого</td>
+<td><code>JSON_PATCH('{"name": "John"}', '{"age": 30}')</code><br>{"name":"John","age":30}</td>
+</tr>
+<tr>
+<td>JSONB_PATCH(json1, json2)</td>
+<td><code>JSON_PATCH</code>, но с бинарными JSON данными</td>
+<td><code>JSONB_PATCH('{"name": "John"}', '{"age": 30}')</code></td>
+</tr>
+<tr>
+<td>JSON_PRETTY(json)</td>
+<td>Форматирует JSON для более удобного чтения</td>
+<td><code>JSON_PRETTY('{"name": "John", "age": 30}')</code></td>
+</tr>
+<tr>
+<td>JSON_REMOVE(json, path, ...)</td>
+<td>Удаляет значение по заданному пути</td>
+<td><code>JSON_REMOVE('{"name": "John", "age": 30}', '$.age')</code><br>{"name":"John"}</td>
+</tr>
+<tr>
+<td>JSONB_REMOVE(json, path, ...)</td>
+<td><code>JSON_REMOVE</code>, но с бинарными JSON данными</td>
+<td><code>JSONB_REMOVE('{"name": "John", "age": 30}', '$.age')</code></td>
+</tr>
+<tr>
+<td>JSON_REPLACE(json, path, value, ...)</td>
+<td>Заменяет значение в JSON документе<br>по заданному пути (если путь существует)</td>
+<td><code>JSON_REPLACE('{"name": "John", "age": 30}', '$.age', 31)</code><br>{"name":"John","age":31}</td>
+</tr>
+<tr>
+<td>JSONB_REPLACE(json, path, value ,...)</td>
+<td><code>JSON_REPLACE</code>, но с бинарными JSON данными</td>
+<td><code>JSONB_REPLACE('{"name": "John", "age": 30}', '$.age', 31)</code></td>
+</tr>
+<tr>
+<td>JSON_SET(json, path, value, ...)</td>
+<td>Устанавливает значение по заданному пути</td>
+<td><code>JSON_SET('{"name": "John", "age": 30}', '$.age', 31)</code><br>{"name":"John","age":31}</td>
+</tr>
+<tr>
+<td>JSONB_SET(json, path, value, ...)</td>
+<td><code>JSON_SET</code>, но с бинарными JSON данными</td>
+<td><code>JSONB_SET('{"name": "John", "age": 30}', '$.age', 31)</code></td>
+</tr>
+<tr>
+<td>JSON_TYPE(json, [path])</td>
+<td>Возвращает тип значения<br>по заданному пути в JSON документе</td>
+<td><code>JSON_TYPE('{"name": "John", "age": 30}')</code><br>object<br><code>JSON_TYPE('{"name": "John", "age": 30}', '$')</code><br>object<br><code>JSON_TYPE('{"name": "John", "age": 30}', '$.name')</code><br>text</td>
+</tr>
+<tr>
+<td>JSON_VALID(json)</td>
+<td>Проверяет, является ли строка<br>допустимым JSON документом</td>
+<td><code>JSON_VALID('{"name": "John", "age": 30}')</code><br>1</td>
+</tr>
+<tr>
+<td>JSON_VALID(json, flags)</td>
+<td><code>JSON_VALID</code>, но с флагами для проверки</td>
+<td><code>JSON_VALID('{"name": "John", "age": 30}', 0)</code></td>
+</tr>
+<tr>
+<td>JSON_QUOTE(value)</td>
+<td>Кавычит значение для включения в JSON документ</td>
+<td><code>JSON_QUOTE('John')</code><br>"John"</td>
+</tr>
+</tbody>
+</table>
+<h2>Функции</h2>
 <table>
 <thead>
 <tr>
@@ -8,83 +157,83 @@
 </thead>
 <tbody>
 <tr>
-<td>MAX</td>
+<td><code>MAX</code></td>
 <td>Возвращает максимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных.<br><code>SELECT MAX(amount) FROM sales;</code></td>
 </tr>
 <tr>
-<td>MIN</td>
+<td><code>MIN</code></td>
 <td>Возвращает минимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных.<br><code>SELECT MIN(amount) FROM sales;</code></td>
 </tr>
 <tr>
-<td>SUM</td>
+<td><code>SUM</code></td>
 <td>Возвращает сумму аргументов.<br>может использоваться только с числовыми типами данных.<br><code>SELECT SUM(amount) FROM sales;</code></td>
 </tr>
 <tr>
-<td>AVG</td>
+<td><code>AVG</code></td>
 <td>Возвращает среднее арифметическое аргументов.<br>может использоваться только с числовыми типами данных.<br><code>SELECT AVG(amount) FROM sales;</code></td>
 </tr>
 <tr>
-<td>COUNT</td>
+<td><code>COUNT</code></td>
 <td>Возвращает количество аргументов.<br>может использоваться с различными типами данных.<br><code>SELECT COUNT(amount) FROM sales;</code></td>
 </tr>
 <tr>
-<td>CONCAT</td>
+<td><code>CONCAT</code></td>
 <td>Соединяет строки.<br>может использоваться с типом данных строка.<br><code>SELECT CONCAT(first_name, ' ', last_name) as full_name FROM customers;</code></td>
 </tr>
 <tr>
-<td>UPPER</td>
+<td><code>UPPER</code></td>
 <td>Преобразует строку в верхний регистр.<br>может использоваться с типом данных строка.<br><code>SELECT UPPER(first_name) as first_name, UPPER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
-<td>LOWER</td>
+<td><code>LOWER</code></td>
 <td>Преобразует строку в нижний регистр.<br>может использоваться с типом данных строка.<br><code>SELECT LOWER(first_name) as first_name, LOWER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
-<td>SUBSTR</td>
+<td><code>SUBSTR</code></td>
 <td>Извлекает подстроку из строки. (столбец, первый символ, количество символов)<br>может использоваться с типом данных строка.<br><code>SELECT SUBSTR(phone, 1, 3) as area_code FROM customers;</code></td>
 </tr>
 <tr>
-<td>TRIM</td>
+<td><code>TRIM</code></td>
 <td>Удаляет пробелы из начала и конца строки.<br>может использоваться с типом данных строка.<br><code>SELECT TRIM(first_name) as first_name, last_name FROM customers;</code></td>
 </tr>
 <tr>
-<td>LENGTH</td>
+<td><code>LENGTH</code></td>
 <td>Возвращает количество символов в строке.<br>может использоваться с типом данных строка.<br><code>SELECT first_name, LENGTH(first_name) as name_length FROM customers;</code></td>
 </tr>
 <tr>
-<td>ROUND</td>
+<td><code>ROUND</code></td>
 <td>Округляет число до указанной точности. (столбец, кол-во знаков после запятой)<br>может использоваться с типом данных число.<br><code>SELECT product, ROUND(price, 2) as price FROM sales;</code></td>
 </tr>
 <tr>
-<td>DATE</td>
+<td><code>DATE</code></td>
 <td>Преобразует строку в формат даты. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных дата.<br><code>SELECT DATE(order_date) as order_date, product, price FROM orders;</code></td>
 </tr>
 <tr>
-<td>TIME</td>
+<td><code>TIME</code></td>
 <td>Преобразует строку в формат времени. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных время.<br><code>SELECT TIME(meeting_time) as meeting_time, topic FROM meetings;</code></td>
 </tr>
 <tr>
-<td>DATETIME</td>
+<td><code>DATETIME</code></td>
 <td>Преобразует строку в формат даты и времени.<br>может использоваться с типом данных строка и возвращает тип данных дата/время.<br><code>SELECT DATETIME(event_date_time) as event_date_time, event_name FROM events;</code></td>
 </tr>
 <tr>
-<td>TIMESTAMP</td>
+<td><code>TIMESTAMP</code></td>
 <td>Преобразует строку в формат времени с меткой времени (timestamp). <br>может использоваться с типом данных строка и возвращает тип данных timestamp.<br><code>SELECT TIMESTAMP(log_timestamp) as log_timestamp, log_message FROM logs;</code></td>
 </tr>
 <tr>
-<td>NOW</td>
+<td><code>NOW</code></td>
 <td>Возвращает текущую дату и время.<br>не требует аргументов и возвращает тип данных timestamp.<br><code>INSERT INTO orders (order_date, product, price) VALUES (NOW(), 'Shoes', 59.99);</code></td>
 </tr>
 <tr>
-<td>COALESCE</td>
+<td><code>COALESCE</code></td>
 <td>Принимает неограниченное количество аргументов и возвращает первый ненулевой аргумент (???)<br>может использоваться с типами данных число, строка, дата/время и возвращает тип данных, соответствующий первому ненулевому аргументу.<br><code>SELECT first_name, last_name, COALESCE(email, '') as email, COALESCE(phone, '') as phone FROM users;</code></td>
 </tr>
 <tr>
-<td>ISNULL</td>
+<td><code>ISNULL</code></td>
 <td>Проверяет, является ли значение нулевым (NULL).<br>принимает один аргумент и возвращает логическое значение true, если аргумент равен NULL, и false, если аргумент не равен NULL.<br><code>SELECT first_name, last_name, position FROM employees WHERE ISNULL(bonus);</code></td>
 </tr>
 <tr>
-<td>IFNULL</td>
+<td><code>IFNULL</code></td>
 <td>Проверяет, является ли значение нулевым (NULL).<br>принимает два аргумента и возвращает первый аргумент, если он не равен NULL, и второй аргумент, если первый равен NULL.<br><code>SELECT name, price, IFNULL(description, 'No description') as description FROM products;</code></td>
 </tr>
 </tbody>
@@ -141,236 +290,117 @@
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">product_name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">prev_price</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LAG</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">price_diff</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </pre></div></div></div>
 
-<p>LEAD - используется для получения значения из следующей строки результирующего набора данных.
-       используется для сравнения значений в разных строках или для вычисления разницы между значениями.
-       SELECT product_name, price, LEAD(price, 1) OVER (ORDER BY date) as next_price, price - LEAD(price, 1) OVER (ORDER BY date) as price_diff FROM sales;
-       (получить таблицу с колонкой, содержащей разницу между ценой текущей строки и ценой следующей строки.)</p>
-<p>EXPLAIN - используется для анализа плана выполнения запроса.
-          возвращает таблицу с информацией о том, как база данных планирует выполнить запрос, включая информацию о том,
-          какие таблицы и столбцы будут использоваться, какие индексы будут использоваться, и как будут объединяться таблицы.
-          EXPLAIN SELECT * FROM sales WHERE price &gt; 200;
-          (Мы хотим анализировать план выполнения запроса на выборку всех строк таблицы "sales" с ценой больше 200.)</p>
-<p>EXPLAIN ANALYZE - расширение функции EXPLAIN, включает в себя дополнительную информацию о времени выполнения каждого этапа плана выполнения запроса.
-                  Эта информация может быть полезна при оптимизации запросов и изучении причин медленного выполнения.
-                  EXPLAIN ANALYZE SELECT * FROM sales WHERE price &gt; 200;
-                  (Каждая строка таблицы описывает один этап плана и содержит следующие столбцы:
-                   Номер этапа
-                   Тип этапа (поиск, сортировка, табулирование и т.п.)
-                   Таблицы, на которые распространяется действие этапа
-                   Количество строк, которое будет обработано на этом этапе
-                   Время выполнения этапа)
-                  (Например, таблица может выглядеть следующим образом:
-                   Seq.    Type    Table    Rows    Time
-                   1    scan    sales    3        0.001
-                   2    sort            3        0.002
-                   3    limit            3        0.002)
-                  (Основное отличие между EXPLAIN и EXPLAIN ANALYZE заключается в том, что EXPLAIN ANALYZE не только выводит информацию о плане выполнения запроса,
-                   но и РЕАЛЬНО выполняет запрос и возвращает результат. Это позволяет получить более точную информацию о времени выполнения каждого этапа,
-                   так как используется реальное время выполнения, а не оценочные данные, которые могут быть предоставлены функцией EXPLAIN.
-                   Также EXPLAIN ANALYZE может показать дополнительную информацию, такую как количество сканированных строк, общее время выполнения запроса и т.п.)</p>
-<p>ABS (абсолютное значение) - возвращает абсолютное значение указанного числа. ABS(-5) = 5, ABS(3) = 3</p>
-<p>ACOS (арккосинус) - возвращает арккосинус указанного числа. Арккосинус - это угол, косинус которого равен указанному числу.
-                    Функция ACOS может принимать любое число в диапазоне от -1 до 1, включительно, и возвращает угол в радианах.
-                    ACOS(0.5) = 1.0471975511966, ACOS(-1) = 3.14159265358979</p>
-<p>ASIN (арксинус) - возвращает арксинус указанного числа.
-                  Арксинус - это угол, синус которого равен указанному числу.
-                  Функция ASIN может принимать любое число в диапазоне от -1 до 1, включительно, и возвращает угол в радианах.
-                  ASIN(0.5) = 0.52359877559829
-                  ASIN(-1) = -1.5707963267949
-                  Функция ASIN может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза. Для этого нужно воспользоваться теоремой синусов.</p>
-<p>ATAN (арктангенс) - возвращает арктангенс указанного числа.
-                    Арктангенс - это угол, тангенс которого равен указанному числу.
-                    Функция ATAN может принимать любое число и возвращает угол в радианах.
-                    ATAN(1) = 0.78539816339745
-                    ATAN(-2) = -1.10714871779409
-                    Функция ATAN может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза. Для этого нужно воспользоваться теоремой тангенсов.
-                    (Пример использования функции ATAN в SQL запросе:
-                     SELECT ATAN(2) as atan FROM DUAL;
-                     Этот запрос выполнится и вернет арктангенс числа 2, то есть 1.10714871779409.
-                     Также функция ATAN может быть использована в качестве условия в WHERE клаузе, например:
-                     SELECT * FROM points WHERE ATAN(y/x) &gt; 0.5;
-                     В этом запросе будут выбраны точки, у которых угол между осью X и вектором из начала координат до точки больше 0.5 радиан.)</p>
-<p>ATAN2 (арктангенс 2) - возвращает арктангенс указанной точки (y, x).
-                       Арктангенс - это угол, тангенс которого равен указанной точке.
-                       Функция ATAN2 принимает два аргумента - y и x, и возвращает угол в радианах.
-                       ATAN2(1, 1) = 0.78539816339745
-                       ATAN2(-2, 2) = -0.78539816339745
-                       Функция ATAN2 может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза.
-                       Для этого нужно воспользоваться теоремой тангенсов.
-                       (Отличие между функциями ATAN и ATAN2 в том, что ATAN принимает только один аргумент - тангенс угла,
-                        в то время как ATAN2 принимает два аргумента - координаты точки в декартовой системе координат.
-                        Это позволяет ATAN2 вычислять угол даже если одна из координат равна нулю, чего не может сделать функция ATAN.)</p>
-<p>CEIL (от ceiling)   возвращает наименьшее целое число, которое больше или равно переданному значению. CEIL(3.14) вернет 4, а CEIL(-3.14) вернет -3.
-COS                 возвращает косинус угла в градусах. COS(угол в градусах) COS(45) result 0.7071067811865475
-COT                 возвращает котангенс угла в радианах. Котангенс угла равен обратному тангенсу угла. COT(угол в радианах) COT(PI() / 4) result 1
-                    функция COT работает так же, как и функция SIN и TAN, но ожидает угол в радианах.</p>
-<p>DEGREES             преобразует радианы в градусы. DEGREES(выражение_вычисляется_как_радианы) DEGREES(PI()) result 180
-EXP                 возвращает экспоненту (е в степени) заданного числа. EXP(выражение_вычисляется_как_число) EXP(2) result 7.38905609893065
-                    число e (естественный логарифм) равно 2.718281828459045. EXP(2) эквивалентно e^2 = 7.38905609893065.
-FLOOR               возвращает наибольшее целое число, которое меньше или равно переданному значению. FLOOR(выражение_вычисляется_как_число) FLOOR(3.14) result 3
-                    FLOOR отличается от CEIL тем, что возвращает наибольшее целое число, которое меньше или равно переданному значению,
-                    в то время как CEIL возвращает наименьшее целое число, которое больше или равно переданному значению.</p>
-<p>LN                  возвращает натуральный логарифм (по основанию e) заданного числа. LN(выражение_вычисляется_как_число) LN(2)сresult 0.693147180559945
-                    число e (естественный логарифм) равно 2.718281828459045. LN(2) эквивалентно ln(2) = 0.693147180559945.</p>
-<p>LOG                 возвращает логарифм заданного числа по заданному основанию. LOG(выражение_вычисляется_как_число, основание_логарифма) LOG(100, 10) result 2
-                    работает так же, как и функция LN, но позволяет задавать основание логарифма. LOG(100, 10) эквивалентно log10(100) = 2.</p>
-<p>LOG10               возвращает десятичный логарифм числа. LOG10(выражение, которое вычисляется как число) LOG10(100) result 2
-                    всегда возвращает положительное число. Если входное число 0 или отрицательно, то результатом будет NULL.</p>
-<p>MOD                 возвращает остаток от деления одного числа на другое. MOD(10, 3) result 1
-                    всегда возвращает положительное число. Если второе число равно 0, то результатом будет NULL.</p>
-<p>PI                  возвращает значение математической константы Пи (3.14159265358979323846)  PI() result 3.141592653589793
-POWER               возвращает результат возведения числа в степень. POWER(основание_степени, показатель_степени) POWER(2, 3) result 8  эквивалентно выражению 2^3 = 8.
-RADIANS             преобразует градусы в радианы. RADIANS(угол в градусах)  угол в 180 градусов равен PI радианам (3.141592653589793)
-RAND                которая возвращает случайное число в диапазоне от 0 до 1. RAND()  Результат: 0.5298371105
-SIGN                возвращает 1, 0 или -1 в зависимости от того, положительное, нулевое или отрицательное число соответственно.SIGN(выражение, которое вычисляется как число)
-SIN                 возвращает синус угла в радианах. SIN(угол в радианах)
-SQRT                возвращает квадратный корень числа. всегда возвращает неотрицательный квадратный корень.
-                    Если вы хотите вернуть квадратный корень с отрицательным числом, то результатом будет NULL.</p>
-<p>TAN                 возвращает тангенс угла в радианах. TAN(угол в радианах)</p>
-<p><a href="https://www.sqlite.org/json1.html#jex">https://www.sqlite.org/json1.html#jex</a></p>
 <table>
 <thead>
 <tr>
-<th>Функция / Оператор</th>
-<th>Описание</th>
-<th>Пример использования</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>JSON(json)</td>
-<td>Преобразует строку в формат JSON</td>
-<td>JSON('{"name": "John", "age": 30}')<br>{"name":"John","age":30}</td>
+<td><code>EXPLAIN</code></td>
+<td>Используется для анализа плана выполнения запроса<br>Возвращает таблицу с информацией о том, как база данных планирует выполнить запрос, включая информацию о том,<br>какие таблицы и столбцы будут использоваться, какие индексы будут использоваться, и как будут объединяться таблицы<br><code>EXPLAIN SELECT * FROM sales WHERE price &gt; 200;</code><br>Мы хотим анализировать план выполнения запроса на выборку всех строк таблицы <code>sales</code> с ценой больше <code>200</code></td>
 </tr>
 <tr>
-<td>JSONB(json)</td>
-<td><code>JSON</code>, но в бинарном формате<br>для более эффективного доступа</td>
-<td>JSONB('{"name": "John", "age": 30}')</td>
+<td><code>EXPLAIN ANALYZE</code></td>
+<td>Расширение функции <code>EXPLAIN</code>, включает в себя дополнительную информацию о времени выполнения каждого этапа плана выполнения запроса<br>Эта информация может быть полезна при оптимизации запросов и изучении причин медленного выполнения<br><code>EXPLAIN ANALYZE SELECT * FROM sales WHERE price &gt; 200;</code><br>(Каждая строка таблицы описывает один этап плана и содержит следующие столбцы:<br>Номер этапа<br>Тип этапа (поиск, сортировка, табулирование и т.п.)<br>Таблицы, на которые распространяется действие этапа<br>Количество строк, которое будет обработано на этом этапе<br>Время выполнения этапа)<br>Например, таблица может выглядеть следующим образом:<br>&vert; Seq &vert; Type  &vert; Table &vert; Rows &vert; Time  &vert;<br>&vert;-----&vert;-------&vert;-------&vert;------&vert;-------&vert;<br>&vert; 1   &vert; scan  &vert; sales &vert; 3    &vert; 0.001 &vert;<br>&vert; 2   &vert; sort  &vert;       &vert; 3    &vert; 0.002 &vert;<br>&vert; 3   &vert; limit &vert;       &vert; 3    &vert; 0.002 &vert;<br>Основное отличие между <code>EXPLAIN</code> и <code>EXPLAIN ANALYZE</code> заключается в том,<br>что <code>EXPLAIN ANALYZE</code> не только выводит информацию о плане выполнения запроса,<br>но и РЕАЛЬНО выполняет запрос и возвращает результат<br>Это позволяет получить более точную информацию о времени выполнения каждого этапа,<br>так как используется реальное время выполнения,<br>а не оценочные данные, которые могут быть предоставлены функцией <code>EXPLAIN</code><br>Также <code>EXPLAIN ANALYZE</code> может показать дополнительную информацию,<br>такую как количество сканированных строк, общее время выполнения запроса и т.п.)</td>
 </tr>
 <tr>
-<td>JSON_ARRAY(value1, value2, ...)</td>
-<td>Создает JSON массив из переданных аргументов</td>
-<td>JSON_ARRAY('apple', 'banana', 'cherry')<br>["apple","banana","cherry"]</td>
+<td><code>LEAD</code></td>
+<td>Используется для получения значения из следующей строки результирующего набора данных<br>используется для сравнения значений в разных строках или для вычисления разницы между значениями<br><code>SELECT product_name, price, LEAD(price, 1) OVER (ORDER BY date) as next_price,</code><br><code>price - LEAD(price, 1) OVER (ORDER BY date) as price_diff FROM sales;</code><br>(получить таблицу с колонкой, содержащей разницу между ценой текущей строки и ценой следующей строки)</td>
 </tr>
 <tr>
-<td>JSONB_ARRAY(value1, value2, ...)</td>
-<td><code>JSON_ARRAY</code>, но в бинарном формате</td>
-<td>JSONB_ARRAY('apple', 'banana', 'cherry')</td>
+<td><code>ABS</code> (абсолютное значение)</td>
+<td>Возвращает абсолютное значение указанного числа<br><code>ABS(-5) = 5</code>, <code>ABS(3) = 3</code></td>
 </tr>
 <tr>
-<td>JSON_ARRAY_LENGTH(json, [path])</td>
-<td>Возвращает количество элементов<br>в массиве</td>
-<td>JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]')<br>3<br>JSON_ARRAY_LENGTH('["apple", "banana", "cherry"]', '$')<br>3<br>JSON_ARRAY_LENGTH('{"fruits": ["apple", "banana", "cherry"]}', '$.fruits')<br>3</td>
+<td><code>ACOS</code> (арккосинус)</td>
+<td>Возвращает арккосинус указанного числа<br>Арккосинус - это угол, косинус которого равен указанному числу<br>Функция <code>ACOS</code> может принимать любое число в диапазоне от <code>-1</code> до <code>1</code>, включительно, и возвращает угол в радианах<br><code>ACOS(0.5) = 1.0471975511966</code>, <code>ACOS(-1) = 3.14159265358979</code></td>
 </tr>
 <tr>
-<td>JSON_ERROR_POSITION(json)</td>
-<td>Возвращает позицию ошибки в JSON строке,<br>если JSON недействителен</td>
-<td>JSON_ERROR_POSITION('{"name": "John", "age": 30,}')</td>
+<td><code>ASIN</code> (арксинус)</td>
+<td>Возвращает арксинус указанного числа<br>Арксинус - это угол, синус которого равен указанному числу<br>Функция ASIN может принимать любое число в диапазоне от -1 до 1, включительно, и возвращает угол в радианах<br><code>ASIN(0.5) = 0.52359877559829</code><br><code>ASIN(-1) = -1.5707963267949</code><br>Функция ASIN может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой синусов</td>
 </tr>
 <tr>
-<td>JSON_EXTRACT(json, path, ...)</td>
-<td>Извлекает значение по заданному пути</td>
-<td>JSON_EXTRACT('{"name": "John", "age": 30}', '$.name')<br>John</td>
+<td><code>ATAN</code> (арктангенс)</td>
+<td>Возвращает арктангенс указанного числа<br>Арктангенс - это угол, тангенс которого равен указанному числу<br>Функция ATAN может принимать любое число и возвращает угол в радианах<br><code>ATAN(1) = 0.78539816339745</code><br><code>ATAN(-2) = -1.10714871779409</code><br>Функция <code>ATAN</code> может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой тангенсов<br>(Пример использования функции <code>ATAN</code> в SQL запросе:<br><code>SELECT ATAN(2) as atan FROM DUAL;</code><br>Этот запрос выполнится и вернет арктангенс числа 2, то есть <code>1.10714871779409</code><br>Также функция <code>ATAN</code> может быть использована в качестве условия в <code>WHERE</code> клаузе, например:<br><code>SELECT * FROM points WHERE ATAN(y/x) &gt; 0.5;</code><br>В этом запросе будут выбраны точки, у которых угол между осью <code>X</code> и вектором из начала координат до точки больше <code>0.5</code> радиан)</td>
 </tr>
 <tr>
-<td>JSONB_EXTRACT(json, path, ...)</td>
-<td><code>JSON_EXTRACT</code>, но работает с бинарными JSON данными</td>
-<td>JSONB_EXTRACT('{"name": "John", "age": 30}', '$.name')</td>
+<td><code>ATAN2</code> (арктангенс 2)</td>
+<td>Возвращает арктангенс указанной точки <code>(y, x)</code><br>Арктангенс - это угол, тангенс которого равен указанной точке<br>Функция <code>ATAN2</code> принимает два аргумента - y и x, и возвращает угол в радианах<br><code>ATAN2(1, 1) = 0.78539816339745</code><br><code>ATAN2(-2, 2) = -0.78539816339745</code><br>Функция <code>ATAN2</code> может быть использована для вычисления угла в треугольнике, если известны два катета и гипотенуза<br>Для этого нужно воспользоваться теоремой тангенсов<br>(Отличие между функциями <code>ATAN</code> и <code>ATAN2</code> в том, что <code>ATAN</code> принимает только один аргумент - тангенс угла,<br>в то время как <code>ATAN2</code> принимает два аргумента - координаты точки в декартовой системе координат<br>Это позволяет <code>ATAN2</code> вычислять угол даже если одна из координат равна нулю, чего не может сделать функция <code>ATAN</code>)</td>
 </tr>
 <tr>
-<td>json -&gt; path</td>
-<td>Извлекает значение по заданному пути<br><code>JSON_EXTRACT</code></td>
-<td>'{"name": "John", "age": 30}' -&gt; '$.name'<br>John</td>
+<td><code>DEGREES</code></td>
+<td>Преобразует радианы в градусы<br><code>DEGREES(выражение_вычисляется_как_радианы)</code> <code>DEGREES(PI())</code><br><code>result 180</code></td>
 </tr>
 <tr>
-<td>json -&gt;&gt; path</td>
-<td>Извлекает значение по заданному пути<br>и преобразует его в текст<br><code>JSON_EXTRACT</code></td>
-<td>'{"name": "John", "age": 30}' -&gt;&gt; '$.name'<br>John</td>
+<td><code>EXP</code></td>
+<td>Возвращает экспоненту (<code>е</code> в степени) заданного числа<br><code>EXP(выражение_вычисляется_как_число)</code> <code>EXP(2)</code><br><code>result 7.38905609893065</code><br>Число <code>e</code> (естественный логарифм) равно <code>2.718281828459045</code><br><code>EXP(2)</code> эквивалентно <code>e^2 = 7.38905609893065</code></td>
 </tr>
 <tr>
-<td>JSON_INSERT(json, path, value, ...)</td>
-<td>Вставляет новое значение по заданному пути</td>
-<td>JSON_INSERT('{"name": "John"}', '$.age', 30)<br>{"name":"John","age":30}</td>
+<td><code>FLOOR</code></td>
+<td>Возвращает наибольшее целое число, которое меньше или равно переданному значению<br><code>FLOOR(выражение_вычисляется_как_число)</code> <code>FLOOR(3.14)</code> <code>result 3</code><br><code>FLOOR</code> отличается от <code>CEIL</code> тем, что возвращает наибольшее целое число, которое меньше или равно переданному значению,<br>в то время как <code>CEIL</code> возвращает наименьшее целое число, которое больше или равно переданному значению</td>
 </tr>
 <tr>
-<td>JSONB_INSERT(json, path, value, ...)</td>
-<td><code>JSON_INSERT</code>, но с бинарными JSON данными</td>
-<td>JSONB_INSERT('{"name": "John"}', '$.age', 30)</td>
+<td><code>LN</code></td>
+<td>Возвращает натуральный логарифм (по основанию e) заданного числа<br><code>LN(выражение_вычисляется_как_число)</code> <code>LN(2)</code> с <code>result 0.693147180559945</code><br>Число <code>e</code> (естественный логарифм) равно <code>2.718281828459045</code><br><code>LN(2)</code> эквивалентно <code>LN(2) = 0.693147180559945</code></td>
 </tr>
 <tr>
-<td>JSON_OBJECT(label1, value1, ...)</td>
-<td>Создает JSON объект из пар "ключ-значение"</td>
-<td>JSON_OBJECT('name', 'John', 'age', 30)<br>{"name":"John","age":30}</td>
+<td><code>LOG</code></td>
+<td>Возвращает логарифм заданного числа по заданному основанию<br><code>LOG(выражение_вычисляется_как_число, основание_логарифма)</code> <code>LOG(100, 10)</code> <code>result 2</code><br>работает так же, как и функция <code>LN</code>, но позволяет задавать основание логарифма<br><code>LOG(100, 10)</code> эквивалентно <code>log10(100) = 2</code></td>
 </tr>
 <tr>
-<td>JSONB_OBJECT(label1, value1, ...)</td>
-<td><code>JSON_OBJECT</code>, но в бинарном формате</td>
-<td>JSONB_OBJECT('name', 'John', 'age', 30)</td>
+<td><code>LOG10</code></td>
+<td>Возвращает десятичный логарифм числа. <code>LOG10(выражение, которое вычисляется как число)</code> <code>LOG10(100)</code> <code>result 2</code><br>всегда возвращает положительное число. Если входное число 0 или отрицательно, то результатом будет <code>NULL</code></td>
 </tr>
 <tr>
-<td>JSON_PATCH(json1, json2)</td>
-<td>Объединяет два JSON<br>значения из второго документа<br>перезаписывают значения из первого</td>
-<td>JSON_PATCH('{"name": "John"}', '{"age": 30}')<br>{"name":"John","age":30}</td>
+<td><code>MOD</code></td>
+<td>Возвращает остаток от деления одного числа на другое<br><code>MOD(10, 3)</code> <code>result 1</code><br>всегда возвращает положительное число. Если второе число равно <code>0</code>, то результатом будет <code>NULL</code></td>
 </tr>
 <tr>
-<td>JSONB_PATCH(json1, json2)</td>
-<td><code>JSON_PATCH</code>, но с бинарными JSON данными</td>
-<td>JSONB_PATCH('{"name": "John"}', '{"age": 30}')</td>
+<td><code>PI</code></td>
+<td>Возвращает значение математической константы Пи (<code>3.14159265358979323846</code>) <code>PI()</code> <code>result 3.141592653589793</code></td>
 </tr>
 <tr>
-<td>JSON_PRETTY(json)</td>
-<td>Форматирует JSON для более удобного чтения</td>
-<td>JSON_PRETTY('{"name": "John", "age": 30}')</td>
+<td><code>POWER</code></td>
+<td>Возвращает результат возведения числа в степень<br><code>POWER(основание_степени, показатель_степени)</code> <code>POWER(2, 3)</code> <code>result 8</code> Эквивалентно выражению <code>2^3 = 8</code></td>
 </tr>
 <tr>
-<td>JSON_REMOVE(json, path, ...)</td>
-<td>Удаляет значение по заданному пути</td>
-<td>JSON_REMOVE('{"name": "John", "age": 30}', '$.age')<br>{"name":"John"}</td>
+<td><code>RADIANS</code></td>
+<td>Преобразует градусы в радианы<br><code>RADIANS(угол в градусах)</code> угол в <code>180</code> градусов равен <code>PI</code> радианам (<code>3.141592653589793</code>)</td>
 </tr>
 <tr>
-<td>JSONB_REMOVE(json, path, ...)</td>
-<td><code>JSON_REMOVE</code>, но с бинарными JSON данными</td>
-<td>JSONB_REMOVE('{"name": "John", "age": 30}', '$.age')</td>
+<td><code>RAND</code></td>
+<td>Которая возвращает случайное число в диапазоне от <code>0</code> до <code>1</code><br><code>RAND()</code> <code>Результат: 0.5298371105</code></td>
 </tr>
 <tr>
-<td>JSON_REPLACE(json, path, value, ...)</td>
-<td>Заменяет значение в JSON документе<br>по заданному пути (если путь существует)</td>
-<td>JSON_REPLACE('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31}</td>
+<td><code>SIGN</code></td>
+<td>Возвращает <code>1</code>, <code>0</code> или <code>-1</code> в зависимости от того, положительное, нулевое или отрицательное число соответственно<br><code>SIGN(выражение, которое вычисляется как число)</code></td>
 </tr>
 <tr>
-<td>JSONB_REPLACE(json, path, value ,...)</td>
-<td><code>JSON_REPLACE</code>, но с бинарными JSON данными</td>
-<td>JSONB_REPLACE('{"name": "John", "age": 30}', '$.age', 31)</td>
+<td><code>SIN</code></td>
+<td>Возвращает синус угла в радианах<br><code>SIN(угол в радианах)</code></td>
 </tr>
 <tr>
-<td>JSON_SET(json, path, value, ...)</td>
-<td>Устанавливает значение по заданному пути</td>
-<td>JSON_SET('{"name": "John", "age": 30}', '$.age', 31)<br>{"name":"John","age":31}</td>
+<td><code>SQRT</code></td>
+<td>Возвращает квадратный корень числа<br>Всегда возвращает неотрицательный квадратный корень<br>Если вы хотите вернуть квадратный корень с отрицательным числом, то результатом будет <code>NULL</code></td>
 </tr>
 <tr>
-<td>JSONB_SET(json, path, value, ...)</td>
-<td><code>JSON_SET</code>, но с бинарными JSON данными</td>
-<td>JSONB_SET('{"name": "John", "age": 30}', '$.age', 31)</td>
+<td><code>TAN</code></td>
+<td>Возвращает тангенс угла в радианах<br><code>TAN(угол в радианах)</code></td>
 </tr>
 <tr>
-<td>JSON_TYPE(json, [path])</td>
-<td>Возвращает тип значения<br>по заданному пути в JSON документе</td>
-<td>JSON_TYPE('{"name": "John", "age": 30}')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$')<br>object<br>JSON_TYPE('{"name": "John", "age": 30}', '$.name')<br>text</td>
+<td><code>CEIL</code> (от ceiling)</td>
+<td>Возвращает наименьшее целое число, которое больше или равно переданному значению<br><code>CEIL(3.14)</code> вернет <code>4</code>, а <code>CEIL(-3.14)</code> вернет <code>-3</code></td>
 </tr>
 <tr>
-<td>JSON_VALID(json)</td>
-<td>Проверяет, является ли строка<br>допустимым JSON документом</td>
-<td>JSON_VALID('{"name": "John", "age": 30}')<br>1</td>
+<td><code>COS</code></td>
+<td>Возвращает косинус угла в градусах<br><code>COS(угол в градусах)</code> <code>COS(45)</code> <code>result 0.7071067811865475</code></td>
 </tr>
 <tr>
-<td>JSON_VALID(json, flags)</td>
-<td><code>JSON_VALID</code>, но с флагами для проверки</td>
-<td>JSON_VALID('{"name": "John", "age": 30}', 0)</td>
-</tr>
-<tr>
-<td>JSON_QUOTE(value)</td>
-<td>Кавычит значение для включения в JSON документ</td>
-<td>JSON_QUOTE('John')<br>"John"</td>
+<td><code>COT</code></td>
+<td>Возвращает котангенс угла в радианах<br>Котангенс угла равен обратному тангенсу угла<br><code>COT(угол в радианах)</code> <code>COT(PI() / 4)</code> <code>result 1</code><br>Функция COT работает так же, как и функция SIN и TAN, но ожидает угол в радианах.</td>
 </tr>
 </tbody>
 </table>
