@@ -889,16 +889,29 @@ document.addEventListener("DOMContentLoaded", function() {
                         for (vpath of data) {
                             velement = document.querySelector(`[vpath="${vpath}"]`);
                             console.log(vpath, velement);
-                            velement.innerHTML = velement.firstElementChild.outerHTML + vpath;
-                            folder.appendChild(velement);
+
+                            title = vpath;
+                            svg_path = velement.firstElementChild.src
+                                .replaceAll("/folders/", "/links/")
+                                .replaceAll("/folder.svg", "/link.svg")
+                                .replaceAll("/tags/", "/links/")
+                                .replaceAll("/tag.svg", "/link.svg");
+                            svg = `<img alt="folder_yellow" src="${svg_path}">`;
+                            link = str_to_element(`<button vpath="${vpath}" class="link_button" title="${title}">${svg}${title}</button>`);
+                            folder.appendChild(link);
                         }
                         if (folder.childElementCount) {
                             cheatsheet_buttons.appendChild(folder_btn);
                             cheatsheet_buttons.appendChild(folder);
+                            folder.querySelectorAll(".link_button").forEach(function(button) {
+                                button.addEventListener("click", function(event) {
+                                    event.stopPropagation();
+                                    onclickLinkButton(this)
+                                });
+                            });
                         }
                     })
             }
-
         });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
