@@ -390,3 +390,9 @@ def get_h_tags(path_: str) -> list[str]:
     return [
         heading.text for heading in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
     ]
+
+
+def update_updated_json(updated_files: list[str]):
+    path = "../cheatsheet/cheatsheet_resources/updated.json"
+    with open(path, "w", encoding="UTF-8") as file:
+        json.dump(updated_files, file, indent=4, ensure_ascii=False)

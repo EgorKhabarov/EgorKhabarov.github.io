@@ -153,7 +153,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
         if isinstance(value, dict) and "index" in value:
             buttons_folder_data = generate_buttons(value, key_path)[0]
             kpath = f"{directory_e}/{key}".strip("/")
-            vpath = f"{directory_e}/{key}/index"
+            vpath = f"{directory_e}/{key}/index".strip("/")
             svg = format_folder_svg(color=current_metadata.get("color", "yellow"))
             css_display = "block" if current_metadata.get("folder-open") else "none"
             text_list.append(

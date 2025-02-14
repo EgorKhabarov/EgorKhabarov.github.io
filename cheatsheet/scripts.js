@@ -873,6 +873,30 @@ document.addEventListener("DOMContentLoaded", function() {
                     toggleDisplay(this);
                 });
             });
+
+            if (window.location.host.startsWith("localhost:")) {
+                function str_to_element(str) {
+                    div = document.createElement("div");
+                    div.innerHTML = str;
+                    return div.firstChild;
+                }
+                folder_btn = str_to_element(`<button class="folder_button" kpath="Updated&nbsp;cheatsheet" title="Updated&nbsp;cheatsheet"><img alt="folder_yellow" src="cheatsheet_resources/folders/yellow.svg">Updated&nbsp;cheatsheet</button>`);
+                folder = str_to_element(`<div id="updated_cheatsheet_folder_buttons" class="buttons_folder" style="display:block;"></div>`);
+                cheatsheet_buttons.appendChild(folder_btn);
+                cheatsheet_buttons.appendChild(folder);
+
+                fetch("cheatsheet_resources/updated.json")
+                    .then(response => response.json())
+                    .then(data => {
+                        for (vpath of data) {
+                            velement = document.querySelector(`[vpath="${vpath}"]`);
+                            console.log(vpath, velement);
+                            velement.innerHTML = velement.firstElementChild.outerHTML + vpath;
+                            folder.appendChild(velement);
+                        }
+                    })
+            }
+
         });
 });
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});

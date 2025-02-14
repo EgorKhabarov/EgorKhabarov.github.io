@@ -14,6 +14,7 @@ from _dev.utils import (
     get_git_diff,
     update_svg_badge,
     update_index_json,
+    update_updated_json,
     get_git_diff_moved_from_cheat_sheet_dict,
 )
 
@@ -35,6 +36,7 @@ func = get_files if update_all else get_git_diff
 updated_files = list(func(lambda path: path.endswith(".md")))
 updated_files_count = len(updated_files)
 print(f"Found \x1b[4m\x1b[1m{updated_files_count}\x1b[0m updated files")
+update_updated_json(list(map(lambda s: s.removesuffix(".md"), updated_files)))
 
 for updated_file_md in updated_files:
     updated_file = updated_file_md.removesuffix(".md")
