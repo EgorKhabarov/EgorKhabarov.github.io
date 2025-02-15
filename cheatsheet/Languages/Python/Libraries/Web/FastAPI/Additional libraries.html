@@ -1,0 +1,162 @@
+<h1>Таблица дополнительных библиотек для FastAPI</h1>
+<table>
+<thead>
+<tr>
+<th>Библиотека</th>
+<th>Описание</th>
+<th>Установка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SlowAPI</code></td>
+<td>Ограничение количества запросов (Rate Limiting)</td>
+<td><code>pip install slowapi</code></td>
+</tr>
+<tr>
+<td><code>FastAPI-Security</code></td>
+<td>Инструменты для безопасности, включая <code>OAuth2</code> и <code>JWT</code></td>
+<td><code>pip install fastapi-security</code></td>
+</tr>
+<tr>
+<td><code>fastapi.middleware.cors</code></td>
+<td>Встроенная поддержка <code>CORS</code></td>
+<td><strong>Встроено в FastAPI</strong></td>
+</tr>
+<tr>
+<td><code>fastapi_jwt_auth</code></td>
+<td>Аутентификация через <code>JWT</code></td>
+<td><code>pip install fastapi-jwt-auth</code></td>
+</tr>
+<tr>
+<td><code>starlette.middleware.trustedhost</code></td>
+<td>Ограничение доверенных хостов</td>
+<td><strong>Встроено в Starlette</strong></td>
+</tr>
+<tr>
+<td><code>Tortoise-ORM</code></td>
+<td><code>ORM</code> для работы с базами данных</td>
+<td><code>pip install tortoise-orm</code></td>
+</tr>
+<tr>
+<td><code>SQLAlchemy</code></td>
+<td><code>ORM</code> для работы с базами данных</td>
+<td><code>pip install sqlalchemy</code></td>
+</tr>
+<tr>
+<td><code>Alembic</code></td>
+<td>Управление миграциями базы данных</td>
+<td><code>pip install alembic</code></td>
+</tr>
+<tr>
+<td><code>Databases</code></td>
+<td>Асинхронная работа с базами данных</td>
+<td><code>pip install databases</code></td>
+</tr>
+<tr>
+<td><code>FastAPI-SocketIO</code></td>
+<td>Работа с <code>WebSocket</code></td>
+<td><code>pip install fastapi-socketio</code></td>
+</tr>
+<tr>
+<td><code>fastapi-mail</code></td>
+<td>Отправка <code>email</code></td>
+<td><code>pip install fastapi-mail</code></td>
+</tr>
+<tr>
+<td><code>aiocache</code></td>
+<td>Асинхронное кеширование данных</td>
+<td><code>pip install aiocache</code></td>
+</tr>
+<tr>
+<td><code>APScheduler</code></td>
+<td>Планирование задач (<code>cron</code>, интервалы)</td>
+<td><code>pip install apscheduler</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Примеры использования</h1>
+<h3>Ограничение запросов</h3>
+<h4>SlowAPI</h4>
+<p><a href="https://pypi.org/project/slowapi/">https://pypi.org/project/slowapi/</a></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Limiter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_remote_address</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">slowapi.middleware</span><span class="w"> </span><span class="kn">import</span> <span class="n">SlowAPIMiddleware</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="n">limiter</span> <span class="o">=</span> <span class="n">Limiter</span><span class="p">(</span><span class="n">key_func</span><span class="o">=</span><span class="n">get_remote_address</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">limiter</span> <span class="o">=</span> <span class="n">limiter</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">SlowAPIMiddleware</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="nd">@limiter</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="s2">&quot;5/minute&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, FastAPI!&quot;</span><span class="p">}</span>
+</pre></div></div></div>
+<h3>JWT-аутентификация</h3>
+<h4>fastapi_jwt_auth</h4>
+<p><a href="https://pypi.org/project/fastapi-jwt-auth/">https://pypi.org/project/fastapi-jwt-auth/</a></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi_jwt_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">AuthJWT</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Settings</span><span class="p">:</span>
+    <span class="n">authjwt_secret_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;secret&quot;</span>
+
+<span class="nd">@AuthJWT</span><span class="o">.</span><span class="n">load_config</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">Settings</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">Authorize</span><span class="p">:</span> <span class="n">AuthJWT</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">Authorize</span><span class="o">.</span><span class="n">create_access_token</span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s2">&quot;user1&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">}</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">protected</span><span class="p">(</span><span class="n">Authorize</span><span class="p">:</span> <span class="n">AuthJWT</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">Authorize</span><span class="o">.</span><span class="n">jwt_required</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;This is protected&quot;</span><span class="p">}</span>
+</pre></div></div></div>
+<h3>Работа с базой данных</h3>
+<h4>Tortoise-ORM</h4>
+<p><a href="https://pypi.org/project/tortoise-orm/">https://pypi.org/project/tortoise-orm/</a></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tortoise.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tortoise</span><span class="w"> </span><span class="kn">import</span> <span class="n">fields</span><span class="p">,</span> <span class="n">Tortoise</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">IntField</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">on_event</span><span class="p">(</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">startup</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">Tortoise</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">db_url</span><span class="o">=</span><span class="s2">&quot;sqlite://database.db&quot;</span><span class="p">,</span> <span class="n">modules</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;models&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;__main__&quot;</span><span class="p">]})</span>
+    <span class="k">await</span> <span class="n">Tortoise</span><span class="o">.</span><span class="n">generate_schemas</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]}</span>
+</pre></div></div></div>
+<h3>Работа с WebSocket</h3>
+<h4>FastAPI-SocketIO</h4>
+<p><a href="https://pypi.org/project/fastapi-socketio/">https://pypi.org/project/fastapi-socketio/</a></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi_socketio</span><span class="w"> </span><span class="kn">import</span> <span class="n">SocketManager</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="n">socket_manager</span> <span class="o">=</span> <span class="n">SocketManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">sio</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_message</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">app</span><span class="o">.</span><span class="n">sio</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;Echo: &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;WebSocket server running&quot;</span><span class="p">}</span>
+</pre></div></div></div>

@@ -222,11 +222,12 @@
                     },
                     "Flask": {
                         ".": "color: green\n",
-                        "Типы переменных": ""
+                        "Типы переменных": "",
+                        "Additional libraries": ""
                     },
                     "FastAPI": {
                         ".": "color: green\n",
-                        "index": ""
+                        "Additional libraries": ""
                     },
                     "Jinja": {
                         ".": "color: green\n",
