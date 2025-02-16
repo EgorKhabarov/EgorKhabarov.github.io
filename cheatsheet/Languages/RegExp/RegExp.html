@@ -1,8 +1,8 @@
 <p>Регуля́рные выраже́ния — формальный язык, используемый в компьютерных программах,
 работающих с текстом, для поиска и осуществления манипуляций с подстроками в тексте,
-основанный на использовании метасимволов.
+основанный на использовании метасимволов
 Для поиска используется строка-образец, состоящая из символов и
-метасимволов и задающая правило поиска.</p>
+метасимволов и задающая правило поиска</p>
 <h1>Обозначения</h1>
 <table>
 <thead>
@@ -76,7 +76,7 @@
 </table>
 <h1>Квантификаторы</h1>
 <p>Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
-группы символов или класса символов, находящихся в регулярном выражении перед ним.</p>
+группы символов или класса символов, находящихся в регулярном выражении перед ним</p>
 <table>
 <thead>
 <tr>
@@ -156,15 +156,15 @@
 </tr>
 </tbody>
 </table>
-<h2>Выполнить операции в зависимости от того, была ли захвачена определенная группа.</h2>
+<h2>Выполнить операции в зависимости от того, была ли захвачена определенная группа</h2>
 <p>Формат условного выражения:</p>
 <div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(?(condition)true-regex|false-regex)
 </pre></div></div></div>
 
 <ul>
-<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы).</li>
-<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно.</li>
-<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально).</li>
+<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы)</li>
+<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно</li>
+<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально)</li>
 </ul>
 <h3>Примеры условных выражений</h3>
 <h4>Проверка наличия захваченной группы</h4>
@@ -172,22 +172,22 @@
 </pre></div></div></div>
 
 <ul>
-<li><code>a</code> — необязательная группа.</li>
-<li><code>b</code> — применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена).</li>
-<li><code>c</code> — применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена).</li>
+<li><code>a</code> — необязательная группа</li>
+<li><code>b</code> — применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена)</li>
+<li><code>c</code> — применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена)</li>
 </ul>
-<p>Совпадение: <code>ab</code> или <code>c</code>.</p>
+<p>Совпадение: <code>ab</code> или <code>c</code></p>
 <h4>Условные выражения с несколькими группами</h4>
 <div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
 </pre></div></div></div>
 
 <ul>
-<li><code>a</code> — первая группа.</li>
-<li>Если группа 1 захвачена, проверяется <code>b</code>.</li>
-<li>Если группа 1 не захвачена, проверяется <code>c</code>.</li>
-<li><code>d</code> — необязательная группа, которая захватывается, если предыдущий шаблон совпал.</li>
+<li><code>a</code> — первая группа</li>
+<li>Если группа 1 захвачена, проверяется <code>b</code></li>
+<li>Если группа 1 не захвачена, проверяется <code>c</code></li>
+<li><code>d</code> — необязательная группа, которая захватывается, если предыдущий шаблон совпал</li>
 </ul>
-<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code>.</p>
+<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code></p>
 <h1>Группы захвата</h1>
 <table>
 <thead>
@@ -322,8 +322,8 @@
 </table>
 <h2>Использование модификаторов</h2>
 <p>Можно объединять в одну группу: <code>(?i-sm)</code> (включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>)
-Если требуется только в пределах группы, то шаблон после двоеточия.
-Например, <code>(?-i)(?i:A)bc</code> найдёт <code>abc</code> и <code>Abc</code>, но не <code>ABC</code>.</p>
+Если требуется только в пределах группы, то шаблон после двоеточия
+Например, <code>(?-i)(?i:A)bc</code> найдёт <code>abc</code> и <code>Abc</code>, но не <code>ABC</code></p>
 <h1>Команды</h1>
 <table>
 <thead>
@@ -418,9 +418,9 @@
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
 <span class="unselectable"><span class="gp">...</span></span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед.&quot;</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед&quot;</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
-<span class="unselectable"><span class="go">Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)].</span>
+<span class="unselectable"><span class="go">Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)]</span>
 </span></pre></div></div></div>
 
 <h1>Примеры</h1>
@@ -485,10 +485,10 @@
 <h1>Пример атомарной группы</h1>
 <p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
 <ol>
-<li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code>.</li>
-<li>После успешного совпадения с <code>a</code>, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются.</li>
-<li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code>.</li>
-<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения.</li>
+<li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code></li>
+<li>После успешного совпадения с <code>a</code>, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются</li>
+<li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code></li>
+<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения</li>
 </ol>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
@@ -503,22 +503,22 @@
 
 <h1>Бэктрекинг</h1>
 <p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
-если текущий путь не приводит к успешному совпадению.
-Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение.</p>
+если текущий путь не приводит к успешному совпадению
+Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение</p>
 <h2>Пример бэктрекинга</h2>
 <p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
 <ol>
-<li>Начало сопоставления с <code>a</code> — успех.</li>
-<li>Далее идет <code>(b|c)*</code>, которое может захватить любое количество <code>b</code> или <code>c</code>. Сначала регулярное выражение захватывает все <code>b</code>: <code>abbb</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbb</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
+<li>Начало сопоставления с <code>a</code> — успех</li>
+<li>Далее идет <code>(b|c)*</code>, которое может захватить любое количество <code>b</code> или <code>c</code>. Сначала регулярное выражение захватывает все <code>b</code>: <code>abbb</code></li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbb</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается</li>
 </ol>
 <p>Теперь возьмем строку <code>abbcd</code>:</p>
 <ol>
-<li>Начало сопоставления с <code>a</code> — успех.</li>
-<li>Далее идет <code>(b|c)*</code>, которое снова захватывает все <code>b</code>: <code>abb</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abb</code>. Это неудача, потому что следующий символ <code>c</code>.</li>
-<li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code>.</li>
-<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается.</li>
+<li>Начало сопоставления с <code>a</code> — успех</li>
+<li>Далее идет <code>(b|c)*</code>, которое снова захватывает все <code>b</code>: <code>abb</code></li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abb</code>. Это неудача, потому что следующий символ <code>c</code></li>
+<li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code></li>
+<li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbc</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается</li>
 </ol>
 <h1>Особенности в разных языках</h1>
 <h2>Java</h2>

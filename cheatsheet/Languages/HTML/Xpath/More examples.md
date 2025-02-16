@@ -16,13 +16,13 @@ count(//*)          # count all elements
 //section[h1[@id='section-name']]
 ```
 
-Finds a &lt;section> that directly contains h1#section-name
+Finds a `<section>` that directly contains `h1#section-name`
 
 ```bash
 //section[//h1[@id='section-name']]
 ```
 
-Finds a &lt;section> that contains h1#section-name.
+Finds a `<section>` that contains `h1#section-name`
 (Same as above, but uses descendant-or-self instead of child)
 
 # Closest
@@ -31,7 +31,7 @@ Finds a &lt;section> that contains h1#section-name.
 ./ancestor-or-self::[@class="box"]
 ```
 
-Works like jQuery’s $().closest('.box').
+Works like jQuery’s $().closest('.box')
 
 # Attributes
 

@@ -125,27 +125,27 @@ greet<span class="w"> </span><span class="s2">&quot;Мир&quot;</span><span cla
 
 <h1>Перенаправление ввода/вывода</h1>
 <h3>&gt;</h3>
-<p>Перенаправление вывода в файл (перезаписывает файл).</p>
+<p>Перенаправление вывода в файл (перезаписывает файл)</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Текст&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>output.txt
 </pre></div></div></div>
 
 <h3>&gt;&gt;</h3>
-<p>Перенаправление вывода в файл (добавляет к файлу).</p>
+<p>Перенаправление вывода в файл (добавляет к файлу)</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Еще текст&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>output.txt
 </pre></div></div></div>
 
 <h3>&lt;</h3>
-<p>Перенаправление ввода из файла.</p>
+<p>Перенаправление ввода из файла</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&lt;<span class="w"> </span>input.txt
 </pre></div></div></div>
 
 <h3>2&gt;</h3>
-<p>Перенаправление ошибок в файл.</p>
+<p>Перенаправление ошибок в файл</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>ls<span class="w"> </span>несуществующий_файл<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>errors.txt
 </pre></div></div></div>
 
 <h3>&amp;&gt;</h3>
-<p>Перенаправление как стандартного вывода, так и ошибок.</p>
+<p>Перенаправление как стандартного вывода, так и ошибок</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>команда<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>output_and_errors.txt
 </pre></div></div></div>
 
@@ -156,10 +156,10 @@ greet<span class="w"> </span><span class="s2">&quot;Мир&quot;</span><span cla
 
 <h1>Аргументы командной строки</h1>
 <ul>
-<li><code>$0</code> — имя скрипта.</li>
-<li><code>$1</code>, <code>$2</code>, ..., <code>$N</code> — аргументы командной строки.</li>
-<li><code>$#</code> — количество аргументов.</li>
-<li><code>$@</code> — все аргументы.</li>
+<li><code>$0</code> — имя скрипта</li>
+<li><code>$1</code>, <code>$2</code>, ..., <code>$N</code> — аргументы командной строки</li>
+<li><code>$#</code> — количество аргументов</li>
+<li><code>$@</code> — все аргументы</li>
 </ul>
 <p>Пример скрипта, который выводит все аргументы:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -200,11 +200,11 @@ greet<span class="w"> </span><span class="s2">&quot;Мир&quot;</span><span cla
 </tr>
 <tr>
 <td><code>&amp;&amp;</code></td>
-<td>Логическое И (следующая команда выполняется, если предыдущая завершилась успешно)</td>
+<td>Логическое <strong>И</strong> (следующая команда выполняется, если предыдущая завершилась успешно)</td>
 </tr>
 <tr>
 <td><code>||</code></td>
-<td>Логическое ИЛИ (следующая команда выполняется, если предыдущая завершилась неудачно)</td>
+<td>Логическое <strong>ИЛИ</strong> (следующая команда выполняется, если предыдущая завершилась неудачно)</td>
 </tr>
 <tr>
 <td><code>&amp;</code></td>

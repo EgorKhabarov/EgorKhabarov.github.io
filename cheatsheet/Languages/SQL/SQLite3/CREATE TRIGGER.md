@@ -212,7 +212,7 @@ BEGIN
         (SELECT AVG(score) FROM scores WHERE student_id = NEW.student_id)
     )
     ON CONFLICT(student_id)
-    DO UPDATE SET average_score = 
+    DO UPDATE SET average_score =
         (SELECT AVG(score) FROM scores WHERE student_id = NEW.student_id);
 END;
 ```

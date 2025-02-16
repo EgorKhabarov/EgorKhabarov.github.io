@@ -72,4 +72,4 @@
 |---------------------------------------------------------------------|
 | //div[contains(concat(' ',normalize-space(@class),' '),' foobar ')] |
 
-Xpath doesn’t have the “check if part of space-separated list” operator, so this is the workaround (source).
+Xpath doesn’t have the “check if part of space-separated list” operator, so this is the workaround (source)

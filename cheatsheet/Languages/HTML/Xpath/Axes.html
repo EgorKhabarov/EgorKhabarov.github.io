@@ -6,8 +6,8 @@
 //ul/ancestor-or-self::li<span class="w">     </span><span class="c1"># $(&#39;ul&#39;).closest(&#39;li&#39;)</span>
 </pre></div></div></div>
 
-<p>Steps of an expression are separated by /, usually used to pick child nodes.
-That’s not always true: you can specify a different “axis” with ::.</p>
+<p>Steps of an expression are separated by /, usually used to pick child nodes
+That’s not always true: you can specify a different “axis” with ::</p>
 <table>
 <thead>
 <tr>
@@ -38,7 +38,7 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 //child::ul/child::li/child::a
 </pre></div></div></div>
 
-<p>child:: is the default axis. This makes //a/b/c work.</p>
+<p>child:: is the default axis. This makes //a/b/c work</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 <span class="c1"># this works because &#x60;child::li&#x60; is truthy, so the predicate succeeds</span>
 //ul<span class="o">[</span>li<span class="o">]</span>
@@ -56,7 +56,7 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 //div/descendant-or-self::h4
 </pre></div></div></div>
 
-<p>// is short for the descendant-or-self:: axis.</p>
+<p>// is short for the descendant-or-self:: axis</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="c1"># both the same</span>
 //ul//<span class="o">[</span>last<span class="o">()]</span>
 //ul/descendant-or-self::<span class="o">[</span>last<span class="o">()]</span>
@@ -142,4 +142,4 @@ That’s not always true: you can specify a different “axis” with ::.</p>
 <p>There are other axes you can use</p>
 <h1>Unions</h1>
 <p>//a | //span
-Use | to join two expressions.</p>
+Use | to join two expressions</p>

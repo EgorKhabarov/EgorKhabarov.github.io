@@ -8,8 +8,8 @@
 //ul/ancestor-or-self::li     # $('ul').closest('li')
 ```
 
-Steps of an expression are separated by /, usually used to pick child nodes.
-That’s not always true: you can specify a different “axis” with ::.
+Steps of an expression are separated by /, usually used to pick child nodes
+That’s not always true: you can specify a different “axis” with ::
 
 |      |      |          |      |
 |------|------|----------|------|
@@ -24,7 +24,7 @@ That’s not always true: you can specify a different “axis” with ::.
 //child::ul/child::li/child::a
 ```
 
-child:: is the default axis. This makes //a/b/c work.
+child:: is the default axis. This makes //a/b/c work
 
 ```bash
 # both the same
@@ -49,7 +49,7 @@ child:: is the default axis. This makes //a/b/c work.
 //div/descendant-or-self::h4
 ```
 
-// is short for the descendant-or-self:: axis.
+// is short for the descendant-or-self:: axis
 
 ```bash
 # both the same
@@ -80,4 +80,4 @@ There are other axes you can use
 # Unions
 
 //a | //span
-Use | to join two expressions.
+Use | to join two expressions
