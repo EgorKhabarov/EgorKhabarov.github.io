@@ -1,0 +1,162 @@
+<h1>Content Security Policy (CSP)</h1>
+<p><code>Content Security Policy</code> (<code>CSP</code>) — это механизм защиты от атак, таких как XSS (межсайтовый скриптинг),
+путем явного указания, какие ресурсы можно загружать и откуда</p>
+<h1>Как работает CSP?</h1>
+<p>CSP добавляется через заголовок <code>Content-Security-Policy</code> или <code>&lt;meta&gt;</code>-тег в HTML
+Он указывает, какие источники разрешены для скриптов, стилей, изображений и других ресурсов</p>
+<h3>Пример заголовка:</h3>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com</span>
+</pre></div></div></div>
+
+<p>Аналог через <code>&lt;meta&gt;</code>:</p>
+<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Security-Policy&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com&quot;</span><span class="p">&gt;</span>
+</pre></div></div></div>
+
+<h1>Директивы CSP</h1>
+<h3>Базовые директивы</h3>
+<table>
+<thead>
+<tr>
+<th>Директива</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default-src</code></td>
+<td>Базовый источник для всех типов контента (если другие директивы не указаны)</td>
+</tr>
+<tr>
+<td><code>script-src</code></td>
+<td>Разрешенные источники <code>JavaScript</code></td>
+</tr>
+<tr>
+<td><code>style-src</code></td>
+<td>Разрешенные источники <code>CSS</code></td>
+</tr>
+<tr>
+<td><code>img-src</code></td>
+<td>Разрешенные источники изображений</td>
+</tr>
+<tr>
+<td><code>media-src</code></td>
+<td>Разрешенные источники аудио и видео</td>
+</tr>
+<tr>
+<td><code>connect-src</code></td>
+<td>Разрешенные источники для <code>fetch()</code>, WebSockets и XHR</td>
+</tr>
+<tr>
+<td><code>font-src</code></td>
+<td>Разрешенные источники шрифтов</td>
+</tr>
+<tr>
+<td><code>frame-src</code></td>
+<td>Разрешенные источники для <code>&lt;iframe&gt;</code></td>
+</tr>
+<tr>
+<td><code>object-src</code></td>
+<td>Разрешенные источники для <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;applet&gt;</code></td>
+</tr>
+<tr>
+<td><code>worker-src</code></td>
+<td>Разрешенные источники для Web Workers</td>
+</tr>
+</tbody>
+</table>
+<h3>Политики источников</h3>
+<table>
+<thead>
+<tr>
+<th>Политика</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'self'</code></td>
+<td>Разрешает ресурсы с того же домена</td>
+</tr>
+<tr>
+<td><code>'none'</code></td>
+<td>Запрещает загрузку любых ресурсов</td>
+</tr>
+<tr>
+<td><code>'unsafe-inline'</code></td>
+<td>Разрешает встроенные стили и скрипты (НЕБЕЗОПАСНО)</td>
+</tr>
+<tr>
+<td><code>'unsafe-eval'</code></td>
+<td>Разрешает <code>eval()</code> в <code>JavaScript</code> (НЕБЕЗОПАСНО)</td>
+</tr>
+<tr>
+<td><code>https:</code></td>
+<td>Разрешает загрузку только через HTTPS</td>
+</tr>
+<tr>
+<td><code>data:</code></td>
+<td>Разрешает <code>data:</code>-URL (НЕБЕЗОПАСНО)</td>
+</tr>
+<tr>
+<td><code>blob:</code></td>
+<td>Разрешает <code>blob:</code>-URL</td>
+</tr>
+</tbody>
+</table>
+<h1>Примеры CSP</h1>
+<h3>Запрещаем всё, кроме безопасных источников</h3>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://trusted.cdn.com; style-src &#39;self&#39;</span>
+</pre></div></div></div>
+<ul>
+<li>Разрешены скрипты только с <code>self</code> и <code>trusted.cdn.com</code></li>
+<li>Стили разрешены только с <code>self</code></li>
+<li>Все остальные ресурсы заблокированы</li>
+</ul>
+<h3>Разрешаем загрузку изображений с любых источников</h3>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: img-src *;</span>
+</pre></div></div></div>
+
+<h3>Разрешаем только HTTPS</h3>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src https:;</span>
+</pre></div></div></div>
+
+<h3>Запрещаем inline-скрипты и <code>eval()</code></h3>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39;;</span>
+</pre></div></div></div>
+
+<h1>Режим "только отчёт" (report-only)</h1>
+<p>Можно протестировать <code>CSP</code>, не блокируя ресурсы:</p>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy-Report-Only: default-src &#39;self&#39;; script-src &#39;self&#39;; report-uri /csp-report</span>
+</pre></div></div></div>
+<p>Браузер отправит отчёты о нарушениях на <code>/csp-report</code>, но ничего не заблокирует</p>
+<h2>Как избежать ошибок CSP?</h2>
+<ul>
+<li><strong>Не используйте <code>unsafe-inline</code></strong>: вместо этого используйте <code>nonce</code> или <code>hash</code></li>
+<li><strong>Используйте <code>nonce</code> для разрешения конкретных inline-скриптов</strong></li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;nonce-abc123&#39;;</span>
+</pre></div></div></div>
+<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;abc123&quot;</span><span class="p">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Безопасный inline-скрипт&#39;</span><span class="p">);&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div></div></div>
+<ul>
+<li><strong>Используйте <code>strict-dynamic</code> для безопасных загрузок скриптов</strong>:</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;strict-dynamic&#39; https:;</span>
+</pre></div></div></div>
+
+<h1>Проверка и отладка CSP</h1>
+<h3>Проверить CSP в браузере</h3>
+<ul>
+<li>В Chrome DevTools → <code>Security</code> → <code>Content Security Policy</code></li>
+<li>В <code>Console</code> будут ошибки CSP при нарушениях</li>
+</ul>
+<h3>Онлайн-проверка CSP</h3>
+<ul>
+<li><a href="https://csp-evaluator.withgoogle.com/">Google CSP Evaluator</a></li>
+<li><a href="https://observatory.mozilla.org/">Mozilla Observatory</a></li>
+</ul>
+<h1>Итог</h1>
+<p><code>CSP</code> защищает от <a href="?General/Abbreviations/Security/XSS">XSS</a>, но требует настройки
+Используйте <code>nonce</code> и <code>strict-dynamic</code> вместо <code>unsafe-inline</code>
+Проверяйте отчёты нарушений (<code>report-uri</code>)
+Минимально разрешайте источники ресурсов</p>

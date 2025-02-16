@@ -1,0 +1,30 @@
+<h1>JWT</h1>
+<p>JSON Web Token
+Токены авторизации</p>
+<h3>Как работает JWT?</h3>
+<p>JWT состоит из трёх частей</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>header.payload.signature
+</pre></div></div></div>
+<p>Пример JWT</p>
+<div class="code_element"><div class="lang_line"><text>json</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-json"><div class="highlight"><pre><span></span><span class="err">eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsI</span><span class="kc">n</span><span class="err">R</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mi">9</span>
+
+<span class="err">eyJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">VyX</span><span class="mi">2</span><span class="err">lkIjoxMjMsI</span><span class="kc">n</span><span class="err">JvbGUiOiJ</span><span class="mi">1</span><span class="err">c</span><span class="mi">2</span><span class="err">VyI</span><span class="kc">n</span><span class="mi">0</span>
+
+<span class="err">S</span><span class="kc">fl</span><span class="err">KxwRJSMeKKF</span><span class="mi">2</span><span class="err">QT</span><span class="mi">4</span><span class="kc">f</span><span class="err">wpMeJ</span><span class="kc">f</span><span class="mi">36</span><span class="err">POk</span><span class="mi">6</span><span class="err">yJV_adQssw</span><span class="mi">5</span><span class="err">c</span>
+</pre></div></div></div>
+<h3>Плюсы JWT</h3>
+<ul>
+<li><strong>Статическая аутентификация</strong> — не требует запросов к базе данных</li>
+<li><strong>Гибкость</strong> — можно использовать в API</li>
+</ul>
+<h3>Минусы JWT:</h3>
+<ul>
+<li>Нельзя просто отозвать токен без механизма чёрного списка</li>
+<li>Токен может быть украден при <code>XSS</code>-атаке</li>
+</ul>
+<h3>Защита JWT:</h3>
+<ul>
+<li>Использовать <strong><code>HttpOnly</code> и <code>Secure Cookies</code></strong> вместо <code>localStorage</code></li>
+<li>Хранить срок жизни токена небольшим (например, 15 минут)</li>
+<li>Использовать <code>refresh</code>-токены</li>
+</ul>

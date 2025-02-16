@@ -1,19 +1,33 @@
 {
     "General": {
-        "Terms and Abbreviations": {
+        "Abbreviations": {
             "Table of contents": "",
-            "SOLID": "",
-            "ACID": "",
-            "BNF EBNF": "",
-            "ip": "",
-            "ООП": "",
-            "Big O Notation": "",
-            "Парадигмы программирования": "",
-            "Interpreter Compiler": "",
-            "sync async": "",
-            "Угрозы безопасности": "",
-            "REST": "",
-            "MVP": ""
+            "Programming": {
+                "ООП": "",
+                "SOLID": "",
+                "DDD": "",
+                "MVP": "",
+                "REST": "",
+                "Парадигмы программирования": "",
+                "Interpreter Compiler": "",
+                "sync async": "",
+                "ip": "",
+                "Big O Notation": ""
+            },
+            "Security": {
+                "XSS": "",
+                "CSRF": "",
+                "SSRF": "",
+                "MITM": "",
+                "SQL Injection": "",
+                "JWT": "",
+                "CSP": "",
+                "Open Redirect": "",
+                "Clickjacking": ""
+            },
+            "Databases": {
+                "ACID": ""
+            }
         },
         "Design patterns (Паттерны проектирования)": {
             "index": "",

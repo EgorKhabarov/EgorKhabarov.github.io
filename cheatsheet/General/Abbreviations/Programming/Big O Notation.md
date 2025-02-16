@@ -109,4 +109,4 @@ def bubble_sort(arr):
 
 # image
 
-![BigONotation.png](General/Terms and Abbreviations/BigONotation.png)
+![BigONotation.png](General/Abbreviations/Programming/BigONotation.png)
