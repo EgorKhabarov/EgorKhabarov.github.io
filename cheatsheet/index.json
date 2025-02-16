@@ -546,7 +546,8 @@
             "Dockerfile": {
                 ".": "color: violet\n",
                 "Dockerfile": "color: lblue\n",
-                "RUN mkdir -p": ""
+                "RUN mkdir -p": "",
+                "Docker Compose": ""
             },
             "Go": {
                 ".": "color: violet\n",

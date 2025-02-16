@@ -309,7 +309,7 @@ hr {
 }
 
 /* Подсветка синтаксиса */
-.k, .ow, .kn, .si, .se, .kd, .kc {color:#CC7832;} /* Ключевые слова */
+.k, .ow, .kn, .si, .se, .kd, .kc, .nt {color:#CC7832;} /* Ключевые слова */
 .s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
 .c1, .cp, .cpf {color:hsla(0,0%,100%,.5)} /* Коммент */
 .m, .mi, .mf {color:#5897BB;} /* Число */
@@ -321,6 +321,7 @@ hr {
 /*.na {color:#AA4926;}  Аргумент */
 
 .language-java .kt {color:#CC7832;}
+.language-yaml .c1 {color:#629755;}  /* Коммент (Текст, но светлее) */
 
 
 .unselectable {
