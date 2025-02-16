@@ -243,7 +243,8 @@
                     },
                     "webcolors": "color: green\n",
                     "certifi": "color: green\n",
-                    "grpc": "color: green\n"
+                    "grpc": "color: green\n",
+                    "aiohttp": "color: green\n"
                 },
                 "GUI": {
                     ".": "color: green\n",
@@ -542,7 +543,8 @@
                 "Элементы": ""
             },
             "Cron": "color: violet\n",
-            "Glob": "color: violet\n"
+            "Glob": "color: violet\n",
+            "BNF EBNF": "color: violet\n"
         },
         "Android": {
             "Components": {
