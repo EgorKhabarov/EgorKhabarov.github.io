@@ -883,6 +883,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 folder_btn = str_to_element(`<button class="folder_button" kpath="Updated&nbsp;cheatsheet" title="Updated&nbsp;cheatsheet"><img alt="folder_yellow" src="cheatsheet_resources/folders/yellow.svg">Updated&nbsp;cheatsheet</button>`);
                 folder = str_to_element(`<div id="updated_cheatsheet_folder_buttons" class="buttons_folder" style="display:block;"></div>`);
 
+                folder_btn.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    onclickFolderButton(this)
+                });
+
                 fetch("cheatsheet_resources/updated.json")
                     .then(response => response.json())
                     .then(data => {
