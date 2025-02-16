@@ -38,11 +38,16 @@
 | `Version Control Systems` `Diff & Merge/Previous Difference`                        | `Alt`+`Comma`      |
 | `Version Control Systems` `Amend Commit`                                            | `Ctrl`+`K`         |
 | `Version Control Systems` `Update Project`                                          |                    |
+| `Plugins` `Code With Me ` `New Tab`                                                 |                    |
+| `Plugins` `Images ` `Close Thumbnails`                                              |                    |
+| `Plugins` `Markdown ` `Create Link`                                                 |                    |
+| `Plugins` `Terminal ` `Close Tab`                                                   |                    |
+| `Plugins` `Terminal ` `Delete Previous Word`                                        |                    |
 
 # Editor
 ## Font
-|                    |                                 |
-|--------------------|---------------------------------|
-| `Size`             | `10.0`                          |
-| `Line`             | `1.0`                           |
-| `Enable Ligatures` | <input type="checkbox" checked> |
+|                    |                                          |
+|--------------------|------------------------------------------|
+| `Size`             | `10.0`                                   |
+| `Line`             | `1.0`                                    |
+| `Enable Ligatures` | <input type="checkbox" checked disabled> |
