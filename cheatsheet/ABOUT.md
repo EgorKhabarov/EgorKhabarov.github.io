@@ -104,19 +104,19 @@ code
 
 ```markdown
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> Useful information that users should know, even when skimming content
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> Helpful advice for doing things better or more easily
 
 > [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> Key information users need to know to achieve their goal
 
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> Urgent info that needs immediate user attention to avoid problems
 
 > [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> Advises about risks or negative outcomes of certain actions
 ```
 
 Read more [here](?Other/GitHub/Markdown) and [here](https://docs.github.com/ru/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
@@ -124,32 +124,32 @@ Read more [here](?Other/GitHub/Markdown) and [here](https://docs.github.com/ru/g
 <br>
 
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> Useful information that users should know, even when skimming content
 
 <br>
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> Helpful advice for doing things better or more easily
 
 <br>
 
 > [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> Key information users need to know to achieve their goal
 
 <br>
 
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> Urgent info that needs immediate user attention to avoid problems
 
 <br>
 
 > [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> Advises about risks or negative outcomes of certain actions
 
 <br>
 
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> Urgent info that needs immediate user attention to avoid problems
 >> 123
 >>> qweret
 > r
