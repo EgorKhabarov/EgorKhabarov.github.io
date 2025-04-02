@@ -306,6 +306,10 @@ hr {
     background-color: #1B1B1B;
     border-radius: .0em .0em .375em .375em;
     background-color: #272727;
+    /* */
+    max-width: 600px;
+    overflow-x: auto;
+    /* */
 }
 
 /* Подсветка синтаксиса */
