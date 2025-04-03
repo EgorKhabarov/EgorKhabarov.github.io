@@ -1,0 +1,43 @@
+<p>Работа с виртуальными окружениями с помощью <code>virtualenvwrapper</code></p>
+<h1>Создание нового виртуального окружения</h1>
+<p><code>mkvirtualenv [-a project_path] [-i package] [-r requirements_file] [virtualenv options] ENVNAME</code></p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>mkvirtualenv<span class="w"> </span>myenv<span class="w"> </span>--python<span class="o">=</span>python3.10
+</pre></div></div></div>
+
+<p>Создает новое виртуальное окружение с именем <code>myenv</code>, используя указанную версию Python (например, 3.10)
+После создания окружение автоматически активируется, и в командной строке появляется префикс <code>(myenv)</code></p>
+<h1>Активация существующего окружения</h1>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>workon<span class="w"> </span>myenv
+</pre></div></div></div>
+
+<p>Активирует ранее созданное виртуальное окружение с именем <code>myenv</code>
+Чтобы узнать список доступных окружений выполните команду без аргументов</p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>workon
+</pre></div></div></div>
+<p>Это выведет список всех виртуальных окружений, находящихся в каталоге <code>~/.virtualenvs/</code></p>
+<h1>Деактивация (выход) из виртуального окружения</h1>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>deactivate
+</pre></div></div></div>
+
+<p>Выходит из текущего активного виртуального окружения и возвращает вас к системному (глобальному) интерпретатору Python</p>
+<h1>Удаление виртуального окружения</h1>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>rmvirtualenv<span class="w"> </span>myenv
+</pre></div></div></div>
+
+<p>Полностью удаляет виртуальное окружение с именем <code>myenv</code></p>
+<h1>Дополнительные полезные моменты</h1>
+<h3>Путь к виртуальным окружениям</h3>
+<p>Все созданные окружения находятся в каталоге <code>~/.virtualenvs/</code></p>
+<h3>Проверка версии Python в окружении</h3>
+<p>После активации выполните</p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div></div></div>
+<p>Это позволит убедиться, что используется нужная версия Python</p>
+<h3>Установка пакетов в активированном окружении</h3>
+<p>Используйте <code>pip</code> для установки необходимых пакетов</p>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div></div></div>
+
+<p><code>mkvirtualenv</code> и <code>workon</code> являются частью набора инструментов <code>virtualenvwrapper</code>,
+который значительно упрощает управление множеством виртуальных окружений, особенно когда приходится часто переключаться между ними</p>
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html">https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html</a></p>

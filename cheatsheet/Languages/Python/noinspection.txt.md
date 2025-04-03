@@ -1,3 +1,8 @@
+`# noinspection PyPackageRequirements`
+`# noinspection PyUnusedLocal`
+`# noinspection PyShadowingNames`
+`# noinspection PyBroadException`
+
 ```python@noinspection.txt
 # noinspection PyPep8
 # noinspection PyPep8Naming

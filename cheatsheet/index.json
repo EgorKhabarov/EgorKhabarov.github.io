@@ -326,7 +326,8 @@
                 "requirements.txt": "",
                 "IPython": "",
                 "File formats": "",
-                "setup.py & pyproject.toml": ""
+                "setup.py & pyproject.toml": "",
+                "virtualenvwrapper": ""
             },
             "Generators": {
                 "Методы": "",

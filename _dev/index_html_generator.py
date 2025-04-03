@@ -21,7 +21,7 @@ cheatsheet_button = """
 <button vpath="{vpath}"{tags} class="cheatsheet_button" title="{title}">{svg}{title}</button>
 """.strip()
 folder_button = """
-<button kpath="{kpath}" class="folder_button" title="{title}">{svg}{title}</button>  
+<button kpath="{kpath}" class="folder_button" title="{title}">{svg}{title}</button>
 <div class="buttons_folder" style="display:{css_display};">{buttons_folder_data}</div>
 """.strip()
 folder_cheatsheet_button = """
