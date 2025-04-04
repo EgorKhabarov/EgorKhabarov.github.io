@@ -1,0 +1,60 @@
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="c1"># Variation selector ranges</span>
+<span class="n">VARIATION_SELECTOR_START</span> <span class="o">=</span> <span class="mh">0xFE00</span>
+<span class="n">VARIATION_SELECTOR_END</span> <span class="o">=</span> <span class="mh">0xFE0F</span>
+<span class="n">VARIATION_SELECTOR_SUPPLEMENT_START</span> <span class="o">=</span> <span class="mh">0xE0100</span>
+<span class="n">VARIATION_SELECTOR_SUPPLEMENT_END</span> <span class="o">=</span> <span class="mh">0xE01EF</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_variation_selector</span><span class="p">(</span><span class="n">byte</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Turns a byte into a variation selector</span>
+
+<span class="sd">    :param byte:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">byte</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">VARIATION_SELECTOR_START</span> <span class="o">+</span> <span class="n">byte</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">16</span> <span class="o">&lt;=</span> <span class="n">byte</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">VARIATION_SELECTOR_SUPPLEMENT_START</span> <span class="o">+</span> <span class="n">byte</span> <span class="o">-</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">from_variation_selector</span><span class="p">(</span><span class="n">code_point</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Receives a byte back from the selector</span>
+
+<span class="sd">    :param code_point:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">VARIATION_SELECTOR_START</span> <span class="o">&lt;=</span> <span class="n">code_point</span> <span class="o">&lt;=</span> <span class="n">VARIATION_SELECTOR_END</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">code_point</span> <span class="o">-</span> <span class="n">VARIATION_SELECTOR_START</span>
+    <span class="k">elif</span> <span class="n">VARIATION_SELECTOR_SUPPLEMENT_START</span> <span class="o">&lt;=</span> <span class="n">code_point</span> <span class="o">&lt;=</span> <span class="n">VARIATION_SELECTOR_SUPPLEMENT_END</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">code_point</span> <span class="o">-</span> <span class="n">VARIATION_SELECTOR_SUPPLEMENT_START</span> <span class="o">+</span> <span class="mi">16</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">emoji</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hides text in emoji by encoding it in selectors</span>
+
+<span class="sd">    :param emoji:</span>
+<span class="sd">    :param text:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bytes_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="n">emoji</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">to_variation_selector</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bytes_text</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">encoded</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts hidden text</span>
+
+<span class="sd">    :param text:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">decoded_bytes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">byte</span> <span class="o">=</span> <span class="n">from_variation_selector</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">byte</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">decoded_bytes</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">elif</span> <span class="n">byte</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">decoded_bytes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">byte</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">decoded_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div></div></div>

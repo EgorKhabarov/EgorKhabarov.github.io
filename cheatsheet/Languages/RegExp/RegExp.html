@@ -480,8 +480,20 @@
 <td>Строка в одинарных кавычках</td>
 <td><code>'[^'\n]*?'</code></td>
 </tr>
+<tr>
+<td><code>RE_AMP</code> html &amp;</td>
+<td><code>(?i)&amp;(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)</code></td>
+</tr>
+<tr>
+<td>🤡</td>
+<td><code>__import__("re").compile(r"(.*.*)*^").match(str(.1+.2))</code></td>
+</tr>
 </tbody>
 </table>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">IP_RANGE</span> <span class="o">=</span> <span class="s2">&quot;(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])&quot;</span>
+<span class="n">IP_REGEXP</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">$&quot;</span>
+</pre></div></div></div>
+
 <h1>Пример атомарной группы</h1>
 <p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
 <ol>

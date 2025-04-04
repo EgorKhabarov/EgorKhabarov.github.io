@@ -655,11 +655,16 @@
                 "Определитель матрицы": "color: brown\n",
                 "Минимальное максимальное число матрицы cpp": "color: brown\n",
                 "str - int": "color: brown\n",
-                "fib": "color: brown\n",
-                "converters": "color: brown\n",
                 "quicksort": "color: brown\n",
-                "словарь обращение через точку": "color: brown\n",
-                "download telegram emoji": "color: brown\n"
+                "download telegram emoji": "color: brown\n",
+                "get_caller_name": "color: brown\n",
+                "Transliterate": "color: brown\n",
+                "Hide text in emoji": "color: brown\n",
+                "get_path_executable_by_name_shutil_which": "color: brown\n",
+                "tg_color": "color: brown\n",
+                "Fib": "color: brown\n",
+                "Словарь обращение через точку": "color: brown\n",
+                "get_valid_filename": ""
             },
             "Get admin rights": "color: brown\n",
             "PYPRECODE": "color: brown\n"
