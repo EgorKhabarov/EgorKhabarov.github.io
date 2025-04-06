@@ -251,7 +251,7 @@ hr {
 .code_element {
     display: flex;
     flex-direction: column;
-    width: min-content;
+    width: fit-content;
     margin-bottom:1em;
     border-radius:.375em;
 }
@@ -271,6 +271,9 @@ hr {
     gap: .1em;
     font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
                 sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+
+    position: sticky;
+    top: -15px;
 }
 
 /* Кнопка для копирования кода */
