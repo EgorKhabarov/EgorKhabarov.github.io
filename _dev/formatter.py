@@ -18,7 +18,7 @@ text = path.read_text(encoding="UTF-8")
 
 end_space_regex = re.compile(r"(?m) +$")
 end_dot_regex = re.compile(r"(?m)\.$")
-header_regex = re.compile(r"(#+) \*\*(?:\d\.){0,2} ?([^\n]+)\*\*")
+header_regex = re.compile(r"(#+|\*|\d+\.) \*\*(?:\d\.){0,2} ?([^\n]+)\*\*")
 hr_regex = re.compile(r"\n\n---")
 quotes_regex = re.compile(r"'[^'\n]*?'")
 
