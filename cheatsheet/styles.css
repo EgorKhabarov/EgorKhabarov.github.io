@@ -527,3 +527,21 @@ p {
     display: flex;
     flex-direction: row;
 }
+
+
+
+
+@media (orientation: landscape) {
+    /*Стиль применится при горизонтальной ориентации устройства*/
+}
+@media (orientation: portrait) {
+    /*Стиль применится при портретной ориентации устройства*/
+}
+@media (max-width: 550px) {
+    #cheatsheet_field {
+        text-wrap-mode: wrap;
+    }
+    .highlight > pre {
+        text-wrap-mode: wrap;
+    }
+}

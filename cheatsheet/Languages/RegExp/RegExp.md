@@ -290,26 +290,26 @@ console.log(regex.test('Hello, world!'));  // true
 Возвращает массив с информацией о первом совпадении (или `null`, если не найдено)
 ```javascript
 const regex = /hello/;
-const result = regex.exec('Hello, world!');
-console.log(result);  // ['Hello']
+const result = regex.exec("Hello, world!");
+console.log(result);  // ["Hello"]
 ```
 #### match
 Метод строки, возвращает все совпадения (включая глобальные)
 ```javascript
-const str = 'ab, ac, ad';
-console.log(str.match(/a./g));  // ['ab', 'ac', 'ad']
+const str = "ab, ac, ad";
+console.log(str.match(/a./g));  // ["ab", "ac", "ad"]
 ```
 #### replace
 Метод строки, заменяет совпадения на новый текст
 ```javascript
-const str = 'abc def abc';
-console.log(str.replace(/abc/g, 'xyz'));  // 'xyz def xyz'
+const str = "abc def abc";
+console.log(str.replace(/abc/g, "xyz"));  // "xyz def xyz"
 ```
 #### split
 Разделяет строку по шаблону регулярного выражения
 ```javascript
-const str = 'apple,banana,grape';
-console.log(str.split(/,/));  // ['apple', 'banana', 'grape']
+const str = "apple,banana,grape";
+console.log(str.split(/,/));  // ["apple", "banana", "grape"]
 ```
 
 ### Особенности и полезные моменты
@@ -318,15 +318,15 @@ console.log(str.split(/,/));  // ['apple', 'banana', 'grape']
 Для получения всех совпадений нужно использовать `g`. Без этого флага будет возвращено только первое совпадение
 ```javascript
 const regex = /\d+/g;
-const result = 'abc 123 def 456 ghi'.match(regex);
-console.log(result);  // ['123', '456']
+const result = "abc 123 def 456 ghi".match(regex);
+console.log(result);  // ["123", "456"]
 ```
 #### Группы (с `()`)
 Используй круглые скобки для группировки и захвата частей строки
 ```javascript
 const regex = /(\d{3})-(\d{2})-(\d{4})/;
-const result = '123-45-6789'.match(regex);
-console.log(result);  // ['123-45-6789', '123', '45', '6789']
+const result = "123-45-6789".match(regex);
+console.log(result);  // ["123-45-6789", "123", "45", "6789"]
 ```
 #### Базовые метасимволы
 - `.` — любой символ, кроме новой строки
@@ -343,9 +343,9 @@ console.log(regex.test('123-45-6789'));  // true
 #### Опциональные элементы (с `?`)
 Можно делать часть шаблона необязательной
 ```javascript
-const regex = /colou?r/;  // 'colour' или 'color'
-console.log(regex.test('color'));  // true
-console.log(regex.test('colour'));  // true
+const regex = /colou?r/;  // "colour" или "color"
+console.log(regex.test("color"));  // true
+console.log(regex.test("colour"));  // true
 ```
 #### Квантификаторы
 - `{n}` — точно n раз
@@ -353,14 +353,14 @@ console.log(regex.test('colour'));  // true
 - `{n,m}` — от n до m раз
 ```javascript
 const regex = /\d{2,4}/;  // от 2 до 4 цифр
-console.log(regex.test('1234'));  // true
+console.log(regex.test("1234"));  // true
 ```
 #### `(?: ...)` — неконтролируемая группа
 Группа, которая не сохраняет свой результат в массиве (полезно для применения операторов без захвата)
 ```javascript
 const regex = /(?:abc|def)/;
-console.log(regex.test('abc'));  // true
-console.log(regex.test('def'));  // true
+console.log(regex.test("abc"));  // true
+console.log(regex.test("def"));  // true
 ```
 
 ### Работа с многобайтовыми символами и юникодом
@@ -368,7 +368,7 @@ console.log(regex.test('def'));  // true
 - Для работы с юникодом, можно использовать флаг `u` (юникодный режим), что позволяет работать с эмодзи и другими многобайтовыми символами
 ```javascript
 const regex = /\u{1F600}/u;  // Эмодзи 😀
-console.log(regex.test('😀'));  // true
+console.log(regex.test("😀"));  // true
 ```
 - `\p{...}` — для поиска символов по категориям в Unicode
 ```javascript
@@ -380,8 +380,8 @@ console.log(regex.test('a'));  // true
 В режиме "прилипание" регулярное выражение будет искать совпадение начиная с текущей позиции в строке
 ```javascript
 const regex = /abc/y;
-const str = 'abcabc';
-console.log(regex.exec(str));  // ['abc']
-console.log(regex.exec(str));  // ['abc']
+const str = "abcabc";
+console.log(regex.exec(str));  // ["abc"]
+console.log(regex.exec(str));  // ["abc"]
 ```
 В режиме `y`, если в следующем вызове метода `exec()` нет совпадений с текущей позиции, вернется `null`

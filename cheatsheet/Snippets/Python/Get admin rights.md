@@ -16,7 +16,7 @@ def is_admin():
 if not is_admin():
     print("Необходимы права администратора, перезапускаем скрипт...")
     # Перезапуск скрипта с правами администратора
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, ' '.join(sys.argv), None, 1)
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
     sys.exit(0)
 
 # Ваш код, который требует прав администратора

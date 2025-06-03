@@ -331,7 +331,8 @@
             "Generators": {
                 "Методы": "",
                 "Атрибуты": "",
-                "yield from": ""
+                "yield from": "",
+                "yield return": ""
             },
             "Built-in": {
                 "Built-in functions": "tags: slice callable reversed setattr locals classmethod divmod object oct property\n    bytes filter nonlocal abs getattr frozenset memoryview hasattr globals compile\n    delattr chr complex staticmethod bin dir __import__ bytearray\n",
@@ -543,7 +544,7 @@
                 "index": "",
                 "Android": ""
             },
-            "Dockerfile": {
+            "Docker": {
                 ".": "color: violet\n",
                 "Dockerfile": "color: lblue\n",
                 "RUN mkdir -p": "",

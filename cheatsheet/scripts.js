@@ -164,7 +164,7 @@ strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
 
 `;
     } else {
-        css_markdown_preview.textContent = '';
+        css_markdown_preview.textContent = "";
     }
 }
 

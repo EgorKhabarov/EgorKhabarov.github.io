@@ -1,51 +1,275 @@
-<p>Библиотека <code>heapq</code> в Python используется для работы с <code>heapq</code>, имплементации алгоритма <code>heap queue</code> (очереди с приоритетами).
-Это набор функций для эффективной работы с <code>heap</code> (кучей) - структурой данных,
-которая обеспечивает быстрый доступ к наименьшему (или наибольшему) элементу.</p>
+<h1>heapq</h1>
+<p><code>heapq</code> реализует <strong>очередь с приоритетом</strong> на базе <strong>мин-кучи</strong></p>
+<p>Модуль <code>heapq</code> предоставляет алгоритмы для работы с <strong>мин-кучей</strong> — бинарной кучи, где на вершине находится наименьший элемент
+Все функции работают <strong>in-place</strong> с обычным списком (<code>list</code>), который должен быть <strong>представлен как куча</strong></p>
+<ul>
+<li>Куча представляется списком</li>
+<li>Базируется на <strong>мин-куче</strong> (<code>heap[0]</code> — минимальный элемент)</li>
+<li>Работает <strong>in-place</strong></li>
+</ul>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>Название</th>
+<th>Назначение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>heapify(iterable)</code></td>
-<td>Перестраивает итерируемый объект в кучу</td>
+<td><code>heapify</code></td>
+<td>Преобразует список в кучу (min-heap)</td>
 </tr>
 <tr>
-<td>`heappush(heap, item)</td>
+<td><code>heappush</code></td>
 <td>Добавляет элемент в кучу</td>
 </tr>
 <tr>
-<td><code>heappop(heap)</code></td>
-<td>Извлекает и возвращает наименьший элемент из кучи</td>
+<td><code>heappop</code></td>
+<td>Удаляет и возвращает наименьший элемент</td>
 </tr>
 <tr>
-<td><code>heappushpop(heap, item)</code></td>
-<td>Добавляет элемент в кучу и сразу возвращает наименьший элемент</td>
+<td><code>heappushpop</code></td>
+<td>Вставляет и сразу удаляет наименьший</td>
 </tr>
 <tr>
-<td><code>heapreplace(heap, item)</code></td>
-<td>Заменяет наименьший элемент и возвращает его</td>
+<td><code>heapreplace</code></td>
+<td>Удаляет и сразу вставляет новый элемент</td>
+</tr>
+<tr>
+<td><code>merge</code></td>
+<td>Итератор по отсортированным итерациям</td>
+</tr>
+<tr>
+<td><code>nlargest</code></td>
+<td><code>N</code> наибольших элементов из итерируемого</td>
+</tr>
+<tr>
+<td><code>nsmallest</code></td>
+<td><code>N</code> наименьших элементов из итерируемого</td>
+</tr>
+<tr>
+<td><code>_heapify_max</code></td>
+<td>Вспомогательная: делает max-кучу</td>
+</tr>
+<tr>
+<td><code>_heappop_max</code></td>
+<td>Вспомогательная: pop из max-кучи</td>
+</tr>
+<tr>
+<td><code>_heapreplace_max</code></td>
+<td>Вспомогательная: replace в max-куче</td>
+</tr>
+<tr>
+<td><code>_siftdown</code></td>
+<td>Внутренняя: просеивание вниз (min-heap)</td>
+</tr>
+<tr>
+<td><code>_siftup</code></td>
+<td>Внутренняя: просеивание вверх (min-heap)</td>
+</tr>
+<tr>
+<td><code>_siftdown_max</code></td>
+<td>Вспомогательная: sift вниз (max-heap)</td>
+</tr>
+<tr>
+<td><code>_siftup_max</code></td>
+<td>Вспомогательная: sift вверх (max-heap)</td>
 </tr>
 </tbody>
 </table>
+<h2>Основные функции (min-heap)</h2>
+<h3><code>heapify(iterable)</code></h3>
+<p>Превращает список в кучу за <code>O(n)</code></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># [1, 1, 4, 3, 5]</span>
+</pre></div></div></div>
+<h3><code>heappush(heap, item)</code></h3>
+<p>Добавляет элемент в кучу</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># [1, 1, 2, 3, 5, 4]</span>
+</pre></div></div></div>
+<h3><code>heappop(heap)</code></h3>
+<p>Удаляет и возвращает наименьший элемент</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">min_item</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_item</span><span class="p">)</span>  <span class="c1"># 1</span>
+</pre></div></div></div>
+<h3><code>heappushpop(heap, item)</code></h3>
+<p>Добавляет элемент и возвращает наименьший
+Быстрее, чем <code>heappush</code> + <code>heappop</code></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappushpop</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 0</span>
+</pre></div></div></div>
+<h3><code>heapreplace(heap, item)</code></h3>
+<p>Удаляет наименьший и добавляет новый
+Быстрее, но не сохраняет item, если heap пуст</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heapreplace</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 1 (удалён)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>    <span class="c1"># [1, 3, 4, 5, 10]</span>
+</pre></div></div></div>
+<h3><code>merge(*iterables, key=None, reverse=False)</code></h3>
+<p>Возвращает итератор по отсортированному объединению отсортированных последовательностей</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">heapq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1 2 3 4 5 6</span>
+</pre></div></div></div>
+<h3><code>nsmallest(n, iterable, key=None)</code></h3>
+<p>N наименьших элементов (подходит, если n небольшое)</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">heapq</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>  <span class="c1"># [1, 3]</span>
+</pre></div></div></div>
+<h3><code>nlargest(n, iterable, key=None)</code></h3>
+<p>N наибольших элементов</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">heapq</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>  <span class="c1"># [7, 5]</span>
+</pre></div></div></div>
+<h2>Дополнительные (max-heap)</h2>
+<blockquote>
+<p>Работают так же, но делают <strong>максимальную</strong> кучу (неофициальные, начинаются с <code>_</code>)</p>
+</blockquote>
 <table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>Функция</th>
+<th>Описание</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>heappush</code></td>
-<td>Добавляет элемент в кучу. <code>heapq.heappush(heap, item)</code></td>
+<td><code>_heapify_max()</code></td>
+<td>Преобразует список в max-heap</td>
 </tr>
 <tr>
-<td><code>heappop</code></td>
-<td>Извлекает и возвращает наименьший элемент из кучи. <code>smallest = heapq.heappop(heap)</code></td>
+<td><code>_heappop_max()</code></td>
+<td>Удаляет и возвращает наибольший</td>
+</tr>
+<tr>
+<td><code>_heapreplace_max()</code></td>
+<td>Удаляет наибольший и добавляет item</td>
 </tr>
 </tbody>
 </table>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">_heapify_max</span><span class="p">,</span> <span class="n">_heappop_max</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">_heapify_max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>          <span class="c1"># [7, 3, 5, 1]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_heappop_max</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>  <span class="c1"># 7</span>
+</pre></div></div></div>
+<h2>Внутренние функции (используются внутри)</h2>
+<table>
+<thead>
+<tr>
+<th>Функция</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_siftdown</code></td>
+<td>Проталкивает элемент вниз (min-heap)</td>
+</tr>
+<tr>
+<td><code>_siftup</code></td>
+<td>Поднимает элемент вверх (min-heap)</td>
+</tr>
+<tr>
+<td><code>_siftdown_max</code></td>
+<td>Проталкивает вниз (max-heap)</td>
+</tr>
+<tr>
+<td><code>_siftup_max</code></td>
+<td>Поднимает вверх (max-heap)</td>
+</tr>
+</tbody>
+</table>
+<p>Обычно не нужны при обычном использовании</p>
+<h2>Таблица сравнений</h2>
+<table>
+<thead>
+<tr>
+<th>Операция</th>
+<th>Назначение</th>
+<th>Время</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>heapify</code></td>
+<td>Из списка в кучу</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td><code>heappush</code></td>
+<td>Добавить элемент</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td><code>heappop</code></td>
+<td>Удалить минимальный элемент</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td><code>heappushpop</code></td>
+<td>Вставить и сразу удалить</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td><code>heapreplace</code></td>
+<td>Удалить и сразу вставить</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td><code>nlargest/nsmallest</code></td>
+<td>Топ-n элементов</td>
+<td>O(n log k)</td>
+</tr>
+</tbody>
+</table>
+<h2>Пример использования кучи как очереди с приоритетом</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">heapq</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PriorityQueue</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># для поддержки FIFO при равных приоритетах</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">priority</span><span class="p">):</span>
+        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">priority</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">pq</span> <span class="o">=</span> <span class="n">PriorityQueue</span><span class="p">()</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;task1&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;task2&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">pq</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;task3&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>  <span class="c1"># task2</span>
+</pre></div></div></div>
+
+<h2>Заметки</h2>
+<p><code>heapq</code> работает только с <strong>мин-кучей</strong>
+Для max-heap используйте <code>-x</code> или <code>_heapify_max</code>
+Быстрая альтернатива <code>sorted(iterable)[:n]</code> — <code>nsmallest(n, iterable)</code></p>
+<!--
+Библиотека `heapq` в Python используется для работы с `heapq`, имплементации алгоритма `heap queue` (очереди с приоритетами)
+Это набор функций для эффективной работы с `heap` (кучей) - структурой данных,
+которая обеспечивает быстрый доступ к наименьшему (или наибольшему) элементу
+
+|                           |                                                                |
+|---------------------------|----------------------------------------------------------------|
+| `heapify(iterable)`       | Перестраивает итерируемый объект в кучу                        |
+| `heappush(heap, item)`    | Добавляет элемент в кучу                                       |
+| `heappop(heap)`           | Извлекает и возвращает наименьший элемент из кучи              |
+| `heappushpop(heap, item)` | Добавляет элемент в кучу и сразу возвращает наименьший элемент |
+| `heapreplace(heap, item)` | Заменяет наименьший элемент и возвращает его                   |
+
+|            |                                                                                    |
+|------------|------------------------------------------------------------------------------------|
+| `heappush` | Добавляет элемент в кучу `heapq.heappush(heap, item)`                              |
+| `heappop`  | Извлекает и возвращает наименьший элемент из кучи `smallest = heapq.heappop(heap)` |
+
+-->

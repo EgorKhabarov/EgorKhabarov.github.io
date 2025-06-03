@@ -10,9 +10,13 @@
 | `--no-cache-dir`      | Не использовать кэш при установке пакетов.                                                                    |
 | `--user`              | Установить пакеты в домашний каталог текущего пользователя.                                                   |
 
+
 ```bash
 pip install --help
 ```
+
+<details>
+<summary>uninstall</summary>
 
 ```
 Usage:
@@ -148,4 +152,84 @@ General Options:
                               Silence deprecation warnings for upcoming unsupported Pythons.
   --use-feature <feature>     Enable new functionality, that may be backward incompatible.
   --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+```
+</details>
+
+```bash
+pip uninstall --help
+```
+
+<details>
+<summary>uninstall</summary>
+
+```
+Usage:
+  pip uninstall [options] <package> ...
+  pip uninstall [options] -r <requirements file> ...
+
+Description:
+  Uninstall packages.
+
+  pip is able to uninstall most installed packages. Known exceptions are:
+
+  - Pure distutils packages installed with ``python setup.py install``, which
+    leave behind no metadata to determine what files were installed.
+  - Script wrappers installed by ``python setup.py develop``.
+
+Uninstall Options:
+  -r, --requirement <file>    Uninstall all the packages listed in the given requirements file.  This option can be used multiple times.
+  -y, --yes                   Don't ask for confirmation of uninstall deletions.
+  --root-user-action <root_user_action>
+                              Action if pip is run as a root user [warn, ignore] (default: warn)
+  --break-system-packages     Allow pip to modify an EXTERNALLY-MANAGED Python installation
+
+General Options:
+  -h, --help                  Show help.
+  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
+  --python <python>           Run pip with the specified Python interpreter.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging
+                              levels).
+  --log <path>                Path to a verbose appending log.
+  --no-input                  Disable prompting for input.
+  --keyring-provider <keyring_provider>
+                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [auto,
+                              disabled, import, subprocess]. (default: auto)
+  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
+  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip
+                              documentation for more information.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
+  --no-color                  Suppress colored output.
+  --no-python-version-warning
+                              Silence deprecation warnings for upcoming unsupported Pythons.
+  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
+  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+```
+</details>
+
+
+```bash
+pip install <package>           # Установка библиотеки
+pip install -U <package>        # Обновление
+pip uninstall <package> -y      # Удаление
+
+pip freeze                      # Список зависимостей
+pip freeze > requirements.txt   # Сохраняем в файл
+pip install -r requirements.txt # Установка из файла
+
+pip list                        # Список установленных библиотек
+pip show <package>              # Инфо о библиотеке
+pip check                       # Поиск конфликтов версий
+pip cache purge                 # Очистка кэша pip
 ```
