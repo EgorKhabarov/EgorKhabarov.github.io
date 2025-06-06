@@ -40,13 +40,6 @@
 | Дорожная карта | [https://habr.com/ru/specials/726724/](https://habr.com/ru/specials/726724/)<br>[https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/](https://practicum.yandex.ru/blog/yazyk-c-plus-dlya-chego-nuzhen/)<br>[https://en.cppreference.com/w/](https://en.cppreference.com/w/) |
 
 
-# Go
-
-|               |                                                  |
-|---------------|--------------------------------------------------|
-| Go cheatsheet | [https://devhints.io/go](https://devhints.io/go) |
-
-
 # GIT GitHub
 
 |                               |                                                                              |

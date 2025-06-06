@@ -1,0 +1,244 @@
+<h1>open</h1>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span>
+  <span class="n">file</span><span class="o">=</span><span class="s2">&quot;&lt;path&gt;&quot;</span><span class="p">,</span>
+  <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+  <span class="n">buffering</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+  <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+  <span class="n">newline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+  <span class="n">closefd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+  <span class="n">opener</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div></div></div>
+
+<h3>Параметры</h3>
+<h4>file — путь к файлу</h4>
+<p>Обязательный параметр
+Строка или объект с методом <code>__fspath__</code>, например <code>pathlib.Path</code></p>
+<h4>mode — режим открытия файла</h4>
+<table>
+<thead>
+<tr>
+<th>Символ</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"r"</code></td>
+<td>Чтение (по умолчанию)</td>
+</tr>
+<tr>
+<td><code>"w"</code></td>
+<td>Запись с обрезкой файла</td>
+</tr>
+<tr>
+<td><code>"x"</code></td>
+<td>Запись, ошибка если файл существует</td>
+</tr>
+<tr>
+<td><code>"a"</code></td>
+<td>Дозапись в конец</td>
+</tr>
+<tr>
+<td><code>"b"</code></td>
+<td>Бинарный режим</td>
+</tr>
+<tr>
+<td><code>"t"</code></td>
+<td>Текстовый режим (по умолчанию)</td>
+</tr>
+<tr>
+<td><code>"+"</code></td>
+<td>Чтение и запись</td>
+</tr>
+</tbody>
+</table>
+<p>Допустимы комбинации, например: <code>"rb"</code>, <code>"w+t"</code>, <code>"a+b"</code>, <code>"r+"</code></p>
+<h4>buffering — управление буферизацией</h4>
+<table>
+<thead>
+<tr>
+<th>Значение</th>
+<th>Поведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Без буфера (только для бинарного режима)</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Построчная буферизация (только текстовый режим)</td>
+</tr>
+<tr>
+<td><code>&gt;1</code></td>
+<td>Размер буфера в байтах</td>
+</tr>
+<tr>
+<td><code>-1</code></td>
+<td>Выбор по умолчанию (автоматически)</td>
+</tr>
+</tbody>
+</table>
+<h4>encoding (только в текстовом режиме)</h4>
+<p>Кодировка, например <code>"UTF-8"</code>, <code>"cp1251"</code>, <code>"ASCII"</code></p>
+<h4>errors — обработка ошибок кодировки</h4>
+<table>
+<thead>
+<tr>
+<th>Значение</th>
+<th>Поведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"strict"</code></td>
+<td>По умолчанию — выбросить исключение</td>
+</tr>
+<tr>
+<td><code>"ignore"</code></td>
+<td>Игнорировать ошибочные символы</td>
+</tr>
+<tr>
+<td><code>"replace"</code></td>
+<td>Заменить символом <code>"�"</code></td>
+</tr>
+<tr>
+<td><code>"backslashreplace"</code></td>
+<td>Использовать escape-последовательности</td>
+</tr>
+</tbody>
+</table>
+<h4>newline — перевод строк</h4>
+<table>
+<thead>
+<tr>
+<th>Значение</th>
+<th>Поведение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>None</code></td>
+<td>Нормализовать переводы строк</td>
+</tr>
+<tr>
+<td><code>""</code></td>
+<td>Не выполнять замену символов перевода строки</td>
+</tr>
+<tr>
+<td><code>"\n"</code></td>
+<td>Использовать только \n</td>
+</tr>
+<tr>
+<td><code>"\r"</code></td>
+<td>Использовать только \r</td>
+</tr>
+<tr>
+<td><code>"\r\n"</code></td>
+<td>Использовать только \r\n</td>
+</tr>
+</tbody>
+</table>
+<h4>closefd</h4>
+<p>Используется только при передаче числового файлового дескриптора:</p>
+<ul>
+<li><code>True</code> — Закрыть дескриптор при <code>close()</code> (по умолчанию)</li>
+<li><code>False</code> — Не закрывать дескриптор</li>
+</ul>
+<h4>opener</h4>
+<p>Позволяет задать пользовательскую функцию открытия:</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">custom_opener</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">opener</span><span class="o">=</span><span class="n">custom_opener</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h2>Что возвращает <code>open()</code></h2>
+<p>Возвращается файловый объект:</p>
+<ul>
+<li>В <strong>текстовом режиме</strong> — <code>io.TextIOWrapper</code></li>
+<li>В <strong>бинарном режиме</strong> — один из:<ul>
+<li><code>io.BufferedReader</code></li>
+<li><code>io.BufferedWriter</code></li>
+<li><code>io.BufferedRandom</code></li>
+<li><code>io.FileIO</code></li>
+</ul>
+</li>
+</ul>
+<h2>Методы файлового объекта</h2>
+<h3>Чтение</h3>
+<ul>
+<li><code>.read(size=-1)</code> — Прочитать весь файл или <code>size</code> символов/байт</li>
+<li><code>.readline(size=-1)</code> — Прочитать одну строку</li>
+<li><code>.readlines(hint=-1)</code> — Прочитать все строки списком</li>
+</ul>
+<h3>Запись</h3>
+<ul>
+<li><code>.write(s)</code> — Записать строку или байты</li>
+<li><code>.writelines(lines)</code> — Записать список строк без добавления <code>\n</code></li>
+</ul>
+<h3>Работа с позицией</h3>
+<ul>
+<li><code>.seek(offset, whence=0)</code> — Переместить указатель</li>
+<li><code>.tell()</code> — Текущая позиция в файле</li>
+</ul>
+<h3>Управление файлом</h3>
+<ul>
+<li><code>.flush()</code> — сбросить буфер</li>
+<li><code>.close()</code> — закрыть файл</li>
+<li><code>.fileno()</code> — числовой файловый дескриптор</li>
+<li><code>.isatty()</code> — подключён ли файл к терминалу</li>
+</ul>
+<h2>Свойства файлового объекта</h2>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Имя файла</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>Строка с режимом открытия</td>
+</tr>
+<tr>
+<td><code>closed</code></td>
+<td>True, если файл закрыт</td>
+</tr>
+<tr>
+<td><code>encoding</code></td>
+<td>Кодировка (для текстовых файлов)</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td>Стратегия обработки ошибок</td>
+</tr>
+<tr>
+<td><code>newlines</code></td>
+<td>Какие символы новой строки использовались</td>
+</tr>
+<tr>
+<td><code>buffer</code></td>
+<td>Байтовый буфер (у <code>TextIOWrapper</code>)</td>
+</tr>
+<tr>
+<td><code>line_buffering</code></td>
+<td><code>True</code>/<code>False</code> — построчная буферизация</td>
+</tr>
+</tbody>
+</table>
+<h1>Пример использования</h1>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div></div></div>
+
+<p><code>with</code> гарантирует закрытие файла автоматически даже при ошибке</p>

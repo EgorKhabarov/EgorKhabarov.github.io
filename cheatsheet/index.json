@@ -338,7 +338,8 @@
                 "Built-in functions": "tags: slice callable reversed setattr locals classmethod divmod object oct property\n    bytes filter nonlocal abs getattr frozenset memoryview hasattr globals compile\n    delattr chr complex staticmethod bin dir __import__ bytearray\n",
                 "Exception": "",
                 "ExceptionGroup": "",
-                "metaclass": ""
+                "metaclass": "",
+                "open": ""
             },
             "Operator Precedence": "",
             "fstrings": "",
@@ -541,7 +542,7 @@
         "Other": {
             "Kotlin": {
                 ".": "color: violet\n",
-                "index": "",
+                "Kotlin": "",
                 "Android": ""
             },
             "Docker": {
@@ -552,7 +553,7 @@
             },
             "Go": {
                 ".": "color: violet\n",
-                "devhints.io": ""
+                "Go": ""
             },
             "LaTex": {
                 ".": "color: violet\n",
