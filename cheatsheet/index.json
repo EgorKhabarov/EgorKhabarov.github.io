@@ -494,7 +494,8 @@
                 "Functions": "",
                 "Axes": "",
                 "More examples": ""
-            }
+            },
+            "Colors": ""
         },
         "Cpp": {
             ".": "color: violet\n",
