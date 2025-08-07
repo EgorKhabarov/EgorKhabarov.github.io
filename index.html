@@ -1,69 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <style>
-.custom-btn {
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-.btn-5 {
-  width: 130px;
-  height: 40px;
-  line-height: 42px;
-  padding: 0;
-  border: none;
-  background: rgb(255,27,0);
-background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
-}
-.btn-5:hover {
-  color: #f0094a;
-  background: transparent;
-   box-shadow:none;
-}
-.btn-5:before,
-.btn-5:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #f0094a;
-  box-shadow:
-   -1px -1px 5px 0px #fff,
-   7px 7px 20px 0px #0003,
-   4px 4px 5px 0px #0002;
-  transition:400ms ease all;
-}
-.btn-5:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.btn-5:hover:before,
-.btn-5:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-  </style>
- </head>
- <body>
-  <button class="custom-btn btn-5" onclick="window.location.href='/cheatsheet/';">Шпаргалка</button>
- </body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EgorKhabarov • egorkhabarov.github.io</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f1117;
+            color: #f4f4f4;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 20% 30%, #292d3e 0%, transparent 70%),
+                        radial-gradient(circle at 80% 70%, #1f2233 0%, transparent 60%);
+            z-index: -1;
+            animation: floatBackground 30s linear infinite;
+        }
+        @keyframes floatBackground {
+            0% {background-position: 0% 0%;}
+            50% {background-position: 100% 100%;}
+            100% {background-position: 0% 0%;}
+        }
+        header {
+            text-align: center;
+            padding: 4rem 1rem 0rem;
+        }
+        header .icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+        }
+        #badges {
+            justify-content: center;
+            display: flex;
+            gap: 7px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 1rem 0 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        nav {
+            margin: 1rem auto;
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            background-color: #1f2233;
+            color: #f4f4f4;
+            padding: 0.7rem 1.3rem;
+            text-decoration: none;
+            border-radius: 0.6rem;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background-color: #2c3047;
+        }
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .project {
+            background: #1a1d2b;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        .project:hover {
+            transform: translateY(-4px);
+        }
+        .project .icon {
+            width: 100%;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .project h3 {
+            margin: 0 0 0.5rem;
+        }
+        .project p {
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            padding: 2rem 1rem;
+        }
+        a {
+            text-decoration: none;
+            color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://avatars.githubusercontent.com/u/117845967?v=4" class="icon" alt="icon"/>
+        <h1>EgorKhabarov</h1>
+        <p>Python developer, digital technology enthusiast and pet project creator</p>
+        <div id="badges" align="left">
+            <a target="_blank" href="https://github.com/EgorKhabarov"><img alt="GitHub Badge" src="https://img.shields.io/badge/GitHub-14121c?logo=GitHub&logoColor=white"/></a>
+            <a target="_blank" href="https://t.me/EgorKhabarovWork"><img alt="Telegram Badge" src="https://img.shields.io/badge/Telegram-blue?logo=telegram&logoColor=white"/></a>
+            <a target="_blank" href="https://www.linkedin.com/in/egorkhabarov/"><img alt="LinkedIn Badge" src="https://img.shields.io/badge/LinkedIn-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZGF0YS1zdXBwb3J0ZWQtZHBzPSIyNHgyNCIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0ibWVyY2Fkby1tYXRjaCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBzdHlsZT0iY29sb3I6d2hpdGU7IiAgZD0iTTIwLjUgMmgtMTdBMS41IDEuNSAwIDAwMiAzLjV2MTdBMS41IDEuNSAwIDAwMy41IDIyaDE3YTEuNSAxLjUgMCAwMDEuNS0xLjV2LTE3QTEuNSAxLjUgMCAwMDIwLjUgMnpNOCAxOUg1di05aDN6TTYuNSA4LjI1QTEuNzUgMS43NSAwIDExOC4zIDYuNWExLjc4IDEuNzggMCAwMS0xLjggMS43NXpNMTkgMTloLTN2LTQuNzRjMC0xLjQyLS42LTEuOTMtMS4zOC0xLjkzQTEuNzQgMS43NCAwIDAwMTMgMTQuMTlhLjY2LjY2IDAgMDAwIC4xNFYxOWgtM3YtOWgyLjl2MS4zYTMuMTEgMy4xMSAwIDAxMi43LTEuNGMxLjU1IDAgMy4zNi44NiAzLjM2IDMuNjZ6Ij48L3BhdGg+PC9zdmc+"/></a>
+        </div>
+        <!--
+        <nav>
+            <a href="/cheatsheet">cheatsheet</a>
+            <a href="/projects">projects</a>
+        </nav>
+        -->
+    </header>
+
+    <section>
+        <h2>Pet projects</h2>
+        <div class="project-list">
+            <a href="/projects/pet/calendar_telegram_bot" class="project">
+                <img src="resources/calendar_telegram_bot.png" class="icon" alt="calendar_telegram_bot.png"/>
+                <h3>Calendar Telegram Bot</h3>
+                <p>Telegram bot implementing Google Calendar functionality with a telegram interface for notes</p>
+            </a>
+            <a href="/projects/pet/table2string" class="project">
+                <img src="resources/table2string_formatting_example.png" class="icon" alt="table2string_formatting_example.png"/>
+                <h3>table2string library</h3>
+                <p>Python library for converting a 2D matrix into a nice text representation</p>
+            </a>
+            <a href="/projects/pet/RunningTextGifGenerator" class="project">
+                <img src="resources/RunningTextGifGenerator_example_text.gif" class="icon" alt="RunningTextGifGenerator_example_text.gif"/>
+                <img src="resources/RunningTextGifGenerator_example_text_right.gif" class="icon" alt="RunningTextGifGenerator_example_text_right.gif"/>
+                <img src="resources/RunningTextGifGenerator_example_very_long_text.gif" class="icon" alt="RunningTextGifGenerator_example_very_long_text.gif"/>
+                <h3>RunningTextGifGenerator</h3>
+                <p>Tool for generating GIF animations with running text and more</p>
+            </a>
+            <a href="/cheatsheet" class="project">
+                <img src="resources/EgorKhabarov.github.io_cheatsheet.png" class="icon" alt="EgorKhabarov.github.io_cheatsheet.png"/>
+                <h3>/cheatsheet</h3>
+                <p>Cheat Sheet Site</p>
+            </a>
+            <a href="/projects/pet/AttractionsMap" class="project">
+                <img src="resources/AttractionsMap.png" class="icon" alt="AttractionsMap.png"/>
+                <h3>AttractionsMap</h3>
+                <p>A site with landmark tags</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>&copy; 2025 Egor Khabarov - egorkhabarov.github.io</footer>
+</body>
 </html>

@@ -1,5 +1,6 @@
-from flask import Flask, send_file, send_from_directory, abort
+import urllib.parse
 from werkzeug.exceptions import NotFound
+from flask import Flask, send_file, send_from_directory, abort, request
 
 
 app = Flask(__name__)
@@ -12,6 +13,9 @@ def home():
 
 @app.route("/<path:path>")
 def index_html_path(path: str):
+    if request.referrer:
+        path = f"{urllib.parse.urlparse(request.referrer).path.lstrip("/")}/{path}".lstrip("/")
+
     if path.endswith("/"):
         path += "index.html"
     try:
@@ -20,7 +24,10 @@ def index_html_path(path: str):
         try:
             return send_from_directory("..", path + ".html")
         except (FileNotFoundError, NotFound):
-            return abort(404, "FileNotFoundError")
+            try:
+                return send_from_directory("..", f"{path.rstrip("/")}/index.html")
+            except (FileNotFoundError, NotFound):
+                return abort(404, "FileNotFoundError")
 
 
 # http://127.0.0.1:5000/cheatsheet
