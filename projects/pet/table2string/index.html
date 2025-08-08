@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table2string - EgorKhabarov</title>
+    <link href="../../resources/icon.png" rel="icon" type="image/png"/>
+    <link href="../../resources/styles_project.css" rel="stylesheet"/>
+    <script src="../../resources/scripts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a class="back-button" href="/">← Back</a>
+
+        <h1 class="project-title">table2string</h1>
+
+        <div style="justify-content: center;display: flex;gap: 0.4em;margin-bottom: 1rem;">
+            <a target="_blank" href="https://github.com/EgorKhabarov/table2string"><img alt="GitHub Badge" src="https://img.shields.io/badge/GitHub-14121c?logo=GitHub&logoColor=white"/></a>
+            <a target="_blank" href="https://pypi.python.org/pypi/table2string"><img alt="PyPi Package Version" src="https://img.shields.io/pypi/v/table2string.svg?style=flat&logo=pypi"/></a>
+        </div>
+
+        <div class="break-words main-description">
+            Python-библиотека для преобразования таблиц в строку - с удобной поддержкой:
+            <ul>
+                <li>Переносов строк внутри ячеек</li>
+                <li>Вложенных таблиц, которые красиво сливаются по границам</li>
+                <li>Выравнивания по горизонтали и вертикали</li>
+                <li>Интеграции эмодзи</li>
+                <li>Поддержки ANSI-цветов, форматирования и ссылок</li>
+            </ul>
+        </div>
+        <div class="break-words main-description">Please star this project on GitHub! ⭐</div>
+
+        <img src="table2string/resources/formatting_example_IPython.png" alt="formatting_example_IPython.png" style="width: 600px;display: flex;margin: 0px auto 1rem auto;" class="main-image">
+
+        <div class="project-block-list">
+            <div class="project-block">
+                <img src="table2string/resources/subtable_example.png" style="width:auto;height:190px;" class="icon" alt="subtable_example.png"/>
+                <h3>Subtable</h3>
+                <p>Вы можете включать таблицу внутрь таблицы</p>
+                <div style="font-family: 'JetBrains Mono', monospace;color: #A9B7C6;font-size: 0.95rem;">
+                    <span>
+                        <span class="kn">from</span><span class="w"> </span><span class="nn">table2string</span><span class="w"> </span><span class="kn">import</span> Table<span class="kn">,</span> Themes<br>
+                        <span>subtable = Table(</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;name</span><span class="o">=</span><span class="s2">&quot;SubTable&quot;</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;table</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;1&quot;</span><span class="kn">,</span> <span class="s2">&quot;2&quot;</span>)<span class="kn">,</span> (<span class="s2">&quot;3&quot;</span><span class="kn">,</span> <span class="s2">&quot;4&quot;</span>)]<span class="kn">,</span><br>
+                        <span class="p">)</span><br>
+                        <span>table = Table(</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;name</span><span class="o">=</span><span class="s2">&quot;Table Name&quot;</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;table</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;c1&quot;</span><span class="kn">,</span><span> subtable)]</span><span class="kn">,</span><br>
+                        <span class="p">)</span><br>
+                        <span>table.print(</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;v_align</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="kn">,</span>)<span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="kn">,</span> <span class="mi">8</span>)<span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;theme</span>=Themes.thin_thick<span class="kn">,</span><br>
+                        )
+                    </span>
+                </div>
+            </div>
+
+            <div class="project-block">
+                <img src="table2string/resources/formatting_example.png" style="width:auto;height:190px;" class="icon" alt="formatting_example.png"/>
+                <h3>Formatting</h3>
+                <p>Текст можно форматировать через ANSI-коды (цвет, ссылки и др.) или написать своё форматирование, например HTML.</p>
+                <p>Всё форматирование корректно работает с переносами строк и выравниванием</p>
+                <div style="font-family: 'JetBrains Mono', monospace;color: #A9B7C6;font-size: 0.95rem;">
+                    <span>
+                        <span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> Table<span class="kn">,</span> Themes<span class="kn">,</span> style<span class="kn">,</span> link<span class="kn">,</span> Color<br>
+                        <span>red_text = style</span>(<span class="s2">&quot;w</span><span class="se">\n</span><span class="s2">e&quot;</span><span class="p">,</span> <span class="na">fg</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span><br>
+                        <span>example_link = link(</span><span class="s2">&quot;https://example.com&quot;</span><span class="kn">,</span> <span class="s2">&quot;link&quot;</span><span class="p">)</span><br>
+                        <span>text =</span> <span class="s2">f&quot;q</span><span class="si">{</span>red_text<span class="si">}</span><span class="s2">rty</span><span class="si">{</span>example_link<span class="si">}</span><span class="s2">&quot;</span><br>
+                        <span>Table([(text</span><span class="kn">,</span>)]).print(<br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;max_width</span>=(<span class="mi">3</span><span class="kn">,</span>)<span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;theme</span><span>=Themes.thin_thick</span><span class="kn">,</span><br>
+                        <span>)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!--
+            <div class="project-block">
+                <img src="table2string/resources/image.png" class="icon" alt="image.png"/>
+                <h3>Description</h3>
+                <p>Description</p>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Egor Khabarov - egorkhabarov.github.io</footer>
+</body>
+</html>
