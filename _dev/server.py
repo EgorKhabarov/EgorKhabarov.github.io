@@ -13,21 +13,24 @@ def home():
 
 @app.route("/<path:path>")
 def index_html_path(path: str):
-    if request.referrer:
-        path = f"{urllib.parse.urlparse(request.referrer).path.lstrip("/")}/{path}".lstrip("/")
-
     if path.endswith("/"):
         path += "index.html"
     try:
         return send_from_directory("..", path)
     except (FileNotFoundError, NotFound):
+        if request.referrer:
+            path = f"{urllib.parse.urlparse(request.referrer).path.lstrip("/")}/{path}".lstrip("/")
+
         try:
-            return send_from_directory("..", path + ".html")
+            return send_from_directory("..", path)
         except (FileNotFoundError, NotFound):
             try:
-                return send_from_directory("..", f"{path.rstrip("/")}/index.html")
+                return send_from_directory("..", path + ".html")
             except (FileNotFoundError, NotFound):
-                return abort(404, "FileNotFoundError")
+                try:
+                    return send_from_directory("..", f"{path.rstrip("/")}/index.html")
+                except (FileNotFoundError, NotFound):
+                    return abort(404, "FileNotFoundError")
 
 
 # http://127.0.0.1:5000/cheatsheet
