@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RunningTextGifGenerator - EgorKhabarov</title>
+    <link href="../../resources/icon.png" rel="icon" type="image/png"/>
+    <link href="../../resources/styles_project.css" rel="stylesheet"/>
+    <script src="../../resources/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <a class="back-button" href="/">← Back</a>
+
+        <h1 class="project-title">Running Text Gif Generator</h1>
+
+        <div style="justify-content: center;display: flex;gap: 0.4em;margin-bottom: 1rem;">
+            <a target="_blank" href="https://github.com/EgorKhabarov/RunningTextGifGenerator"><img alt="GitHub Badge" src="https://img.shields.io/badge/GitHub-14121c?logo=GitHub&logoColor=white"/></a>
+        </div>
+
+        <img src="RunningTextGifGenerator/resources/RunningTextGifGenerator.gif" style="width: 300px;display: flex;margin: 0px auto 1rem auto;" alt="RunningTextGifGenerator.gif" class="main-image"/>
+
+        <div class="break-words main-description">
+            Инструмент на Python для генерации GIF‑анимаций с бегущей строкой текста.
+            Позволяет комбинировать текст, изображения и другие GIF‑фрагменты, задавая их порядок, направление движения, скорость и цветовую конфигурацию - всё упаковано в удобный класс GIF
+        </div>
+        <div class="break-words main-description">Please star this project on GitHub! ⭐</div>
+
+        <div class="project-block-list">
+            <div class="project-block">
+                <h3>Example</h3>
+                <img src="RunningTextGifGenerator/resources/text.gif" class="icon" alt="text.gif"/>
+                <p>Эту анимацию можно сгенерировать с помощью этого простого кода</p>
+                <div style="font-family: 'JetBrains Mono', monospace;color: #A9B7C6;font-size: 0.95rem;">
+                    <span>
+                        <span class="kn">from</span> gif <span class="kn">import</span> GIF<br>
+                        gif = GIF()<br>
+                        gif.add_text_fragment(<span class="s2">"text"</span>)<br>
+                        gif.save(<span class="s2">"text.gif"</span>)
+                    </span>
+                </div>
+            </div>
+
+            <div class="project-block">
+                <h3>Chrome dino</h3>
+                <div style="display: flex;flex-direction: row;">
+                    <img src="RunningTextGifGenerator/resources/dino.gif" style="width: 170px;display: flex;margin: 0px auto 1rem auto;" class="icon" alt="dino.gif"/>
+                    <img src="RunningTextGifGenerator/resources/dino.png" style="width: auto;height: 190px;display: flex;margin: 0px auto 1rem auto;image-rendering: pixelated;" class="icon" alt="dino.png"/>
+                </div>
+                <p>You can also generate animations from images</p>
+                <div style="font-family: 'JetBrains Mono', monospace;color: #A9B7C6;font-size: 0.95rem;">
+                    <span>
+                        <span class="kn">from</span><span class="w"> </span><span class="nn">gif</span><span class="w"> </span><span class="kn">import</span> <span class="n">GIF</span><br>
+                        <span>gif = GIF</span><span class="p">(</span><span class="na">columns</span><span class="o">=</span><span class="mi">22</span><span class="kn">,</span> <span class="na">rows</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span><br>
+                        <span>gif.</span><span class="n">add_image_fragment</span><span class="p">(</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;image_path</span><span>=</span><span class="s2">"dino.png"</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;direction</span><span>=</span><span class="s2">"up"</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;duration</span><span>=</span><span class="mi">100</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;speed</span><span>=</span><span class="mi">24</span><span class="kn">,</span><br>
+                        <span>)</span><br>
+                        <span>gif.save(</span><span class="na">path</span><span class="o">=</span><span class="s2">"dino.gif"</span><span class="p">)</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="project-block">
+                <img src="RunningTextGifGenerator/resources/bad_apple.gif" class="icon" alt="bad_apple.gif"/>
+                <h3>Bad Apple on RunningTextGifGenerator</h3>
+            </div>
+
+            <div class="project-block">
+                <h3>Try generating right now!</h3>
+                <p><a href="https://github.com/EgorKhabarov/RunningTextGifGenerator" style="color: #539bf5;">github.com/EgorKhabarov/RunningTextGifGenerator</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Egor Khabarov - egorkhabarov.github.io</footer>
+</body>
+</html>
