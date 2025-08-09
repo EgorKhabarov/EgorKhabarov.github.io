@@ -59,6 +59,7 @@ a {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    margin-bottom: 1rem;
 }
 .project-block {
     background: #1a1d2b;
