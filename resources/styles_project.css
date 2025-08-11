@@ -112,11 +112,20 @@ ul {
 }
 .code_element {
     padding: 1em;
-    background-color: #1B1B1B;
-    border-radius: .0em .0em .375em .375em;
-    background-color: #272727;
-    max-width: 600px;
+    /* background-color: #1B1B1B; */
+    /* border-radius: .0em .0em .375em .375em; */
+    /* background-color: #272727; */
+    /* max-width: 600px; */
+    /* padding: 10px; */
+    max-width: 100%;
     overflow-x: auto;
+    white-space: nowrap;
+
+    font-family: 'JetBrains Mono', monospace;
+    color: #A9B7C6;
+    font-size: 0.75rem;
+    background: #2b2b2b;
+    border-radius: 10px;
 }
 /* Подсветка синтаксиса */
 .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color:#CC7832;} /* Ключевые слова */
