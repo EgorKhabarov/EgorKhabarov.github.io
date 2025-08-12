@@ -12,7 +12,8 @@
                 "Interpreter Compiler": "",
                 "sync async": "",
                 "ip": "",
-                "Big O Notation": ""
+                "Big O Notation": "",
+                "ECS": ""
             },
             "Security": {
                 "XSS": "",

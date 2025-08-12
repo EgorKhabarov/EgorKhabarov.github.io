@@ -13,6 +13,7 @@
 | [[General/Abbreviations/Programming/sync async]]                 | Синхронность — Означает, что программа выполняет одну задачу за раз<br>Асинхронность — Означает, что программа может выполнять несколько задач одновременно                                                                          |
 | [[General/Abbreviations/Programming/ip]]                         | (от англ. Internet Protocol) — уникальный числовой идентификатор устройства в компьютерной сети, работающей по протоколу IP                                                                                                          |
 | [[General/Abbreviations/Programming/Big O Notation]]             | Математическая нотация, которая описывает поведение алгоритмов с точки зрения их асимптотической сложности                                                                                                                           |
+| [[General/Abbreviations/Programming/ECS]]                        | `Entity-Component-System` — это архитектура, где сущности — это ID, компоненты содержат только данные, а системы реализуют поведение, обрабатывая сущности с нужными компонентами                                                    |
 
 # [Security/](?General/Abbreviations/Security/)
 
