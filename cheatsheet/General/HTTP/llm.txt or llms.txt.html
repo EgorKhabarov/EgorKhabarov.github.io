@@ -1,0 +1,171 @@
+<p><code>llm.txt</code> (или <code>llms.txt</code>) — это новая, экспериментальная практика, появившаяся в 2023–2024 годах,
+предназначенная для управления доступом <strong>AI-агентов (в основном LLM)</strong> к контенту сайтов, по аналогии с <a target="_self" href="?General/HTTP/robots.txt" class="wikilink">robots.txt</a></p>
+<h2>Что такое <code>llm.txt</code> / <code>llms.txt</code></h2>
+<p>Файл <code>llm.txt</code> или <code>llms.txt</code> — это <strong>новый механизм</strong>, позволяющий <strong>владельцам сайтов указать, могут ли большие языковые модели (LLMs)</strong>,
+такие как GPT, Claude, Gemini и др., <strong>использовать контент сайта для обучения, ответов и анализа</strong></p>
+<ul>
+<li><code>https://example.com/llm.txt</code></li>
+<li>или (альтернативно) <code>https://example.com/llms.txt</code></li>
+</ul>
+<h2>Цель файла</h2>
+<ul>
+<li>Аналог <code>robots.txt</code>, но <strong>для LLM-агентов</strong>, а не поисковых роботов</li>
+<li>Предоставляет возможность <strong>разрешить или запретить</strong> доступ конкретным LLM-платформам</li>
+<li>Используется для <strong>регулирования использования контента</strong> в генеративных AI-сервисах (например, ChatGPT, Perplexity, Claude и пр.)</li>
+</ul>
+<h2>Синтаксис и структура</h2>
+<p>На момент 2025 года <strong>не существует стандартизированного формата</strong>, но де-факто принят следующий</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: &lt;название модели или сервиса&gt;
+Disallow: &lt;путь&gt;  # Запрещает доступ
+Allow: &lt;путь&gt;     # Разрешает доступ
+</pre></div></div></div>
+
+<p>Также может встречаться</p>
+<ul>
+<li><code>Disallow: /</code> — полный запрет</li>
+<li><code>#</code> — комментарии</li>
+<li>Wildcard-поддержка не гарантируется, но может быть распознана</li>
+</ul>
+<h2>Примеры</h2>
+<h3>Запретить всем LLM</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: *
+Disallow: /
+</pre></div></div></div>
+
+<h3>Запретить GPT и Claude, разрешить другим</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+</pre></div></div></div>
+
+<h3>Разрешить всё GPTBot и Claude</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+</pre></div></div></div>
+
+<h3>Разрешить GPTBot только на /blog/</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+Disallow: /
+Allow: /blog/
+</pre></div></div></div>
+
+<h2>Наиболее известные LLM-боты и их <code>User-agent</code>'ы</h2>
+<table>
+<thead>
+<tr>
+<th>Модель / сервис</th>
+<th>User-agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenAI GPTBot</strong></td>
+<td><code>GPTBot</code></td>
+</tr>
+<tr>
+<td><strong>Anthropic Claude</strong></td>
+<td><code>ClaudeBot</code></td>
+</tr>
+<tr>
+<td><strong>Google Gemini</strong></td>
+<td><code>Google-Extended</code></td>
+</tr>
+<tr>
+<td><strong>Perplexity AI</strong></td>
+<td><code>PerplexityBot</code></td>
+</tr>
+<tr>
+<td><strong>You.com</strong></td>
+<td><code>YouBot</code></td>
+</tr>
+<tr>
+<td><strong>Meta</strong></td>
+<td><code>MetaBot</code> <em>(спекулятивно)</em></td>
+</tr>
+</tbody>
+</table>
+<p><em>Важно: список пополняется. Названия user-agent’ов нужно уточнять у каждой платформы.</em></p>
+<h2>Ограничения и нюансы</h2>
+<ul>
+<li><strong>Никакая платформа не обязана соблюдать <code>llm.txt</code></strong>, если только она <strong>добровольно это не делает</strong></li>
+<li>Некоторые боты (например, GPTBot и ClaudeBot) <strong>официально уважают файл</strong></li>
+<li>Это <strong>новая и развивающаяся практика</strong>, не закреплённая в стандартах IETF/W3C</li>
+<li><code>llm.txt</code> — <strong>не защита</strong>, а просьба. Для настоящей защиты — технические меры (CAPTCHA, токены, paywall)</li>
+</ul>
+<h2>Технические меры в дополнение</h2>
+<p>Чтобы действительно <strong>защитить контент</strong> от LLM и скраперов</p>
+<table>
+<thead>
+<tr>
+<th>Мера</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>robots.txt</code> + <code>llm.txt</code></td>
+<td>Декларативное регулирование</td>
+</tr>
+<tr>
+<td><code>robots</code> meta-тег</td>
+<td><code>&lt;meta name="robots" content="noindex,nofollow"&gt;</code></td>
+</tr>
+<tr>
+<td><code>X-Robots-Tag</code> в заголовках</td>
+<td>Тоже может указывать noindex</td>
+</tr>
+<tr>
+<td>Блокировка IP-диапазонов</td>
+<td>Уточняется в документации GPTBot и других</td>
+</tr>
+<tr>
+<td>User-Agent фильтрация</td>
+<td>Веб-сервер может блокировать известных ботов</td>
+</tr>
+<tr>
+<td>Captcha / JS-чек</td>
+<td>Помогает против автоматизированного сбора</td>
+</tr>
+</tbody>
+</table>
+<h2>Как узнать, кто использует мой сайт</h2>
+<p>Используй логи доступа веб-сервера, ищи <code>User-Agent</code>, например</p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>GPTBot
+ClaudeBot
+PerplexityBot
+Google-Extended
+</pre></div></div></div>
+
+<p>Или установи аналитические инструменты (например, WAF, логеры NGINX/Apache)</p>
+<h2>Ссылки на официальные страницы LLM-ботов</h2>
+<ul>
+<li><strong>OpenAI GPTBot</strong>: <a href="https://openai.com/gptbot">https://openai.com/gptbot</a></li>
+<li><strong>Anthropic ClaudeBot</strong>: <a href="https://www.anthropic.com/claudebot">https://www.anthropic.com/claudebot</a></li>
+<li><strong>Google-Extended</strong> (Gemini): <a href="https://developers.google.com/search/docs/crawling-indexing/googlebot#google-extended">https://developers.google.com/search/docs/crawling-indexing/googlebot#google-extended</a></li>
+<li><strong>PerplexityBot</strong>: <a href="https://www.perplexity.ai/blog/perplexitybot">https://www.perplexity.ai/blog/perplexitybot</a></li>
+<li><strong>YouBot</strong>: <em>(официальной страницы может не быть)</em></li>
+</ul>
+<h2>Пример <code>llm.txt</code> для сайта</h2>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span># Ограничения для LLM-ботов
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: *
+Disallow: /private/
+Allow: /
+</pre></div></div></div>
+
+<h2>Заключение</h2>
+<p>Файл <code>llm.txt</code> — это <strong>новый и добровольный механизм</strong>, позволяющий выразить позицию владельца сайта по поводу использования его контента ИИ-моделями
+Но пока нет единого стандарта, и соблюдение зависит от доброй воли разработчиков LLM</p>
