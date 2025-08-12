@@ -1,4 +1,4 @@
-<h1>Шпаргалка по созданию триггеров в SQLite</h1>
+<h1>Создание триггеров в SQLite</h1>
 <p><strong>Триггер</strong> — это объект базы данных, который автоматически выполняется
 при наступлении определённого события (<code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>) на заданной таблице
 В SQLite триггеры поддерживают различные сценарии, включая до/после событий и проверку условий</p>
@@ -13,13 +13,13 @@
 <span class="k">END</span><span class="p">;</span>
 </pre></div></div></div>
 
-<h2>Типы триггеров</h2>
+<h1>Типы триггеров</h1>
 <ol>
 <li><code>BEFORE</code> — выполняется перед событием (можно отменить операцию, вызвав ошибку)</li>
 <li><code>AFTER</code> — выполняется после события (например, для логирования)</li>
 <li><code>INSTEAD OF</code> — заменяет выполнение события (обычно для представлений)</li>
 </ol>
-<h2>Ключевые аспекты</h2>
+<h1>Ключевые аспекты</h1>
 <ul>
 <li><code>FOR EACH ROW</code>
 Указывает, что триггер должен выполняться для каждой строки, затронутой операцией</li>
@@ -31,7 +31,7 @@
 </ul>
 </li>
 </ul>
-<h2>Примеры использования</h2>
+<h1>Примеры использования</h1>
 <h3>Логирование вставок</h3>
 <p>Логируем время и значение, вставленное в <code>main_table</code></p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">log_table</span><span class="w"> </span><span class="p">(</span>
@@ -112,11 +112,11 @@
 <span class="k">END</span><span class="p">;</span>
 </pre></div></div></div>
 
-<h2>Удаление триггеров</h2>
+<h1>Удаление триггеров</h1>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="k">trigger_name</span><span class="p">;</span>
 </pre></div></div></div>
 
-<h2>Особенности SQLite</h2>
+<h1>Особенности SQLite</h1>
 <ul>
 <li>Многострочные операции:
 Триггеры в SQLite работают для каждой строки (<code>FOR EACH ROW</code>),
@@ -127,18 +127,18 @@ SQLite запретит выполнение вложенных триггеро
 <li>Оптимизация условий:
 Использование <code>WHEN</code> позволяет избежать выполнения ненужных операций</li>
 </ul>
-<h2>Советы и best practices</h2>
+<h1>Советы и best practices</h1>
 <ol>
 <li>Минимизируйте логику триггеров:
 Избегайте сложных операций, чтобы не замедлять вставки/обновления</li>
 <li>Тестируйте:
-Убедитесь, что триггеры работают как ожидается, особенно при граничных условиях.</li>
+Убедитесь, что триггеры работают как ожидается, особенно при граничных условиях</li>
 <li>Документируйте:
-Пишите комментарии для сложных триггеров, чтобы другие разработчики могли быстро понять логику.</li>
+Пишите комментарии для сложных триггеров, чтобы другие разработчики могли быстро понять логику</li>
 <li>Логируйте изменения:
-Логи полезны для отладки и анализа истории изменений данных.</li>
+Логи полезны для отладки и анализа истории изменений данных</li>
 </ol>
-<h2>Проверка существующих триггеров</h2>
+<h3>Проверка существующих триггеров</h3>
 <p>Для просмотра списка триггеров в базе данных</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sqlite_master</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;trigger&#39;</span><span class="p">;</span>
 </pre></div></div></div>
@@ -152,7 +152,8 @@ SQLite запретит выполнение вложенных триггеро
 <h2>---</h2>
 <h1>Расширенные сценарии работы с триггерами</h1>
 <h2>Использование нескольких условий в триггерах</h2>
-<p>Иногда требуется более сложная логика проверки. Это можно реализовать в блоке <code>WHEN</code> или с помощью нескольких запросов в теле триггера</p>
+<p>Иногда требуется более сложная логика проверки
+Это можно реализовать в блоке <code>WHEN</code> или с помощью нескольких запросов в теле триггера</p>
 <h3>Логирование только при определённом диапазоне значений</h3>
 <p>Логируется только повышение зарплаты выше 100,000</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">log_high_salary</span>

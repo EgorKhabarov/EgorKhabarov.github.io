@@ -432,7 +432,8 @@
                 "Разное": "",
                 "Операторы": "",
                 "Функции": "",
-                "CREATE TRIGGER": ""
+                "CREATE TRIGGER": "",
+                "PRAGMA": ""
             },
             "MySQL MariaDB": {
                 "Типы данных": ""

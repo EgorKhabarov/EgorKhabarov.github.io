@@ -1,0 +1,208 @@
+<p><code>PRAGMA</code> — это механизм для настройки и диагностики SQLite</p>
+<p>Используется для:</p>
+<ul>
+<li>Управления поведением базы данных</li>
+<li>Получения информации о структуре и состоянии</li>
+<li>Включения/выключения служебных режимов</li>
+</ul>
+<h1>Синтаксис</h1>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="err">имя</span><span class="n">_параметра</span><span class="p">;</span>
+<span class="n">PRAGMA</span><span class="w"> </span><span class="err">имя</span><span class="n">_параметра</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">значение</span><span class="p">;</span>
+<span class="n">PRAGMA</span><span class="w"> </span><span class="err">имя</span><span class="n">_параметра</span><span class="p">(</span><span class="err">аргументы</span><span class="p">);</span>
+</pre></div></div></div>
+
+<h3>Информация о структуре базы данных</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA table_info(имя_таблицы);</code></td>
+<td>Информация о столбцах таблицы: имя, тип, ограничения</td>
+</tr>
+<tr>
+<td><code>PRAGMA index_list(имя_таблицы);</code></td>
+<td>Список индексов таблицы</td>
+</tr>
+<tr>
+<td><code>PRAGMA index_info(имя_индекса);</code></td>
+<td>Информация о полях, покрываемых индексом</td>
+</tr>
+<tr>
+<td><code>PRAGMA table_list;</code></td>
+<td>Список всех таблиц и временных таблиц</td>
+</tr>
+<tr>
+<td><code>PRAGMA foreign_key_list(имя_таблицы);</code></td>
+<td>Список внешних ключей таблицы</td>
+</tr>
+<tr>
+<td><code>PRAGMA database_list;</code></td>
+<td>Список подключённых баз данных (main, temp и т.д.)</td>
+</tr>
+</tbody>
+</table>
+<h3>Управление ссылочной целостностью</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA foreign_keys = ON;</code></td>
+<td>Включает проверку внешних ключей (по умолчанию выключено)</td>
+</tr>
+<tr>
+<td><code>PRAGMA foreign_keys;</code></td>
+<td>Показывает, включены ли внешние ключи (0 или 1)</td>
+</tr>
+</tbody>
+</table>
+<p>Рекомендуется включать <strong>сразу после подключения к БД</strong></p>
+<h3>Журналирование и безопасность</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA journal_mode;</code></td>
+<td>Показывает текущий режим журналирования (<code>DELETE</code>, <code>WAL</code>, <code>MEMORY</code>, <code>OFF</code>, <code>TRUNCATE</code>, <code>PERSIST</code>)</td>
+</tr>
+<tr>
+<td><code>PRAGMA journal_mode = WAL;</code></td>
+<td>Устанавливает режим WAL — быстрая многопоточность и надёжность</td>
+</tr>
+<tr>
+<td><code>PRAGMA synchronous = FULL;</code></td>
+<td>Контроль синхронизации с диском: <code>OFF</code>, <code>NORMAL</code>, <code>FULL</code>, <code>EXTRA</code></td>
+</tr>
+<tr>
+<td><code>PRAGMA locking_mode = EXCLUSIVE;</code></td>
+<td>Позволяет работать с БД без блокировок от других соединений</td>
+</tr>
+</tbody>
+</table>
+<h3>Производительность и оптимизация</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA temp_store = MEMORY;</code></td>
+<td>Временные таблицы хранятся в памяти</td>
+</tr>
+<tr>
+<td><code>PRAGMA cache_size = -N;</code></td>
+<td>Размер кэша в килобайтах (отрицательное значение) или страницах (положительное)</td>
+</tr>
+<tr>
+<td><code>PRAGMA page_size;</code></td>
+<td>Размер страницы БД (по умолчанию 4096 байт)</td>
+</tr>
+<tr>
+<td><code>PRAGMA optimize;</code></td>
+<td>Запускает оптимизацию — пересчёт статистики, удаление мёртвых индексов</td>
+</tr>
+<tr>
+<td><code>PRAGMA analysis_limit = N;</code></td>
+<td>Ограничение на анализ строк в <code>ANALYZE</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Диагностика и отладка</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA integrity_check;</code></td>
+<td>Проверка целостности базы данных</td>
+</tr>
+<tr>
+<td><code>PRAGMA quick_check;</code></td>
+<td>Быстрая, менее полная версия integrity_check</td>
+</tr>
+<tr>
+<td><code>PRAGMA schema_version;</code></td>
+<td>Версия схемы базы (увеличивается при изменениях)</td>
+</tr>
+<tr>
+<td><code>PRAGMA encoding;</code></td>
+<td>Кодировка БД (обычно UTF-8)</td>
+</tr>
+<tr>
+<td><code>PRAGMA compile_options;</code></td>
+<td>Список опций компиляции SQLite</td>
+</tr>
+<tr>
+<td><code>PRAGMA busy_timeout = 5000;</code></td>
+<td>Время ожидания (в мс), если БД занята</td>
+</tr>
+</tbody>
+</table>
+<h3>Работа с транзакциями и autovacuum</h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRAGMA auto_vacuum = FULL;</code></td>
+<td>Включает автоматическую очистку неиспользуемых страниц</td>
+</tr>
+<tr>
+<td><code>PRAGMA wal_autocheckpoint = 1000;</code></td>
+<td>Порог страниц WAL перед авто-чекпоинтом</td>
+</tr>
+<tr>
+<td><code>PRAGMA locking_mode;</code></td>
+<td>Текущий режим блокировки: <code>NORMAL</code>, <code>EXCLUSIVE</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Примеры полезного использования</h1>
+<h3>Включение внешних ключей</h3>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">foreign_keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">;</span>
+</pre></div></div></div>
+
+<h3>Перевод БД в WAL-режим</h3>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">journal_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WAL</span><span class="p">;</span>
+</pre></div></div></div>
+
+<h3>Проверка структуры таблицы</h3>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">table_info</span><span class="p">(</span><span class="n">users</span><span class="p">);</span>
+</pre></div></div></div>
+
+<h3>Оптимизация после массового изменения</h3>
+<div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="n">PRAGMA</span><span class="w"> </span><span class="n">optimize</span><span class="p">;</span>
+</pre></div></div></div>
+
+<h1>Рекомендации</h1>
+<ul>
+<li>Включай внешние ключи: SQLite по умолчанию их игнорирует</li>
+<li>Используй WAL, если ты работаешь с многопоточностью или веб-приложением</li>
+<li>Делай PRAGMA optimize после большого количества изменений</li>
+<li>Вызывай integrity_check при подозрении на повреждение базы</li>
+</ul>
