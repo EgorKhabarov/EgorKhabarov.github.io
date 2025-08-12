@@ -1,0 +1,191 @@
+<h1>robots.txt</h1>
+<p><code>robots.txt</code> - это текстовый файл, размещаемый в корне сайта, который сообщает поисковым роботам (краулерам),
+какие страницы или разделы сайта можно или нельзя индексировать</p>
+<p><code>/robots.txt</code></p>
+<p>Файл состоит из одного или нескольких блоков правил, каждый начинается с <code>User-Agent</code></p>
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: &lt;имя бота&gt;
+Allow: &lt;путь&gt;
+Disallow: &lt;путь&gt;
+Crawl-Delay: &lt;секунды&gt;
+Sitemap: &lt;URL карты сайта&gt;
+</pre></div></div></div>
+
+<h1>Директивы</h1>
+<ul>
+<li><code>User-Agent</code> - указывает, к какому боту применяются правила</li>
+<li><code>Allow</code> - путь, который <strong>можно</strong> индексировать (даже если он входит в запрещённый каталог)</li>
+<li><code>Disallow</code> - путь, который <strong>нельзя</strong> индексировать</li>
+<li><code>Crawl-Delay</code> - задержка между запросами (в секундах)</li>
+<li><code>Sitemap</code> - ссылка на XML-карту сайта</li>
+</ul>
+<h2>Особенности и поведение</h2>
+<table>
+<thead>
+<tr>
+<th>Особенность</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Регистр</td>
+<td>Все директивы нечувствительны к регистру, но пути чувствительны (<code>/Admin</code> ≠ <code>/admin</code>)</td>
+</tr>
+<tr>
+<td>Wildcard</td>
+<td>Поддерживаются <code>*</code> и <code>$</code> (не всеми ботами)</td>
+</tr>
+<tr>
+<td>Комментарии</td>
+<td>Строки, начинающиеся с <code>#</code>, игнорируются</td>
+</tr>
+<tr>
+<td>Порядок правил</td>
+<td>Важно для некоторых ботов (например, Google: самое точное правило применяется)</td>
+</tr>
+</tbody>
+</table>
+<h2>Wildcard (шаблоны путей)</h2>
+<table>
+<thead>
+<tr>
+<th>Символ</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td>Любая последовательность символов</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Конец строки</td>
+</tr>
+</tbody>
+</table>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>Disallow: /*.pdf$    # Запретить все PDF
+Allow: /public/*     # Разрешить все в /public/
+Disallow: /private/  # Запретить всё в /private/
+</pre></div></div></div>
+
+<h2>User-Agent</h2>
+<ul>
+<li><code>*</code> - правило применяется ко <strong>всем</strong> роботам</li>
+<li>Конкретное имя - только для указанного бота (например, <code>Googlebot</code>, <code>Bingbot</code>)</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: Googlebot
+Disallow: /no-google/
+
+User-Agent: *
+Disallow: /no-all/
+</pre></div></div></div>
+
+<h2>Sitemap</h2>
+<p>Рекомендуется указывать ссылку на карту сайта (XML)</p>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>Sitemap: https://example.com/sitemap.xml
+</pre></div></div></div>
+
+<p>Можно указывать несколько карт</p>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>Sitemap: https://example.com/sitemap1.xml
+Sitemap: https://example.com/sitemap2.xml
+</pre></div></div></div>
+
+<h2>Crawl-Delay</h2>
+<p>Ограничивает частоту запросов от бота (не поддерживается Googlebot)</p>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: bingbot
+Crawl-Delay: 10  # 10 секунд между запросами
+</pre></div></div></div>
+
+<h1>Частые ошибки</h1>
+<table>
+<thead>
+<tr>
+<th>Ошибка</th>
+<th>Почему плохо</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Disallow: /</code></td>
+<td>Запретит индексацию <strong>всего сайта</strong></td>
+</tr>
+<tr>
+<td><code>robots.txt</code> ≠ UTF-8</td>
+<td>Боты могут не понять</td>
+</tr>
+<tr>
+<td>Путь без <code>/</code></td>
+<td>Всегда должен начинаться с <code>/</code></td>
+</tr>
+<tr>
+<td>Переопределение правил</td>
+<td>Последовательность <code>Allow</code> и <code>Disallow</code> должна быть точной</td>
+</tr>
+<tr>
+<td>Ожидание безопасности</td>
+<td><code>robots.txt</code> - лишь рекомендация, злоумышленники могут игнорировать</td>
+</tr>
+</tbody>
+</table>
+<h1>Примеры</h1>
+<h3>Разрешить всё всем</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow:
+</pre></div></div></div>
+
+<h3>Запретить всё всем</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow: /
+</pre></div></div></div>
+
+<h3>Разрешить всё, кроме /admin/</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow: /admin/
+</pre></div></div></div>
+
+<h3>Запретить только PDF-файлы</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow: /*.pdf$
+</pre></div></div></div>
+
+<h3>Только Googlebot не может индексировать /tmp</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: Googlebot
+Disallow: /tmp/
+</pre></div></div></div>
+
+<h3>Запрет на доступ к параметрам URL</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow: /*?sessionid=
+Disallow: /*.php$
+</pre></div></div></div>
+
+<h3>Запрет на весь каталог, но разрешение для отдельного файла</h3>
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-Agent: *
+Disallow: /docs/
+Allow: /docs/readme.html
+</pre></div></div></div>
+
+<h1>Проверка и отладка</h1>
+<ul>
+<li>Google Search Console: Инструмент "Проверка robots.txt"</li>
+<li>Онлайн-валидаторы: <a href="https://technicalseo.com/tools/robots-txt/">https://technicalseo.com/tools/robots-txt/</a></li>
+</ul>
+<h1>Важное о безопасности</h1>
+<ul>
+<li><code>robots.txt</code> - <strong>не защита</strong>, а рекомендация</li>
+<li>Не размещайте <strong>чувствительные пути</strong> (например, <code>/private-data/</code>) - они могут быть легко найдены</li>
+<li>Для настоящей защиты используйте HTTP-аутентификацию, <code>.htaccess</code>, заголовки <code>X-Robots-Tag</code>, или Meta-теги</li>
+</ul>
+<h1>Расширения и альтернативы</h1>
+<ul>
+<li><strong>Meta robots tag</strong>: На уровне страницы (<code>&lt;meta name="robots" content="noindex, nofollow"&gt;</code>)</li>
+<li><strong>X-Robots-Tag</strong>: В HTTP-заголовках</li>
+<li>Используется совместно с <code>robots.txt</code> для более точного контроля</li>
+</ul>
+<h1>Ссылки на официальную документацию</h1>
+<ul>
+<li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Google: robots.txt спецификация</a></li>
+<li><a href="https://yandex.ru/support/webmaster/robot-workings/robots-txt.html">Yandex: robots.txt</a></li>
+<li><a href="https://www.sitemaps.org/protocol.html">Sitemaps.org: Sitemap directive</a></li>
+</ul>
