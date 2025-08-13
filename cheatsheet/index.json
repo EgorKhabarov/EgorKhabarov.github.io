@@ -672,10 +672,11 @@
                 "tg_color": "color: brown\n",
                 "Fib": "color: brown\n",
                 "Словарь обращение через точку": "color: brown\n",
-                "get_valid_filename": ""
+                "get_valid_filename": "color: brown\n"
             },
             "Get admin rights": "color: brown\n",
-            "PYPRECODE": "color: brown\n"
+            "PYPRECODE": "color: brown\n",
+            "one-liners": "color: brown\n"
         },
         "Java": {
             "snippet 1": "color: brown\n"
