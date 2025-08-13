@@ -77,6 +77,9 @@ a {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     /* margin-bottom: 2rem; */
 }
+a.project-block:hover {
+    transform: translateY(-4px);
+}
 .project-block .icon {
     width: 100%;
     border-radius: 0.5rem;
