@@ -21,6 +21,7 @@ end_dot_regex = re.compile(r"(?m)\.$")
 header_regex = re.compile(r"(#+|\*|\d+\.) \*\*(?:\d\.){0,2} ?([^\n]+)\*\*")
 hr_regex = re.compile(r"\n\n---")
 quotes_regex = re.compile(r"'[^'\n]*?'")
+# re.compile(r"(?<=# )[^а-яa-z`]+")
 
 
 def table_bold_func(s: str) -> str:
