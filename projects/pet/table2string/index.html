@@ -28,21 +28,193 @@
             <a target="_blank" href="https://pypi.python.org/pypi/table2string"><img alt="PyPi Package Version" src="https://img.shields.io/pypi/v/table2string.svg?style=flat&logo=pypi"/></a>
         </div>
 
-        <div class="break-words main-description">
-            Python library for converting tables to strings - with convenient support:
-            <ul>
-                <li>Line breaks within cells</li>
-                <li>Nested tables that merge nicely at their borders</li>
-                <li>Horizontal and vertical alignments</li>
-                <li>Emoji integrations</li>
-                <li>Support for ANSI colors, formatting and links</li>
-            </ul>
+        <div class="break-words main-description" style="display: flex;flex-direction: column;align-items: center;">
+            <div>
+                <span>Python library for converting tables to strings - with convenient support:</span>
+                <ul>
+                    <li>Line breaks within cells</li>
+                    <li>Nested tables that merge nicely at their borders</li>
+                    <li>Horizontal and vertical alignments</li>
+                    <li>Emoji integrations</li>
+                    <li>Support for ANSI colors, formatting and links</li>
+                </ul>
+                <span>Please star this project on GitHub! ⭐</span>
+            </div>
         </div>
-        <div class="break-words main-description">Please star this project on GitHub! ⭐</div>
 
         <img src="resources/formatting_example_IPython.png" alt="formatting_example_IPython.png" style="width: 600px;" class="main-image">
 
         <div class="project-block-list">
+            <div class="project-block">
+                <h3>Quick start</h3>
+                <p>Download the library</p>
+                <div class="code_element" style="width: max-content;margin-top: 1rem;">
+                    <span>
+                        <span class="kn">pip</span><span>&nbsp;install&nbsp;<span class="kn">-U</span>&nbsp;table2string</span><br>
+                    </span>
+                </div>
+                <p>You can specify parameters <code class="copy">name</code> and <code class="copy">column_names</code></p>
+                <div class="code_element">
+                    <span>
+                        <span class="kn">from</span><span class="w"> </span><span class="nn">table2string</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span><br>
+                        <span>Table(</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;name</span><span>=</span><span class="s2">&quot;Table Name&quot;</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;column_names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;c1&quot;</span><span class="kn">,</span> <span class="s2">&quot;c2&quot;</span><span class="kn">,</span> <span class="s2">&quot;c3&quot;</span><span>)</span><span class="kn">,</span><br>
+                        <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;table</span><span class="o">=</span><span class="p">[</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span><span class="s2">&quot;1&quot;</span><span class="kn">,</span> <span class="s2">&quot;2&quot;</span><span class="kn">,</span> <span class="s2">&quot;3&quot;</span><span>)</span><span class="kn">,</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span><span class="s2">&quot;qwe&quot;</span><span class="kn">,</span> <span class="s2">&quot;rty</span><span class="se">\n</span><span class="s2">uio&quot;</span><span class="kn">,</span> <span class="s2">&quot;&quot;</span><span>)</span><span class="kn">,</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;]</span><span class="kn">,</span><br>
+                        <span>).print()</span><br>
+
+                        <br>
+                        <span>+----------------+</span><br>
+                        <span>|</span>&nbsp;&nbsp;&nbsp;<span class="n">Table</span> <span class="n">Name</span>&nbsp;&nbsp;&nbsp;<span class="o">|</span><br>
+                        <span>+-----+-----+----+</span><br>
+                        <span>|&nbsp;</span><span class="n">c1</span><span>&nbsp;&nbsp;|&nbsp;</span><span class="n">c2</span><span>&nbsp;&nbsp;|&nbsp;</span><span class="n">c3</span><span>&nbsp;|</span><br>
+                        <span>+-----+-----+----+</span><br>
+                        <span>|&nbsp;&nbsp;&nbsp;</span><span class="mi">1</span><span>&nbsp;|&nbsp;&nbsp;&nbsp;</span><span class="mi">2</span><span>&nbsp;|&nbsp;&nbsp;</span><span class="mi">3</span><span>&nbsp;|</span><br>
+                        <span>+-----+-----+----+</span><br>
+                        <span>| qwe | rty |&nbsp;&nbsp;&nbsp;&nbsp;|</span><br>
+                        <span>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| uio |&nbsp;&nbsp;&nbsp;&nbsp;|</span><br>
+                        <span>+-----+-----+----+</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="project-block">
+<!--                <img src="resources/image.png" class="icon" alt="image.png"/>-->
+                <h3>Import and Export Options</h3>
+                <p>
+                    You can load data by calling <code>Table()</code>, or use the static method <code>.from_table</code>,
+                    as well as <code>.from_csv</code> for CSV files or <code>.from_db_cursor</code> for database cursors
+                </p>
+                <p>You can export data with <code>.print</code> to the console or a file, or with <code>.stringify</code> to get a string</p>
+                <p>During export, you can specify alignment, border style, and cells width and height</p>
+
+                <!--
+                <div class="code_element">
+                    <span>
+                        <span class="kn">from</span><span> </span><span class="nn">table2string</span><span> </span><span class="kn">import</span> <span>Table</span><br>
+                        <span>column_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;c1&quot;</span><span class="p">,</span> <span class="s2">&quot;c2&quot;</span><span class="p">,</span> <span class="s2">&quot;c3&quot;</span><span class="p">)</span><br>
+                        <span>data</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span><br>
+                        <br>
+                        <span>table = Table(data</span><span class="kn">,</span> <span>name=</span><span class="s2">&quot;Name&quot;</span><span class="kn">,</span> <span>column_names=column_names</span><span class="p">)</span><br>
+                        <span>table = Table.from_table(data</span><span class="kn">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span><br>
+                        <br>
+                        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="kn">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span><br>
+                        <span class="w">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="sd">&quot;&quot;&quot;</span><br>
+                        <span class="sd">&nbsp;&nbsp;&nbsp;&nbsp;1,2,3</span><br>
+                        <span class="sd">&nbsp;&nbsp;&nbsp;&nbsp;4,5,6</span><br>
+                        <span class="sd">&nbsp;&nbsp;&nbsp;&nbsp;&quot;&quot;&quot;</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><br>
+                        <br>
+                        <span class="kn">import</span><span> </span><span class="nn">sqlite3</span><br>
+                        <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;data.sqlite3&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT c1, c2, c3 FROM data;&quot;</span><span class="p">)</span><br>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;table = Table.from_db_cursor(cursor</span><span class="kn">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    </span>
+                </div>
+                -->
+            </div>
+
+            <div class="project-block">
+                <img src="resources/aligns.png" class="icon" alt="aligns.png"/>
+                <h3>Aligns</h3>
+                <h4>Horizontal Alignment</h4>
+                <p>
+                    The <code class="copy">*</code> symbol indicates type-dependent alignment.
+                    If this is a number and there are no line breaks in this cell, then align to the right; otherwise, align to the left.
+                    The <code class="copy">&lt;</code>, <code class="copy">^</code>, and <code class="copy">&gt;</code>
+                    symbols are used for <b>left</b>, <b>center</b>, and <b>right</b> alignment, respectively
+                </p>
+                <h4>Vertical Alignment</h4>
+                <p>
+                    The <code class="copy">^</code> symbol stands for <b>top</b> alignment,
+                    <code class="copy">-</code> for <b>center</b> alignment,
+                    and <code class="copy">_</code> for <b>bottom</b> alignment
+                </p>
+                <p>
+                    You can also use constants from the <code class="copy">HorizontalAlignment</code> and <code class="copy">VerticalAlignment</code> enums instead of symbols
+                </p>
+                <details>
+                    <summary>Code from the picture</summary>
+                    <div class="code_element">
+                        <span>
+                            <span class="kn">from</span><span>&nbsp;functools&nbsp;</span><span class="kn">import</span><span>&nbsp;partial</span><br>
+                            <span class="kn">from</span><span>&nbsp;table2string&nbsp;</span><span class="kn">import</span><span>&nbsp;Table</span><span class="kn">,</span><span>&nbsp;Themes</span><br>
+                            <span>sub_table_auto_func&nbsp;=&nbsp;partial(Table</span><span class="kn">,</span> <span>[(</span><span class="s2">&quot;123&quot;</span><span class="kn">,</span> <span class="s2">&quot;text&quot;</span><span class="kn">,</span><span>)]</span><span class="kn">,</span> <span class="na">max_height</span><span>=</span><span class="mi">9</span><span class="kn">,</span> <span class="na">maximize_height</span><span>=</span><span class="kc">True</span><span>)</span><br>
+                            <span>sub_table_func&nbsp;=&nbsp;partial(Table</span><span class="kn">,</span> <span>[(</span><span class="s2">&quot;first line</span><span class="se">\n</span><span class="s2">text&quot;</span><span class="kn">,</span><span>)</span><span class="kn">,</span><span>]</span><span class="kn">,</span> <span class="na">max_height</span><span>=</span><span class="mi">9</span><span class="kn">,</span> <span class="na">maximize_height</span><span>=</span><span class="kc">True</span><span>)</span><br>
+                            <span>Table(</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;[</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><span>(</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span><span>v_align</span><span class="kn">,</span> <span>sub_table_auto_func</span><span>(</span><span class="na">h_align</span><span>=</span><span class="s2">&quot;*&quot;</span><span class="kn">,</span> <span class="na">v_align</span><span>=v_align</span><span>)]&nbsp;+&nbsp;[</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub_table_func(</span><span class="na">h_align</span><span>=</span><span>h_align</span><span class="kn">,</span> <span class="na">v_align</span><span>=</span><span>v_align</span><span>)</span><br>
+                            <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for</span> <span>h_align</span> <span class="ow">in</span> <span>(</span><span class="s2">&quot;&lt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&lt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&gt;&quot;</span><span>)</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span><br>
+                            <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for</span><span>&nbsp;v_align</span> <span class="ow">in</span> <span>(</span><span class="s2">&quot;^&quot;</span><span class="kn">,</span> <span class="s2">&quot;-&quot;</span><span class="kn">,</span> <span class="s2">&quot;_&quot;</span><span>)</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;],</span><br>
+                            <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;column_names</span><span>=(</span><span class="s2">&quot; &quot;</span><span class="kn">,</span> <span class="s2">&quot;*&quot;</span><span class="kn">,</span> <span class="s2">&quot;&lt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&lt;&quot;</span><span class="kn">,</span> <span class="s2">&quot;^&gt;&quot;</span><span>)</span><span class="kn">,</span><br>
+                            <span>).print(</span><span class="na">max_width</span><span>=(</span><span class="mi">1</span><span class="kn">,</span> <span class="nb">len</span><span>(</span><span class="s2">&quot;first line&quot;</span><span>)&nbsp;+&nbsp;</span><span class="mi">4</span><span>)</span><span class="kn">,</span> <span class="na">v_align</span><span>=(</span><span class="s2">&quot;-&quot;</span><span class="kn">,</span><span>)</span><span class="kn">,</span> <span class="na">theme</span><span>=Themes.thin_thick)</span>
+                        </span>
+                    </div>
+                </details>
+            </div>
+
+            <div class="project-block">
+                <img src="resources/borders.png" class="icon" alt="borders.png"/>
+                <h3>Borders</h3>
+                <p>
+                    When exporting, you can specify the <code>theme</code> parameter with one of the following options:
+                    <code class="copy">ascii_thin</code>,
+                    <code class="copy">ascii_thin_double</code>,
+                    <code class="copy">ascii_double</code>,
+                    <code class="copy">ascii_double_thin</code>,
+                    <code class="copy">thin</code>,
+                    <code class="copy">thin_thick</code>,
+                    <code class="copy">thin_double</code>,
+                    <code class="copy">rounded_double</code>,
+                    <code class="copy">rounded</code>,
+                    <code class="copy">rounded_thick</code>,
+                    <code class="copy">thick</code>,
+                    <code class="copy">thick_thin</code>,
+                    <code class="copy">double</code>,
+                    <code class="copy">double_thin</code>,
+                    <code class="copy">booktabs</code>,
+                    <code class="copy">ascii_booktabs</code>,
+                    <code class="copy">markdown</code>
+                </p>
+                <p>
+                    These themes are available through the <code>Themes</code> class.
+                    For example: <code class="copy">Themes.thin_thick</code>
+                </p>
+                <p>You can also create your own themes using the <code class="copy">Theme</code> class</p>
+                <details>
+                    <summary>Code from the picture</summary>
+                    <div class="code_element">
+                        <span>
+                            <span class="kn">from</span><span>&nbsp;table2string&nbsp;</span><span class="kn">import</span><span>&nbsp;Table</span><span class="kn">,</span><span>&nbsp;Themes</span><span class="kn">,</span><span>&nbsp;HorizontalAlignment</span><br>
+                            <span>table&nbsp;=&nbsp;[]</span><br>
+                            <span>example_table&nbsp;=&nbsp;Table([(</span><span class="s2">&quot; &quot;</span><span class="kn">,</span> <span class="s2">&quot; &quot;</span><span>)</span><span class="kn">,</span><span>&nbsp;(</span><span class="s2">&quot; &quot;</span><span class="kn">,</span> <span class="s2">&quot; &quot;</span><span>)</span><span class="kn">,</span> <span>(</span><span class="s2">&quot; &quot;</span><span class="kn">,</span> <span class="s2">&quot; &quot;</span><span>)])</span><br>
+                            <span>theme_names&nbsp;=&nbsp;(</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;(</span><span class="s2">&quot;ascii_thin&quot;</span><span class="kn">,</span> <span class="s2">&quot;ascii_thin_double&quot;</span><span class="kn">,</span> <span class="s2">&quot;ascii_double&quot;</span><span class="kn">,</span> <span class="s2">&quot;ascii_double_thin&quot;</span><span class="kn">,</span> <span class="s2">&quot;thin&quot;</span><span class="kn">,</span> <span class="s2">&quot;thin_thick&quot;</span><span>)</span><span class="kn">,</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;(</span><span class="s2">&quot;thin_double&quot;</span><span class="kn">,</span> <span class="s2">&quot;rounded_double&quot;</span><span class="kn">,</span> <span class="s2">&quot;rounded&quot;</span><span class="kn">,</span> <span class="s2">&quot;rounded_thick&quot;</span><span class="kn">,</span> <span class="s2">&quot;thick&quot;</span><span class="kn">,</span> <span class="s2">&quot;thick_thin&quot;</span><span>)</span><span class="kn">,</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;(</span><span class="s2">&quot;double&quot;</span><span class="kn">,</span> <span class="s2">&quot;double_thin&quot;</span><span class="kn">,</span> <span class="s2">&quot;booktabs&quot;</span><span class="kn">,</span> <span class="s2">&quot;ascii_booktabs&quot;</span><span class="kn">,</span> <span class="s2">&quot;markdown&quot;</span><span class="kn">,</span> <span class="s2">&quot;None&quot;</span><span>)</span><span class="kn">,</span><br>
+                            <span>)</span><br>
+                            <span class="k">for</span> <span>names</span> <span class="ow">in</span> <span>theme_names:</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;table.append([])</span><br>
+                            <span class="k">&nbsp;&nbsp;&nbsp;&nbsp;for</span> <span>name</span> <span class="ow">in</span> <span>names:</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string_table&nbsp;=&nbsp;example_table.stringify(</span><br>
+                            <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme</span><span>=</span><span class="nb">getattr</span><span>(</span><span>Themes</span><span class="kn">,</span> <span>name</span><span class="kn">,</span> <span>Themes.ascii_thin)</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span><br>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table[-</span><span class="mi">1</span><span>].append(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span>name</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span>string_table</span><span class="si">}</span><span class="s2">&quot;</span><span>)</span><br>
+                            <span>Table(table).print(</span><span class="na">theme</span><span>=Themes.thin</span><span class="kn">,</span> <span class="na">h_align</span><span>=HorizontalAlignment.CENTER)</span>
+                        </span>
+                    </div>
+                </details>
+            </div>
+
             <div class="project-block">
                 <img src="resources/subtable_example.png" style="width:auto;height:190px;" class="icon" alt="subtable_example.png"/>
                 <h3>Subtable</h3>
@@ -62,7 +234,7 @@
                         <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;v_align</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="kn">,</span>)<span class="kn">,</span><br>
                         <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;max_width</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="kn">,</span> <span class="mi">8</span>)<span class="kn">,</span><br>
                         <span class="na">&nbsp;&nbsp;&nbsp;&nbsp;theme</span>=Themes.thin_thick<span class="kn">,</span><br>
-                        )
+                        <span>)</span>
                     </span>
                 </div>
             </div>
@@ -75,7 +247,7 @@
                 <div class="code_element">
                     <span>
                         <span class="kn">from</span> <span class="nn">table2string</span> <span class="kn">import</span> Table<span class="kn">,</span> Themes<span class="kn">,</span> style<span class="kn">,</span> link<span class="kn">,</span> Color<br>
-                        <span>red_text = style</span>(<span class="s2">&quot;w</span><span class="se">\n</span><span class="s2">e&quot;</span><span class="p">,</span> <span class="na">fg</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span><br>
+                        <span>red_text = style</span>(<span class="s2">&quot;w</span><span class="se">\n</span><span class="s2">e&quot;</span><span class="kn">,</span> <span class="na">fg</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span><br>
                         <span>example_link = link(</span><span class="s2">&quot;https://example.com&quot;</span><span class="kn">,</span> <span class="s2">&quot;link&quot;</span><span class="p">)</span><br>
                         <span>text =</span> <span class="s2">f&quot;q</span><span class="si">{</span>red_text<span class="si">}</span><span class="s2">rty</span><span class="si">{</span>example_link<span class="si">}</span><span class="s2">&quot;</span><br>
                         <span>Table([(text</span><span class="kn">,</span>)]).print(<br>
