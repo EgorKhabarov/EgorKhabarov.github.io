@@ -12,8 +12,8 @@ html, body {
     padding: 0;
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
-    background-color: #0f1117;
-    color: #f4f4f4;
+    background-color: #0F1117;
+    color: #F4F4F4;
 }
 body::before {
     content: "";
@@ -34,7 +34,7 @@ body::before {
 }
 a {
     text-decoration: none;
-    color: #f4f4f4;
+    color: #F4F4F4;
 }
 .container {
     max-width: 900px;
@@ -43,15 +43,15 @@ a {
 }
 .back-button {
     display: inline-block;
-    background-color: #1f2233;
-    color: #f4f4f4;
+    background-color: #1F2233;
+    color: #F4F4F4;
     padding: 0.6rem 1.2rem;
     border-radius: 0.6rem;
     margin-bottom: 1rem;
     transition: background 0.3s;
 }
 .back-button:hover {
-    background-color: #2c3047;
+    background-color: #2C3047;
 }
 .project-title {
     font-size: 2.2rem;
@@ -74,7 +74,7 @@ a {
     margin-bottom: 1rem;
 }
 .project-block {
-    background: #1a1d2b;
+    background: #1A1D2B;
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
@@ -91,14 +91,28 @@ a.project-block:hover {
 .project-block h3 {
     margin: 0 0 0.5rem;
 }
+.project-block h4 {
+    color: #CFCFCF;
+    margin-block-start: 0px;
+    margin-block-end: -5px;
+}
 .project-block p {
     font-size: 0.95rem;
-    color: #aaa;
+    color: #AAAAAA;
+}
+.project-block summary {
+    font-size: 0.95rem;
+    color: #AAAAAA;
+}
+summary::marker {
+    font-size: 0.95rem;
+    color: #AAAAAA;
+    /* content: "> "; */
 }
 footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #666;
+    color: #666666;
     padding: 2rem 1rem;
 }
 .break-words {
@@ -107,14 +121,14 @@ footer {
 }
 .main-description {
     font-size: 0.95rem;
-    color: #aaa;
+    color: #AAAAAA;
     margin-bottom: 1rem;
 }
 code {
     padding: 0.1em 0.3em;
     overflow-y:auto;
     border-radius: 0.5em;
-    background-color: #272a34;
+    background-color: #272A34;
     white-space: pre;
 }
 code.copy {cursor: pointer;}
@@ -123,7 +137,7 @@ code.copy:active {background-color: #313541;}
 ul {
     padding-left: 25px;
     font-size: 0.95rem;
-    color: #aaa;
+    color: #AAAAAA;
 }
 .code_element {
     padding: 1em;
@@ -141,7 +155,10 @@ ul {
     font-size: 0.75rem;
     background: #2b2b2b;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
 }
+
 /* Подсветка синтаксиса */
 .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color:#CC7832;} /* Ключевые слова */
 .s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
