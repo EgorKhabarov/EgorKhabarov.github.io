@@ -1,3 +1,5 @@
+[Gradient text generator](https://www.birdflop.com/resources/rgb/)
+
 | color name   |                                                                         | color | chat | hex code  | rgb           | motd      | decimal    |
 |--------------|-------------------------------------------------------------------------|:-----:|:----:|-----------|---------------|-----------|------------|
 | dark_red     | <div style="background-color: #AA0000;width: 50px;height: 15px;"></div> | `&4`  | `§4` | #`AA0000` | `170 0 0`     | `\u00A74` | `11141120` |

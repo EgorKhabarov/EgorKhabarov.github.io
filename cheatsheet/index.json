@@ -78,7 +78,7 @@
             "llm.txt or llms.txt": ""
         },
         "Google Search": "",
-        "Encodings": "",
+        "Encodings": "tags: кодировка декодер decoder\n",
         "Programming case types": ""
     },
     "Languages": {
