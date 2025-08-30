@@ -63,6 +63,7 @@
 | svgrepo.com                     | [https://www.svgrepo.com/](https://www.svgrepo.com/)                                                                                                               |
 | simpleicons.org                 | [https://simpleicons.org/](https://simpleicons.org/)                                                                                                               |
 | flexboxlabs.netlify.app         | [https://flexboxlabs.netlify.app/](https://flexboxlabs.netlify.app/)                                                                                               |
+| shields.io/badges               | [https://shields.io/badges](https://shields.io/badges)                                                                                                             |
 
 
 # General
