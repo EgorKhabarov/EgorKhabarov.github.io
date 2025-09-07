@@ -38,92 +38,109 @@
             <div>image + duration + speed + direction + repeat</div>
             -->
 
-            <div class="category_button">Size</div>
+            <div class="category_button">Size & Color</div>
             <div class="category hidden">
+                <!-- Size -->
                 <div class="sub_category">
-                    columns
                     <input type="number"
                            id="settings_columns"
                            value="79"
                            min="6"
-                           oninput="if(this.value!=='79'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='79';this.style.display='none';" style="display: none;">Reset</button>
+                           max="1000"
+                           oninput="if(this.value!=='79'){settings_columns_reset.style.display='block';}else{settings_columns_reset.style.display='none';}">
+                    <label for="settings_columns">Columns</label>
+                    <button id="settings_columns_reset" onclick="settings_columns.value='79';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    rows
                     <input type="number"
                            id="settings_rows"
                            value="9"
                            min="9"
-                           oninput="if(this.value!=='9'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='9';this.style.display='none';" style="display: none;">Reset</button>
+                           max="1000"
+                           oninput="if(this.value!=='9'){settings_rows_reset.style.display='block';}else{settings_rows_reset.style.display='none';}">
+                    <label for="settings_rows">Rows</label>
+                    <button id="settings_rows_reset" onclick="settings_rows.value='9';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
-            </div>
-
-            <div class="category_button">Color</div>
-            <div class="category hidden">
+                <!-- Color -->
                 <div class="sub_category">
-                    color_border
-                    <code id="settings_color_border_value" class="copy">#000000</code>
                     <input type="color"
                            id="settings_color_border"
                            value="#000000"
-                           oninput="settings_color_border_value.textContent=this.value;if(this.value!=='#000000'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#000000';settings_color_border_value.textContent='#000000';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_border_value.textContent=this.value;if(this.value!=='#000000'){settings_color_border_reset.style.display='block';}else{settings_color_border_reset.style.display='none';}">
+                    <code id="settings_color_border_value" class="copy">#000000</code>
+                    <label for="settings_color_border">Border</label>
+                    <button id="settings_color_border_reset" onclick="settings_color_border.value='#000000';settings_color_border_value.textContent='#000000';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_background
-                    <code id="settings_color_background_value" class="copy">#222222</code>
                     <input type="color"
                            id="settings_color_background"
                            value="#222222"
-                           oninput="settings_color_background_value.textContent=this.value;if(this.value!=='#222222'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#222222';settings_color_background_value.textContent='#222222';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_background_value.textContent=this.value;if(this.value!=='#222222'){settings_color_background_reset.style.display='block';}else{settings_color_background_reset.style.display='none';}">
+                    <code id="settings_color_background_value" class="copy">#222222</code>
+                    <label for="settings_color_background">Background</label>
+                    <button id="settings_color_background_reset" onclick="settings_color_background.value='#222222';settings_color_background_value.textContent='#222222';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_glare
-                    <code id="settings_color_glare_value" class="copy">#666666</code>
                     <input type="color"
                            id="settings_color_glare"
                            value="#666666"
-                           oninput="settings_color_glare_value.textContent=this.value;if(this.value!=='#666666'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#666666';settings_color_glare_value.textContent='#666666';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_glare_value.textContent=this.value;if(this.value!=='#666666'){settings_color_glare_reset.style.display='block';}else{settings_color_glare_reset.style.display='none';}">
+                    <code id="settings_color_glare_value" class="copy">#666666</code>
+                    <label for="settings_color_glare">Glare</label>
+                    <button id="settings_color_glare_reset" onclick="settings_color_glare.value='#666666';settings_color_glare_value.textContent='#666666';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_pixel_off_light
-                    <code id="settings_color_pixel_off_light_value" class="copy">#880000</code>
                     <input type="color"
                            id="settings_color_pixel_off_light"
                            value="#880000"
-                           oninput="settings_color_pixel_off_light_value.textContent=this.value;if(this.value!=='#880000'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#880000';settings_color_pixel_off_light_value.textContent='#880000';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_pixel_off_light_value.textContent=this.value;if(this.value!=='#880000'){settings_color_pixel_off_light_reset.style.display='block';}else{settings_color_pixel_off_light_reset.style.display='none';}">
+                    <code id="settings_color_pixel_off_light_value" class="copy">#880000</code>
+                    <label for="settings_color_pixel_off_light">Pixel off light</label>
+                    <button id="settings_color_pixel_off_light_reset" onclick="settings_color_pixel_off_light.value='#880000';settings_color_pixel_off_light_value.textContent='#880000';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_pixel_off_dark
-                    <code id="settings_color_pixel_off_dark_value" class="copy">#660000</code>
                     <input type="color"
                            id="settings_color_pixel_off_dark"
                            value="#660000"
-                           oninput="settings_color_pixel_off_dark_value.textContent=this.value;if(this.value!=='#660000'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#660000';settings_color_pixel_off_dark_value.textContent='#660000';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_pixel_off_dark_value.textContent=this.value;if(this.value!=='#660000'){settings_color_pixel_off_dark_reset.style.display='block';}else{settings_color_pixel_off_dark_reset.style.display='none';}">
+                    <code id="settings_color_pixel_off_dark_value" class="copy">#660000</code>
+                    <label for="settings_color_pixel_off_dark">Pixel off dark</label>
+                    <button id="settings_color_pixel_off_dark_reset" onclick="settings_color_pixel_off_dark.value='#660000';settings_color_pixel_off_dark_value.textContent='#660000';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_pixel_on_light
-                    <code id="settings_color_pixel_on_light_value" class="copy">#FF6666</code>
                     <input type="color"
                            id="settings_color_pixel_on_light"
                            value="#FF6666"
-                           oninput="settings_color_pixel_on_light_value.textContent=this.value;if(this.value!=='#FF6666'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#FF6666';settings_color_pixel_on_light_value.textContent='#FF6666';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_pixel_on_light_value.textContent=this.value;if(this.value!=='#FF6666'){settings_color_pixel_on_light_reset.style.display='block';}else{settings_color_pixel_on_light_reset.style.display='none';}">
+                    <code id="settings_color_pixel_on_light_value" class="copy">#FF6666</code>
+                    <label for="settings_color_pixel_on_light">Pixel on light</label>
+                    <button id="settings_color_pixel_on_light_reset" onclick="settings_color_pixel_on_light.value='#FF6666';settings_color_pixel_on_light_value.textContent='#FF6666';this.style.display='none';" style="display: none;">Reset</button>
                 </div>
                 <div class="sub_category">
-                    color_pixel_on_dark
-                    <code id="settings_color_pixel_on_dark_value" class="copy">#FF0000</code>
                     <input type="color"
                            id="settings_color_pixel_on_dark"
                            value="#FF0000"
-                           oninput="settings_color_pixel_on_dark_value.textContent=this.value;if(this.value!=='#FF0000'){this.nextElementSibling.style.display='block';}else{this.nextElementSibling.style.display='none';}">
-                    <button onclick="this.previousElementSibling.value='#FF0000';settings_color_pixel_on_dark_value.textContent='#FF0000';this.style.display='none';" style="display: none;">Reset</button>
+                           oninput="settings_color_pixel_on_dark_value.textContent=this.value;if(this.value!=='#FF0000'){settings_color_pixel_on_dark_reset.style.display='block';}else{settings_color_pixel_on_dark_reset.style.display='none';}">
+                    <code id="settings_color_pixel_on_dark_value" class="copy">#FF0000</code>
+                    <label for="settings_color_pixel_on_dark">Pixel on dark</label>
+                    <button id="settings_color_pixel_on_dark_reset" onclick="settings_color_pixel_on_dark.value='#FF0000';settings_color_pixel_on_dark_value.textContent='#FF0000';this.style.display='none';" style="display: none;">Reset</button>
+                </div>
+                <div>Frame</div>
+                <button onclick="updateFramePreview();">Update</button>
+                <div id="frame_preview"></div>
+            </div>
+
+            <div class="category_button">Other</div>
+            <div class="category hidden">
+                <div class="sub_category">
+                    <input type="number"
+                           id="settings_loop"
+                           value="0"
+                           min="0"
+                           max="1000"
+                           oninput="if(this.value!=='0'){settings_rows_reset.style.display='block';}else{settings_rows_reset.style.display='none';}">
+                    <label for="settings_loop">Loop <span>Repeat GIF infinitely <code>n=0</code> or play <code>n</code> times</span></label>
+                    <button id="settings_loop_reset" onclick="settings_loop.value=0;this.style.display='none';" style="display: none;">Reset</button>
                 </div>
             </div>
 

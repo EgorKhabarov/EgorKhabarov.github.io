@@ -158,13 +158,149 @@ global_color_config.update({
 })
 
 
-running_text_gif_json('''${json_input.value}''', ${settings_columns.value}, ${settings_rows.value})
+running_text_gif_json(
+    '''${json_input.value}''',
+    ${settings_columns.value},
+    ${settings_rows.value},
+    ${settings_loop.value},
+)
 `;
 
+    console.log(`GIF(columns=${settings_columns.value}, rows=${settings_rows.value}, loop=${settings_loop.value})`);
     worker.postMessage({type: "run", code: fullCode});
 };
 
 
+function updateFramePreview() {
+
+    let columns = parseInt(settings_columns.value);
+    let rows = parseInt(settings_rows.value);
+
+    if (
+        columns < 1 || columns > 200
+        || rows < 1 || rows > 200
+    ) {
+        frame_preview.innerHTML = "";
+        frame_preview.textContent = "Sorry the image is too big";
+        return;
+    }
+
+
+    function roundRect(x, y, width, height, radius) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.arcTo(x + width, y, x + width, y + radius, radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.arcTo(x + width, y + height, x + width - radius, y + height, radius);
+        ctx.lineTo(x + radius, y + height);
+        ctx.arcTo(x, y + height, x, y + height - radius, radius);
+        ctx.lineTo(x, y + radius);
+        ctx.arcTo(x, y, x + radius, y, radius);
+        ctx.closePath();
+    }
+    function rounded_rectangle(x1, y1, x2, y2, radius, fill) {
+        ctx.fillStyle = fill;
+        roundRect(x1, y1, x2-x1, y2-y1, radius);
+        ctx.fill();
+    }
+    function rectangle(x1, y1, x2, y2, fill) {
+        ctx.fillStyle = fill;
+        ctx.fillRect(x1, y1, x2-x1, y2-y1);
+    }
+    function line(x1, y1, x2, y2, fill) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+
+        ctx.strokeStyle = fill;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+
+    let columns_pixels = columns * 2 + columns + 2 + 5 + 6;
+    let rows_pixels = rows * 2 + rows + 3 + 5 + 5;
+
+    color_config = {
+        color_border: settings_color_border.value,
+        color_background: settings_color_background.value,
+        color_glare: settings_color_glare.value,
+        color_pixel_off_light: settings_color_pixel_off_light.value,
+        color_pixel_off_dark: settings_color_pixel_off_dark.value,
+        color_pixel_on_light: settings_color_pixel_on_light.value,
+        color_pixel_on_dark: settings_color_pixel_on_dark.value,
+    };
+
+    const canvas = document.createElement("canvas");
+    canvas.width = columns_pixels-1;
+    canvas.height = rows_pixels-1;
+    const ctx = canvas.getContext("2d");
+
+    //...
+
+    rounded_rectangle(0, 0, columns_pixels - 1, rows_pixels - 1, radius=7, fill=color_config["color_border"]);
+    rectangle(5, 5, columns_pixels - 6, rows_pixels - 6, color_config["color_background"]);
+    line(6, rows_pixels - 6+0.5, columns_pixels - 7+1, rows_pixels - 6+0.5, color_config["color_glare"]);
+    line(columns_pixels - 6+0.5, 6-0.5, columns_pixels - 6+0.5, rows_pixels - 7+1, color_config["color_glare"]);
+
+    function func(c, r) {
+        const pixels = [
+            "                ",
+            " #   #   #     #",
+            " #   #         #",
+            " #####  ##     #",
+            " #   #   #     #",
+            " #   #   #     #",
+            " #   #   #      ",
+            " #   #    ##   #",
+            "                ",
+        ];
+        try {
+            return pixels[r][c] == "#";  // c%2==0 && r%2==0;
+        } catch (e) {}
+    }
+
+    for (let column = 0; column < columns; column++) {
+        for (let row = 0; row < rows; row++) {
+            let is_on = func(column, row);
+            let start_pixel_column = 8 + (column * 2) + column - 1;
+            let start_pixel_row = 8 + (row * 2) + row - 1;
+            let string_is_on = is_on ? "on" : "off";
+            let color_dark_pixel = color_config[`color_pixel_${string_is_on}_dark`];
+            let color_light_pixel = color_config[`color_pixel_${string_is_on}_light`];
+
+            rectangle(
+                start_pixel_column,
+                start_pixel_row,
+                start_pixel_column + 2,
+                start_pixel_row + 2,
+                color_dark_pixel,
+            );
+
+            rectangle(
+                start_pixel_column,
+                start_pixel_row,
+                start_pixel_column+1,
+                start_pixel_row+1,
+                color_light_pixel,
+            );
+        }
+    }
+
+
+    //...
+
+
+    const img = document.createElement("img");
+    img.src = canvas.toDataURL("image/png");
+    img.style.imageRendering = "pixelated";
+    img.width = canvas.width*2;
+    img.height = canvas.height*2;
+
+    frame_preview.innerHTML = "";
+    frame_preview.appendChild(img);
+
+}
 
 
 
@@ -201,6 +337,7 @@ toggle_log.addEventListener("click", function() {
         log_console.style.display = "none";
     }
 });
+updateFramePreview();
 
 // TODO remove
 function flashBorder(el, { count = 4, duration = 500 } = {}) {
@@ -229,6 +366,9 @@ document.querySelectorAll(".category_button").forEach(function(button) {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.documentElement.scrollTop = 0;
+})
 
 
 

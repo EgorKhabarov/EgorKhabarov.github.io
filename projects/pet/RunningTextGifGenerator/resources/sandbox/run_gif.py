@@ -7,6 +7,7 @@ def running_text_gif_json(
     json_fragments: str,
     columns: int = 120,
     rows: int = 9,
+    loop: bool = True,
 ):
     try:
         json_content: list[dict[str, str | bool | int]] = json.loads(json_fragments)
@@ -41,7 +42,7 @@ def running_text_gif_json(
 
     # print(json_content)
 
-    gif = GIF(columns, rows)  # noqa
+    gif = GIF(columns, rows, loop=loop)  # noqa
 
     for content in json_content:
         gif.add_text_fragment(

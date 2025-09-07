@@ -166,3 +166,8 @@ button:hover {
 .hidden {
     display: none;
 }
+
+#frame_preview {
+    overflow: auto;
+    max-height: 200px;
+}
