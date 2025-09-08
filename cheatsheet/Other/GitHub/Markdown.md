@@ -17,4 +17,5 @@
 > Advises about risks or negative outcomes of certain actions.
 ```
 
-![alerts-rendered.png](Other/GitHub/alerts-rendered.png)
+![alerts_rendered.png](Other/GitHub/alerts_rendered.png)
+![github_diff_lang.png](Other/GitHub/github_diff_lang.png)
