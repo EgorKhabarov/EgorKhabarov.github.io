@@ -171,3 +171,123 @@ button:hover {
     overflow: auto;
     max-height: 200px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Базовый стиль для всех input */
+input[type="number"],
+input[type="color"] {
+    background-color: #272a34;
+    color: #f4f4f4;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-family: system-ui, sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* Hover + focus подсветка */
+input[type="number"]:hover,
+input[type="color"]:hover,
+input[type="number"]:focus,
+input[type="color"]:focus {
+    background-color: #313541;
+    box-shadow: 0 0 0 2px #505050;
+}
+
+/* number-специфичные стили */
+input[type="number"] {
+    width: 120px;
+    -moz-appearance: textfield; /* убираем стрелочки в Firefox */
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* убираем стрелочки в Chrome */
+    margin: 0;
+}
+
+/* color-специфичные стили */
+input[type="color"] {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: inherit;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: inherit;
+}
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: inherit;
+}
+
+
+button {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+
+    background-color: #1f2233;
+    color: #f4f4f4;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #2c3047;
+}
+
+button:active {
+    background-color: #3a3f56;
+}
+
