@@ -1,6 +1,7 @@
 import base64
 import json
 # from io import BytesIO
+from js import send_err  # noqa
 
 
 def running_text_gif_json(
@@ -11,13 +12,13 @@ def running_text_gif_json(
 ):
     try:
         json_content: list[dict[str, str | bool | int]] = json.loads(json_fragments)
-        assert isinstance(json_content, list), "not a list"
-        assert 1 <= len(json_content) <= 20, "1 <= . <= 20"
-        assert all(isinstance(i, dict) for i in json_content), "not all a dict"
+        assert isinstance(json_content, list), "JSON must be a list of fragments"
+        assert 1 <= len(json_content) <= 20, "The number of fragments must be greater than 1 and less than 20"
+        assert all(isinstance(i, dict) for i in json_content), "All fragments must be JSON dictionaries"
         assert all(
             set(i.keys()) - {"text", "direction", "intro", "outro", "duration", "speed"} == set()
             for i in json_content
-        ), "set"
+        ), "Check the parameter names"
         assert all(
             1 <= len(i["text"]) <= 150
             and (
@@ -36,9 +37,11 @@ def running_text_gif_json(
                 ("speed" in i and 1 <= i["speed"] <= 5) or True
             )
             for i in json_content
-        ), "wrong arg"
-    except (json.JSONDecodeError, AssertionError):
-        raise
+        ), "Check the parameter values"
+    except (json.JSONDecodeError, AssertionError) as e:
+        send_err(f"AssertionError: {e}\n")
+        # raise
+        return
 
     # print(json_content)
 
