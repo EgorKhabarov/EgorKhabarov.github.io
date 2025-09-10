@@ -3,21 +3,25 @@
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-textarea {
+#json_editor {
     width: -webkit-fill-available;
-    height: 150px;
-    background-color: #272a34;
-    color: #f4f4f4;
-    border: none;
+    height: 154px;
     border-radius: 0.5rem;
+    resize: vertical;
+    /*
+    background-color: #272a34;
+    border: none;
     padding: 0.8rem;
     font-family: monospace;
-    resize: vertical;
+    color: #AAAAAA;
+    */
 }
-#run_button {
-    background-color: #1f2233;
+.run_stop_button {
+    display: flex;
+    gap: 5px;
+    background-color: #38a93a;  /* #1f2233; */
     color: #f4f4f4;
     padding: 0.6rem 1.2rem;
     border-radius: 0.6rem;
@@ -25,12 +29,17 @@ textarea {
     cursor: pointer;
     transition: background 0.3s;
     margin-top: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+#run_button_container {
+    display: flex;
+    flex-direction: row-reverse;
 }
 button:hover {
     background-color: #2c3047;
 }
 #log_console {
-    background: #222;
+    background: #272a34; /* #222; */
     color: #b1b1b1; /* #0f0; */
     padding: 10px;
     height: 110px; /* 200px; */
@@ -38,6 +47,7 @@ button:hover {
     border-radius: 0.5rem;
     margin-top: 1rem;
     font-family: monospace;
+    resize: vertical;
 }
 #output_gif {
     max-width: 100%;
@@ -52,12 +62,13 @@ button:hover {
     align-items: center;
     width: 500px;
     height: 30px;
-    background: #222;
+    background: #272a34; /* #222; */
     border-radius: 15px;
     overflow: hidden;
     font-family: monospace;
     color: #b1b1b1; /* #0f0; */
     max-width: 100%;
+    margin-bottom: 1rem;
 }
 
 #progress_bar_parent {
@@ -85,32 +96,6 @@ button:hover {
 }
 
 
-.toggle {
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-}
-.toggle::before {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border-radius: 50%;
-    top: 50%;
-    left: 3px;
-    transform: translateY(-50%);
-    transition: 0.3s;
-}
-.toggle.active {
-    background-color: #4CAF50;
-}
-.toggle.active::before {
-    left: calc(100% - 18px);
-}
 
 #console_toggle {
     display: flex;
@@ -118,27 +103,16 @@ button:hover {
     gap: 5px;
     align-items: flex-end;
     margin-top: 5px;
-    color: #AAAAAA;
+    color: #539bf5; /* #AAAAAA; */
+    font-size: 10px;
+    font-family: monospace;
+    cursor: pointer;
 }
 
-/* конечное состояние — просто красная рамка */
 .border_red {
   border: 1px solid #e53935;
 }
 
-/* мигающая рамка: 3–4 затухающих вспышки, затем остаётся красной */
-.border_flash {
-  border: 1px solid #e53935;
-  /* настраиваемо через CSS-переменные */
-  animation: border-flash var(--flash-duration, 500ms) ease-out var(--flash-count, 4);
-  animation-fill-mode: forwards; /* после анимации остаётся на последнем кадре (красный) */
-}
-
-@keyframes border_flash {
-  0%   { border-color: rgba(229,57,53,1);   box-shadow: 0 0 10px 2px rgba(229,57,53,0.6); }
-  50%  { border-color: rgba(229,57,53,0.15); box-shadow: 0 0 6px  1px rgba(229,57,53,0.15); }
-  100% { border-color: rgba(229,57,53,1);   box-shadow: 0 0 0   0   rgba(229,57,53,0); }
-}
 
 .category_button {
     padding: 10px;
@@ -291,3 +265,24 @@ button:active {
     background-color: #3a3f56;
 }
 
+
+
+
+
+.ace-pastel-on-dark .ace_gutter {
+    background: #313335;
+    color: #606366;
+} /* Номера строк */
+
+
+.ace_scroller {
+    background-color: #2B2B2B;
+} /* Редактор */
+
+.ace-pastel-on-dark {color: #A8B6B4;} /* Скобочки */
+.ace-pastel-on-dark .ace_variable {color: #698655;} /* Строка */
+.ace-pastel-on-dark .ace_string {color: #698655;} /* Строка */
+/* .ace_line {color: #CC7832;} Запятые */
+.ace-pastel-on-dark .ace_constant.ace_numeric {color: #5897BB;} /* Цифры */
+
+.ace_editor .ace_punctuation {color: #CC7832 !important;} /* Запятые */
