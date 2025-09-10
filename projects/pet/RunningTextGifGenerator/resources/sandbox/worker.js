@@ -61,7 +61,6 @@ class JsStderr:
 sys.stdout = JsStdout()
 sys.stderr = JsStderr()
 
-${code}
 ${await (await fetch("/projects/pet/RunningTextGifGenerator/resources/sandbox/gif.py")).text()}
 ${await (await fetch("/projects/pet/RunningTextGifGenerator/resources/sandbox/run_gif.py")).text()}
 
