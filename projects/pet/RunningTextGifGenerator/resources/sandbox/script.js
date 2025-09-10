@@ -81,7 +81,6 @@ function createWorkerOnce() {
         } else if (type === "error") {
             loader.style.display = "none";
             output_gif.style.display = "block";
-            // log_console.textContent += "❌ Ошибка: " + error + "\n";
         } else if (type === "start_spinner") {
             startLogSpinner();
         } else if (type === "stop_spinner") {
