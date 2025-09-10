@@ -38,18 +38,20 @@
             <div>image + duration + speed + direction + repeat</div>
             -->
 
+            <h2 class="main-description" style="margin-top: 0px;">Settings</h2>
             <div class="category_button">Size & Color</div>
             <div class="category hidden">
                 <!-- Size -->
                 <div class="sub_category">
                     <input type="number"
                            id="settings_columns"
-                           value="79"
+                           value="60"
                            min="6"
                            max="1000"
-                           oninput="if(this.value!=='79'){settings_columns_reset.style.display='block';}else{settings_columns_reset.style.display='none';}">
+                           oninput="if(this.value!=='60'){settings_columns_reset.style.display='block';}else{settings_columns_reset.style.display='none';}">
                     <label for="settings_columns">Columns</label>
-                    <button id="settings_columns_reset" onclick="settings_columns.value='79';this.style.display='none';" style="display: none;">Reset</button>
+                    <button id="settings_columns_reset" onclick="settings_columns.value='60';this.style.display='none';" style="display: none;">Reset</button>
+                    <!-- 79 80 120 -->
                 </div>
                 <div class="sub_category">
                     <input type="number"
@@ -158,8 +160,7 @@
 
             <div id="console_toggle">Console <div id="toggle_log" class="toggle"></div></div>
 
-
-            <pre id="log_console" style="display: none;">Click Run to start</pre>
+            <pre id="log_console" style="display: block;">Click Run to start</pre>
 
             <h2 class="main-description">GIF</h2>
             <svg id="loader" style="display: none;" width="44" height="44" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -169,6 +170,8 @@
             </svg>
             <img id="output_gif" src="resources/sandbox/output.gif" alt="GIF будет здесь">
         </div>
+
+        <a class="back-button" href="/">← Back</a>
     </div>
 
     <footer id="footer"></footer>

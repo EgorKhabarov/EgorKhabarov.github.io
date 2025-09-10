@@ -22,18 +22,7 @@ function stopLogSpinner() {
     log_console.textContent = log_console.textContent.replace(/.$/, "");
 }
 
-let gif_code = null;
-let run_gif_code = null;
 
-async function loadScriptsOnce() {
-    if (!gif_code) {
-        gif_code = await (await fetch("resources/sandbox/gif.py")).text();
-    }
-    if (!run_gif_code) {
-        run_gif_code = await (await fetch("resources/sandbox/run_gif.py")).text();
-    }
-    return {gif_code, run_gif_code};
-}
 
 
 let worker = null;
@@ -49,11 +38,12 @@ function createWorkerOnce() {
         if (type === "log" || type === "err") {
             if (type === "err") {
                 if (log_console.style.display === "none") {
-                    toggle_log.click();
+                    console_toggle.click();
                 }
                 log_console.style.display = "block";
                 log_console.scrollIntoView();
-                flashBorder(log_console, {count: 4, duration: 450});
+                log_console.classList.add("border_red");
+                loader.style.display = "none";
             }
 
             if (text.includes("\r")) {
@@ -68,13 +58,13 @@ function createWorkerOnce() {
                 return;
             }
 
-            // поддержка ESC-последовательности \x1b[{n}D
+            // Поддержка ESC-последовательности \x1b[{n}D
             const escRegex = /\x1b\[(\d+)D/;
             if (escRegex.test(text)) {
                 const n = parseInt(text.match(escRegex)[1], 10);
                 const clean = text.replace(escRegex, "");
                 let content = log_console.textContent;
-                // убираем n последних символов
+                // Убираем n последних символов
                 log_console.textContent = content.slice(0, -n) + clean;
                 return;
             }
@@ -91,13 +81,21 @@ function createWorkerOnce() {
         } else if (type === "error") {
             loader.style.display = "none";
             output_gif.style.display = "block";
-            //log_console.textContent += "❌ Ошибка: " + error + "\n";
+            // log_console.textContent += "❌ Ошибка: " + error + "\n";
         } else if (type === "start_spinner") {
             startLogSpinner();
         } else if (type === "stop_spinner") {
             stopLogSpinner();
         } else if (type === "log_clean") {
             log_console.textContent = "";
+        } else if (type === "gen_start") {
+            run_button.style.display = "none";
+            stop_button.style.display = "block";
+            run_button.onclick = run_button_onclick;
+        } else if (type === "gen_stop") {
+            run_button.style.display = "block";
+            stop_button.style.display = "none";
+            stop_button.onclick = stop_button_onclick;
         }
     };
 
@@ -122,6 +120,7 @@ function escapeHTML(text) {
 
 // кнопка запуска
 run_button.onclick = async () => {
+    run_button.onclick = null;
     log_console.classList.remove("border_red");
 
     const worker = createWorkerOnce();
@@ -129,24 +128,7 @@ run_button.onclick = async () => {
     loader.style.display = "block";
     output_gif.style.display = "none";
 
-    const {gif_code, run_gif_code} = await loadScriptsOnce();
-
     const fullCode = `
-${gif_code}
-${run_gif_code}
-
-__print_progress_bar = print_progress_bar
-print_progress_bar = lambda x, y, name, start: __print_progress_bar(x, y, name, start) if not x % 3 or x == y else None
-
-__global_color_config = {
-    "color_border": "#000000",
-    "color_background": "#222222",
-    "color_glare": "#666666",
-    "color_pixel_off_light": "#880000",
-    "color_pixel_off_dark": "#660000",
-    "color_pixel_on_light": "#FF6666",
-    "color_pixel_on_dark": "#FF0000",
-}
 global_color_config.update({
     "color_border": "${settings_color_border.value}",
     "color_background": "${settings_color_background.value}",
@@ -156,7 +138,6 @@ global_color_config.update({
     "color_pixel_on_light": "${settings_color_pixel_on_light.value}",
     "color_pixel_on_dark": "${settings_color_pixel_on_dark.value}",
 })
-
 
 running_text_gif_json(
     '''${json_input.value}''',
@@ -169,6 +150,12 @@ running_text_gif_json(
     console.log(`GIF(columns=${settings_columns.value}, rows=${settings_rows.value}, loop=${settings_loop.value})`);
     worker.postMessage({type: "run", code: fullCode});
 };
+stop_button.onclick = async () => {
+    stop_button.onclick = null;
+    worker.postMessage({type: "stop"});
+};
+run_button_onclick = run_button.onclick;
+stop_button_onclick = stop_button.onclick;
 
 
 function updateFramePreview() {
@@ -328,36 +315,17 @@ function updateProgressBar(logLine) {
 }
 
 
-toggle_log.addEventListener("click", function() {
-    const isActive = this.classList.toggle("active");
-    const newValue = isActive ? "true" : "false";
-    if (isActive) {
+console_toggle.addEventListener("click", function() {
+    if (console_toggle.textContent === "Show Console") {
+        console_toggle.textContent = "Hide Console";
         log_console.style.display = "block";
     } else {
+        console_toggle.textContent = "Show Console";
         log_console.style.display = "none";
     }
 });
 updateFramePreview();
 
-// TODO remove
-function flashBorder(el, { count = 4, duration = 500 } = {}) {
-    // перезапуск, если класс уже висит
-    el.classList.remove("border_flash");
-    // форсим рефлоу, чтобы анимация стартовала заново
-    void el.offsetWidth;
-
-    el.style.setProperty("--flash-count", count);
-    el.style.setProperty("--flash-duration", `${duration}ms`);
-    el.classList.add("border_flash");
-
-    // после последней итерации оставляем стабильный красный бордер
-    const onEnd = () => {
-      el.classList.remove("border_flash");
-      el.classList.add("border_red");
-      el.removeEventListener("animationend", onEnd);
-    };
-    el.addEventListener("animationend", onEnd);
-}
 
 document.querySelectorAll(".category_button").forEach(function(button) {
     button.addEventListener("click", function() {
