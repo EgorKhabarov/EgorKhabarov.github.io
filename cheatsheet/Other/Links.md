@@ -25,6 +25,39 @@
 | N + 1 query                           |                                                                                                                                                                                                                                                                                |
 
 
+# HTML, Web, SVG, Fonts
+
+|                                                                    |                                                                                                                                                                        |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **google**<br>SVG<br>font                                          | <br>[https://fonts.google.com/icons](https://fonts.google.com/icons)<br>[https://fonts.google.com/](https://fonts.google.com/)                                         |
+| **SVG сборники**<br>flowbite.com<br>svgrepo.com                    | <br>[https://flowbite.com/icons/](https://flowbite.com/icons/)<br>[https://www.svgrepo.com/](https://www.svgrepo.com/)                                                 |
+| **Общие сборники**<br>uiverse.io<br>codepen.io<br>shapecatcher.com | <br>[https://uiverse.io/elements](https://uiverse.io/elements)<br>[https://codepen.io/](https://codepen.io/)<br>[https://shapecatcher.com/](https://shapecatcher.com/) |
+| SVG логотипы                                                       | [https://simpleicons.org/](https://simpleicons.org/)                                                                                                                   |
+| CSS конструктор                                                    | [https://flexboxlabs.netlify.app/](https://flexboxlabs.netlify.app/)                                                                                                   |
+| Баджи                                                              | [https://shields.io/badges](https://shields.io/badges)                                                                                                                 |
+| HTML предпросмотр                                                  | [https://html.onlineviewer.net/](https://html.onlineviewer.net/)                                                                                                       |
+
+
+# General
+
+|                                             |                                                                                                                                                                    |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Мнемоники_в_HTML<br>HTML escape             | [https://ru.wikipedia.org/wiki/Мнемоники_в_HTML](https://ru.wikipedia.org/wiki/Мнемоники_в_HTML)                                                                   |
+| Управляющие символы                         | [https://ru.wikipedia.org/wiki/Управляющие_символы](https://ru.wikipedia.org/wiki/Управляющие_символы)                                                             |
+| Каретная нотация                            | [https://ru.wikipedia.org/wiki/Каретная_нотация](https://ru.wikipedia.org/wiki/Каретная_нотация)                                                                   |
+| Па́ттерны проектирования<br>Design Patterns | [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns)                                                                     |
+| ASCII                                       | [https://ru.wikipedia.org/wiki/ASCII](https://ru.wikipedia.org/wiki/ASCII)                                                                                         |
+| ANSI Escape Code                            | [https://en.wikipedia.org/wiki/ANSI_escape_code](https://en.wikipedia.org/wiki/ANSI_escape_code)                                                                   |
+| ANSI Command Line                           | [https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html)       |
+| ANSI Escape Code GitHub gist                | [https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)                                     |
+| Block Elements                              | [https://en.wikipedia.org/wiki/Block_Elements](https://en.wikipedia.org/wiki/Block_Elements)                                                                       |
+| Box Drawing                                 | [https://en.wikipedia.org/wiki/Box_Drawing](https://en.wikipedia.org/wiki/Box_Drawing)                                                                             |
+| Braille Patterns                            | [https://en.wikipedia.org/wiki/Braille_Patterns](https://en.wikipedia.org/wiki/Braille_Patterns)                                                                   |
+| HTTP headers                                | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
+| Список MIME типов                           | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)                                                                                                       |
+| MIME types                                  | [https://mimetype.io/all-types](https://mimetype.io/all-types)                                                                                                     |
+
+
 # Android
 
 |                                      |                                                                                                          |
@@ -47,37 +80,6 @@
 | Git и Github. Простые рецепты | [https://habr.com/ru/articles/273897/](https://habr.com/ru/articles/273897/) |
 | Книга                         | [https://git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2)             |
 
-
-# HTML, Web, SVG, Fonts
-
-|                                 |                                                                                                                                                                    |
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Мнемоники_в_HTML<br>HTML escape | [https://ru.wikipedia.org/wiki/Мнемоники_в_HTML](https://ru.wikipedia.org/wiki/Мнемоники_в_HTML)                                                                   |
-| HTTP headers                    | [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)<br>[en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) |
-| Список MIME типов               | [wikipedia](https://ru.wikipedia.org/wiki/Список_MIME-типов)                                                                                                       |
-| MIME types                      | [https://mimetype.io/all-types](https://mimetype.io/all-types)                                                                                                     |
-| SVG                             | [https://fonts.google.com/icons](https://fonts.google.com/icons)                                                                                                   |
-| font                            | [https://fonts.google.com/](https://fonts.google.com/)                                                                                                             |
-| SVG                             | [https://flowbite.com/icons/](https://flowbite.com/icons/)                                                                                                         |
-| codepen.io                      | [https://codepen.io/](https://codepen.io/)                                                                                                                         |
-| svgrepo.com                     | [https://www.svgrepo.com/](https://www.svgrepo.com/)                                                                                                               |
-| simpleicons.org                 | [https://simpleicons.org/](https://simpleicons.org/)                                                                                                               |
-| flexboxlabs.netlify.app         | [https://flexboxlabs.netlify.app/](https://flexboxlabs.netlify.app/)                                                                                               |
-| shields.io/badges               | [https://shields.io/badges](https://shields.io/badges)                                                                                                             |
-| html.onlineviewer.net           | [https://html.onlineviewer.net/](https://html.onlineviewer.net/)                                                                                                   |
-
-
-# General
-
-|                                             |                                                                                                                                                              |
-|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Управляющие символы                         | [https://ru.wikipedia.org/wiki/Управляющие_символы](https://ru.wikipedia.org/wiki/Управляющие_символы)                                                       |
-| Каретная нотация                            | [https://ru.wikipedia.org/wiki/Каретная_нотация](https://ru.wikipedia.org/wiki/Каретная_нотация)                                                             |
-| Па́ттерны проектирования<br>Design Patterns | [https://ru.wikipedia.org/wiki/Design_Patterns](https://ru.wikipedia.org/wiki/Design_Patterns)                                                               |
-| ASCII                                       | [https://ru.wikipedia.org/wiki/ASCII](https://ru.wikipedia.org/wiki/ASCII)                                                                                   |
-| ANSI Escape Code                            | [https://en.wikipedia.org/wiki/ANSI_escape_code](https://en.wikipedia.org/wiki/ANSI_escape_code)                                                             |
-| ANSI Command Line                           | [https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html](https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html) |
-| ANSI Escape Code GitHub gist                | [https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)                               |
 
 # Downloads
 
