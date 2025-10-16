@@ -113,7 +113,7 @@ function loadSettings() {
         "settings_search_register_independence": true,
         "settings_search_full_path": true,
         "settings_search_show_full_path": true,
-        "settings_css_markdown_preview": false,
+        "settings_css_markdown_preview": true,
         "settings_css": "",
     };
 }
@@ -407,7 +407,7 @@ function getCheatSheet(url) {
     xhr.open("GET", url, false); // Используется синхронный запрос
     xhr.send();
 
-    if (xhr.status === 200) {
+    if (xhr.status === 200 && !xhr.responseText.startsWith("<!-- 404.html -->")) {
         return xhr.responseText;
     } else {
         return "";
@@ -745,7 +745,7 @@ document.addEventListener("DOMContentLoaded", function() {
         settings["settings_search_register_independence"] = true;
         settings["settings_search_full_path"] = true;
         settings["settings_search_show_full_path"] = true;
-        settings["settings_css_markdown_preview"] = false;
+        settings["settings_css_markdown_preview"] = true;
         // settings["settings_css"] = "";
         saveSettings(settings);
         applySettings(settings);

@@ -28,7 +28,10 @@ def index_html_path(path: str):
             try:
                 return send_from_directory("..", f"{path.rstrip("/")}/index.html")
             except (FileNotFoundError, NotFound):
-                return abort(404, "FileNotFoundError")
+                try:
+                    return send_from_directory("..", "404.html")
+                except (FileNotFoundError, NotFound):
+                    return abort(404, "FileNotFoundError")
 
 
 # http://127.0.0.1:5000/cheatsheet
