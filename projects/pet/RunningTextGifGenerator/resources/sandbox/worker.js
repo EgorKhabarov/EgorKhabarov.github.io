@@ -1,6 +1,4 @@
-// resources/sandbox/worker.js
 importScripts("https://cdn.jsdelivr.net/pyodide/v0.28.2/full/pyodide.js");
-//import { loadPyodide } from "https://cdn.jsdelivr.net/pyodide/v0.28.2/full/pyodide.mjs";
 
 function start_text_spinner(text) {
     self.postMessage({type: "stop_spinner"});
