@@ -343,9 +343,12 @@
                 "Exception": "",
                 "ExceptionGroup": "",
                 "metaclass": "",
-                "open": ""
+                "open": "",
+                "object": ""
             },
-            "Operator Precedence": "",
+            "Operator precedence": "",
+            "Argument types": "",
+            "Binary operators": "",
             "fstrings": "",
             "match-case": "",
             "mro": "",

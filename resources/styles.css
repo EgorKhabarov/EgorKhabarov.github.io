@@ -12,7 +12,7 @@ html, body {
     padding: 0;
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
-    background-color: #0f1117;
+    background: #0f1117;
     color: #f4f4f4;
 }
 body::before {

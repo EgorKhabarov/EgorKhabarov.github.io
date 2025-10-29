@@ -1,9 +1,86 @@
 <!-- 404.html -->
-<script>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Page not found</title>
+    <style>
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(15, 17, 23);
+    color: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(64px, 20vw, 128px);
+    margin: 0;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 16px 0 24px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+a {
+    display: inline-block;
+    background: rgb(26, 29, 43);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+a:hover {
+    background: rgb(46, 49, 63);
+    transform: translateY(-2px);
+}
+
+footer {
+    position: absolute;
+    bottom: 12px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>Page not found<br><span id="back_text"></span></p>
+    <a href="/">Home</a>
+    <script>
 const path = window.location.pathname;
 if (path.startsWith("/cheatsheet")) {
     window.location.replace("/cheatsheet");
 } else {
-    window.location.replace("/");
+    back_text.textContent = "Back in 3 sec";
+    setTimeout(() => {
+        back_text.textContent = "Back in 2 sec";
+    }, 1000);
+    setTimeout(() => {
+        back_text.textContent = "Back in 1 sec";
+    }, 2000);
+    setTimeout(() => {
+        back_text.textContent = "Back in 0 sec";
+        window.location.replace("/");
+    }, 3000);
 }
-</script>
+    </script>
+</body>
+</html>

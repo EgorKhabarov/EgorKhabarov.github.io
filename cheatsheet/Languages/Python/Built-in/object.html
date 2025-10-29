@@ -1,0 +1,259 @@
+<p>Использование type() - создайте новый класс с помощью type(name, bases, dict), где dict содержит атрибуты и методы.</p>
+<h1>Шпаргалка - <strong>динамическое создание классов</strong> в Python</h1>
+<p>Полное, но практичное руководство с примерами и фишками - чтобы создавать классы прямо во время выполнения программы</p>
+<h2>Коротко - зачем и когда</h2>
+<ul>
+<li>Генерация классов по параметрам (ORM, API-стабы, формы, прокси)</li>
+<li>Фабрики классов (разные реализации для разных конфигураций)</li>
+<li>Автогенерация DTO / dataclass / namedtuple по описанию</li>
+<li>Паттерны (singleton через метакласс, регистрация плагинов)</li>
+<li>Тесты / мок-объекты / runtime-композиция</li>
+</ul>
+<h1>Основные способы (с примерами)</h1>
+<h2><code>type(name, bases, dict)</code> - самый простой и часто используемый</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">Person</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="p">{</span>
+    <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="fm">__init__</span><span class="p">,</span>
+    <span class="s1">&#39;greet&#39;</span><span class="p">:</span> <span class="n">greet</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>  <span class="c1"># Hello, Alice</span>
+</pre></div></div></div>
+
+<p><strong>Пояснение:</strong> функции, помещённые в словарь, становятся методами (как дескрипторы)</p>
+<h2><code>types.new_class()</code> - контролируем namespace через callback</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">types</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">exec_body</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+    <span class="n">ns</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;hi&#39;</span>
+    <span class="n">ns</span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hello</span>
+
+<span class="n">MyClass</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">new_class</span><span class="p">(</span><span class="s1">&#39;MyClass&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="n">exec_body</span><span class="o">=</span><span class="n">exec_body</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">hello</span><span class="p">())</span>  <span class="c1"># 42 hi</span>
+</pre></div></div></div>
+
+<p><strong>Плюсы:</strong> можно "заполнить" namespace с логикой, похожей на <code>class</code>-блок</p>
+<h2><code>exec</code> (генерация кода как строки) - гибко, но опасно</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">ns</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">src</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">class Dyn:</span>
+<span class="s1">    def __init__(self, x):</span>
+<span class="s1">        self.x = x</span>
+<span class="s1">    def inc(self):</span>
+<span class="s1">        self.x += 1</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="n">ns</span><span class="p">)</span>
+<span class="n">Dyn</span> <span class="o">=</span> <span class="n">ns</span><span class="p">[</span><span class="s1">&#39;Dyn&#39;</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dyn</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="n">d</span><span class="o">.</span><span class="n">inc</span><span class="p">();</span> <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 11</span>
+</pre></div></div></div>
+
+<p><strong>Внимание:</strong> <strong>опасно</strong> с незаверенным вводом - риск инъекции кода</p>
+<h2><code>dataclasses.make_dataclass</code> (Python 3.7+)</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_dataclass</span><span class="p">,</span> <span class="n">field</span>
+
+<span class="n">Person</span> <span class="o">=</span> <span class="n">make_dataclass</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span>
+<span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># Person(name=&#39;Bob&#39;, age=30)</span>
+</pre></div></div></div>
+
+<p>Удобно для автогенерации DTO/форм по метаданным</p>
+<h2><code>collections.namedtuple</code> / <code>typing.NamedTuple</code> - для иммутабельных записей</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Point&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># или</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="n">Point2</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span><span class="s1">&#39;Point2&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
+</pre></div></div></div>
+
+<h2>Динамическое добавление методов/атрибутов</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;hi&#39;</span>
+
+<span class="c1"># добавить метод в класс</span>
+<span class="n">A</span><span class="o">.</span><span class="n">greet</span> <span class="o">=</span> <span class="n">greet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">()</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>  <span class="c1"># hi</span>
+
+<span class="c1"># добавить метод только конкретному экземпляру</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">MethodType</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">a</span><span class="o">.</span><span class="n">greet</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">greet</span><span class="p">())</span>  <span class="c1"># hello</span>
+</pre></div></div></div>
+
+<h2>Свойства и дескрипторы программно</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prop_factory</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fget</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">property</span><span class="p">(</span><span class="n">fget</span><span class="p">,</span> <span class="n">fset</span><span class="p">)</span>
+
+<span class="n">Attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_val&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span>
+    <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">prop_factory</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">C</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="n">Attrs</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>  <span class="c1"># 10</span>
+<span class="n">c</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>  <span class="c1"># 20</span>
+</pre></div></div></div>
+
+<p>Или дескриптор:</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Descriptor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">Descriptor</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)})</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">D</span><span class="p">();</span> <span class="n">d</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h2>Метаклассы - контроль при создании класса</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RegistryMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="n">registry</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="n">mcls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">namespace</span><span class="p">):</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">mcls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">namespace</span><span class="p">)</span>
+        <span class="n">mcls</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+        <span class="k">return</span> <span class="bp">cls</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">RegistryMeta</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">RegistryMeta</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span>  <span class="c1"># {&#39;Base&#39;: &lt;class ...&gt;, &#39;A&#39;: &lt;class ...&gt;}</span>
+</pre></div></div></div>
+
+<p>Метаклассы - мощный инструмент: вы можете изменить namespace, добавлять методы, валидировать и регистрировать классы</p>
+<h2><code>__init_subclass__</code> - лёгкая альтернатива метаклассам</h2>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">:</span>
+    <span class="n">registry</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">Base</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span> <span class="k">pass</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span>  <span class="c1"># {&#39;A&#39;: &lt;class ...&gt;}</span>
+</pre></div></div></div>
+
+<p>Удобно, когда нужно реагировать на создание подклассов, не создавая метакласс</p>
+<h1>Полезные приёмы и шаблоны</h1>
+<h3>Кэширование фабрик (чтобы не создавать одинаковые классы несколько раз)</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_point_class</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="c1"># простая фабрика, создающая класс PointND</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">coords</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span> <span class="o">!=</span> <span class="n">dim</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;wrong coords&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;__init__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="fm">__init__</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Point</span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s1">D&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="n">attrs</span><span class="p">)</span>
+    <span class="bp">cls</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Point </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s1">D&#39;</span>
+    <span class="k">return</span> <span class="bp">cls</span>
+
+<span class="n">P3</span> <span class="o">=</span> <span class="n">make_point_class</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">P3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div></div></div>
+
+<h3>Singleton через метакласс</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SingletonMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="n">_instances</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">cls</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">S</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">SingletonMeta</span><span class="p">):</span> <span class="k">pass</span>
+</pre></div></div></div>
+
+<h3>Автоматическое добавление методов (декоратор класса)</h3>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_repr</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="si">!r}</span><span class="s2">&gt;&quot;</span>
+    <span class="bp">cls</span><span class="o">.</span><span class="fm">__repr__</span> <span class="o">=</span> <span class="fm">__repr__</span>
+    <span class="k">return</span> <span class="bp">cls</span>
+
+<span class="nd">@add_repr</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">X</span><span class="p">:</span> 
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div></div></div>
+
+<h1>Инспекция / аннотации / типы</h1>
+<ul>
+<li>Можно задавать <code>__annotations__</code> в dict при <code>type</code> для совместимости с <code>dataclass</code>/статической типизацией.</li>
+</ul>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;__annotations__&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+    <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="p">}</span>
+<span class="n">C</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="n">attrs</span><span class="p">)</span>
+</pre></div></div></div>
+
+<ul>
+<li><code>inspect.getmembers</code>, <code>dir</code>, <code>vars(cls)</code>, <code>cls.__mro__</code> - для отладки/инспекции</li>
+</ul>
+<h1>Подводные камни и предостережения</h1>
+<ul>
+<li><strong>Безопасность <code>exec</code></strong>: никогда не выполняйте код, полученный от пользователя</li>
+<li><strong>Pickle</strong>: динамически созданные классы часто <strong>не сериализуются</strong> корректно, т.к. pickle импортирует класс по имени из модуля. Решения: установить <code>cls.__module__ = 'my.module'</code> и/или зарегистрировать функции pickling через <code>copyreg</code></li>
+<li><strong>MRO / конфликты метаклассов</strong>: при множественном наследовании нужно следить за совместимостью метаклассов</li>
+<li><strong>Отладка</strong>: stack traces могут быть менее информативны, если классы созданы динамично (проверьте <code>__name__</code>, <code>__qualname__</code>, <code>__module__</code>)</li>
+<li><strong>Производительность</strong>: создание классов - дороже, чем создание экземпляров; кэшируйте, если создаёте много раз</li>
+<li><strong>Слоты и динамика</strong>: если используете <code>__slots__</code>, нельзя динамически добавлять атрибуты в экземпляр, если слот не предусмотрен</li>
+</ul>
+<h1>Практические советы</h1>
+<ul>
+<li>Для простых структур - <code>namedtuple</code> или <code>make_dataclass</code></li>
+<li>Для сложной логики / условных родителей - <code>type()</code> или <code>types.new_class</code></li>
+<li>Для изменения процесса создания класса - <code>__init_subclass__</code> (легко) или метакласс (мощно)</li>
+<li>Для безопасной генерации кода - предпочтите фабрики на основе <code>type()</code> вместо <code>exec</code>, если возможно</li>
+<li>Для pickling: выставьте <code>cls.__module__</code> на модуль, который можно импортировать</li>
+</ul>
+<h1>Короткие примеры-шаблоны (готово к копированию)</h1>
+<p><strong>Фабрика классов с параметром и кэшем</strong></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_serializer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;__slots__&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">)}</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">vals</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fields</span><span class="p">,</span> <span class="n">vals</span><span class="p">):</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">f</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;__init__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="fm">__init__</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">attrs</span><span class="p">)</span>
+    <span class="bp">cls</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="vm">__name__</span>  <span class="c1"># помогает с pickle</span>
+    <span class="k">return</span> <span class="bp">cls</span>
+</pre></div></div></div>
+
+<p><strong>Авто-регистрирующийся плагин (через <code>__init_subclass__</code>)</strong></p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PluginBase</span><span class="p">:</span>
+    <span class="n">registry</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">PluginBase</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+</pre></div></div></div>
