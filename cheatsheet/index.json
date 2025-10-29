@@ -353,7 +353,6 @@
             "match-case": "",
             "mro": "",
             "noinspection.txt": "",
-            "Бинарные операторы": "",
             "for-else": ""
         },
         "RegExp": {
@@ -427,7 +426,8 @@
                 "@FunctionalInterface": ""
             },
             "Generics": "",
-            "IO": ""
+            "IO": "",
+            "Operator precedence": ""
         },
         "SQL": {
             ".": "color: violet\n",
@@ -583,7 +583,8 @@
         "Minecraft": {
             "Server": {
                 "plugins": {
-                    "LuckPerms": ""
+                    "LuckPerms": "",
+                    "WorldGuard": ""
                 }
             },
             "Redstone": {
