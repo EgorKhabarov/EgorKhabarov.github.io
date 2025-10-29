@@ -20,6 +20,12 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
     <script src="/resources/script_project.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/mode-json.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.6/ext-language_tools.js"></script>
+
+
+
     <!-- <script src="https://cdn.jsdelivr.net/pyodide/v0.26.0/full/pyodide.js"></script> -->
 </head>
 <body>
@@ -150,8 +156,35 @@
             </div>
 
             <h2 class="main-description">JSON</h2>
-            <textarea id="json_input">[{"text": "value"}]</textarea><br>
-            <button id="run_button">Run</button>
+
+            <div id="json_editor">[
+    {
+        "text": "value",
+        "direction": "left",
+        "intro": true,
+        "outro": true,
+        "duration": 20,
+        "speed": 1
+    }
+]
+</div>
+
+            <div id="run_button_container">
+                <button id="run_button" class="run_stop_button">
+                    <svg width="15" height="15" viewBox="-0.5 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <g transform="translate(-371, -3605)">
+                            <polygon points="371 3605 371 3613 378 3609"></polygon>
+                        </g>
+                    </svg>
+                    Run
+                </button>
+                <button id="stop_button" class="run_stop_button" style="display: none;">
+                    <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="14" height="14"/>
+                    </svg>
+                    Stop
+                </button>
+            </div>
 
             <h2 class="main-description">Log</h2>
             <div id="progress_container">

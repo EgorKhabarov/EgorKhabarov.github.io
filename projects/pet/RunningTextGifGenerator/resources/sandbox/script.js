@@ -119,6 +119,7 @@ function escapeHTML(text) {
 
 // кнопка запуска
 run_button.onclick = async () => {
+    console.log("Run");
     run_button.onclick = null;
     log_console.classList.remove("border_red");
 
@@ -139,7 +140,7 @@ global_color_config.update({
 })
 
 running_text_gif_json(
-    '''${json_input.value}''',
+    '''${editor.getValue()}''',
     ${settings_columns.value},
     ${settings_rows.value},
     ${settings_loop.value},
@@ -150,6 +151,7 @@ running_text_gif_json(
     worker.postMessage({type: "run", code: fullCode});
 };
 stop_button.onclick = async () => {
+    console.log("stop");
     stop_button.onclick = null;
     worker.postMessage({type: "stop"});
 };
@@ -339,3 +341,101 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
+//document.querySelectorAll(".ace_line").forEach((el => {console.log(el)}))
+
+var oop = ace.require("ace/lib/oop");
+var JsonMode = ace.require("ace/mode/json").Mode;
+var JsonHighlightRules = ace.require("ace/mode/json_highlight_rules").JsonHighlightRules;
+
+var CustomJsonHighlightRules = function() {
+    var rules = new JsonHighlightRules().getRules();
+    rules.start.unshift({
+        token: "punctuation.colon",
+        regex: /:/
+    });
+    this.$rules = rules;
+};
+oop.inherits(CustomJsonHighlightRules, JsonHighlightRules);
+
+var CustomJsonMode = function() {
+    JsonMode.call(this);
+    this.HighlightRules = CustomJsonHighlightRules;
+};
+oop.inherits(CustomJsonMode, JsonMode);
+
+var editor = ace.edit("json_editor");
+editor.setTheme("ace/theme/pastel_on_dark");
+editor.session.setMode(new CustomJsonMode());
+editor.setOptions({
+    showPrintMargin: false,
+    showLineNumbers: true,
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true,
+});
+
+//----------------------------------------
+var langTools = ace.require("ace/ext/language_tools");
+
+var jsonCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+        var wordList = [
+            "text",
+            "direction",
+            "intro",
+            "outro",
+            "duration",
+            "speed",
+            "right",
+            "left",
+            "true",
+            "false",
+        ];
+        callback(null, wordList.map(function(word) {
+            return {
+                caption: word,  // что показывать в меню
+                value: word,    // что вставлять
+                meta: "key"     // подпись справа
+            };
+        }));
+    }
+};
+
+langTools.addCompleter(jsonCompleter);
+
+editor.completers = [jsonCompleter];  // чтобы оставить только свой, можно и системные
+
+//----------------------------------------
+
+var snippetManager = ace.require("ace/snippets").snippetManager;
+snippetManager.register([{
+    name: "fragment",
+    tabTrigger: "pair",
+    content: '"${1:key}": "${2:value}"'
+}], "json");
+snippetManager.register([{
+    name: ":",
+    tabTrigger: ":",
+    content: '"${1:key}": "${2:value}"'
+}], "json");
+
+
+
+/*
+
+editor.session.setAnnotations([{
+  row: 2,
+  column: 10,
+  text: "Неверный ключ",
+  type: "info" // warning,
+}]);
+
+
+editor.setOption("highlightActiveLine", true);
+editor.setOption("highlightGutterLine", true);
+
+
+
+*/
