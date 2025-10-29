@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Locator Triangulation - EgorKhabarov</title>
+
+    <meta property="og:title" content="Locator Triangulation">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://EgorKhabarov.github.io">
+    <meta property="og:description" content="A client-side Fabric mod that allows determining players' coordinates using triangulation.">
+    <meta property="og:site_name" content="EgorKhabarov.github.io">
+    <meta property="og:image" content="resources/LocatorTriangulation.png">
+
+    <link href="/resources/icon.png" rel="icon" type="image/png"/>
+    <link href="/resources/styles_project.css" rel="stylesheet"/>
+    <script src="/resources/script_project.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a class="back-button" href="/">← Back</a>
+
+        <h1 class="project-title">Locator Triangulation</h1>
+
+        <div style="justify-content: center;display: flex;gap: 0.4em;margin-bottom: 1rem;">
+            <a target="_blank" href="https://github.com/EgorKhabarov/LocatorTriangulation"><img alt="GitHub Badge" src="/resources/badges/GitHub.svg"/></a>
+            <a target="_blank" href="https://modrinth.com/project/D4okKGI7">
+                <!-- https://modrinth.com/mod/locator-triangulation -->
+                <img alt="Modrinth Badge" src="/resources/badges/Modrinth.svg"/>
+            </a>
+            <a target="_blank" href="https://modrinth.com/project/D4okKGI7">
+                <img alt="Telegram Badge" src="https://img.shields.io/modrinth/v/D4okKGI7"/>
+            </a>
+        </div>
+
+        <div class="break-words main-description" style="display: flex;flex-direction: column;align-items: center;">A client-side Fabric mod that allows determining players' coordinates using triangulation.</div>
+        <img src="resources/LocatorTriangulation.png" alt="LocatorTriangulation.png" style="width: 600px;" class="main-image">
+
+        <div class="project-block-list">
+            <div class="project-block">
+                <img src="resources/LocatorTriangulation.png" class="icon" alt="LocatorTriangulation.png"/>
+                <h3>Quick start</h3>
+                <p>
+                    Run
+                    <ol>
+                        <li><code class="copy">/locator_pos1</code></li>
+                        <li>Then move away as far as possible so the angle to the target becomes as large as possible, then run</li>
+                        <li><code class="copy">/locator_pos2</code> and</li>
+                        <li><code class="copy">/locator_locate &lt;name&gt;</code> or</li>
+                        <li><code class="copy">/locator_locate_all</code> to get results for all players</li>
+                    </ol>
+                </p>
+            </div>
+
+            <div class="project-block">
+                <img src="resources/highlighted_example.png" class="icon" alt="highlighted_example.png"/>
+                <h3>How does this work?</h3>
+                <p>
+                    The mod calculates coordinates using publicly available data accessible to regular vanilla players and acts solely as a calculator.
+                    If the vanilla locator is disabled on the server or a player has hidden from it, the mod will not be able to determine their coordinates.
+                </p>
+            </div>
+
+            <!--
+            <div class="project-block">
+                <img src="resources/image.png" class="icon" alt="image.png"/>
+                <h3>Description</h3>
+                <p>Description</p>
+            </div>
+            -->
+        </div>
+
+        <!-- <a class="back-button" href="/">← Back</a> -->
+    </div>
+
+    <footer id="footer"></footer>
+    <script id="footer_script" src="/resources/script.js"></script>
+</body>
+</html>

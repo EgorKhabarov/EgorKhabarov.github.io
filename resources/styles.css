@@ -98,7 +98,7 @@ section {
 .project:hover {
     transform: translateY(-4px);
 }
-.project .icon {
+.project > .icon {
     width: 100%;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
@@ -109,6 +109,7 @@ section {
 .project p {
     font-size: 0.95rem;
     color: #aaa;
+    margin-block-end: 0px;
 }
 footer {
     text-align: center;
@@ -116,3 +117,50 @@ footer {
     color: #666;
     padding: 2rem 1rem;
 }
+
+
+
+
+.tag,
+.tag-blue,
+.tag-lime,
+.tag-green,
+.tag-yellow,
+.tag-red,
+.tag-gray,
+.tag-dark-gray,
+.tag-python,
+.tag-java,
+.tag-javascript,
+.tag-css
+{
+    --tag-color: #84b6eb;
+
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.25rem 0.55rem;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 999px;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    color: var(--tag-color);
+    border: 1px solid var(--tag-color);
+    background-color: color-mix(in srgb, var(--tag-color) 18%, transparent);
+}
+
+.tag-blue      {--tag-color: #84b6eb;}
+.tag-line      {--tag-color: #57ab5a;}
+.tag-green     {--tag-color: #15BB2B;}
+.tag-yellow    {--tag-color: #f9c513;}
+.tag-red       {--tag-color: #e5534b;}
+.tag-gray      {--tag-color: #8B8B8B;}
+.tag-dark-gray {--tag-color: #6e7781;}
+
+.tag-python     {--tag-color: #4B8EC5;}
+.tag-java       {--tag-color: #D68C1F;}
+.tag-javascript {--tag-color: #F1E05A;}
+.tag-css        {--tag-color: #7E3FBE;}

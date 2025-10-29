@@ -132,9 +132,10 @@ code {
     white-space: pre;
 }
 code.copy {cursor: pointer;}
-code.copy:active {background-color: #313541;}
+code.copy:active {background-color: #4A4E5A;}
+code.copy:hover {background-color: #313541;}
 /* code:before, code:after {content: "`";} */
-ul {
+ul, ol {
     padding-left: 25px;
     font-size: 0.95rem;
     color: #AAAAAA;
