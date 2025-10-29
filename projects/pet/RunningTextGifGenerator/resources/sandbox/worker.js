@@ -78,7 +78,6 @@ __global_color_config = {
     "color_pixel_on_dark": "#FF0000",
 }
 `;
-        let result = await pyodide.runPythonAsync(wrapped);
         await pyodide.runPythonAsync(code);
         stop_text_spinner();
     } catch (err) {
