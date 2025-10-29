@@ -1,0 +1,163 @@
+<h1>Шпаргалка по использованию Docker и флагам</h1>
+<h2>docker build</h2>
+<ul>
+<li><code>docker build [опции] PATH | URL | -</code></li>
+<li><code>-t</code>, <code>--tag name[:tag]</code> - задать имя и тег образа</li>
+<li><code>-f</code>, <code>--file FILE</code> - указать путь к Dockerfile (по умолчанию ./Dockerfile)</li>
+<li><code>--no-cache</code> - не использовать кеш при сборке, собрать всё заново</li>
+<li><code>--pull</code> - при сборке проверить наличие новой версии базового образа (FROM ...) и скачать, если есть</li>
+<li><code>--build-arg NAME=VALUE</code> - передать аргумент сборки (переменные ARG в Dockerfile)</li>
+<li><code>--target NAME</code> - собрать только до указанного stage в многоэтапной сборке</li>
+<li><code>--progress plain</code> - показать сборку в виде обычного текста, без анимации</li>
+<li><code>--platform linux/amd64</code> - задать архитектуру образа</li>
+<li><code>--rm</code> - удалить временные контейнеры после сборки (по умолчанию включено)</li>
+</ul>
+<p>Примечание: <em>Базовый образ</em> - это тот, который указан в первой строке Dockerfile (<code>FROM python:3.12</code> и т.п.), с которого начинается сборка вашего образа.</p>
+<h2>docker run</h2>
+<ul>
+<li><code>docker run [опции] IMAGE [команда] [аргументы]</code></li>
+<li><code>--name NAME</code> - задать имя контейнера</li>
+<li><code>-d</code>, <code>--detach</code> - запустить контейнер в фоне</li>
+<li><code>-i</code>, <code>--interactive</code> - держать stdin открытым (для интерактивных команд)</li>
+<li><code>-t</code>, <code>--tty</code> - создать псевдотерминал (для bash и т.п.)</li>
+<li><code>--rm</code> - удалить контейнер после завершения</li>
+<li><code>-p</code>, <code>--publish HOST:CONTAINER</code> - проброс порта (хост:контейнер)</li>
+<li><code>-P</code>, <code>--publish-all</code> - пробросить все опубликованные в Dockerfile порты</li>
+<li><code>-v</code>, <code>--volume SRC:DEST[:MODE]</code> - смонтировать директорию или том<ul>
+<li><code>ro</code> - только чтение</li>
+<li><code>rw</code> - чтение и запись (по умолчанию)</li>
+</ul>
+</li>
+<li><code>--mount type=bind,source=$(pwd),target=/app</code> - альтернатива -v (новый формат)</li>
+<li><code>-e</code>, <code>--env KEY=VALUE</code> - задать переменную окружения</li>
+<li><code>--env-file FILE</code> - загрузить переменные окружения из файла</li>
+<li><code>--network NAME</code> - подключить контейнер к сети</li>
+<li><code>--link NAME:ALIAS</code> - связать с другим контейнером (устарело, но работает)</li>
+<li><code>--restart POLICY</code> - задать автоперезапуск (<code>no</code>, <code>always</code>, <code>on-failure</code>, <code>unless-stopped</code>)</li>
+<li><code>--entrypoint CMD</code> - переопределить ENTRYPOINT из Dockerfile</li>
+<li><code>-u</code>, <code>--user UID[:GID]</code> - запустить от указанного пользователя</li>
+<li><code>-w</code>, <code>--workdir PATH</code> - задать рабочую директорию внутри контейнера</li>
+<li><code>--cpu-shares N</code> - приоритет использования CPU (большее число = выше приоритет)</li>
+<li><code>--memory 512m</code> - ограничить использование памяти</li>
+<li><code>--cpus 1.5</code> - ограничить число доступных ядер</li>
+<li><code>-h</code>, <code>--hostname NAME</code> - задать имя хоста внутри контейнера</li>
+<li><code>--device /dev/ttyUSB0</code> - пробросить устройство внутрь контейнера</li>
+</ul>
+<h2>docker ps</h2>
+<ul>
+<li><code>docker ps [опции]</code></li>
+<li><code>-a</code>, <code>--all</code> - показать все контейнеры, включая остановленные</li>
+<li><code>-q</code>, <code>--quiet</code> - вывести только ID контейнеров</li>
+<li><code>--filter "key=value"</code> - фильтровать список (по статусу, имени и т.д.)</li>
+<li><code>--format "{{.Names}}: {{.Status}}"</code> - задать шаблон вывода</li>
+<li><code>--no-trunc</code> - не обрезать длинные строки</li>
+</ul>
+<h2>docker exec</h2>
+<ul>
+<li><code>docker exec [опции] CONTAINER COMMAND</code></li>
+<li><code>-i</code>, <code>--interactive</code> - держать stdin открытым</li>
+<li><code>-t</code>, <code>--tty</code> - выделить терминал</li>
+<li><code>-d</code>, <code>--detach</code> - выполнить команду в фоне</li>
+<li><code>-u</code>, <code>--user USER</code> - выполнить от имени пользователя</li>
+<li><code>-w</code>, <code>--workdir DIR</code> - задать рабочую директорию</li>
+<li><code>-e</code>, <code>--env KEY=VALUE</code> - задать переменные окружения для команды</li>
+</ul>
+<h2>docker logs</h2>
+<ul>
+<li><code>docker logs [опции] CONTAINER</code></li>
+<li><code>-f</code>, <code>--follow</code> - следить за логами в реальном времени</li>
+<li><code>--tail N</code> - показать последние N строк</li>
+<li><code>--since TIME</code> - показать логи начиная с определённого времени</li>
+<li><code>--until TIME</code> - до определённого времени</li>
+<li><code>-t</code>, <code>--timestamps</code> - показывать время каждой записи</li>
+</ul>
+<h2>docker rm</h2>
+<ul>
+<li><code>docker rm [опции] CONTAINER</code></li>
+<li><code>-f</code>, <code>--force</code> - удалить даже запущенный контейнер (принудительно)</li>
+<li><code>-v</code>, <code>--volumes</code> - удалить связанные тома</li>
+</ul>
+<h2>docker rmi</h2>
+<ul>
+<li><code>docker rmi [опции] IMAGE</code></li>
+<li><code>-f</code>, <code>--force</code> - удалить даже если образ используется</li>
+<li><code>--no-prune</code> - не удалять промежуточные образы</li>
+</ul>
+<h2>docker images</h2>
+<ul>
+<li><code>docker images [опции]</code></li>
+<li><code>-a</code>, <code>--all</code> - показать все, включая промежуточные</li>
+<li><code>-q</code>, <code>--quiet</code> - только ID</li>
+<li><code>--filter "dangling=true"</code> - только образы без тега</li>
+<li><code>--format "{{.Repository}}:{{.Tag}} ({{.Size}})"</code> - вывод по шаблону</li>
+</ul>
+<h2>docker volume</h2>
+<ul>
+<li><code>docker volume [команда]</code></li>
+<li><code>create NAME</code> - создать том</li>
+<li><code>inspect NAME</code> - информация о томе</li>
+<li><code>ls</code> - список</li>
+<li><code>rm NAME</code> - удалить</li>
+<li><code>prune</code> - удалить неиспользуемые</li>
+<li>флаги:<ul>
+<li><code>-f</code>, <code>--force</code> - пропустить подтверждение</li>
+</ul>
+</li>
+</ul>
+<h2>docker network</h2>
+<ul>
+<li><code>docker network [команда]</code></li>
+<li><code>create NAME</code> - создать сеть<ul>
+<li><code>--driver bridge|host|none</code> - тип сети</li>
+<li><code>--subnet 172.20.0.0/16</code> - задать подсеть</li>
+<li><code>--gateway 172.20.0.1</code> - задать шлюз</li>
+</ul>
+</li>
+<li><code>connect NET CONTAINER</code> - подключить контейнер</li>
+<li><code>disconnect NET CONTAINER</code> - отключить контейнер</li>
+<li><code>inspect NAME</code> - информация о сети</li>
+<li><code>ls</code> - список</li>
+<li><code>rm NAME</code> - удалить сеть</li>
+</ul>
+<h2>docker compose</h2>
+<ul>
+<li><code>docker compose [команда]</code></li>
+<li><code>up -d</code> - запустить все сервисы в фоне<ul>
+<li><code>--build</code> - пересобрать перед запуском</li>
+<li><code>--force-recreate</code> - пересоздать даже без изменений</li>
+</ul>
+</li>
+<li><code>down</code> - остановить и удалить всё<ul>
+<li><code>-v</code>, <code>--volumes</code> - удалить тома</li>
+<li><code>--rmi all</code> - удалить образы</li>
+</ul>
+</li>
+<li><code>build</code> - собрать образы<ul>
+<li><code>--no-cache</code> - без кеша</li>
+</ul>
+</li>
+<li><code>logs -f</code> - логи всех сервисов</li>
+<li><code>exec SERVICE bash</code> - войти в контейнер сервиса</li>
+<li><code>ps</code> - список сервисов</li>
+<li><code>restart SERVICE</code> - перезапустить сервис</li>
+</ul>
+<h2>docker system</h2>
+<ul>
+<li><code>docker system df</code> - показать использование диска</li>
+<li><code>docker system prune -a</code></li>
+<li><code>-a</code>, <code>--all</code> - удалить всё неиспользуемое (включая образы без контейнеров)</li>
+<li><code>-f</code>, <code>--force</code> - без подтверждения</li>
+<li><code>--volumes</code> - удалить неиспользуемые тома</li>
+</ul>
+<h2>docker inspect / stats / cp / commit</h2>
+<ul>
+<li><code>docker inspect NAME</code> - подробная информация об объекте</li>
+<li><code>--format "{{.NetworkSettings.IPAddress}}"</code> - вывести конкретное поле</li>
+<li><code>docker stats</code> - статистика по использованию CPU и памяти</li>
+<li><code>--no-stream</code> - показать один раз и выйти</li>
+<li><code>docker cp SRC DEST</code> - копировать файлы между хостом и контейнером</li>
+<li><code>docker commit CONTAINER IMAGE[:TAG]</code> - сохранить контейнер как образ</li>
+<li><code>-a</code>, <code>--author "Имя"</code> - указать автора</li>
+<li><code>-m</code>, <code>--message "Описание"</code> - добавить комментарий</li>
+</ul>
+<p><img alt="docker.png" src="General/Docker/docker.png" /></p>

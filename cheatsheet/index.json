@@ -70,6 +70,11 @@
             "git": "",
             "submodule": ""
         },
+        "Docker": {
+            "Docker": "color: lblue\n",
+            "Dockerfile": "",
+            "Docker Compose": ""
+        },
         "HTTP": {
             "HTTР": "",
             "Status Codes": "",
@@ -553,12 +558,6 @@
                 ".": "color: violet\n",
                 "Kotlin": "",
                 "Android": ""
-            },
-            "Docker": {
-                ".": "color: violet\n",
-                "Dockerfile": "color: lblue\n",
-                "RUN mkdir -p": "",
-                "Docker Compose": ""
             },
             "Go": {
                 ".": "color: violet\n",

@@ -29,5 +29,3 @@ CMD ["python3", "main.py"]
 ```Dockerfile
 ENV BOT_TOKEN=""
 ```
-
-![docker.png](Languages/Other/Dockerfile/docker.png)
