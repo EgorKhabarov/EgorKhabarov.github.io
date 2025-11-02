@@ -99,6 +99,7 @@ a.project-block:hover {
 .project-block p {
     font-size: 0.95rem;
     color: #AAAAAA;
+    margin-block-end: 0px;
 }
 .project-block summary {
     font-size: 0.95rem;
