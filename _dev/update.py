@@ -20,6 +20,7 @@ from _dev.utils import (
 
 
 update_all = False
+dirname = "cheatsheet"
 
 RESET = "\x1b[0m"
 BOLD = "\x1b[1m"
@@ -32,7 +33,7 @@ init(autoreset=True)
 start_time = time.perf_counter()
 
 # get count of all cheat sheets
-cheatsheet_list = list(get_files(lambda path: path.endswith(".md")))
+cheatsheet_list = list(get_files(dirname, lambda path: path.endswith(".md")))
 cheatsheet_count = len(cheatsheet_list)
 
 print(f"Found {UNDERLINE}{BOLD}{cheatsheet_count}{RESET} cheat sheet files")
@@ -41,7 +42,7 @@ update_svg_badge(cheatsheet_count)
 
 # get list of updated cheat sheets
 updated_files = cheatsheet_list if update_all \
-    else list(get_git_diff(lambda path: path.endswith(".md")))
+    else list(get_git_diff(dirname, lambda path: path.endswith(".md")))
 updated_files_count = len(updated_files)
 print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
 update_updated_json(list(map(lambda s: s.removesuffix(".md"), updated_files)))
@@ -66,7 +67,7 @@ white_list_html_files = (
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
 lower_cheatsheet_list: list[str] = [path.lower() for path in cheatsheet_list]
-for html_file in get_files(lambda path: path.endswith(".html")):
+for html_file in get_files(dirname, lambda path: path.endswith(".html")):
     if html_file in white_list_html_files:
         continue
     markdown_cheatsheet = f"{html_file.removesuffix(".html")}.md"

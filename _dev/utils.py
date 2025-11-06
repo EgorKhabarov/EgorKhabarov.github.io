@@ -144,29 +144,31 @@ def set_unselectable(text: str, sep: str = "\n"):
 
 
 def get_files(
+    dirname: str,
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> Generator[str, Any, None]:
     return (
-        path.replace("\\", "/").removeprefix("../cheatsheet/")
-        for directory, dirnames, filenames in os.walk("../cheatsheet")
+        path.replace("\\", "/").removeprefix(f"../{dirname}/")
+        for directory, dirnames, filenames in os.walk(f"../{dirname}")
         for filename in filenames
         if (path := os.path.join(directory, filename)) and None or filter_func(path)
     )
 
 
 def get_git_diff(
+    dirname: str,
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> Generator[str, Any, None]:
     for diff in repo.head.commit.diff(None):
         if (
             not diff.deleted_file
-            and diff.b_path.startswith(r"cheatsheet/")
+            and diff.b_path.startswith(f"{dirname}/")
             and filter_func(diff.b_path)
         ):
-            yield diff.b_path.removeprefix("cheatsheet/")
+            yield diff.b_path.removeprefix(f"{dirname}/")
     for diff_path in repo.untracked_files:
-        if diff_path.startswith(r"cheatsheet/") and filter_func(diff_path):
-            yield diff_path.removeprefix("cheatsheet/")
+        if diff_path.startswith(f"{dirname}/") and filter_func(diff_path):
+            yield diff_path.removeprefix(f"{dirname}/")
 
 
 def get_git_diff_moved_from_cheat_sheet_dict(
