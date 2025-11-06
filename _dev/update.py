@@ -20,6 +20,14 @@ from _dev.utils import (
 
 
 update_all = False
+
+RESET = "\x1b[0m"
+BOLD = "\x1b[1m"
+UNDERLINE = "\x1b[4m"
+RED = "\x1b[31m"
+GREEN = "\x1b[32m"
+YELLOW = "\x1b[33m"
+
 init(autoreset=True)
 start_time = time.perf_counter()
 
@@ -27,20 +35,20 @@ start_time = time.perf_counter()
 cheatsheet_list = list(get_files(lambda path: path.endswith(".md")))
 cheatsheet_count = len(cheatsheet_list)
 
-print(f"Found \x1b[4m\x1b[1m{cheatsheet_count}\x1b[0m cheat sheet files")
+print(f"Found {UNDERLINE}{BOLD}{cheatsheet_count}{RESET} cheat sheet files")
 update_svg_badge(cheatsheet_count)
 
 
 # get list of updated cheat sheets
-func = get_files if update_all else get_git_diff
-updated_files = list(func(lambda path: path.endswith(".md")))
+updated_files = cheatsheet_list if update_all \
+    else list(get_git_diff(lambda path: path.endswith(".md")))
 updated_files_count = len(updated_files)
-print(f"Found \x1b[4m\x1b[1m{updated_files_count}\x1b[0m updated files")
+print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
 update_updated_json(list(map(lambda s: s.removesuffix(".md"), updated_files)))
 
 for updated_file_md in updated_files:
     updated_file = updated_file_md.removesuffix(".md")
-    print(f'  \x1b[32mUpdate "{updated_file}"\x1b[0m')
+    print(f'  {GREEN}Update "{updated_file}"{RESET}')
     cheatsheet_path = f"../cheatsheet/{updated_file}"
     with (
         open(f"{cheatsheet_path}.md", "r", encoding="UTF-8") as markdown_file,
@@ -50,7 +58,6 @@ for updated_file_md in updated_files:
 
 
 # clean unused **.html files
-html_cheatsheet_list: list[str] = list(get_files(lambda path: path.endswith(".html")))
 white_list_html_files = (
     "index.html",
     "cheatsheet_resources/404.html",
@@ -59,11 +66,11 @@ white_list_html_files = (
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
 lower_cheatsheet_list: list[str] = [path.lower() for path in cheatsheet_list]
-for html_file in html_cheatsheet_list:
+for html_file in get_files(lambda path: path.endswith(".html")):
     if html_file in white_list_html_files:
         continue
     markdown_cheatsheet = f"{html_file.removesuffix(".html")}.md"
-    # Если имена файлов имеют разные регистры
+    # if file names are case-sensitive
     if (
         markdown_cheatsheet not in cheatsheet_list
         and markdown_cheatsheet.lower() in lower_cheatsheet_list
@@ -78,9 +85,9 @@ for html_file in html_cheatsheet_list:
     if markdown_cheatsheet not in cheatsheet_list:
         unused_files.append(html_file)
 unused_files_count = len(unused_files)
-print(f"Found \x1b[4m\x1b[1m{unused_files_count}\x1b[0m unused files")
+print(f"Found {UNDERLINE}{BOLD}{unused_files_count}{RESET} unused files")
 for unused_file in unused_files:
-    print(f'  \x1b[31mDelete unused file "{unused_file}"\x1b[0m')
+    print(f'  {RED}Delete unused file "{unused_file}"{RESET}')
     unused_file_path = Path(f"../cheatsheet/{unused_file}")
     unused_file_path.unlink()
     while not any(unused_file_path.parent.iterdir()):
@@ -89,13 +96,13 @@ for unused_file in unused_files:
             .replace("\\", "/")
             .removeprefix("../cheatsheet/")
         )
-        print(f'    \x1b[31mDelete empty directory "{directory_name}"\x1b[0m')
+        print(f'    {RED}Delete empty directory "{directory_name}"{RESET}')
         unused_file_path.parent.rmdir()
         unused_file_path = unused_file_path.parent
 incorrect_name_files_count = len(incorrect_name_files)
-print(f"Found \x1b[4m\x1b[1m{incorrect_name_files_count}\x1b[0m files with incorrect name")
+print(f"Found {UNDERLINE}{BOLD}{incorrect_name_files_count}{RESET} files with incorrect name")
 for dirpath, incorrect_filename, filename in incorrect_name_files:
-    print(f'  \x1b[33mRename \x1b[32m"{dirpath}/{incorrect_filename}" \x1b[33mto \x1b[32m"{filename}"\x1b[0m')
+    print(f'  {YELLOW}Rename {GREEN}"{dirpath}/{incorrect_filename}" {YELLOW}to {GREEN}"{filename}"{RESET}')
     from_path = f"cheatsheet/{dirpath}/{incorrect_filename}"
     to_path = f"cheatsheet/{dirpath}/{filename}"
     repo.git.mv(from_path, to_path)
@@ -119,11 +126,11 @@ index_json_set = set(
 added_cheat_sheets = list(cheatsheet_set - index_json_set)
 removed_cheat_sheets = list(index_json_set - cheatsheet_set)
 modified_files_count = len(added_cheat_sheets) + len(removed_cheat_sheets)
-print(f"Found \x1b[4m\x1b[1m{modified_files_count}\x1b[0m differences with index.json")
+print(f"Found {UNDERLINE}{BOLD}{modified_files_count}{RESET} differences with index.json")
 for added_cheat_sheet in added_cheat_sheets:
-    print(f"  \x1b[32mAdded cheat sheet {added_cheat_sheet}\x1b[0m")
+    print(f"  {GREEN}Added cheat sheet {added_cheat_sheet}{RESET}")
 for removed_cheat_sheet in removed_cheat_sheets:
-    print(f"  \x1b[31mRemoved cheat sheet {removed_cheat_sheet}\x1b[0m")
+    print(f"  {RED}Removed cheat sheet {removed_cheat_sheet}{RESET}")
 moved_cheat_sheets = get_git_diff_moved_from_cheat_sheet_dict(
     lambda path: path.endswith(".md")
 )
@@ -141,4 +148,4 @@ buttons_html = generate_buttons(index_json)[0]
 with open("../cheatsheet/cheatsheet_resources/buttons.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(buttons_html, "html.parser").prettify())
 
-print(f"Done in \x1b[4m\x1b[1m{time.perf_counter()-start_time:.2f}\x1b[0m sec")
+print(f"Done in {UNDERLINE}{BOLD}{time.perf_counter()-start_time:.2f}{RESET} sec")
