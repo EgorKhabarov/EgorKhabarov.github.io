@@ -30,11 +30,6 @@ const pyodideReadyPromise = (async () => {
 
     self.send_log = (txt) => {self.postMessage({type: "log", text: txt});}
     self.send_err = (txt) => {self.postMessage({type: "err", text: txt});}
-    self.postMessage({type: "log", text: "Ready!\n"});
-    self.postMessage({type: "log_clean"});
-    return pyodide;
-})();
-
 
     start_text_spinner("Loading code... ");
     try {
