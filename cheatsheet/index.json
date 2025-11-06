@@ -86,6 +86,36 @@
         "Encodings": "tags: кодировка декодер decoder\n",
         "Programming case types": ""
     },
+    "Algorithms": {
+        "Table of contents": "",
+        "Sort": {
+            ".": "color: brown\n",
+            "BubbleSort": "color: brown\n",
+            "QuickSort": "color: brown\n",
+            "MergeSort": "color: brown\n",
+            "HeapSort": "color: brown\n",
+            "InsertionSort": "color: brown\n",
+            "Timsort": "color: brown\n",
+            "Introsort": "color: brown\n",
+            "RadixSort": "color: brown\n"
+        },
+        "Search": {
+            ".": "color: brown\n",
+            "LinearSearch": "color: brown\n",
+            "BinarySearch": "color: brown\n",
+            "DFS": "color: brown\n",
+            "BFS": "color: brown\n",
+            "DijkstrasAlgorithm": "color: brown\n",
+            "Алгоритм Беллмана-Форда": "color: brown\n"
+        },
+        "Graph Representation Structures": {
+            ".": "color: brown\n",
+            "Adjacency matrix": "color: brown\n",
+            "Incidence matrix": "color: brown\n",
+            "Adjacency list": "color: brown\n",
+            "Incidence list": "color: brown\n"
+        }
+    },
     "Languages": {
         "Python": {
             ".": "color: violet\n",
@@ -613,37 +643,6 @@
     },
     "Snippets": {
         "Python": {
-            "Algorithms": {
-                ".": "color: brown\n",
-                "Table of contents": "",
-                "Sort": {
-                    ".": "color: brown\n",
-                    "BubbleSort": "color: brown\n",
-                    "QuickSort": "color: brown\n",
-                    "MergeSort": "color: brown\n",
-                    "HeapSort": "color: brown\n",
-                    "InsertionSort": "color: brown\n",
-                    "Timsort": "color: brown\n",
-                    "Introsort": "color: brown\n",
-                    "RadixSort": "color: brown\n"
-                },
-                "Search": {
-                    ".": "color: brown\n",
-                    "LinearSearch": "color: brown\n",
-                    "BinarySearch": "color: brown\n",
-                    "DFS": "color: brown\n",
-                    "BFS": "color: brown\n",
-                    "DijkstrasAlgorithm": "color: brown\n",
-                    "Алгоритм Беллмана-Форда": "color: brown\n"
-                },
-                "Graph Representation Structures": {
-                    ".": "color: brown\n",
-                    "Adjacency matrix": "color: brown\n",
-                    "Incidence matrix": "color: brown\n",
-                    "Adjacency list": "color: brown\n",
-                    "Incidence list": "color: brown\n"
-                }
-            },
             "Examples": {
                 ".": "color: brown\n",
                 "list comprehension tips": "color: brown\n",
