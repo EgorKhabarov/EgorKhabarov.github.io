@@ -21,6 +21,8 @@ def code_block_callback(match: re.Match) -> str:
     )
     if "@" in language:
         language, filename = language.split("@", maxsplit=1)
+        language = language.strip()
+        filename = filename.strip()
     else:
         filename = ""
 
@@ -89,7 +91,7 @@ def to_markup(markdown_text: str):
     )
     # Замена блоков кода на подсвеченный HTML
     highlighted_html = re.sub(
-        r"(?si)((`{3,})(?P<md_lang>[a-z+#@._\d-]*)|<pre><code class=\"language-(?P<pre_lang>[a-z+#-]*)\">)"
+        r"(?si)((`{3,})(?P<md_lang>[a-z+#@._\d -]*)|<pre><code class=\"language-(?P<pre_lang>[a-z+# -]*)\">)"
         r"(?P<code>.*?)"
         r"(\2|</code></pre>)",
         code_block_callback,
