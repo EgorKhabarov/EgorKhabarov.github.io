@@ -34,6 +34,7 @@ start_time = time.perf_counter()
 
 # get count of all cheat sheets
 cheatsheet_list = list(get_files(dirname, lambda path: path.endswith(".md")))
+"""All .md files"""
 cheatsheet_count = len(cheatsheet_list)
 
 print(f"Found {UNDERLINE}{BOLD}{cheatsheet_count}{RESET} cheat sheet files")
@@ -43,6 +44,7 @@ update_svg_badge(cheatsheet_count)
 # get list of updated cheat sheets
 updated_files = cheatsheet_list if update_all \
     else list(get_git_diff(dirname, lambda path: path.endswith(".md")))
+"""Updated .md files"""
 updated_files_count = len(updated_files)
 print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
 update_updated_json(list(map(lambda s: s.removesuffix(".md"), updated_files)))
@@ -122,7 +124,7 @@ cheatsheet_set = set(path.removesuffix(".md") for path in cheatsheet_list)
 index_json_set = set(
     path
     for path in index_json_cheatsheet_list
-    if not path.split("/")[-1].startswith(":")
+    if not path.split("/")[-1].startswith(":")  # links
 )
 added_cheat_sheets = list(cheatsheet_set - index_json_set)
 removed_cheat_sheets = list(index_json_set - cheatsheet_set)
@@ -143,8 +145,6 @@ with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
 
 
 # generate cheatsheet_resources/buttons.html file
-with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
-    index_json = json.load(index_json_file)
 buttons_html = generate_buttons(index_json)[0]
 with open("../cheatsheet/cheatsheet_resources/buttons.html", "w", encoding="utf-8") as file:
     file.write(BeautifulSoup(buttons_html, "html.parser").prettify())

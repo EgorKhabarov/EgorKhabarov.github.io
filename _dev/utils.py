@@ -22,6 +22,12 @@ except TypeError:
 
 
 def set_unselectable(text: str, sep: str = "\n"):
+    """
+
+    :param text:
+    :param sep:
+    :return:
+    """
     lines = []
     text_list = text.split(sep)
     text_list_len = len(text_list)
@@ -147,6 +153,12 @@ def get_files(
     dirname: str,
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> Generator[str, Any, None]:
+    """
+
+    :param dirname:
+    :param filter_func:
+    :return:
+    """
     return (
         path.replace("\\", "/").removeprefix(f"../{dirname}/")
         for directory, dirnames, filenames in os.walk(f"../{dirname}")
@@ -159,6 +171,12 @@ def get_git_diff(
     dirname: str,
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> Generator[str, Any, None]:
+    """
+
+    :param dirname:
+    :param filter_func:
+    :return:
+    """
     for diff in repo.head.commit.diff(None):
         if (
             not diff.deleted_file
@@ -174,6 +192,11 @@ def get_git_diff(
 def get_git_diff_moved_from_cheat_sheet_dict(
     filter_func: Callable[[str], bool] = lambda p: True
 ) -> dict[str, str]:
+    """
+
+    :param filter_func:
+    :return:
+    """
     return {
         diff.b_path.removeprefix("cheatsheet/")
         .removesuffix(".md"): diff.a_path.removeprefix("cheatsheet/")
@@ -188,6 +211,11 @@ def get_git_diff_moved_from_cheat_sheet_dict(
 
 
 def get_sorted_cheat_sheets_list(index_json):
+    """
+
+    :param index_json:
+    :return:
+    """
     files = []
 
     def recurse(directory: dict[str, str | dict[str, str | dict]], path: str = ""):
@@ -295,6 +323,14 @@ def update_index_json(
     removed_cheat_sheets: list[str],
     moved_from_cheat_sheets_dict: dict[str, str],
 ) -> dict[str, str | dict[str, str | dict]]:
+    """
+
+    :param index_json:
+    :param added_cheat_sheets:
+    :param removed_cheat_sheets:
+    :param moved_from_cheat_sheets_dict:
+    :return:
+    """
     sorted_cheat_sheets_list = get_sorted_cheat_sheets_list(index_json)
 
     key_func = get_index_decorator(sorted_cheat_sheets_list)
