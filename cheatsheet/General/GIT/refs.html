@@ -1,0 +1,61 @@
+<table>
+<thead>
+<tr>
+<th>Обозначение / Команда</th>
+<th>Значение</th>
+<th>Пример использования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HEAD</code></td>
+<td>Текущий коммит</td>
+<td><code>git show HEAD</code> – показать текущий коммит</td>
+</tr>
+<tr>
+<td><code>HEAD~1</code></td>
+<td>Один коммит назад</td>
+<td><code>git show HEAD~1</code> – показать предыдущий коммит</td>
+</tr>
+<tr>
+<td><code>HEAD~2</code></td>
+<td>Два коммита назад</td>
+<td><code>git diff HEAD~2 HEAD</code> – сравнить с двумя коммитами назад</td>
+</tr>
+<tr>
+<td><code>HEAD^</code></td>
+<td>Родитель текущего коммита (аналог <code>HEAD~1</code>)</td>
+<td><code>git checkout HEAD^</code> – перейти на предыдущий коммит</td>
+</tr>
+<tr>
+<td><code>HEAD^^</code></td>
+<td>Два родителя назад</td>
+<td><code>git diff HEAD^^</code> – сравнить с коммитом два шага назад</td>
+</tr>
+<tr>
+<td><code>HEAD^2</code></td>
+<td>Второй родитель merge-коммита</td>
+<td><code>git show HEAD^2</code> – показать второй родитель merge-коммита</td>
+</tr>
+<tr>
+<td><code>HEAD@{n}</code></td>
+<td>Состояние HEAD n перемещений назад (из reflog)<br><code>git checkout HEAD@{2}</code></td>
+<td><code>git checkout HEAD@{2}</code> – перейти в состояние два перемещения назад</td>
+</tr>
+<tr>
+<td><code>branch-name</code></td>
+<td>Последний коммит ветки</td>
+<td><code>git log branch-name</code> – показать историю ветки</td>
+</tr>
+<tr>
+<td><code>tag-name</code></td>
+<td>Коммит, помеченный тегом</td>
+<td><code>git checkout tag-name</code> – перейти на коммит по тегу</td>
+</tr>
+<tr>
+<td><code>commit-hash</code></td>
+<td>Прямой указатель на коммит по SHA<br><code>a1b2c3d</code></td>
+<td><code>git checkout a1b2c3d</code> – перейти на коммит по хэшу</td>
+</tr>
+</tbody>
+</table>

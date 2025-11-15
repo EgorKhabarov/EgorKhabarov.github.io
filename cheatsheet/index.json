@@ -68,7 +68,8 @@
             "gitignore": "",
             "Setup deploy key": "",
             "git": "",
-            "submodule": ""
+            "submodule": "",
+            "refs": ""
         },
         "Docker": {
             "Docker": "color: lblue\n",
