@@ -63,23 +63,37 @@ footer {
 <body>
     <h1>404</h1>
     <p>Page not found<br><span id="back_text"></span></p>
-    <a href="/">Home</a>
+    <nav>
+        <a href="/">Home</a>
+        <a id="stop_skip_button" onclick="skip = true;back_text.textContent = '';stop_skip_button.remove();" style="cursor: pointer;">Stop</a>
+    </nav>
     <script>
+var skip = false;
 const path = window.location.pathname;
 if (path.startsWith("/cheatsheet")) {
     window.location.replace("/cheatsheet");
 } else {
-    back_text.textContent = "Back in 3 sec";
+    let seconds = 5;
+    let step = 1;
+    back_text.textContent = `Back in ${seconds} sec`;
+    for (let i = step; i < seconds; i += step) {
+        setTimeout(() => {
+            if (!skip) {
+                back_text.textContent = `Back in ${seconds-i} sec`;
+            } else {
+                back_text.textContent = "";
+            }
+        }, i * 1000);
+    }
+
     setTimeout(() => {
-        back_text.textContent = "Back in 2 sec";
-    }, 1000);
-    setTimeout(() => {
-        back_text.textContent = "Back in 1 sec";
-    }, 2000);
-    setTimeout(() => {
-        back_text.textContent = "Back in 0 sec";
-        window.location.replace("/");
-    }, 3000);
+        if (!skip) {
+            back_text.textContent = "Back in 0 sec";
+            window.location.replace("/");
+        } else {
+            back_text.textContent = "";
+        }
+    }, seconds * 1000);
 }
     </script>
 </body>
