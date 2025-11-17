@@ -20,7 +20,7 @@ from _dev.utils import (
 
 
 update_all = False
-dirname = "cheatsheet"
+dir_name = "cheatsheet"
 
 RESET = "\x1b[0m"
 BOLD = "\x1b[1m"
@@ -33,7 +33,7 @@ init(autoreset=True)
 start_time = time.perf_counter()
 
 # get count of all cheat sheets
-cheatsheet_list = list(get_files(dirname, lambda path: path.endswith(".md")))
+cheatsheet_list = list(get_files(dir_name, lambda path: path.endswith(".md")))
 """All .md files"""
 cheatsheet_count = len(cheatsheet_list)
 
@@ -43,7 +43,7 @@ update_svg_badge(cheatsheet_count)
 
 # get list of updated cheat sheets
 updated_files = cheatsheet_list if update_all \
-    else list(get_git_diff(dirname, lambda path: path.endswith(".md")))
+    else list(get_git_diff(dir_name, lambda path: path.endswith(".md")))
 """Updated .md files"""
 updated_files_count = len(updated_files)
 print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
@@ -69,7 +69,7 @@ white_list_html_files = (
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
 lower_cheatsheet_list: list[str] = [path.lower() for path in cheatsheet_list]
-for html_file in get_files(dirname, lambda path: path.endswith(".html")):
+for html_file in get_files(dir_name, lambda path: path.endswith(".html")):
     if html_file in white_list_html_files:
         continue
     markdown_cheatsheet = f"{html_file.removesuffix(".html")}.md"
