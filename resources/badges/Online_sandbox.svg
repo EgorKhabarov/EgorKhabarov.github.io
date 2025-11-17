@@ -1,0 +1,57 @@
+<!--
+https://img.shields.io/badge/Online_sandbox-blue
+https://img.shields.io/badge/Online_sandbox-282828?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMDAwMDAwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiPg0KICAgIDxyZWN0IHg9IjM5NC45NzEiIHk9IjE4Ni41MTQiIHN0eWxlPSJmaWxsOiNGRkFGMzM7IiB3aWR0aD0iNDMuODg2IiBoZWlnaHQ9IjIwNC44Ii8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6IzdBQjlFODsiIGQ9Ik0yNzAuNjI5LDIwOC40NTdoLTQzLjg4NnYtNTguNTE0YzAtNDQuMzY0LTM2LjA5My04MC40NTctODAuNDU3LTgwLjQ1NyBzLTgwLjQ1NywzNi4wOTMtODAuNDU3LDgwLjQ1N3Y1OC41MTRIMjEuOTQzdi01OC41MTRDMjEuOTQzLDgxLjM4LDc3LjcyMywyNS42LDE0Ni4yODYsMjUuNnMxMjQuMzQzLDU1Ljc4LDEyNC4zNDMsMTI0LjM0M1YyMDguNDU3IHoiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojNTc5QURGOyIgZD0iTTE0Ni4yODYsMjUuNnY0My44ODZjNDQuMzY0LDAsODAuNDU3LDM2LjA5Myw4MC40NTcsODAuNDU3djU4LjUxNGg0My44ODZ2LTU4LjUxNCBDMjcwLjYyOSw4MS4zOCwyMTQuODQ4LDI1LjYsMTQ2LjI4NiwyNS42eiIvPg0KICAgIDxwb2x5Z29uIHN0eWxlPSJmaWxsOiM3QUI5RTg7IiBwb2ludHM9IjE0LjYyOSwyNjYuOTcxIDQzLjg4Niw0ODYuNCAyNDguNjg2LDQ4Ni40IDI3Ny45NDMsMjY2Ljk3MSAiLz4NCiAgICA8cG9seWdvbiBzdHlsZT0iZmlsbDojNTc5QURGOyIgcG9pbnRzPSIxNDYuMjg2LDI2Ni45NzEgMTQ2LjI4Niw0ODYuNCAyNDguNjg2LDQ4Ni40IDI3Ny45NDMsMjY2Ljk3MSAiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojRkZFQThBOyIgZD0iTTQzMS41NDMsMjAxLjE0M2gtMjkuMjU3Yy00MC4zOTUsMC03My4xNDMtMzIuNzQ4LTczLjE0My03My4xNDNWMjUuNmgxNzUuNTQzVjEyOCBDNTA0LjY4NiwxNjguMzk1LDQ3MS45MzgsMjAxLjE0Myw0MzEuNTQzLDIwMS4xNDN6Ii8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6I0ZGRUE4QTsiIGQ9Ik01MTIsNDg2LjRIMzIxLjgyOXYtMjEuOTQzYzAtNTIuNDMsNDIuNjU1LTk1LjA4Niw5NS4wODYtOTUuMDg2UzUxMiw0MTIuMDI3LDUxMiw0NjQuNDU3VjQ4Ni40eiBNMzcwLjY1OSw0NDIuNTE0aDkyLjUxMWMtOC4yMzItMTcuMjg0LTI1Ljg3Mi0yOS4yNTctNDYuMjU2LTI5LjI1N0MzOTYuNTMxLDQxMy4yNTcsMzc4Ljg5LDQyNS4yMzEsMzcwLjY1OSw0NDIuNTE0eiIvPg0KICAgIDxyZWN0IHk9IjE5My44MjkiIHN0eWxlPSJmaWxsOiM1NzlBREY7IiB3aWR0aD0iMjkyLjU3MSIgaGVpZ2h0PSI4Ny43NzEiLz4NCiAgICA8cmVjdCB4PSIxNDYuMjg2IiB5PSIxOTMuODI5IiBzdHlsZT0iZmlsbDojNEE4MkNBOyIgd2lkdGg9IjE0Ni4yODYiIGhlaWdodD0iODcuNzcxIi8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6I0ZGREIyRDsiIGQ9Ik00MTYuOTE0LDI1LjZ2MTc1LjU0M2gxNC42MjljNDAuMzk1LDAsNzMuMTQzLTMyLjc0OCw3My4xNDMtNzMuMTQzVjI1LjZINDE2LjkxNHoiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojRkZEQjJEOyIgZD0iTTQxNi45MTQsMzY5LjM3MXY0My44ODZjMjAuMzg1LDAsMzguMDI0LDExLjk3Myw0Ni4yNTYsMjkuMjU3aC00Ni4yNTZWNDg2LjRINTEydi0yMS45NDMgQzUxMiw0MTIuMDI3LDQ2OS4zNDUsMzY5LjM3MSw0MTYuOTE0LDM2OS4zNzF6Ii8+DQo8L3N2Zz4=
+-->
+
+<!-- Old
+<svg xmlns="http://www.w3.org/2000/svg" width="95" height="20" role="img" aria-label="Online sandbox">
+    <title>Online sandbox</title>
+    <linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+    <clipPath id="r"><rect width="95" height="20" rx="3" fill="#fff"/></clipPath>
+    <g clip-path="url(#r)">
+        <rect width="0" height="20" fill="#007ec6"/>
+        <rect x="0" width="95" height="20" fill="#007ec6"/>
+        <rect width="95" height="20" fill="url(#s)"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+        <text aria-hidden="true" x="475" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="850">Online sandbox</text>
+        <text x="475" y="140" transform="scale(.1)" fill="#fff" textLength="850">Online sandbox</text>
+    </g>
+</svg>
+-->
+<!-- Shovel
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000000" width="24" height="24">
+    <rect x="394.971" y="186.514" style="fill:#FFAF33;" width="43.886" height="204.8"/>
+    <path fill="#7AB9E8" d="M270.629,208.457h-43.886v-58.514c0-44.364-36.093-80.457-80.457-80.457 s-80.457,36.093-80.457,80.457v58.514H21.943v-58.514C21.943,81.38,77.723,25.6,146.286,25.6s124.343,55.78,124.343,124.343V208.457 z"/>
+    <path fill="#579ADF" d="M146.286,25.6v43.886c44.364,0,80.457,36.093,80.457,80.457v58.514h43.886v-58.514 C270.629,81.38,214.848,25.6,146.286,25.6z"/>
+    <polygon fill="#7AB9E8" points="14.629,266.971 43.886,486.4 248.686,486.4 277.943,266.971 "/>
+    <polygon fill="#579ADF" points="146.286,266.971 146.286,486.4 248.686,486.4 277.943,266.971 "/>
+    <path fill="#FFEA8A" d="M431.543,201.143h-29.257c-40.395,0-73.143-32.748-73.143-73.143V25.6h175.543V128 C504.686,168.395,471.938,201.143,431.543,201.143z"/>
+    <path fill="#FFEA8A" d="M512,486.4H321.829v-21.943c0-52.43,42.655-95.086,95.086-95.086S512,412.027,512,464.457V486.4z M370.659,442.514h92.511c-8.232-17.284-25.872-29.257-46.256-29.257C396.531,413.257,378.89,425.231,370.659,442.514z"/>
+    <rect fill="#579ADF" y="193.829" width="292.571" height="87.771"/>
+    <rect fill="#4A82CA" x="146.286" y="193.829" width="146.286" height="87.771"/>
+    <path fill="#FFDB2D" d="M416.914,25.6v175.543h14.629c40.395,0,73.143-32.748,73.143-73.143V25.6H416.914z"/>
+    <path fill="#FFDB2D" d="M416.914,369.371v43.886c20.385,0,38.024,11.973,46.256,29.257h-46.256V486.4H512v-21.943 C512,412.027,469.345,369.371,416.914,369.371z"/>
+</svg>
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="113" height="20" role="img" aria-label="Online sandbox">
+    <title>Online sandbox</title>
+    <linearGradient id="s" x2="0" y2="100%">
+        <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+        <stop offset="1" stop-opacity=".1"/>
+    </linearGradient>
+    <clipPath id="r">
+        <rect width="113" height="20" rx="3" fill="#fff"/>
+    </clipPath>
+    <g clip-path="url(#r)">
+        <rect width="0" height="20" fill="#555"/>
+        <rect x="0" width="113" height="20" fill="#282828"/>
+        <rect width="113" height="20" fill="url(#s)"/>
+    </g>
+    <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
+        <image x="5" y="3" width="14" height="14" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjMDAwMDAwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiPg0KICAgIDxyZWN0IHg9IjM5NC45NzEiIHk9IjE4Ni41MTQiIHN0eWxlPSJmaWxsOiNGRkFGMzM7IiB3aWR0aD0iNDMuODg2IiBoZWlnaHQ9IjIwNC44Ii8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6IzdBQjlFODsiIGQ9Ik0yNzAuNjI5LDIwOC40NTdoLTQzLjg4NnYtNTguNTE0YzAtNDQuMzY0LTM2LjA5My04MC40NTctODAuNDU3LTgwLjQ1NyBzLTgwLjQ1NywzNi4wOTMtODAuNDU3LDgwLjQ1N3Y1OC41MTRIMjEuOTQzdi01OC41MTRDMjEuOTQzLDgxLjM4LDc3LjcyMywyNS42LDE0Ni4yODYsMjUuNnMxMjQuMzQzLDU1Ljc4LDEyNC4zNDMsMTI0LjM0M1YyMDguNDU3IHoiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojNTc5QURGOyIgZD0iTTE0Ni4yODYsMjUuNnY0My44ODZjNDQuMzY0LDAsODAuNDU3LDM2LjA5Myw4MC40NTcsODAuNDU3djU4LjUxNGg0My44ODZ2LTU4LjUxNCBDMjcwLjYyOSw4MS4zOCwyMTQuODQ4LDI1LjYsMTQ2LjI4NiwyNS42eiIvPg0KICAgIDxwb2x5Z29uIHN0eWxlPSJmaWxsOiM3QUI5RTg7IiBwb2ludHM9IjE0LjYyOSwyNjYuOTcxIDQzLjg4Niw0ODYuNCAyNDguNjg2LDQ4Ni40IDI3Ny45NDMsMjY2Ljk3MSAiLz4NCiAgICA8cG9seWdvbiBzdHlsZT0iZmlsbDojNTc5QURGOyIgcG9pbnRzPSIxNDYuMjg2LDI2Ni45NzEgMTQ2LjI4Niw0ODYuNCAyNDguNjg2LDQ4Ni40IDI3Ny45NDMsMjY2Ljk3MSAiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojRkZFQThBOyIgZD0iTTQzMS41NDMsMjAxLjE0M2gtMjkuMjU3Yy00MC4zOTUsMC03My4xNDMtMzIuNzQ4LTczLjE0My03My4xNDNWMjUuNmgxNzUuNTQzVjEyOCBDNTA0LjY4NiwxNjguMzk1LDQ3MS45MzgsMjAxLjE0Myw0MzEuNTQzLDIwMS4xNDN6Ii8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6I0ZGRUE4QTsiIGQ9Ik01MTIsNDg2LjRIMzIxLjgyOXYtMjEuOTQzYzAtNTIuNDMsNDIuNjU1LTk1LjA4Niw5NS4wODYtOTUuMDg2UzUxMiw0MTIuMDI3LDUxMiw0NjQuNDU3VjQ4Ni40eiBNMzcwLjY1OSw0NDIuNTE0aDkyLjUxMWMtOC4yMzItMTcuMjg0LTI1Ljg3Mi0yOS4yNTctNDYuMjU2LTI5LjI1N0MzOTYuNTMxLDQxMy4yNTcsMzc4Ljg5LDQyNS4yMzEsMzcwLjY1OSw0NDIuNTE0eiIvPg0KICAgIDxyZWN0IHk9IjE5My44MjkiIHN0eWxlPSJmaWxsOiM1NzlBREY7IiB3aWR0aD0iMjkyLjU3MSIgaGVpZ2h0PSI4Ny43NzEiLz4NCiAgICA8cmVjdCB4PSIxNDYuMjg2IiB5PSIxOTMuODI5IiBzdHlsZT0iZmlsbDojNEE4MkNBOyIgd2lkdGg9IjE0Ni4yODYiIGhlaWdodD0iODcuNzcxIi8+DQogICAgPHBhdGggc3R5bGU9ImZpbGw6I0ZGREIyRDsiIGQ9Ik00MTYuOTE0LDI1LjZ2MTc1LjU0M2gxNC42MjljNDAuMzk1LDAsNzMuMTQzLTMyLjc0OCw3My4xNDMtNzMuMTQzVjI1LjZINDE2LjkxNHoiLz4NCiAgICA8cGF0aCBzdHlsZT0iZmlsbDojRkZEQjJEOyIgZD0iTTQxNi45MTQsMzY5LjM3MXY0My44ODZjMjAuMzg1LDAsMzguMDI0LDExLjk3Myw0Ni4yNTYsMjkuMjU3aC00Ni4yNTZWNDg2LjRINTEydi0yMS45NDMgQzUxMiw0MTIuMDI3LDQ2OS4zNDUsMzY5LjM3MSw0MTYuOTE0LDM2OS4zNzF6Ii8+DQo8L3N2Zz4="/>
+        <text aria-hidden="true" x="655" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="850">Online sandbox</text>
+        <text x="655" y="140" transform="scale(.1)" fill="#fff" textLength="850">Online sandbox</text>
+    </g>
+</svg>
