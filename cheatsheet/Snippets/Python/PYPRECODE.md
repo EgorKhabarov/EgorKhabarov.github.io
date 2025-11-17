@@ -13,51 +13,6 @@ python -m pip install -r requirements.txt
 python -m pip install table2string pyperclip telebot arrow
 ```
 
-<!--
-`PYPRECODE`
-```python
-import sys,os,re,requests,time,arrow,html,urllib.parse,math,builtins,string,inspect,base64 as __base64;from uuid import uuid4;from pathlib import Path;from pyperclip import paste, copy;from datetime import datetime,timedelta;from table2string import Table,Themes,HorizontalAlignment,VerticalAlignment;cmd=os.system;sqrt=lambda x,p=2:pow(x,(1/p));uuid=lambda:str(uuid4()).replace('-','');unicode_escape=lambda text:''.join(fr'\U{ord(x):0>8x}'for x in text);html_escape,html_unescape,html_escape_full,re_amp=html.escape,html.unescape,lambda text:''.join(f'&#x{ord(x):x};'for x in text),re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)');url_escape,url_unescape=urllib.parse.quote,urllib.parse.unquote;rgb_to_hex,hex_to_rgb=lambda r,g,b:'#{:02x}{:02x}{:02x}'.format(r,g,b).upper(),lambda h:tuple(int(h.lstrip('#')[i:i+2],16)for i in(0,2,4));color=lambda*args:rgb_to_hex(*args)if len(args)!=1 else rgb_to_hex(*args*3)if isinstance(args[0],int)else hex_to_rgb(*args);video=lambda length,speed=1:(lambda seconds:f'{round(seconds//3600)}:{round((seconds%3600)//60):02}:{round(seconds%60):02} (seconds={round(seconds)})'.lstrip('0:'))(sum(x*60**i for i,x in enumerate(reversed(list(map(lambda x:int(x)if x.isdecimal()else 0,str(length).split(':'))))))//speed);__=lambda a:not a.startswith('__');dir=lambda obj=globals(),func=None:[a for a in builtins.dir(obj)if func is None or func(a)];lp=lambda:len(paste());uurl=lambda:copy(url_unescape(paste()));base64=lambda bytes_:__base64.b64encode(bytes_).decode('UTF-8');print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
-```
-
-```path
-python -ic "%PYPRECODE%"
-```
--->
-
-<!--
-```python@PYPRECODE.py
-import sys,os,re,requests,time,arrow,html,urllib.parse,math,builtins,string,inspect,base64 as __base64
-from uuid import uuid4
-from pathlib import Path
-from pyperclip import paste, copy
-from datetime import datetime, timedelta
-from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
-
-cmd = os.system
-sqrt = lambda x, p=2: pow(x, (1 / p))
-uuid = lambda: str(uuid4()).replace('-', '')
-
-unicode_escape = lambda text: ''.join(fr'\U{ord(x):0>8x}' for x in text)
-
-html_escape, html_unescape, html_escape_full, re_amp = html.escape, html.unescape, lambda text: ''.join(f'&#x{ord(x):x};' for x in text), re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)')
-url_escape, url_unescape = urllib.parse.quote, urllib.parse.unquote
-
-rgb_to_hex, hex_to_rgb = lambda r, g, b: '#{:02x}{:02x}{:02x}'.format(r, g, b).upper(), lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4))
-color = lambda *args: rgb_to_hex(*args) if len(args) != 1 else rgb_to_hex(*args*3) if isinstance(args[0], int) else hex_to_rgb(*args)
-video = lambda length, speed=1: (lambda seconds:f'{round(seconds//3600)}:{round((seconds%3600)//60):02}:{round(seconds%60):02} (seconds={round(seconds)})'.lstrip('0:'))(sum(x*60**i for i,x in enumerate(reversed(list(map(lambda x: int(x) if x.isdecimal() else 0, str(length).split(':'))))))//speed)
-
-__ = lambda a: not a.startswith('__')
-dir = lambda obj=None, func=None: [a for a in builtins.dir(obj or globals()) if func is None or func(a)]
-lp = lambda: len(paste())
-uurl = lambda: copy(url_unescape(paste()))
-base64encode = lambda bytes_: __base64.b64encode(bytes_).decode('UTF-8')
-base64decode = lambda string_: __base64.b64decode(string_)
-signature = sign = s = lambda func: f'{func.__name__}{inspect.signature(func)}'
-
-print(f'Python {sys.version} on {sys.platform}\nType "help", "copyright", "credits" or "license" for more information.')
-```
--->
-
 ```python @PYPRECODE.py
 import os
 import re
@@ -66,10 +21,13 @@ import html
 import inspect
 import builtins
 import urllib.parse
-import base64 as __base64
 from uuid import uuid4
 from typing import Any, Callable
 from typing_extensions import Buffer
+
+# used
+# noinspection PyUnresolvedReferences
+import base64 as __base64
 
 # unused
 # noinspection PyUnresolvedReferences
@@ -89,7 +47,14 @@ from datetime import datetime, timedelta
 import arrow
 from pyperclip import paste, copy
 # noinspection PyUnresolvedReferences
-from table2string import Table, Themes, HorizontalAlignment, VerticalAlignment
+from table2string import (
+    Table,
+    Themes,
+    HorizontalAlignment,
+    VerticalAlignment,
+    link,
+    style,
+)
 
 
 HELP = r"""
@@ -176,22 +141,49 @@ def color(*args: int | str) -> str | tuple[int, ...]:
 def unicode_escape(text: str) -> str:
     return "".join(fr"\U{ord(x):0>8x}" for x in text)
 
-def base64encode(bytes_: bytes | Buffer) -> str:
-    return __base64.b64encode(bytes_).decode("UTF-8")
-
-def base64decode(string_: str | Buffer) -> bytes:
-    return __base64.b64decode(string_)
-
 def html_escape_full(text: str) -> str:
     return "".join(f"&#x{ord(x):x};" for x in text)
 
 def uurl() -> None:
     copy(url_unescape(paste()))
 
+
 url_escape = urllib.parse.quote
 url_unescape = urllib.parse.unquote
 html_escape = html.escape
 html_unescape = html.unescape
+
+
+@lambda cls: cls()
+class base64:  # noqa
+    @staticmethod
+    def encode(bytes_: bytes | Buffer) -> str:
+        # noinspection PyUnresolvedReferences
+        return __base64.b64encode(bytes_).decode("UTF-8")
+    
+    @staticmethod
+    def decode(string_: str | Buffer) -> bytes:
+        # noinspection PyUnresolvedReferences
+        return __base64.b64decode(string_)
+
+    @lambda cls: cls()
+    class prefix:  # noqa
+        flag = True
+        def __get__(self, instance, owner):
+            if self.flag:
+                print(style(link("https://mimetype.io/all-types"), underline=True))
+                self.flag = False
+            return "data:{};base64,"
+
+    def __repr__(self):
+        return highlight(
+            """
+class base64:
+    prefix = "data:{};base64,"
+    def encode(bytes_: bytes | Buffer) -> str:
+    def decode(string_: str | Buffer) -> bytes:
+""".strip()
+        )
 
 # RegExp
 re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)')
@@ -206,8 +198,11 @@ def dir(obj: Any | None = None, func: Callable = None) -> list[str]:  # noqa
         if func is None or func(a)
     ]
 
-def signature(func: Callable) -> str:
-    return f"{func.__name__}{inspect.signature(func)}\n{""""""}".strip()
+def signature(func: Callable | object) -> str:
+    try:
+        return f"{func.__name__}{inspect.signature(func)}\n{""""""}".strip()
+    except AttributeError:
+        return f"{func.__class__.__name__}{inspect.signature(func.__init__)}\n{""""""}".strip()
 
 sign = s = signature
 
@@ -216,7 +211,9 @@ __ = lambda a: not a.startswith("__")
 lp = lambda: len(paste())
 fint = lambda i: f"{i:_}"
 
-class PyHelp:
+
+@lambda cls: cls()
+class highlight:  # noqa
     regex_line_start_span = re.compile(r'(?m)^<span class="n">(.+?)</span>')
     regex_remove_o_span = re.compile(r'<span class="o">(=)</span>')
     regex_def_color_span = re.compile(r' = <span class="n">(.+?)</span> = <span class="k">def</span>')
@@ -241,7 +238,7 @@ class PyHelp:
         r, g, b = hex_to_rgb(hex_color)
         return f"\x1b[38;2;{r};{g};{b}m"
 
-    def __repr__(self):
+    def __call__(self, text: str):
         try:
             from pygments import highlight
             from pygments.util import ClassNotFound
@@ -252,7 +249,7 @@ class PyHelp:
                 "\x1b[31mRun `"
                 "pip install pygments"
                 "` and restart the console for syntax highlighting\x1b[0m"
-                f"\n{HELP}"
+                f"\n{text}"
             )
 
         
@@ -266,7 +263,7 @@ class PyHelp:
             lexer = get_lexer_by_name(language, stripall=True)
         
         highlighted_code = (
-            highlight(HELP, lexer, formatter)
+            highlight(text, lexer, formatter)
             .strip()
             .removeprefix('<div class="highlight"><pre><span></span>')
             .removesuffix("</pre></div>")
@@ -285,7 +282,11 @@ class PyHelp:
         return result.strip()
 
 
-pyhelp = PyHelp()  # noqa
+@lambda cls: cls()
+class pyhelp:  # noqa
+    def __repr__(self):
+        return highlight(HELP)
+
 
 if __name__ == "__main__":
     if "get_ipython" not in globals():
