@@ -21,13 +21,10 @@ import html
 import inspect
 import builtins
 import urllib.parse
+import base64 as _base64_lib
 from uuid import uuid4
 from typing import Any, Callable
 from typing_extensions import Buffer
-
-# used
-# noinspection PyUnresolvedReferences
-import base64 as __base64
 
 # unused
 # noinspection PyUnresolvedReferences
@@ -66,11 +63,13 @@ def rgb_to_hex(r: int, g: int, b: int) -> str:
 def hex_to_rgb(h: str) -> tuple[int, ...]:
 def color(*args: int | str) -> str | tuple[int, ...]:
 
-def unicode_escape(text: str) -> str:
-def base64encode(bytes_: bytes | Buffer) -> str:
-def base64decode(string_: str | Buffer) -> bytes:
 def html_escape_full(text: str) -> str:
+def unicode_escape(text: str) -> str:
 
+class base64:
+    prefix = "data:{};base64,"  # "data:image/png;base64,"
+    def encode(bytes_: bytes | Buffer) -> str:
+    def decode(string_: str | Buffer) -> bytes:
 
 def url_escape(string: str,
                safe: str | Iterable[int] = "/",
@@ -90,6 +89,9 @@ sign = s = def signature(func: Callable) -> str:
 __ = lambda a: not a.startswith("__")
 lp = lambda: len(paste())
 fint = lambda i: f"{i:_}"
+
+class highlight:
+    def __call__(self, text: str):
 """.strip()
 
 # Math
@@ -158,13 +160,11 @@ html_unescape = html.unescape
 class base64:  # noqa
     @staticmethod
     def encode(bytes_: bytes | Buffer) -> str:
-        # noinspection PyUnresolvedReferences
-        return __base64.b64encode(bytes_).decode("UTF-8")
+        return _base64_lib.b64encode(bytes_).decode("UTF-8")
     
     @staticmethod
     def decode(string_: str | Buffer) -> bytes:
-        # noinspection PyUnresolvedReferences
-        return __base64.b64decode(string_)
+        return _base64_lib.b64decode(string_)
 
     @lambda cls: cls()
     class prefix:  # noqa
@@ -179,7 +179,7 @@ class base64:  # noqa
         return highlight(
             """
 class base64:
-    prefix = "data:{};base64,"
+    prefix = "data:{};base64,"  # "data:image/png;base64,"
     def encode(bytes_: bytes | Buffer) -> str:
     def decode(string_: str | Buffer) -> bytes:
 """.strip()
@@ -252,7 +252,6 @@ class highlight:  # noqa
                 f"\n{text}"
             )
 
-        
         formatter = HtmlFormatter(style="default")
         language = "python"
 
@@ -300,15 +299,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```bash
 python -i "%USERPROFILE%/PYPRECODE.py"
 ```
-
-<!--
-```python
-import re
-from pyperclip import paste, copy
-if input("Скопируйте код и нажмите Enter (вставлять код в консоль не нужно)") or True:
-    copy(PYPRECODE := re.sub(r"\n+", r"\n", "\n".join(paste().strip().splitlines())))
-```
--->
 
 <!--
 quicksort = lambda array: (array if len(array) < 2 else (lambda p, l, g: quicksort(l) + [p] + quicksort(g))(**(lambda pivot, temp_arr: {'p': pivot, 'l': [i for i in temp_arr if i <= pivot], 'g': [i for i in temp_arr if i > pivot]})(array[0], array[1:])))

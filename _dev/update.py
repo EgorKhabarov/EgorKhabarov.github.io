@@ -41,7 +41,7 @@ print(f"Found {UNDERLINE}{BOLD}{cheatsheet_count}{RESET} cheat sheet files")
 update_svg_badge(cheatsheet_count)
 
 
-# get list of updated cheat sheets
+# get a list of updated cheat sheets
 updated_files = cheatsheet_list if update_all \
     else list(get_git_diff(dir_name, lambda path: path.endswith(".md")))
 """Updated .md files"""

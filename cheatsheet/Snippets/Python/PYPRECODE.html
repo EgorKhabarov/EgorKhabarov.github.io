@@ -17,13 +17,10 @@ arrow
 <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">builtins</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_base64_lib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">uuid4</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Buffer</span>
-
-<span class="c1"># used</span>
-<span class="c1"># noinspection PyUnresolvedReferences</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">__base64</span>
 
 <span class="c1"># unused</span>
 <span class="c1"># noinspection PyUnresolvedReferences</span>
@@ -62,11 +59,13 @@ arrow
 <span class="s2">def hex_to_rgb(h: str) -&gt; tuple[int, ...]:</span>
 <span class="s2">def color(*args: int | str) -&gt; str | tuple[int, ...]:</span>
 
-<span class="s2">def unicode_escape(text: str) -&gt; str:</span>
-<span class="s2">def base64encode(bytes_: bytes | Buffer) -&gt; str:</span>
-<span class="s2">def base64decode(string_: str | Buffer) -&gt; bytes:</span>
 <span class="s2">def html_escape_full(text: str) -&gt; str:</span>
+<span class="s2">def unicode_escape(text: str) -&gt; str:</span>
 
+<span class="s2">class base64:</span>
+<span class="s2">    prefix = &quot;data:</span><span class="si">{}</span><span class="s2">;base64,&quot;  # &quot;data:image/png;base64,&quot;</span>
+<span class="s2">    def encode(bytes_: bytes | Buffer) -&gt; str:</span>
+<span class="s2">    def decode(string_: str | Buffer) -&gt; bytes:</span>
 
 <span class="s2">def url_escape(string: str,</span>
 <span class="s2">               safe: str | Iterable[int] = &quot;/&quot;,</span>
@@ -86,6 +85,9 @@ arrow
 <span class="s2">__ = lambda a: not a.startswith(&quot;__&quot;)</span>
 <span class="s2">lp = lambda: len(paste())</span>
 <span class="s2">fint = lambda i: f&quot;{i:_}&quot;</span>
+
+<span class="s2">class highlight:</span>
+<span class="s2">    def __call__(self, text: str):</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
 <span class="c1"># Math</span>
@@ -154,13 +156,11 @@ arrow
 <span class="k">class</span><span class="w"> </span><span class="nc">base64</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="c1"># noinspection PyUnresolvedReferences</span>
-        <span class="k">return</span> <span class="n">__base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_base64_lib</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">string_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
-        <span class="c1"># noinspection PyUnresolvedReferences</span>
-        <span class="k">return</span> <span class="n">__base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">string_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_base64_lib</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">string_</span><span class="p">)</span>
 
     <span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
     <span class="k">class</span><span class="w"> </span><span class="nc">prefix</span><span class="p">:</span>  <span class="c1"># noqa</span>
@@ -175,7 +175,7 @@ arrow
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">class base64:</span>
-<span class="sd">    prefix = &quot;data:{};base64,&quot;</span>
+<span class="sd">    prefix = &quot;data:{};base64,&quot;  # &quot;data:image/png;base64,&quot;</span>
 <span class="sd">    def encode(bytes_: bytes | Buffer) -&gt; str:</span>
 <span class="sd">    def decode(string_: str | Buffer) -&gt; bytes:</span>
 <span class="sd">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -248,7 +248,6 @@ arrow
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="p">)</span>
 
-
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
         <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
 
@@ -295,14 +294,6 @@ arrow
 
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;%USERPROFILE%/PYPRECODE.py&quot;</span>
 </pre></div></div></div>
-
-<!--
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyperclip</span><span class="w"> </span><span class="kn">import</span> <span class="n">paste</span><span class="p">,</span> <span class="n">copy</span>
-<span class="k">if</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Скопируйте код и нажмите Enter (вставлять код в консоль не нужно)&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">copy</span><span class="p">(</span><span class="n">PYPRECODE</span> <span class="o">:=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n+&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\n&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paste</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())))</span>
-</pre></div></div></div>
--->
 
 <!--
 quicksort = lambda array: (array if len(array) < 2 else (lambda p, l, g: quicksort(l) + [p] + quicksort(g))(**(lambda pivot, temp_arr: {'p': pivot, 'l': [i for i in temp_arr if i <= pivot], 'g': [i for i in temp_arr if i > pivot]})(array[0], array[1:])))
