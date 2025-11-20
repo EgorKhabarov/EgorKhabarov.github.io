@@ -80,7 +80,7 @@ def html_escape(s: str, quote: bool = True) -> str:
 def html_unescape(s: str) -> str:
 def uurl() -> None: copy(url_unescape(paste()))
 
-re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)')
+re_amp = re.compile(r"(?i)&(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)")
 
 cmd = os.system
 def dir(obj: Any | None = None, func: Callable = None) -> list[str]:
@@ -94,13 +94,15 @@ class highlight:
     def __call__(self, text: str):
 """.strip()
 
-# Math
 
+# Math
 def sqrt(x: int | float, p: int = 2) -> int:
     return pow(x, (1 / p))
 
+
 def uuid() -> str:
     return str(uuid4()).replace("-", "")
+
 
 def video(length: str, speed: int = 1) -> str:
     video_seconds: int = sum(
@@ -121,15 +123,15 @@ def video(length: str, speed: int = 1) -> str:
     seconds: int = round(video_seconds % 60)
     return f"{hours}:{minutes:02}:{seconds:02} (seconds={round(video_seconds)})".lstrip("0:")
 
+
 # Converters
-
-## Color
-
 def rgb_to_hex(r: int, g: int, b: int) -> str:
     return "{:02x}{:02x}{:02x}".format(r, g, b).upper()
 
+
 def hex_to_rgb(h: str) -> tuple[int, ...]:
     return tuple(int(h.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+
 
 def color(*args: int | str) -> str | tuple[int, ...]:
     if len(args) != 1:
@@ -139,12 +141,15 @@ def color(*args: int | str) -> str | tuple[int, ...]:
     else:
         return hex_to_rgb(*args)
 
-## Escape
+    
+# Escape
 def unicode_escape(text: str) -> str:
     return "".join(fr"\U{ord(x):0>8x}" for x in text)
 
+
 def html_escape_full(text: str) -> str:
     return "".join(f"&#x{ord(x):x};" for x in text)
+
 
 def uurl() -> None:
     copy(url_unescape(paste()))
@@ -169,6 +174,7 @@ class base64:  # noqa
     @lambda cls: cls()
     class prefix:  # noqa
         flag = True
+
         def __get__(self, instance, owner):
             if self.flag:
                 print(style(link("https://mimetype.io/all-types"), underline=True))
@@ -185,11 +191,14 @@ class base64:
 """.strip()
         )
 
+
 # RegExp
-re_amp = re.compile(r'(?i)&(?!(?:\#[0-9]+|\#x[0-9a-f]+|[0-9a-z]+);)')
+re_amp = re.compile(r"(?i)&(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)")
+
 
 # Python
 cmd = os.system
+
 
 def dir(obj: Any | None = None, func: Callable = None) -> list[str]:  # noqa
     return [
@@ -198,18 +207,28 @@ def dir(obj: Any | None = None, func: Callable = None) -> list[str]:  # noqa
         if func is None or func(a)
     ]
 
+
 def signature(func: Callable | object) -> str:
     try:
         return f"{func.__name__}{inspect.signature(func)}\n{""""""}".strip()
     except AttributeError:
         return f"{func.__class__.__name__}{inspect.signature(func.__init__)}\n{""""""}".strip()
 
+    
 sign = s = signature
 
+
 # Utils
-__ = lambda a: not a.startswith("__")
-lp = lambda: len(paste())
-fint = lambda i: f"{i:_}"
+def __(a: str) -> bool:
+    return not a.startswith("__")
+
+
+def lp() -> int:
+    return len(paste())
+
+
+def fint(i: int) -> str:
+    return f"{i:_}"
 
 
 @lambda cls: cls()
@@ -274,7 +293,8 @@ class highlight:  # noqa
             lambda m: (
                 html.unescape(m[2])
                 if m[1] not in self.class_map
-                else f"{self.class_map[m[1]]}{html.unescape(m[2])}\x1b[0m"),
+                else f"{self.class_map[m[1]]}{html.unescape(m[2])}\x1b[0m"
+            ),
             result,
         )
         # result = result.replace("\x1b", "\\x1b")
