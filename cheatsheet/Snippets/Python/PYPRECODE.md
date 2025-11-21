@@ -236,6 +236,7 @@ class highlight:  # noqa
     regex_line_start_span = re.compile(r'(?m)^<span class="n">(.+?)</span>')
     regex_remove_o_span = re.compile(r'<span class="o">(=)</span>')
     regex_def_color_span = re.compile(r' = <span class="n">(.+?)</span> = <span class="k">def</span>')
+    regex_comma_color_span = re.compile(r'<span class="p">,</span>')
     regex_color_class_span = re.compile(r'<span class="(.+?)">(.+?)</span>')
 
     def __init__(self):
@@ -289,6 +290,7 @@ class highlight:  # noqa
         result = self.regex_line_start_span.sub(r'<span class="nf">\1</span>', highlighted_code)
         result = self.regex_remove_o_span.sub(r'\1', result)
         result = self.regex_def_color_span.sub(r' = <span class="nf">\1</span> = <span class="k">def</span>', result)
+        result = self.regex_comma_color_span.sub(r'<span class="k">,</span>', result)
         result = self.regex_color_class_span.sub(
             lambda m: (
                 html.unescape(m[2])
