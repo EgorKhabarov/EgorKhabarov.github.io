@@ -196,7 +196,7 @@ def generate_buttons(dictionary: dict, directory: str = "") -> tuple[str, str]:
 
 
 def prettify_index_html():
-    with open("../cheatsheet/index.html", "r", encoding="utf-8") as file:
+    with open("../cheatsheet/index-old.html", "r", encoding="UTF-8") as file:
         index_html = file.read()
-    with open("../cheatsheet/index.html", "w", encoding="utf-8") as file:
+    with open("../cheatsheet/index-old.html", "w", encoding="UTF-8") as file:
         file.write(BeautifulSoup(index_html, "html.parser").prettify())

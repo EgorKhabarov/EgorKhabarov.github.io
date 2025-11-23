@@ -63,6 +63,8 @@ for updated_file_md in updated_files:
 # clean unused **.html files
 white_list_html_files = (
     "index.html",
+    "index-old.html",
+    "index-new.html",
     "cheatsheet_resources/404.html",
     "cheatsheet_resources/buttons.html",
 )

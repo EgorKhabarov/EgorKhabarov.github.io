@@ -1,0 +1,430 @@
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    /*
+    background-color: var(--bg-content);
+    transition: background-color 0.3s, border-color 0.3s;
+    */
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+:root {
+    /* Light Theme Defaults */
+    --header-row-height: 40px;
+    --header-total-height: 80px;
+
+    --bg-body: #ffffff;
+    --bg-header: #ffffff;
+    --bg-sidebar: #f7f7f7;
+    --bg-content: #ffffff;
+    --bg-modal: #ffffff;
+
+    --text-color: #333333;
+    --text-secondary: #555555;
+    --border-color: #dddddd;
+    --icon-color: #555555;
+    --hover-color: rgba(0,0,0,0.05);
+
+    --resizer-width: 5px;
+    --resizer-hover: #3b82f6;
+
+    --sidebar-width: 20%;
+
+    --overlay-color: rgba(0,0,0,0.5);
+    --modal-backdrop: rgba(0,0,0,0.6);
+    --shadow-color: rgba(0,0,0,0.1);
+
+    --tree-line-color: #cccccc;
+    --tree-line-hover: #3b82f6;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"] {
+    --bg-body: #121212;
+    --bg-header: #1e1e1e;
+    --bg-sidebar: #252526;
+    --bg-content: #1e1e1e;
+    --bg-modal: #2d2d2d;
+
+    --text-color: #e0e0e0;
+    --text-secondary: #aaaaaa;
+    --border-color: #3e3e42;
+    --icon-color: #cccccc;
+    --hover-color: rgba(255,255,255,0.1);
+
+    --resizer-hover: #005fcc;
+    --overlay-color: rgba(0,0,0,0.7);
+    --shadow-color: rgba(0,0,0,0.5);
+
+    --tree-line-color: #444444;
+    --tree-line-hover: #005fcc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* SVG Definitions */
+.svg-defs {
+    display: none;
+}
+
+/* --- HEADER --- */
+header {
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-header);
+    z-index: 20;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.header-row {
+    height: var(--header-row-height);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.header-row.top {
+    justify-content: space-between;
+}
+
+.actions-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-row.bottom {
+    border-top: 1px solid var(--border-color);
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.crumb-item {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.crumb-item:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.crumb-separator {
+    margin: 0 6px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.icon-btn:hover {
+    background-color: var(--hover-color);
+}
+
+svg {
+    fill: var(--icon-color);
+    transition: fill 0.3s;
+}
+
+.icon-left svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color);
+    fill: none;
+}
+
+.icon-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- MAIN CONTAINER --- */
+#main-container {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    height: calc(100vh - var(--header-total-height));
+    overflow: hidden;
+}
+
+/* --- SIDEBAR --- */
+#cheatsheet_buttons {
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    width: var(--sidebar-width);
+    min-width: 10%;
+    max-width: 70%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.search-container {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-sidebar);
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 5;
+    flex-shrink: 0;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-content);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--resizer-hover);
+}
+
+/* --- FILE TREE STYLES --- */
+.folder-list {
+    flex-grow: 1;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+
+.tree-item {
+    padding: 6px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.tree-item:hover {
+    background-color: var(--hover-color);
+}
+
+.tree-item svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.tree-children {
+    margin-left: 23px; /* Отступ слева */
+    padding-left: 5px; /* Отступ от линии */
+    border-left: 2px solid var(--tree-line-color);
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+/* Скрытое состояние */
+.tree-children.hidden {
+    display: none;
+}
+
+/* Подсветка линии при наведении (для подсказки что она кликабельна) */
+/* Используем псевдоэлемент или логику hover на контейнере с осторожностью */
+.tree-children:hover {
+    border-left-color: var(--tree-line-hover);
+    cursor: pointer;
+}
+
+/* Для удобства клика по линии - линия сама по себе узкая (2px), но ловит клик на контейнере */
+/* Чтобы курсор показывал кликабельность в зоне линии */
+.tree-children {
+    cursor: default; /* Сброс курсора на контенте */
+}
+
+/* Это сложный селектор, но мы будем обрабатывать логику курсора в JS или просто считать левую зону активной */
+
+/* --- RESIZER --- */
+#resizer {
+    width: var(--resizer-width);
+    background-color: transparent;
+    cursor: col-resize;
+    flex-shrink: 0;
+    z-index: 10;
+    margin-left: -2px;
+    margin-right: -3px;
+    position: relative;
+}
+
+#resizer:hover, #resizer.active {
+    background-color: var(--resizer-hover);
+}
+
+/* --- CONTENT --- */
+#cheatsheet_field {
+    flex-grow: 1;
+    background-color: var(--bg-content);
+    overflow-y: auto;
+    padding: 20px;
+    min-width: 30%;
+    transition: background-color 0.3s;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* --- MOBILE OVERLAY --- */
+#mobile-overlay {
+    position: fixed;
+    top: var(--header-total-height);
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--header-total-height));
+    background-color: #000000a8;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 14;
+    transition: opacity 0.3s ease;
+}
+
+/* --- SETTINGS MODAL --- */
+#settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings-modal.active {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-backdrop);
+}
+
+.modal-content {
+    background: var(--bg-modal);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    width: 600px;
+    max-width: 90%;
+    height: 500px;
+    color: var(--text-color);
+}
+
+.close-btn {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    #cheatsheet_buttons {
+        position: fixed;
+        top: var(--header-total-height);
+        left: 0;
+        height: calc(100% - var(--header-total-height));
+        width: 90%;
+        /* max-width: 85%; */
+        max-width: 90%;
+        z-index: 15;
+        border-right: none;
+        /* box-shadow: 2px 0 10px var(--shadow-color); */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        will-change: transform;
+    }
+
+    #cheatsheet_buttons.swiping {
+        transition: none;
+    }
+
+    #cheatsheet_field {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #resizer {
+        display: none;
+    }
+
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .tree-item {
+        font-size: 18px;
+    }
+
+    .tree-children svg {
+        width: 21px;
+        height: 21px;
+    }
+}
+
+.hidden {display: none !important;}
+.no-select {user-select: none;}
+
+
+
