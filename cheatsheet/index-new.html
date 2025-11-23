@@ -8,14 +8,46 @@
     <link rel="manifest" href="cheatsheet_resources/manifest.json">
     <link href="styles-new.css" rel="stylesheet"/>
     <style id="settings_css">
+/*
 #breadcrumbs_row {
     display: none;
 }
 :root {
     --header-total-height: 40px;
 }
+*/
     </style>
-    <style id="css_markdown_preview"></style>
+    <style id="css_markdown_preview">
+
+#cheatsheet_field h1 {color:rgb(255,   0,   0);}
+#cheatsheet_field h2 {color:rgb(250, 115,   0);}
+#cheatsheet_field h3 {color:rgb(255, 250,   0);}
+#cheatsheet_field h4 {color:rgb(  0, 255,   0);}
+#cheatsheet_field h5 {color:rgb(  0, 160, 245);}
+#cheatsheet_field h6 {color:rgb(221,   0, 242);}
+
+#cheatsheet_field b, strong    {color:rgb(243, 171,   6);}
+#cheatsheet_field i, em        {color:rgb(128, 136, 193);}
+#cheatsheet_field strong em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field      b em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field em strong, b {color:rgb(195, 153, 144);}
+#cheatsheet_field  i strong, b {color:rgb(195, 153, 144);}
+
+strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
+
+
+#cheatsheet_field h1:before {content: "# ";}
+#cheatsheet_field h2:before {content: "## ";}
+#cheatsheet_field h3:before {content: "### ";}
+#cheatsheet_field h4:before {content: "#### ";}
+#cheatsheet_field h5:before {content: "##### ";}
+#cheatsheet_field h6:before {content: "###### ";}
+#cheatsheet_field code:before, code:after {content: "`";}
+#cheatsheet_field mark:before, mark:after {content: "==";}
+#cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
+#cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
+
+</style>
 </head>
 <body>
     <svg class="svg_defs">
@@ -69,6 +101,10 @@
 
             <div class="folder_list" id="folder_list">
                 <!-- content from cheatsheet/cheatsheet_resources/buttons.html -->
+            </div>
+
+            <div class="folder_list" id="folder_search_list">
+                <!-- search results -->
             </div>
         </aside>
 
