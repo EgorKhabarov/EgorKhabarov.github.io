@@ -72,23 +72,37 @@ function toggleFolder(folderItem, forceClose = false) {
         childrenContainer.classList.add("hidden");
         // iconUse.setAttribute("href", "#icon_folder");
         folderItem.setAttribute("data-state", "closed");
+        folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
+            console.log(e);
+            e.setAttribute("data-state", "closed");
+            e.nextElementSibling.classList.add("hidden");
+        })
     }
 }
 
 /* --- BREADCRUMBS --- */
-let currentPath = ["root"];
-renderBreadcrumbs(currentPath);
-
-function renderBreadcrumbs(pathArray) {
+function renderBreadcrumbs(url) {
     breadcrumbsContainer.innerHTML = "";
     let accumulatedPath = [];
+    const pathArray = url.split("/");
     pathArray.forEach((part, index) => {
         accumulatedPath.push(part);
         const currentFullPath = accumulatedPath.join("/");
         const span = document.createElement("span");
         span.textContent = part;
         span.className = "crumb_item";
-        span.addEventListener("click", () => console.log(`Navigating to: ${currentFullPath}`));
+        span.addEventListener("click", () => {
+            console.log(`Navigating to: ${currentFullPath}`, index, pathArray.length);
+            closeAllKeyButtons();
+            openSidebar();
+            const button = (index === pathArray.length - 1)
+                ? displayValueButton(currentFullPath)
+                : displayKeyButton(currentFullPath);
+            button.classList.add("pulse-bg");
+            setTimeout(function() {
+                button.classList.remove("pulse-bg");
+            }, 1000);
+        });
         breadcrumbsContainer.appendChild(span);
         if (index < pathArray.length - 1) {
             const sep = document.createElement("span");
@@ -97,6 +111,7 @@ function renderBreadcrumbs(pathArray) {
             breadcrumbsContainer.appendChild(sep);
         }
     });
+    //breadcrumbsContainer.lastElementChild.classList = null;
 }
 
 /* --- THEME TOGGLE --- */
@@ -182,12 +197,14 @@ function updateSidebarPosition(translateX) {
     overlay.style.pointerEvents = opacity > 0 ? "auto" : "none";
 }
 function openSidebar() {
+    if (!isMobile()) return;
     sidebar.style.transform = `translateX(0%)`;
     overlay.style.opacity = 1;
     overlay.style.pointerEvents = "auto";
     sidebarOpen = true;
 }
 function closeSidebar() {
+    if (!isMobile()) return;
     sidebar.style.transform = `translateX(-100%)`;
     overlay.style.opacity = 0;
     overlay.style.pointerEvents = "none";
@@ -273,7 +290,6 @@ settingsBackdrop.addEventListener("click", () => toggleSettings(false));
 
 
 function load_cheatsheet(url) {
-    console.log(`load_cheatsheet "${url}.html"`)
     fetch(url)
         .then(response => response.text())
         .then(text => {
@@ -281,6 +297,51 @@ function load_cheatsheet(url) {
             processingCheatSheet();
             cheatsheet_field.scrollTo(0, 0);
         });
+}
+function closeAllKeyButtons() {
+    folderList.querySelectorAll('[data-state="open"]').forEach(e => {
+        e.setAttribute("data-state", "closed");
+        e.nextElementSibling.classList.add("hidden");
+    })
+}
+function displayKeyButton(url) {
+    const pathArray = url.split("/");
+    pathArray.pop();
+    while (pathArray.length) {
+        const kpath = pathArray.join("/");
+        const parent_directory = folderList.querySelector(`[data-kpath="${kpath}"]`).nextElementSibling;
+        parent_directory.previousElementSibling.setAttribute("data-state", "open");
+        parent_directory.classList.remove("hidden");
+        pathArray.pop();
+    }
+    let button = folderList.querySelector(`[data-kpath="${url}"]`);
+    console.log(url, button);
+    button.scrollIntoView({block: "center"});
+    return button;
+}
+function displayValueButton(url) {
+    const pathArray = url.split("/");
+    pathArray.pop();
+    while (pathArray.length) {
+        const kpath = pathArray.join("/");
+        const parent_directory = folderList.querySelector(`[data-kpath="${kpath}"]`).nextElementSibling;
+        parent_directory.previousElementSibling.setAttribute("data-state", "open");
+        parent_directory.classList.remove("hidden");
+        pathArray.pop();
+    }
+    let button = folderList.querySelector(`[data-vpath="${url}"]`);
+    button.scrollIntoView({block: "center"});
+    return button;
+}
+function setup_cheatsheet(url_) {
+    const url = url_.trim("/");
+    console.log(`Load "${url}.html"`)
+    load_cheatsheet(url);
+    renderBreadcrumbs(url);
+    addArgumentToUrl(url);
+    closeSidebar();
+
+    changeActiveButton(displayValueButton(url));
 }
 
 
@@ -337,10 +398,10 @@ function load_cheatsheet(url) {
         return `<svg viewBox="0 0 24 24"${result_color}><use href="#icon_file"/></svg>`;
     }
     function formatCheatsheetButton(title, svg, vpath) {
-        return `<div class="tree_item file" title="${title}" data-vpath="${vpath}">${svg}<span class="label">${title}</span></div>`;
+        return `<div class="tree_item file" title="${vpath}" data-vpath="${vpath}">${svg}<span class="label">${title}</span></div>`;
     }
-    function formatFolderButton(title, svg, buttons_folder_data) {
-        return `<div class="tree_group"><div class="tree_item folder" data-state="closed" title="{title}">${svg}<span class="label">${title}</span></div><div class="tree_children hidden">${buttons_folder_data}</div></div>`;
+    function formatFolderButton(title, svg, kpath, buttons_folder_data) {
+        return `<div class="tree_group"><div class="tree_item folder" data-state="closed" title="${kpath}" data-kpath="${kpath}">${svg}<span class="label">${title}</span></div><div class="tree_children hidden">${buttons_folder_data}</div></div>`;
     }
 
     function generateButtons(dictionary, directory = "") {
@@ -376,7 +437,7 @@ function load_cheatsheet(url) {
                 const kpath = `${directoryE}/${key}`.replace(/^\/+/, "");
                 const svg = formatFolderSvg(currentMetadata.color || "yellow");
                 const cssDisplay = currentMetadata["folder_open"] ? "block" : "none";
-                textList.push(formatFolderButton(title, svg, buttonsFolderData));
+                textList.push(formatFolderButton(title, svg, kpath, buttonsFolderData));
 
             } else {
                 // --- file/tag ---
@@ -409,14 +470,17 @@ function setup_folder_list_buttons() {
             // const text = textList.reverse().join("/");
             // console.log(text);
             const vpath = e.getAttribute("data-vpath")
-            console.log(vpath);
-            load_cheatsheet(vpath);
+            setup_cheatsheet(vpath);
         })
     });
     folderList.querySelectorAll(".folder").forEach(e => {
     //e.click();
     });
-    load_cheatsheet("ABOUT");
+    let vpath = getPathFilename(getArgumentFromUrl());
+    if (vpath === null || vpath === "null") {
+        vpath = "README";
+    }
+    setup_cheatsheet(vpath);
 }
 
 let isCtrlPressed = false;
@@ -452,6 +516,13 @@ function removePrefix(str, prefix) {
 }
 function removePrefixIgnoreCase(str, prefix) {
     return str.toLowerCase().startsWith(prefix.toLowerCase()) ? str.slice(prefix.length) : str;
+}
+
+function changeActiveButton(element) {
+    for (el of folderList.getElementsByClassName("tree_item_active")) {
+        el.classList.remove("tree_item_active")
+    }
+    element.classList.add("tree_item_active");
 }
 
 function processingBlockQuote(blockquote) {
@@ -615,5 +686,131 @@ function processingCheatSheet() {
         h_list_button.addEventListener("click", f3);
     }
 };
+
+
+
+
+
+
+
+
+
+/* Anchor */
+function getAnchor() {
+    const url = new URL(window.location.href);
+    return url.hash ? decodeURIComponent(url.hash.slice(1)) : null;
+}
+function delAnchor() {
+    const url = new URL(window.location.href);
+    url.hash = "";
+    window.history.pushState({}, "", url.toString());
+}
+function setAnchor(anchor) {
+    const url = new URL(window.location.href);
+    url.hash = anchor ? `#${anchor}` : "";
+    window.history.pushState({}, "", url.toString());
+}
+
+/* URL Path */
+function getArgumentFromUrl() {
+    const currentUrl = new URL(window.location.href);
+    return currentUrl.search ? currentUrl.search.substring(1) : null;
+}
+function addArgumentToUrl(arg) {
+    const currentUrl = new URL(window.location.href);
+    currentUrl.search = arg;
+    window.history.pushState({}, "", currentUrl);
+}
+function removeArgumentFromUrl() {
+    let url = new URL(window.location.href);
+    url.search = "";
+    window.history.replaceState(null, null, url.href);
+}
+
+/* Title */
+function changeTitle(title) {
+    console.log(`title: "${title}"`);
+    result = "Шпаргалка";
+    if (title) {
+        result += ": " + title;
+    }
+    document.getElementsByTagName("title")[0].textContent = result;
+}
+
+/* Path */
+function getPathWithoutFilename(filePath) {
+    filePath = decodeURIComponent(filePath).trim("/");
+    if (filePath.endsWith("/")) {
+        return filePath
+    }
+    const lastSlashIndex = filePath.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        return filePath.substring(0, lastSlashIndex);
+    }
+   return "";
+}
+function getPathFilename(filePath) {
+    filePath = decodeURIComponent(filePath).trim("/");
+    return filePath;
+    // const lastSlashIndex = filePath.lastIndexOf("/");
+    // if (lastSlashIndex !== -1) {
+    //     return filePath.substring(lastSlashIndex + 1);
+    // }
+    // return "";
+}
+
+/* Copy Download Code */
+function copy(text) {
+    const textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    textarea.value = text;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+}
+function CopyCode(button_element) {
+    let code_element = button_element.parentElement.parentElement.lastElementChild;
+
+    const pre_element = document.createElement("pre");
+    pre_element.innerHTML = code_element.innerHTML;
+    if (!isCtrlPressed) {
+        pre_element.querySelectorAll(".unselectable").forEach(
+            element => element.remove()
+        );
+    }
+    copy(pre_element.textContent);
+
+    svg = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">'
+    html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable">Copied!</text>';
+    html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text class="unselectable">Copy code</text>';
+
+    button_element.innerHTML = html1;
+
+    setTimeout(function() {
+        button_element.innerHTML = html2;
+    }, 1000);
+}
+function DownloadCode(button_element, filename) {
+    code_element = button_element.parentElement.parentElement.lastElementChild;
+
+    text = code_element.textContent;//.split("\n").slice(1).join("\n");
+    const element = document.createElement("a");
+    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+    element.setAttribute("download", filename);
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+
+    download_html = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
+    downloaded_html = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable" title="${filename}">Download!</text>`;
+
+    button_element.innerHTML = downloaded_html;
+
+    setTimeout(function() {
+        button_element.innerHTML = download_html;
+    }, 1000);
+}
+
 
 
