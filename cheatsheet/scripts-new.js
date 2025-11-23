@@ -11,7 +11,8 @@ const settingsBackdrop = document.getElementById("settings_backdrop");
 const searchInput = document.getElementById("search_input");
 const breadcrumbsContainer = document.getElementById("breadcrumbs_row");
 const body = document.body;
-const folderList = document.querySelector(".folder_list");
+const folderList = document.getElementById("folder_list");
+const folderSearchList = document.getElementById("folder_search_list");
 
 let isSettingsOpen = false;
 
@@ -93,6 +94,7 @@ function renderBreadcrumbs(url) {
         span.className = "crumb_item";
         span.addEventListener("click", () => {
             console.log(`Navigating to: ${currentFullPath}`, index, pathArray.length);
+            closeSearch();
             closeAllKeyButtons();
             openSidebar();
             const button = (index === pathArray.length - 1)
@@ -333,7 +335,7 @@ function displayValueButton(url) {
     button.scrollIntoView({block: "center"});
     return button;
 }
-function setup_cheatsheet(url_) {
+function setup_cheatsheet(url_, setActive=true) {
     const url = url_.trim("/");
     console.log(`Load "${url}.html"`)
     load_cheatsheet(url);
@@ -341,21 +343,14 @@ function setup_cheatsheet(url_) {
     addArgumentToUrl(url);
     closeSidebar();
 
-    changeActiveButton(displayValueButton(url));
+    if (setActive) changeActiveButton(displayValueButton(url));
 }
 
 
 
 
 
-
-
-(function load_folder_list() {
-    /*
-    fetch("cheatsheet_resources/buttons_new.html")
-        .then(response => response.text())
-        .then(data => folderList.innerHTML = data);
-    */
+function generateButtons(json_data, element) {
     const css_colors = {
         "default": ' style="color: var(--color-file-default);"',
         "yellow":  ' style="color: var(--color-file-yellow);"',
@@ -397,14 +392,17 @@ function setup_cheatsheet(url_) {
         const result_color = (color in css_colors) ? css_colors[color] : "";
         return `<svg viewBox="0 0 24 24"${result_color}><use href="#icon_file"/></svg>`;
     }
-    function formatCheatsheetButton(title, svg, vpath) {
-        return `<div class="tree_item file" title="${vpath}" data-vpath="${vpath}">${svg}<span class="label">${title}</span></div>`;
+    function formatCheatsheetButton(title, svg, vpath, tags) {
+        const dataTags = tags !== null && tags !== "" ? `data-search-tags="${tags}"` : "";
+        return `<div class="tree_item file" title="${vpath}" data-vpath="${vpath}"${dataTags}>${svg}<span class="label">${title}</span></div>`;
     }
-    function formatFolderButton(title, svg, kpath, buttons_folder_data) {
-        return `<div class="tree_group"><div class="tree_item folder" data-state="closed" title="${kpath}" data-kpath="${kpath}">${svg}<span class="label">${title}</span></div><div class="tree_children hidden">${buttons_folder_data}</div></div>`;
+    function formatFolderButton(title, svg, kpath, display, buttons_folder_data) {
+        const kstate = display ? "open" : "closed";
+        const vstate = display ? "" : " hidden";
+        return `<div class="tree_group"><div class="tree_item folder" data-state="${kstate}" title="${kpath}" data-kpath="${kpath}">${svg}<span class="label">${title}</span></div><div class="tree_children${vstate}">${buttons_folder_data}</div></div>`;
     }
 
-    function generateButtons(dictionary, directory = "") {
+    function __generateButtons(dictionary, directory = "") {
         const textList = [];
         for (const [key, value] of Object.entries(dictionary)) {
             if (key === "index" || key === ".") continue;
@@ -433,49 +431,50 @@ function setup_cheatsheet(url_) {
 
             // --- folder ---
             if (typeof value === "object" && value !== null) {
-                const buttonsFolderData = generateButtons(value, keyPath)[0];
+                const buttonsFolderData = __generateButtons(value, keyPath)[0];
                 const kpath = `${directoryE}/${key}`.replace(/^\/+/, "");
                 const svg = formatFolderSvg(currentMetadata.color || "yellow");
-                const cssDisplay = currentMetadata["folder_open"] ? "block" : "none";
-                textList.push(formatFolderButton(title, svg, kpath, buttonsFolderData));
+                const display = currentMetadata["folder_open"];
+                textList.push(formatFolderButton(title, svg, kpath, display, buttonsFolderData));
 
             } else {
                 // --- file/tag ---
                 const vpath = `${directoryE}/${key}`.replace(/^\/+/, "");
                 const svg = formatTagSvg(currentMetadata.color || "default");
                 const tags = currentMetadata.tags;
-                textList.push(formatCheatsheetButton(title, svg, vpath));
+                textList.push(formatCheatsheetButton(title, svg, vpath, tags));
             }
         }
         return [textList.join(""), directory];
     }
 
+    return __generateButtons(json_data)[0];
+}
+
+(function load_folder_list() {
+    /*
+    fetch("cheatsheet_resources/buttons_new.html")
+        .then(response => response.text())
+        .then(data => folderList.innerHTML = data);
+    */
+
     fetch("index.json")
         .then(response => response.json())
         .then(json_data => {
-            folderList.innerHTML = generateButtons(json_data)[0];
+            folderList.innerHTML = generateButtons(json_data);
             setup_folder_list_buttons();
         });
 })();
 function setup_folder_list_buttons() {
     folderList.querySelectorAll(".file").forEach(e => {
-        //e.click();
         e.addEventListener("click", function(event) {
-            // const textList = [e.textContent];//.parentElement.firstElementChild.textContent
-            // while (e.parentElement !== folderList) {
-            //     console.log(e);
-            //     textList.push(e.parentElement.parentElement.firstChild.textContent);
-            //     e = e.parentElement.parentElement;
-            // }
-            // const text = textList.reverse().join("/");
-            // console.log(text);
             const vpath = e.getAttribute("data-vpath")
             setup_cheatsheet(vpath);
         })
     });
-    folderList.querySelectorAll(".folder").forEach(e => {
-    //e.click();
-    });
+    // folderList.querySelectorAll(".folder").forEach(e => {
+    //     // ...
+    // });
     let vpath = getPathFilename(getArgumentFromUrl());
     if (vpath === null || vpath === "null") {
         vpath = "README";
