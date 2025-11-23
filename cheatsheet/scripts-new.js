@@ -146,11 +146,11 @@ window.addEventListener("resize", () => {
 let isResizing = false;
 
 function startResize(e) {
-    if (e.type === 'touchstart') e.preventDefault();
+    if (e.type === "touchstart") e.preventDefault();
 
     isResizing = true;
-    resizer.classList.add('active');
-    body.classList.add('no_select');
+    resizer.classList.add("active");
+    body.classList.add("no_select");
 }
 
 function doResize(clientX) {
@@ -160,29 +160,29 @@ function doResize(clientX) {
     let percentage = (newWidth / containerRect.width) * 100;
     if (percentage < 10) percentage = 10;
     if (percentage > 70) percentage = 70;
-    document.documentElement.style.setProperty('--sidebar-width', `${percentage}%`);
+    document.documentElement.style.setProperty("--sidebar-width", `${percentage}%`);
 }
 
 function stopResize() {
     if (isResizing) {
         isResizing = false;
-        resizer.classList.remove('active');
-        body.classList.remove('no_select');
+        resizer.classList.remove("active");
+        body.classList.remove("no_select");
     }
 }
 
-resizer.addEventListener('mousedown', startResize);
-document.addEventListener('mousemove', (e) => doResize(e.clientX));
-document.addEventListener('mouseup', stopResize);
+resizer.addEventListener("mousedown", startResize);
+document.addEventListener("mousemove", (e) => doResize(e.clientX));
+document.addEventListener("mouseup", stopResize);
 
-resizer.addEventListener('touchstart', startResize, { passive: false });
-document.addEventListener('touchmove', (e) => {
+resizer.addEventListener("touchstart", startResize, { passive: false });
+document.addEventListener("touchmove", (e) => {
     if (isResizing) {
         e.preventDefault();
         doResize(e.touches[0].clientX);
     }
 }, { passive: false });
-document.addEventListener('touchend', stopResize);
+document.addEventListener("touchend", stopResize);
 
 /* --- MOBILE DRAWER --- */
 let startX = 0;
