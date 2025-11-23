@@ -39,6 +39,17 @@
 
     --tree-line-color: #cccccc;
     --tree-line-hover: #3b82f6;
+
+
+    --color-file-default: rgb( 85,  85,  85);
+    --color-file-yellow:  rgb(249, 197,  83);
+    --color-file-green:   rgb( 60, 194,  58);
+    --color-file-pink:    rgb(253,  99, 148);
+    --color-file-red:     rgb(224,  53,  52);
+    --color-file-lblue:   rgb(132, 184, 249);
+    --color-file-dblue:   rgb( 20, 114, 248);
+    --color-file-violet:  rgb(140,  88, 133);
+    --color-file-brown:   rgb(131,  83,  51);
 }
 
 /* Dark Theme Overrides */
@@ -61,6 +72,8 @@
 
     --tree-line-color: #444444;
     --tree-line-hover: #005fcc;
+
+    --color-file-default: rgb(218, 218, 218);
 }
 
 * {
@@ -82,7 +95,7 @@ body {
 }
 
 /* SVG Definitions */
-.svg-defs {
+.svg_defs {
     display: none;
 }
 
@@ -96,24 +109,24 @@ header {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.header-row {
+.header_row {
     height: var(--header-row-height);
     display: flex;
     align-items: center;
     padding: 0 10px;
 }
 
-.header-row.top {
+.header_row.top {
     justify-content: space-between;
 }
 
-.actions-right {
+.actions_right {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.header-row.bottom {
+.header_row.bottom {
     border-top: 1px solid var(--border-color);
     overflow: hidden;
     white-space: nowrap;
@@ -123,21 +136,21 @@ header {
     align-items: center;
 }
 
-.crumb-item {
+.crumb_item {
     cursor: pointer;
     transition: color 0.2s;
 }
-.crumb-item:hover {
+.crumb_item:hover {
     color: var(--text-color);
     text-decoration: underline;
 }
-.crumb-separator {
+.crumb_separator {
     margin: 0 6px;
     color: var(--text-secondary);
     opacity: 0.5;
 }
 
-.icon-btn {
+.icon_btn {
     background: none;
     border: none;
     cursor: pointer;
@@ -148,7 +161,7 @@ header {
     border-radius: 4px;
 }
 
-.icon-btn:hover {
+.icon_btn:hover {
     background-color: var(--hover-color);
 }
 
@@ -157,20 +170,20 @@ svg {
     transition: fill 0.3s;
 }
 
-.icon-left svg {
+.icon_left svg {
     width: 24px;
     height: 24px;
     stroke: var(--text-color);
     fill: none;
 }
 
-.icon-btn svg {
+.icon_btn svg {
     width: 24px;
     height: 24px;
 }
 
 /* --- MAIN CONTAINER --- */
-#main-container {
+#main_container {
     flex-grow: 1;
     display: flex;
     position: relative;
@@ -192,7 +205,7 @@ svg {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.search-container {
+.search_container {
     position: sticky;
     top: 0;
     background-color: var(--bg-sidebar);
@@ -203,7 +216,7 @@ svg {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.search-input {
+.search_input {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid var(--border-color);
@@ -215,18 +228,18 @@ svg {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.search-input:focus {
+.search_input:focus {
     border-color: var(--resizer-hover);
 }
 
 /* --- FILE TREE STYLES --- */
-.folder-list {
+.folder_list {
     flex-grow: 1;
     padding: 10px 0;
     overflow-y: auto;
 }
 
-.tree-item {
+.tree_item {
     padding: 6px 15px;
     cursor: pointer;
     display: flex;
@@ -240,17 +253,25 @@ svg {
     user-select: none;
 }
 
-.tree-item:hover {
+.tree_item:hover {
     background-color: var(--hover-color);
 }
 
-.tree-item svg {
+.tree_item svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
 }
+.tree_item .label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-.tree-children {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.tree_children {
     margin-left: 23px; /* Отступ слева */
     padding-left: 5px; /* Отступ от линии */
     border-left: 2px solid var(--tree-line-color);
@@ -259,20 +280,20 @@ svg {
 }
 
 /* Скрытое состояние */
-.tree-children.hidden {
+.tree_children.hidden {
     display: none;
 }
 
 /* Подсветка линии при наведении (для подсказки что она кликабельна) */
 /* Используем псевдоэлемент или логику hover на контейнере с осторожностью */
-.tree-children:hover {
+.tree_children:hover {
     border-left-color: var(--tree-line-hover);
     cursor: pointer;
 }
 
 /* Для удобства клика по линии - линия сама по себе узкая (2px), но ловит клик на контейнере */
 /* Чтобы курсор показывал кликабельность в зоне линии */
-.tree-children {
+.tree_children {
     cursor: default; /* Сброс курсора на контенте */
 }
 
@@ -308,7 +329,7 @@ svg {
 }
 
 /* --- MOBILE OVERLAY --- */
-#mobile-overlay {
+#mobile_overlay {
     position: fixed;
     top: var(--header-total-height);
     left: 0;
@@ -322,7 +343,7 @@ svg {
 }
 
 /* --- SETTINGS MODAL --- */
-#settings-modal {
+#settings_modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -334,11 +355,11 @@ svg {
     align-items: center;
 }
 
-#settings-modal.active {
+#settings_modal.active {
     display: flex;
 }
 
-.modal-backdrop {
+.modal_backdrop {
     position: absolute;
     top: 0;
     left: 0;
@@ -347,7 +368,7 @@ svg {
     background: var(--modal-backdrop);
 }
 
-.modal-content {
+.modal_content {
     background: var(--bg-modal);
     padding: 20px;
     border-radius: 8px;
@@ -359,7 +380,7 @@ svg {
     color: var(--text-color);
 }
 
-.close-btn {
+.close_btn {
     display: flex;
     height: 20px;
     width: 20px;
@@ -406,25 +427,25 @@ svg {
         display: none;
     }
 
-    .modal-content {
+    .modal_content {
         width: 100%;
         height: 100%;
         max-width: 100%;
         border-radius: 0;
     }
 
-    .tree-item {
+    .tree_item {
         font-size: 18px;
     }
 
-    .tree-children svg {
+    .tree_children svg {
         width: 21px;
         height: 21px;
     }
 }
 
 .hidden {display: none !important;}
-.no-select {user-select: none;}
+.no_select {user-select: none;}
 
 
 

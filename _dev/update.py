@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from colorama import init
 
 from _dev.markup import to_markup
-from _dev.index_html_generator import generate_buttons
+from _dev.index_html_generator import generate_old_buttons, generate_new_buttons
 from _dev.utils import (
     repo,
     get_files,
@@ -67,6 +67,8 @@ white_list_html_files = (
     "index-new.html",
     "cheatsheet_resources/404.html",
     "cheatsheet_resources/buttons.html",
+    "cheatsheet_resources/buttons-old.html",
+    "cheatsheet_resources/buttons-new.html",
 )
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
@@ -147,8 +149,14 @@ with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
 
 
 # generate cheatsheet_resources/buttons.html file
-buttons_html = generate_buttons(index_json)[0]
-with open("../cheatsheet/cheatsheet_resources/buttons.html", "w", encoding="utf-8") as file:
-    file.write(BeautifulSoup(buttons_html, "html.parser").prettify())
+buttons_old_html = generate_old_buttons(index_json)[0]
+buttons_old_html = BeautifulSoup(buttons_old_html, "html.parser").prettify()
+with open("../cheatsheet/cheatsheet_resources/buttons-old.html", "w", encoding="utf-8") as file:
+    file.write(buttons_old_html)
+
+buttons_new_html = generate_new_buttons(index_json)[0]
+# buttons_new_html = BeautifulSoup(buttons_new_html, "html.parser").prettify()
+with open("../cheatsheet/cheatsheet_resources/buttons-new.html", "w", encoding="utf-8") as file:
+    file.write(buttons_new_html)
 
 print(f"Done in {UNDERLINE}{BOLD}{time.perf_counter()-start_time:.2f}{RESET} sec")

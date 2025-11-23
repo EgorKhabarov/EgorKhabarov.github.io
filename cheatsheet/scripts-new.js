@@ -1,17 +1,17 @@
 /* --- ELEMENTS --- */
 const sidebar = document.getElementById("cheatsheet_buttons");
-const container = document.getElementById("main-container");
-const overlay = document.getElementById("mobile-overlay");
+const container = document.getElementById("main_container");
+const overlay = document.getElementById("mobile_overlay");
 const resizer = document.getElementById("resizer");
-const settingsBtn = document.getElementById("settings-btn");
-const themeBtn = document.getElementById("theme-btn");
-const settingsModal = document.getElementById("settings-modal");
-const closeSettingsBtn = document.getElementById("close-settings");
-const settingsBackdrop = document.getElementById("settings-backdrop");
-const searchInput = document.getElementById("search-input");
-const breadcrumbsContainer = document.getElementById("breadcrumbs-row");
+const settingsBtn = document.getElementById("settings_btn");
+const themeBtn = document.getElementById("theme_btn");
+const settingsModal = document.getElementById("settings_modal");
+const closeSettingsBtn = document.getElementById("close_settings");
+const settingsBackdrop = document.getElementById("settings_backdrop");
+const searchInput = document.getElementById("search_input");
+const breadcrumbsContainer = document.getElementById("breadcrumbs_row");
 const body = document.body;
-const folderList = document.querySelector(".folder-list");
+const folderList = document.querySelector(".folder_list");
 
 let isSettingsOpen = false;
 
@@ -20,7 +20,7 @@ let isSettingsOpen = false;
 folderList.addEventListener("click", (e) => {
 
     // 1. Клик по папке (открытие/закрытие)
-    const folderItem = e.target.closest(".tree-item.folder");
+    const folderItem = e.target.closest(".tree_item.folder");
     if (folderItem) {
         e.stopPropagation(); // Чтобы не триггерить другие события
         toggleFolder(folderItem);
@@ -28,19 +28,19 @@ folderList.addEventListener("click", (e) => {
     }
 
     // 2. Клик по вертикальной линии (закрытие папки)
-    // Проверяем, был ли клик по контейнеру tree-children
-    if (e.target.classList.contains("tree-children")) {
+    // Проверяем, был ли клик по контейнеру tree_children
+    if (e.target.classList.contains("tree_children")) {
         // Вычисляем позицию клика внутри элемента
         const rect = e.target.getBoundingClientRect();
         const clickX = e.clientX - rect.left;
 
         // Если клик был в зоне левой границы (примерно 15px с учетом padding)
-        // Линия border-left (2px) + padding-left (5px) + запас
+        // Линия border_left (2px) + padding_left (5px) + запас
         if (clickX < 15) {
             e.stopPropagation();
-            const parentGroup = e.target.closest(".tree-group");
+            const parentGroup = e.target.closest(".tree_group");
             if (parentGroup) {
-                const folderBtn = parentGroup.querySelector(".tree-item.folder");
+                const folderBtn = parentGroup.querySelector(".tree_item.folder");
                 if (folderBtn) {
                     toggleFolder(folderBtn, true); // force close
                 }
@@ -53,7 +53,7 @@ folderList.addEventListener("click", (e) => {
 function toggleFolder(folderItem, forceClose = false) {
     // Находим следующий элемент (контейнер с детьми)
     const childrenContainer = folderItem.nextElementSibling;
-    if (!childrenContainer || !childrenContainer.classList.contains("tree-children")) return;
+    if (!childrenContainer || !childrenContainer.classList.contains("tree_children")) return;
 
     const iconUse = folderItem.querySelector("use");
     let isClosed = childrenContainer.classList.contains("hidden");
@@ -65,12 +65,12 @@ function toggleFolder(folderItem, forceClose = false) {
     if (isClosed) {
         // Открыть
         childrenContainer.classList.remove("hidden");
-        iconUse.setAttribute("href", "#icon-folder-open");
+        // iconUse.setAttribute("href", "#icon_folder_open");
         folderItem.setAttribute("data-state", "open");
     } else {
         // Закрыть
         childrenContainer.classList.add("hidden");
-        iconUse.setAttribute("href", "#icon-folder");
+        // iconUse.setAttribute("href", "#icon_folder");
         folderItem.setAttribute("data-state", "closed");
     }
 }
@@ -87,13 +87,13 @@ function renderBreadcrumbs(pathArray) {
         const currentFullPath = accumulatedPath.join("/");
         const span = document.createElement("span");
         span.textContent = part;
-        span.className = "crumb-item";
+        span.className = "crumb_item";
         span.addEventListener("click", () => console.log(`Navigating to: ${currentFullPath}`));
         breadcrumbsContainer.appendChild(span);
         if (index < pathArray.length - 1) {
             const sep = document.createElement("span");
             sep.textContent = "/";
-            sep.className = "crumb-separator";
+            sep.className = "crumb_separator";
             breadcrumbsContainer.appendChild(sep);
         }
     });
@@ -135,7 +135,7 @@ function startResize(e) {
 
     isResizing = true;
     resizer.classList.add('active');
-    body.classList.add('no-select');
+    body.classList.add('no_select');
 }
 
 function doResize(clientX) {
@@ -152,7 +152,7 @@ function stopResize() {
     if (isResizing) {
         isResizing = false;
         resizer.classList.remove('active');
-        body.classList.remove('no-select');
+        body.classList.remove('no_select');
     }
 }
 
@@ -253,3 +253,150 @@ function toggleSettings(show) {
 settingsBtn.addEventListener("click", () => toggleSettings(true));
 closeSettingsBtn.addEventListener("click", () => toggleSettings(false));
 settingsBackdrop.addEventListener("click", () => toggleSettings(false));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function load_folder_list() {
+    /*
+    fetch("cheatsheet_resources/buttons_new.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("folder_list").innerHTML = data);
+    */
+    css_colors = {
+        "default": ' style="color: var(--color-file-default);"',
+        "yellow":  ' style="color: var(--color-file-yellow);"',
+        "green":   ' style="color: var(--color-file-green);"',
+        "pink":    ' style="color: var(--color-file-pink);"',
+        "red":     ' style="color: var(--color-file-red);"',
+        "lblue":   ' style="color: var(--color-file-lblue);"',
+        "dblue":   ' style="color: var(--color-file-dblue);"',
+        "violet":  ' style="color: var(--color-file-violet);"',
+        "brown":   ' style="color: var(--color-file-brown);"',
+    };
+
+    function parseSimpleYaml(yamlStr) {
+        const result = {};
+        for (const line of yamlStr.split(/\r?\n/)) {
+            const trimmed = line.trim();
+            if (!trimmed || trimmed.startsWith("#")) continue;
+
+            const idx = trimmed.indexOf(":");
+            if (idx === -1) continue;
+
+            const key = trimmed.slice(0, idx).trim();
+            let val = trimmed.slice(idx + 1).trim();
+
+            if (val === "true") val = true;
+            else if (val === "false") val = false;
+            else if (!isNaN(val) && val !== "") val = Number(val);
+
+            result[key] = val;
+        }
+        return result;
+    }
+
+    function formatFolderSvg(color) {
+        const result_color = (color in css_colors) ? css_colors[color] : "";
+        return `<svg viewBox="0 0 24 24"${result_color}><use href="#icon_folder"/></svg>`;
+    }
+    function formatTagSvg(color) {
+        const result_color = (color in css_colors) ? css_colors[color] : "";
+        return `<svg viewBox="0 0 24 24"${result_color}><use href="#icon_file"/></svg>`;
+    }
+    function formatCheatsheetButton(title, svg) {
+        return `<div class="tree_item file" title="${title}">${svg}<span class="label">${title}</span></div>`;
+    }
+    function formatFolderButton(title, svg, buttons_folder_data) {
+        return `<div class="tree_group"><div class="tree_item folder" data-state="closed" title="{title}">${svg}<span class="label">${title}</span></div><div class="tree_children hidden">${buttons_folder_data}</div></div>`;
+    }
+
+    function generateButtons(dictionary, directory = "") {
+        const textList = [];
+        for (const [key, value] of Object.entries(dictionary)) {
+            if (key === "index" || key === ".") continue;
+            let title = key.replace(/ /g, "&nbsp;").replace(/-/g, "&#8288;-&#8288;");
+            let path = `${directory}/${key}`.replace(/\\/g, "/").replace(/^\/+/, "");
+            if (typeof value === "object" && value !== null) {
+                path += "/";
+            }
+
+            // --- metadata parsing ---
+            let currentMetadataStr = typeof value === "string" ? value : String(value["."]);
+            let currentMetadata = {};
+            if (currentMetadataStr !== "") {
+                currentMetadata = parseSimpleYaml(currentMetadataStr);
+            }
+            if (typeof currentMetadata === "string" || currentMetadata == null) {
+                currentMetadata = {};
+            }
+            // --- skip link (Python commented) ---
+            if (key.startsWith(":") && key.slice(1)) {
+                continue;
+            }
+
+            const keyPath = directory ? `${directory}/${key}` : key;
+            const directoryE = directory.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
+
+            // --- folder ---
+            if (typeof value === "object" && value !== null) {
+                const buttonsFolderData = generateButtons(value, keyPath)[0];
+                const kpath = `${directoryE}/${key}`.replace(/^\/+/, "");
+                const svg = formatFolderSvg(currentMetadata.color || "yellow");
+                const cssDisplay = currentMetadata["folder_open"] ? "block" : "none";
+                textList.push(formatFolderButton(title, svg, buttonsFolderData));
+
+            } else {
+                // --- file/tag ---
+                const vpath = `${directoryE}/${key}`.replace(/^\/+/, "");
+                const svg = formatTagSvg(currentMetadata.color || "default");
+                const tags = currentMetadata.tags;
+                textList.push(formatCheatsheetButton(title, svg));
+            }
+        }
+        return [textList.join(""), directory];
+    }
+
+    fetch("index.json")
+        .then(response => response.json())
+        .then(json_data => {
+            document.getElementById("folder_list").innerHTML = generateButtons(json_data)[0];
+    });
+})();
+
+
+let isCtrlPressed = false;
+document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
+document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
+document.addEventListener("click", function(event) {
+    if (event.target.tagName === "CODE") {
+        const tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = event.target.textContent;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+});
+
+
+

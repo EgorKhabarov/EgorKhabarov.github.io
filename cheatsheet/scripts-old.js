@@ -801,7 +801,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    fetch("cheatsheet_resources/buttons.html")
+    fetch("cheatsheet_resources/buttons-old.html")
         .then(response => response.text())
         .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
         .then(() => {
