@@ -478,7 +478,7 @@
 </tr>
 <tr>
 <td>Строка в одинарных кавычках</td>
-<td><code>'[^'\n]*?'</code></td>
+<td><code>'[^'\n]*?'</code><br/><code>(?&lt;!\\)'([^'\\\n]*(?:\\.[^'\\\n]*)*)'</code></td>
 </tr>
 <tr>
 <td><code>RE_AMP</code> html &amp;</td>
