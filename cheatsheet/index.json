@@ -644,6 +644,7 @@
     },
     "Snippets": {
         "Python": {
+            ".": "folder_open: true\n",
             "Examples": {
                 ".": "color: brown\n",
                 "list comprehension tips": "color: brown\n",
@@ -688,15 +689,6 @@
         },
         "JavaScript": {
             "js YouTube": "color: brown\n"
-        }
-    },
-    "Shortcuts": {
-        ":languages-python-fstrings": "",
-        ":languages-regexp-regexp": "",
-        "Java": {
-            ".": "folder-open: true\n",
-            ":languages-java": "",
-            ":languages-java-классы": ""
         }
     },
     "README": "",
