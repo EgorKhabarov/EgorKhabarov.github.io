@@ -2,11 +2,9 @@ import json
 import time
 from pathlib import Path
 
-from bs4 import BeautifulSoup
 from colorama import init
 
 from _dev.markup import to_markup
-from _dev.index_html_generator import generate_old_buttons, generate_new_buttons
 from _dev.utils import (
     repo,
     get_files,
@@ -146,17 +144,5 @@ index_json = update_index_json(
 )
 with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
     json.dump(index_json, index_json_file, indent=4, ensure_ascii=False)
-
-
-# generate cheatsheet_resources/buttons.html file
-buttons_old_html = generate_old_buttons(index_json)[0]
-buttons_old_html = BeautifulSoup(buttons_old_html, "html.parser").prettify()
-with open("../cheatsheet/cheatsheet_resources/buttons-old.html", "w", encoding="utf-8") as file:
-    file.write(buttons_old_html)
-
-buttons_new_html = generate_new_buttons(index_json)[0]
-# buttons_new_html = BeautifulSoup(buttons_new_html, "html.parser").prettify()
-with open("../cheatsheet/cheatsheet_resources/buttons-new.html", "w", encoding="utf-8") as file:
-    file.write(buttons_new_html)
 
 print(f"Done in {UNDERLINE}{BOLD}{time.perf_counter()-start_time:.2f}{RESET} sec")
