@@ -314,6 +314,11 @@ searchInput.addEventListener("input", debounce(async (e) => {
             }, 500);
         })
     });
+    folderSearchList.querySelectorAll(".file").forEach(e => {
+        const url = e.getAttribute("data-vpath");
+        const e2 = folderList.querySelector(`[data-vpath="${url}"]`);
+        e.firstChild.style.color = e2.firstChild.style.color;
+    });
 
     if (search_query && !folderSearchList.innerHTML) {
         folderSearchList.style.display = "flex";
@@ -1076,10 +1081,18 @@ function loadSettings() {
         "settings_css_markdown_preview": true,
         "settings_css": "",
     };
-    if (s.theme === undefined) s.theme = "dark";
-    if (s.breadcrumbs === undefined) s.breadcrumbs = true;
-    if (s.settings_css_markdown_preview === undefined) s.settings_css_markdown_preview = true;
-    if (s.settings_css === undefined) s.settings_css = "";
+    if (s.theme === undefined) {
+        s.theme = "dark";
+    }
+    if (s.breadcrumbs === undefined) {
+        s.breadcrumbs = true;
+    }
+    if (s.settings_css_markdown_preview === undefined) {
+        s.settings_css_markdown_preview = true;
+    }
+    if (s.settings_css === undefined) {
+        s.settings_css = "";
+    }
     return s;
 }
 function saveSettings(settings) {

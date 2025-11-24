@@ -720,6 +720,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0px;
 }*/
 
+hr {
+    background: var(--md-tag-blockquote-color);
+    font-size: 0;
+    border: 0;
+    height: 3px;
+}
 
 
 
