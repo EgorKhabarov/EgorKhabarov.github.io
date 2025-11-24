@@ -418,7 +418,7 @@ svg {
     min-width: 30%;
 }
 
-.cheatsheet_field_container {
+#cheatsheet_field_container {
     flex-grow: 1;
     background-color: var(--bg-content);
     overflow-y: auto;

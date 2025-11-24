@@ -31,9 +31,7 @@ setupClearButton(sidebarInput, sidebarClear);
 setupClearButton(mainInput, mainClear);
 
 close_floating_search_btn.addEventListener("click", () => {
-    mainInput.value = "";
-    mainInput.dispatchEvent(new Event("input"));
-    floating_search.style.display = "none";
+    closeMainSearch();
 });
 
 
@@ -48,7 +46,12 @@ document.addEventListener("keydown", (e) => {
     )) {
         e.preventDefault();
         openSidebar();
+        const selection = window.getSelection().toString();
         sidebarInput.focus();
+        if (selection && !selection.includes("\n")) {
+            sidebarInput.value = selection;
+            sidebarInput.dispatchEvent(new Event("input"));
+        }
         return;
     }
 
@@ -66,6 +69,10 @@ document.addEventListener("keydown", (e) => {
         if (selection && !selection.includes("\n")) {
             mainInput.value = selection;
             mainInput.dispatchEvent(new Event("input"));
+        } else if (last_search.length > 1) {
+            mainInput.value = last_search;
+            mainInput.dispatchEvent(new Event("input"));
+            mainInput.select();
         }
         return;
     }
@@ -82,9 +89,7 @@ document.addEventListener("keydown", (e) => {
             return;
         }
         if (floating_search.style.display === "flex") {
-            mainInput.value = "";
-            mainInput.dispatchEvent(new Event("input"));
-            floating_search.style.display = "none";
+            closeMainSearch();
             return;
         }
         if (search_input.value) {
@@ -106,7 +111,6 @@ document.addEventListener("keydown", (e) => {
         e.code === "Comma" ? prevHighlight() : nextHighlight();
         return;
     }
-    console.log(e);
 });
 
 
@@ -206,24 +210,7 @@ let idx = null;
 let docs = null;
 let indexPromise = null;
 
-/*
-function loadIndexLazy() {
-    // Если индекс уже грузится — возвращаем тот же промис
-    if (indexPromise) return indexPromise;
 
-    indexPromise = new Promise(async (resolve) => {
-        // Подключаем русский язык для lunr
-
-        const data = JSON.parse(await (await fetch("cheatsheet_resources/search-index.json.gz")).text());
-        idx = lunr.Index.load(data.index);
-        docs = data.docs;
-        resolve();
-        //lunr.ru(lunr);
-    });
-
-    return indexPromise;
-}
-*/
 async function loadIndexLazy() {
     if (idx) return;
 
@@ -294,6 +281,9 @@ searchInput.addEventListener("input", debounce(async (e) => {
         if (results.length === 0) {
             results = await searchQuery(`*${prepareQuery(search_query)}*`);
         }
+        if (results.length === 0) {
+            results = await searchQuery(`${prepareQuery(search_query)}~1`);
+        }
     } catch (e) {
         console.error(e);
     }
@@ -307,9 +297,6 @@ searchInput.addEventListener("input", debounce(async (e) => {
         return;
     }
     searchInput.style.border = null;
-    // folderSearchList.innerHTML = results.map(r => {
-    //     return `<div class="tree_item file">${r.f}</div>`;
-    // }).join("");
     generateButtons(buildTree(results.map(r => r.f)), folderSearchList, false);
     folderSearchList.querySelectorAll('[data-state="closed"]').forEach(e => {
         e.setAttribute("data-state", "open");
@@ -318,15 +305,13 @@ searchInput.addEventListener("input", debounce(async (e) => {
     folderSearchList.querySelectorAll(".file").forEach(e => {
         e.addEventListener("click", function(event) {
             const vpath = e.getAttribute("data-vpath")
-            setup_cheatsheet(vpath, false);
+            setup_cheatsheet(vpath, false, false);
 
             floating_search.style.display = "flex";
             mainInput.value = search_query;
             setTimeout(function() {
                 mainInput.dispatchEvent(new Event("input"));
-                nextHighlight();
             }, 500);
-
         })
     });
 
@@ -347,7 +332,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
         folderSearchList.innerHTML = "";
     }
     console.log("Search:", search_query);
-}, 400));
+}, 1000));
 function closeSearch() {
     folderList.style.display = "block";
     folderSearchList.style.display = "none";
@@ -523,7 +508,8 @@ function load_cheatsheet(url) {
         .then(text => {
             cheatsheet_field.innerHTML = text;
             processingCheatSheet();
-            cheatsheet_field.scrollTo(0, 0);
+            cheatsheet_field_container.scrollTo(0, 0);
+            delAnchor();
         });
 }
 function closeAllKeyButtons() {
@@ -547,7 +533,7 @@ function displayKeyButton(url) {
     button.scrollIntoView({block: "center"});
     return button;
 }
-function displayValueButton(url) {
+function displayValueButton(url, scrollIntoActive = true) {
     const pathArray = url.split("/");
     pathArray.pop();
     while (pathArray.length) {
@@ -558,18 +544,25 @@ function displayValueButton(url) {
         pathArray.pop();
     }
     let button = folderList.querySelector(`[data-vpath="${url}"]`);
-    button.scrollIntoView({block: "center"});
+    if (scrollIntoActive) {
+        button.scrollIntoView({block: "center"});
+    }
     return button;
 }
-function setup_cheatsheet(url_, setActive=true) {
+function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     const url = url_.trim("/");
     console.log(`Load "${url}.html"`)
     load_cheatsheet(url);
     renderBreadcrumbs(url);
     addArgumentToUrl(url);
     closeSidebar();
+    closeMainSearch();
 
-    if (setActive) changeActiveButton(displayValueButton(url));
+    if (setActive) {
+        changeActiveButton(
+            displayValueButton(url, scrollIntoActive)
+        );
+    }
 }
 
 
@@ -724,7 +717,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
             folderList.querySelectorAll(".file").forEach(e => {
                 e.addEventListener("click", function(event) {
                     const vpath = e.getAttribute("data-vpath")
-                    setup_cheatsheet(vpath);
+                    setup_cheatsheet(vpath, true, false);
                 })
             });
 
@@ -732,7 +725,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
             if (vpath === null || vpath === "null") {
                 vpath = "README";
             }
-            setup_cheatsheet(vpath);
+            setup_cheatsheet(vpath, true, true);
         });
 })();
 
@@ -862,7 +855,7 @@ function processingCheatSheet() {
 
         // pre_element = document.createElement("pre");
         // pre_element.innerHTML = `<span style="color: rgb(255, 0, 0);">H1</span>&nbsp;<span class="h_list_sel"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg></span>`;
-        // pre_element.setAttribute("onclick", "cheatsheet_field.scrollTo(0, 0);");
+        // pre_element.setAttribute("onclick", "cheatsheet_field_container.scrollTo(0, 0);");
         // h_list.appendChild(pre_element);
 
         min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
@@ -1383,7 +1376,18 @@ floating_search_arrow_down.onclick = nextHighlight;
 
 
 
+let last_search = "";
 main_search_input.addEventListener("input", () => {
-    console.log(main_search_input.value);
+    console.log(`"${main_search_input.value}"`);
+    if (main_search_input.value !== "") {
+        last_search = main_search_input.value;
+    }
     highlightText(main_search_input.value, cheatsheet_field, main_search_input);
+    nextHighlight();
 });
+
+function closeMainSearch() {
+    mainInput.value = "";
+    mainInput.dispatchEvent(new Event("input"));
+    floating_search.style.display = "none";
+}
