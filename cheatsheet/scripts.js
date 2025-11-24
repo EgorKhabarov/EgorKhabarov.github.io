@@ -106,8 +106,12 @@ document.addEventListener("keydown", (e) => {
 
 
 open_search_button.addEventListener("click", () => {
-    floating_search.style.display = "flex";
-    mainInput.focus();
+    if (floating_search.style.display === "none") {
+        floating_search.style.display = "flex";
+        mainInput.focus();
+    } else {
+        closeMainSearch();
+    }
 })
 
 
@@ -661,36 +665,35 @@ function generateButtons(json_data, element, cascadeClose = true) {
 
     element.innerHTML = __generateButtons(json_data)[0];
     element.addEventListener("click", (e) => {
-
-    // 1. Click on a folder (open/close)
-    const folderItem = e.target.closest(".tree_item.folder");
-    if (folderItem) {
-        e.stopPropagation();
-        toggleFolder(folderItem, false, cascadeClose);
-        return;
-    }
-
-    // 2. Click on the vertical line (close the folder)
-    // Checking if there was a click on the tree_children container
-    if (e.target.classList.contains("tree_children")) {
-        // Calculate the click position within an element
-        const rect = e.target.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-
-        // If the click was in the left border area (approximately 15px taking into account padding)
-        // Line border_left (2px) + padding_left (5px) + margin
-        if (clickX < 15) {
+        // 1. Click on a folder (open/close)
+        const folderItem = e.target.closest(".tree_item.folder");
+        if (folderItem) {
             e.stopPropagation();
-            const parentGroup = e.target.closest(".tree_group");
-            if (parentGroup) {
-                const folderBtn = parentGroup.querySelector(".tree_item.folder");
-                if (folderBtn) {
-                    toggleFolder(folderBtn, true, cascadeClose); // force close
+            toggleFolder(folderItem, false, cascadeClose);
+            return;
+        }
+
+        // 2. Click on the vertical line (close the folder)
+        // Checking if there was a click on the tree_children container
+        if (e.target.classList.contains("tree_children")) {
+            // Calculate the click position within an element
+            const rect = e.target.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+
+            // If the click was in the left border area (approximately 15px taking into account padding)
+            // Line border_left (2px) + padding_left (5px) + margin
+            if (clickX < 15) {
+                e.stopPropagation();
+                const parentGroup = e.target.closest(".tree_group");
+                if (parentGroup) {
+                    const folderBtn = parentGroup.querySelector(".tree_item.folder");
+                    if (folderBtn) {
+                        toggleFolder(folderBtn, true, cascadeClose); // force close
+                    }
                 }
             }
         }
-    }
-});
+    });
 }
 
 (function load_folder_list() {
