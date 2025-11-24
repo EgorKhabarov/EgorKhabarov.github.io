@@ -58,6 +58,10 @@
     --color-file-violet:  rgb(140,  88, 133);
     --color-file-brown:   rgb(131,  83,  51);
 
+    --table-header-bg: #f0f0f0;
+    --table-row-hover: #fafafa;
+    --table-border: #e0e0e0;
+
     /* Markdown */
     --md-tag-code-bg: #dbd8d8;
     --md-tag-code-active-bg: #bfbcbc;
@@ -110,6 +114,10 @@
     --tree-line-hover: #005fcc;
 
     --color-file-default: rgb(218, 218, 218);
+
+    --table-header-bg: #252526;
+    --table-row-hover: #2a2d2e;
+    --table-border: #3e3e42;
 
     /* Markdown */
     --md-tag-code-bg: #474747;
@@ -410,7 +418,7 @@ svg {
     min-width: 30%;
 }
 
-#cheatsheet_field {
+.cheatsheet_field_container {
     flex-grow: 1;
     background-color: var(--bg-content);
     overflow-y: auto;
@@ -430,6 +438,28 @@ svg {
     /* height: 100%;
     padding-top: 20px; */
 }
+
+/* Мобильные устройства (до 600px) Стили для мобильных */
+@media (max-width: 768px) {
+    #cheatsheet_field {
+        padding: 0;
+    }
+}
+
+/* Планшеты (600px — 1024px) Стили для планшетов */
+@media (min-width: 1060px) and (max-width: 1224px) {
+    #cheatsheet_field {
+        padding: 0 80px;
+    }
+}
+
+/* Десктопы (от 1024px и выше) Стили для компьютеров */
+@media (min-width: 1224px) {
+    #cheatsheet_field {
+        padding: 0 120px;
+    }
+}
+
 
 /* --- MOBILE OVERLAY --- */
 #mobile_overlay {
@@ -462,6 +492,39 @@ svg {
     display: flex;
 }
 
+.setting_group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.setting_label {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+.setting_row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-family: monospace;
+    padding-right: 30px;
+}
+
+
 .modal_backdrop {
     position: absolute;
     top: 0;
@@ -479,17 +542,16 @@ svg {
     box-shadow: 0 4px 15px var(--shadow-color);
     width: 600px;
     max-width: 90%;
-    height: 500px;
     color: var(--text-color);
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 .close_btn {
-    display: flex;
-    height: 20px;
-    width: 20px;
-    justify-content: center;
-    align-items: flex-end;
-
     position: absolute;
     top: 10px;
     right: 10px;
@@ -497,6 +559,11 @@ svg {
     font-weight: bold;
     font-size: 20px;
     color: var(--text-color);
+    z-index: 10;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- MEDIA QUERIES --- */
@@ -533,7 +600,9 @@ svg {
         width: 100%;
         height: 100%;
         max-width: 100%;
+        max-height: 100%;
         border-radius: 0;
+        font-size: 15px;
     }
 
     .tree_item {
@@ -672,7 +741,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Полоска вверху элемента code-element с языком и кнопкой для копирования */
 .lang_line {
-    height: 2em;
+    height: 26px;
     border-radius: .375em .375em .0em .0em;
     display: flex;
     align-items: center;
@@ -799,42 +868,64 @@ img {
 
 
 
-/* Таблицы */
+
+
+
+
+
+
+
+
+
+/* TABLE WRAPPER & STYLES */
+.table_wrapper {
+    width: 100%;
+    border: 1px solid var(--table-border);
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
-    max-width: 100vw;
-    display: block;
-    display: -webkit-box;
-    overflow: auto;
-}  /* white-space: normal; */
+    border-collapse: collapse;
+    font-size: 0.95em;
+    border-style: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--table-border);
+    white-space: nowrap;
+}
+
+/* Sticky Header */
 th {
-    padding: .9em;
-    background-color: #46494b;
-    min-width: 60px;
+    background-color: var(--table-header-bg);
+    font-weight: 600;
+    color: var(--text-color);
+    position: sticky;
+    top: -20px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-clip: padding-box;
 }
-td {
-    border-top: .1em solid #46494b;
-    padding: .9em;
-    background-color: #3c3f41;
-    min-width: 60px;
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
 }
 
 
-/* Закругление заголовка таблицы */
-th:first-child {border-top-left-radius: .375em;}
-th:last-child {border-top-right-radius: .375em;}
 
-/* Закругление заголовка если нету thead */
-table:not(:has(thead)) tbody:first-of-type > tr:first-of-type > td:first-of-type {border-top-left-radius: .375em;}
-table:not(:has(thead)) tbody:first-of-type > tr:first-of-type > td:last-of-type {border-top-right-radius: .375em;}
 
-/* Закругление низа таблицы */
-tr:last-child td:first-child {border-bottom-left-radius: .375em;}
-tr:last-child td:last-child {border-bottom-right-radius: .375em;}
 
-tr:hover td {background: #46494b;}
-td > code {background-color: #676767;color: #b8b8b8;}
-th > code {background-color: #676767;color: #b8b8b8;}
+
 
 
 
@@ -962,3 +1053,15 @@ th > code {background-color: #676767;color: #b8b8b8;}
     height: 14px;
     fill: currentColor;
 }
+
+
+::highlight(search_highlight) {
+    background: yellow;
+    color: black;
+}
+::highlight(active_search_highlight) {
+    background: orange;
+    color: black;
+}
+
+

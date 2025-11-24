@@ -61,7 +61,12 @@ document.addEventListener("keydown", (e) => {
     )) {
         e.preventDefault();
         floating_search.style.display = "flex";
+        const selection = window.getSelection().toString();
         mainInput.focus();
+        if (selection && !selection.includes("\n")) {
+            mainInput.value = selection;
+            mainInput.dispatchEvent(new Event("input"));
+        }
         return;
     }
 
@@ -77,12 +82,38 @@ document.addEventListener("keydown", (e) => {
             return;
         }
         if (floating_search.style.display === "flex") {
+            mainInput.value = "";
+            mainInput.dispatchEvent(new Event("input"));
             floating_search.style.display = "none";
+            return;
+        }
+        if (search_input.value) {
+            closeSearch();
             return;
         }
         return;
     }
+
+    // Alt + > || Alt + < -> Next selection | Prev selection
+    if (floating_search.style.display === "flex"
+        && e.altKey
+        && (
+            e.code === "Comma"
+            || e.code === "Period"
+        )
+    ) {
+        e.preventDefault();
+        e.code === "Comma" ? prevHighlight() : nextHighlight();
+        return;
+    }
+    console.log(e);
 });
+
+
+open_search_button.addEventListener("click", () => {
+    floating_search.style.display = "flex";
+    mainInput.focus();
+})
 
 
 let isSettingsOpen = false;
@@ -161,8 +192,12 @@ themeBtn.addEventListener("click", () => {
     isDark = !isDark;
     if (isDark) {
         document.documentElement.setAttribute("data-theme", "dark");
+        settings.theme = "dark";
+        saveSettings(settings);
     } else {
         document.documentElement.removeAttribute("data-theme");
+        settings.theme = "light";
+        saveSettings(settings);
     }
 });
 
@@ -256,6 +291,9 @@ searchInput.addEventListener("input", debounce(async (e) => {
     let results = null;
     try {
         results = await searchQuery(prepareQuery(search_query));
+        if (results.length === 0) {
+            results = await searchQuery(`*${prepareQuery(search_query)}*`);
+        }
     } catch (e) {
         console.error(e);
     }
@@ -281,6 +319,14 @@ searchInput.addEventListener("input", debounce(async (e) => {
         e.addEventListener("click", function(event) {
             const vpath = e.getAttribute("data-vpath")
             setup_cheatsheet(vpath, false);
+
+            floating_search.style.display = "flex";
+            mainInput.value = search_query;
+            setTimeout(function() {
+                mainInput.dispatchEvent(new Event("input"));
+                nextHighlight();
+            }, 500);
+
         })
     });
 
@@ -763,6 +809,13 @@ function processingBlockQuote(blockquote) {
     }
 }
 
+function processingTables(table) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("table_wrapper");
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+}
+
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
         if (
@@ -798,6 +851,7 @@ function processingCheatSheet() {
         //svg = `<svg style="width: .6em;height: .9em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg>`;
         header.innerHTML = `<a class="anchor" href="#${id}">${header.innerHTML}</a>`;
     });
+    cheatsheet_field.querySelectorAll("table").forEach(processingTables);
 
     return; // TODO
     if (h_elements.length !== 0) {
@@ -1021,3 +1075,315 @@ function DownloadCode(button_element, filename) {
 
 
 
+function loadSettings() {
+    const settings = localStorage.getItem("settings");
+    let s = settings ? JSON.parse(settings) : {
+        "theme": "dark",
+        "breadcrumbs": true,
+        "settings_css_markdown_preview": true,
+        "settings_css": "",
+    };
+    if (s.theme === undefined) s.theme = "dark";
+    if (s.breadcrumbs === undefined) s.breadcrumbs = true;
+    if (s.settings_css_markdown_preview === undefined) s.settings_css_markdown_preview = true;
+    if (s.settings_css === undefined) s.settings_css = "";
+    return s;
+}
+function saveSettings(settings) {
+    localStorage.setItem(
+        "settings",
+        JSON.stringify(settings)
+    );
+}
+function applySettings(settings) {
+    //for (const [key, value] of Object.entries(settings)) {
+    //    const element = document.getElementById(key);
+    //    if (element) element.checked = value;
+    //}
+    if (settings.theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+        isDark = true;
+    } else {
+        document.documentElement.removeAttribute("data-theme");
+        isDark = false;
+    }
+    settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
+    settings_breadcrumbs_input.checked = settings.breadcrumbs;
+    settings_css_textarea.value = settings.settings_css || "";
+}
+function css_markdown_preview_func(element) {
+    if (element.checked) {
+        css_markdown_preview.textContent = `
+
+#cheatsheet_field h1 {color:rgb(255,   0,   0);}
+#cheatsheet_field h2 {color:rgb(250, 115,   0);}
+#cheatsheet_field h3 {color:rgb(255, 250,   0);}
+#cheatsheet_field h4 {color:rgb(  0, 255,   0);}
+#cheatsheet_field h5 {color:rgb(  0, 160, 245);}
+#cheatsheet_field h6 {color:rgb(221,   0, 242);}
+
+#cheatsheet_field b, strong    {color:rgb(243, 171,   6);}
+#cheatsheet_field i, em        {color:rgb(128, 136, 193);}
+#cheatsheet_field strong em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field      b em, i {color:rgb(195, 153, 144);}
+#cheatsheet_field em strong, b {color:rgb(195, 153, 144);}
+#cheatsheet_field  i strong, b {color:rgb(195, 153, 144);}
+
+strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
+
+
+#cheatsheet_field h1:before {content: "# ";}
+#cheatsheet_field h2:before {content: "## ";}
+#cheatsheet_field h3:before {content: "### ";}
+#cheatsheet_field h4:before {content: "#### ";}
+#cheatsheet_field h5:before {content: "##### ";}
+#cheatsheet_field h6:before {content: "###### ";}
+#cheatsheet_field code:before, code:after {content: "\`";}
+#cheatsheet_field mark:before, mark:after {content: "==";}
+#cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
+#cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
+
+`;
+        settings.settings_css_markdown_preview = true;
+        saveSettings(settings);
+    } else {
+        css_markdown_preview.textContent = "";
+        settings.settings_css_markdown_preview = false;
+        saveSettings(settings);
+    }
+}
+function settings_breadcrumbs_func(element) {
+    if (!element.checked) {
+        settings_breadcrumbs_style.textContent = `
+#breadcrumbs_row {display: none;}
+:root {--header-total-height: 40px;}
+.header_row.bottom {display: none;}
+`;
+        settings.breadcrumbs = false;
+        saveSettings(settings);
+    } else {
+        settings_breadcrumbs_style.textContent = "";
+        settings.breadcrumbs = true;
+        saveSettings(settings);
+    }
+}
+
+let settings = loadSettings();
+applySettings(settings);
+css_markdown_preview_func(settings_css_markdown_preview)
+settings_breadcrumbs_func(settings_breadcrumbs_input)
+
+
+
+
+
+let highlightRanges = [];        // все найденные совпадения
+let activeIndex = -1;            // текущий выбранный
+
+function parseSearchQuery(query, inputEl) {
+    // Попробуем определить формат /pattern/flags
+    if (
+        query.startsWith("/")
+        && query.lastIndexOf("/") > 0
+        && query.slice(1, query.lastIndexOf("/")).length !== 0
+    ) {
+        const lastSlash = query.lastIndexOf("/");
+        const pattern = query.slice(1, lastSlash);
+        const flags = query.slice(lastSlash + 1);
+
+        try {
+            const regex = new RegExp(pattern, flags);
+            inputEl.style.border = ""; // OK
+            return regex;
+        } catch (e) {
+            // Ошибка синтаксиса RegExp
+            inputEl.style.border = "1px solid red";
+            return null;
+        }
+    }
+
+    // Обычная строка
+    inputEl.style.border = "";
+    return query;
+}
+
+
+
+
+
+// Снимает подсветку
+function clearHighlight() {
+    CSS.highlights.delete("search_highlight");
+}
+
+
+// Собирает все текстовые узлы внутри элемента
+function getTextNodes(root) {
+    const nodes = [];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+        nodes.push(node);
+    }
+    return nodes;
+}
+
+
+// Находит текстовый узел по глобальному индексу
+function locatePositionInNodes(nodes, globalIndex) {
+    let pos = 0;
+
+    for (const node of nodes) {
+        const len = node.textContent.length;
+
+        if (globalIndex < pos + len) {
+            return {
+                node,
+                offset: globalIndex - pos
+            };
+        }
+        pos += len;
+    }
+    return null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function highlightText(rawQuery, cheatsheetField, inputEl) {
+    clearHighlight();
+
+    const parsed = parseSearchQuery(rawQuery, inputEl);
+    if (parsed === null || !parsed) {
+        highlightRanges = [];
+        activeIndex = -1;
+        CSS.highlights.delete("active_search_highlight");
+        return;
+    }
+
+    const nodes = getTextNodes(cheatsheetField);
+    const fullText = nodes.map(n => n.textContent).join("");
+
+    let matches = [];
+
+    // --- поиск как раньше ---
+    if (parsed instanceof RegExp) {
+        let m;
+        const regex = new RegExp(parsed.source, parsed.flags.includes("g") ? parsed.flags : parsed.flags + "g");
+        while ((m = regex.exec(fullText)) !== null) {
+            matches.push({ start: m.index, end: m.index + m[0].length });
+            if (m[0].length === 0) regex.lastIndex++;
+        }
+    } else {
+        const q = parsed.toLowerCase();
+        const lower = fullText.toLowerCase();
+        let pos = 0;
+        while (true) {
+            const i = lower.indexOf(q, pos);
+            if (i === -1) break;
+            matches.push({ start: i, end: i + q.length });
+            pos = i + q.length;
+        }
+    }
+
+    highlightRanges = [];  // сбрасываем
+    activeIndex = -1;
+    CSS.highlights.delete("active_search_highlight");
+
+    if (!matches.length) return;
+
+    const allRanges = [];
+
+    for (const m of matches) {
+        const startPos = locatePositionInNodes(nodes, m.start);
+        const endPos = locatePositionInNodes(nodes, m.end);
+
+        if (startPos && endPos) {
+            const r = new Range();
+            r.setStart(startPos.node, startPos.offset);
+            r.setEnd(endPos.node, endPos.offset);
+            allRanges.push(r);
+        }
+    }
+
+    if (!allRanges.length) return;
+
+    highlightRanges = allRanges;  // сохраняем глобально
+
+    // создаём общую подсветку поиска
+    const highlight = new Highlight(...allRanges);
+    CSS.highlights.set("search_highlight", highlight);
+}
+
+
+
+function scrollRangeIntoView(range) {
+    const sel = window.getSelection();
+    const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
+
+    sel.removeAllRanges();
+    sel.addRange(range);
+
+    // принудительно прокручиваем
+    range.startContainer.parentElement?.scrollIntoView({
+        block: "center",
+        inline: "nearest"
+    });
+
+    // возвращаем старый selection
+    sel.removeAllRanges();
+    if (prevRange) {
+        sel.addRange(prevRange);
+    }
+}
+
+
+
+
+
+
+function setActiveHighlight(index) {
+    if (highlightRanges.length === 0) return;
+
+    activeIndex = ((index % highlightRanges.length) + highlightRanges.length) % highlightRanges.length;
+
+    const activeRange = highlightRanges[activeIndex];
+
+    // подсветка активного
+    CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
+
+    scrollRangeIntoView(activeRange);
+}
+
+
+
+function nextHighlight() {
+    if (highlightRanges.length === 0) return;
+    setActiveHighlight(activeIndex + 1);
+}
+
+function prevHighlight() {
+    if (highlightRanges.length === 0) return;
+    setActiveHighlight(activeIndex - 1);
+}
+
+
+floating_search_arrow_up.onclick = prevHighlight;
+floating_search_arrow_down.onclick = nextHighlight;
+
+
+
+main_search_input.addEventListener("input", () => {
+    console.log(main_search_input.value);
+    highlightText(main_search_input.value, cheatsheet_field, main_search_input);
+});
