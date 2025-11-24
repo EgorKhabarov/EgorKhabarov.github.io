@@ -7,3 +7,4 @@ BeautifulSoup4~=4.12.3
 GitPython~=3.1.44
 PyYAML~=6.0.2
 colorama~=0.4.6
+lunr~=0.8.0
