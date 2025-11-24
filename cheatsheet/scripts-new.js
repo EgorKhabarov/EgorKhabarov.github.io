@@ -38,12 +38,7 @@ close_floating_search_btn.addEventListener("click", () => {
 /* --- KEYBOARD SHORTCUTS --- */
 document.addEventListener("keydown", (e) => {
     // Ctrl + Shift + F -> Sidebar Search
-    if (e.ctrlKey && e.shiftKey && (
-        e.key === "F"
-        || e.key === "f"
-        || e.key === "А"
-        || e.key === "а"
-    )) {
+    if (e.ctrlKey && e.shiftKey && e.code === "KeyF") {
         e.preventDefault();
         openSidebar();
         const selection = window.getSelection().toString();
@@ -56,12 +51,8 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Ctrl + F -> Main Search
-    if (e.ctrlKey && (
-        e.key === "f"
-        || e.key === "F"
-        || e.key === "а"
-        || e.key === "А"
-    )) {
+    if (e.ctrlKey && e.code === "KeyF") {
+        console.log(e);
         e.preventDefault();
         floating_search.style.display = "flex";
         const selection = window.getSelection().toString();
@@ -122,9 +113,7 @@ open_search_button.addEventListener("click", () => {
 
 let isSettingsOpen = false;
 
-// Функция переключения папки
 function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
-    // Находим следующий элемент (контейнер с детьми)
     const childrenContainer = folderItem.nextElementSibling;
     if (!childrenContainer || !childrenContainer.classList.contains("tree_children")) return;
 
@@ -132,16 +121,14 @@ function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
     let isClosed = childrenContainer.classList.contains("hidden");
 
     if (forceClose) {
-        isClosed = false; // Мы хотим закрыть, значит считаем что сейчас открыто
+        isClosed = false;
     }
 
     if (isClosed) {
-        // Открыть
         childrenContainer.classList.remove("hidden");
         // iconUse.setAttribute("href", "#icon_folder_open");
         folderItem.setAttribute("data-state", "open");
     } else {
-        // Закрыть
         childrenContainer.classList.add("hidden");
         // iconUse.setAttribute("href", "#icon_folder");
         folderItem.setAttribute("data-state", "closed");
@@ -217,15 +204,14 @@ async function loadIndexLazy() {
     const res = await fetch("cheatsheet_resources/search-index.json");
     const data = await res.json();
 
-    idx = lunr.Index.load(data.index); // русский язык уже встроен в индекс
+    idx = lunr.Index.load(data.index);
     docs = data.docs;
 }
 async function searchQuery(text) {
     if (!text.trim()) return [];
 
-    // Если индекс ещё не загружен — подождать загрузки
     if (typeof lunr === "undefined") {
-        console.warn("lunr не загружен!");
+        console.warn("lunr is not loaded!");
         return null;
     }
     if (!idx) await loadIndexLazy();
@@ -250,12 +236,12 @@ function buildTree(paths) {
     const tree = {};
 
     paths.forEach(path => {
-        const parts = path.split("/"); // разбиваем на сегменты
+        const parts = path.split("/");
         let current = tree;
 
         parts.forEach((part, i) => {
             if (!current[part]) {
-                // если это последний элемент — пустая строка, иначе объект
+                // if this is the last element - an empty string, otherwise an object
                 current[part] = (i === parts.length - 1) ? "" : {};
             }
             current = current[part];
@@ -676,23 +662,23 @@ function generateButtons(json_data, element, cascadeClose = true) {
     element.innerHTML = __generateButtons(json_data)[0];
     element.addEventListener("click", (e) => {
 
-    // 1. Клик по папке (открытие/закрытие)
+    // 1. Click on a folder (open/close)
     const folderItem = e.target.closest(".tree_item.folder");
     if (folderItem) {
-        e.stopPropagation(); // Чтобы не триггерить другие события
+        e.stopPropagation();
         toggleFolder(folderItem, false, cascadeClose);
         return;
     }
 
-    // 2. Клик по вертикальной линии (закрытие папки)
-    // Проверяем, был ли клик по контейнеру tree_children
+    // 2. Click on the vertical line (close the folder)
+    // Checking if there was a click on the tree_children container
     if (e.target.classList.contains("tree_children")) {
-        // Вычисляем позицию клика внутри элемента
+        // Calculate the click position within an element
         const rect = e.target.getBoundingClientRect();
         const clickX = e.clientX - rect.left;
 
-        // Если клик был в зоне левой границы (примерно 15px с учетом padding)
-        // Линия border_left (2px) + padding_left (5px) + запас
+        // If the click was in the left border area (approximately 15px taking into account padding)
+        // Line border_left (2px) + padding_left (5px) + margin
         if (clickX < 15) {
             e.stopPropagation();
             const parentGroup = e.target.closest(".tree_group");
@@ -989,7 +975,7 @@ function removeArgumentFromUrl() {
 /* Title */
 function changeTitle(title) {
     console.log(`title: "${title}"`);
-    result = "Шпаргалка";
+    result = "Cheat sheet";
     if (title) {
         result += ": " + title;
     }
@@ -1183,11 +1169,11 @@ settings_breadcrumbs_func(settings_breadcrumbs_input)
 
 
 
-let highlightRanges = [];        // все найденные совпадения
-let activeIndex = -1;            // текущий выбранный
+let highlightRanges = [];
+let activeIndex = -1;
 
 function parseSearchQuery(query, inputEl) {
-    // Попробуем определить формат /pattern/flags
+    // Let's try to determine the format of /pattern/flags
     if (
         query.startsWith("/")
         && query.lastIndexOf("/") > 0
@@ -1202,13 +1188,13 @@ function parseSearchQuery(query, inputEl) {
             inputEl.style.border = ""; // OK
             return regex;
         } catch (e) {
-            // Ошибка синтаксиса RegExp
+            // RegExp syntax error
             inputEl.style.border = "1px solid red";
             return null;
         }
     }
 
-    // Обычная строка
+    // A regular line
     inputEl.style.border = "";
     return query;
 }
@@ -1217,13 +1203,11 @@ function parseSearchQuery(query, inputEl) {
 
 
 
-// Снимает подсветку
 function clearHighlight() {
     CSS.highlights.delete("search_highlight");
 }
 
 
-// Собирает все текстовые узлы внутри элемента
 function getTextNodes(root) {
     const nodes = [];
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -1235,7 +1219,6 @@ function getTextNodes(root) {
 }
 
 
-// Находит текстовый узел по глобальному индексу
 function locatePositionInNodes(nodes, globalIndex) {
     let pos = 0;
 
@@ -1282,7 +1265,6 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
 
     let matches = [];
 
-    // --- поиск как раньше ---
     if (parsed instanceof RegExp) {
         let m;
         const regex = new RegExp(parsed.source, parsed.flags.includes("g") ? parsed.flags : parsed.flags + "g");
@@ -1302,7 +1284,7 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
         }
     }
 
-    highlightRanges = [];  // сбрасываем
+    highlightRanges = [];
     activeIndex = -1;
     CSS.highlights.delete("active_search_highlight");
 
@@ -1324,9 +1306,8 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
 
     if (!allRanges.length) return;
 
-    highlightRanges = allRanges;  // сохраняем глобально
+    highlightRanges = allRanges;
 
-    // создаём общую подсветку поиска
     const highlight = new Highlight(...allRanges);
     CSS.highlights.set("search_highlight", highlight);
 }
@@ -1340,13 +1321,11 @@ function scrollRangeIntoView(range) {
     sel.removeAllRanges();
     sel.addRange(range);
 
-    // принудительно прокручиваем
     range.startContainer.parentElement?.scrollIntoView({
         block: "center",
         inline: "nearest"
     });
 
-    // возвращаем старый selection
     sel.removeAllRanges();
     if (prevRange) {
         sel.addRange(prevRange);
@@ -1365,7 +1344,6 @@ function setActiveHighlight(index) {
 
     const activeRange = highlightRanges[activeIndex];
 
-    // подсветка активного
     CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
 
     scrollRangeIntoView(activeRange);

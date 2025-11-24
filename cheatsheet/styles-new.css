@@ -365,32 +365,25 @@ svg {
 }
 
 .tree_children {
-    margin-left: 23px; /* Отступ слева */
-    padding-left: 5px; /* Отступ от линии */
+    margin-left: 23px;
+    padding-left: 5px;
     border-left: 2px solid var(--tree-line-color);
     transition: border-color 0.2s;
     position: relative;
 }
 
-/* Скрытое состояние */
 .tree_children.hidden {
     display: none;
 }
 
-/* Подсветка линии при наведении (для подсказки что она кликабельна) */
-/* Используем псевдоэлемент или логику hover на контейнере с осторожностью */
 .tree_children:hover {
     border-left-color: var(--tree-line-hover);
     cursor: pointer;
 }
 
-/* Для удобства клика по линии - линия сама по себе узкая (2px), но ловит клик на контейнере */
-/* Чтобы курсор показывал кликабельность в зоне линии */
 .tree_children {
-    cursor: default; /* Сброс курсора на контенте */
+    cursor: default;
 }
-
-/* Это сложный селектор, но мы будем обрабатывать логику курсора в JS или просто считать левую зону активной */
 
 /* --- RESIZER --- */
 #resizer {
@@ -411,10 +404,10 @@ svg {
 /* --- CONTENT --- */
 #content_wrapper {
     flex-grow: 1;
-    position: relative; /* Для абсолютного позиционирования поиска */
+    position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Чтобы поиск не вываливался */
+    overflow: hidden;
     min-width: 30%;
 }
 
@@ -439,21 +432,21 @@ svg {
     padding-top: 20px; */
 }
 
-/* Мобильные устройства (до 600px) Стили для мобильных */
+/* Mobile devices */
 @media (max-width: 768px) {
     #cheatsheet_field {
         padding: 0;
     }
 }
 
-/* Планшеты (600px — 1024px) Стили для планшетов */
+/* Tablets */
 @media (min-width: 1060px) and (max-width: 1224px) {
     #cheatsheet_field {
         padding: 0 80px;
     }
 }
 
-/* Десктопы (от 1024px и выше) Стили для компьютеров */
+/* Desktops */
 @media (min-width: 1224px) {
     #cheatsheet_field {
         padding: 0 120px;
@@ -735,7 +728,6 @@ hr {
 
 
 
-/* Элемент с кодом внутри */
 .code_element {
     display: flex;
     flex-direction: column;
@@ -745,7 +737,6 @@ hr {
     border-radius:.375em;
 }
 
-/* Полоска вверху элемента code-element с языком и кнопкой для копирования */
 .lang_line {
     height: 26px;
     border-radius: .375em .375em .0em .0em;
@@ -765,7 +756,6 @@ hr {
     top: -20px;
 }
 
-/* Кнопка для копирования кода */
 .copy_code_button {
     display: flex;
     margin-left: auto;
@@ -796,7 +786,6 @@ hr {
 
 
 
-/* Код */
 .code {
     padding: 1em;
     border-radius: .0em .0em .375em .375em;
