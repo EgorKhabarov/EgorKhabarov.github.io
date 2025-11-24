@@ -694,12 +694,6 @@ function generateButtons(json_data, element, cascadeClose = true) {
 }
 
 (function load_folder_list() {
-    /*
-    fetch("cheatsheet_resources/buttons_new.html")
-        .then(response => response.text())
-        .then(data => folderList.innerHTML = data);
-    */
-
     fetch("index.json")
         .then(response => response.json())
         .then(json_data => {
