@@ -21,6 +21,13 @@
     --bg-sidebar: #f7f7f7;
     --bg-content: #ffffff;
     --bg-modal: #ffffff;
+    --bg-input: #ffffff;
+    --bg-floating: rgba(255, 255, 255, 0.95);
+
+    --control-bg: #eee;
+    --control-active: #ddd;
+    --control-selected: #3b82f6;
+    --control-selected-text: #fff;
 
     --text-color: #333333;
     --text-secondary: #555555;
@@ -50,6 +57,30 @@
     --color-file-dblue:   rgb( 20, 114, 248);
     --color-file-violet:  rgb(140,  88, 133);
     --color-file-brown:   rgb(131,  83,  51);
+
+    /* Markdown */
+    --md-tag-code-bg: #dbd8d8;
+    --md-tag-code-active-bg: #bfbcbc;
+    --md-tag-blockquote-color: #707070;
+    --md-tag-blockquote-border: #8f9398;
+    --md-element-code-lang-line-bg: #cfcfcf;
+    --md-element-code-lang-line-color: #262626;
+    --md-element-code-bg: #e9e9e9;
+
+    /* Syntax highlighting */
+    .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: #CC7832;} /* Keywords */
+    .s, .s1, .s2, .sa, .sd {color: #529755!important;} /* Text */
+    .c1, .cp, .cpf {color: hsl(0deg 0% 0% / 58%);} /* Comment */
+    .m, .mi, .mf {color: #5897BB;} /* Number */
+    .nb, .kt {color: #8888C6;} /* Default functions */
+    .fm {color: #B200B2;} /* Magical methods */
+    .bp {color: #94558D;} /* Self */
+    .nd {color: #BBB529;} /* Decorator */
+    .nf {color: #fdb648;} /* Function name */
+    /*.na {color: #AA4926;}  Argument */
+
+    .language-java .kt {color: #CC7832;}
+    .language-yaml .c1 {color: #629755;}  /* Comment (Text, but lighter) */
 }
 
 /* Dark Theme Overrides */
@@ -59,6 +90,11 @@
     --bg-sidebar: #252526;
     --bg-content: #1e1e1e;
     --bg-modal: #2d2d2d;
+    --bg-input: #252526;
+    --bg-floating: rgba(45, 45, 45, 0.95);
+
+    --control-bg: #333;
+    --control-active: #444;
 
     --text-color: #AAAAAA; /*#e0e0e0;*/
     --text-secondary: #aaaaaa;
@@ -74,6 +110,20 @@
     --tree-line-hover: #005fcc;
 
     --color-file-default: rgb(218, 218, 218);
+
+    /* Markdown */
+    --md-tag-code-bg: #474747;
+    --md-tag-code-active-bg: #373737;
+    --md-tag-blockquote-color: #787878;
+    --md-tag-blockquote-border: #3d444d;
+    --md-element-code-lang-line-bg: #393939;
+    --md-element-code-lang-line-color: #D9D9E3;
+    --md-element-code-bg: #272727;
+
+    /* Syntax highlighting */
+    .c1, .cp, .cpf {color: hsla(0,0%,100%,.5);} /* Comment */
+    .nf {color: #FFC66D;} /* Function name */
+
 }
 
 * {
@@ -84,7 +134,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -167,7 +217,6 @@ header {
 }
 
 svg {
-    fill: var(--icon-color);
     transition: fill 0.3s;
 }
 
@@ -216,7 +265,11 @@ svg {
     flex-shrink: 0;
     transition: background-color 0.3s, border-color 0.3s;
 }
-
+.input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 .search_input {
     width: 100%;
     padding: 8px 12px;
@@ -231,6 +284,31 @@ svg {
 
 .search_input:focus {
     border-color: var(--resizer-hover);
+}
+
+.clear_btn {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+}
+
+.search_input:not(:placeholder-shown) + .clear_btn {
+    display: flex;
+}
+.fs_input:not(:placeholder-shown) + .clear_btn {
+    display: flex;
+}
+
+.clear_btn svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-secondary);
 }
 
 /* --- FILE TREE STYLES --- */
@@ -323,24 +401,34 @@ svg {
 }
 
 /* --- CONTENT --- */
+#content_wrapper {
+    flex-grow: 1;
+    position: relative; /* Для абсолютного позиционирования поиска */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Чтобы поиск не вываливался */
+    min-width: 30%;
+}
+
 #cheatsheet_field {
     flex-grow: 1;
     background-color: var(--bg-content);
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 20px;
     min-width: 30%;
-    transition: background-color 0.3s;
 
     font-size: 12px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
     font-family: monospace;
     width: 100%;
-    max-width: 100%;
+    /* max-width: 100%; */
 
     white-space: pre-wrap;
     word-break: break-word;
     overflow-wrap: break-word;
-    overflow-x: hidden;
+    /* height: 100%;
+    padding-top: 20px; */
 }
 
 /* --- MOBILE OVERLAY --- */
@@ -490,18 +578,20 @@ code {
     padding: 0.1em 0.3em;
     overflow-y:auto;
     border-radius: 0.5em;
-    background-color: #474747;
+    background-color: var(--md-tag-code-bg);
     cursor: pointer;
-    white-space: pre;
+    /* white-space: pre; */
 }
 
-code:active {background-color: #373737;}
+code:active {
+    background-color: var(--md-tag-code-active-bg);
+}
 
 blockquote {
     margin-left: 0px;
     padding: 0px 1em;
-    color: #9198a1;
-    border-left: 0.35em solid #3d444d;
+    color: var(--md-tag-blockquote-color);
+    border-left: 0.35em solid var(--md-tag-blockquote-border);
     margin-top: 0;
 }
 blockquote > :last-child {margin-bottom: 0;}
@@ -539,7 +629,8 @@ ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    flex-direction: column;
+    flex-direction: row;
+    display: flex;
     /*
     margin-top: 10px;
     margin-bottom: 20px;
@@ -581,13 +672,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Полоска вверху элемента code-element с языком и кнопкой для копирования */
 .lang_line {
-    height: 1.5em;
+    height: 2em;
     border-radius: .375em .375em .0em .0em;
     display: flex;
     align-items: center;
     position: relative;
-    color: rgba(217,217,227,1);
-    background-color: #393939;
+    color: var(--md-element-code-lang-line-color);
+    background-color: var(--md-element-code-lang-line-bg);
     padding-left: 1em;
     padding-bottom: .35em;
     padding-top: .35em;
@@ -596,7 +687,7 @@ h1, h2, h3, h4, h5, h6 {
                 sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 
     position: sticky;
-    top: -15px;
+    top: -20px;
 }
 
 /* Кнопка для копирования кода */
@@ -604,21 +695,21 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     margin-left: auto;
     gap: .1em;
-    background-color: #393939;
+    background-color: inherit;
     border: 0;
-    color: #D9D9E3;
+    color: var(--md-element-code-lang-line-color);
     cursor: pointer;
     font-size: 1em;
     padding-left: 1em;
     padding-right: 1em;
 }
 .download_code_button {
-    display: flex;        /* Устанавливаем отображение элемента как flex-контейнера */
-    gap: 0.1em;          /* Устанавливаем расстояние между дочерними элементами внутри контейнера */
-    background-color: #393939; /* Устанавливаем цвет фона кнопки с использованием RGBA (красный: 52, зеленый: 53, синий: 65, прозрачность: полная) */
-    border: 0;            /* Устанавливаем границу элемента (в данном случае, кнопки) */
-    color: #D9D9E3;       /* Устанавливаем цвет текста кнопки */
-    cursor: pointer;      /* Устанавливаем курсор мыши в виде указателя, чтобы обозначить, что элемент является интерактивным */
+    display: flex;
+    gap: 0.1em;
+    background-color: inherit;
+    border: 0;
+    color: var(--md-element-code-lang-line-color);
+    cursor: pointer;
     font-size: 1em;
 
     padding-left: 0em;
@@ -633,29 +724,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Код */
 .code {
     padding: 1em;
-    background-color: #1B1B1B;
     border-radius: .0em .0em .375em .375em;
-    background-color: #272727;
-    /*
-    max-width: 600px; */
+    background-color: var(--md-element-code-bg);
     overflow-x: auto;
-    /* */
 }
 
-/* Подсветка синтаксиса */
-.k, .ow, .kn, .si, .se, .kd, .kc, .nt {color:#CC7832;} /* Ключевые слова */
-.s, .s1, .s2, .sa, .sd {color:#529755!important;} /* Текст */
-.c1, .cp, .cpf {color:hsla(0,0%,100%,.5)} /* Коммент */
-.m, .mi, .mf {color:#5897BB;} /* Число */
-.nb, .kt {color:#8888C6;} /* Дефолтные функции */
-.fm {color:#B200B2;} /* Магические методы */
-.bp {color:#94558D;} /* Self */
-.nd {color:#BBB529;} /* Декоратор */
-.nf {color:#FFC66D;} /* Название функции */
-/*.na {color:#AA4926;}  Аргумент */
-
-.language-java .kt {color:#CC7832;}
-.language-yaml .c1 {color:#629755;}  /* Коммент (Текст, но светлее) */
 
 
 .unselectable {
@@ -709,7 +782,7 @@ p {
 
 img {
     max-width: 100%;
-    /* max-height: 50vh !important; */
+    max-height: 50vh !important;
 }
 
 
@@ -727,15 +800,23 @@ img {
 
 
 /* Таблицы */
-table {width: 100%;max-width: 100vw;}  /* white-space: normal; */
+table {
+    width: 100%;
+    max-width: 100vw;
+    display: block;
+    display: -webkit-box;
+    overflow: auto;
+}  /* white-space: normal; */
 th {
     padding: .9em;
     background-color: #46494b;
+    min-width: 60px;
 }
 td {
     border-top: .1em solid #46494b;
     padding: .9em;
     background-color: #3c3f41;
+    min-width: 60px;
 }
 
 
@@ -770,4 +851,114 @@ th > code {background-color: #676767;color: #b8b8b8;}
 
 @keyframes pulse-bg {
     50% { background-color: rgba(255, 0, 0, 0.8); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FLOATING SEARCH BOX */
+.floating_search {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: fit-content;
+    background-color: var(--bg-floating);
+    backdrop-filter: blur(0px);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    min-width: 250px;
+}
+
+.floating_search_row {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.fs_input_wrapper {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fs_input {
+    width: 100%;
+    padding: 6px 28px 6px 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+}
+
+.fs_input:focus {
+    border-color: var(--resizer-hover);
+}
+
+.fs_controls {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 4px; */
+}
+
+.fs_group {
+    display: flex;
+    gap: 4px;
+}
+
+.fs_btn {
+    background: var(--control-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.fs_btn:hover {
+    background: var(--control-active);
+}
+
+.fs_btn.active {
+    background: var(--control-selected);
+    color: var(--control-selected-text);
+    border-color: var(--control-selected);
+}
+
+.fs_btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
 }

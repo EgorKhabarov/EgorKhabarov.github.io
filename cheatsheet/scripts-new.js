@@ -14,44 +14,81 @@ const body = document.body;
 const folderList = document.getElementById("folder_list");
 const folderSearchList = document.getElementById("folder_search_list");
 
-let isSettingsOpen = false;
+const sidebarInput = document.getElementById("search_input");
+const sidebarClear = document.getElementById("sidebar_clear");
+const mainInput = document.getElementById("main_search_input");
+const mainClear = document.getElementById("main_clear");
 
-/* --- TREE VIEW LOGIC --- */
-// Обработка кликов по дереву файлов
-folderList.addEventListener("click", (e) => {
 
-    // 1. Клик по папке (открытие/закрытие)
-    const folderItem = e.target.closest(".tree_item.folder");
-    if (folderItem) {
-        e.stopPropagation(); // Чтобы не триггерить другие события
-        toggleFolder(folderItem);
+function setupClearButton(input, btn) {
+    btn.addEventListener("click", () => {
+        input.value = "";
+        input.focus();
+        input.dispatchEvent(new Event("input"));
+    });
+}
+setupClearButton(sidebarInput, sidebarClear);
+setupClearButton(mainInput, mainClear);
+
+close_floating_search_btn.addEventListener("click", () => {
+    mainInput.value = "";
+    mainInput.dispatchEvent(new Event("input"));
+    floating_search.style.display = "none";
+});
+
+
+/* --- KEYBOARD SHORTCUTS --- */
+document.addEventListener("keydown", (e) => {
+    // Ctrl + Shift + F -> Sidebar Search
+    if (e.ctrlKey && e.shiftKey && (
+        e.key === "F"
+        || e.key === "f"
+        || e.key === "А"
+        || e.key === "а"
+    )) {
+        e.preventDefault();
+        openSidebar();
+        sidebarInput.focus();
         return;
     }
 
-    // 2. Клик по вертикальной линии (закрытие папки)
-    // Проверяем, был ли клик по контейнеру tree_children
-    if (e.target.classList.contains("tree_children")) {
-        // Вычисляем позицию клика внутри элемента
-        const rect = e.target.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
+    // Ctrl + F -> Main Search
+    if (e.ctrlKey && (
+        e.key === "f"
+        || e.key === "F"
+        || e.key === "а"
+        || e.key === "А"
+    )) {
+        e.preventDefault();
+        floating_search.style.display = "flex";
+        mainInput.focus();
+        return;
+    }
 
-        // Если клик был в зоне левой границы (примерно 15px с учетом padding)
-        // Линия border_left (2px) + padding_left (5px) + запас
-        if (clickX < 15) {
-            e.stopPropagation();
-            const parentGroup = e.target.closest(".tree_group");
-            if (parentGroup) {
-                const folderBtn = parentGroup.querySelector(".tree_item.folder");
-                if (folderBtn) {
-                    toggleFolder(folderBtn, true); // force close
-                }
-            }
+    // Esc
+    if (e.key === "Escape") {
+        e.preventDefault();
+        if (isSettingsOpen) {
+            toggleSettings(false)
+            return;
         }
+        if (isMobile() && (isDraggingSidebar || sidebarOpen)) {
+            closeSidebar();
+            return;
+        }
+        if (floating_search.style.display === "flex") {
+            floating_search.style.display = "none";
+            return;
+        }
+        return;
     }
 });
 
+
+let isSettingsOpen = false;
+
 // Функция переключения папки
-function toggleFolder(folderItem, forceClose = false) {
+function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
     // Находим следующий элемент (контейнер с детьми)
     const childrenContainer = folderItem.nextElementSibling;
     if (!childrenContainer || !childrenContainer.classList.contains("tree_children")) return;
@@ -73,11 +110,13 @@ function toggleFolder(folderItem, forceClose = false) {
         childrenContainer.classList.add("hidden");
         // iconUse.setAttribute("href", "#icon_folder");
         folderItem.setAttribute("data-state", "closed");
-        folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
-            console.log(e);
-            e.setAttribute("data-state", "closed");
-            e.nextElementSibling.classList.add("hidden");
-        })
+        if (cascadeClose) {
+            folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
+                console.log(e);
+                e.setAttribute("data-state", "closed");
+                e.nextElementSibling.classList.add("hidden");
+            })
+        }
     }
 }
 
@@ -128,9 +167,150 @@ themeBtn.addEventListener("click", () => {
 });
 
 /* --- SEARCH --- */
-searchInput.addEventListener("input", (e) => {
-    console.log("Search input:", e.target.value);
-});
+let idx = null;
+let docs = null;
+let indexPromise = null;
+
+/*
+function loadIndexLazy() {
+    // Если индекс уже грузится — возвращаем тот же промис
+    if (indexPromise) return indexPromise;
+
+    indexPromise = new Promise(async (resolve) => {
+        // Подключаем русский язык для lunr
+
+        const data = JSON.parse(await (await fetch("cheatsheet_resources/search-index.json.gz")).text());
+        idx = lunr.Index.load(data.index);
+        docs = data.docs;
+        resolve();
+        //lunr.ru(lunr);
+    });
+
+    return indexPromise;
+}
+*/
+async function loadIndexLazy() {
+    if (idx) return;
+
+    const res = await fetch("cheatsheet_resources/search-index.json");
+    const data = await res.json();
+
+    idx = lunr.Index.load(data.index); // русский язык уже встроен в индекс
+    docs = data.docs;
+}
+async function searchQuery(text) {
+    if (!text.trim()) return [];
+
+    // Если индекс ещё не загружен — подождать загрузки
+    if (typeof lunr === "undefined") {
+        console.warn("lunr не загружен!");
+        return null;
+    }
+    if (!idx) await loadIndexLazy();
+    const results = idx.search(text); // [{ref, score}, ...]
+    console.log(results);
+    return results.map(r => docs.find(d => d.i === r.ref));
+}
+function prepareQuery(q) {
+    return q;
+    if (q.length >= 4)
+        return `${q}~1 *${q}*`;
+    return `*${q}*`;
+}
+function debounce(fn, ms) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), ms);
+    };
+}
+function buildTree(paths) {
+    const tree = {};
+
+    paths.forEach(path => {
+        const parts = path.split("/"); // разбиваем на сегменты
+        let current = tree;
+
+        parts.forEach((part, i) => {
+            if (!current[part]) {
+                // если это последний элемент — пустая строка, иначе объект
+                current[part] = (i === parts.length - 1) ? "" : {};
+            }
+            current = current[part];
+        });
+    });
+
+    return tree;
+}
+searchInput.addEventListener("input", debounce(async (e) => {
+    const search_query = e.target.value;
+    console.log("Search:", search_query, " || ", prepareQuery(search_query));
+    if (search_query) {
+        folderList.style.display = "none";
+        folderSearchList.style.display = "block";
+    } else {
+        closeSearch();
+        return;
+    }
+
+    let results = null;
+    try {
+        results = await searchQuery(prepareQuery(search_query));
+    } catch (e) {
+        console.error(e);
+    }
+    if (results === null) {
+        folderSearchList.style.display = "flex";
+        folderSearchList.style.alignItems = "center";
+        folderSearchList.style.justifyContent = "center";
+        folderSearchList.style.color = "red";
+        folderSearchList.textContent = "An error occurred";
+        searchInput.style.border = "1px solid red";
+        return;
+    }
+    searchInput.style.border = null;
+    // folderSearchList.innerHTML = results.map(r => {
+    //     return `<div class="tree_item file">${r.f}</div>`;
+    // }).join("");
+    generateButtons(buildTree(results.map(r => r.f)), folderSearchList, false);
+    folderSearchList.querySelectorAll('[data-state="closed"]').forEach(e => {
+        e.setAttribute("data-state", "open");
+        e.nextElementSibling.classList.remove("hidden");
+    })
+    folderSearchList.querySelectorAll(".file").forEach(e => {
+        e.addEventListener("click", function(event) {
+            const vpath = e.getAttribute("data-vpath")
+            setup_cheatsheet(vpath, false);
+        })
+    });
+
+    if (search_query && !folderSearchList.innerHTML) {
+        folderSearchList.style.display = "flex";
+        folderSearchList.style.alignItems = "center";
+        folderSearchList.style.justifyContent = "center";
+        folderSearchList.style.color = null;
+        folderSearchList.textContent = "No results";
+    } else if (folderSearchList.innerHTML !== "No results") {
+        folderSearchList.style.alignItems = null;
+        folderSearchList.style.justifyContent = null;
+    } else {
+        folderSearchList.style.display = null;
+        folderSearchList.style.alignItems = null;
+        folderSearchList.style.justifyContent = null;
+        folderSearchList.style.color = null;
+        folderSearchList.innerHTML = "";
+    }
+    console.log("Search:", search_query);
+}, 400));
+function closeSearch() {
+    folderList.style.display = "block";
+    folderSearchList.style.display = "none";
+    folderSearchList.style.display = null;
+    folderSearchList.style.alignItems = null;
+    folderSearchList.style.justifyContent = null;
+    folderSearchList.innerHTML = "";
+    searchInput.value = "";
+}
 
 /* --- RESIZE FIX --- */
 window.addEventListener("resize", () => {
@@ -350,7 +530,7 @@ function setup_cheatsheet(url_, setActive=true) {
 
 
 
-function generateButtons(json_data, element) {
+function generateButtons(json_data, element, cascadeClose = true) {
     const css_colors = {
         "default": ' style="color: var(--color-file-default);"',
         "yellow":  ' style="color: var(--color-file-yellow);"',
@@ -405,7 +585,8 @@ function generateButtons(json_data, element) {
     function __generateButtons(dictionary, directory = "") {
         const textList = [];
         for (const [key, value] of Object.entries(dictionary)) {
-            if (key === "index" || key === ".") continue;
+            if (key === ".") continue;
+            //if (key === "index" || key === ".") continue;
             let title = key.replace(/ /g, "&nbsp;").replace(/-/g, "&#8288;-&#8288;");
             let path = `${directory}/${key}`.replace(/\\/g, "/").replace(/^\/+/, "");
             if (typeof value === "object" && value !== null) {
@@ -448,7 +629,38 @@ function generateButtons(json_data, element) {
         return [textList.join(""), directory];
     }
 
-    return __generateButtons(json_data)[0];
+    element.innerHTML = __generateButtons(json_data)[0];
+    element.addEventListener("click", (e) => {
+
+    // 1. Клик по папке (открытие/закрытие)
+    const folderItem = e.target.closest(".tree_item.folder");
+    if (folderItem) {
+        e.stopPropagation(); // Чтобы не триггерить другие события
+        toggleFolder(folderItem, false, cascadeClose);
+        return;
+    }
+
+    // 2. Клик по вертикальной линии (закрытие папки)
+    // Проверяем, был ли клик по контейнеру tree_children
+    if (e.target.classList.contains("tree_children")) {
+        // Вычисляем позицию клика внутри элемента
+        const rect = e.target.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+
+        // Если клик был в зоне левой границы (примерно 15px с учетом padding)
+        // Линия border_left (2px) + padding_left (5px) + запас
+        if (clickX < 15) {
+            e.stopPropagation();
+            const parentGroup = e.target.closest(".tree_group");
+            if (parentGroup) {
+                const folderBtn = parentGroup.querySelector(".tree_item.folder");
+                if (folderBtn) {
+                    toggleFolder(folderBtn, true, cascadeClose); // force close
+                }
+            }
+        }
+    }
+});
 }
 
 (function load_folder_list() {
@@ -461,26 +673,22 @@ function generateButtons(json_data, element) {
     fetch("index.json")
         .then(response => response.json())
         .then(json_data => {
-            folderList.innerHTML = generateButtons(json_data);
-            setup_folder_list_buttons();
+            generateButtons(json_data, folderList);
+
+            folderList.querySelectorAll(".file").forEach(e => {
+                e.addEventListener("click", function(event) {
+                    const vpath = e.getAttribute("data-vpath")
+                    setup_cheatsheet(vpath);
+                })
+            });
+
+            let vpath = getPathFilename(getArgumentFromUrl());
+            if (vpath === null || vpath === "null") {
+                vpath = "README";
+            }
+            setup_cheatsheet(vpath);
         });
 })();
-function setup_folder_list_buttons() {
-    folderList.querySelectorAll(".file").forEach(e => {
-        e.addEventListener("click", function(event) {
-            const vpath = e.getAttribute("data-vpath")
-            setup_cheatsheet(vpath);
-        })
-    });
-    // folderList.querySelectorAll(".folder").forEach(e => {
-    //     // ...
-    // });
-    let vpath = getPathFilename(getArgumentFromUrl());
-    if (vpath === null || vpath === "null") {
-        vpath = "README";
-    }
-    setup_cheatsheet(vpath);
-}
 
 let isCtrlPressed = false;
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
