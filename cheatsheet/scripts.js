@@ -204,8 +204,16 @@ async function loadIndexLazy() {
     if (idx) return;
 
     console.log('Load "cheatsheet_resources/search-index.json.gz"');
-    const res = await fetch("cheatsheet_resources/search-index.json.gz");
-    const data = await res.json();
+    const response = await fetch("cheatsheet_resources/search-index.json.gz");
+    let data = null;
+    try {
+        data = await response.json();
+    } catch (e) {
+        const ds = new DecompressionStream("gzip");
+        const decompressedStream = response.body.pipeThrough(ds);
+        const text = await new Response(decompressedStream).text();
+        data = JSON.parse(text);
+    }
 
     idx = lunr.Index.load(data.index);
     docs = data.docs;
