@@ -231,6 +231,7 @@ async function searchQuery(text) {
     return results.map(r => docs.find(d => d.i === r.ref));
 }
 function prepareQuery(q) {
+    return q.replace(/:/g, " ").replace(/\s+/g, " ").trim();
     return q;
     if (q.length >= 4)
         return `${q}~1 *${q}*`;
@@ -728,6 +729,9 @@ document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrl
 document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
 document.addEventListener("click", function(event) {
     if (event.target.tagName === "CODE") {
+        if (event.target.classList.contains("code_no_copy")) {
+            return;
+        }
         const tempInput = document.createElement("input");
         document.body.appendChild(tempInput);
         tempInput.value = event.target.textContent;
