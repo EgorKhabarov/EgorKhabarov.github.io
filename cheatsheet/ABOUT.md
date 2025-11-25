@@ -1,3 +1,31 @@
+# ABOUT
+
+This is a site with cheat sheets
+
+### Keyboard
+
+Press <kbd style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();">Ctrl + F</kbd> to open **Find in page search**
+To search using <a href="?Languages/RegExp/RegExp">regular expressions</a>, write a query in the format <code class="code_no_copy" style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();mainInput.value='//pattern/flags/';mainInput.dispatchEvent(new Event('input'));">/pattern/flags</code>
+
+Press <kbd style="cursor: pointer;" onclick="openSidebar();sidebarInput.focus();">Ctrl + Shift + F</kbd> to open **global search**
+This is a full-text search by both cheat sheet names and their contents 
+
+> [!TIP]
+> You can refine your search using:
+
+> <code>+word</code> - the result must include this word
+> <code>-word</code> - the result must NOT include this word
+> <code>word*</code> - match words starting with this term
+> <code>word~1</code> - fuzzy match (distance 1)
+> <code>word^2</code> - boost word importance
+
+> Examples:
+> <code>+apple juice\*</code><br>
+> <code>banana~1 -rotten</code><br>
+> <code>apple^2 fresh\*</code><br>
+
+**Below is the debug section for viewing the correctness of the markup**
+
 # Headers
 
 # `#` 1
@@ -163,49 +191,49 @@ blockquote WARNING
 
 <table><thead><tr><th style="text-align: center;">Icon</th><th style="text-align: left;">Description</th></tr></thead><tbody>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/yellow.svg" alt="folder_yellow" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/yellow.svg" alt="tag_yellow" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/yellow.svg" alt="link_yellow" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Обычная папка</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-yellow);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-yellow);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Обычная папка</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/white.svg" alt="folder_white" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/white.svg" alt="tag_white" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/white.svg" alt="link_white" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Обычная шпаргалка</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-white);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-white);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Обычная шпаргалка</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/green.svg" alt="folder_green" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/green.svg" alt="tag_green" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/green.svg" alt="link_green" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Библиотека</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-green);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-green);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Библиотека</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/red.svg" alt="folder_red" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/red.svg" alt="tag_red" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/red.svg" alt="link_red" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Важное</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-red);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-red);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Важное</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/pink.svg" alt="folder_pink" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/pink.svg" alt="tag_pink" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/pink.svg" alt="link_pink" class="css_img_22x22px_em"
-/></td><td style="text-align: left;"></td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-pink);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-pink);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;"></td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/violet.svg" alt="folder_violet" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/violet.svg" alt="tag_violet" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/violet.svg" alt="link_violet" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Язык</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-violet);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-violet);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Язык</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/dblue.svg" alt="folder_dblue" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/dblue.svg" alt="tag_dblue" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/dblue.svg" alt="link_dblue" class="css_img_22x22px_em"
-/></td><td style="text-align: left;"></td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-dblue);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-dblue);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;"></td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/lblue.svg" alt="folder_lblue" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/lblue.svg" alt="tag_lblue" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/lblue.svg" alt="link_lblue" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Картинки</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-lblue);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-lblue);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Картинки</td></tr>
 
-<tr><td style="text-align: center;" class="unselectable"><img src="cheatsheet_resources/folders/brown.svg" alt="folder_brown" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/tags/brown.svg" alt="tag_brown" class="css_img_22x22px_em"
-/><img src="cheatsheet_resources/links/brown.svg" alt="link_brown" class="css_img_22x22px_em"
-/></td><td style="text-align: left;">Примеры кода</td></tr>
+<tr><td style="text-align: center;" class="unselectable">
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-brown);"><use href="#icon_folder"></use></svg>
+<svg viewBox="0 0 24 24" width="20" height="20" style="color: var(--color-file-brown);"><use href="#icon_file"></use></svg>
+</td><td style="text-align: left;">Примеры кода</td></tr>
 
 </tbody></table>
