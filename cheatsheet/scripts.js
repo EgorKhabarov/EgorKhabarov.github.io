@@ -204,11 +204,12 @@ async function loadIndexLazy() {
     if (idx) return;
 
     console.log('Load "cheatsheet_resources/search-index.json.gz"');
-    const response = await fetch("cheatsheet_resources/search-index.json.gz");
+    let response = await fetch("cheatsheet_resources/search-index.json.gz");
     let data = null;
     try {
         data = await response.json();
     } catch (e) {
+        response = await fetch("cheatsheet_resources/search-index.json.gz");
         const ds = new DecompressionStream("gzip");
         const decompressedStream = response.body.pipeThrough(ds);
         const text = await new Response(decompressedStream).text();
