@@ -17,6 +17,7 @@ const folderSearchList = document.getElementById("folder_search_list");
 const sidebarInput = document.getElementById("search_input");
 const sidebarClear = document.getElementById("sidebar_clear");
 const mainInput = document.getElementById("main_search_input");
+const mainInputResultCount = document.getElementById("floating_search_result_count");
 const mainClear = document.getElementById("main_clear");
 
 
@@ -510,8 +511,6 @@ function load_cheatsheet(url) {
         .then(text => {
             cheatsheet_field.innerHTML = text;
             processingCheatSheet();
-            cheatsheet_field_container.scrollTo(0, 0);
-            delAnchor();
         });
 }
 function closeAllKeyButtons() {
@@ -559,6 +558,9 @@ function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     addArgumentToUrl(url);
     closeSidebar();
     closeMainSearch();
+    changeTitle(getPathFilename(url));
+    cheatsheet_field_container.scrollTo(0, 0);
+    delAnchor();
 
     if (setActive) {
         changeActiveButton(
@@ -1193,16 +1195,22 @@ function parseSearchQuery(query, inputEl) {
         try {
             const regex = new RegExp(pattern, flags);
             inputEl.style.border = ""; // OK
+            mainInputResultCount.style.color = null;
+            mainInputResultCount.textContent = "0 results";
             return regex;
         } catch (e) {
             // RegExp syntax error
             inputEl.style.border = "1px solid red";
+            mainInputResultCount.style.color = "red";
+            mainInputResultCount.textContent = "Bad pattern";
             return null;
         }
     }
 
     // A regular line
     inputEl.style.border = "";
+    mainInputResultCount.style.color = null;
+    mainInputResultCount.textContent = "0 results";
     return query;
 }
 
@@ -1311,6 +1319,9 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
         }
     }
 
+
+    mainInputResultCount.style.color = null;
+    mainInputResultCount.textContent = `1/${allRanges.length}`;
     if (!allRanges.length) return;
 
     highlightRanges = allRanges;
@@ -1322,21 +1333,21 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
 
 
 function scrollRangeIntoView(range) {
-    const sel = window.getSelection();
-    const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
+    // const sel = window.getSelection();
+    // const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
 
-    sel.removeAllRanges();
-    sel.addRange(range);
+    // sel.removeAllRanges();
+    // sel.addRange(range);
 
     range.startContainer.parentElement?.scrollIntoView({
         block: "center",
         inline: "nearest"
     });
 
-    sel.removeAllRanges();
-    if (prevRange) {
-        sel.addRange(prevRange);
-    }
+    // sel.removeAllRanges();
+    // if (prevRange) {
+    //     sel.addRange(prevRange);
+    // }
 }
 
 
@@ -1354,6 +1365,8 @@ function setActiveHighlight(index) {
     CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
 
     scrollRangeIntoView(activeRange);
+    mainInputResultCount.style.color = null;
+    mainInputResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
 }
 
 
@@ -1375,12 +1388,12 @@ floating_search_arrow_down.onclick = nextHighlight;
 
 
 let last_search = "";
-main_search_input.addEventListener("input", () => {
-    console.log(`"${main_search_input.value}"`);
-    if (main_search_input.value !== "") {
-        last_search = main_search_input.value;
+mainInput.addEventListener("input", () => {
+    console.log(`"${mainInput.value}"`);
+    if (mainInput.value !== "") {
+        last_search = mainInput.value;
     }
-    highlightText(main_search_input.value, cheatsheet_field, main_search_input);
+    highlightText(mainInput.value, cheatsheet_field, mainInput);
     nextHighlight();
 });
 

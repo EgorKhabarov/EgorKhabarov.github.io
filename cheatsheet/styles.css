@@ -192,7 +192,8 @@ header {
     font-size: 0.9em;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 12px;
 }
 
 .crumb_item {
@@ -440,14 +441,14 @@ svg {
 }
 
 /* Tablets */
-@media (min-width: 1060px) and (max-width: 1224px) {
+@media (min-width: 1180px) and (max-width: 1284px) {
     #cheatsheet_field {
         padding: 0 80px;
     }
 }
 
 /* Desktops */
-@media (min-width: 1224px) {
+@media (min-width: 1284px) {
     #cheatsheet_field {
         padding: 0 120px;
     }
@@ -977,12 +978,18 @@ tbody tr:hover {
     box-shadow: 0 4px 10px var(--shadow-color);
     z-index: 5;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 6px;
     min-width: 250px;
+    font-size: 12px;
 }
 
 .floating_search_row {
+    display: flex;
+    gap: 6px;
+}
+
+.floating_search_input_row {
     display: flex;
     gap: 5px;
     align-items: center;
