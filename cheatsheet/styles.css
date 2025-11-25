@@ -22,7 +22,7 @@
     --bg-content: #ffffff;
     --bg-modal: #ffffff;
     --bg-input: #ffffff;
-    --bg-floating: rgba(255, 255, 255, 0.95);
+    --bg-floating: #ffffff;
 
     --control-bg: #eee;
     --control-active: #ddd;
@@ -95,7 +95,7 @@
     --bg-content: #1e1e1e;
     --bg-modal: #2d2d2d;
     --bg-input: #252526;
-    --bg-floating: rgba(45, 45, 45, 0.95);
+    --bg-floating: #2D2D2D;
 
     --control-bg: #333;
     --control-active: #444;
@@ -971,7 +971,6 @@ tbody tr:hover {
     right: 15px;
     width: fit-content;
     background-color: var(--bg-floating);
-    backdrop-filter: blur(0px);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 8px;
