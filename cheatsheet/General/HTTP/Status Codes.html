@@ -43,26 +43,26 @@
 <li><a href="#226-im-used-processing">226 IM USED PROCESSING</a></li>
 </ul>
 <h3>200 OK</h3>
-<p>The request has succeeded.
+<p>The request has succeeded
 The meaning of success depends on the HTTP method:
 • GET: The resource has been fetched and is transmitted in the message body
 • HEAD: The entity headers are in the message body
 • PUT or POST: The resource describing the result of the action is transmitted in the message body
 • TRACE The message body contains the request message as received by the server</p>
 <h3>201 Created</h3>
-<p>The request has succeeded and a new resource has been created as a result.
+<p>The request has succeeded and a new resource has been created as a result
 This is typically the response sent after POST requests, or same FUT requests</p>
 <h3>202 Accepted</h3>
-<p>The request has been received but not yet acted upon.
-It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request.
+<p>The request has been received but not yet acted upon
+It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request
 It is intended for cases where another process or server handles the request, or for batch processing</p>
 <h3>203 Non-Authoritative information</h3>
 <p>This response code means the returned meta information is not exactly the same
-as is available from the origin servet, but is collected from a local or a third-party copy.
-This is mostly used for mirrors or backups of another resource.
+as is available from the origin servet, but is collected from a local or a third-party copy
+This is mostly used for mirrors or backups of another resource
 Except for that specific case, the "200 OK" response is preferred to this status</p>
 <h3>204 No Content</h3>
-<p>There is no content to send for this request, but the headers may be useful.
+<p>There is no content to send for this request, but the headers may be useful
 The user-agent may update its cached headers for this resource with the new ones</p>
 <h3>205 Reset Content</h3>
 <p>Tells the user agent to reset the document which sent this request</p>
@@ -93,15 +93,15 @@ is a representation of the result of one or more instance manipulations applied 
 <li><a href="#308-permanent-redirect">308 PERMANENT REDIRECT</a></li>
 </ul>
 <h3>300 Multiple Choice</h3>
-<p>The request has more than oné possible response.
+<p>The request has more than oné possible response
 The user-agent or user should choose one of them. (There is no standardized way of choosing
 one of the responses, but HTML links to the possibilities are recommended so the user can pick)</p>
 <h3>301 Moved Permanently</h3>
-<p>The URL of the requested resource has been changed permanently.
-The new URL is given in the response.</p>
+<p>The URL of the requested resource has been changed permanently
+The new URL is given in the response</p>
 <h3>302 Found</h3>
-<p>This response code means that the URI of requested resource has been changed temporarily.
-Further changes in the URI might be made in the future.
+<p>This response code means that the URI of requested resource has been changed temporarily
+Further changes in the URI might be made in the future
 Therefore, this same URi should be used by the client in future requests</p>
 <h3>303 See Other</h3>
 <p>The server sent this response to direct the client to get the requested resource at another URI with a GET request</p>
@@ -110,19 +110,19 @@ Therefore, this same URi should be used by the client in future requests</p>
 has not been modified, so the client can continue to use the same cached version of the response,</p>
 <h3>305 Use Proxy</h3>
 <p>Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by
-a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy.</p>
+a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy</p>
 <h3>306 Unused</h3>
-<p>This response code is no longer used, it is just reserved.
-It was used in a previous version of the HTTP/1.1 specification.</p>
+<p>This response code is no longer used, it is just reserved
+It was used in a previous version of the HTTP/1.1 specification</p>
 <h3>307 Temporary Redirect</h3>
-<p>The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request.
+<p>The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request
 This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used
-if a POST was used in the first request a POST must be used in the second request.</p>
+if a POST was used in the first request a POST must be used in the second request</p>
 <h3>308 Permanent Redirect</h3>
-<p>This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header.
+<p>This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header
 This has the same semantics as the 301 Moved Permanently HTTP response code,
 with the exception that the user agent must not change the HTTP method used:
-if a POST was used in the fist request, a POST must be used in the second request.</p>
+if a POST was used in the fist request, a POST must be used in the second request</p>
 <details>
     <summary>3xx</summary>
     <img alt="http-status-code3-xx.png" src="General/HTTP/3xx.png" style="width: 20em;">
@@ -172,122 +172,122 @@ if a POST was used in the fist request, a POST must be used in the second reques
 <li><a href="#499-token-required">499 Token Required</a></li>
 </ul>
 <h3>400 Bad Request</h3>
-<p>The server could not understand the request due to invalid syntax.</p>
+<p>The server could not understand the request due to invalid syntax</p>
 <h3>401 Unauthorized</h3>
-<p>Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated".
-That is, the client must authenticate itself to get the requested response.</p>
+<p>Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated"
+That is, the client must authenticate itself to get the requested response</p>
 <h3>402 Payment Required</h3>
-<p>This response code is reserved for future use.
-The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists.</p>
+<p>This response code is reserved for future use
+The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists</p>
 <h3>403 Forbidden</h3>
-<p>The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource.
-Unlike 401 the client's identity is known to the server.</p>
+<p>The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource
+Unlike 401 the client's identity is known to the server</p>
 <h3>404 Not Found</h3>
-<p>The server can not find the requested resource.
-In the browser, this means the URL is not recognized.
-In an API, this can also mean that the endpoint is valid but the resource itself does not exist.
-Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client.
-This response code is probably the most famous one due to its frequent occurrence on the web.
-The resource could not be found.
-This is often used as a catch-all for all Invalid URis requested of the server.</p>
+<p>The server can not find the requested resource
+In the browser, this means the URL is not recognized
+In an API, this can also mean that the endpoint is valid but the resource itself does not exist
+Servers may also send this response instead of 403 to hide the existence of a resource from an unauthorized client
+This response code is probably the most famous one due to its frequent occurrence on the web
+The resource could not be found
+This is often used as a catch-all for all Invalid URis requested of the server</p>
 <h3>405 Method Not Allowed</h3>
-<p>The request method is known by the server but has been disabled and cannot be used.
-For example, an API may forbid DELETE-ing a resource.
-The two mandatory methods, GET and HEAD, must never be disabled and should not return this error code.</p>
+<p>The request method is known by the server but has been disabled and cannot be used
+For example, an API may forbid DELETE-ing a resource
+The two mandatory methods, GET and HEAD, must never be disabled and should not return this error code</p>
 <h3>406 Not Acceptable</h3>
-<p>This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.</p>
+<p>This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent</p>
 <h3>407 Proxy Authentication Required</h3>
-<p>This is similar to 401 but authentication is needed to be done by a proxy.</p>
+<p>This is similar to 401 but authentication is needed to be done by a proxy</p>
 <h3>408 Request Timeout</h3>
-<p>This response is sent on an idle connection by some servers, even without any previous request by the client.
-It means that the server would like to shut down this unused connection.
-This response is used much more since some browsers, like Chrome, Firefox, or IE9, use HTTP pre connection mechanisms to speed up surfing.
-Also, note that some servers merely shut down the connection without sending this message.</p>
+<p>This response is sent on an idle connection by some servers, even without any previous request by the client
+It means that the server would like to shut down this unused connection
+This response is used much more since some browsers, like Chrome, Firefox, or IE9, use HTTP pre connection mechanisms to speed up surfing
+Also, note that some servers merely shut down the connection without sending this message</p>
 <h3>409 Conflict</h3>
-<p>This response is sent when a request conflicts with the current state of the server.</p>
+<p>This response is sent when a request conflicts with the current state of the server</p>
 <h3>410 Gone</h3>
-<p>This response is sent when the requested content has been permanently deleted from the server, with no forwarding address.
-Clients are expected to remove their caches and links to the resource.
-The HTTP specification intends this status code to be used for "limited-time, promotional services".
-APIs should not feel compelled to indicate resources that have been deleted with this status code.</p>
+<p>This response is sent when the requested content has been permanently deleted from the server, with no forwarding address
+Clients are expected to remove their caches and links to the resource
+The HTTP specification intends this status code to be used for "limited-time, promotional services"
+APIs should not feel compelled to indicate resources that have been deleted with this status code</p>
 <h3>411 Length Required</h3>
-<p>Server rejected the request because the Content-Length header field is not defined and the server requires it.</p>
+<p>Server rejected the request because the Content-Length header field is not defined and the server requires it</p>
 <h3>412 Precondition Failed</h3>
-<p>The client has indicated preconditions in its headers which the server does not meet.</p>
+<p>The client has indicated preconditions in its headers which the server does not meet</p>
 <h3>413 Payload Too Large</h3>
 <p>Request entity is larger than limits defined by server;
-the server might close the connection or return an Retry-After header field.</p>
+the server might close the connection or return an Retry-After header field</p>
 <h3>414 URI Too Long</h3>
-<p>The URI requested by the client is longer than the server is willing to interpret.</p>
+<p>The URI requested by the client is longer than the server is willing to interpret</p>
 <h3>415 Unsupported Media Type</h3>
-<p>The media format of the requested data is not supported by the server, so the server is rejecting the request.</p>
+<p>The media format of the requested data is not supported by the server, so the server is rejecting the request</p>
 <h3>416 Range Not Satisfiable</h3>
 <p>The range specified by the Range header field In the request can't be fullfilled;
-it's possible that the range is outside the size of the target URI's data.</p>
+it's possible that the range is outside the size of the target URI's data</p>
 <h3>417 Expectation Failed</h3>
-<p>This response code means the expectation indicated by the Expect request header field can't be met by the server.</p>
+<p>This response code means the expectation indicated by the Expect request header field can't be met by the server</p>
 <h3>418 I'm a Teapot</h3>
-<p>Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot".
-The resulting entity body MAY be short and stout.</p>
+<p>Any attempt to brew coffee with a teapot should result in the error code "418 I'm a teapot"
+The resulting entity body MAY be short and stout</p>
 <h3>421 Misdirected Request</h3>
-<p>The request was directed at a server that is not able to produce a response.
+<p>The request was directed at a server that is not able to produce a response
 This can be sent by a server that is not configured to produce responses
-for the combination of scheme and authority that are included in the request URI.</p>
+for the combination of scheme and authority that are included in the request URI</p>
 <h3>422 Unprocessable Entity</h3>
-<p>The request was formatted correctly but cannot be processed in its current form.
-Often used when the specified parameters fail validation errors.</p>
+<p>The request was formatted correctly but cannot be processed in its current form
+Often used when the specified parameters fail validation errors</p>
 <h3>423 Locked</h3>
-<p>The requested resource was found but has been locked and will not be returned.</p>
+<p>The requested resource was found but has been locked and will not be returned</p>
 <h3>424 Failed Dependency</h3>
-<p>The request failed due to a failure of a previous request.</p>
+<p>The request failed due to a failure of a previous request</p>
 <h3>425 Too Early</h3>
-<p>Indicates that the server is unwilling to risk processing a request that might be replayed.</p>
+<p>Indicates that the server is unwilling to risk processing a request that might be replayed</p>
 <h3>426 Upgrade Required</h3>
 <p>The server refuses to perform the request using the current protocol
-but might be willing to do so after the client upgrades to a different protocol.
-The server sends an Upgrade header in a 426 response to indicate the required protocol(s).</p>
+but might be willing to do so after the client upgrades to a different protocol
+The server sends an Upgrade header in a 426 response to indicate the required protocol(s)</p>
 <h3>428 Precondition Required</h3>
-<p>The origin server requires the request to be conditional.
+<p>The origin server requires the request to be conditional
 This response is intended to prevent the 'lost update' problem,
 where a client GETs a resource's state, modifies it, and PUTs it back to the server,
-when meanwhile a third party has modified the state on the server, leading to a conflict.</p>
+when meanwhile a third party has modified the state on the server, leading to a conflict</p>
 <h3>429 Too Many Requests</h3>
-<p>The user has sent too many requests in a given amount of time ("rate limiting").</p>
+<p>The user has sent too many requests in a given amount of time ("rate limiting")</p>
 <h3>431 Request Header Fields Too Large</h3>
-<p>The server is unwilling to process the request because its header fields are too large.
-The request may be resubmitted after reducing the size of the request header fields.</p>
+<p>The server is unwilling to process the request because its header fields are too large
+The request may be resubmitted after reducing the size of the request header fields</p>
 <h3>440 Login Timout</h3>
-<p>A Microsoft extension. Indicates that your session has expired.</p>
+<p>A Microsoft extension. Indicates that your session has expired</p>
 <h3>444 No Response</h3>
 <p>Used in Nginx logs to indicate that the server has returned
-no information to the client and closed the connection (useful as a deterrent for malware).</p>
+no information to the client and closed the connection (useful as a deterrent for malware)</p>
 <h3>449 Retry With</h3>
-<p>A Microsoft extension. The request should be retried after performing the appropriate action.</p>
+<p>A Microsoft extension. The request should be retried after performing the appropriate action</p>
 <h3>450 Blocked By Windows Parental Controls</h3>
 <p>A Microsoft extension, This error is given when Windows Parental Controls
-are turned on and are blocking access to the given webpage.</p>
+are turned on and are blocking access to the given webpage</p>
 <h3>451 Unavailable For Legal Reasons</h3>
 <p>A server operator has received a legal demand to deny access to a resource
-or to a set of resources that Includes the requested resource.</p>
+or to a set of resources that Includes the requested resource</p>
 <h3>451 Redirect</h3>
 <p>Used in Exchange ActiveSync if there either is a more efficient server
-to use or the server cannot access the users mailbox.</p>
+to use or the server cannot access the users mailbox</p>
 <h3>495 Cert Error</h3>
 <p>Nginx internal code used when SSL client certificate error occurred
-to distinguish it from 4XX in a log and an error page redirection.</p>
+to distinguish it from 4XX in a log and an error page redirection</p>
 <h3>496 No Cert</h3>
 <p>Nginx internal code used when client didn't provide certificate
-to distinguish it from 4XX in a log and an error page redirection.</p>
+to distinguish it from 4XX in a log and an error page redirection</p>
 <h3>497 HTTP to HTTPS</h3>
 <p>Nginx internal code used for the plain HTTP requests that are sent to HTTPS port
-to distinguish it from 4XX in a log and an error page redirection.</p>
+to distinguish it from 4XX in a log and an error page redirection</p>
 <h3>498 Token Expired/Invalid</h3>
-<p>Returned by ArcGIS for Server. A code of 498 indicates an expired or otherwise invalid token.</p>
+<p>Returned by ArcGIS for Server. A code of 498 indicates an expired or otherwise invalid token</p>
 <h3>499 Client Closed Request</h3>
 <p>Used in Nginx logs to indicate when the connection has been closed by client
-while the server is still processing its request, making server unable to send a status code back.</p>
+while the server is still processing its request, making server unable to send a status code back</p>
 <h3>499 Token Required</h3>
-<p>Returned by ArcGIS for Server. A code of 499 indicates that a token is required (if no token was submitted).</p>
+<p>Returned by ArcGIS for Server. A code of 499 indicates that a token is required (if no token was submitted)</p>
 <details>
     <summary>4xx</summary>
     <img alt="http-status-code4-xx.png" src="General/HTTP/4xx.png" style="width: 30em;">
