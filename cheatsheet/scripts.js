@@ -52,7 +52,6 @@ document.addEventListener("keydown", (e) => {
 
     // Ctrl + F -> Main Search
     if (e.ctrlKey && e.code === "KeyF") {
-        console.log(e);
         e.preventDefault();
         floating_search.style.display = "flex";
         const selection = window.getSelection().toString();
@@ -138,7 +137,6 @@ function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
         folderItem.setAttribute("data-state", "closed");
         if (cascadeClose) {
             folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
-                console.log(e);
                 e.setAttribute("data-state", "closed");
                 e.nextElementSibling.classList.add("hidden");
             })
@@ -205,7 +203,8 @@ let indexPromise = null;
 async function loadIndexLazy() {
     if (idx) return;
 
-    const res = await fetch("cheatsheet_resources/search-index.json");
+    console.log('Load "cheatsheet_resources/search-index.json.gz"');
+    const res = await fetch("cheatsheet_resources/search-index.json.gz");
     const data = await res.json();
 
     idx = lunr.Index.load(data.index);
@@ -220,7 +219,6 @@ async function searchQuery(text) {
     }
     if (!idx) await loadIndexLazy();
     const results = idx.search(text); // [{ref, score}, ...]
-    console.log(results);
     return results.map(r => docs.find(d => d.i === r.ref));
 }
 function prepareQuery(q) {
@@ -326,7 +324,6 @@ searchInput.addEventListener("input", debounce(async (e) => {
         folderSearchList.style.color = null;
         folderSearchList.innerHTML = "";
     }
-    console.log("Search:", search_query);
 }, 1000));
 function closeSearch() {
     folderList.style.display = "block";
