@@ -13,14 +13,13 @@
 <span class="kt">int</span><span class="w"> </span><span class="n">nums2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// Присвоение всех значений сразу</span>
 </pre></div></div></div>
 
-<p>Работать с элементами массива можно точно как с переменными. Мы можем их выводить или же устанавливать для них новые значения</p>
+<p>Работать с элементами массива можно точно как с переменными
+Мы можем их выводить или же устанавливать для них новые значения</p>
 <p>Многомерный массив
 Многомерный массив - это массив, в котором каждый элемент является другим массивом
 На практике очень редко используются массивы с более чем третим уровнем вложенности
-То есть массивы, в которых все элементы являются другими массивами
-и в котором все элементы также другие массивы встречаются очень и очень редко на практике</p>
-<p>Мы не будем изучать подобные массивы, так как принцип их построения
-точно такой же как при работе с двумерными массивами</p>
+То есть массивы, в которых все элементы являются другими массивами и в котором все элементы также другие массивы встречаются очень и очень редко на практике</p>
+<p>Мы не будем изучать подобные массивы, так как принцип их построения точно такой же как при работе с двумерными массивами</p>
 <p>Для создания двумерных массивов необходимо использовать двойные квадратные скобки после названия
 Выглядит такой массив как матрица, а записывается следующим образом:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
@@ -32,7 +31,6 @@
 </pre></div></div></div>
 
 <p>Мы видим, что элементы первого массива являются другими массивами
-Чтобы выбрать какой-либо объект используйте ту же структуру что и для одномерных массивов,
-вот только теперь указывайте индекс как первого массива, так и второго:</p>
+Чтобы выбрать какой-либо объект используйте ту же структуру что и для одномерных массивов, вот только теперь указывайте индекс как первого массива, так и второго:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Вместо 34 теперь будет 1</span>
 </pre></div></div></div>

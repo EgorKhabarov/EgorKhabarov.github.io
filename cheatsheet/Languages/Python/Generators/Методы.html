@@ -1,8 +1,8 @@
 <h1>.send()</h1>
-<p>Метод <code>send()</code> используется для отправки значения в активный генератор.</p>
+<p>Метод <code>send()</code> используется для отправки значения в активный генератор</p>
 <ul>
-<li>Возобновляет выполнение генератора, передавая указанное значение в текущую точку <code>yield</code>.</li>
-<li>Возвращает следующее значение, которое генератор <code>yield</code> после возобновления.</li>
+<li>Возобновляет выполнение генератора, передавая указанное значение в текущую точку <code>yield</code></li>
+<li>Возвращает следующее значение, которое генератор <code>yield</code> после возобновления</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">echo</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -76,7 +76,7 @@
 <h2>Примечания</h2>
 <ul>
 <li><strong><code>.send(None)</code> аналогично <code>next()</code></strong>:<ul>
-<li>Используется для первого вызова генератора или продолжения без передачи данных.</li>
+<li>Используется для первого вызова генератора или продолжения без передачи данных</li>
 <li>При первом вызове генератор должен быть готов принять <code>None</code>, иначе возникнет ошибка <code>TypeError</code>. <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">gen</span> <span class="o">=</span> <span class="n">accumulator</span><span class="p">()</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">gen</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 <span class="unselectable"><span class="go">0</span>
@@ -89,17 +89,17 @@
 </ul>
 </li>
 <li>Исключение при остановке генератора:<ul>
-<li>Если генератор завершил выполнение <code>StopIteration</code>, вызов <code>.send()</code> приводит к выбросу исключения.</li>
+<li>Если генератор завершил выполнение <code>StopIteration</code>, вызов <code>.send()</code> приводит к выбросу исключения</li>
 </ul>
 </li>
 <li>Использование с корутинами:<ul>
-<li>Метод <code>.send()</code> часто применяется в сопрограммах на основе генераторов для обмена данными между частями кода.</li>
+<li>Метод <code>.send()</code> часто применяется в сопрограммах на основе генераторов для обмена данными между частями кода</li>
 </ul>
 </li>
 </ul>
 <h1>.throw(type, value=None, traceback=None)</h1>
-<p>Генератору передается исключение.
-Оно выбрасывается в текущей точке <code>yield</code>, где его можно обработать с помощью <code>try-except</code>.</p>
+<p>Генератору передается исключение
+Оно выбрасывается в текущей точке <code>yield</code>, где его можно обработать с помощью <code>try-except</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">try</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="k">yield</span>
@@ -113,9 +113,9 @@
 </span></pre></div></div></div>
 
 <h1>.close()</h1>
-<p>Завершает генератор.
-Если генератор ожидает на <code>yield</code>, он выбрасывает исключение <code>GeneratorExit</code>.
-Используется для принудительного завершения работы генератора.</p>
+<p>Завершает генератор
+Если генератор ожидает на <code>yield</code>, он выбрасывает исключение <code>GeneratorExit</code>
+Используется для принудительного завершения работы генератора</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">try</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>        <span class="k">yield</span>

@@ -1,22 +1,18 @@
 <h1>Операторы</h1>
 <h2>SELECT</h2>
 <p>Используется для извлечения данных из базы данных
-Он может быть использован с другими операторами, такими как <code>FROM</code>, <code>WHERE</code> и <code>GROUP BY</code>,
-чтобы определить, какие данные должны быть извлечены, из каких таблиц и с какими условиями</p>
+Он может быть использован с другими операторами, такими как <code>FROM</code>, <code>WHERE</code> и <code>GROUP BY</code>, чтобы определить, какие данные должны быть извлечены, из каких таблиц и с какими условиями</p>
 <ul>
 <li><code>SELECT</code> - Какие колонки данных вы хотите извлечь</li>
 <li><code>FROM</code> - Из какой таблицы нужно извлечь данные</li>
 <li><code>WHERE</code> - Условие, которое должны соответствовать строки, чтобы быть включенными в результат</li>
 <li><code>GROUP BY</code> - Какие колонки нужно использовать для группировки результата</li>
 <li><code>HAVING</code> - Для фильтрации групп результата запроса
-Он похож на оператор <code>WHERE</code>,
-но он используется с оператором <code>GROUP BY</code> и применяется только к группам, а не к отдельным строкам</li>
-<li><code>ORDER BY</code> - Какие колонки нужно использовать для сортировки результата,
-а также порядок сортировки (по возрастанию или убыванию (<code>ASC|DESC</code>))</li>
+Он похож на оператор <code>WHERE</code>, но он используется с оператором <code>GROUP BY</code> и применяется только к группам, а не к отдельным строкам</li>
+<li><code>ORDER BY</code> - Какие колонки нужно использовать для сортировки результата, а также порядок сортировки (по возрастанию или убыванию (<code>ASC|DESC</code>))</li>
 <li><code>JOIN</code> - Используется для соединения двух таблиц в базе данных</li>
 </ul>
-<p>Он может быть использован с различными типами <code>JOIN</code>, такими как <code>INNER JOIN</code>, <code>LEFT JOIN</code> и <code>RIGHT JOIN</code>,
-чтобы определить, какие строки из обеих таблиц должны быть соединены</p>
+<p>Он может быть использован с различными типами <code>JOIN</code>, такими как <code>INNER JOIN</code>, <code>LEFT JOIN</code> и <code>RIGHT JOIN</code>, чтобы определить, какие строки из обеих таблиц должны быть соединены</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span>
 <span class="w">         </span><span class="n">column2</span><span class="p">,</span>
 <span class="w">         </span><span class="p">...</span>
@@ -57,12 +53,11 @@
 
 <h2>INSERT</h2>
 <p>Используется для вставки новых строк в таблицу базы данных
-Он может быть использован с <code>VALUES</code> и <code>SELECT</code>, <code>DEFAULT VALUES</code> и <code>SET</code>,
+Он может быть использован с <code>VALUES</code> и <code>SELECT</code>, <code>DEFAULT VALUES</code> и <code>SET</code>, 
 чтобы определить, какие данные нужно вставить и откуда их взять</p>
 <h2>UPDATE</h2>
 <p>Используется для обновления существующих строк в таблице базы данных
-Он может быть использован с оператором <code>SET</code>, чтобы указать, какие значения должны быть обновлены,
-и с оператором <code>WHERE</code>, чтобы указать, какие строки должны быть обновлены</p>
+Он может быть использован с оператором <code>SET</code>, чтобы указать, какие значения должны быть обновлены, и с оператором <code>WHERE</code>, чтобы указать, какие строки должны быть обновлены</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="k">table_name</span>
 <span class="w">   </span><span class="k">SET</span><span class="w"> </span><span class="n">column1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span>
 <span class="w">       </span><span class="n">column2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span>
@@ -95,8 +90,7 @@
 </pre></div></div></div>
 
 <h2>ALTER</h2>
-<p>Используется для изменения структуры существующих объектов в базе данных,
-таких как таблицы, индексы, представления, триггеры и т. д
+<p>Используется для изменения структуры существующих объектов в базе данных, таких как таблицы, индексы, представления, триггеры и т. д
 Он может быть использован с <code>ADD</code>, <code>DROP</code>, <code>MODIFY</code>, <code>ALTER</code>, чтобы указать, какое изменение нужно внести</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="n">object_type</span><span class="w"> </span><span class="n">object_name</span><span class="w"> </span><span class="n">action</span><span class="p">;</span>
 </pre></div></div></div>
@@ -109,8 +103,7 @@
 
 <h2>TRUNCATE</h2>
 <p>Используется для удаления всех строк из таблицы базы данных
-Он отличается от оператора <code>DELETE</code>, тем что он удаляет все строки из таблицы без проверки условий,
-а также очищает данные страниц таблицы, что позволяет сократить время выполнения и уменьшить размер таблицы</p>
+Он отличается от оператора <code>DELETE</code>, тем что он удаляет все строки из таблицы без проверки условий, а также очищает данные страниц таблицы, что позволяет сократить время выполнения и уменьшить размер таблицы</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
 </pre></div></div></div>
 <blockquote>
@@ -119,8 +112,7 @@
 </blockquote>
 <h2>WHERE</h2>
 <p>Это оператор SQL, который используется для фильтрации строк в результате запроса
-Он может быть использован с операторами <code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code> и другими,
-чтобы указать, какие строки должны быть включены в результат или изменены</p>
+Он может быть использован с операторами <code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code> и другими, чтобы указать, какие строки должны быть включены в результат или изменены</p>
 <div class="code_element"><div class="lang_line"><text>sql</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-sql"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span>
 <span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
@@ -370,7 +362,7 @@
 <span class="w">  </span><span class="k">JOIN</span><span class="w"> </span><span class="n">orders</span>
 <span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">);</span>
 </pre></div></div></div>
-<p>Обратите внимание, что оператор <code>USING</code> не поддерживается во всех СУБД.
+<p>Обратите внимание, что оператор <code>USING</code> не поддерживается во всех СУБД
 Вместо этого вы можете использовать <code>ON</code> с условием <code>table1.column = table2.column</code> для соединения таблиц</p>
 <h2>FOR</h2>
 <p>Это оператор SQL, который используется для задания условий в выражении <code>SELECT</code>
