@@ -1,13 +1,13 @@
 <h1>ECS</h1>
-<p><strong>ECS (Entity-Component-System)</strong> — это шаблон проектирования, в котором данные и логика строго разделены:</p>
+<p><strong>ECS (Entity-Component-System)</strong> - это шаблон проектирования, в котором данные и логика строго разделены:</p>
 <ul>
-<li><strong>Entity (Сущность)</strong> — уникальный идентификатор объекта</li>
-<li><strong>Component (Компонент)</strong> — структура данных, описывающая аспект поведения или состояния</li>
-<li><strong>System (Система)</strong> — логика, работающая с группами сущностей по наличию компонентов</li>
+<li><strong>Entity (Сущность)</strong> Уникальный идентификатор объекта</li>
+<li><strong>Component (Компонент)</strong> Структура данных, описывающая аспект поведения или состояния</li>
+<li><strong>System (Система)</strong> Логика, работающая с группами сущностей по наличию компонентов</li>
 </ul>
 <p>Такой подход особенно популярен в игровых движках и симуляциях</p>
 <h2>Компоненты</h2>
-<p>Компоненты — это простые классы или структуры, содержащие только данные (никакой логики)</p>
+<p>Компоненты - это простые классы или структуры, содержащие только данные (никакой логики)</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
@@ -24,7 +24,7 @@
 </pre></div></div></div>
 
 <h2>Сущности</h2>
-<p>Сущность — просто уникальный ID (обычно <code>int</code> или <code>uuid.UUID</code>).</p>
+<p>Сущность - просто уникальный ID (обычно <code>int</code> или <code>uuid.UUID</code>).</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">EntityManager</span><span class="p">:</span>

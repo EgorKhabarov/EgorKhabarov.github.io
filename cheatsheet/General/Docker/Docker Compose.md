@@ -1,6 +1,6 @@
 # Docker Compose
 
-Docker Compose — инструмент для управления многоконтейнерными приложениями с помощью файла `docker-compose.yml`
+Docker Compose - инструмент для управления многоконтейнерными приложениями с помощью файла `docker-compose.yml`
 Позволяет легко запускать, останавливать и управлять сервисами
 
 ## Установка Docker Compose
@@ -77,8 +77,8 @@ docker compose down
 ```
 
 ## `build` и `image`
-- `image: python:3.10` — использовать готовый образ
-- `build: .` — собирать из `Dockerfile`
+- `image: python:3.10` - использовать готовый образ
+- `build: .` - собирать из `Dockerfile`
 
 ### Пример `Dockerfile`
 ```dockerfile

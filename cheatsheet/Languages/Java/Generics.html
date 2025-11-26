@@ -286,6 +286,7 @@
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj2</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span><span class="w"> </span><span class="c1">// class A</span>
 </pre></div></div></div>
 <p>Классы <code>A&lt;Integer&gt;</code> и <code>A&lt;Double&gt;</code> компилятор превращает в «сырой» класс <code>A</code>.
-Бессмысленно сравнивать эти классы с помощью оператора <code>instanceof</code> — он всегда</p>
-<p>вернет истину, т. к. это один и тот же «сырой» класс <code>A</code>. Компилятор даже не позволит их сравнивать.
-Только, если вместо реального типа подставить маску <code>&lt;?&gt;</code>.</p>
+Бессмысленно сравнивать эти классы с помощью оператора <code>instanceof</code>
+он всегда вернет истину, т. к. это один и тот же «сырой» класс <code>A</code>
+Компилятор даже не позволит их сравнивать
+Только, если вместо реального типа подставить маску <code>&lt;?&gt;</code></p>
