@@ -81,7 +81,7 @@
     .bp {color: #94558D;} /* Self */
     .nd {color: #BBB529;} /* Decorator */
     .nf {color: #FDB648;} /* Function name */
-    /*.na {color: #AA4926;}  Argument */
+    .na {color: #AA4926;} /* Argument */
 
     .language-java .kt {color: #CC7832;}
     .language-yaml .c1 {color: #629755;}  /* Comment (Text, but lighter) */
@@ -793,6 +793,9 @@ hr {
     border-radius: .0em .0em .375em .375em;
     background-color: var(--md-element-code-bg);
     overflow-x: auto;
+}
+.highlight > pre {
+    font-family: "JetBrains Mono", monospace;
 }
 
 
