@@ -219,14 +219,14 @@ Server rejected the request because the Content-Length header field is not defin
 ### 412 Precondition Failed
 The client has indicated preconditions in its headers which the server does not meet
 ### 413 Payload Too Large
-Request entity is larger than limits defined by server;
+Request entity is larger than limits defined by server
 the server might close the connection or return an Retry-After header field
 ### 414 URI Too Long
 The URI requested by the client is longer than the server is willing to interpret
 ### 415 Unsupported Media Type
 The media format of the requested data is not supported by the server, so the server is rejecting the request
 ### 416 Range Not Satisfiable
-The range specified by the Range header field In the request can't be fullfilled;
+The range specified by the Range header field In the request can't be fullfilled
 it's possible that the range is outside the size of the target URI's data
 ### 417 Expectation Failed
 This response code means the expectation indicated by the Expect request header field can't be met by the server
