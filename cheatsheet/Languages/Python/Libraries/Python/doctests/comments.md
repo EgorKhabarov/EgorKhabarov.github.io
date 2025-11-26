@@ -147,7 +147,7 @@ def disable_all_flags():
 ```
 
 # Дополнительные специальные комментарии
-- `# doctest: +REQUIRES("module")` — Пропускает тест, если указанный модуль не установлен.
+- `# doctest: +REQUIRES("module")` Пропускает тест, если указанный модуль не установлен.
 ```python
 def requires_module():
     """

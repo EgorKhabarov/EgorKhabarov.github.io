@@ -1,5 +1,5 @@
 <h1>ast</h1>
-<p><strong>Abstract Syntax Tree</strong> — абстрактное синтаксическое дерево
+<p><strong>Abstract Syntax Tree</strong> абстрактное синтаксическое дерево
 Позволяет анализировать и изменять исходный код Python программ.
 Она предоставляет инструменты для разбора (парсинга) Python-кода в дерево синтаксических структур,
 а также для создания, модификации и компиляции этих деревьев обратно в исполняемый код.</p>
@@ -79,8 +79,8 @@
 </pre></div></div></div>
 
 <h3>Expression &amp; Module</h3>
-<p>Узлы верхнего уровня. <code>ast.Module</code> — это представление программы или модуля, состоящего из списка операторов.
-<code>ast.Expression</code> — выражение, которое можно выполнить и получить значение.</p>
+<p>Узлы верхнего уровня. <code>ast.Module</code> - это представление программы или модуля, состоящего из списка операторов.
+<code>ast.Expression</code> - выражение, которое можно выполнить и получить значение.</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;x = 5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;exec&quot;</span><span class="p">)</span>  <span class="c1"># Режим модуля</span>
 <span class="n">expr_tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;x + 2&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;eval&quot;</span><span class="p">)</span>  <span class="c1"># Режим выражения</span>
 </pre></div></div></div>

@@ -96,6 +96,6 @@ BigDecimal a = new BigDecimal(0.1); // Неточно!
 BigDecimal b = new BigDecimal("0.1"); // Точно
 ```
 2. Методы округления (`RoundingMode`)
-    - `RoundingMode.HALF_UP` — округление "по математическим правилам"
-    - `RoundingMode.FLOOR` — округление вниз
-    - `RoundingMode.CEILING` — округление вверх
+    - `RoundingMode.HALF_UP` - округление "по математическим правилам"
+    - `RoundingMode.FLOOR` - округление вниз
+    - `RoundingMode.CEILING` - округление вверх

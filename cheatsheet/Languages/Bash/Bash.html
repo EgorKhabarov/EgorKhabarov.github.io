@@ -87,11 +87,11 @@
 
 <h3>Операторы сравнения</h3>
 <ul>
-<li><code>-f</code> — существует ли файл</li>
-<li><code>-d</code> — существует ли директория</li>
-<li><code>-z</code> — пустая ли строка</li>
-<li><code>=</code> — равенство строк</li>
-<li><code>-lt</code>, <code>-gt</code>, <code>-eq</code> — меньше, больше, равно для чисел</li>
+<li><code>-f</code> Существует ли файл</li>
+<li><code>-d</code> Существует ли директория</li>
+<li><code>-z</code> Пустая ли строка</li>
+<li><code>=</code> Равенство строк</li>
+<li><code>-lt</code>, <code>-gt</code>, <code>-eq</code> Меньше, больше, равно для чисел</li>
 </ul>
 <h1>Циклы</h1>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>var<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..5<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
@@ -156,10 +156,10 @@ greet<span class="w"> </span><span class="s2">&quot;Мир&quot;</span><span cla
 
 <h1>Аргументы командной строки</h1>
 <ul>
-<li><code>$0</code> — имя скрипта</li>
-<li><code>$1</code>, <code>$2</code>, ..., <code>$N</code> — аргументы командной строки</li>
-<li><code>$#</code> — количество аргументов</li>
-<li><code>$@</code> — все аргументы</li>
+<li><code>$0</code> Имя скрипта</li>
+<li><code>$1</code>, <code>$2</code>, ..., <code>$N</code> Аргументы командной строки</li>
+<li><code>$#</code> Количество аргументов</li>
+<li><code>$@</code> Все аргументы</li>
 </ul>
 <p>Пример скрипта, который выводит все аргументы:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -245,31 +245,31 @@ greet<span class="w"> </span><span class="s2">&quot;Мир&quot;</span><span cla
 
 <h1>Полезные команды</h1>
 <ul>
-<li><code>grep</code> — Поиск текста в файле</li>
+<li><code>grep</code> - Поиск текста в файле</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>grep<span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="w"> </span>file.txt
 </pre></div></div></div>
 
 <ul>
-<li><code>find</code> — Поиск файлов и директорий</li>
+<li><code>find</code> - Поиск файлов и директорий</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>find<span class="w"> </span>/path<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.txt&quot;</span>
 </pre></div></div></div>
 
 <ul>
-<li><code>chmod</code> — Изменение прав доступа к файлу</li>
+<li><code>chmod</code> - Изменение прав доступа к файлу</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>script.sh<span class="w">  </span><span class="c1"># Сделать файл исполняемым</span>
 </pre></div></div></div>
 
 <ul>
-<li><code>tar</code> — Архивация файлов</li>
+<li><code>tar</code> - Архивация файлов</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-cvf<span class="w"> </span>archive.tar<span class="w"> </span>directory/
 </pre></div></div></div>
 
 <ul>
-<li><code>curl</code> — Запросы по HTTP</li>
+<li><code>curl</code> - Запросы по HTTP</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://example.com
 </pre></div></div></div>
