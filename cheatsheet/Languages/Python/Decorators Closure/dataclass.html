@@ -63,7 +63,7 @@
 </table>
 <h1>Описание</h1>
 <h2>@dataclass</h2>
-<p>Основной декоратор для объявления классов данных. Автоматически генерирует методы <code>__init__</code>, <code>__repr__</code>, <code>__eq__</code>, и другие.</p>
+<p>Основной декоратор для объявления классов данных. Автоматически генерирует методы <code>__init__</code>, <code>__repr__</code>, <code>__eq__</code>, и другие</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
 <span class="nd">@dataclass</span>
@@ -130,8 +130,8 @@
 </pre></div></div></div>
 
 <h2>field</h2>
-<p>Используется для более точной настройки полей.
-Например, можно задать фабрику значений по умолчанию или исключить поле из конструктора.</p>
+<p>Используется для более точной настройки полей
+Например, можно задать фабрику значений по умолчанию или исключить поле из конструктора</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd">@dataclass</span>
@@ -142,10 +142,10 @@
 </pre></div></div></div>
 
 <h2>Field</h2>
-<p>Объект, создаваемый при использовании функции <code>field()</code>.
-Содержит информацию о поле, его значении по умолчанию, фабрике значений и других метаданных.</p>
+<p>Объект, создаваемый при использовании функции <code>field()</code>
+Содержит информацию о поле, его значении по умолчанию, фабрике значений и других метаданных</p>
 <h2>FrozenInstanceError</h2>
-<p>Исключение, которое генерируется, если пытаются изменить поле объекта неизменяемого датакласса.</p>
+<p>Исключение, которое генерируется, если пытаются изменить поле объекта неизменяемого датакласса</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">FrozenInstanceError</span>
 
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -158,7 +158,7 @@
 </pre></div></div></div>
 
 <h2>InitVar</h2>
-<p>Используется для создания переменных, которые существуют только на этапе инициализации и не сохраняются в объекте.</p>
+<p>Используется для создания переменных, которые существуют только на этапе инициализации и не сохраняются в объекте</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">InitVar</span>
 
 <span class="nd">@dataclass</span>
@@ -168,7 +168,7 @@
 </pre></div></div></div>
 
 <h2>KW_ONLY</h2>
-<p>Позволяет указать, что некоторые поля должны передаваться только как именованные аргументы при создании объекта.</p>
+<p>Позволяет указать, что некоторые поля должны передаваться только как именованные аргументы при создании объекта</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">KW_ONLY</span>
 
 <span class="nd">@dataclass</span>
@@ -179,9 +179,9 @@
 </pre></div></div></div>
 
 <h2>MISSING</h2>
-<p>Специальное значение, используемое библиотекой <code>dataclasses</code> для обозначения отсутствия значения по умолчанию для поля.</p>
+<p>Специальное значение, используемое библиотекой <code>dataclasses</code> для обозначения отсутствия значения по умолчанию для поля</p>
 <h2>fields</h2>
-<p>Возвращает список полей класса в виде объектов <code>Field</code>.</p>
+<p>Возвращает список полей класса в виде объектов <code>Field</code></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">fields</span>
 
 <span class="nd">@dataclass</span>
@@ -193,7 +193,7 @@
 </pre></div></div></div>
 
 <h2>asdict</h2>
-<p>Преобразует объект датакласса в словарь.</p>
+<p>Преобразует объект датакласса в словарь</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">asdict</span>
 
 <span class="nd">@dataclass</span>
@@ -206,14 +206,14 @@
 </pre></div></div></div>
 
 <h2>astuple</h2>
-<p>Преобразует объект датакласса в кортеж.</p>
+<p>Преобразует объект датакласса в кортеж</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">astuple</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">astuple</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># (&quot;Alice&quot;, 30)</span>
 </pre></div></div></div>
 
 <h2>make_dataclass</h2>
-<p>Создаёт новый датакласс на лету с указанными полями.</p>
+<p>Создаёт новый датакласс на лету с указанными полями</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_dataclass</span>
 
 <span class="n">Point</span> <span class="o">=</span> <span class="n">make_dataclass</span><span class="p">(</span><span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">)])</span>
@@ -222,7 +222,7 @@
 </pre></div></div></div>
 
 <h2>replace</h2>
-<p>Возвращает новую копию объекта с изменёнными полями.</p>
+<p>Возвращает новую копию объекта с изменёнными полями</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">replace</span>
 
 <span class="n">p2</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
@@ -230,18 +230,18 @@
 </pre></div></div></div>
 
 <h2>is_dataclass</h2>
-<p>Проверяет, является ли объект экземпляром датакласса.</p>
+<p>Проверяет, является ли объект экземпляром датакласса</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_dataclass</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">is_dataclass</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># True</span>
 </pre></div></div></div>
 
 <h2>__post_init__</h2>
-<p>Специальный метод, используемый <strong>только в датаклассах</strong> (аннотированных с помощью декоратора <code>@dataclass</code>).
-Его основное предназначение - выполнить дополнительные действия или инициализацию после того, как автоматически сгенерированный метод <code>__init__</code> завершит свою работу.
-В обычных классах этот метод не используется автоматически и его наличие не имеет смысла без использования библиотеки <code>dataclasses</code>.</p>
-<p>Когда создается объект датакласса, Python сначала автоматически вызывает метод <code>__init__</code>, который создается на основе полей, объявленных в классе.
-После этого, если в классе определен метод <code>__post_init__</code>, он будет вызван <strong>сразу после</strong> инициализации полей.</p>
+<p>Специальный метод, используемый <strong>только в датаклассах</strong> (аннотированных с помощью декоратора <code>@dataclass</code>)
+Его основное предназначение - выполнить дополнительные действия или инициализацию после того, как автоматически сгенерированный метод <code>__init__</code> завершит свою работу
+В обычных классах этот метод не используется автоматически и его наличие не имеет смысла без использования библиотеки <code>dataclasses</code></p>
+<p>Когда создается объект датакласса, Python сначала автоматически вызывает метод <code>__init__</code>, который создается на основе полей, объявленных в классе
+После этого, если в классе определен метод <code>__post_init__</code>, он будет вызван <strong>сразу после</strong> инициализации полей</p>
 <h3>Пример</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
@@ -252,7 +252,8 @@
     <span class="n">bonus_percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">total_salary</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Выполняется сразу после создания объекта</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Выполняется сразу после создания объекта</span>
         <span class="c1"># Рассчитываем итоговую зарплату на основе бонуса</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">total_salary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_salary</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_salary</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bonus_percentage</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
 
@@ -262,10 +263,8 @@
 
 <h3>Особенности</h3>
 <ol>
-<li><strong>Модификация значений полей</strong>: <code>__post_init__</code> часто используется для выполнения дополнительных вычислений или проверок,
-требующих значений уже инициализированных полей</li>
-<li><strong>Работа с <code>InitVar</code></strong>: Если в датаклассе используются поля <code>InitVar</code>, они передаются в <code>__post_init__</code>,
-так как они не сохраняются как обычные атрибуты. Это полезно для временных параметров и инициализаций</li>
+<li><strong>Модификация значений полей</strong>: <code>__post_init__</code> часто используется для выполнения дополнительных вычислений или проверок, требующих значений уже инициализированных полей</li>
+<li><strong>Работа с <code>InitVar</code></strong>: Если в датаклассе используются поля <code>InitVar</code>, они передаются в <code>__post_init__</code>, так как они не сохраняются как обычные атрибуты. Это полезно для временных параметров и инициализаций</li>
 </ol>
 <h3>Пример с InitVar</h3>
 <p>Значение <code>celsius</code> передается в метод <code>__post_init__</code> и используется для вычисления значения поля <code>fahrenheit</code></p>
