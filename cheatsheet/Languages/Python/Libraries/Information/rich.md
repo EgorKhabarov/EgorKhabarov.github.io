@@ -37,10 +37,10 @@ rich.print("[bold red]Ошибка:[/] неверный ввод!")
 > <span style="font-weight:700;color:red">Ошибка:</span> неверный ввод!
 
 Возможные стили: `bold`, `italic`, `underline`, `strikethrough`,
-а также цветовые схемы (`red`, `green`, `blue` и другие).
+а также цветовые схемы (`red`, `green`, `blue` и другие)
 
 ## Таблицы
-Вы можете создавать и выводить таблицы с помощью класса `Table`.
+Вы можете создавать и выводить таблицы с помощью класса `Table`
 ```python
 from rich.table import Table
 from rich.console import Console

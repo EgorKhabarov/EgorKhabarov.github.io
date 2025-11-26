@@ -1,11 +1,16 @@
-<p>Dockerfile
-FROM:    Определяет базовый образ, на основе которого будет создан ваш образ контейнера.
-         Здесь мы используем образ <code>Python 3.9</code> на основе <code>slim-версии Debian</code>.</p>
-<p>WORKDIR: Устанавливает рабочую директорию внутри контейнера, где будут выполняться команды.</p>
-<p>COPY:    Копирует файлы из текущей директории на вашем компьютере внутрь контейнера.</p>
-<p>RUN:     Выполняет команды внутри контейнера для установки зависимостей, указанных в файле <code>requirements.txt</code>.</p>
-<p>CMD:     Определяет команду, которая будет запущена при запуске контейнера.
-         Здесь мы указываем запуск основного скрипта <code>main.py</code>.</p>
+<h1>Dockerfile</h1>
+<h3>FROM</h3>
+<p>Определяет базовый образ, на основе которого будет создан ваш образ контейнера
+Здесь мы используем образ <code>Python 3.9</code> на основе <code>slim-версии Debian</code></p>
+<h3>WORKDIR</h3>
+<p>Устанавливает рабочую директорию внутри контейнера, где будут выполняться команды</p>
+<h3>COPY</h3>
+<p>Копирует файлы из текущей директории на вашем компьютере внутрь контейнера</p>
+<h3>RUN</h3>
+<p>Выполняет команды внутри контейнера для установки зависимостей, указанных в файле <code>requirements.txt</code></p>
+<h3>CMD</h3>
+<p>Определяет команду, которая будет запущена при запуске контейнера
+Здесь мы указываем запуск основного скрипта <code>main.py</code></p>
 <div class="code_element"><div class="lang_line"><text>Dockerfile</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `Dockerfile`)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable" title="Dockerfile">Download code</text></button></div><div class="code language-Dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9-slim-buster</span>
 
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>

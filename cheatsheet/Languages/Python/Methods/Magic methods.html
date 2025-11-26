@@ -710,18 +710,18 @@
 <h3>Зачем нужен <code>__class_getitem__</code>?</h3>
 <ol>
 <li><strong>Работа с аннотациями типов.</strong> Он упрощает создание обобщённых классов, таких как <code>List[int]</code>
-или <code>Dict[str, int]</code>, поддерживая работу с типами в библиотеках, связанных с проверкой типов.</li>
+или <code>Dict[str, int]</code>, поддерживая работу с типами в библиотеках, связанных с проверкой типов</li>
 <li><strong>Интерфейсы для собственных классов.</strong> Если вы создаёте классы, которые должны поддерживать функциональность,
-связанную с типами или шаблонами, метод <code>__class_getitem__</code> позволит вам реализовать подобную логику.</li>
+связанную с типами или шаблонами, метод <code>__class_getitem__</code> позволит вам реализовать подобную логику</li>
 <li><strong>Гибкость.</strong> Он позволяет передавать классу параметры,
-которые могут управлять тем, как класс себя ведёт или что возвращает.</li>
+которые могут управлять тем, как класс себя ведёт или что возвращает</li>
 </ol>
-<p><code>__class_getitem__</code> может работать в связке с другими магическими методами для более сложных конструкций.
+<p><code>__class_getitem__</code> может работать в связке с другими магическими методами для более сложных конструкций
 Например, его можно использовать вместе с методами <code>__getitem__</code>, <code>__setitem__</code>
-для создания классов, которые поддерживают индексацию и динамическое изменение поведения.</p>
-<p>Магический метод <code>__class_getitem__</code> - это мощный инструмент для работы с обобщёнными типами и аннотациями.
+для создания классов, которые поддерживают индексацию и динамическое изменение поведения</p>
+<p>Магический метод <code>__class_getitem__</code> - это мощный инструмент для работы с обобщёнными типами и аннотациями
 С его помощью можно реализовывать гибкие и типизированные API,
-которые позволяют делать код более понятным и удобным для сопровождения.</p>
+которые позволяют делать код более понятным и удобным для сопровождения</p>
 <h2>__getitem__</h2>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span><span class="w"> </span><span class="nc">Example</span><span class="p">:</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
