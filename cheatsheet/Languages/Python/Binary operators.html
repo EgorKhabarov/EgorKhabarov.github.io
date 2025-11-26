@@ -1,6 +1,6 @@
 <h1>Бинарные операторы и создание флагов</h1>
-<p>Бинарные операторы работают с числами на уровне битов.
-Они позволяют выполнять операции на двоичных представлениях целых чисел, манипулируя отдельными битами.</p>
+<p>Бинарные операторы работают с числами на уровне битов
+Они позволяют выполнять операции на двоичных представлениях целых чисел, манипулируя отдельными битами</p>
 <h3>Основные бинарные операторы</h3>
 <table>
 <thead>
@@ -64,11 +64,10 @@
 </pre></div></div></div>
 
 <h2>Создание флагов с помощью бинарных операторов</h2>
-<p>Флаги в программировании часто используются для установки нескольких состояний в одном числе,
-используя каждый бит как отдельный индикатор.
-Для этого применяют <strong>битовые маски</strong> и бинарные операторы.</p>
+<p>Флаги в программировании часто используются для установки нескольких состояний в одном числе, используя каждый бит как отдельный индикатор
+Для этого применяют <strong>битовые маски</strong> и бинарные операторы</p>
 <h3>Флаги доступа к файлу</h3>
-<p>Представим, что у нас есть система с несколькими правами доступа: чтение, запись и исполнение.
+<p>Представим, что у нас есть система с несколькими правами доступа: чтение, запись и исполнение
 Эти права можно представить как биты:</p>
 <ul>
 <li>Чтение (1-й бит): <code>0b001</code> (или <code>1</code>)</li>
@@ -101,8 +100,7 @@
 </pre></div></div></div>
 
 <h3>enum.Flag</h3>
-<p>В Python начиная с версии 3.6 можно использовать класс <code>Flag</code> из модуля <code>enum</code>,
-чтобы создать флаги с более понятным интерфейсом</p>
+<p>В Python начиная с версии 3.6 можно использовать класс <code>Flag</code> из модуля <code>enum</code>, чтобы создать флаги с более понятным интерфейсом</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flag</span><span class="p">,</span> <span class="n">auto</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Permissions</span><span class="p">(</span><span class="n">Flag</span><span class="p">):</span>

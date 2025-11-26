@@ -1,7 +1,6 @@
 # BFS (Поиск в ширину)
 
-В отличие от [`DFS`](?Snippets/Python/Algorithms/Search/DFS) алгоритм `Breadth-first search` (`BFS`) перебирает в первую очередь вершины с одинаковым расстоянием от корня,
-и только потом идет **вглубь**
+В отличие от [`DFS`](?Snippets/Python/Algorithms/Search/DFS) алгоритм `Breadth-first search` (`BFS`) перебирает в первую очередь вершины с одинаковым расстоянием от корня, и только потом идет **вглубь**
 
 ```python
 # https://codereview.stackexchange.com/questions/135156/bfs-implementation-in-python-3

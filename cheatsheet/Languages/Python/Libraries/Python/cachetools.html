@@ -49,12 +49,11 @@
 </tbody>
 </table>
 <h1>Cache</h1>
-<p>Базовый класс для всех кэшей.
-Он не используется напрямую, но служит основой для других классов,
-предоставляя основные методы для работы с кэшем.</p>
+<p>Базовый класс для всех кэшей
+Он не используется напрямую, но служит основой для других классов, предоставляя основные методы для работы с кэшем</p>
 <h1>FIFOCache</h1>
-<p>Использует алгоритм <strong>FIFO</strong> (First In, First Out).
-Когда кэш заполняется, самый старый элемент удаляется, чтобы освободить место для нового.</p>
+<p>Использует алгоритм <strong>FIFO</strong> (First In, First Out)
+Когда кэш заполняется, самый старый элемент удаляется, чтобы освободить место для нового</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">FIFOCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">FIFOCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -69,8 +68,8 @@
 </pre></div></div></div>
 
 <h1>LFUCache</h1>
-<p>Использует алгоритм <strong>LFU</strong> (Least Frequently Used).
-Наименее часто используемые элементы удаляются первыми при необходимости освобождения места.</p>
+<p>Использует алгоритм <strong>LFU</strong> (Least Frequently Used)
+Наименее часто используемые элементы удаляются первыми при необходимости освобождения места</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">LFUCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">LFUCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -84,8 +83,8 @@
 </pre></div></div></div>
 
 <h1>LRUCache</h1>
-<p>Использует алгоритм <strong>LRU</strong> (Least Recently Used).
-Наименее недавно используемые элементы удаляются первыми.</p>
+<p>Использует алгоритм <strong>LRU</strong> (Least Recently Used)
+Наименее недавно используемые элементы удаляются первыми</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">LRUCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">LRUCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -99,8 +98,8 @@
 </pre></div></div></div>
 
 <h1>MRUCache</h1>
-<p>Использует алгоритм <strong>MRU</strong> (Most Recently Used).
-Самый недавно использованный элемент удаляется первым при необходимости освобождения места.</p>
+<p>Использует алгоритм <strong>MRU</strong> (Most Recently Used)
+Самый недавно использованный элемент удаляется первым при необходимости освобождения места</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">MRUCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">MRUCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -114,8 +113,8 @@
 </pre></div></div></div>
 
 <h1>RRCache</h1>
-<p>Использует случайное замещение (Random Replacement).
-Элементы удаляются случайным образом, когда кэш заполняется.</p>
+<p>Использует случайное замещение (Random Replacement)
+Элементы удаляются случайным образом, когда кэш заполняется</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">RRCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">RRCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -127,8 +126,8 @@
 </pre></div></div></div>
 
 <h1>TLRUCache</h1>
-<p>Сочетает в себе временное ограничение (<code>ttl</code>) и алгоритм <strong>LRU</strong>.
-Элементы удаляются либо при истечении времени жизни, либо по принципу <strong>LRU</strong>.</p>
+<p>Сочетает в себе временное ограничение (<code>ttl</code>) и алгоритм <strong>LRU</strong>
+Элементы удаляются либо при истечении времени жизни, либо по принципу <strong>LRU</strong></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">TLRUCache</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
@@ -141,8 +140,8 @@
 </pre></div></div></div>
 
 <h1>TTLCache</h1>
-<p>Кэш с временным ограничением (Time-to-Live) и алгоритмом <strong>LRU</strong>.
-Элементы удаляются либо по истечению времени жизни (<code>ttl</code>), либо по принципу <strong>LRU</strong>, если кэш переполнен.</p>
+<p>Кэш с временным ограничением (Time-to-Live) и алгоритмом <strong>LRU</strong>
+Элементы удаляются либо по истечению времени жизни (<code>ttl</code>), либо по принципу <strong>LRU</strong>, если кэш переполнен</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">TTLCache</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
@@ -155,8 +154,8 @@
 </pre></div></div></div>
 
 <h1>cached</h1>
-<p>Декоратор, который используется для кэширования возвращаемого значения функции.
-Он может использовать любой из предоставленных кэшей.</p>
+<p>Декоратор, который используется для кэширования возвращаемого значения функции
+Он может использовать любой из предоставленных кэшей</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached</span><span class="p">,</span> <span class="n">LRUCache</span>
 
 <span class="n">cache</span> <span class="o">=</span> <span class="n">LRUCache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -170,8 +169,8 @@
 </pre></div></div></div>
 
 <h1>cachedmethod</h1>
-<p>Декоратор для кэширования возвращаемого значения метода класса.
-Декоратор позволяет задать кэш на уровне экземпляра класса.</p>
+<p>Декоратор для кэширования возвращаемого значения метода класса
+Декоратор позволяет задать кэш на уровне экземпляра класса</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">cachetools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cachedmethod</span><span class="p">,</span> <span class="n">LRUCache</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
