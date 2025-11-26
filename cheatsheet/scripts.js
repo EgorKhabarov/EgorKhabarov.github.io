@@ -1111,6 +1111,7 @@ function applySettings(settings) {
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
     settings_breadcrumbs_input.checked = settings.breadcrumbs;
     settings_css_textarea.value = settings.settings_css || "";
+    settings_css.textContent = settings.settings_css || "";
 }
 function css_markdown_preview_func(element) {
     if (element.checked) {
