@@ -99,9 +99,9 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">stdscr</span><span class="p">):</span>
     <span class="n">curses</span><span class="o">.</span><span class="n">start_color</span><span class="p">()</span>  <span class="c1"># Инициализация цветового режима</span>
-    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_RED</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>  <span class="c1"># Пара цветов</span>
+    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_RED</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>  <span class="c1"># Пара цветов</span>
 
-    <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Использование цветовой пары</span>
+    <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">0</span><span class="k">,</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Использование цветовой пары</span>
     <span class="n">stdscr</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
     <span class="n">stdscr</span><span class="o">.</span><span class="n">getch</span><span class="p">()</span>
 
@@ -114,9 +114,9 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">stdscr</span><span class="p">):</span>
     <span class="c1"># Создание нового окна</span>
-    <span class="n">win</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">newwin</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Высота 10, ширина 40, позиция (5,5)</span>
+    <span class="n">win</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">newwin</span><span class="p">(</span><span class="mi">10</span><span class="k">,</span> <span class="mi">40</span><span class="k">,</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Высота 10, ширина 40, позиция (5,5)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">border</span><span class="p">()</span>  <span class="c1"># Добавление границы вокруг окна</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;This is a new window!&quot;</span><span class="p">)</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;This is a new window!&quot;</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># Обновление экрана</span>
 
     <span class="n">stdscr</span><span class="o">.</span><span class="n">getch</span><span class="p">()</span>
@@ -136,7 +136,7 @@
         <span class="n">key</span> <span class="o">=</span> <span class="n">stdscr</span><span class="o">.</span><span class="n">getch</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># ESC</span>
             <span class="k">break</span>
-        <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Key pressed: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">2</span><span class="k">,</span> <span class="mi">0</span><span class="k">,</span> <span class="sa">f</span><span class="s2">&quot;Key pressed: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">stdscr</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 
 <span class="n">curses</span><span class="o">.</span><span class="n">wrapper</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
@@ -159,16 +159,16 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">stdscr</span><span class="p">):</span>
     <span class="c1"># Инициализация цветов</span>
     <span class="n">curses</span><span class="o">.</span><span class="n">start_color</span><span class="p">()</span>
-    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_RED</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
-    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_GREEN</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
+    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_RED</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
+    <span class="n">curses</span><span class="o">.</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">2</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_GREEN</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
 
     <span class="c1"># Главное окно</span>
-    <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Main window&quot;</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">stdscr</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">0</span><span class="k">,</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;Main window&quot;</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 
     <span class="c1"># Создание нового окна</span>
-    <span class="n">win</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">newwin</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">win</span> <span class="o">=</span> <span class="n">curses</span><span class="o">.</span><span class="n">newwin</span><span class="p">(</span><span class="mi">10</span><span class="k">,</span> <span class="mi">40</span><span class="k">,</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">5</span><span class="p">)</span>
     <span class="n">win</span><span class="o">.</span><span class="n">border</span><span class="p">()</span>
-    <span class="n">win</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Window with border&quot;</span><span class="p">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">win</span><span class="o">.</span><span class="n">addstr</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;Window with border&quot;</span><span class="k">,</span> <span class="n">curses</span><span class="o">.</span><span class="n">color_pair</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 
     <span class="n">stdscr</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
     <span class="n">win</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>

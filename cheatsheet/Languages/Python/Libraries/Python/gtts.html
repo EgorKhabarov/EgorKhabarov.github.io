@@ -19,7 +19,7 @@ get_urls(text): Возвращает список URL-адресов для от
 <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;ru&quot;</span>
 
 <span class="c1"># Создание объекта gTTS с текстом и языком</span>
-<span class="n">tts</span> <span class="o">=</span> <span class="n">gTTS</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">language</span><span class="p">)</span>
+<span class="n">tts</span> <span class="o">=</span> <span class="n">gTTS</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="k">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">language</span><span class="p">)</span>
 
 <span class="c1"># Сохранение аудиофайла</span>
 <span class="n">tts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;output.mp3&quot;</span><span class="p">)</span>

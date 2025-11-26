@@ -37,9 +37,9 @@
 
 <span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">readmodule</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="k">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">method_name</span><span class="k">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
@@ -50,7 +50,7 @@
 <span class="n">class_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Class</span><span class="p">(</span><span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">method_name</span><span class="k">,</span> <span class="n">method_data</span> <span class="ow">in</span> <span class="n">class_data</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
@@ -71,6 +71,6 @@
 <span class="n">module_data</span> <span class="o">=</span> <span class="n">pyclbr</span><span class="o">.</span><span class="n">Module</span><span class="p">(</span><span class="s2">&quot;module_name&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Module: </span><span class="si">{</span><span class="n">module_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">class_name</span><span class="k">,</span> <span class="n">class_data</span> <span class="ow">in</span> <span class="n">module_data</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Class: </span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div></div></div>

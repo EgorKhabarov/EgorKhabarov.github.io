@@ -36,7 +36,7 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
 
 <span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Текущий процент использования CPU:&quot;</span><span class="p">,</span> <span class="n">cpu_percent</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Текущий процент использования CPU:&quot;</span><span class="k">,</span> <span class="n">cpu_percent</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>virtual_memory()</h3>
@@ -45,9 +45,9 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
 
 <span class="n">virtual_memory</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общая доступная память:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Доступная память:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">available</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется памяти:&quot;</span><span class="p">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общая доступная память:&quot;</span><span class="k">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Доступная память:&quot;</span><span class="k">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">available</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется памяти:&quot;</span><span class="k">,</span> <span class="n">virtual_memory</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>disk_usage()</h3>
@@ -56,9 +56,9 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
 
 <span class="n">disk_usage</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общее пространство диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется пространства диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Свободное пространство диска:&quot;</span><span class="p">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">free</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Общее пространство диска:&quot;</span><span class="k">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Используется пространства диска:&quot;</span><span class="k">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">used</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Свободное пространство диска:&quot;</span><span class="k">,</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">free</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>net_io_counters()</h3>
@@ -67,8 +67,8 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
 
 <span class="n">net_io_counters</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">net_io_counters</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Отправленные байты:&quot;</span><span class="p">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_sent</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Полученные байты:&quot;</span><span class="p">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_recv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Отправленные байты:&quot;</span><span class="k">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_sent</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Полученные байты:&quot;</span><span class="k">,</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_recv</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>process_count()</h3>
@@ -76,5 +76,5 @@
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
 
 <span class="n">process_count</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">process_count</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Количество запущенных процессов:&quot;</span><span class="p">,</span> <span class="n">process_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Количество запущенных процессов:&quot;</span><span class="k">,</span> <span class="n">process_count</span><span class="p">)</span>
 </pre></div></div></div>

@@ -10,14 +10,14 @@
         <span class="k">return</span> <span class="s2">&quot;Light is on&quot;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">LightOnCommand</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">light</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_light</span> <span class="o">=</span> <span class="n">light</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_light</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">RemoteControl</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_command</span> <span class="o">=</span> <span class="n">command</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">press_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

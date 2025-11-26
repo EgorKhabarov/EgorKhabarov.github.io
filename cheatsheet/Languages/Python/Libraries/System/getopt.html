@@ -10,10 +10,10 @@ getopt.GetoptError: Исключение, возникающее при ошиб
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span class="n">shortopts</span> <span class="o">=</span> <span class="s2">&quot;ho:v&quot;</span>   <span class="c1"># Опции без аргументов: -h, -o, -v</span>
-<span class="n">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;output=&quot;</span><span class="p">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">]</span>  <span class="c1"># Опции с аргументами: --help, --output, --verbose</span>
+<span class="n">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="k">,</span> <span class="s2">&quot;output=&quot;</span><span class="k">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">]</span>  <span class="c1"># Опции с аргументами: --help, --output, --verbose</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">opts</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">.</span><span class="n">getopt</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">shortopts</span><span class="p">,</span> <span class="n">longopts</span><span class="p">)</span>
+    <span class="n">opts</span><span class="k">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">.</span><span class="n">getopt</span><span class="p">(</span><span class="n">args</span><span class="k">,</span> <span class="n">shortopts</span><span class="k">,</span> <span class="n">longopts</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">getopt</span><span class="o">.</span><span class="n">GetoptError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка в аргументах командной строки.&quot;</span><span class="p">)</span>
 </pre></div></div></div>
@@ -24,10 +24,10 @@ getopt.GetoptError: Исключение, возникающее при ошиб
 
 <span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span class="n">shortopts</span> <span class="o">=</span> <span class="s2">&quot;ho:v&quot;</span>   <span class="c1"># Опции без аргументов: -h, -o, -v</span>
-<span class="n">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;output=&quot;</span><span class="p">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">]</span>  <span class="c1"># Опции с аргументами: --help, --output, --verbose</span>
+<span class="n">longopts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="k">,</span> <span class="s2">&quot;output=&quot;</span><span class="k">,</span> <span class="s2">&quot;verbose&quot;</span><span class="p">]</span>  <span class="c1"># Опции с аргументами: --help, --output, --verbose</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">opts</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">.</span><span class="n">gnu_getopt</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">shortopts</span><span class="p">,</span> <span class="n">longopts</span><span class="p">)</span>
+    <span class="n">opts</span><span class="k">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">getopt</span><span class="o">.</span><span class="n">gnu_getopt</span><span class="p">(</span><span class="n">args</span><span class="k">,</span> <span class="n">shortopts</span><span class="k">,</span> <span class="n">longopts</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">getopt</span><span class="o">.</span><span class="n">GetoptError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ошибка в аргументах командной строки.&quot;</span><span class="p">)</span>
 </pre></div></div></div>

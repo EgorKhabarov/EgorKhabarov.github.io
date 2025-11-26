@@ -8,7 +8,7 @@ Pony ORM поддерживает такие базы данных, как <code
 <p>Для работы с Pony ORM, необходимо создать объекты классов, которые будут связаны с таблицами базы данных
 Используется класс <code>Database</code> для управления подключениями и класс <code>Entity</code> для создания моделей</p>
 <h1>Пример создания</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pony.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span><span class="p">,</span> <span class="n">Required</span><span class="p">,</span> <span class="n">Set</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pony.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span><span class="k">,</span> <span class="n">Required</span><span class="k">,</span> <span class="n">Set</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">Database</span><span class="p">()</span>
 
@@ -20,7 +20,7 @@ Pony ORM поддерживает такие базы данных, как <code
     <span class="n">title</span> <span class="o">=</span> <span class="n">Required</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
     <span class="n">author</span> <span class="o">=</span> <span class="n">Required</span><span class="p">(</span><span class="n">Author</span><span class="p">)</span>
 
-<span class="n">db</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="k">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
 <span class="n">db</span><span class="o">.</span><span class="n">generate_mapping</span><span class="p">(</span><span class="n">create_tables</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div></div></div>
 
@@ -31,7 +31,7 @@ Pony ORM поддерживает такие базы данных, как <code
 
 <span class="k">with</span> <span class="n">db_session</span><span class="p">:</span>
     <span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;J.K. Rowling&quot;</span><span class="p">)</span>
-    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Harry Potter and the Philosopher&#39;s Stone&quot;</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Harry Potter and the Philosopher&#39;s Stone&quot;</span><span class="k">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>Извлечение данных</h3>
@@ -96,7 +96,7 @@ Pony ORM автоматически коммитит или откатывает
 
 <span class="k">with</span> <span class="n">db_session</span><span class="p">:</span>
     <span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;George Orwell&quot;</span><span class="p">)</span>
-    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+    <span class="n">book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;1984&quot;</span><span class="k">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h1>Кэширование</h1>
@@ -109,7 +109,7 @@ Pony ORM автоматически коммитит или откатывает
 </pre></div></div></div>
 
 <h3>Пример полной работы с базой данных</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pony.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span><span class="p">,</span> <span class="n">Required</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">db_session</span><span class="p">,</span> <span class="n">select</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pony.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Database</span><span class="k">,</span> <span class="n">Required</span><span class="k">,</span> <span class="n">Set</span><span class="k">,</span> <span class="n">db_session</span><span class="k">,</span> <span class="n">select</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">Database</span><span class="p">()</span>
 
@@ -122,14 +122,14 @@ Pony ORM автоматически коммитит или откатывает
     <span class="n">author</span> <span class="o">=</span> <span class="n">Required</span><span class="p">(</span><span class="n">Author</span><span class="p">)</span>
 
 <span class="c1"># Привязка базы данных к SQLite</span>
-<span class="n">db</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;library.sqlite&quot;</span><span class="p">,</span> <span class="n">create_db</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;sqlite&quot;</span><span class="k">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;library.sqlite&quot;</span><span class="k">,</span> <span class="n">create_db</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">db</span><span class="o">.</span><span class="n">generate_mapping</span><span class="p">(</span><span class="n">create_tables</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Добавление данных</span>
 <span class="k">with</span> <span class="n">db_session</span><span class="p">:</span>
     <span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;George Orwell&quot;</span><span class="p">)</span>
-    <span class="n">book1</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
-    <span class="n">book2</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Animal Farm&quot;</span><span class="p">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+    <span class="n">book1</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;1984&quot;</span><span class="k">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
+    <span class="n">book2</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Animal Farm&quot;</span><span class="k">,</span> <span class="n">author</span><span class="o">=</span><span class="n">author</span><span class="p">)</span>
 
 <span class="c1"># Извлечение данных</span>
 <span class="k">with</span> <span class="n">db_session</span><span class="p">:</span>

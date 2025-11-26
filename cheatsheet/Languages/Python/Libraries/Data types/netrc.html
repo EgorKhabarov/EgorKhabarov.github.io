@@ -35,15 +35,15 @@
     <span class="n">credentials</span> <span class="o">=</span> <span class="n">netrc</span><span class="o">.</span><span class="n">netrc</span><span class="p">()</span>
     <span class="n">auth</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">authenticators</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
-        <span class="n">username</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">auth</span>
-        <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span>
+        <span class="n">username</span><span class="k">,</span> <span class="n">_</span><span class="k">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">auth</span>
+        <span class="k">return</span> <span class="n">username</span><span class="k">,</span> <span class="n">password</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 
 <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;example.com&quot;</span>
 <span class="n">credentials</span> <span class="o">=</span> <span class="n">get_credentials</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">credentials</span><span class="p">:</span>
-    <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">credentials</span>
+    <span class="n">username</span><span class="k">,</span> <span class="n">password</span> <span class="o">=</span> <span class="n">credentials</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authenticated on </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2"> with username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> and password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No credentials found for </span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

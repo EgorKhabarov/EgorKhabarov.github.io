@@ -82,7 +82,7 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestExternalDependency</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;module_with_dependency.external_function&quot;</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">test_external_function_mock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock_external_function</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_external_function_mock</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">mock_external_function</span><span class="p">):</span>
         <span class="c1"># Настройка возвращаемого значения</span>
         <span class="n">mock_external_function</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="mi">10</span>
 
@@ -91,17 +91,17 @@
 
         <span class="c1"># Проверка вызова mock</span>
         <span class="n">mock_external_function</span><span class="o">.</span><span class="n">assert_called_once</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="k">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3><code>patch()</code> как декоратор</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;module_with_dependency.ClassName&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">test_class_mock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">MockClass</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_class_mock</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">MockClass</span><span class="p">):</span>
     <span class="n">mock_instance</span> <span class="o">=</span> <span class="n">MockClass</span><span class="o">.</span><span class="n">return_value</span>
     <span class="n">mock_instance</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="s2">&quot;Mocked&quot;</span>
 
     <span class="n">result</span> <span class="o">=</span> <span class="n">mock_instance</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Mocked&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="k">,</span> <span class="s2">&quot;Mocked&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3><code>side_effect</code> для имитации исключений или возвращаемых значений</h3>
@@ -110,7 +110,7 @@
 <span class="n">mock_func</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">()</span>
 
 <span class="c1"># Сценарий: возвращаем разные значения при каждом вызове</span>
-<span class="n">mock_func</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">mock_func</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">mock_func</span><span class="p">())</span>  <span class="c1"># 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mock_func</span><span class="p">())</span>  <span class="c1"># 2</span>
@@ -153,7 +153,7 @@
 <span class="c1"># Определение тестовых классов</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TestClassA</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test_case_a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestClassB</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test_case_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

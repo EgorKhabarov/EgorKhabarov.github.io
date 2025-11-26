@@ -9,17 +9,17 @@
 <h2>Компоненты</h2>
 <p>Компоненты - это простые классы или структуры, содержащие только данные (никакой логики)</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Position</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="k">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Velocity</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">0</span><span class="k">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="n">dx</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="n">dy</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Health</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hp</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">hp</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hp</span> <span class="o">=</span> <span class="n">hp</span>
 </pre></div></div></div>
 
@@ -41,19 +41,19 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">components</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># {ComponentType: {entity_id: component}}</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_component</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">entity</span><span class="k">,</span> <span class="n">component</span><span class="p">):</span>
         <span class="n">ctype</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ctype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="n">ctype</span><span class="p">][</span><span class="n">entity</span><span class="p">]</span> <span class="o">=</span> <span class="n">component</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_component</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component_type</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">component_type</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_component</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">component_type</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">component_type</span><span class="k">,</span> <span class="p">{})</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_entity_components</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_entity_components</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">entity</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="n">ctype</span><span class="p">:</span> <span class="n">comps</span><span class="p">[</span><span class="n">entity</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">ctype</span><span class="p">,</span> <span class="n">comps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">ctype</span><span class="k">,</span> <span class="n">comps</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">comps</span>
         <span class="p">}</span>
 </pre></div></div></div>
@@ -62,7 +62,7 @@
 <p>Система перебирает сущности, у которых есть нужные компоненты, и применяет к ним поведение</p>
 <h3>Система перемещения</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MovementSystem</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">world</span><span class="k">,</span> <span class="n">dt</span><span class="p">):</span>
         <span class="n">positions</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="n">Position</span><span class="p">)</span>
         <span class="n">velocities</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="n">Velocity</span><span class="p">)</span>
 
@@ -76,9 +76,9 @@
 
 <h3>Система урона</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DamageSystem</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">world</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">world</span><span class="p">):</span>
         <span class="n">healths</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="n">Health</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">entity</span><span class="p">,</span> <span class="n">health</span> <span class="ow">in</span> <span class="n">healths</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">entity</span><span class="k">,</span> <span class="n">health</span> <span class="ow">in</span> <span class="n">healths</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">health</span><span class="o">.</span><span class="n">hp</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">health</span><span class="o">.</span><span class="n">hp</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entity </span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> is dead&quot;</span><span class="p">)</span>
@@ -93,12 +93,12 @@
 <span class="n">enemy</span> <span class="o">=</span> <span class="n">entities</span><span class="o">.</span><span class="n">create_entity</span><span class="p">()</span>
 
 <span class="c1"># Назначение компонентов</span>
-<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">Velocity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">Health</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="k">,</span> <span class="n">Position</span><span class="p">(</span><span class="mi">0</span><span class="k">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="k">,</span> <span class="n">Velocity</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">player</span><span class="k">,</span> <span class="n">Health</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">enemy</span><span class="p">,</span> <span class="n">Position</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">enemy</span><span class="p">,</span> <span class="n">Health</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">enemy</span><span class="k">,</span> <span class="n">Position</span><span class="p">(</span><span class="mi">5</span><span class="k">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">world</span><span class="o">.</span><span class="n">add_component</span><span class="p">(</span><span class="n">enemy</span><span class="k">,</span> <span class="n">Health</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># Создание систем</span>
 <span class="n">movement</span> <span class="o">=</span> <span class="n">MovementSystem</span><span class="p">()</span>
@@ -106,7 +106,7 @@
 
 <span class="c1"># Цикл обновления</span>
 <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">movement</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">movement</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">world</span><span class="k">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
     <span class="n">damage</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 </pre></div></div></div>
 
@@ -132,7 +132,7 @@
 <li>Могут быть проблемы с отладкой при большой вложенности</li>
 </ul>
 <h3>Фильтрация по компонентам</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_entities_with</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="o">*</span><span class="n">component_types</span><span class="p">):</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_entities_with</span><span class="p">(</span><span class="n">world</span><span class="k">,</span> <span class="o">*</span><span class="n">component_types</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">component_types</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -140,7 +140,7 @@
     <span class="k">return</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">sets</span><span class="p">)</span>
 </pre></div></div></div>
 
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">get_entities_with</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="n">Position</span><span class="p">,</span> <span class="n">Health</span><span class="p">):</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">get_entities_with</span><span class="p">(</span><span class="n">world</span><span class="k">,</span> <span class="n">Position</span><span class="k">,</span> <span class="n">Health</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="n">Position</span><span class="p">)[</span><span class="n">entity</span><span class="p">]</span>
     <span class="n">hp</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="n">Health</span><span class="p">)[</span><span class="n">entity</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Entity </span><span class="si">{</span><span class="n">entity</span><span class="si">}</span><span class="s2"> is at (</span><span class="si">{</span><span class="n">pos</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">pos</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">) with HP </span><span class="si">{</span><span class="n">hp</span><span class="o">.</span><span class="n">hp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

@@ -9,10 +9,10 @@
         <span class="n">bucket_list</span><span class="o">=</span><span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
             <span class="n">bucket_list</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">bucket_list</span><span class="p">,</span> <span class="p">[])</span>  <span class="c1"># Flattening a list of lists to a list</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">bucket_list</span><span class="k">,</span> <span class="p">[])</span>  <span class="c1"># Flattening a list of lists to a list</span>
     <span class="k">return</span> <span class="n">arr</span>
 
-<span class="n">arr</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">arr</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="k">,</span> <span class="mi">64</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="mi">13</span><span class="k">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">radixsort</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
 <span class="c1"># [0, 1, 2, 13, 28, 64]</span>
 </pre></div></div></div>
