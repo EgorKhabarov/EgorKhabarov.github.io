@@ -1,5 +1,5 @@
-<p><strong>Tkinter</strong> стандартная библиотека Python для создания графических пользовательских интерфейсов (GUI).
-Она проста в использовании и подходит для создания небольших приложений с интерфейсом.</p>
+<p><strong>Tkinter</strong> стандартная библиотека Python для создания графических пользовательских интерфейсов (GUI)
+Она проста в использовании и подходит для создания небольших приложений с интерфейсом</p>
 <p>Tkinter является встроенной библиотекой в Python, поэтому обычно не требует установки. Для проверки правильности установки можно запустить:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>tkinter
 </pre></div></div></div>
@@ -106,8 +106,7 @@
 </pre></div></div></div>
 
 <h2>Обработчики событий</h2>
-<p>Для того чтобы связывать события, такие как нажатие кнопки, с действиями в коде,
-используется параметр <code>command</code> для кнопок и других элементов</p>
+<p>Для того чтобы связывать события, такие как нажатие кнопки, с действиями в коде, используется параметр <code>command</code> для кнопок и других элементов</p>
 <p>Пример с обработкой нажатия кнопки</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_button_click</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Button clicked!&quot;</span><span class="p">)</span>
@@ -165,7 +164,7 @@
 </pre></div></div></div>
 
 <h2>Работа с графикой (Canvas)</h2>
-<p><code>Canvas</code> позволяет рисовать простые графические элементы: линии, овалы, прямоугольники, текст и изображения.</p>
+<p><code>Canvas</code> позволяет рисовать простые графические элементы: линии, овалы, прямоугольники, текст и изображения</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 

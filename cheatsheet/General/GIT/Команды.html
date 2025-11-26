@@ -115,8 +115,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </sp
 <p>Обычно не рекомендуется пропускать промежуточную среду
 Пропуск этапа этапа иногда может привести к включению нежелательных изменений</p>
 <h1>Новая ветка Git</h1>
-<p>Мы работаем в нашем локальном репозитории
-и не хотим нарушать или разрушать основной проект</p>
+<p>Мы работаем в нашем локальном репозитории и не хотим нарушать или разрушать основной проект</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>name<span class="w">              </span><span class="c1"># Создаем новый ветки</span>
 git<span class="w"> </span>checkout<span class="w"> </span>name<span class="w">            </span><span class="c1"># Извлечение файла ветки</span>
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;комментарий&quot;</span><span class="w">  </span><span class="c1"># Подтверждаем</span>
@@ -132,8 +131,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 </pre></div></div></div>
 
 <h1>Объединить ветки</h1>
-<p>У нас готово аварийное исправление,
-поэтому давайте объединим ветки <code>master</code> и <code>Emergency-fix</code>
+<p>У нас готово аварийное исправление, поэтому давайте объединим ветки <code>master</code> и <code>Emergency-fix</code>
 Во-первых, нам нужно перейти на ветку <code>master</code>:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
 git<span class="w"> </span>merge<span class="w"> </span>emergency-fix<span class="w">      </span><span class="c1"># Объединяем текущую ветку (master) с Emergency-fix</span>

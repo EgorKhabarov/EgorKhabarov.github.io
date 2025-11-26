@@ -16,11 +16,10 @@
 <span class="n">list</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
 </pre></div></div></div>
 
-<p>Тело метода состоит из одного выражения, поэтому фигурные скобки не указываются.
-Кроме того, в этом случае нет оператора <code>return</code>.
-Возвращается результат выполнения выражения <code>n * 2</code>.
-Мы можем явно указать фигурные скобки, но тогда необходимо явно указать и оператор <code>return</code>,
-а также точку с запятой в конце инструкции</p>
+<p>Тело метода состоит из одного выражения, поэтому фигурные скобки не указываются
+Кроме того, в этом случае нет оператора <code>return</code>
+Возвращается результат выполнения выражения <code>n * 2</code>
+Мы можем явно указать фигурные скобки, но тогда необходимо явно указать и оператор <code>return</code>, а также точку с запятой в конце инструкции</p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </pre></div></div></div>
 <p>При желании мы можем указать несколько инструкций, разделяя их точками с запятой</p>
@@ -32,20 +31,19 @@
 
 <h1>Область видимости лямбда-выражений</h1>
 <p>Внутри лямбда-выражения мы имеем доступ
-- К константам, объявленным внутри метода, содержащего лямбда-выражение.
-При условии, что константа объявлена до лямбда-выражения.
+- К константам, объявленным внутри метода, содержащего лямбда-выражение
+При условии, что константа объявлена до лямбда-выражения
 Внутри лямбда-выражения изменить значение константы нельзя
-- К локальным переменным, объявленным внутри метода, содержащего лямбда-выражение, которые не меняют своего значения после инициализации.
-При условии, что локальная переменная объявлена до лямбда-выражения.
+- К локальным переменным, объявленным внутри метода, содержащего лямбда-выражение, которые не меняют своего значения после инициализации
+При условии, что локальная переменная объявлена до лямбда-выражения
 Внутри лямбда-выражения изменить значение такой переменной нельзя
 - К статическим методам
-- К статическим переменным класса, а также к константам класса.
+- К статическим переменным класса, а также к константам класса
 Внутри лямбда-выражения можно изменить значение статической переменной класса
-- К полям и методам экземпляра, если лямбда-выражение создается внутри обычного метода.
-Внутри лямбда-выражения можно изменить значение поля.</p>
-<p>Обратите внимание: значение поля (и значение статической переменной класса) будет соответствовать значению на момент вызова,
-а не на момент создания лямбда-выражения.
-Если вы хотите сохранить значение поля на момент создания, то следует присвоить значение поля локальной переменной.</p>
+- К полям и методам экземпляра, если лямбда-выражение создается внутри обычного метода
+Внутри лямбда-выражения можно изменить значение поля</p>
+<p>Обратите внимание: значение поля (и значение статической переменной класса) будет соответствовать значению на момент вызова, а не на момент создания лямбда-выражения
+Если вы хотите сохранить значение поля на момент создания, то следует присвоить значение поля локальной переменной</p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.function.*</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>

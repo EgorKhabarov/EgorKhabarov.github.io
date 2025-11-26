@@ -1,4 +1,4 @@
-Библиотека "webcolors" используется для работы с цветами веб-страниц, конвертации цветовых кодов и определения названий цветов.
+Библиотека "webcolors" используется для работы с цветами веб-страниц, конвертации цветовых кодов и определения названий цветов
 
 Описание методов модуля "webcolors" и его подмодулей:
 
@@ -13,7 +13,7 @@
 
 Список часто используемых методов, их краткое описание и
 
-Метод `hex_to_rgb(hex_color)`: преобразует шестнадцатеричный код цвета в формат RGB.
+Метод `hex_to_rgb(hex_color)`: преобразует шестнадцатеричный код цвета в формат RGB
 
 ```python
 from webcolors import hex_to_rgb
@@ -23,7 +23,7 @@ rgb_color = hex_to_rgb(hex_color)
 print(rgb_color)  # (255, 0, 0)
 ```
 
-Метод `rgb_to_hex(rgb_color)`: преобразует цвет в формате RGB в шестнадцатеричный код.
+Метод `rgb_to_hex(rgb_color)`: преобразует цвет в формате RGB в шестнадцатеричный код
 
 ```python
 from webcolors import rgb_to_hex
@@ -33,7 +33,7 @@ hex_color = rgb_to_hex(rgb_color)
 print(hex_color)  # "#FF0000"
 ```
 
-Метод `name_to_rgb(color_name)`: возвращает RGB-значение заданного названия цвета.
+Метод `name_to_rgb(color_name)`: возвращает RGB-значение заданного названия цвета
 
 ```python
 from webcolors import name_to_rgb
@@ -43,7 +43,7 @@ rgb_color = name_to_rgb(color_name)
 print(rgb_color)  # (255, 0, 0)
 ```
 
-Метод `rgb_to_name(rgb_color)`: возвращает название цвета для заданного значения RGB.
+Метод `rgb_to_name(rgb_color)`: возвращает название цвета для заданного значения RGB
 
 ```python
 from webcolors import rgb_to_name

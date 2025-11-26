@@ -1,20 +1,19 @@
 <h3>Инклюды и импорт</h3>
 <!--{% raw %}-->
 <ul>
-<li><strong>Инклюд</strong>: Используется для включения другого шаблона в текущий.
-Это удобно для повторного использования небольших блоков <code>HTML</code>,
-таких как заголовки, подвал сайта или навигационные меню.</li>
+<li><strong>Инклюд</strong>: Используется для включения другого шаблона в текущий
+Это удобно для повторного использования небольших блоков <code>HTML</code>, таких как заголовки, подвал сайта или навигационные меню</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;header.html&quot;</span> <span class="cp">%}</span>
 <span class="x">&lt;p&gt;Main content goes here.&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;footer.html&quot;</span> <span class="cp">%}</span>
 </pre></div></div></div>
-<p>При использовании <code>{% include %}</code> можно также передавать переменные в включаемый шаблон.
-  - <strong>Импорт макросов</strong>: Позволяет импортировать макросы из других шаблонов для повторного использования кода.</p>
+<p>При использовании <code>{% include %}</code> можно также передавать переменные в включаемый шаблон
+  - <strong>Импорт макросов</strong>: Позволяет импортировать макросы из других шаблонов для повторного использования кода</p>
 <div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros.html&quot;</span> <span class="k">import</span> <span class="nv">render_item</span> <span class="cp">%}</span>
 <span class="x">&lt;div&gt;</span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">render_item</span><span class="o">(</span><span class="nv">item</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="x">&lt;/div&gt;</span>
 </pre></div></div></div>
-<p>Это позволяет хранить макросы в отдельных файлах, упрощая их поддержку и организацию.</p>
+<p>Это позволяет хранить макросы в отдельных файлах, упрощая их поддержку и организацию</p>
 <!--{% endraw %}-->

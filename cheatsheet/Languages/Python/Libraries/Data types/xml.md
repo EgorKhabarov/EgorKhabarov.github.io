@@ -18,7 +18,7 @@ root = tree.getroot()
 ```
 
 ### xml.etree.ElementTree.Element.findall(tag)
-Возвращает список элементов с указанным тегом.
+Возвращает список элементов с указанным тегом
 
 ```python
 import xml.etree.ElementTree as ET

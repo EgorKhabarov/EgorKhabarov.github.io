@@ -59,8 +59,7 @@ The request has been received but not yet acted upon
 It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request
 It is intended for cases where another process or server handles the request, or for batch processing
 ### 203 Non-Authoritative information
-This response code means the returned meta information is not exactly the same
-as is available from the origin servet, but is collected from a local or a third-party copy
+This response code means the returned meta information is not exactly the same as is available from the origin servet, but is collected from a local or a third-party copy
 This is mostly used for mirrors or backups of another resource
 Except for that specific case, the "200 OK" response is preferred to this status
 ### 204 No Content
@@ -75,8 +74,7 @@ Conveys information about multiple resources, for situations where multiple stat
 ### 208 Already Reported
 Used inside a response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection
 ### 226 IM Used
-The server has fulfilled a GET request for the resource, and the response
-is a representation of the result of one or more instance manipulations applied to the current instance
+The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance manipulations applied to the current instance
 
 <details>
     <summary>2xx</summary>
@@ -97,8 +95,8 @@ is a representation of the result of one or more instance manipulations applied 
 
 ### 300 Multiple Choice
 The request has more than oné possible response
-The user-agent or user should choose one of them. (There is no standardized way of choosing
-one of the responses, but HTML links to the possibilities are recommended so the user can pick)
+The user-agent or user should choose one of them
+There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick
 ### 301 Moved Permanently
 The URL of the requested resource has been changed permanently
 The new URL is given in the response
@@ -109,22 +107,18 @@ Therefore, this same URi should be used by the client in future requests
 ### 303 See Other
 The server sent this response to direct the client to get the requested resource at another URI with a GET request
 ### 304 Not Modified
-This is used for caching purposes it tells the client that the response
-has not been modified, so the client can continue to use the same cached version of the response,
+This is used for caching purposes it tells the client that the response has not been modified, so the client can continue to use the same cached version of the response,
 ### 305 Use Proxy
-Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by
-a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy
+Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy
 ### 306 Unused
 This response code is no longer used, it is just reserved
 It was used in a previous version of the HTTP/1.1 specification
 ### 307 Temporary Redirect
 The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request
-This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used
-if a POST was used in the first request a POST must be used in the second request
+This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used if a POST was used in the first request a POST must be used in the second request
 ### 308 Permanent Redirect
 This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header
-This has the same semantics as the 301 Moved Permanently HTTP response code,
-with the exception that the user agent must not change the HTTP method used:
+This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used:
 if a POST was used in the fist request, a POST must be used in the second request
 
 <details>

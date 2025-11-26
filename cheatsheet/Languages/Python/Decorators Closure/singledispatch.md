@@ -1,6 +1,6 @@
 # @singledispatch
-`@singledispatch` позволяет перегружать функцию по типу первого аргумента.
-Он полезен для функций, работающих с разными типами данных.
+`@singledispatch` позволяет перегружать функцию по типу первого аргумента
+Он полезен для функций, работающих с разными типами данных
 
 [[Languages/Python/Libraries/Python/functools]]
 
@@ -25,7 +25,7 @@ process("hello")  # String: HELLO
 ## @singledispatch для методов
 
 Чтобы использовать `@singledispatch` с методами, нужно добавить дополнительный декоратор
-[@staticmethod](?Languages/Python/Decorators%20Closure/staticmethod) или [@classmethod](?Languages/Python/Decorators%20Closure/classmethod), чтобы метод не принимал первый параметр `self`.
+[@staticmethod](?Languages/Python/Decorators%20Closure/staticmethod) или [@classmethod](?Languages/Python/Decorators%20Closure/classmethod), чтобы метод не принимал первый параметр `self`
 
 ```python
 from functools import singledispatch

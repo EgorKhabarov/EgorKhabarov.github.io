@@ -57,8 +57,7 @@ This is typically the response sent after POST requests, or same FUT requests</p
 It is noncommittal since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request
 It is intended for cases where another process or server handles the request, or for batch processing</p>
 <h3>203 Non-Authoritative information</h3>
-<p>This response code means the returned meta information is not exactly the same
-as is available from the origin servet, but is collected from a local or a third-party copy
+<p>This response code means the returned meta information is not exactly the same as is available from the origin servet, but is collected from a local or a third-party copy
 This is mostly used for mirrors or backups of another resource
 Except for that specific case, the "200 OK" response is preferred to this status</p>
 <h3>204 No Content</h3>
@@ -73,8 +72,7 @@ The user-agent may update its cached headers for this resource with the new ones
 <h3>208 Already Reported</h3>
 <p>Used inside a response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection</p>
 <h3>226 IM Used</h3>
-<p>The server has fulfilled a GET request for the resource, and the response
-is a representation of the result of one or more instance manipulations applied to the current instance</p>
+<p>The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance manipulations applied to the current instance</p>
 <details>
     <summary>2xx</summary>
     <img alt="http-status-code2-xx.png" src="General/HTTP/2xx.png" style="width: 20em;">
@@ -94,8 +92,8 @@ is a representation of the result of one or more instance manipulations applied 
 </ul>
 <h3>300 Multiple Choice</h3>
 <p>The request has more than oné possible response
-The user-agent or user should choose one of them. (There is no standardized way of choosing
-one of the responses, but HTML links to the possibilities are recommended so the user can pick)</p>
+The user-agent or user should choose one of them
+There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick</p>
 <h3>301 Moved Permanently</h3>
 <p>The URL of the requested resource has been changed permanently
 The new URL is given in the response</p>
@@ -106,22 +104,18 @@ Therefore, this same URi should be used by the client in future requests</p>
 <h3>303 See Other</h3>
 <p>The server sent this response to direct the client to get the requested resource at another URI with a GET request</p>
 <h3>304 Not Modified</h3>
-<p>This is used for caching purposes it tells the client that the response
-has not been modified, so the client can continue to use the same cached version of the response,</p>
+<p>This is used for caching purposes it tells the client that the response has not been modified, so the client can continue to use the same cached version of the response,</p>
 <h3>305 Use Proxy</h3>
-<p>Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by
-a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy</p>
+<p>Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy it has been deprecated due to security concerns regarding in-band configuration ol a proxy</p>
 <h3>306 Unused</h3>
 <p>This response code is no longer used, it is just reserved
 It was used in a previous version of the HTTP/1.1 specification</p>
 <h3>307 Temporary Redirect</h3>
 <p>The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request
-This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used
-if a POST was used in the first request a POST must be used in the second request</p>
+This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used if a POST was used in the first request a POST must be used in the second request</p>
 <h3>308 Permanent Redirect</h3>
 <p>This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header
-This has the same semantics as the 301 Moved Permanently HTTP response code,
-with the exception that the user agent must not change the HTTP method used:
+This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used:
 if a POST was used in the fist request, a POST must be used in the second request</p>
 <details>
     <summary>3xx</summary>
