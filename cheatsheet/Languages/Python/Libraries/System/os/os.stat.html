@@ -11,7 +11,7 @@
 <li><code>follow_symlinks</code> - Указывает, нужно ли следовать символическим ссылкам</li>
 </ul>
 <h1>Возвращаемый объект <code>os.stat_result</code></h1>
-<p>Результат вызова <code>os.stat()</code> — объект <code>os.stat_result</code>, который является кортежем с именованными полями:</p>
+<p>Результат вызова <code>os.stat()</code> объект <code>os.stat_result</code>, который является кортежем с именованными полями:</p>
 <table>
 <thead>
 <tr>
@@ -102,11 +102,11 @@
 <span class="n">stat_info</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_ISDIR</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это директория.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> директория&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_ISREG</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это обычный файл.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> обычный файл&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> — это другой тип файла.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> другой тип файла&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Права доступа: </span><span class="si">{</span><span class="nb">oct</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">S_IMODE</span><span class="p">(</span><span class="n">stat_info</span><span class="o">.</span><span class="n">st_mode</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -116,9 +116,9 @@
 
 <h3>Частые применения</h3>
 <ol>
-<li>Проверка размера файла — чтобы убедиться, что файл не пустой или не превышает определенного размера</li>
-<li>Проверка прав доступа — для проверки или изменения прав доступа перед выполнением операций над файлом</li>
-<li>Анализ времени изменения файла — для выполнения действий на основе того, как давно файл был изменен</li>
+<li>Проверка размера файла чтобы убедиться, что файл не пустой или не превышает определенного размера</li>
+<li>Проверка прав доступа для проверки или изменения прав доступа перед выполнением операций над файлом</li>
+<li>Анализ времени изменения файла для выполнения действий на основе того, как давно файл был изменен</li>
 </ol>
 <h1>Полезные ссылки</h1>
 <ul>

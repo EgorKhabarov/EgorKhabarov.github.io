@@ -1,13 +1,13 @@
-<p><strong>PyQt5</strong> — это набор привязок Python к инструментам Qt5,
-который позволяет создавать кроссплатформенные графические пользовательские интерфейсы (GUI).</p>
+<p><strong>PyQt5</strong> набор привязок Python к инструментам Qt5,
+который позволяет создавать кроссплатформенные графические пользовательские интерфейсы (GUI)</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pyqt5
 </pre></div></div></div>
 
 <h1>Основные классы</h1>
 <ul>
-<li>QApplication — основной класс приложения.</li>
-<li>QMainWindow — класс главного окна.</li>
-<li>QLabel — метка для отображения текста.</li>
+<li>QApplication - основной класс приложения</li>
+<li>QMainWindow - класс главного окна</li>
+<li>QLabel - метка для отображения текста</li>
 </ul>
 <h1>Основные виджеты в PyQt5</h1>
 <table>
@@ -67,8 +67,8 @@
 </tbody>
 </table>
 <h1>Работа с событиями</h1>
-<p>В PyQt5 каждый виджет может реагировать на различные события, такие как нажатие кнопок, изменение текста и т.д.
-Для обработки событий используются сигналы и слоты.</p>
+<p>В PyQt5 каждый виджет может реагировать на различные события, такие как нажатие кнопок, изменение текста и т.д
+Для обработки событий используются сигналы и слоты</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QMainWindow</span>
 
@@ -91,8 +91,8 @@
 
 <p>Сигналы и слоты:</p>
 <ul>
-<li><code>clicked.connect(slot)</code> — связывает сигнал с функцией-слотом.</li>
-<li>Слот — это метод, который выполняется при наступлении события.</li>
+<li><code>clicked.connect(slot)</code> - связывает сигнал с функцией-слотом</li>
+<li>Слот - это метод, который выполняется при наступлении события</li>
 </ul>
 <h1>Макеты (Layouts)</h1>
 <p>Макеты в PyQt5 используются для управления размещением виджетов внутри окон</p>
@@ -122,7 +122,7 @@
 </tr>
 <tr>
 <td><code>QFormLayout</code></td>
-<td>Макет для пар "метка — элемент ввода"</td>
+<td>Макет для пар "метка - элемент ввода"</td>
 <td><code>layout = QFormLayout()</code></td>
 </tr>
 </tbody>
@@ -195,8 +195,8 @@
 <h1>Управление положением и размерами виджетов</h1>
 <p>Вы можете задавать размеры и положение виджетов вручную, либо с помощью макетов</p>
 <ul>
-<li><code>move(x, y)</code> — перемещает виджет.</li>
-<li><code>resize(width, height)</code> — изменяет размер виджета.</li>
+<li><code>move(x, y)</code> перемещает виджет</li>
+<li><code>resize(width, height)</code> изменяет размер виджета</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Кнопка&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 <span class="n">button</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Положение</span>

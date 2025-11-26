@@ -1,4 +1,4 @@
-<p><code>mypy</code> — это статический анализатор типов для Python.
+<p><code>mypy</code> статический анализатор типов для Python.
 Он помогает разработчикам выявлять ошибки в типах на этапе компиляции, до выполнения программы.
 Это полезно для больших проектов, где сложно отследить все возможные ошибки типов во время выполнения.
 В отличие от стандартного динамического поведения Python, с помощью <code>mypy</code> можно явно аннотировать типы переменных,
@@ -30,7 +30,7 @@
     <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
 </pre></div></div></div>
 
-<p>Здесь <code>name</code> — строка (<code>str</code>), и функция должна возвращать строку.
+<p>Здесь <code>name</code> строка (<code>str</code>), и функция должна возвращать строку.
 Если типы будут несоответствующими, <code>mypy</code> выдаст предупреждение.</p>
 <h3>Проверка типов</h3>
 <p>Чтобы запустить проверку типов с помощью <code>mypy</code>, выполните команду:</p>
@@ -96,8 +96,8 @@
 </pre></div></div></div>
 
 <ul>
-<li><code>python_version</code> — указывает версию Python.</li>
-<li><code>ignore_missing_imports</code> — игнорирует отсутствующие модули.</li>
-<li><code>disallow_untyped_calls</code> — запрещает вызов неаннотированных функций.</li>
-<li><code>strict_optional</code> — включает строгую проверку для <code>Optional</code>.</li>
+<li><code>python_version</code> указывает версию Python.</li>
+<li><code>ignore_missing_imports</code> игнорирует отсутствующие модули.</li>
+<li><code>disallow_untyped_calls</code> запрещает вызов неаннотированных функций.</li>
+<li><code>strict_optional</code> включает строгую проверку для <code>Optional</code>.</li>
 </ul>

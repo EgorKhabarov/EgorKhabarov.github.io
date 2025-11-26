@@ -1,6 +1,6 @@
 ### Шпаргалка по библиотеке Peewee
 
-**Peewee** — это простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
+**Peewee** простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
 которая позволяет взаимодействовать с базами данных через Python-классы и объекты.
 
 ```bash
