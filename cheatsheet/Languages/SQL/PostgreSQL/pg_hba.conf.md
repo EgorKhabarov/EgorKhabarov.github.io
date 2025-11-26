@@ -35,6 +35,6 @@ net start postgresql-x64-16
 
 > Удалённое соединение по `TCP/IP` невозможно, если сервер запущен без определения соответствующих значений
 > для параметра конфигурации `listen_addresses`, поскольку по умолчанию система принимает подключения по `TCP/IP`
-> только для локального адреса замыкания `localhost`.
+> только для локального адреса замыкания `localhost`
 
 [https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf](https://postgrespro.ru/docs/postgrespro/10/auth-pg-hba-conf)

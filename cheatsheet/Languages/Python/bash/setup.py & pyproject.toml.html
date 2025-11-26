@@ -1,16 +1,13 @@
 <h1>[extras_require]</h1>
 <p>Дополнительные зависимости</p>
-<p>Используется для того, чтобы предложить пользователю установить дополнительные зависимости,
-которые могут быть нужны только для определенных возможностей библиотеки.</p>
+<p>Используется для того, чтобы предложить пользователю установить дополнительные зависимости, которые могут быть нужны только для определенных возможностей библиотеки</p>
 <div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>pip install libname[all]
 </pre></div></div></div>
-<p>означает, что вместе с пакетом <code>libname</code> будут установлены все зависимости,
-указанные для ключа <code>all</code> в файле <code>setup.py</code> или <code>pyproject.toml</code>.
-В квадратных скобках указывается набор функциональности, для которой нужны дополнительные пакеты.
-Например, может быть указано <code>libname[dev]</code> для установки зависимостей, необходимых для разработки,
-или <code>libname[security]</code> для установки дополнительных пакетов, связанных с безопасностью.</p>
+<p>Означает, что вместе с пакетом <code>libname</code> будут установлены все зависимости, указанные для ключа <code>all</code> в файле <code>setup.py</code> или <code>pyproject.toml</code>
+В квадратных скобках указывается набор функциональности, для которой нужны дополнительные пакеты
+Например, может быть указано <code>libname[dev]</code> для установки зависимостей, необходимых для разработки, или <code>libname[security]</code> для установки дополнительных пакетов, связанных с безопасностью</p>
 <h2>Как это реализовать</h2>
-<p>Нужно отредактировать файл <code>setup.py</code> или <code>pyproject.toml</code> и использовать ключ <code>extras_require</code>.</p>
+<p>Нужно отредактировать файл <code>setup.py</code> или <code>pyproject.toml</code> и использовать ключ <code>extras_require</code></p>
 <h3>setup.py</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
 
@@ -38,9 +35,9 @@
 <span class="p">)</span>
 </pre></div></div></div>
 <ul>
-<li>Основные зависимости перечислены в <code>install_requires</code>. Они будут установлены всегда.</li>
-<li>Опциональные зависимости добавляются через ключ <code>extras_require</code>.
-Здесь мы добавили два набора зависимостей: <code>dev</code> и <code>security</code>, а также их комбинацию <code>all</code>.</li>
+<li>Основные зависимости перечислены в <code>install_requires</code>. Они будут установлены всегда</li>
+<li>Опциональные зависимости добавляются через ключ <code>extras_require</code>
+Здесь мы добавили два набора зависимостей: <code>dev</code> и <code>security</code>, а также их комбинацию <code>all</code></li>
 </ul>
 <h3>pyproject.toml</h3>
 <div class="code_element"><div class="lang_line"><text>toml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-toml"><div class="highlight"><pre><span></span><span class="k">[tool.poetry]</span>
@@ -80,7 +77,7 @@
 <li><strong><code>your_module:main_function</code></strong> - путь до модуля и функции, которая будет вызвана при выполнении команды</li>
 </ul>
 <h3>setup.cfg</h3>
-<p>Этот способ позволяет вынести конфигурацию из кода в файл <code>setup.cfg</code>. Это делает конфигурацию более декларативной.</p>
+<p>Этот способ позволяет вынести конфигурацию из кода в файл <code>setup.cfg</code>. Это делает конфигурацию более декларативной</p>
 <div class="code_element"><div class="lang_line"><text>ini</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ini"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">your_library_name</span>
 <span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1</span>
