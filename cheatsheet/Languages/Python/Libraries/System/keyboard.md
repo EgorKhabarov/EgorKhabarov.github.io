@@ -13,7 +13,7 @@
 
 Список самых часто используемых методов библиотеки "keyboard":
 
-keyboard.press(): эмулирует нажатие клавиши.
+keyboard.press(): эмулирует нажатие клавиши
 
 ```python
 import keyboard
@@ -21,7 +21,7 @@ import keyboard
 keyboard.press("A")  # Нажатие клавиши "A"
 ```
 
-keyboard.release(): освобождает заданную клавишу после её нажатия.
+keyboard.release(): освобождает заданную клавишу после её нажатия
 
 ```python
 import keyboard
@@ -29,7 +29,7 @@ import keyboard
 keyboard.release("A")  # Освобождение клавиши "A"
 ```
 
-keyboard.is_pressed(): проверяет, нажата ли заданная клавиша.
+keyboard.is_pressed(): проверяет, нажата ли заданная клавиша
 
 ```python
 import keyboard

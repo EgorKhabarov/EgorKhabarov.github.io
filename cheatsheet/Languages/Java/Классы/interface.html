@@ -16,12 +16,12 @@
 <li>Поля <code>public final static</code></li>
 </ul>
 <h1>Статические константы</h1>
-<p>Помимо сигнатур методов, в блоке интерфейса можно создавать общедоступные статические константы.
+<p>Помимо сигнатур методов, в блоке интерфейса можно создавать общедоступные статические константы
 Так как создать допускается только статические константы, ключевые слова <code>static</code> и <code>final</code> обычно не указываются
 Константы просто наследуются классом и доступны через название класса или через название интерфейса</p>
 <h1>Статические методы</h1>
-<p>Внутри блока интерфейса можно определить статические методы с реализацией.
-Такие методы доступны внутри блока интерфейса, а также через название интерфейса.
+<p>Внутри блока интерфейса можно определить статические методы с реализацией
+Такие методы доступны внутри блока интерфейса, а также через название интерфейса
 Переопределить такие методы внутри класса <strong>нельзя</strong>, и через экземпляр класса или название класса они <strong>недоступны</strong></p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">IStatic</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

@@ -682,8 +682,8 @@
 </table>
 <h1>Примеры</h1>
 <h2>__class_getitem__</h2>
-<p>Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами <code>generics</code>.
-Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code>.</p>
+<p>Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами <code>generics</code>
+Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code></p>
 <h3>Обобщённые классы (Generics)</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
@@ -696,8 +696,7 @@
 </pre></div></div></div>
 
 <h3>Пример для создания обобщённых классов</h3>
-<p><code>__class_getitem__</code> часто используется в таких библиотеках,
-как <code>typing</code>, для создания обобщённых <code>generics</code> классов.</p>
+<p><code>__class_getitem__</code> часто используется в таких библиотеках, как <code>typing</code>, для создания обобщённых <code>generics</code> классов</p>
 <h4>Пример реализации собственного Generic-класса:</h4>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyGeneric</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>

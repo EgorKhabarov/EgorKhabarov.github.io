@@ -1,8 +1,7 @@
 <p>&amp;&amp; (И)
 || (ИЛИ)
 ! (НЕ)</p>
-<p>Если необходимо проверить несколько условий в одном операторе,
-то можно воспользоваться логическим «и» или же логическим «или»:</p>
+<p>Если необходимо проверить несколько условий в одном операторе, то можно воспользоваться логическим «и» или же логическим «или»:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Код будет выполнен, если и первое, и второе условие</span>
 <span class="w">    </span><span class="c1">// окажутся верными</span>
@@ -65,7 +64,7 @@
 </pre></div></div></div>
 
 <p>Логично было бы предположить, что программа выведет EQUAL 0.3
-Однако программа напечатает NOT EQUAL 0.3.
+Однако программа напечатает NOT EQUAL 0.3
 Данная «ошибка вычисления» встречается в большинстве современных языков программирования и обусловлена погрешностью представления этих чисел
 Если повысить число знаков дробной части в выводе, мы увидим, что 0.1 + 0.2 == 0.30000000000000004</p>
 <p>Поскольку операции над числами с плавающей точкой могут содержать погрешность, обычное сравнение через == некорректно

@@ -1,6 +1,6 @@
-Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода.
+Библиотека io в Python предоставляет возможности работы с потоками ввода-вывода
 
-io.StringIO() - создание в памяти строкового потока.
+io.StringIO() - создание в памяти строкового потока
 
 ```python
 import io
@@ -11,7 +11,7 @@ stream.seek(0)
 print(stream.read())  # Hello, world!
 ```
 
-io.BytesIO() - создание в памяти потока байт.
+io.BytesIO() - создание в памяти потока байт
 
 ```python
 import io
@@ -22,7 +22,7 @@ stream.seek(0)
 print(stream.read())  # b"Hello, world!"
 ```
 
-io.open() - открытие файла в нужном режиме.
+io.open() - открытие файла в нужном режиме
 
 ```python
 import io
@@ -34,7 +34,7 @@ with io.open("example.txt", "r") as file:
     print(file.read())  # Hello, world!
 ```
 
-io.TextIOWrapper() - обертка для текстовых потоков.
+io.TextIOWrapper() - обертка для текстовых потоков
 
 ```python
 import io
@@ -48,7 +48,7 @@ with io.open("example.txt", "r") as file:
     print(wrapper.read())  # Привет, мир!
 ```
 
-io.BufferedWriter() - буферизированный записывающий поток.
+io.BufferedWriter() - буферизированный записывающий поток
 
 ```python
 import io
@@ -62,7 +62,7 @@ with io.open("example.txt", "rb") as file:
     print(reader.read())  # b"Hello, world!"
 ```
 
-io.BufferedReader() - буферизированный читающий поток.
+io.BufferedReader() - буферизированный читающий поток
 
 ```python
 import io
@@ -75,7 +75,7 @@ with io.open("example.txt", "rb") as file:
     print(reader.read())  # b"Hello, world!"
 ```
 
-io.FileIO() - создание потока для работы с файлом в бинарном режиме.
+io.FileIO() - создание потока для работы с файлом в бинарном режиме
 
 ```python
 import io
@@ -87,7 +87,7 @@ with io.FileIO("example.txt", "r") as file:
     print(file.read())  # b"Hello, world!"
 ```
 
-io.TextIOBase() - базовый класс для всех текстовых потоков.
+io.TextIOBase() - базовый класс для всех текстовых потоков
 
 ```python
 import io
@@ -110,7 +110,7 @@ with io.open("example.txt", "r") as file:
     print(wrapper.read())  # HELLO, WORLD!
 ```
 
-io.StringIO.getvalue() - получение содержимого из строкового потока.
+io.StringIO.getvalue() - получение содержимого из строкового потока
 
 ```python
 import io
@@ -120,7 +120,7 @@ stream.write("Hello, world!")
 print(stream.getvalue())  # Hello, world!
 ```
 
-io.BytesIO.getvalue() - получение содержимого из потока байт.
+io.BytesIO.getvalue() - получение содержимого из потока байт
 
 ```python
 import io
@@ -130,7 +130,7 @@ stream.write(b"Hello, world!")
 print(stream.getvalue())  # b"Hello, world!"
 ```
 
-io.TextIOWrapper.detach() - отсоединение потока от обертки.
+io.TextIOWrapper.detach() - отсоединение потока от обертки
 
 ```python
 import io
@@ -146,7 +146,7 @@ with io.open("example.txt", "r") as file:
     print(wrapper.read())  # Hello, world!!!
 ```
 
-io.BufferedRandom() - буферизированный поток с произвольным доступом.
+io.BufferedRandom() - буферизированный поток с произвольным доступом
 
 ```python
 import io
