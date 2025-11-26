@@ -1,22 +1,21 @@
-<p><code>mypy</code> статический анализатор типов для Python.
-Он помогает разработчикам выявлять ошибки в типах на этапе компиляции, до выполнения программы.
-Это полезно для больших проектов, где сложно отследить все возможные ошибки типов во время выполнения.
-В отличие от стандартного динамического поведения Python, с помощью <code>mypy</code> можно явно аннотировать типы переменных,
-аргументов функций и возвращаемых значений, чтобы повысить безопасность кода.</p>
+<p><code>mypy</code> статический анализатор типов для Python
+Он помогает разработчикам выявлять ошибки в типах на этапе компиляции, до выполнения программы
+Это полезно для больших проектов, где сложно отследить все возможные ошибки типов во время выполнения
+В отличие от стандартного динамического поведения Python, с помощью <code>mypy</code> можно явно аннотировать типы переменных, аргументов функций и возвращаемых значений, чтобы повысить безопасность кода</p>
 <h1>Основные особенности и функции</h1>
 <h3>Аннотация типов</h3>
 <ul>
-<li><code>mypy</code> использует встроенную систему аннотаций типов в Python 3.5+.</li>
-<li>Аннотации типов добавляются с помощью синтаксиса Python для аргументов функций, возвращаемых значений и переменных.</li>
+<li><code>mypy</code> использует встроенную систему аннотаций типов в Python 3.5+</li>
+<li>Аннотации типов добавляются с помощью синтаксиса Python для аргументов функций, возвращаемых значений и переменных</li>
 </ul>
 <h3>Поддержка стандартных типов</h3>
 <ul>
-<li><code>mypy</code> поддерживает типы из стандартной библиотеки <code>typing</code>: <code>List</code>, <code>Dict</code>, <code>Tuple</code>, <code>Union</code> и другие.</li>
+<li><code>mypy</code> поддерживает типы из стандартной библиотеки <code>typing</code>: <code>List</code>, <code>Dict</code>, <code>Tuple</code>, <code>Union</code> и другие</li>
 </ul>
 <h3>Поддержка статической и динамической типизации</h3>
 <ul>
-<li>Модели, не аннотированные типами, остаются динамическими.</li>
-<li>Можно комбинировать статическую и динамическую типизацию.</li>
+<li>Модели, не аннотированные типами, остаются динамическими</li>
+<li>Можно комбинировать статическую и динамическую типизацию</li>
 </ul>
 <h1>Пример использования <code>mypy</code></h1>
 <h3>Установка</h3>
@@ -30,8 +29,8 @@
     <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
 </pre></div></div></div>
 
-<p>Здесь <code>name</code> строка (<code>str</code>), и функция должна возвращать строку.
-Если типы будут несоответствующими, <code>mypy</code> выдаст предупреждение.</p>
+<p>Здесь <code>name</code> строка (<code>str</code>), и функция должна возвращать строку
+Если типы будут несоответствующими, <code>mypy</code> выдаст предупреждение</p>
 <h3>Проверка типов</h3>
 <p>Чтобы запустить проверку типов с помощью <code>mypy</code>, выполните команду:</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>your_script.py
@@ -72,7 +71,7 @@
 </pre></div></div></div>
 
 <h3>TypedDict</h3>
-<p><code>TypedDict</code> позволяет аннотировать словари с заранее известными ключами.</p>
+<p><code>TypedDict</code> позволяет аннотировать словари с заранее известными ключами</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypedDict</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -96,8 +95,8 @@
 </pre></div></div></div>
 
 <ul>
-<li><code>python_version</code> указывает версию Python.</li>
-<li><code>ignore_missing_imports</code> игнорирует отсутствующие модули.</li>
-<li><code>disallow_untyped_calls</code> запрещает вызов неаннотированных функций.</li>
-<li><code>strict_optional</code> включает строгую проверку для <code>Optional</code>.</li>
+<li><code>python_version</code> указывает версию Python</li>
+<li><code>ignore_missing_imports</code> игнорирует отсутствующие модули</li>
+<li><code>disallow_untyped_calls</code> запрещает вызов неаннотированных функций</li>
+<li><code>strict_optional</code> включает строгую проверку для <code>Optional</code></li>
 </ul>

@@ -1,7 +1,6 @@
 ### Шпаргалка по библиотеке Peewee
 
-**Peewee** простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python,
-которая позволяет взаимодействовать с базами данных через Python-классы и объекты.
+**Peewee** простая и небольшая **ORM** (**Object-Relational Mapping**) библиотека для Python, которая позволяет взаимодействовать с базами данных через Python-классы и объекты
 
 ```bash
 pip install peewee
@@ -9,7 +8,7 @@ pip install peewee
 
 # Подключение
 
-Peewee поддерживает разные базы данных: `SQLite`, `MySQL`, `PostgreSQL` и т.д.
+Peewee поддерживает разные базы данных: `SQLite`, `MySQL`, `PostgreSQL` и т.д
 
 ### SQLite
 ```python
@@ -154,7 +153,7 @@ user_counts = User.select(fn.COUNT(User.id)).group_by(User.age)
 ```
 
 # Транзакции
-Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию.
+Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию
 ```python
 with db.atomic():
     User.create(username="alice", age=23)
@@ -162,7 +161,7 @@ with db.atomic():
 ```
 
 ### Пример построения структуры базы данных
-Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги.
+Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги
 ```python
 import datetime
 from peewee import Model, CharField, TextField, ForeignKeyField, DateTimeField, SqliteDatabase
@@ -218,7 +217,7 @@ first_page = paginate(User.select(), 1, 10)
 ```
 
 # Миграции
-Для изменения структуры базы данных рекомендуется использовать миграции.
+Для изменения структуры базы данных рекомендуется использовать миграции
 В Peewee для этого есть библиотека `playhouse.migrate`
 ```python
 from playhouse.migrate import *

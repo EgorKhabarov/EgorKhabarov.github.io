@@ -1,5 +1,5 @@
-<p>Функция <code>os.stat()</code> используется для получения информации о файле или каталоге по его пути.
-Она возвращает объект <code>os.stat_result</code>, который содержит различные атрибуты, описывающие состояние файла.</p>
+<p>Функция <code>os.stat()</code> используется для получения информации о файле или каталоге по его пути
+Она возвращает объект <code>os.stat_result</code>, который содержит различные атрибуты, описывающие состояние файла</p>
 <h1>Синтаксис</h1>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dir_fd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">follow_symlinks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div></div></div>
@@ -87,7 +87,7 @@
 </pre></div></div></div>
 
 <h1>Полезные функции для анализа <code>st_mode</code></h1>
-<p>Флаг <code>st_mode</code> может содержать информацию о правах доступа и типе файла.
+<p>Флаг <code>st_mode</code> может содержать информацию о правах доступа и типе файла
 Для упрощения анализа можно использовать следующие функции из модуля <a target="_self" href="?Languages/Python/Libraries/System/stat" class="wikilink">stat</a>:</p>
 <ul>
 <li><code>stat.S_ISDIR(mode)</code> - Проверяет, является ли файл директорией</li>

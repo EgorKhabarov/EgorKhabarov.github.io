@@ -1,11 +1,10 @@
 <h3>Шпаргалка по библиотеке Peewee</h3>
-<p><strong>Peewee</strong> простая и небольшая <strong>ORM</strong> (<strong>Object-Relational Mapping</strong>) библиотека для Python,
-которая позволяет взаимодействовать с базами данных через Python-классы и объекты.</p>
+<p><strong>Peewee</strong> простая и небольшая <strong>ORM</strong> (<strong>Object-Relational Mapping</strong>) библиотека для Python, которая позволяет взаимодействовать с базами данных через Python-классы и объекты</p>
 <div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>peewee
 </pre></div></div></div>
 
 <h1>Подключение</h1>
-<p>Peewee поддерживает разные базы данных: <code>SQLite</code>, <code>MySQL</code>, <code>PostgreSQL</code> и т.д.</p>
+<p>Peewee поддерживает разные базы данных: <code>SQLite</code>, <code>MySQL</code>, <code>PostgreSQL</code> и т.д</p>
 <h3>SQLite</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">peewee</span><span class="w"> </span><span class="kn">import</span> <span class="n">SqliteDatabase</span>
 
@@ -131,14 +130,14 @@
 </pre></div></div></div>
 
 <h1>Транзакции</h1>
-<p>Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию.</p>
+<p>Транзакции в Peewee позволяют выполнять несколько запросов к базе данных как одну атомарную операцию</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">db</span><span class="o">.</span><span class="n">atomic</span><span class="p">():</span>
     <span class="n">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
     <span class="n">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>Пример построения структуры базы данных</h3>
-<p>Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги.</p>
+<p>Допустим, мы создаем блог-платформу, где пользователи могут публиковать посты, комментировать и добавлять теги</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">peewee</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">CharField</span><span class="p">,</span> <span class="n">TextField</span><span class="p">,</span> <span class="n">ForeignKeyField</span><span class="p">,</span> <span class="n">DateTimeField</span><span class="p">,</span> <span class="n">SqliteDatabase</span>
 
@@ -192,7 +191,7 @@
 </pre></div></div></div>
 
 <h1>Миграции</h1>
-<p>Для изменения структуры базы данных рекомендуется использовать миграции.
+<p>Для изменения структуры базы данных рекомендуется использовать миграции
 В Peewee для этого есть библиотека <code>playhouse.migrate</code></p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">playhouse.migrate</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
