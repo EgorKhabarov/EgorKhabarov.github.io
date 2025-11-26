@@ -75,9 +75,9 @@
 </pre></div></div></div>
 
 <ul>
-<li><strong><code>console_scripts</code></strong> — это ключ, который указывает, что вы создаете консольную команду.</li>
-<li><strong><code>your-command</code></strong> — имя команды, через которое будет доступна ваша библиотека в терминале.</li>
-<li><strong><code>your_module:main_function</code></strong> — путь до модуля и функции, которая будет вызвана при выполнении команды.</li>
+<li><strong><code>console_scripts</code></strong> - это ключ, который указывает, что вы создаете консольную команду</li>
+<li><strong><code>your-command</code></strong> - имя команды, через которое будет доступна ваша библиотека в терминале</li>
+<li><strong><code>your_module:main_function</code></strong> - путь до модуля и функции, которая будет вызвана при выполнении команды</li>
 </ul>
 <h3>setup.cfg</h3>
 <p>Этот способ позволяет вынести конфигурацию из кода в файл <code>setup.cfg</code>. Это делает конфигурацию более декларативной.</p>
@@ -95,8 +95,8 @@
 </pre></div></div></div>
 
 <h3>pyproject.toml</h3>
-<p>Формат <code>pyproject.toml</code> рекомендован PEP 518 и используется для настройки современных Python проектов.
-В этом файле можно настроить проект для использования с <code>setuptools</code> или другими сборщиками (например, <code>Poetry</code>).</p>
+<p>Формат <code>pyproject.toml</code> рекомендован PEP 518 и используется для настройки современных Python проектов
+В этом файле можно настроить проект для использования с <code>setuptools</code> или другими сборщиками (например, <code>Poetry</code>)</p>
 <div class="code_element"><div class="lang_line"><text>toml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-toml"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
 <span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wheel&quot;</span><span class="p">]</span>
 <span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>

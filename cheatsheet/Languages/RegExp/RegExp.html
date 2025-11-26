@@ -1,4 +1,4 @@
-<p>Регуля́рные выраже́ния — формальный язык, используемый в компьютерных программах,
+<p>Регуля́рные выраже́ния - формальный язык, используемый в компьютерных программах,
 работающих с текстом, для поиска и осуществления манипуляций с подстроками в тексте,
 основанный на использовании метасимволов
 Для поиска используется строка-образец, состоящая из символов и
@@ -75,7 +75,7 @@
 </tbody>
 </table>
 <h1>Квантификаторы</h1>
-<p>Квантификатор — специальный ограничитель, который указывает количество возможных повторений символа,
+<p>Квантификатор - специальный ограничитель, который указывает количество возможных повторений символа,
 группы символов или класса символов, находящихся в регулярном выражении перед ним</p>
 <table>
 <thead>
@@ -115,7 +115,7 @@
 </tr>
 <tr>
 <td><code>*?</code> <code>+?</code> <code>??</code><br><code>{m,n}?</code> <code>{,n}?</code> <code>{m,}?</code></td>
-<td>По умолчанию квантификаторы жадные — захватывают максимально возможное число символов.<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов</td>
+<td>По умолчанию квантификаторы жадные - захватывают максимально возможное число символов<br>Добавление <code>?</code> делает их ленивыми, они захватывают минимально возможное число символов</td>
 </tr>
 </tbody>
 </table>
@@ -156,38 +156,6 @@
 </tr>
 </tbody>
 </table>
-<h2>Выполнить операции в зависимости от того, была ли захвачена определенная группа</h2>
-<p>Формат условного выражения:</p>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(?(condition)true-regex|false-regex)
-</pre></div></div></div>
-
-<ul>
-<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы)</li>
-<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно</li>
-<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально)</li>
-</ul>
-<h3>Примеры условных выражений</h3>
-<h4>Проверка наличия захваченной группы</h4>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)?(?(1)b|c)
-</pre></div></div></div>
-
-<ul>
-<li><code>a</code> — необязательная группа</li>
-<li><code>b</code> — применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена)</li>
-<li><code>c</code> — применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена)</li>
-</ul>
-<p>Совпадение: <code>ab</code> или <code>c</code></p>
-<h4>Условные выражения с несколькими группами</h4>
-<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
-</pre></div></div></div>
-
-<ul>
-<li><code>a</code> — первая группа</li>
-<li>Если группа 1 захвачена, проверяется <code>b</code></li>
-<li>Если группа 1 не захвачена, проверяется <code>c</code></li>
-<li><code>d</code> — необязательная группа, которая захватывается, если предыдущий шаблон совпал</li>
-</ul>
-<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code></p>
 <h1>Группы захвата</h1>
 <table>
 <thead>
@@ -291,7 +259,7 @@
 <tr>
 <td><code>re.S</code><br><code>re.DOTALL</code></td>
 <td><code>(?s)</code></td>
-<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка — вообще любой символ</td>
+<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка - вообще любой символ</td>
 </tr>
 <tr>
 <td><code>re.X</code><br><code>re.VERBOSE</code></td>
@@ -301,7 +269,7 @@
 <tr>
 <td><code>re.L</code><br><code>re.LOCALE</code></td>
 <td><code>(?L)</code></td>
-<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, \Bи соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов</td>
+<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code> в соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов</td>
 </tr>
 <tr>
 <td><code>re.U</code><br><code>re.UNICODE</code></td>
@@ -413,13 +381,9 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span>
-<span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед&quot;</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[хХxX]\w*&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;[censored(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2">)]&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
 <span class="unselectable"><span class="go">Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)]</span>
 </span></pre></div></div></div>
 
@@ -453,7 +417,7 @@
 <td><code>((^|:)([0-9a-fA-F]{0,4})){1,8}$</code></td>
 </tr>
 <tr>
-<td>Имя пользователя<br>(с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры, первый символ обязательно буква)</td>
+<td>Имя пользователя<br>(с ограничением 2-20 символов,<br>которыми могут быть буквы и цифры,<br>первый символ обязательно буква)</td>
 <td><code>^[a-zA-Z][a-zA-Z0-9-_.]{1,20}$</code></td>
 </tr>
 <tr>
@@ -465,7 +429,7 @@
 <td><code>(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d</code></td>
 </tr>
 <tr>
-<td>Целые числа и числа с плавающей точкой (разделитель точка)</td>
+<td>Целые числа и числа с плавающей точкой<br>Разделитель точка</td>
 <td><code>-?\d+(\.\d{0,})?</code></td>
 </tr>
 <tr>
@@ -494,7 +458,7 @@
 <span class="n">IP_REGEXP</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">\.</span><span class="si">{</span><span class="n">IP_RANGE</span><span class="si">}</span><span class="s2">$&quot;</span>
 </pre></div></div></div>
 
-<h1>Пример атомарной группы</h1>
+<h2>Пример атомарной группы</h2>
 <p>Возьмем выражение <code>(?&gt;a|ab)c</code> и строку <code>abc</code>:</p>
 <ol>
 <li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code></li>
@@ -513,20 +477,52 @@
 <span class="unselectable"><span class="go">ac</span>
 </span></pre></div></div></div>
 
+<h1>Выполнить операции в зависимости от того, была ли захвачена определенная группа</h1>
+<p>Формат условного выражения:</p>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(?(condition)true-regex|false-regex)
+</pre></div></div></div>
+
+<ul>
+<li><code>condition</code>: Условие, которое проверяется. Обычно это номер группы захвата (например, <code>1</code> для первой группы)</li>
+<li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно</li>
+<li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально)</li>
+</ul>
+<h3>Примеры условных выражений</h3>
+<h4>Проверка наличия захваченной группы</h4>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)?(?(1)b|c)
+</pre></div></div></div>
+
+<ul>
+<li><code>a</code> - необязательная группа</li>
+<li><code>b</code> - применяется, если <code>a</code> присутствует (т.е., если группа 1 захвачена)</li>
+<li><code>c</code> - применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена)</li>
+</ul>
+<p>Совпадение: <code>ab</code> или <code>c</code></p>
+<h4>Условные выражения с несколькими группами</h4>
+<div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
+</pre></div></div></div>
+
+<ul>
+<li><code>a</code> - первая группа</li>
+<li>Если группа 1 захвачена, проверяется <code>b</code></li>
+<li>Если группа 1 не захвачена, проверяется <code>c</code></li>
+<li><code>d</code> - необязательная группа, которая захватывается, если предыдущий шаблон совпал</li>
+</ul>
+<p>Совпадение: <code>abd</code> или <code>cd</code> или <code>ab</code> или <code>c</code></p>
 <h1>Бэктрекинг</h1>
-<p><strong>Бэктрекинг (backtracking)</strong> — это процесс возврата назад по строке для поиска альтернативных путей совпадения,
+<p><strong>Бэктрекинг (backtracking)</strong> - это процесс возврата назад по строке для поиска альтернативных путей совпадения,
 если текущий путь не приводит к успешному совпадению
 Регулярные выражения могут исследовать разные комбинации символов и паттернов, чтобы найти подходящее совпадение</p>
 <h2>Пример бэктрекинга</h2>
 <p>Рассмотрим регулярное выражение <code>a(b|c)*d</code> и строку <code>abbbd</code>:</p>
 <ol>
-<li>Начало сопоставления с <code>a</code> — успех</li>
+<li>Начало сопоставления с <code>a</code> - успех</li>
 <li>Далее идет <code>(b|c)*</code>, которое может захватить любое количество <code>b</code> или <code>c</code>. Сначала регулярное выражение захватывает все <code>b</code>: <code>abbb</code></li>
 <li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abbb</code>. Строка заканчивается на <code>d</code>, и совпадение успешно завершается</li>
 </ol>
 <p>Теперь возьмем строку <code>abbcd</code>:</p>
 <ol>
-<li>Начало сопоставления с <code>a</code> — успех</li>
+<li>Начало сопоставления с <code>a</code> - успех</li>
 <li>Далее идет <code>(b|c)*</code>, которое снова захватывает все <code>b</code>: <code>abb</code></li>
 <li>Теперь шаблон пытается сопоставить <code>d</code> после <code>abb</code>. Это неудача, потому что следующий символ <code>c</code></li>
 <li>Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему <code>b</code>, теперь пробует совпадение с <code>c</code>: <code>abbc</code></li>
@@ -551,12 +547,12 @@
 <h3>Флаги (Modifiers)</h3>
 <p>Флаги изменяют поведение регулярного выражения</p>
 <ul>
-<li><code>g</code> — глобальный поиск (поиск всех совпадений)</li>
-<li><code>i</code> — игнорировать регистр</li>
-<li><code>m</code> — многострочный режим (влияет на <code>^</code> и <code>$</code>)</li>
-<li><code>s</code> — позволяет <code>.</code> соответствовать символам новой строки</li>
-<li><code>u</code> — поддержка юникода (для работы с многобайтовыми символами)</li>
-<li><code>y</code> — «приклеенный» режим поиска (начинается с текущей позиции)</li>
+<li><code>g</code> - глобальный поиск (поиск всех совпадений)</li>
+<li><code>i</code> - игнорировать регистр</li>
+<li><code>m</code> - многострочный режим (влияет на <code>^</code> и <code>$</code>)</li>
+<li><code>s</code> - позволяет <code>.</code> соответствовать символам новой строки</li>
+<li><code>u</code> - поддержка юникода (для работы с многобайтовыми символами)</li>
+<li><code>y</code> - «приклеенный» режим поиска (начинается с текущей позиции)</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/abc/i</span><span class="p">;</span><span class="w">  </span><span class="c1">// Игнорирует регистр</span>
 </pre></div></div></div>
@@ -605,13 +601,13 @@
 </pre></div></div></div>
 <h4>Базовые метасимволы</h4>
 <ul>
-<li><code>.</code> — любой символ, кроме новой строки</li>
-<li><code>\d</code> — цифра (эквивалентно <code>[0-9]</code>)</li>
-<li><code>\w</code> — символ слова (буквы, цифры и подчеркивание)</li>
-<li><code>\s</code> — пробельный символ (пробел, табуляция, новая строка)</li>
-<li><code>\b</code> — граница слова (например, <code>\bword\b</code> найдет "word", но не "sword")</li>
-<li><code>^</code> — начало строки</li>
-<li><code>$</code> — конец строки</li>
+<li><code>.</code> - любой символ, кроме новой строки</li>
+<li><code>\d</code> - цифра (эквивалентно <code>[0-9]</code>)</li>
+<li><code>\w</code> - символ слова (буквы, цифры и подчеркивание)</li>
+<li><code>\s</code> - пробельный символ (пробел, табуляция, новая строка)</li>
+<li><code>\b</code> - граница слова (например, <code>\bword\b</code> найдет "word", но не "sword")</li>
+<li><code>^</code> - начало строки</li>
+<li><code>$</code> - конец строки</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^\d{3}-\d{2}-\d{4}$/</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;123-45-6789&#39;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
@@ -624,14 +620,14 @@
 </pre></div></div></div>
 <h4>Квантификаторы</h4>
 <ul>
-<li><code>{n}</code> — точно n раз</li>
-<li><code>{n,}</code> — n и более раз</li>
-<li><code>{n,m}</code> — от n до m раз</li>
+<li><code>{n}</code> - точно n раз</li>
+<li><code>{n,}</code> - n и более раз</li>
+<li><code>{n,m}</code> - от n до m раз</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\d{2,4}/</span><span class="p">;</span><span class="w">  </span><span class="c1">// от 2 до 4 цифр</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;1234&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
 </pre></div></div></div>
-<h4><code>(?: ...)</code> — неконтролируемая группа</h4>
+<h4><code>(?: ...)</code> - неконтролируемая группа</h4>
 <p>Группа, которая не сохраняет свой результат в массиве (полезно для применения операторов без захвата)</p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/(?:abc|def)/</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
@@ -646,7 +642,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;😀&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
 </pre></div></div></div>
 <ul>
-<li><code>\p{...}</code> — для поиска символов по категориям в Unicode</li>
+<li><code>\p{...}</code> - для поиска символов по категориям в Unicode</li>
 </ul>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\p{Letter}/gu</span><span class="p">;</span><span class="w">  </span><span class="c1">// Все символы, которые являются буквами</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>

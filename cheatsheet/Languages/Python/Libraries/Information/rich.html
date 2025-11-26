@@ -1,7 +1,7 @@
-<p>Библиотека <code>Rich</code> — это мощный инструмент для форматирования текста, вывода в терминал с использованием стилей,
-цветов, таблиц, прогресс-баров и других элементов пользовательского интерфейса.
-Она облегчает создание красивого и информативного вывода в консоли.
-Библиотека также поддерживает рендеринг логов и трассировок ошибок.</p>
+<p>Библиотека <code>Rich</code> - это мощный инструмент для форматирования текста, вывода в терминал с использованием стилей,
+цветов, таблиц, прогресс-баров и других элементов пользовательского интерфейса
+Она облегчает создание красивого и информативного вывода в консоли
+Библиотека также поддерживает рендеринг логов и трассировок ошибок</p>
 <h1>Основные возможности</h1>
 <ol>
 <li><strong>Цветной и стилизованный текст</strong></li>
@@ -23,7 +23,8 @@
 </blockquote>
 <h2>Основные функции и примеры</h2>
 <h3>Форматирование текста</h3>
-<p>В <code>Rich</code> используется синтаксис разметки для стилизации текста. Стили можно комбинировать.</p>
+<p>В <code>Rich</code> используется синтаксис разметки для стилизации текста
+Стили можно комбинировать</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;[bold red]Ошибка:[/] неверный ввод!&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 <blockquote>
@@ -61,7 +62,7 @@
 │ <span style="color:cyan">Петр</span> │ <span style="color:magenta">40</span>      │  <span style="color:green">Менеджер</span> │
 └──────┴─────────┴───────────┘</p>
 </blockquote>
-<p>Этот код создаст таблицу с тремя столбцами, которая будет выведена в консоль с цветами и выравниванием.</p>
+<p>Этот код создаст таблицу с тремя столбцами, которая будет выведена в консоль с цветами и выравниванием</p>
 <h3>Прогресс-бары</h3>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rich.progress</span><span class="w"> </span><span class="kn">import</span> <span class="n">Progress</span>
@@ -74,9 +75,9 @@
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div></div></div>
 
-<p>Прогресс-бар будет обновляться в реальном времени, показывая прогресс задачи.</p>
+<p>Прогресс-бар будет обновляться в реальном времени, показывая прогресс задачи</p>
 <h3>Логи</h3>
-<p><code>Rich</code> интегрируется с модулем <code>logging</code>, позволяя выводить цветные и более информативные логи.</p>
+<p><code>Rich</code> интегрируется с модулем <code>logging</code>, позволяя выводить цветные и более информативные логи</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rich.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">RichHandler</span>
 
@@ -89,7 +90,7 @@
 </pre></div></div></div>
 
 <h3>Трассировки ошибок</h3>
-<p><code>Rich</code> может красиво отображать трассировки ошибок, улучшая их читаемость.</p>
+<p><code>Rich</code> может красиво отображать трассировки ошибок, улучшая их читаемость</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
 
 
@@ -102,7 +103,7 @@
 </pre></div></div></div>
 
 <h3>Деревья</h3>
-<p>С помощью <code>Tree</code> можно отображать данные в виде иерархических деревьев.</p>
+<p>С помощью <code>Tree</code> можно отображать данные в виде иерархических деревьев</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tree</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
 
@@ -123,7 +124,7 @@
 </pre></div></div></div>
 
 <h3>Markdown</h3>
-<p><code>Rich</code> поддерживает рендеринг разметки Markdown.</p>
+<p><code>Rich</code> поддерживает рендеринг разметки Markdown</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">rich.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
 
@@ -150,7 +151,7 @@
 
 <h1>Дополнительные возможности</h1>
 <ul>
-<li><strong>Списки</strong>: Создание стилизованных списков.</li>
-<li><strong>JSON</strong>: Вывод <code>JSON</code> данных в цвете.</li>
-<li><strong>Ограничение по ширине</strong>: Вывод данных с ограничением по ширине консоли.</li>
+<li><strong>Списки</strong>: Создание стилизованных списков</li>
+<li><strong>JSON</strong>: Вывод <code>JSON</code> данных в цвете</li>
+<li><strong>Ограничение по ширине</strong>: Вывод данных с ограничением по ширине консоли</li>
 </ul>
