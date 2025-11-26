@@ -61,8 +61,7 @@
 <span class="p">}</span>
 </pre></div></div></div>
 
-<p>Класс <code>Number</code> является базовым для классов <code>Integer</code> и <code>Double</code>,
-поэтому мы можем их использовать вместо обобщенного типа</p>
+<p>Класс <code>Number</code> является базовым для классов <code>Integer</code> и <code>Double</code>, поэтому мы можем их использовать вместо обобщенного типа</p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="n">ClassA</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassA</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c1</span><span class="p">.</span><span class="na">obj</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10</span>
 <span class="n">ClassA</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ClassA</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">10.5</span><span class="p">);</span>
@@ -70,7 +69,7 @@
 <span class="c1">// класс &#x60;Date&#x60; не является наследником Number</span>
 <span class="c1">// ClassA&lt;Date&gt; c = new ClassA&lt;Date&gt;(new Date()); // Ошибка!</span>
 </pre></div></div></div>
-<p>Мы можем ограничить тип несколькими интерфейсами.
+<p>Мы можем ограничить тип несколькими интерфейсами
 В этом случае они перечисляются через символ <code>&amp;</code></p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -108,8 +107,7 @@
 </pre></div></div></div>
 
 <h1>Методы</h1>
-<p>Если метод является статическим, то обобщенный тип, объявленный в заголовке
-обобщенного класса, внутри статического метода использовать нельзя</p>
+<p>Если метод является статическим, то обобщенный тип, объявленный в заголовке обобщенного класса, внутри статического метода использовать нельзя</p>
 <div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>[Модификатор] static &lt;Обобщенный_тип&gt; Тип_результата Название_метода(Параметры) {
 
 }
@@ -147,9 +145,8 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div></div></div>
-<p>Внутри обычных методов, а также в качестве типа параметров и типа возвращаемого значения,
-мы можем использовать обобщенный тип, объявленный в заголовке обобщенного класса.
-Кроме того, мы можем дополнительно указать обобщенный тип, как и в случае со статическим обобщенным методом.
+<p>Внутри обычных методов, а также в качестве типа параметров и типа возвращаемого значения, мы можем использовать обобщенный тип, объявленный в заголовке обобщенного класса
+Кроме того, мы можем дополнительно указать обобщенный тип, как и в случае со статическим обобщенным методом
 Причем, обобщенные обычные методы могут быть как внутри обобщенного класса, так и внутри обычного класса</p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -183,13 +180,29 @@
 </pre></div></div></div>
 
 <h1>Маски типов</h1>
-<p>При передаче объектов дженерик классов в качестве значения параметра метода,
-а также при объявлении переменной, можно использовать следующие конструкции
-|                         |                                      |
-|-------------------------|--------------------------------------|
-| <code>&lt;?&gt;</code>                   | Любой тип                            |
-| <code>&lt;? extends T&gt;</code>         | Класс Класс и все производные классы |
-| <code>&lt;? super Класс или T&gt;</code> | Класс Класс и все базовые классы     |</p>
+<p>При передаче объектов дженерик классов в качестве значения параметра метода, а также при объявлении переменной, можно использовать следующие конструкции</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;?&gt;</code></td>
+<td>Любой тип</td>
+</tr>
+<tr>
+<td><code>&lt;? extends T&gt;</code></td>
+<td>Класс Класс и все производные классы</td>
+</tr>
+<tr>
+<td><code>&lt;? super Класс или T&gt;</code></td>
+<td>Класс Класс и все базовые классы</td>
+</tr>
+</tbody>
+</table>
 <h1>Интерфесы</h1>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">ITest1</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
@@ -251,9 +264,9 @@
 <span class="n">obj2</span><span class="p">.</span><span class="na">test2</span><span class="p">(</span><span class="mf">85.5</span><span class="p">);</span>
 </pre></div></div></div>
 
-<p>Предыдущие классы были все обобщенными.
-Однако и простой класс может реализовать обобщенный интерфейс.
-Для этого при объявлении класса вместо обобщенного типа указывается реальный тип.
+<p>Предыдущие классы были все обобщенными
+Однако и простой класс может реализовать обобщенный интерфейс
+Для этого при объявлении класса вместо обобщенного типа указывается реальный тип
 Создадим обычный класс C, реализующий интерфейс <code>ITest1&lt;T&gt;</code></p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">C</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ITest1</span><span class="w"> </span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
@@ -278,15 +291,13 @@
 <span class="n">obj2</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="mi">88</span><span class="p">);</span>
 </pre></div></div></div>
 
-<p>Обратите внимание: после названия интерфейса внутри угловых скобок необходимо указать реальный тип,
-совпадающий с типом, указанным при объявлении класса <code>C</code></p>
+<p>Обратите внимание: после названия интерфейса внутри угловых скобок необходимо указать реальный тип, совпадающий с типом, указанным при объявлении класса <code>C</code></p>
 <div class="code_element"><div class="lang_line"><text>java</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-java"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">A</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">A</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">33.5</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj1</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span><span class="w"> </span><span class="c1">// class A</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj2</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span><span class="w"> </span><span class="c1">// class A</span>
 </pre></div></div></div>
-<p>Классы <code>A&lt;Integer&gt;</code> и <code>A&lt;Double&gt;</code> компилятор превращает в «сырой» класс <code>A</code>.
-Бессмысленно сравнивать эти классы с помощью оператора <code>instanceof</code>
-он всегда вернет истину, т. к. это один и тот же «сырой» класс <code>A</code>
+<p>Классы <code>A&lt;Integer&gt;</code> и <code>A&lt;Double&gt;</code> компилятор превращает в «сырой» класс <code>A</code>
+Бессмысленно сравнивать эти классы с помощью оператора <code>instanceof</code> он всегда вернет истину, т. к. это один и тот же «сырой» класс <code>A</code>
 Компилятор даже не позволит их сравнивать
 Только, если вместо реального типа подставить маску <code>&lt;?&gt;</code></p>

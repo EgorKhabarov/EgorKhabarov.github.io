@@ -1,4 +1,4 @@
-Библиотека "faulthandler" используется для обнаружения и отладки ошибок, связанных с сбоями в программе на языке Python.
+Библиотека "faulthandler" используется для обнаружения и отладки ошибок, связанных с сбоями в программе на языке Python
 
 Методы и подмодули библиотеки "faulthandler":
 
@@ -12,21 +12,21 @@
 | `faulthandler.cancel_dump_traceback()`                                |  Прекращает запись трассировки стека сбоя                      |
 | `faulthandler.cancel_register()`                                      |  Отменяет регистрацию обработчика сбоев для указанного сигнала |
 
-- `faulthandler.enable()`: Активирует обработчик сбоев для записи информации о сбое.
+- `faulthandler.enable()`: Активирует обработчик сбоев для записи информации о сбое
 
 ```python
 import faulthandler
 faulthandler.enable()
 ```
 
-- `faulthandler.disable()`: Отключает обработчик сбоев.
+- `faulthandler.disable()`: Отключает обработчик сбоев
 
 ```python
 import faulthandler
 faulthandler.disable()
 ```
 
-- `faulthandler.dump_traceback(file=sys.stderr, all_threads=True)`: Записывает трассировку стека сбоя в указанный файл.
+- `faulthandler.dump_traceback(file=sys.stderr, all_threads=True)`: Записывает трассировку стека сбоя в указанный файл
 
 ```python
 import faulthandler
