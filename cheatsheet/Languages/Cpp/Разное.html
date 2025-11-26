@@ -43,15 +43,16 @@
 <span class="w">    </span><span class="p">}</span>
 </pre></div></div></div>
 
-<p>Позволяет сократить определение простейших условных конструкций if и имеет следующую форму:
-[первый_операнд - условие] ? [второй_операнд] : [третий_операнд]
-                                if true             if false</p>
+<p>Позволяет сократить определение простейших условных конструкций if и имеет следующую форму:</p>
+<div class="code_element"><div class="lang_line"><text>enbf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>[первый_операнд - условие] ? [второй_операнд] : [третий_операнд]
+                                if true             if false
+</pre></div></div></div>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;+&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 </pre></div></div></div>
 
 <p>&amp;&amp; (конъюнкция, логическое умножение)
-Возвращает true, если оба операнда не равны false.
-Возвращает false, если хотя бы один операнд равен false.</p>
+Возвращает true, если оба операнда не равны false
+Возвращает false, если хотя бы один операнд равен false</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">    </span><span class="c1">// false</span>
@@ -59,8 +60,8 @@
 </pre></div></div></div>
 
 <p>|| (дизъюнкция, логическое сложение)
-Возвращает true, если хотя бы один операнд равен true.
-Возвращает false, если оба операнда равны false.</p>
+Возвращает true, если хотя бы один операнд равен true
+Возвращает false, если оба операнда равны false</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">        </span><span class="c1">// true</span>
