@@ -40,9 +40,9 @@
 <p>Злоумышленник внедряет вредоносный JavaScript-код, который выполняется в браузере жертвы</p>
 <h2>Типы XSS</h2>
 <ul>
-<li><strong><code>Stored XSS</code></strong> (Хранимый) — вредоносный код сохраняется в базе данных и исполняется при загрузке страницы</li>
-<li><strong><code>Reflected XSS</code></strong> (Отражённый) — скрипт передаётся через URL или форму и выполняется сразу</li>
-<li><strong><code>DOM-based XSS</code></strong> — атака происходит внутри JavaScript-приложения, без запроса к серверу</li>
+<li><strong><code>Stored XSS</code></strong> (Хранимый) вредоносный код сохраняется в базе данных и исполняется при загрузке страницы</li>
+<li><strong><code>Reflected XSS</code></strong> (Отражённый) скрипт передаётся через URL или форму и выполняется сразу</li>
+<li><strong><code>DOM-based XSS</code></strong> атака происходит внутри JavaScript-приложения, без запроса к серверу</li>
 </ul>
 <h2>Пример уязвимости</h2>
 <div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Привет, <span class="cp">&lt;?php echo $_GET[&#39;name&#39;]; ?&gt;</span>!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -51,7 +51,7 @@
 <h2>Защита от XSS</h2>
 <ul>
 <li>Использование <strong>HTML-экранирования</strong> (например, <code>html.escape()</code>)</li>
-<li><a target="_self" href="?General/Abbreviations/Security/CSP" class="wikilink">CSP</a> (Content Security Policy) — запрет выполнения inline-скриптов</li>
+<li><a target="_self" href="?General/Abbreviations/Security/CSP" class="wikilink">CSP</a> (Content Security Policy) запрет выполнения inline-скриптов</li>
 <li>Проверка и валидация входных данных</li>
 <li>Использование безопасных шаблонизаторов</li>
 </ul>

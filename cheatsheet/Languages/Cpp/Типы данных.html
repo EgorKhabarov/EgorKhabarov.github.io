@@ -110,23 +110,23 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;long double: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// 16</span>
 </pre></div></div></div>
 
-<p>Приведённые выше примеры вывода оператора sizeof верны для 64-битных архитектур, которые на сегодняшний день распространены повсеместно.
-Однако если бы мы скомпилировали и запустили такую программу на компьютере с 32-битной архитектурой, то получили бы другие результаты.
-Например, sizeof(long int) стал бы равен 4, в то время как на современных компьютерах мы получили бы 8.
-Также бывают встраиваемые системы, под которые тоже можно писать на С++. Там битность архитектуры может быть ещё меньше, чем 32.</p>
+<p>Приведённые выше примеры вывода оператора sizeof верны для 64-битных архитектур, которые на сегодняшний день распространены повсеместно
+Однако если бы мы скомпилировали и запустили такую программу на компьютере с 32-битной архитектурой, то получили бы другие результаты
+Например, sizeof(long int) стал бы равен 4, в то время как на современных компьютерах мы получили бы 8
+Также бывают встраиваемые системы, под которые тоже можно писать на С++. Там битность архитектуры может быть ещё меньше, чем 32</p>
 <p>В заголовочном файле cstdint стандартной библиотеки имеются целочисленные типы с фиксированным размером:</p>
 <p>int8_t / uint8_t
 int16_t / uint16_t
 int32_t / uint32_t
 int64_t / uint64_t
-Число в имени типа означает количество бит, используемых для хранения в памяти.
-Например, int32_t содержит 32 бита (4 байта) и часто соответствует типу int.
-Если система не поддерживает какой-то тип, то программа с ним просто не скомпилируется.</p>
+Число в имени типа означает количество бит, используемых для хранения в памяти
+Например, int32_t содержит 32 бита (4 байта) и часто соответствует типу int
+Если система не поддерживает какой-то тип, то программа с ним просто не скомпилируется</p>
 <p>Арифметические операции
-Бинарные операции +, - и * работают для чисел стандартным образом.
-Результат операции деления /, применённой к целым числам, всегда округляется в сторону нуля.
-Таким образом, для положительных чисел операция / возвращает неполное частное.
-Остаток от деления целых чисел можно получить с помощью операции %.</p>
+Бинарные операции +, - и * работают для чисел стандартным образом
+Результат операции деления /, применённой к целым числам, всегда округляется в сторону нуля
+Таким образом, для положительных чисел операция / возвращает неполное частное
+Остаток от деления целых чисел можно получить с помощью операции %</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// 2</span>
@@ -145,7 +145,7 @@ int64_t / uint64_t
 <p>Можно было бы написать чуть более кратко: double q = a * 1.0 / b;.
 Тогда преобразование аргументов произошло бы неявно.</p>
 <p>Арифметические операции над символами,
-а также сравнение символов друг с другом — это фактически операциинад их ASCII-кодами:</p>
+а также сравнение символов друг с другом - это фактически операциинад их ASCII-кодами:</p>
 <div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
