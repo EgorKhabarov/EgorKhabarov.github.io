@@ -45,7 +45,7 @@
 <span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
 <span class="k">BEGIN</span>
 <span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">log_table</span><span class="w"> </span><span class="p">(</span><span class="n">operation_time</span><span class="k">,</span><span class="w"> </span><span class="n">new_value</span><span class="p">)</span>
-<span class="w">    </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">),</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="k">column_name</span><span class="p">);</span>
+<span class="w">    </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span><span class="k">,</span><span class="w"> </span><span class="k">NEW</span><span class="p">.</span><span class="k">column_name</span><span class="p">);</span>
 <span class="k">END</span><span class="p">;</span>
 </pre></div></div></div>
 
@@ -287,7 +287,7 @@
 <span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
 <span class="k">BEGIN</span>
 <span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">trigger_logs</span><span class="w"> </span><span class="p">(</span><span class="k">trigger_name</span><span class="k">,</span><span class="w"> </span><span class="n">action_time</span><span class="k">,</span><span class="w"> </span><span class="n">details</span><span class="p">)</span>
-<span class="w">  </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;log_test_trigger&#39;</span><span class="k">,</span><span class="w"> </span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Inserted row into some_table&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;log_test_trigger&#39;</span><span class="k">,</span><span class="w"> </span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span><span class="k">,</span><span class="w"> </span><span class="s1">&#39;Inserted row into some_table&#39;</span><span class="p">);</span>
 <span class="k">END</span><span class="p">;</span>
 </pre></div></div></div>
 

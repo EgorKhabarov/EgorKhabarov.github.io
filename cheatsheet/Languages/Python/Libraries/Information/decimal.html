@@ -43,8 +43,8 @@
 <span class="n">f</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 
 <span class="c1"># Округление с использованием контекста</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">),</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">context</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
 </pre></div></div></div>
 
 <h3>Функции округления</h3>
@@ -55,14 +55,14 @@
 <span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;10.555&quot;</span><span class="p">)</span>
 
 <span class="c1"># Округление до двух знаков с округлением до ближайшего</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 10.56</span>
+<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 10.56</span>
 
 <span class="c1"># Округление до двух знаков с округлением в меньшую сторону</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_FLOOR</span><span class="p">)</span>  <span class="c1"># 10.55</span>
+<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_FLOOR</span><span class="p">)</span>  <span class="c1"># 10.55</span>
 
 <span class="c1"># Округление до целого числа, округление до ближайшего</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 11</span>
+<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>  <span class="c1"># 11</span>
 
 <span class="c1"># Округление до целого числа, округление в большую сторону</span>
-<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_CEILING</span><span class="p">)</span>  <span class="c1"># 11</span>
+<span class="n">a</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_CEILING</span><span class="p">)</span>  <span class="c1"># 11</span>
 </pre></div></div></div>

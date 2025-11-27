@@ -49,8 +49,8 @@ pip<span class="w"> </span>install<span class="w"> </span>asyncpg
 <span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">get_sqlite_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="n">text</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM items WHERE item_id = :item_id&quot;</span><span class="p">),</span>
-            <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">},</span>
+            <span class="n">text</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM items WHERE item_id = :item_id&quot;</span><span class="p">)</span><span class="k">,</span>
+            <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span><span class="k">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 </pre></div></div></div>
@@ -76,8 +76,8 @@ pip<span class="w"> </span>install<span class="w"> </span>asyncpg
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">get_sqlite_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="n">text</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM items WHERE item_id = :item_id&quot;</span><span class="p">),</span>
-            <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">},</span>
+            <span class="n">text</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM items WHERE item_id = :item_id&quot;</span><span class="p">)</span><span class="k">,</span>
+            <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span><span class="k">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 </pre></div></div></div>

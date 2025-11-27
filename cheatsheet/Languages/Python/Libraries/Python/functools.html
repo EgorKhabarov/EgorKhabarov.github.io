@@ -172,7 +172,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">x</span><span class="k">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
 
-<span class="n">sorted_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="mi">5</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">6</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="n">cmp_to_key</span><span class="p">(</span><span class="n">compare</span><span class="p">))</span>
+<span class="n">sorted_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="mi">5</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">6</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">1</span><span class="p">]</span><span class="k">,</span> <span class="n">key</span><span class="o">=</span><span class="n">cmp_to_key</span><span class="p">(</span><span class="n">compare</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sorted_list</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 5, 6]</span>
 </pre></div></div></div>
 

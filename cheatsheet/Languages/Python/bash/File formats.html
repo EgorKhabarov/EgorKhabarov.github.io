@@ -106,7 +106,7 @@
 <p>Содержат исходный код на Cython, который представляет собой надстройку над Python, позволяющую компилировать код в <code>C</code> для повышения производительности</p>
 <div class="code_element"><div class="lang_line"><text>cython</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `module.pyx`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="module.pyx">Download code</text></button></div><div class="code language-cython"><div class="highlight"><pre><span></span><span class="c"># module.pyx</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sin_cos</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="k">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div></div></div>
 
 <p>Этот файл можно скомпилировать в <code>C</code> и подключить как модуль в Python</p>

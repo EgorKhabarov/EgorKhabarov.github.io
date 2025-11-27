@@ -14,7 +14,7 @@
 <span class="n">john_data</span> <span class="o">=</span> <span class="n">users_table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
 
 <span class="c1"># Изменение данных в записи по условию (например, по имени)</span>
-<span class="n">users_table</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">},</span> <span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
+<span class="n">users_table</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">}</span><span class="k">,</span> <span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
 
 <span class="c1"># Удаление записи по условию (например, по имени)</span>
 <span class="n">users_table</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">user_query</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">)</span>
