@@ -177,6 +177,22 @@ function renderBreadcrumbs(url) {
             breadcrumbsContainer.appendChild(sep);
         }
     });
+
+    const anchor = getAnchor();
+    if (anchor) {
+        const span = document.createElement("span");
+        span.textContent = `#${anchor}`;
+        span.className = "crumb_item";
+        span.addEventListener("click", () => {
+            console.log(`Navigating to: #${anchor}`);
+            const anchor_element = document.getElementById(anchor);
+            console.log(`anchor_element ${anchor_element}`);
+            if (anchor_element) {
+                anchor_element.scrollIntoView({block: "start"});
+            }
+        });
+        breadcrumbsContainer.appendChild(span);
+    }
     //breadcrumbsContainer.lastElementChild.classList = null;
 }
 
@@ -303,6 +319,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
     })
     folderSearchList.querySelectorAll(".file").forEach(e => {
         e.onclick = function(event) {
+            delAnchor();
             const vpath = e.getAttribute("data-vpath")
             setup_cheatsheet(vpath, false, false);
 
@@ -522,6 +539,16 @@ function load_cheatsheet(url) {
             cheatsheet_field.innerHTML = text;
             cheatsheet_field.setAttribute("data-cheatsheet-path", url);
             processingCheatSheet();
+
+            const anchor = getAnchor();
+            if (anchor) {
+                console.log(`Anchor found: "${anchor}"`);
+                const anchor_element = document.getElementById(anchor);
+                console.log(`anchor_element ${anchor_element}`);
+                if (anchor_element) {
+                    anchor_element.scrollIntoView({block: "start"});
+                }
+            }
         });
 }
 function closeAllKeyButtons() {
@@ -570,8 +597,7 @@ function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     closeSidebar();
     closeMainSearch();
     changeTitle(getPathFilename(url));
-    cheatsheet_field_container.scrollTo(0, 0);
-    delAnchor();
+    cheatsheet_field_container.scrollIntoView({block: "start"});
 
     if (setActive) {
         changeActiveButton(
@@ -758,6 +784,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
 
             folderList.querySelectorAll(".file").forEach(e => {
                 e.onclick = function(event) {
+                    delAnchor();
                     const vpath = e.getAttribute("data-vpath")
                     setup_cheatsheet(vpath, true, false);
                 };
@@ -962,13 +989,16 @@ function getAnchor() {
 function delAnchor() {
     const url = new URL(window.location.href);
     url.hash = "";
-    window.history.pushState({}, "", url.toString());
+    window.history.replaceState({}, "", url.toString());
 }
 function setAnchor(anchor) {
     const url = new URL(window.location.href);
     url.hash = anchor ? `#${anchor}` : "";
     window.history.pushState({}, "", url.toString());
 }
+window.addEventListener("hashchange", () => {
+    renderBreadcrumbs(decodeURIComponent(getArgumentFromUrl()));
+})
 
 /* URL Path */
 function getArgumentFromUrl() {
