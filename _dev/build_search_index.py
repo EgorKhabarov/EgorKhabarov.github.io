@@ -1,6 +1,7 @@
 import re
 import json
 import gzip
+import html
 
 from lunr import lunr
 from pathlib import Path
@@ -13,6 +14,7 @@ def clean_text(text_: str):
     text_ = re.sub(r"\s+", " ", text_)
     text_ = re.sub(r"<[^>]+>", " ", text_)
     text_ = re.sub(r"\[([^]]+)]\(([^)]+)\)", r"\1 \2", text_)
+    text_ = html.unescape(text_)
     text_ = re.sub(r"[^\wа-яА-ЯёЁ0-9._/\[\]()^&$#@!~=?№%*\\\s-]", " ", text_)
     text_ = re.sub(r"\s+", " ", text_)
     return text_.strip()
@@ -39,7 +41,7 @@ index = lunr(
     ref="i",
     fields=[
         {"field_name": "n", "boost": 20},
-        {"field_name": "b", "boost": 2},
+        {"field_name": "b", "boost": 1},
     ],
     documents=documents,
     languages=["ru", "en"],

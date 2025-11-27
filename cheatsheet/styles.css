@@ -134,6 +134,14 @@
 
 }
 
+#cheatsheet_field[data-cheatsheet-path="README"] {
+    display: flex;
+    /* padding: initial; */
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

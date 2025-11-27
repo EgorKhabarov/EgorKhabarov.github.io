@@ -56,7 +56,7 @@
 Жадный алгоритм (greedy algorithm) - алгоритм, который на каждом шагу делает локально наилучший выбор в надежде, что итоговое решение будет оптимальным
 
 - Как определить, даст ли жадный алгоритм оптимальное решение?
-В соответствии с теоремой Радо-Эдмондса, если система является [матроидом](http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%BE%D0%B8%D0%B4), то для произвольной весовой функции градиентный алгоритм всегда находит точное решение задачи
+В соответствии с теоремой Радо-Эдмондса, если система является [матроидом](http://ru.wikipedia.org/wiki/Матроид), то для произвольной весовой функции градиентный алгоритм всегда находит точное решение задачи
 Следовательно, если доказать, что объект является матроидом, то жадный алгоритм будет выдавать оптимальный вариант
 
 Жадные алгоритмы проще и быстрее алгоритмов на базе динамического программирования
@@ -98,12 +98,12 @@ def fact(n, acc=1):
 
 - Метод скользящего окна (Sliding Window)
 - Метод двух указателей (Two Pointers)
-- [Нахождение цикла](https://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D1%86%D0%B8%D0%BA%D0%BB%D0%B0) (Fast & Slow Pointers)
+- [Нахождение цикла](https://ru.wikipedia.org/wiki/Нахождение_цикла) (Fast & Slow Pointers)
 - Интервальное слияние (Merge Intervals)
 - Цикличная сортировка (Cyclic Sort)
 - In-place Reversal для LinkedList (In-place Reversal of a LinkedList)
-- [Поиск в ширину](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83) (Tree Breadth-First Search)
-- [Поиск в глубину](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D0%B3%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D1%83) (Tree Depth First Search)
+- [Поиск в ширину](https://ru.wikipedia.org/wiki/Поиск_в_ширину) (Tree Breadth-First Search)
+- [Поиск в глубину](https://ru.wikipedia.org/wiki/Поиск_в_глубину) (Tree Depth First Search)
 - Две кучи (Two Heaps)
 - Подмножества (Subsets)
 - Модифицированный бинарный поиск (Modified Binary Search)

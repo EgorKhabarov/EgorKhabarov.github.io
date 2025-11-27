@@ -302,16 +302,16 @@ searchInput.addEventListener("input", debounce(async (e) => {
         e.nextElementSibling.classList.remove("hidden");
     })
     folderSearchList.querySelectorAll(".file").forEach(e => {
-        e.addEventListener("click", function(event) {
+        e.onclick = function(event) {
             const vpath = e.getAttribute("data-vpath")
             setup_cheatsheet(vpath, false, false);
 
             floating_search.style.display = "flex";
-            mainInput.value = search_query;
+            mainInput.value = search_query.trim();
             setTimeout(function() {
                 mainInput.dispatchEvent(new Event("input"));
             }, 500);
-        })
+        }
     });
     folderSearchList.querySelectorAll(".file").forEach(e => {
         const url = e.getAttribute("data-vpath");
@@ -335,7 +335,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
         folderSearchList.style.color = null;
         folderSearchList.innerHTML = "";
     }
-}, 1000));
+}, 500));
 function closeSearch() {
     folderList.style.display = "block";
     folderSearchList.style.display = "none";
@@ -506,10 +506,11 @@ settingsBackdrop.addEventListener("click", () => toggleSettings(false));
 
 
 function load_cheatsheet(url) {
-    fetch(url)
+    fetch(`${url}.html`)
         .then(response => response.text())
         .then(text => {
             cheatsheet_field.innerHTML = text;
+            cheatsheet_field.setAttribute("data-cheatsheet-path", url);
             processingCheatSheet();
         });
 }
@@ -573,6 +574,68 @@ function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
 
 
 
+function generateButtonsOnClick(event) {
+    const cascadeClose = false;
+    // 1. Click on a folder (open/close)
+    const folderItem = event.target.closest(".tree_item.folder");
+    if (folderItem) {
+        event.stopPropagation();
+        toggleFolder(folderItem, false, cascadeClose);
+        return;
+    }
+
+    // 2. Click on the vertical line (close the folder)
+    // Checking if there was a click on the tree_children container
+    if (event.target.classList.contains("tree_children")) {
+        // Calculate the click position within an element
+        const rect = event.target.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+
+        // If the click was in the left border area (approximately 15px taking into account padding)
+        // Line border_left (2px) + padding_left (5px) + margin
+        if (clickX < 15) {
+            event.stopPropagation();
+            const parentGroup = event.target.closest(".tree_group");
+            if (parentGroup) {
+                const folderBtn = parentGroup.querySelector(".tree_item.folder");
+                if (folderBtn) {
+                    toggleFolder(folderBtn, true, cascadeClose); // force close
+                }
+            }
+        }
+    }
+}
+function generateButtonsOnClickCascade(event) {
+    const cascadeClose = true;
+    // 1. Click on a folder (open/close)
+    const folderItem = event.target.closest(".tree_item.folder");
+    if (folderItem) {
+        event.stopPropagation();
+        toggleFolder(folderItem, false, cascadeClose);
+        return;
+    }
+
+    // 2. Click on the vertical line (close the folder)
+    // Checking if there was a click on the tree_children container
+    if (event.target.classList.contains("tree_children")) {
+        // Calculate the click position within an element
+        const rect = event.target.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+
+        // If the click was in the left border area (approximately 15px taking into account padding)
+        // Line border_left (2px) + padding_left (5px) + margin
+        if (clickX < 15) {
+            event.stopPropagation();
+            const parentGroup = event.target.closest(".tree_group");
+            if (parentGroup) {
+                const folderBtn = parentGroup.querySelector(".tree_item.folder");
+                if (folderBtn) {
+                    toggleFolder(folderBtn, true, cascadeClose); // force close
+                }
+            }
+        }
+    }
+}
 function generateButtons(json_data, element, cascadeClose = true) {
     const css_colors = {
         "default": ' style="color: var(--color-file-default);"',
@@ -673,36 +736,8 @@ function generateButtons(json_data, element, cascadeClose = true) {
     }
 
     element.innerHTML = __generateButtons(json_data)[0];
-    element.addEventListener("click", (e) => {
-        // 1. Click on a folder (open/close)
-        const folderItem = e.target.closest(".tree_item.folder");
-        if (folderItem) {
-            e.stopPropagation();
-            toggleFolder(folderItem, false, cascadeClose);
-            return;
-        }
-
-        // 2. Click on the vertical line (close the folder)
-        // Checking if there was a click on the tree_children container
-        if (e.target.classList.contains("tree_children")) {
-            // Calculate the click position within an element
-            const rect = e.target.getBoundingClientRect();
-            const clickX = e.clientX - rect.left;
-
-            // If the click was in the left border area (approximately 15px taking into account padding)
-            // Line border_left (2px) + padding_left (5px) + margin
-            if (clickX < 15) {
-                e.stopPropagation();
-                const parentGroup = e.target.closest(".tree_group");
-                if (parentGroup) {
-                    const folderBtn = parentGroup.querySelector(".tree_item.folder");
-                    if (folderBtn) {
-                        toggleFolder(folderBtn, true, cascadeClose); // force close
-                    }
-                }
-            }
-        }
-    });
+    element.removeEventListener("click", cascadeClose ? generateButtonsOnClickCascade : generateButtonsOnClick);
+    element.addEventListener("click", cascadeClose ? generateButtonsOnClickCascade : generateButtonsOnClick);
 }
 
 (function load_folder_list() {
@@ -712,10 +747,10 @@ function generateButtons(json_data, element, cascadeClose = true) {
             generateButtons(json_data, folderList);
 
             folderList.querySelectorAll(".file").forEach(e => {
-                e.addEventListener("click", function(event) {
+                e.onclick = function(event) {
                     const vpath = e.getAttribute("data-vpath")
                     setup_cheatsheet(vpath, true, false);
-                })
+                };
             });
 
             let vpath = getPathFilename(getArgumentFromUrl());
