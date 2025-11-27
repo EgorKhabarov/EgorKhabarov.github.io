@@ -180,8 +180,14 @@ function renderBreadcrumbs(url) {
 
     const anchor = getAnchor();
     if (anchor) {
+        const sep = document.createElement("span");
+        sep.textContent = "#";
+        sep.className = "crumb_separator";
+        breadcrumbsContainer.appendChild(sep);
+
+        breadcrumbsContainer.appendChild(sep);
         const span = document.createElement("span");
-        span.textContent = `#${anchor}`;
+        span.textContent = anchor;
         span.className = "crumb_item";
         span.addEventListener("click", () => {
             console.log(`Navigating to: #${anchor}`);
@@ -327,7 +333,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
             mainInput.value = search_query.trim();
             setTimeout(function() {
                 mainInput.dispatchEvent(new Event("input"));
-            }, 500);
+            }, 300);
         }
     });
     folderSearchList.querySelectorAll(".file").forEach(e => {
@@ -597,7 +603,7 @@ function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     closeSidebar();
     closeMainSearch();
     changeTitle(getPathFilename(url));
-    cheatsheet_field_container.scrollIntoView({block: "start"});
+    cheatsheet_field_container.scrollTo(0, 0);
 
     if (setActive) {
         changeActiveButton(
