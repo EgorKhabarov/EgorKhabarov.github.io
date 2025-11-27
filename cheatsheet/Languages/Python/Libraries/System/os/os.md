@@ -37,7 +37,7 @@
 <p>Переименование файла или директории:</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;old_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;new_file.txt&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;old_file.txt&quot;</span><span class="k">,</span> <span class="s2">&quot;new_file.txt&quot;</span><span class="p">)</span>
 </pre></div></div></div>
 
 <p>Удаление файла:</p>
@@ -51,8 +51,8 @@
 
 <span class="n">file_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size of file:&quot;</span><span class="p">,</span> <span class="n">file_stat</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last accessed time:&quot;</span><span class="p">,</span> <span class="n">file_stat</span><span class="o">.</span><span class="n">st_atime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size of file:&quot;</span><span class="k">,</span> <span class="n">file_stat</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Last accessed time:&quot;</span><span class="k">,</span> <span class="n">file_stat</span><span class="o">.</span><span class="n">st_atime</span><span class="p">)</span>
 </pre></div></div></div>
 
 <p>Проверка, является ли путь директорией или файлом:</p>
@@ -86,7 +86,7 @@
 <p>Объединение путей:</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text>Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;/my_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;my_file.txt&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;/my_dir&quot;</span><span class="k">,</span> <span class="s2">&quot;my_file.txt&quot;</span><span class="p">))</span>
 </pre></div></div></div>
 
 <p>Получение расширения файла:</p>
