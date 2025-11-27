@@ -73,13 +73,13 @@ This is a full-text search by both cheat sheet names and their contents
 ```pre
 code
 ```
-&nbsp;&nbsp;
+&nbsp;
 ````pre
 ```pre
 code
 ```
 ````
-&nbsp;&nbsp;
+&nbsp;
 `````pre
 ````pre
 ```pre
@@ -87,6 +87,10 @@ code
 ```
 ````
 `````
+&nbsp;
+```pre @file.txt
+downloadable code
+```
 
 </div>
 
