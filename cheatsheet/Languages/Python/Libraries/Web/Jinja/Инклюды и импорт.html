@@ -4,13 +4,13 @@
 <li><strong>Инклюд</strong>: Используется для включения другого шаблона в текущий
 Это удобно для повторного использования небольших блоков <code>HTML</code>, таких как заголовки, подвал сайта или навигационные меню</li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;header.html&quot;</span> <span class="cp">%}</span>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;header.html&quot;</span> <span class="cp">%}</span>
 <span class="x">&lt;p&gt;Main content goes here.&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;footer.html&quot;</span> <span class="cp">%}</span>
 </pre></div></div></div>
 <p>При использовании <code>{% include %}</code> можно также передавать переменные в включаемый шаблон
   - <strong>Импорт макросов</strong>: Позволяет импортировать макросы из других шаблонов для повторного использования кода</p>
-<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros.html&quot;</span> <span class="k">import</span> <span class="nv">render_item</span> <span class="cp">%}</span>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">from</span> <span class="s2">&quot;macros.html&quot;</span> <span class="k">import</span> <span class="nv">render_item</span> <span class="cp">%}</span>
 <span class="x">&lt;div&gt;</span>
 <span class="x">    </span><span class="cp">{{</span> <span class="nv">render_item</span><span class="o">(</span><span class="nv">item</span><span class="o">)</span> <span class="cp">}}</span>
 <span class="x">&lt;/div&gt;</span>

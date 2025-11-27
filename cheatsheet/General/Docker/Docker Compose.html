@@ -4,12 +4,12 @@
 <h2>Установка Docker Compose</h2>
 <p>Если у вас установлен Docker, то Docker Compose уже встроен
 Проверить версию</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>version<span class="w">  </span><span class="c1"># В старых версиях</span>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>version<span class="w">  </span><span class="c1"># В старых версиях</span>
 docker<span class="w"> </span>compose<span class="w"> </span>version<span class="w">  </span><span class="c1"># В новых версиях</span>
 </pre></div></div></div>
 <h2>Базовая структура</h2>
 <p><code>docker-compose.yml</code></p>
-<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="w">  </span><span class="c1"># Версия Docker Compose</span>
+<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="w">  </span><span class="c1"># Версия Docker Compose</span>
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app</span><span class="p">:</span>
@@ -21,14 +21,14 @@ docker<span class="w"> </span>compose<span class="w"> </span>version<span class=
 <span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python app.py</span>
 </pre></div></div></div>
 <p>Запуск</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up
 </pre></div></div></div>
 <p>Остановка</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
 </pre></div></div></div>
 <h2>Запуск нескольких сервисов</h2>
 <p>Пример: <code>Flask</code> + <code>PostgreSQL</code></p>
-<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">db</span><span class="p">:</span>
@@ -61,10 +61,10 @@ docker<span class="w"> </span>compose<span class="w"> </span>version<span class=
 <span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
 </pre></div></div></div>
 <p>Запуск всех сервисов</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div></div></div>
 <p>Остановка всех сервисов</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
 </pre></div></div></div>
 
 <h2><code>build</code> и <code>image</code></h2>
@@ -73,7 +73,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>version<span class=
 <li><code>build: .</code> - собирать из <code>Dockerfile</code></li>
 </ul>
 <h3>Пример <code>Dockerfile</code></h3>
-<div class="code_element"><div class="lang_line"><text>dockerfile</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10</span>
+<div class="code_element"><div class="lang_line"><text>dockerfile</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-dockerfile"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
 <span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
 <span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
@@ -81,22 +81,22 @@ docker<span class="w"> </span>compose<span class="w"> </span>version<span class=
 <span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="k">,</span><span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
 </pre></div></div></div>
 <p>Запуск</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
 </pre></div></div></div>
 <h2>Переменные окружения</h2>
 <p>Создаём файл <code>.env</code></p>
-<div class="code_element"><div class="lang_line"><text>ini</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `.env`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title=".env">Download code</text></button></div><div class="code language-ini"><div class="highlight"><pre><span></span><span class="na">POSTGRES_USER</span><span class="o">=</span><span class="s">user</span>
+<div class="code_element"><div class="lang_line"><text>ini</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `.env`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title=".env">Download code</text></button></div><div class="code language-ini"><div class="highlight"><pre><span></span><span class="na">POSTGRES_USER</span><span class="o">=</span><span class="s">user</span>
 <span class="na">POSTGRES_PASSWORD</span><span class="o">=</span><span class="s">password</span>
 <span class="na">POSTGRES_DB</span><span class="o">=</span><span class="s">mydb</span>
 </pre></div></div></div>
 <p>Изменяем <code>docker-compose.yml</code></p>
-<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
+<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_USER}</span>
 <span class="w">  </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_PASSWORD}</span>
 <span class="w">  </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${POSTGRES_DB}</span>
 </pre></div></div></div>
 <h2>Логи и отладка</h2>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w">       </span><span class="c1"># Логи всех контейнеров</span>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w">       </span><span class="c1"># Логи всех контейнеров</span>
 docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>app<span class="w">      </span><span class="c1"># Логи конкретного контейнера</span>
 docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w">            </span><span class="c1"># Список запущенных контейнеров</span>
 docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>app<span class="w"> </span>bash<span class="w"> </span><span class="c1"># Открыть shell в контейнере</span>
@@ -104,7 +104,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>restart<span class=
 </pre></div></div></div>
 <h2>Запуск в продакшене</h2>
 <p><code>restart</code> и <code>.env</code>-файл</p>
-<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app</span><span class="p">:</span>
@@ -114,15 +114,15 @@ docker<span class="w"> </span>compose<span class="w"> </span>restart<span class=
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
 </pre></div></div></div>
 <p>Запуск</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div></div></div>
 <p>Остановка</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>--remove-orphans
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>--remove-orphans
 </pre></div></div></div>
 <h2>Docker Compose + Nginx</h2>
 <p>Обратный прокси
 Файл <code>docker-compose.yml</code></p>
-<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+<div class="code_element"><div class="lang_line"><text>yaml</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `docker-compose.yml`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="docker-compose.yml">Download code</text></button></div><div class="code language-yaml"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
@@ -157,7 +157,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>restart<span class=
 <span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
 </pre></div></div></div>
 <p>Файл <code>nginx.conf</code></p>
-<div class="code_element"><div class="lang_line"><text>nginx</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `nginx.conf`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="nginx.conf">Download code</text></button></div><div class="code language-nginx"><div class="highlight"><pre><span></span><span class="k">events</span><span class="w"> </span><span class="p">{}</span>
+<div class="code_element"><div class="lang_line"><text>nginx</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button><button class="download_code_button" onclick="DownloadCode(this, `nginx.conf`)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="nginx.conf">Download code</text></button></div><div class="code language-nginx"><div class="highlight"><pre><span></span><span class="k">events</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="k">http</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
@@ -169,7 +169,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>restart<span class=
 <span class="p">}</span>
 </pre></div></div></div>
 <p>Запуск</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div></div></div>
 <h1>Заключение</h1>
 <p>Docker Compose позволяет легко управлять многоконтейнерными приложениями, обеспечивать их автоматический перезапуск и упрощает настройку сетевого взаимодействия</p>

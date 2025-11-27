@@ -1,7 +1,7 @@
 <p>Конструктор класса очень удобен и по своему виду схож с обыкновенными функциями
 За счёт конструктора мы можем установить значения для объекта сразу при его создании</p>
 <p>Конструктор должен иметь одинаковое название с классом</p>
-<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pages</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">weight</span><span class="p">;</span>
@@ -33,7 +33,7 @@
 Дело в том, что все переменные лучше делать либо private, либо protected
 Доступ к переменным должен осуществляться только за счёт методов и конструкторов. Доступ к полям напрямую должен быть закрыт</p>
 <p>Дополнительно создадим два объекта и выведем информацию:</p>
-<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Book</span><span class="w"> </span><span class="n">sherlock_holms</span><span class="p">(</span><span class="mi">460</span><span class="k">,</span><span class="w"> </span><span class="mf">1.7f</span><span class="p">);</span><span class="w"> </span><span class="c1">// Используем 1 конструктор</span>
 <span class="w">    </span><span class="n">sherlock_holms</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Устанавливаем вручную значение для name</span>
 <span class="w">    </span><span class="n">sherlock_holms</span><span class="p">.</span><span class="n">getInfoBook</span><span class="w"> </span><span class="p">();</span>
@@ -53,7 +53,7 @@
 Деструкторы работают в обратную сторону от конструкторов
 Конструктор вызывается при создании объекта, а деструктор при удалении</p>
 <p>Пример создания деструктора:</p>
-<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Some</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="o">~</span><span class="n">Some</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Работа с объектом завершена.&quot;</span><span class="p">;</span>
@@ -63,7 +63,7 @@
 
 <p>Исходный код</p>
 <p>Конструкторы и деструкторы</p>
-<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<div class="code_element"><div class="lang_line"><text>cpp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-cpp"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Auto</span><span class="w"> </span><span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>

@@ -58,8 +58,8 @@ def code_block_callback(match: re.Match) -> str:
     highlighted_code = regex_comma_color_span.sub(lambda m: '<span class="k">,</span>', highlighted_code)
     highlighted_code = highlighted_code.replace("`", "&#x60;")
 
-    copy_svg = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg>'
-    download_svg = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg>'
+    copy_svg = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg>'
+    download_svg = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg>'
 
     copy_btn = f'<button class="copy_code_button" onclick="CopyCode(this)">{copy_svg}<text class="unselectable">Copy code</text></button>'
     download_btn = (

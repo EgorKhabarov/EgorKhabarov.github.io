@@ -5,11 +5,11 @@
 <p>CSP добавляется через заголовок <code>Content-Security-Policy</code> или <code>&lt;meta&gt;</code>-тег в HTML
 Он указывает, какие источники разрешены для скриптов, стилей, изображений и других ресурсов</p>
 <h3>Пример заголовка:</h3>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com</span>
 </pre></div></div></div>
 
 <p>Аналог через <code>&lt;meta&gt;</code>:</p>
-<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Security-Policy&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com&quot;</span><span class="p">&gt;</span>
+<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Security-Policy&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; script-src &#39;self&#39; https://apis.google.com&quot;</span><span class="p">&gt;</span>
 </pre></div></div></div>
 
 <h1>Директивы CSP</h1>
@@ -105,7 +105,7 @@
 </table>
 <h1>Примеры CSP</h1>
 <h3>Запрещаем всё, кроме безопасных источников</h3>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://trusted.cdn.com; style-src &#39;self&#39;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src &#39;self&#39;; script-src &#39;self&#39; https://trusted.cdn.com; style-src &#39;self&#39;</span>
 </pre></div></div></div>
 <ul>
 <li>Разрешены скрипты только с <code>self</code> и <code>trusted.cdn.com</code></li>
@@ -113,20 +113,20 @@
 <li>Все остальные ресурсы заблокированы</li>
 </ul>
 <h3>Разрешаем загрузку изображений с любых источников</h3>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: img-src *;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: img-src *;</span>
 </pre></div></div></div>
 
 <h3>Разрешаем только HTTPS</h3>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src https:;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: default-src https:;</span>
 </pre></div></div></div>
 
 <h3>Запрещаем inline-скрипты и <code>eval()</code></h3>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39;;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39;;</span>
 </pre></div></div></div>
 
 <h1>Режим "только отчёт" (report-only)</h1>
 <p>Можно протестировать <code>CSP</code>, не блокируя ресурсы:</p>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy-Report-Only: default-src &#39;self&#39;; script-src &#39;self&#39;; report-uri /csp-report</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy-Report-Only: default-src &#39;self&#39;; script-src &#39;self&#39;; report-uri /csp-report</span>
 </pre></div></div></div>
 <p>Браузер отправит отчёты о нарушениях на <code>/csp-report</code>, но ничего не заблокирует</p>
 <h2>Как избежать ошибок CSP?</h2>
@@ -134,14 +134,14 @@
 <li><strong>Не используйте <code>unsafe-inline</code></strong>: вместо этого используйте <code>nonce</code> или <code>hash</code></li>
 <li><strong>Используйте <code>nonce</code> для разрешения конкретных inline-скриптов</strong></li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;nonce-abc123&#39;;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;nonce-abc123&#39;;</span>
 </pre></div></div></div>
-<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;abc123&quot;</span><span class="p">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Безопасный inline-скрипт&#39;</span><span class="p">);&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="code_element"><div class="lang_line"><text>html</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;abc123&quot;</span><span class="p">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Безопасный inline-скрипт&#39;</span><span class="p">);&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div></div></div>
 <ul>
 <li><strong>Используйте <code>strict-dynamic</code> для безопасных загрузок скриптов</strong>:</li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;strict-dynamic&#39; https:;</span>
+<div class="code_element"><div class="lang_line"><text>http</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-http"><div class="highlight"><pre><span></span><span class="err">Content-Security-Policy: script-src &#39;self&#39; &#39;strict-dynamic&#39; https:;</span>
 </pre></div></div></div>
 
 <h1>Проверка и отладка CSP</h1>

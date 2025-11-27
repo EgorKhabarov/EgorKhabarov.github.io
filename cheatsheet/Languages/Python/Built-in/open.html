@@ -1,5 +1,5 @@
 <h1>open</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span>
     <span class="n">file</span><span class="o">=</span><span class="s2">&quot;&lt;path&gt;&quot;</span><span class="k">,</span>
     <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="k">,</span>
     <span class="n">buffering</span><span class="o">=-</span><span class="mi">1</span><span class="k">,</span>
@@ -150,7 +150,7 @@
 </ul>
 <h4>opener</h4>
 <p>Позволяет задать пользовательскую функцию открытия:</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">custom_opener</span><span class="p">(</span><span class="n">path</span><span class="k">,</span> <span class="n">flags</span><span class="p">):</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">custom_opener</span><span class="p">(</span><span class="n">path</span><span class="k">,</span> <span class="n">flags</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="k">,</span> <span class="n">flags</span><span class="p">)</span>
 
 <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="k">,</span> <span class="s2">&quot;r&quot;</span><span class="k">,</span> <span class="n">opener</span><span class="o">=</span><span class="n">custom_opener</span><span class="p">)</span>
@@ -236,7 +236,7 @@
 </tbody>
 </table>
 <h1>Пример использования</h1>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="k">,</span> <span class="s2">&quot;r&quot;</span><span class="k">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="k">,</span> <span class="s2">&quot;r&quot;</span><span class="k">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div></div></div>

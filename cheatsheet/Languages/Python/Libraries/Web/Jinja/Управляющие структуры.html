@@ -3,14 +3,14 @@
 <ul>
 <li><strong>Циклы</strong>: Используются для итерации по последовательностям данных, таким как списки или кортежи</li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">list</span> <span class="cp">%}</span>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">list</span> <span class="cp">%}</span>
 <span class="x">    &lt;p&gt;</span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div></div></div>
 <ul>
 <li><strong>Условия</strong>: Позволяют выполнять разные действия в зависимости от условий</li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_authenticated</span> <span class="cp">%}</span>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">user.is_authenticated</span> <span class="cp">%}</span>
 <span class="x">    &lt;p&gt;Welcome, </span><span class="cp">{{</span> <span class="nv">user.name</span> <span class="cp">}}</span><span class="x">!&lt;/p&gt;</span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
 <span class="x">    &lt;p&gt;Please log in.&lt;/p&gt;</span>
@@ -18,7 +18,7 @@
 </pre></div></div></div>
 <p>Можно использовать <code>{% elif %}</code> для добавления дополнительных условий
 - <strong>Макросы</strong>: Функции, которые позволяют повторно использовать блоки кода в шаблонах</p>
-<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_item</span><span class="o">(</span><span class="nv">item</span><span class="o">)</span> <span class="cp">%}</span>
+<div class="code_element"><div class="lang_line"><text>jinja</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-jinja"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">render_item</span><span class="o">(</span><span class="nv">item</span><span class="o">)</span> <span class="cp">%}</span>
 <span class="x">    &lt;div&gt;</span><span class="cp">{{</span> <span class="nv">item.name</span> <span class="cp">}}</span><span class="x">&lt;/div&gt;</span>
 <span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
 
