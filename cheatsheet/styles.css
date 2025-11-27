@@ -439,29 +439,20 @@ svg {
     overflow-wrap: break-word;
     /* height: 100%;
     padding-top: 20px; */
+    display: flex;
+    justify-content: center;
 }
 
-/* Mobile devices */
-@media (max-width: 768px) {
+#cheatsheet_field {
+    width: 100%;
+}
+
+@media (min-width: 1180px) {
     #cheatsheet_field {
-        padding: 0;
+        /* padding: 0 80px; */
+        max-width: 800px;
     }
 }
-
-/* Tablets */
-@media (min-width: 1180px) and (max-width: 1284px) {
-    #cheatsheet_field {
-        padding: 0 80px;
-    }
-}
-
-/* Desktops */
-@media (min-width: 1284px) {
-    #cheatsheet_field {
-        padding: 0 120px;
-    }
-}
-
 
 /* --- MOBILE OVERLAY --- */
 #mobile_overlay {
