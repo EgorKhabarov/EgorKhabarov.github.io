@@ -53,9 +53,12 @@ def code_block_callback(match: re.Match) -> str:
     ):
         highlighted_code = set_unselectable(highlighted_code, "\n")
 
-    regex_comma_color_span = re.compile(r'<span class="p">,</span>')
+    regex_comma_color_span = re.compile(r'<span class="p">([^<]*),</span>')
 
-    highlighted_code = regex_comma_color_span.sub(lambda m: '<span class="k">,</span>', highlighted_code)
+    highlighted_code = regex_comma_color_span.sub(
+        lambda m: f'{f'<span class="p">{m[1]}</span>' if m[1] else ""}<span class="k">,</span>',
+        highlighted_code,
+    )
     highlighted_code = highlighted_code.replace("`", "&#x60;")
 
     copy_svg = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg>'
