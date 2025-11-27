@@ -114,7 +114,7 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test_upper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s2">&quot;FOO&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="k">,</span> <span class="s2">&quot;FOO&quot;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test_isupper</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="s2">&quot;FOO&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>
@@ -122,7 +122,7 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="k">,</span> <span class="s2">&quot;world&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span><span class="k">,</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="k">,</span> <span class="s2">&quot;world&quot;</span><span class="p">])</span>
         <span class="c1"># Проверка исключения</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
             <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
