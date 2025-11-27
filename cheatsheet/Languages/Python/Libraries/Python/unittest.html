@@ -74,7 +74,7 @@
 </tbody>
 </table>
 <h3>Пример тестового класса</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestMathFunctions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -100,16 +100,16 @@
 
 <h3>Запуск тестов</h3>
 <p>Через командную строку</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_module.py
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>test_module.py
 </pre></div></div></div>
 <p>Запуск всех тестов в файле</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover
 </pre></div></div></div>
 
 <h3>Организация тестов</h3>
 <p>Тесты обычно организуются в классы, наследуемые от <code>unittest.TestCase</code>
 Каждый метод в классе, начинающийся с <code>test_</code>, будет считаться отдельным тестом</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestStringMethods</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -133,7 +133,7 @@
 
 <h3>Скип тестов</h3>
 <p>Можно пропустить тест, если его выполнение в текущий момент не нужно, с помощью декоратора <code>@unittest.skip</code></p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">unittest</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestSkipped</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="nd">@unittest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">&quot;Причина пропуска&quot;</span><span class="p">)</span>
@@ -152,14 +152,14 @@
 - <code>-v</code>: Запуск тестов с более подробным выводом (<strong>verbose</strong>)
 - <code>-q</code>: Уменьшение подробности вывода (<strong>quiet mode</strong>)
 - <code>-f</code>: Остановка на первом неудачном тесте</p>
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>-v<span class="w"> </span>test_module
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>-v<span class="w"> </span>test_module
 </pre></div></div></div>
 
 <h3>Дополнительные возможности</h3>
 <ul>
 <li><strong>Параметризация тестов</strong>: С помощью библиотеки <code>unittest.TestLoader</code>, можно запускать тесты динамически</li>
 </ul>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromTestCase</span><span class="p">(</span><span class="n">TestMathFunctions</span><span class="p">)</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromTestCase</span><span class="p">(</span><span class="n">TestMathFunctions</span><span class="p">)</span>
 <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
 </pre></div></div></div>
 

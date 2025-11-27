@@ -355,6 +355,12 @@ window.addEventListener("resize", () => {
         overlay.style.pointerEvents = "";
         sidebarOpen = false;
         isDraggingSidebar = false;
+    } else {
+        sidebar.classList.remove("display_none");
+        resizer.classList.remove("display_none");
+        sidebar_open_button.classList.remove("display_none");
+        sidebar_close_button.classList.remove("display_none");
+        // sidebar.classList.toggle('display_none');resizer.classList.toggle('display_none');
     }
 });
 
@@ -881,12 +887,12 @@ function processingCheatSheet() {
     });
     cheatsheet_field.querySelectorAll("table").forEach(processingTables);
 
-    return; // TODO
+    //return; // TODO
     if (h_elements.length !== 0) {
         // TODO cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
-        breadcrumbs_row.innerHTML += `<div id="h_list_button" state="off" class="icon_btn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
-        h_list = document.createElement("div");
-        h_list.id = "h_list";
+
+        //breadcrumbs_row.innerHTML += `<div id="h_list_button" state="off" class="icon_btn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
+        h_list.innerHTML = ""
 
         // pre_element = document.createElement("pre");
         // pre_element.innerHTML = `<span style="color: rgb(255, 0, 0);">H1</span>&nbsp;<span class="h_list_sel"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg></span>`;
@@ -916,68 +922,23 @@ function processingCheatSheet() {
             pre_element = document.createElement("pre");
             //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"
             pre_element.innerHTML = `${indent}<span style="color: ${color}">${header.tagName}</span>&nbsp;<span class="h_list_sel">${header.textContent}</span>`;
-            pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"})`);
+            pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"});h_list.style.display="none";`);
             h_list.appendChild(pre_element);
         });
-        cheatsheet_field.appendChild(h_list);
+        //cheatsheet_field.appendChild(h_list);
 
-        function f1 () {
-            // h_list_button.style.borderTopLeftRadius = "0";
-            // h_list_button.style.borderBottomLeftRadius = "0";
-            // h_list_button.style.backgroundColor = "rgb(25, 25, 25)";
-            h_list.style.display = "block";
-            // h_list.style.borderTopRightRadius = "0";
-        }
-        function f2 () {
-            // h_list_button.style.borderTopLeftRadius = "";
-            // h_list_button.style.borderBottomLeftRadius = "";
-            // h_list_button.style.backgroundColor = "#525252";
-            h_list.style.display = "none";
-            // h_list.style.borderBottomRightRadius = "";
-        }
-        function f3 () {
-            if (h_list_button.getAttribute("state") === "on") {
-                h_list_button.addEventListener("mouseover", f1);
-                h_list_button.addEventListener("mouseout", f2);
-                h_list       .addEventListener("mouseover", f1);
-                h_list       .addEventListener("mouseout", f2);
-
-                h_list_button.addEventListener("touchstart", f1);
-                h_list_button.addEventListener("touchend", f2);
-                h_list       .addEventListener("touchstart", f1);
-                h_list       .addEventListener("touchend", f2);
-
-                h_list_button.setAttribute("state", "off");
-            } else {
-                // h_list_button.style.borderTopLeftRadius = "0";
-                // h_list_button.style.borderBottomLeftRadius = "0";
-                // h_list_button.style.backgroundColor = "rgb(25, 25, 25)";
-                h_list.style.display = "block";
-                // h_list.style.borderTopRightRadius = "0";
-
-                h_list_button.removeEventListener("mouseover", f1);
-                h_list_button.removeEventListener("mouseout", f2);
-                h_list       .removeEventListener("mouseover", f1);
-                h_list       .removeEventListener("mouseout", f2);
-
-                h_list_button.removeEventListener("touchstart", f1);
-                h_list_button.removeEventListener("touchend", f2);
-                h_list       .removeEventListener("touchstart", f1);
-                h_list       .removeEventListener("touchend", f2);
-
-                h_list_button.setAttribute("state", "on");
-            }
-        }
-        h_list_button.addEventListener("mouseover", f1);
-        h_list_button.addEventListener("mouseout", f2);
-        h_list.addEventListener("mouseover", f1);
-        h_list.addEventListener("mouseout", f2);
-        h_list_button.addEventListener("click", f3);
     }
 };
 
-
-
+/*
+h_list_button.addEventListener("click", () => {
+    if (h_list.style.display === "block") {
+        h_list.style.display = "none";
+    } else {
+        h_list.style.display = "block";
+    }
+});
+*/
 
 
 
@@ -1069,9 +1030,8 @@ function CopyCode(button_element) {
     }
     copy(pre_element.textContent);
 
-    svg = '<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">'
-    html1 = svg + '<polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable">Copied!</text>';
-    html2 = svg + '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><text class="unselectable">Copy code</text>';
+    html1 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#done_code_svg"/></svg><text class="unselectable">Copied!</text>';
+    html2 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text>';
 
     button_element.innerHTML = html1;
 
@@ -1091,8 +1051,8 @@ function DownloadCode(button_element, filename) {
     element.click();
     document.body.removeChild(element);
 
-    download_html = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
-    downloaded_html = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg><text class="unselectable" title="${filename}">Download!</text>`;
+    download_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
+    downloaded_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#done_code_svg"/></svg><text class="unselectable" title="${filename}">Download!</text>`;
 
     button_element.innerHTML = downloaded_html;
 

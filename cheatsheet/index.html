@@ -87,6 +87,15 @@ strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
             <symbol id="table_of_contents_button" viewBox="0 0 16 16">
                 <path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
             </symbol>
+            <symbol id="copy_code_svg" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/>
+            </symbol>
+            <symbol id="download_code_svg" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m5 4-2 2 2 2m4-4 2 2-2 2m5-12v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"/>
+            </symbol>
+            <symbol id="done_code_svg" viewBox="0 0 24 24">
+                <polyline fill="none" stroke="currentColor" points="20 6 9 17 4 12"></polyline>
+            </symbol>
         </defs>
     </svg>
 
@@ -118,6 +127,21 @@ strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
         </div>
 
         <div class="header_row bottom">
+            <!--
+            <div style="display: flex;height: 100%;align-items: center;gap: 5px;padding-right: 10px;border-right: 1px solid var(--border-color);">
+                <button id="sidebar_toggle" class="icon_btn" style="width: 34px;height: 34px;" onclick="sidebar.classList.toggle('display_none');resizer.classList.toggle('display_none');sidebar_open_button.toggle('display_none');sidebar_close_button.toggle('display_none');">
+                    <svg viewBox="0 0 16 16" style="fill: var(--icon-color);width: 20px;height: 20px;">
+                        <use id="sidebar_open_button" href="#sidebar_open"></use>
+                        <use id="sidebar_close_button" href="#sidebar_close" class="display_none"></use>
+                    </svg>
+                </button>
+                <button id="h_list_button" class="icon_btn">
+                    <svg viewBox="0 0 16 16" width="16" height="16" style="fill: var(--icon-color);">
+                        <use href="#table_of_contents_button"></use>
+                    </svg>
+                </button>
+            </div>
+            -->
             <div id="breadcrumbs_row" style="overflow: hidden;"></div>
         </div>
     </header>
@@ -173,6 +197,8 @@ strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
                     <span id="floating_search_result_count">0 results</span>
                 </div>
             </div>
+            <div class="floating_search" id="h_list" style="top: 0px;right: 0px;height: 400px;z-index: 4;flex-direction: column;"></div>
+
             <!-- content from cheatsheet/**/*.html -->
             <div id="cheatsheet_field_container"><div id="cheatsheet_field"></div></div>
         </div>

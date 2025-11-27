@@ -14,7 +14,7 @@
 </ul>
 <h2>Синтаксис и структура</h2>
 <p>На момент 2025 года <strong>не существует стандартизированного формата</strong>, но де-факто принят следующий</p>
-<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: &lt;название модели или сервиса&gt;
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: &lt;название модели или сервиса&gt;
 Disallow: &lt;путь&gt;  # Запрещает доступ
 Allow: &lt;путь&gt;     # Разрешает доступ
 </pre></div></div></div>
@@ -27,12 +27,12 @@ Allow: &lt;путь&gt;     # Разрешает доступ
 </ul>
 <h2>Примеры</h2>
 <h3>Запретить всем LLM</h3>
-<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: *
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: *
 Disallow: /
 </pre></div></div></div>
 
 <h3>Запретить GPT и Claude, разрешить другим</h3>
-<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
 Disallow: /
 
 User-agent: ClaudeBot
@@ -40,7 +40,7 @@ Disallow: /
 </pre></div></div></div>
 
 <h3>Разрешить всё GPTBot и Claude</h3>
-<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -48,7 +48,7 @@ Allow: /
 </pre></div></div></div>
 
 <h3>Разрешить GPTBot только на /blog/</h3>
-<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>User-agent: GPTBot
 Disallow: /
 Allow: /blog/
 </pre></div></div></div>
@@ -134,7 +134,7 @@ Allow: /blog/
 </table>
 <h2>Как узнать, кто использует мой сайт</h2>
 <p>Используй логи доступа веб-сервера, ищи <code>User-Agent</code>, например</p>
-<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>GPTBot
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>GPTBot
 ClaudeBot
 PerplexityBot
 Google-Extended
@@ -150,7 +150,7 @@ Google-Extended
 <li><strong>YouBot</strong>: <em>(официальной страницы может не быть)</em></li>
 </ul>
 <h2>Пример <code>llm.txt</code> для сайта</h2>
-<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span># Ограничения для LLM-ботов
+<div class="code_element"><div class="lang_line"><text>txt</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span># Ограничения для LLM-ботов
 User-agent: GPTBot
 Disallow: /
 

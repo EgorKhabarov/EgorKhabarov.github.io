@@ -1,7 +1,7 @@
 <h1><code>gi_code</code></h1>
 <p>Ссылка на объект кода (тип <code>code</code>), связанный с генератором
 Содержит информацию о скомпилированном коде, например, имя функции</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">yield</span>
 <span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">gen</span> <span class="o">=</span> <span class="n">example</span><span class="p">()</span>
@@ -12,7 +12,7 @@
 <h1><code>gi_frame</code></h1>
 <p>Ссылка на текущий объект фрейма выполнения (тип frame), представляющий стек вызовов генератора
 Используется для отладки или анализа текущего состояния генератора</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
     <span class="k">yield</span>
 
 <span class="n">gen</span> <span class="o">=</span> <span class="n">example</span><span class="p">()</span>
@@ -24,7 +24,7 @@
 <h1><code>gi_running</code></h1>
 <p>Возвращает True, если генератор в данный момент выполняется (например, рекурсивный вызов)
 Помогает отслеживать, активен ли генератор</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>   <span class="nb">print</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">gi_running</span><span class="p">)</span>  <span class="c1"># Вывод: True (генератор выполняется)</span>
 <span class="unselectable"><span class="o">...</span> </span>   <span class="k">yield</span>
 <span class="unselectable"><span class="gp">...</span></span>
@@ -41,7 +41,7 @@
 <h1><code>gi_yieldfrom</code></h1>
 <p>Содержит ссылку на вложенный генератор, если используется выражение <code>yield from</code>
 Позволяет анализировать вложенные генераторы</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">sub_generator</span><span class="p">():</span>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">sub_generator</span><span class="p">():</span>
 <span class="unselectable"><span class="o">...</span> </span>    <span class="k">yield</span> <span class="s2">&quot;Sub value&quot;</span>
 <span class="unselectable"><span class="gp">...</span></span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">():</span>

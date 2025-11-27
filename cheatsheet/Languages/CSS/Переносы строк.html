@@ -10,7 +10,7 @@
 <li><strong>Запретить переносы строк:</strong></li>
 </ol>
 <p>Если вы хотите полностью запретить переносы строк (включая пробелы) и отображать текст в одной строке:</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">no-break</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">no-break</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">nowrap</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div></div></div>
@@ -19,7 +19,7 @@
 <li><strong>Разрешить перенос строк только по пробелам:</strong></li>
 </ol>
 <p>Для переноса строк только по пробелам, без разбиения слов:</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">break-by-space</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">break-by-space</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span>
 <span class="w">  </span><span class="k">word-break</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span>
 <span class="w">  </span><span class="k">overflow-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">normal</span><span class="p">;</span>
@@ -30,7 +30,7 @@
 <li><strong>Разрешить перенос слов, если они не помещаются:</strong></li>
 </ol>
 <p>Если слово слишком длинное и не помещается в строке, браузер может перенести его на следующую строку:</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">break-words</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">break-words</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">word-break</span><span class="p">:</span><span class="w"> </span><span class="kc">break-word</span><span class="p">;</span>
 <span class="w">  </span><span class="k">overflow-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">break-word</span><span class="p">;</span>
 <span class="p">}</span>
@@ -40,7 +40,7 @@
 <li><strong>Разрешить перенос строки на любых символах (агрессивный перенос):</strong></li>
 </ol>
 <p>Перенос строки может произойти на любом символе, если слово не помещается:</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg style="width: 1.2em;height: 1.2em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-5-4v4h4V3h-4Z"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">strict-break</span><span class="w"> </span><span class="p">{</span>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">strict-break</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">word-break</span><span class="p">:</span><span class="w"> </span><span class="n">break-all</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div></div></div>
