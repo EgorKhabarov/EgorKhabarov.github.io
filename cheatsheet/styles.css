@@ -444,19 +444,22 @@ svg {
     word-break: break-word;
     overflow-wrap: break-word;
     /* height: 100%;
-    padding-top: 20px; */
+    padding-top: 20px;
     display: flex;
     justify-content: center;
+    align-items: flex-start; */
 }
 
+/*
 #cheatsheet_field {
     width: 100%;
 }
+*/
 
 @media (min-width: 1180px) {
     #cheatsheet_field {
-        /* padding: 0 80px; */
-        max-width: 800px;
+        padding: 0 160px;
+        /* max-width: 800px; */
     }
 }
 
