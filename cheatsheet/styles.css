@@ -48,15 +48,15 @@
     --tree-line-hover: #3B82F6;
 
 
-    --color-file-default: rgb( 85,  85,  85);
-    --color-file-yellow:  rgb(249, 197,  83);
-    --color-file-green:   rgb( 60, 194,  58);
-    --color-file-pink:    rgb(253,  99, 148);
-    --color-file-red:     rgb(224,  53,  52);
-    --color-file-lblue:   rgb(132, 184, 249);
-    --color-file-dblue:   rgb( 20, 114, 248);
-    --color-file-violet:  rgb(140,  88, 133);
-    --color-file-brown:   rgb(131,  83,  51);
+    --color-file-default: #555555;
+    --color-file-yellow: #F9C553;
+    --color-file-green: #3CC23A;
+    --color-file-pink: #FD6394;
+    --color-file-red: #E03534;
+    --color-file-lblue: #84B8F9;
+    --color-file-dblue: #1472F8;
+    --color-file-violet: #8C5885;
+    --color-file-brown: #835333;
 
     --table-header-bg: #F0F0F0;
     --table-row-hover: #FAFAFA;
@@ -70,6 +70,12 @@
     --md-element-code-lang-line-bg: #CFCFCF;
     --md-element-code-lang-line-color: #262626;
     --md-element-code-bg: #E9E9E9;
+
+    --md-blockquote-note: #478BE6;
+    --md-blockquote-tip: #57AB5A;
+    --md-blockquote-important: #986EE2;
+    --md-blockquote-warning: #C69026;
+    --md-blockquote-caution: #E5534B;
 
     /* Syntax highlighting */
     .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: #CC7832;} /* Keywords */
@@ -113,7 +119,7 @@
     --tree-line-color: #444444;
     --tree-line-hover: #005FCC;
 
-    --color-file-default: rgb(218, 218, 218);
+    --color-file-default: #DADADA;
 
     --table-header-bg: #252526;
     --table-row-hover: #2A2D2E;
@@ -658,23 +664,23 @@ blockquote {
     margin-top: 0;
 }
 blockquote > :last-child {margin-bottom: 0;}
-.blockquote-note      {border-left-color: #478BE6;}
-.blockquote-tip       {border-left-color: #57AB5A;}
-.blockquote-important {border-left-color: #986EE2;}
-.blockquote-warning   {border-left-color: #C69026;}
-.blockquote-caution   {border-left-color: #E5534B;}
+.blockquote_note      {border-left-color: var(--md-blockquote-note);}
+.blockquote_tip       {border-left-color: var(--md-blockquote-tip);}
+.blockquote_important {border-left-color: var(--md-blockquote-important);}
+.blockquote_warning   {border-left-color: var(--md-blockquote-warning);}
+.blockquote_caution   {border-left-color: var(--md-blockquote-caution);}
 .anchor {color: inherit;}
 .anchor:link {color: inherit;}
 .anchor:visited {color: inherit;}
 .anchor:hover {text-decoration: none;}
 
-.blockquote-alerts-p {
+.blockquote_alerts_p {
     display: flex;
     font-weight: 1000;
     align-items: center;
     line-height: 1;
 }
-.blockquote-alerts-svg {
+.blockquote_alerts_p svg {
     display: inline-block;
     overflow: visible !important;
     vertical-align: text-bottom;

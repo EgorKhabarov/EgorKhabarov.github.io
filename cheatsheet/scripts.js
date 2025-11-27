@@ -515,6 +515,10 @@ function load_cheatsheet(url) {
     fetch(`${url}.html`)
         .then(response => response.text())
         .then(text => {
+            if (text.startsWith("<!-- 404.html -->")) {
+                cheatsheet_field.innerHTML = "Oops, it seems like there is no such page";
+                return;
+            }
             cheatsheet_field.innerHTML = text;
             cheatsheet_field.setAttribute("data-cheatsheet-path", url);
             processingCheatSheet();
@@ -814,30 +818,35 @@ function changeActiveButton(element) {
 
 function processingBlockQuote(blockquote) {
     if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!note]\n")) {
-        blockquote.classList.add("blockquote-note");
+        blockquote.classList.add("blockquote_note");
         // class="unselectable"
         // textContent
-        blockquote.firstChild.innerHTML = `<p class="blockquote-alerts-p" style="color: #478be6;"><svg class="blockquote-alerts-svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>Note</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!note]\n");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-note);"><svg><use href="#icon_md_blockquote_note"/></svg>Note</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!note]\n");
+
         blockquote.style.paddingBottom = "6px";
         blockquote.style.marginTop = "12px";
     } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!tip]\n")) {
-        blockquote.classList.add("blockquote-tip");
-        blockquote.firstChild.innerHTML = `<p class="blockquote-alerts-p" style="color: #57ab5a;"><svg class="blockquote-alerts-svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>Tip</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!tip]\n");
+        blockquote.classList.add("blockquote_tip");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-tip);"><svg><use href="#icon_md_blockquote_tip"/></svg>Tip</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!tip]\n");
+
         blockquote.style.paddingBottom = "6px";
         blockquote.style.marginTop = "12px";
     } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!important]\n")) {
-        blockquote.classList.add("blockquote-important");
-        blockquote.firstChild.innerHTML = `<p class="blockquote-alerts-p" style="color: #986ee2;"><svg class="blockquote-alerts-svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>Important</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!important]\n");
+        blockquote.classList.add("blockquote_important");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-important);"><svg><use href="#icon_md_blockquote_important"/></svg>Important</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!important]\n");
+
         blockquote.style.paddingBottom = "6px";
         blockquote.style.marginTop = "12px";
     } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!warning]\n")) {
-        blockquote.classList.add("blockquote-warning");
-        blockquote.firstChild.innerHTML = `<p class="blockquote-alerts-p" style="color: #c69026;"><svg class="blockquote-alerts-svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>Warning</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!warning]\n");
+        blockquote.classList.add("blockquote_warning");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-warning);"><svg><use href="#icon_md_blockquote_warning"/></svg>Warning</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!warning]\n");
+
         blockquote.style.paddingBottom = "6px";
         blockquote.style.marginTop = "12px";
     } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!caution]\n")) {
-        blockquote.classList.add("blockquote-caution");
-        blockquote.firstChild.innerHTML = `<p class="blockquote-alerts-p" style="color: #e5534b;"><svg class="blockquote-alerts-svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>Caution</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!caution]\n");
+        blockquote.classList.add("blockquote_caution");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-caution);"><svg><use href="#icon_md_blockquote_caution"/></svg>Caution</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!caution]\n");
+
         blockquote.style.paddingBottom = "6px";
         blockquote.style.marginTop = "12px";
     }
@@ -1030,8 +1039,8 @@ function CopyCode(button_element) {
     }
     copy(pre_element.textContent);
 
-    html1 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#done_code_svg"/></svg><text class="unselectable">Copied!</text>';
-    html2 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#copy_code_svg"/></svg><text class="unselectable">Copy code</text>';
+    html1 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable">Copied!</text>';
+    html2 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text>';
 
     button_element.innerHTML = html1;
 
@@ -1051,8 +1060,8 @@ function DownloadCode(button_element, filename) {
     element.click();
     document.body.removeChild(element);
 
-    download_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#download_code_svg"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
-    downloaded_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#done_code_svg"/></svg><text class="unselectable" title="${filename}">Download!</text>`;
+    download_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
+    downloaded_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable" title="${filename}">Download!</text>`;
 
     button_element.innerHTML = downloaded_html;
 
@@ -1112,21 +1121,38 @@ function css_markdown_preview_func(element) {
     if (element.checked) {
         css_markdown_preview.textContent = `
 
-#cheatsheet_field h1 {color:rgb(255,   0,   0);}
-#cheatsheet_field h2 {color:rgb(250, 115,   0);}
-#cheatsheet_field h3 {color:rgb(255, 250,   0);}
-#cheatsheet_field h4 {color:rgb(  0, 255,   0);}
-#cheatsheet_field h5 {color:rgb(  0, 160, 245);}
-#cheatsheet_field h6 {color:rgb(221,   0, 242);}
+:root {
+    --color-h1: #FF0000;
+    --color-h2: #FA7300;
+    --color-h3: #FFCA00;
+    --color-h4: #00FF00;
+    --color-h5: #00A0F5;
+    --color-h6: #DD00F2;
+    --md-color-b: #F3AB06;
+    --md-color-i: #8088C1;
+    --md-color-bi: #C39990;
+}
 
-#cheatsheet_field b, strong    {color:rgb(243, 171,   6);}
-#cheatsheet_field i, em        {color:rgb(128, 136, 193);}
-#cheatsheet_field strong em, i {color:rgb(195, 153, 144);}
-#cheatsheet_field      b em, i {color:rgb(195, 153, 144);}
-#cheatsheet_field em strong, b {color:rgb(195, 153, 144);}
-#cheatsheet_field  i strong, b {color:rgb(195, 153, 144);}
+[data-theme="dark"] {
+    --color-h3: #FFFA00;
+}
 
-strong:has(em), em:has(strong) {color:rgb(195, 153, 144)!important;}
+
+#cheatsheet_field h1 {color: var(--color-h1);}
+#cheatsheet_field h2 {color: var(--color-h2);}
+#cheatsheet_field h3 {color: var(--color-h3);}
+#cheatsheet_field h4 {color: var(--color-h4);}
+#cheatsheet_field h5 {color: var(--color-h5);}
+#cheatsheet_field h6 {color: var(--color-h6);}
+
+#cheatsheet_field b, strong    {color: var(--md-color-b);}
+#cheatsheet_field i, em        {color: var(--md-color-i);}
+#cheatsheet_field strong em, i {color: var(--md-color-bi);}
+#cheatsheet_field      b em, i {color: var(--md-color-bi);}
+#cheatsheet_field em strong, b {color: var(--md-color-bi);}
+#cheatsheet_field  i strong, b {color: var(--md-color-bi);}
+
+strong:has(em), em:has(strong) {color: var(--md-color-bi)!important;}
 
 
 #cheatsheet_field h1:before {content: "# ";}
