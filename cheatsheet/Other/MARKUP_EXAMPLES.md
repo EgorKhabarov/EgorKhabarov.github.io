@@ -1,28 +1,4 @@
-# ABOUT
-
-This is a site with cheat sheets
-
-### Keyboard
-
-Press <kbd style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();">Ctrl + F</kbd> to open **Find in page search**
-To search using <a href="?Languages/RegExp/RegExp">regular expressions</a>, write a query in the format <code class="code_no_copy" style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();mainInput.value='//pattern/flags/';mainInput.dispatchEvent(new Event('input'));">/pattern/flags</code>
-
-Press <kbd style="cursor: pointer;" onclick="openSidebar();sidebarInput.focus();">Ctrl + Shift + F</kbd> to open **global search**
-This is a full-text search by both cheat sheet names and their contents 
-
-> [!TIP]
-> You can refine your search using:
-
-> <code>+word</code> - the result must include this word
-> <code>-word</code> - the result must NOT include this word
-> <code>word*</code> - match words starting with this term
-> <code>word~1</code> - fuzzy match (distance 1)
-> <code>word^2</code> - boost word importance
-
-> Examples:
-> <code>+apple juice\*</code><br>
-> <code>banana~1 -rotten</code><br>
-> <code>apple^2 fresh\*</code><br>
+# MARKUP_EXAMPLES
 
 **Below is the debug section for viewing the correctness of the markup**
 

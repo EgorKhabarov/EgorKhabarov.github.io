@@ -640,7 +640,8 @@
         "Chrome Dino": "",
         "Alt Symbols": "",
         "Links": "",
-        "TODO": "color: red\n"
+        "TODO": "color: red\n",
+        "MARKUP_EXAMPLES": ""
     },
     "Snippets": {
         "Python": {
