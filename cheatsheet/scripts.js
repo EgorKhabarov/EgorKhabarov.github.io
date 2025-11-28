@@ -187,7 +187,10 @@ function renderBreadcrumbs(url) {
 
         breadcrumbsContainer.appendChild(sep);
         const span = document.createElement("span");
-        span.textContent = anchor;
+
+        let anchor_tmp = anchor.toLowerCase().replaceAll("-", " ");
+        span.textContent = anchor_tmp.slice(0, 1).toUpperCase()+anchor_tmp.slice(1);
+
         span.className = "crumb_item";
         span.addEventListener("click", () => {
             console.log(`Navigating to: #${anchor}`);
@@ -327,10 +330,10 @@ searchInput.addEventListener("input", debounce(async (e) => {
         e.nextElementSibling.classList.remove("hidden");
     })
     folderSearchList.querySelectorAll(".file").forEach(e => {
-        e.onclick = function(event) {
+        e.onclick = async function(event) {
             delAnchor();
             const vpath = e.getAttribute("data-vpath")
-            setup_cheatsheet(vpath, false, false);
+            await setup_cheatsheet(vpath, false, false);
 
             floating_search.style.display = "flex";
             mainInput.value = search_query.trim();
@@ -370,6 +373,7 @@ function closeSearch() {
     folderSearchList.style.justifyContent = null;
     folderSearchList.innerHTML = "";
     searchInput.value = "";
+    searchInput.style.border = null;
 }
 
 /* --- RESIZE FIX --- */
@@ -537,28 +541,41 @@ settingsBackdrop.addEventListener("click", () => toggleSettings(false));
 
 
 
-function load_cheatsheet(url) {
-    fetch(`${url}.html`)
-        .then(response => response.text())
-        .then(text => {
-            if (text.startsWith("<!-- 404.html -->")) {
-                cheatsheet_field.innerHTML = "Oops, it seems like there is no such page";
-                return;
-            }
-            cheatsheet_field.innerHTML = text;
-            cheatsheet_field.setAttribute("data-cheatsheet-path", url);
-            processingCheatSheet();
+async function load_cheatsheet(url) {
+    try {
+        const response = await fetch(`${url}.html`);
+        const text = await response.text();
 
-            const anchor = getAnchor();
-            if (anchor) {
-                console.log(`Anchor found: "${anchor}"`);
-                const anchor_element = document.getElementById(anchor);
-                console.log(`anchor_element ${anchor_element}`);
-                if (anchor_element) {
-                    anchor_element.scrollIntoView({block: "start"});
-                }
+        if (text.startsWith("<!-- 404.html -->")) {
+            cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
+            cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+            return false;
+        }
+
+        if (text.trim() === "") {
+            cheatsheet_field.innerHTML = `This page is empty`;
+            cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
+            return true;
+        }
+
+        cheatsheet_field.innerHTML = text;
+        cheatsheet_field.setAttribute("data-cheatsheet-path", url);
+        processingCheatSheet();
+
+        const anchor = getAnchor();
+        if (anchor) {
+            console.log(`Anchor found: "${anchor}"`, 123, document.getElementById(anchor));
+            const anchor_element = document.getElementById(anchor);
+            console.log(`anchor_element "${anchor_element}"`, anchor_element);
+            if (anchor_element) {
+                console.log(`anchor_element "${anchor_element}"`, anchor_element);
+                anchor_element.scrollIntoView({block: "start"});
             }
-        });
+        }
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
 function closeAllKeyButtons() {
     folderList.querySelectorAll('[data-state="open"]').forEach(e => {
@@ -597,18 +614,18 @@ function displayValueButton(url, scrollIntoActive = true) {
     }
     return button;
 }
-function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
+async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     const url = url_.trim("/");
     console.log(`Load "${url}.html"`)
-    load_cheatsheet(url);
     renderBreadcrumbs(url);
     addArgumentToUrl(url);
     closeSidebar();
     closeMainSearch();
     changeTitle(getPathFilename(url));
     cheatsheet_field_container.scrollTo(0, 0);
+    let successfully = await load_cheatsheet(url);
 
-    if (setActive) {
+    if (successfully && setActive) {
         changeActiveButton(
             displayValueButton(url, scrollIntoActive)
         );
@@ -788,14 +805,14 @@ function generateButtons(json_data, element, cascadeClose = true) {
 (function load_folder_list() {
     fetch("index.json")
         .then(response => response.json())
-        .then(json_data => {
+        .then(async (json_data) => {
             generateButtons(json_data, folderList);
 
             folderList.querySelectorAll(".file").forEach(e => {
-                e.onclick = function(event) {
+                e.onclick = async function(event) {
                     delAnchor();
                     const vpath = e.getAttribute("data-vpath")
-                    setup_cheatsheet(vpath, true, false);
+                    await setup_cheatsheet(vpath, true, false);
                 };
             });
 
@@ -803,7 +820,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
             if (vpath === null || vpath === "null") {
                 vpath = "README";
             }
-            setup_cheatsheet(vpath, true, true);
+            await setup_cheatsheet(vpath, true, true);
         });
 })();
 

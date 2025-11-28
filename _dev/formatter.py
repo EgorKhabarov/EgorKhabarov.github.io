@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 cheatsheet_path = (
-    """
+    r"""
 
 """.strip()
     .removeprefix("https://egorkhabarov.github.io/cheatsheet/?")
@@ -32,6 +32,7 @@ def table_bold_func(s: str) -> str:
     )
 
 
+text = text.replace("—", "-")
 text = end_space_regex.sub("", text)
 text = end_dot_regex.sub("", text)
 text = header_regex.sub(r"\1 \2", text)

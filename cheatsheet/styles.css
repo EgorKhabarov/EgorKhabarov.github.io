@@ -145,11 +145,42 @@
 }
 
 #cheatsheet_field[data-cheatsheet-path="README"] {
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    h1:before {content: "";}
+}
+
+#cheatsheet_field[data-cheatsheet-path="error-404"] {
+    color: red;
+    height: 100%;
     display: flex;
-    /* padding: initial; */
-    flex-direction: column;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    font-size: 15px;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#cheatsheet_field[data-cheatsheet-path="error-empty"] {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 * {
