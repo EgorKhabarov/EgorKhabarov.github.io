@@ -206,12 +206,15 @@ function renderBreadcrumbs(url) {
 let isDark = true;
 themeBtn.addEventListener("click", () => {
     isDark = !isDark;
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (isDark) {
         document.documentElement.setAttribute("data-theme", "dark");
+        themeColorMeta.setAttribute("content", "#1E1E1E");
         settings.theme = "dark";
         saveSettings(settings);
     } else {
         document.documentElement.removeAttribute("data-theme");
+        themeColorMeta.setAttribute("content", "#FFFFFF");
         settings.theme = "light";
         saveSettings(settings);
     }
@@ -1137,15 +1140,14 @@ function saveSettings(settings) {
     );
 }
 function applySettings(settings) {
-    //for (const [key, value] of Object.entries(settings)) {
-    //    const element = document.getElementById(key);
-    //    if (element) element.checked = value;
-    //}
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (settings.theme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
+        themeColorMeta.setAttribute("content", "#1E1E1E");
         isDark = true;
     } else {
         document.documentElement.removeAttribute("data-theme");
+        themeColorMeta.setAttribute("content", "#FFFFFF");
         isDark = false;
     }
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
@@ -1172,7 +1174,6 @@ function css_markdown_preview_func(element) {
 [data-theme="dark"] {
     --color-h3: #FFFA00;
 }
-
 
 #cheatsheet_field h1 {color: var(--color-h1);}
 #cheatsheet_field h2 {color: var(--color-h2);}
