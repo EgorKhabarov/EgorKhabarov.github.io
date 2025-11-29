@@ -24,9 +24,7 @@ const tocSidebarToggleBtn = document.getElementById("toc_toggle");
 
 
 
-/* =========================================
-   DRAWER CLASS (Generic Sidebar)
-   ========================================= */
+/* Generic Sidebar */
 class Drawer {
     constructor(elementId, overlayId, side = "left", resizer = null) {
         this.el = document.getElementById(elementId);
@@ -241,31 +239,13 @@ class Drawer {
         }
     }
 
-    /*
-    toggleDesktop() {
-        this.el.classList.toggle("desktop-hidden");
-    }
-    */
-
     handleClickOverlay() {
-        if (this.isOpen) this.close();
+        if (this.isOpen) {
+            this.close();
+        }
     }
-
-    /*
-    reset() {
-        this.el.style.transform = "";
-        this.overlay.style.opacity = "";
-        this.overlay.style.pointerEvents = "";
-        this.isOpen = false;
-        this.isDragging = false;
-        this.el.classList.remove("display_none"); // Reset desktop visibility
-    }
-    */
 }
 
-/* =========================================
-   RESIZER CLASS
-   ========================================= */
 class PanelResizer {
     constructor(resizerId, containerId, varName, direction = "left") {
         this.resizer = document.getElementById(resizerId);
@@ -314,6 +294,7 @@ class PanelResizer {
                 this.isResizing = false;
                 this.resizer.classList.remove("active");
                 body.classList.remove("no_select");
+                localStorage.setItem(this.varName, document.documentElement.style.getPropertyValue(this.varName))
             }
         };
 
@@ -388,9 +369,6 @@ window.addEventListener("resize", () => {
         resizer_list.forEach(r => {
             r.resizer.classList.remove("display_none");
         })
-        // sidebar_open_button.classList.remove("display_none");
-        // sidebar_close_button.classList.remove("display_none");
-        // sidebar.classList.toggle('display_none');resizer_left.classList.toggle('display_none');
     } else {
         drawer_list.forEach(d => {
             d.el.style.transform = "";
@@ -404,8 +382,6 @@ window.addEventListener("resize", () => {
             nowDrawer.isDragging = false;
         }
         nowDrawer = null;
-        // TODO sidebarOpen = false;
-        // TODO isDraggingSidebar = false;
     }
 });
 
@@ -415,7 +391,8 @@ document.addEventListener("keydown", (e) => {
     // Ctrl + Shift + F -> Sidebar Search
     if (e.ctrlKey && e.shiftKey && e.code === "KeyF") {
         e.preventDefault();
-        openSidebar();
+        nowDrawer?.close();
+        leftDrawer.open();
         const selection = window.getSelection().toString();
         sidebarInput.focus();
         if (selection && !selection.includes("\n")) {
@@ -449,8 +426,8 @@ document.addEventListener("keydown", (e) => {
             toggleSettings(false)
             return;
         }
-        if (isMobile() && (isDraggingSidebar || sidebarOpen)) {
-            closeSidebar();
+        if (isMobile() && nowDrawer) {
+            nowDrawer?.close();
             return;
         }
         if (floating_search.style.display === "flex") {
@@ -531,7 +508,7 @@ function renderBreadcrumbs(url) {
         span.textContent = part;
         span.className = "crumb_item";
         span.addEventListener("click", () => {
-            console.log(`Navigating to: ${currentFullPath}`, index, pathArray.length);
+            console.log(`Navigating to: ${currentFullPath}`);
             closeSearch();
             closeAllKeyButtons();
             nowDrawer?.close();
@@ -570,14 +547,12 @@ function renderBreadcrumbs(url) {
         span.addEventListener("click", () => {
             console.log(`Navigating to: #${anchor}`);
             const anchor_element = document.getElementById(anchor);
-            console.log(`anchor_element ${anchor_element}`);
             if (anchor_element) {
                 anchor_element.scrollIntoView({block: "start", behavior: "smooth"});
             }
         });
         breadcrumbsContainer.appendChild(span);
     }
-    //breadcrumbsContainer.lastElementChild.classList = null;
 }
 
 /* --- THEME TOGGLE --- */
@@ -635,11 +610,16 @@ async function searchQuery(text) {
     return results.map(r => docs.find(d => d.i === r.ref));
 }
 function prepareQuery(q) {
-    return q.replace(/:/g, " ").replace(/\s+/g, " ").trim();
-    return q;
-    if (q.length >= 4)
-        return `${q}~1 *${q}*`;
-    return `*${q}*`;
+    q = q.trim();
+    q = q.replace(/:/g, " ");
+    q = q.replace(/~+(?!$|\d)/g, "");
+    if (q.match(/(?<=~.{2,}).+(?=$)/g)) {
+        q = q.replace(/\~+/g, "");
+    }
+    if (q.endsWith("~")) {
+        q += "1";
+    }
+    return q.replace(/\s+/g, " ").trim();
 }
 function debounce(fn, ms) {
     let timer;
@@ -657,7 +637,6 @@ function buildTree(paths) {
 
         parts.forEach((part, i) => {
             if (!current[part]) {
-                // if this is the last element - an empty string, otherwise an object
                 current[part] = (i === parts.length - 1) ? "" : {};
             }
             current = current[part];
@@ -753,141 +732,17 @@ function closeSearch() {
     searchInput.style.border = null;
 }
 
-/* --- RESIZER LOGIC (MOUSE & TOUCH) --- */
-/*
-let isResizing = false;
+(function load_sidebar_width() {
+    resizer_list.forEach(r => {
+        let sidebar_width = localStorage.getItem(r.varName);
+        if (sidebar_width === null) {
+            sidebar_width = getComputedStyle(document.documentElement).getPropertyValue(r.varName);
+            localStorage.setItem(r.varName, sidebar_width);
+        }
+        document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
+    })
+})();
 
-function startResize(e) {
-    if (e.type === "touchstart") e.preventDefault();
-
-    isResizing = true;
-    resizer_left.classList.add("active");
-    body.classList.add("no_select");
-}
-
-function doResize(clientX) {
-    if (!isResizing) return;
-    const containerRect = container.getBoundingClientRect();
-    const newWidth = clientX - containerRect.left;
-    let percentage = (newWidth / containerRect.width) * 100;
-    if (percentage < 10) percentage = 10;
-    if (percentage > 70) percentage = 70;
-    document.documentElement.style.setProperty("--sidebar-width", `${percentage}%`);
-}
-
-function stopResize() {
-    if (isResizing) {
-        isResizing = false;
-        resizer_left.classList.remove("active");
-        body.classList.remove("no_select");
-    }
-    localStorage.setItem("--sidebar-width", document.documentElement.style.getPropertyValue("--sidebar-width"))
-}
-TODO (function load_sidebar_width() {
-    let sidebar_width = localStorage.getItem("--sidebar-width");
-    if (sidebar_width === null) {
-        sidebar_width = "20%";
-        localStorage.setItem("--sidebar-width", sidebar_width);
-    }
-    document.documentElement.style.setProperty("--sidebar-width", sidebar_width);
-})()
-
-
-
-resizer_left.addEventListener("mousedown", startResize);
-document.addEventListener("mousemove", (e) => doResize(e.clientX));
-document.addEventListener("mouseup", stopResize);
-
-resizer_left.addEventListener("touchstart", startResize, { passive: false });
-document.addEventListener("touchmove", (e) => {
-    if (isResizing) {
-        e.preventDefault();
-        doResize(e.touches[0].clientX);
-    }
-}, { passive: false });
-document.addEventListener("touchend", stopResize);
-*/
-
-/* --- MOBILE DRAWER --- */
-/*
-let startX = 0;
-let isDraggingSidebar = false;
-let sidebarOpen = false;
-const EDGE_THRESHOLD = 30;
-function isMobile() { return window.innerWidth <= 768; }
-function updateSidebarPosition(translateX) {
-    sidebar.style.transform = `translateX(${translateX}%)`;
-    const opacity = 1 - (Math.abs(translateX) / 100);
-    overlay.style.opacity = opacity;
-    overlay.style.pointerEvents = opacity > 0 ? "auto" : "none";
-}
-function openSidebar() {
-    if (!isMobile()) return;
-    sidebar.style.transform = `translateX(0%)`;
-    overlay.style.opacity = 1;
-    overlay.style.pointerEvents = "auto";
-    sidebarOpen = true;
-}
-function closeSidebar() {
-    if (!isMobile()) return;
-    sidebar.style.transform = `translateX(-100%)`;
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = "none";
-    sidebarOpen = false;
-}
-function handleStart(clientX) {
-    if (!isMobile() || isSettingsOpen) return;
-    startX = clientX;
-    if (!sidebarOpen && startX < EDGE_THRESHOLD) {
-        isDraggingSidebar = true;
-        sidebar.classList.add("swiping");
-    } else if (sidebarOpen) {
-        isDraggingSidebar = true;
-        sidebar.classList.add("swiping");
-    }
-}
-function handleMove(clientX, preventDefaultFn) {
-    if (!isDraggingSidebar || !isMobile() || isSettingsOpen) return;
-    const diff = clientX - startX;
-    const sidebarRect = sidebar.getBoundingClientRect();
-    const sidebarWidthPx = sidebarRect.width || (window.innerWidth * 0.85);
-    let translatePercent;
-    if (!sidebarOpen) {
-        let moveX = Math.min(Math.max(0, diff), sidebarWidthPx);
-        let percentMoved = (moveX / sidebarWidthPx) * 100;
-        translatePercent = -100 + percentMoved;
-    } else {
-        let moveX = Math.max(diff, -sidebarWidthPx);
-        if (moveX > 0) moveX = 0;
-        let percentMoved = (Math.abs(moveX) / sidebarWidthPx) * 100;
-        translatePercent = -percentMoved;
-    }
-    if (Math.abs(diff) > 5 && preventDefaultFn) preventDefaultFn();
-    updateSidebarPosition(translatePercent);
-}
-function handleEnd(clientX) {
-    if (!isDraggingSidebar || !isMobile() || isSettingsOpen) return;
-    isDraggingSidebar = false;
-    sidebar.classList.remove("swiping");
-    const endX = clientX;
-    const sidebarRect = sidebar.getBoundingClientRect();
-    const sidebarWidthPx = sidebarRect.width || (window.innerWidth * 0.85);
-    if (!sidebarOpen) {
-        if (endX > sidebarWidthPx / 3) openSidebar(); else closeSidebar();
-    } else {
-        if (startX - endX > sidebarWidthPx / 3) closeSidebar(); else openSidebar();
-    }
-}
-
-document.addEventListener("touchstart", (e) => handleStart(e.touches[0].clientX), {passive: false});
-document.addEventListener("touchmove", (e) => handleMove(e.touches[0].clientX, () => {if (e.cancelable) {e.preventDefault();}}), {passive: false});
-document.addEventListener("touchend", (e) => handleEnd(e.changedTouches[0].clientX));
-document.addEventListener("mousedown", (e) => {if (e.button === 0) handleStart(e.clientX);});
-document.addEventListener("mousemove", (e) => handleMove(e.clientX, null));
-document.addEventListener("mouseup", (e) => {if (e.button === 0) handleEnd(e.clientX);});
-
-overlay.addEventListener("click", () => {if (sidebarOpen) closeSidebar();});
-*/
 
 
 function toggleSettings(show) {
@@ -940,11 +795,9 @@ async function load_cheatsheet(url) {
 
         const anchor = getAnchor();
         if (anchor) {
-            console.log(`Anchor found: "${anchor}"`, 123, document.getElementById(anchor));
+            console.log(`Anchor found: "${anchor}"`);
             const anchor_element = document.getElementById(anchor);
-            console.log(`anchor_element "${anchor_element}"`, anchor_element);
             if (anchor_element) {
-                console.log(`anchor_element "${anchor_element}"`, anchor_element);
                 anchor_element.scrollIntoView({block: "start"});
             }
         }
@@ -970,7 +823,6 @@ function displayKeyButton(url) {
         pathArray.pop();
     }
     let button = folderList.querySelector(`[data-kpath="${url}"]`);
-    console.log(url, button);
     button.scrollIntoView({block: "center"});
     return button;
 }
@@ -1287,7 +1139,49 @@ function processingTables(table) {
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
 }
-
+function processingTOC(h_elements) {
+    h_list.innerHTML = ""
+    if (h_elements.length !== 0) {
+        h_list.classList.remove("empty");
+        const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
+        const color_map = {
+            1: "var(--color-h1)",
+            2: "var(--color-h2)",
+            3: "var(--color-h3)",
+            4: "var(--color-h4)",
+            5: "var(--color-h5)",
+            6: "var(--color-h6)",
+        }
+        const indent_map = {
+            1: "",
+            2: "&nbsp;".substring((min_header * 6) - 6),
+            3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+        }
+        h_elements.forEach(header => {
+            const h_num = Number(header.tagName[1]);
+            const color = color_map[h_num];
+            // const indent = indent_map[h_num];
+            const indent = "";
+            const element = document.createElement("span");
+            element.classList.add("toc_item");
+            element.innerHTML = `${indent}<pre style="color: ${color}">${header.tagName}</pre><span class="label">${header.textContent}</span>`;
+            const header_id = header.id;
+            element.onclick = () => {
+                rightDrawer.close();
+                document.getElementById(header_id).scrollIntoView({block: "start", behavior: "smooth"});
+            };
+            element.title = header.textContent;
+            element.id = `--toc--${header_id}`;
+            h_list.appendChild(element);
+        });
+    } else {
+        h_list.classList.add("empty");
+        h_list.textContent = "Headings will appear here if they are in the cheat sheet";
+    }
+}
 function processingCheatSheet() {
     cheatsheet_field.querySelectorAll("a").forEach(a => {
         if (
@@ -1324,78 +1218,8 @@ function processingCheatSheet() {
         header.innerHTML = `<a class="anchor" href="#${id}">${header.innerHTML}</a>`;
     });
     cheatsheet_field.querySelectorAll("table").forEach(processingTables);
-
-    //return; // TODO
-    h_list.innerHTML = ""
-    if (h_elements.length !== 0) {
-        h_list.classList.remove("empty");
-        // TODO cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
-
-        //breadcrumbs_content.innerHTML += `<div id="h_list_button" state="off" class="icon_btn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
-
-
-        // pre_element = document.createElement("pre");
-        // pre_element.innerHTML = `<span style="color: rgb(255, 0, 0);">H1</span>&nbsp;<span class="h_list_sel"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg></span>`;
-        // pre_element.setAttribute("onclick", "cheatsheet_field_container.scrollTo(0, 0);");
-        // h_list.appendChild(pre_element);
-
-        const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
-        const color_map = {
-            1: "var(--color-h1)",
-            2: "var(--color-h2)",
-            3: "var(--color-h3)",
-            4: "var(--color-h4)",
-            5: "var(--color-h5)",
-            6: "var(--color-h6)",
-        }
-        const indent_map = {
-            1: "",
-            2: "&nbsp;".substring((min_header * 6) - 6),
-            3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-        }
-
-        h_elements.forEach(header => {
-            const h_num = Number(header.tagName[1]);
-            const color = color_map[h_num];
-            const indent = "";//indent_map[h_num];
-            const element = document.createElement("span");
-            element.classList.add("toc_item");
-            // TODO element.classList.add("tree_item");
-            element.innerHTML = `${indent}<pre style="color: ${color}">${header.tagName}</pre><span class="label">${header.textContent}</span>`;
-            const header_id = header.id;
-            element.onclick = () => {
-                rightDrawer.close();
-                document.getElementById(header_id).scrollIntoView({block: "start", behavior: "smooth"});
-            };
-            element.title = header.textContent;
-            element.id = `--toc--${header_id}`;
-            h_list.appendChild(element);
-            // const pre_element = document.createElement("pre");
-            // //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"
-            // pre_element.innerHTML = `${indent}<span style="color: ${color}">${header.tagName}</span>&nbsp;<span class="h_list_sel">${header.textContent}</span>`;
-            // pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"});h_list.style.display="none";`);
-            // h_list.appendChild(pre_element);
-        });
-        //cheatsheet_field.appendChild(h_list);
-
-    } else {
-        h_list.classList.add("empty");
-        h_list.textContent = "Headings will appear here if they are in the cheat sheet"
-    }
+    processingTOC(h_elements);
 };
-
-/*
-h_list_button.addEventListener("click", () => {
-    if (h_list.style.display === "block") {
-        h_list.style.display = "none";
-    } else {
-        h_list.style.display = "block";
-    }
-});
-*/
 
 
 
@@ -1821,8 +1645,8 @@ floating_search_arrow_down.onclick = nextHighlight;
 
 let last_search = "";
 mainInput.addEventListener("input", () => {
-    console.log(`"${mainInput.value}"`);
     if (mainInput.value !== "") {
+        console.log(`"${mainInput.value}"`);
         last_search = mainInput.value;
     }
     highlightText(mainInput.value, cheatsheet_field, mainInput);
