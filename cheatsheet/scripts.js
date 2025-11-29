@@ -424,7 +424,18 @@ function stopResize() {
         resizer.classList.remove("active");
         body.classList.remove("no_select");
     }
+    localStorage.setItem("--sidebar-width", document.documentElement.style.getPropertyValue("--sidebar-width"))
 }
+(function load_sidebar_width() {
+    let sidebar_width = localStorage.getItem("--sidebar-width");
+    if (sidebar_width === null) {
+        sidebar_width = "20%";
+        localStorage.setItem("--sidebar-width", sidebar_width);
+    }
+    document.documentElement.style.setProperty("--sidebar-width", sidebar_width);
+})()
+
+
 
 resizer.addEventListener("mousedown", startResize);
 document.addEventListener("mousemove", (e) => doResize(e.clientX));

@@ -46,7 +46,7 @@
             <symbol id="icon_settings" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.49l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
             </symbol>
-            <symbol id="icon_search" viewBox="0 0 24 24">
+            <symbol id="icon_search" viewBox="0 0 24 24" color="currentColor" fill="none">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
             </symbol>
             <symbol id="icon_cross" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@
             <symbol id="icon_arrow_down" viewBox="0 -960 960 960">
                 <path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z"/>
             </symbol>
-            <symbol id="github_logo" viewBox="0 0 24 24">
+            <symbol id="github_logo" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"/>
             </symbol>
             <symbol id="icon_sidebar_open" viewBox="0 0 16 16" fill="currentColor" stroke="none">
@@ -110,25 +110,25 @@
 
     <header class="unselectable">
         <div class="header_row top">
-            <div class="icon_btn">
-                <a href="/cheatsheet/"><img src="cheatsheet_resources/icon-192x192.png" width="24" height="24"></a>
-            </div>
-
-            <div class="actions_right">
-                <a class="icon_btn" href="https://github.com/EgorKhabarov">
-                    <svg width="32" height="32" fill="var(--icon-color)"><use href="#github_logo"/></svg>
+            <div class="actions">
+                <a class="icon_btn" href="/cheatsheet/">
+                    <img src="cheatsheet_resources/icon-192x192.png" width="24" height="24">
                 </a>
-                <a class="icon_btn" href="/">
+                <a class="icon_btn" href="/" title="My resume">
                     <img src="/resources/avatar_preview.png" width="24" height="24" style="border-radius: 50px;">
                 </a>
-                <button class="icon_btn" id="open_search_button">
-                    <svg color="var(--icon-color)" fill="none"><use href="#icon_search"/></svg>
-                </button>
+                <a class="icon_btn" href="https://github.com/EgorKhabarov" title="My GitHub">
+                    <svg><use href="#github_logo"/></svg>
+                </a>
+            </div>
 
+            <div class="actions">
+                <button class="icon_btn" id="open_search_button" title="Search">
+                    <svg><use href="#icon_search"/></svg>
+                </button>
                 <button class="icon_btn" id="theme_btn" title="Switch theme">
                     <svg><use href="#icon_theme"/></svg>
                 </button>
-
                 <button class="icon_btn" id="settings_btn" title="Settings">
                     <svg><use href="#icon_settings"/></svg>
                 </button>
@@ -152,13 +152,13 @@
             </div>
             -->
             <div style="display: flex;height: 100%;align-items: center;gap: 5px;padding-right: 5px;border-right: 1px solid var(--border-color);">
-                <button class="icon_btn crumb_btn" id="sidebar_toggle" title="Меню">
+                <button class="icon_btn crumb_btn" id="sidebar_toggle" title="Menu">
                     <svg><use href="#icon_menu"/></svg>
                 </button>
             </div>
             <div id="breadcrumbs_content" class="breadcrumbs_content"></div>
             <div style="display: flex;height: 100%;align-items: center;gap: 5px;padding-left: 5px;border-left: 1px solid var(--border-color);">
-                <button class="icon_btn crumb_btn" id="toc_toggle" title="Оглавление">
+                <button class="icon_btn crumb_btn" id="toc_toggle" title="Table of contents">
                     <svg><use href="#icon_list"/></svg>
                 </button>
             </div>

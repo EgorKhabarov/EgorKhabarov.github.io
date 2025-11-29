@@ -228,7 +228,7 @@ header {
     justify-content: space-between;
 }
 
-.actions_right {
+header .actions {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -285,7 +285,10 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    color: var(--icon-color);
+    color: var(--icon-color)!important;
+
+    width: 34px;
+    height: 34px;
 }
 
 .icon_btn:hover {
@@ -297,13 +300,8 @@ svg {
 }
 
 .icon_btn svg {
-    width: 24px;
-    height: 24px;
-}
-
-.icon_btn a {
-    width: 24px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
 }
 
 /* --- MAIN CONTAINER --- */
@@ -676,9 +674,9 @@ input[type="text"], textarea {
         --header-row-height: 58px;
         --header-row-breadcrumbs-height: 45px;
     }
-    .icon_btn :is(svg, img, a) {
-        width: 30px;
-        height: 30px;
+    .icon_btn {
+        width: 38px;
+        height: 38px;
     }
 }
 
