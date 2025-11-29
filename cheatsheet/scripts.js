@@ -346,7 +346,9 @@ searchInput.addEventListener("input", debounce(async (e) => {
     folderSearchList.querySelectorAll(".file").forEach(e => {
         const url = e.getAttribute("data-vpath");
         const e2 = folderList.querySelector(`[data-vpath="${url}"]`);
-        e.firstChild.style.color = e2.firstChild.style.color;
+        if (e && e2) {
+            e.firstChild.style.color = e2.firstChild.style.color;
+        }
     });
 
     if (search_query && !folderSearchList.innerHTML) {
