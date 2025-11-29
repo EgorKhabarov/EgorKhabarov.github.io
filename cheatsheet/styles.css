@@ -14,7 +14,8 @@
 :root {
     /* Light Theme Defaults */
     --header-row-height: 40px;
-    --header-total-height: 80px;
+    --header-row-breadcrumbs-height: 40px;
+    --header-total-height: calc(var(--header-row-height) + var(--header-row-breadcrumbs-height));
 
     --bg-body: #FFFFFF;
     --bg-header: #FFFFFF;
@@ -220,7 +221,7 @@ header {
     height: var(--header-row-height);
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .header_row.top {
@@ -234,15 +235,23 @@ header {
 }
 
 .header_row.bottom {
+    height: var(--header-row-breadcrumbs-height);
     border-top: 1px solid var(--border-color);
     overflow: hidden;
-    white-space: nowrap;
-    color: var(--text-secondary);
-    font-size: 0.9em;
+    */
+}
+
+.breadcrumbs_content {
+    flex-grow: 1;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    gap: 12px;
+    white-space: nowrap;
+}
+
+.crumb_btn {
+    padding: 4px;
+    flex-shrink: 0;
 }
 
 .crumb_item {
@@ -268,6 +277,7 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    color: var(--icon-color);
 }
 
 .icon_btn:hover {
@@ -278,14 +288,12 @@ svg {
     transition: fill 0.3s;
 }
 
-.icon_left svg {
+.icon_btn svg {
     width: 24px;
     height: 24px;
-    stroke: var(--text-color);
-    fill: none;
 }
 
-.icon_btn svg {
+.icon_btn a {
     width: 24px;
     height: 24px;
 }
@@ -449,6 +457,10 @@ svg {
 
 #resizer:hover, #resizer.active {
     background-color: var(--resizer-hover);
+}
+
+.display_none {
+    display: none!important;
 }
 
 /* --- CONTENT --- */
@@ -647,6 +659,15 @@ input[type="text"], textarea {
     .tree_children svg {
         width: 21px;
         height: 21px;
+    }
+
+    :root {
+        --header-row-height: 58px;
+        --header-row-breadcrumbs-height: 45px;
+    }
+    .icon_btn :is(svg, img, a) {
+        width: 30px;
+        height: 30px;
     }
 }
 
