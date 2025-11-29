@@ -20,6 +20,312 @@ const mainInput = document.getElementById("main_search_input");
 const mainInputResultCount = document.getElementById("floating_search_result_count");
 const mainClear = document.getElementById("main_clear");
 const sidebarToggleBtn = document.getElementById("sidebar_toggle");
+const tocSidebarToggleBtn = document.getElementById("toc_toggle");
+
+
+
+/* =========================================
+   DRAWER CLASS (Generic Sidebar)
+   ========================================= */
+class Drawer {
+    constructor(elementId, overlayId, side = "left", resizer = null) {
+        this.el = document.getElementById(elementId);
+        this.overlay = document.getElementById(overlayId);
+        this.side = side; // "left" or "right"
+        this.resizer = resizer;
+
+        this.isOpen = false;
+        this.isDragging = false;
+        this.startX = 0;
+        this.edgeThreshold = 30; // px from edge to start swipe
+
+        // Bind methods
+        this.handleStart = this.handleStart.bind(this);
+        this.handleMove = this.handleMove.bind(this);
+        this.handleEnd = this.handleEnd.bind(this);
+        this.handleClickOverlay = this.handleClickOverlay.bind(this);
+
+        this.initListeners();
+    }
+
+    initListeners() {
+        // Touch events
+        document.addEventListener("touchstart", (e) => {
+            // Ignore if dragging resize
+            if(e.target.classList.contains("resizer")) return;
+            this.handleStart(e.touches[0].clientX);
+        }, {passive: false});
+
+        document.addEventListener("touchmove", (e) => {
+            // Ignore if dragging resize
+            if(e.target.classList.contains("resizer")) return;
+            this.handleMove(e.touches[0].clientX, () => e.preventDefault());
+        }, {passive: false});
+
+        document.addEventListener("touchend", (e) => {
+            this.handleEnd(e.changedTouches[0].clientX);
+        });
+
+        // Mouse simulation (optional, good for debugging)
+        document.addEventListener("mousedown", (e) => {if(e.button === 0) this.handleStart(e.clientX);});
+        document.addEventListener("mousemove", (e) => {this.handleMove(e.clientX);});
+        document.addEventListener("mouseup", (e) => {if(e.button === 0) this.handleEnd(e.clientX);});
+
+        this.overlay.addEventListener("click", this.handleClickOverlay);
+    }
+
+    handleStart(x) {
+        if (!isMobile() || isSettingsOpen) return;
+        if (nowDrawer === null || nowDrawer === this) {} else return;
+
+        // Logic depends on side
+        if (this.side === "left") {
+            this.startX = x;
+            if (!this.isOpen && x < this.edgeThreshold) {
+                this.isDragging = true;
+                this.el.classList.add("swiping");
+                nowDrawer = this;
+            } else if (this.isOpen) {
+                // If open, drag anywhere starts drag (usually to close)
+                // But need to distinguish between left and right drawer if both open?
+                // Overlay click handles close, drag handles swipe back
+                this.isDragging = true;
+                this.el.classList.add("swiping");
+                nowDrawer = this;
+            }
+        } else { // Right side
+            const winW = window.innerWidth;
+            this.startX = x;
+            if (!this.isOpen && x > winW - this.edgeThreshold) {
+                this.isDragging = true;
+                this.el.classList.add("swiping");
+                nowDrawer = this;
+            } else if (this.isOpen) {
+                this.isDragging = true;
+                this.el.classList.add("swiping");
+                nowDrawer = this;
+            }
+        }
+    }
+
+    handleMove(x, preventDefault) {
+        if (!this.isDragging || !isMobile() || isSettingsOpen) return;
+
+        const winW = window.innerWidth;
+        const w = this.el.getBoundingClientRect().width || winW * 0.85;
+        const diff = x - this.startX;
+        let translatePct = 0;
+
+        if (this.side === "left") {
+            // Opening: diff > 0. Closing: diff < 0.
+            if (!this.isOpen) {
+                let move = Math.min(Math.max(0, diff), w);
+                translatePct = (move / w) * 100 - 100; // -100 to 0
+            } else {
+                let move = Math.min(0, Math.max(diff, -w));
+                translatePct = (move / w) * 100; // 0 to -100
+            }
+        } else { // Right
+            // Opening: diff < 0 (drag left). Closing: diff > 0.
+            if (!this.isOpen) {
+                let move = Math.min(0, Math.max(diff, -w)); // Negative values
+                translatePct = 100 + (move / w) * 100; // 100 to 0
+            } else {
+                let move = Math.max(0, Math.min(diff, w));
+                translatePct = (move / w) * 100; // 0 to 100
+            }
+        }
+
+        if (Math.abs(diff) > 5 && preventDefault) {
+            preventDefault();
+        }
+
+        this.el.style.transform = `translateX(${translatePct}%)`;
+
+        // Opacity logic (shared)
+        // 0% translate (open) -> opacity 1. +/-100% translate (closed) -> opacity 0
+        let op = 1 - (Math.abs(translatePct) / 100);
+        if (!this.isOpen && this.side === "left") op = (100 + translatePct) / 100;
+        if (!this.isOpen && this.side === "right") op = (100 - translatePct) / 100;
+        if (this.isOpen) op = 1 - (Math.abs(translatePct) / 100); // Works for left(neg) and right(pos) close moves
+
+        this.overlay.style.opacity = Math.max(0, Math.min(1, op));
+        this.overlay.style.pointerEvents = op > 0 ? "auto" : "none";
+    }
+
+    handleEnd(x) {
+        if (!this.isDragging || !isMobile() || isSettingsOpen) return;
+        this.isDragging = false;
+        this.el.classList.remove("swiping");
+
+        const w = this.el.getBoundingClientRect().width;
+        const diff = x - this.startX;
+        const threshold = w / 3;
+
+        let shouldOpen = this.isOpen;
+
+        if (this.side === "left") {
+            if (!this.isOpen && diff > threshold) shouldOpen = true;
+            else if (this.isOpen && diff < -threshold) shouldOpen = false;
+        } else {
+            if (!this.isOpen && diff < -threshold) shouldOpen = true;
+            else if (this.isOpen && diff > threshold) shouldOpen = false;
+        }
+
+        if (shouldOpen) this.open();
+        else this.close();
+    }
+
+    open() {
+        if (!isMobile() || isSettingsOpen) return;
+        if (nowDrawer === null || nowDrawer === this) {} else return;
+        nowDrawer = this;
+        this.el.style.transform = "translateX(0%)";
+        this.overlay.style.opacity = 1;
+        this.overlay.style.pointerEvents = "auto";
+        this.isOpen = true;
+    }
+
+    close() {
+        if (!isMobile() || isSettingsOpen || nowDrawer !== this) return;
+        nowDrawer = null;
+        const tx = this.side === "left" ? "-100%" : "100%";
+        this.el.style.transform = `translateX(${tx})`;
+        this.overlay.style.opacity = 0;
+        this.overlay.style.pointerEvents = "none";
+        this.isOpen = false;
+    }
+
+    toggle() {
+        if (isMobile()) {
+            if (this.isOpen) {
+                this.close();
+            } else {
+                if (nowDrawer !== null && nowDrawer !== this) {
+                    nowDrawer.close();
+                }
+                this.open();
+            }
+        } else {
+            this.el.classList.toggle("display_none");
+            this.resizer.resizer.classList.toggle("display_none");
+        }
+    }
+
+    /*
+    toggleDesktop() {
+        this.el.classList.toggle("desktop-hidden");
+    }
+    */
+
+    handleClickOverlay() {
+        if (this.isOpen) this.close();
+    }
+
+    /*
+    reset() {
+        this.el.style.transform = "";
+        this.overlay.style.opacity = "";
+        this.overlay.style.pointerEvents = "";
+        this.isOpen = false;
+        this.isDragging = false;
+        this.el.classList.remove("display_none"); // Reset desktop visibility
+    }
+    */
+}
+
+/* =========================================
+   RESIZER CLASS
+   ========================================= */
+class PanelResizer {
+    constructor(resizerId, containerId, varName, direction = "left") {
+        this.resizer = document.getElementById(resizerId);
+        this.container = document.getElementById(containerId);
+        this.varName = varName; // CSS variable to update
+        this.direction = direction; // "left" (resize left panel) or "right" (resize right panel)
+        this.isResizing = false;
+
+        // Constraints
+        this.minPanel = 10; // %
+        this.maxPanel = 40; // % (Total 100 - 30 center - 10 other min = 60 max, but let's be safe)
+
+        this.init();
+    }
+
+    init() {
+        const start = (e) => {
+            if (e.type === "touchstart") e.preventDefault();
+            this.isResizing = true;
+            this.resizer.classList.add("active");
+            body.classList.add("no_select");
+        };
+
+        const move = (clientX) => {
+            if (!this.isResizing) return;
+            const rect = this.container.getBoundingClientRect();
+            let pct;
+
+            if (this.direction === "left") {
+                // Left sidebar width based on mouse X from left
+                pct = ((clientX - rect.left) / rect.width) * 100;
+            } else {
+                // Right sidebar width based on mouse distance from right
+                pct = ((rect.right - clientX) / rect.width) * 100;
+            }
+
+            // Constraints
+            if (pct < this.minPanel) pct = this.minPanel;
+            if (pct > this.maxPanel) pct = this.maxPanel; // 70 max if single, but here we have 2 sidebars
+
+            document.documentElement.style.setProperty(this.varName, `${pct}%`);
+        };
+
+        const end = () => {
+            if (this.isResizing) {
+                this.isResizing = false;
+                this.resizer.classList.remove("active");
+                body.classList.remove("no_select");
+            }
+        };
+
+        // Mouse
+        this.resizer.addEventListener("mousedown", start);
+        document.addEventListener("mousemove", (e) => move(e.clientX));
+        document.addEventListener("mouseup", end);
+
+        // Touch
+        this.resizer.addEventListener("touchstart", start, {passive:false});
+        document.addEventListener("touchmove", (e) => {
+            if (this.isResizing) {
+                e.preventDefault();
+                move(e.touches[0].clientX);
+            }
+        }, {passive:false});
+        document.addEventListener("touchend", end);
+    }
+}
+
+
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+
+/* --- INITIALIZATION --- */
+// Resizers
+const leftResizer = new PanelResizer("resizer_left", "main_container", "--sidebar-left-width", "left");
+const rightResizer = new PanelResizer("resizer_right", "main_container", "--sidebar-right-width", "right");
+const resizer_list = [leftResizer, rightResizer];
+
+// Drawers
+const leftDrawer = new Drawer("cheatsheet_buttons", "mobile_overlay", "left", leftResizer);
+const rightDrawer = new Drawer("toc_sidebar", "mobile_overlay", "right", rightResizer);
+let nowDrawer = null;
+const drawer_list = [leftDrawer, rightDrawer];
+sidebarToggleBtn.addEventListener("click", () => leftDrawer.toggle());
+tocSidebarToggleBtn.addEventListener("click", () => rightDrawer.toggle());
+
+
 
 
 function setupClearButton(input, btn) {
@@ -32,8 +338,36 @@ function setupClearButton(input, btn) {
 setupClearButton(sidebarInput, sidebarClear);
 setupClearButton(mainInput, mainClear);
 
-close_floating_search_btn.addEventListener("click", () => {
-    closeMainSearch();
+close_floating_search_btn.onclick = closeMainSearch;
+
+/* --- RESIZE FIX --- */
+window.addEventListener("resize", () => {
+    if (isMobile()) {
+        drawer_list.forEach(d => {
+            d.el.classList.remove("display_none");
+        })
+        resizer_list.forEach(r => {
+            r.resizer.classList.remove("display_none");
+        })
+        // sidebar_open_button.classList.remove("display_none");
+        // sidebar_close_button.classList.remove("display_none");
+        // sidebar.classList.toggle('display_none');resizer_left.classList.toggle('display_none');
+    } else {
+        drawer_list.forEach(d => {
+            d.el.style.transform = "";
+            d.el.style.transition = "";
+        })
+        overlay.style.opacity = "";
+        overlay.style.pointerEvents = "";
+        if (nowDrawer) {
+            nowDrawer.close();
+            nowDrawer.isOpen = false;
+            nowDrawer.isDragging = false;
+        }
+        nowDrawer = null;
+        // TODO sidebarOpen = false;
+        // TODO isDraggingSidebar = false;
+    }
 });
 
 
@@ -161,7 +495,8 @@ function renderBreadcrumbs(url) {
             console.log(`Navigating to: ${currentFullPath}`, index, pathArray.length);
             closeSearch();
             closeAllKeyButtons();
-            openSidebar();
+            nowDrawer?.close();
+            leftDrawer.open();
             const button = (index === pathArray.length - 1)
                 ? displayValueButton(currentFullPath)
                 : displayKeyButton(currentFullPath);
@@ -198,7 +533,7 @@ function renderBreadcrumbs(url) {
             const anchor_element = document.getElementById(anchor);
             console.log(`anchor_element ${anchor_element}`);
             if (anchor_element) {
-                anchor_element.scrollIntoView({block: "start"});
+                anchor_element.scrollIntoView({block: "start", behavior: "smooth"});
             }
         });
         breadcrumbsContainer.appendChild(span);
@@ -379,32 +714,15 @@ function closeSearch() {
     searchInput.style.border = null;
 }
 
-/* --- RESIZE FIX --- */
-window.addEventListener("resize", () => {
-    if (isMobile()) {
-        sidebar.classList.remove("display_none");
-        resizer.classList.remove("display_none");
-        // sidebar_open_button.classList.remove("display_none");
-        // sidebar_close_button.classList.remove("display_none");
-        // sidebar.classList.toggle('display_none');resizer.classList.toggle('display_none');
-    } else {
-        sidebar.style.transform = "";
-        sidebar.style.transition = "";
-        overlay.style.opacity = "";
-        overlay.style.pointerEvents = "";
-        sidebarOpen = false;
-        isDraggingSidebar = false;
-    }
-});
-
 /* --- RESIZER LOGIC (MOUSE & TOUCH) --- */
+/*
 let isResizing = false;
 
 function startResize(e) {
     if (e.type === "touchstart") e.preventDefault();
 
     isResizing = true;
-    resizer.classList.add("active");
+    resizer_left.classList.add("active");
     body.classList.add("no_select");
 }
 
@@ -421,12 +739,12 @@ function doResize(clientX) {
 function stopResize() {
     if (isResizing) {
         isResizing = false;
-        resizer.classList.remove("active");
+        resizer_left.classList.remove("active");
         body.classList.remove("no_select");
     }
     localStorage.setItem("--sidebar-width", document.documentElement.style.getPropertyValue("--sidebar-width"))
 }
-(function load_sidebar_width() {
+TODO (function load_sidebar_width() {
     let sidebar_width = localStorage.getItem("--sidebar-width");
     if (sidebar_width === null) {
         sidebar_width = "20%";
@@ -437,11 +755,11 @@ function stopResize() {
 
 
 
-resizer.addEventListener("mousedown", startResize);
+resizer_left.addEventListener("mousedown", startResize);
 document.addEventListener("mousemove", (e) => doResize(e.clientX));
 document.addEventListener("mouseup", stopResize);
 
-resizer.addEventListener("touchstart", startResize, { passive: false });
+resizer_left.addEventListener("touchstart", startResize, { passive: false });
 document.addEventListener("touchmove", (e) => {
     if (isResizing) {
         e.preventDefault();
@@ -449,8 +767,10 @@ document.addEventListener("touchmove", (e) => {
     }
 }, { passive: false });
 document.addEventListener("touchend", stopResize);
+*/
 
 /* --- MOBILE DRAWER --- */
+/*
 let startX = 0;
 let isDraggingSidebar = false;
 let sidebarOpen = false;
@@ -528,18 +848,7 @@ document.addEventListener("mousemove", (e) => handleMove(e.clientX, null));
 document.addEventListener("mouseup", (e) => {if (e.button === 0) handleEnd(e.clientX);});
 
 overlay.addEventListener("click", () => {if (sidebarOpen) closeSidebar();});
-sidebarToggleBtn.addEventListener("click", () => {
-    if (isMobile()) {
-        if (sidebarOpen) {
-            closeSidebar();
-        } else {
-            openSidebar();
-        }
-    } else {
-        sidebar.classList.toggle("display_none");
-        resizer.classList.toggle("display_none");
-    }
-});
+*/
 
 
 function toggleSettings(show) {
@@ -647,7 +956,7 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
     console.log(`Load "${url}.html"`)
     renderBreadcrumbs(url);
     addArgumentToUrl(url);
-    closeSidebar();
+    nowDrawer?.close();
     closeMainSearch();
     changeTitle(getPathFilename(url));
     cheatsheet_field_container.scrollTo(0, 0);
@@ -962,7 +1271,7 @@ function processingCheatSheet() {
         }
         processingBlockQuote(blockquote);
     });
-    h_elements = cheatsheet_field.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    const h_elements = cheatsheet_field.querySelectorAll("h1, h2, h3, h4, h5, h6");
     h_elements.forEach(header => {
         let id = header.textContent.trim()
             .toLowerCase()
@@ -977,46 +1286,65 @@ function processingCheatSheet() {
     });
     cheatsheet_field.querySelectorAll("table").forEach(processingTables);
 
-    return; // TODO
+    //return; // TODO
+    h_list.innerHTML = ""
     if (h_elements.length !== 0) {
+        h_list.classList.remove("empty");
         // TODO cheatsheet_field.innerHTML += `<div id="h_list_button" state="off" class="control_button"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
 
         //breadcrumbs_content.innerHTML += `<div id="h_list_button" state="off" class="icon_btn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5"/></svg></div>`;
-        h_list.innerHTML = ""
+
 
         // pre_element = document.createElement("pre");
         // pre_element.innerHTML = `<span style="color: rgb(255, 0, 0);">H1</span>&nbsp;<span class="h_list_sel"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg></span>`;
         // pre_element.setAttribute("onclick", "cheatsheet_field_container.scrollTo(0, 0);");
         // h_list.appendChild(pre_element);
 
-        min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
+        const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
+        const color_map = {
+            1: "var(--color-h1)",
+            2: "var(--color-h2)",
+            3: "var(--color-h3)",
+            4: "var(--color-h4)",
+            5: "var(--color-h5)",
+            6: "var(--color-h6)",
+        }
+        const indent_map = {
+            1: "",
+            2: "&nbsp;".substring((min_header * 6) - 6),
+            3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+        }
 
         h_elements.forEach(header => {
-            h_num = Number(header.tagName[1]);
-            color = {
-                1: "rgb(255,   0,   0)",
-                2: "rgb(250, 115,   0)",
-                3: "rgb(255, 250,   0)",
-                4: "rgb(  0, 255,   0)",
-                5: "rgb(  0, 160, 245)",
-                6: "rgb(221,   0, 242)",
-            }[h_num];
-            indent = {
-                1: "",
-                2: "&nbsp;".substring((min_header * 6) - 6),
-                3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
-                4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-                5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-                6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            }[h_num];
-            pre_element = document.createElement("pre");
-            //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"
-            pre_element.innerHTML = `${indent}<span style="color: ${color}">${header.tagName}</span>&nbsp;<span class="h_list_sel">${header.textContent}</span>`;
-            pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"});h_list.style.display="none";`);
-            h_list.appendChild(pre_element);
+            const h_num = Number(header.tagName[1]);
+            const color = color_map[h_num];
+            const indent = "";//indent_map[h_num];
+            const element = document.createElement("span");
+            element.classList.add("toc_item");
+            // TODO element.classList.add("tree_item");
+            element.innerHTML = `${indent}<pre style="color: ${color}">${header.tagName}</pre><span class="label">${header.textContent}</span>`;
+            const header_id = header.id;
+            element.onclick = () => {
+                rightDrawer.close();
+                document.getElementById(header_id).scrollIntoView({block: "start", behavior: "smooth"});
+            };
+            element.title = header.textContent;
+            element.id = `--toc--${header_id}`;
+            h_list.appendChild(element);
+            // const pre_element = document.createElement("pre");
+            // //style = header.id === getAnchor() ? `background-color: rgb(75, 75, 75)` : ""; // style="${style}"
+            // pre_element.innerHTML = `${indent}<span style="color: ${color}">${header.tagName}</span>&nbsp;<span class="h_list_sel">${header.textContent}</span>`;
+            // pre_element.setAttribute("onclick", `document.getElementById("${header.id}").scrollIntoView({block: "start"});h_list.style.display="none";`);
+            // h_list.appendChild(pre_element);
         });
         //cheatsheet_field.appendChild(h_list);
 
+    } else {
+        h_list.classList.add("empty");
+        h_list.textContent = "Headings will appear here if they are in the cheat sheet"
     }
 };
 
@@ -1237,12 +1565,12 @@ function css_markdown_preview_func(element) {
 strong:has(em), em:has(strong) {color: var(--md-color-bi)!important;}
 
 
-.cheatsheet_field h1:before {content: "# ";}
-.cheatsheet_field h2:before {content: "## ";}
-.cheatsheet_field h3:before {content: "### ";}
-.cheatsheet_field h4:before {content: "#### ";}
-.cheatsheet_field h5:before {content: "##### ";}
-.cheatsheet_field h6:before {content: "###### ";}
+.cheatsheet_field h1:before {content: "# ";      white-space: nowrap;}
+.cheatsheet_field h2:before {content: "## ";     white-space: nowrap;}
+.cheatsheet_field h3:before {content: "### ";    white-space: nowrap;}
+.cheatsheet_field h4:before {content: "#### ";   white-space: nowrap;}
+.cheatsheet_field h5:before {content: "##### ";  white-space: nowrap;}
+.cheatsheet_field h6:before {content: "###### "; white-space: nowrap;}
 .cheatsheet_field code:before, code:after {content: "\`";}
 .cheatsheet_field mark:before, mark:after {content: "==";}
 .cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
@@ -1317,16 +1645,7 @@ function parseSearchQuery(query, inputEl) {
     mainInputResultCount.textContent = "0 results";
     return query;
 }
-
-
-
-
-
-function clearHighlight() {
-    CSS.highlights.delete("search_highlight");
-}
-
-
+function clearHighlight() {CSS.highlights.delete("search_highlight");}
 function getTextNodes(root) {
     const nodes = [];
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -1336,8 +1655,6 @@ function getTextNodes(root) {
     }
     return nodes;
 }
-
-
 function locatePositionInNodes(nodes, globalIndex) {
     let pos = 0;
 
@@ -1354,20 +1671,6 @@ function locatePositionInNodes(nodes, globalIndex) {
     }
     return null;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function highlightText(rawQuery, cheatsheetField, inputEl) {
     clearHighlight();
 
@@ -1433,9 +1736,6 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
     const highlight = new Highlight(...allRanges);
     CSS.highlights.set("search_highlight", highlight);
 }
-
-
-
 function scrollRangeIntoView(range) {
     // const sel = window.getSelection();
     // const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
@@ -1445,7 +1745,8 @@ function scrollRangeIntoView(range) {
 
     range.startContainer.parentElement?.scrollIntoView({
         block: "center",
-        inline: "nearest"
+        inline: "nearest",
+        behavior: "smooth"
     });
 
     // sel.removeAllRanges();
@@ -1453,12 +1754,6 @@ function scrollRangeIntoView(range) {
     //     sel.addRange(prevRange);
     // }
 }
-
-
-
-
-
-
 function setActiveHighlight(index) {
     if (highlightRanges.length === 0) return;
 
@@ -1472,23 +1767,17 @@ function setActiveHighlight(index) {
     mainInputResultCount.style.color = null;
     mainInputResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
 }
-
-
-
 function nextHighlight() {
     if (highlightRanges.length === 0) return;
     setActiveHighlight(activeIndex + 1);
 }
-
 function prevHighlight() {
     if (highlightRanges.length === 0) return;
     setActiveHighlight(activeIndex - 1);
 }
 
-
 floating_search_arrow_up.onclick = prevHighlight;
 floating_search_arrow_down.onclick = nextHighlight;
-
 
 
 let last_search = "";

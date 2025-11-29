@@ -17,6 +17,13 @@
     --header-row-breadcrumbs-height: 40px;
     --header-total-height: calc(var(--header-row-height) + var(--header-row-breadcrumbs-height));
 
+    --resizer-width: 5px;
+    --resizer-hover: var(--accent-color);
+    --sidebar-width: 20%;
+
+    --sidebar-left-width: 25%;
+    --sidebar-right-width: 20%;
+
     --bg-body: #FFFFFF;
     --bg-header: #FFFFFF;
     --bg-sidebar: #F7F7F7;
@@ -35,11 +42,6 @@
     --border-color: #DDDDDD;
     --icon-color: #555555;
     --hover-color: #0000000D;
-
-    --resizer-width: 5px;
-    --resizer-hover: var(--accent-color);
-
-    --sidebar-width: 20%;
 
     --overlay-color: #00000080;
     --modal-backdrop: #00000099;
@@ -115,12 +117,10 @@
     --icon-color: #CCCCCC;
     --hover-color: #FFFFFF1A;
 
-    --resizer-hover: var(--accent-color);
     --overlay-color: #000000B3;
     --shadow-color: #00000080;
 
     --tree-line-color: #444444;
-    --tree-line-hover: var(--accent-color);
 
     --color-file-default: #DADADA;
 
@@ -255,6 +255,8 @@ header .actions {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    height: 100%;
+    overflow-x: auto;
 }
 
 .crumb_btn {
@@ -313,18 +315,80 @@ svg {
     overflow: hidden;
 }
 
-/* --- SIDEBAR --- */
-#cheatsheet_buttons {
+/* --- SIDEBARS COMMON --- */
+aside {
     background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-color);
-    width: var(--sidebar-width);
-    min-width: 10%;
-    max-width: 70%;
+    overflow-y: auto;
     flex-shrink: 0;
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+/* LEFT SIDEBAR */
+#cheatsheet_buttons {
+    width: var(--sidebar-left-width);
+    border-right: 1px solid var(--border-color);
+    min-width: 10%;
+    max-width: 70%;
+}
+
+/* RIGHT SIDEBAR (TOC) */
+#toc_sidebar {
+    width: var(--sidebar-right-width);
+    border-left: 1px solid var(--border-color);
+    min-width: 10%;
+    max-width: 70%;
+    /* z-index: 14; */
+    /* z-index: 10; */
+}
+
+.toc_header {
+    padding: 15px;
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-color);
+}
+.toc_list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.toc_list.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    padding: 15px;
+}
+.toc_item {
+    /* padding: 6px 15px; */
+    padding: 7px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid var(--border-color);
+}
+.toc_item:hover {
+    background-color: var(--hover-color);
+}
+
+/* .tree_item.toc_item {} */
+.toc_item .label {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .search_container {
@@ -419,7 +483,7 @@ svg {
     height: 18px;
     flex-shrink: 0;
 }
-.tree_item .label {
+.label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -450,20 +514,25 @@ svg {
 }
 
 /* --- RESIZER --- */
-#resizer {
+.resizer {
     width: var(--resizer-width);
     background-color: transparent;
     cursor: col-resize;
     flex-shrink: 0;
-    z-index: 10;
+    z-index: 11;
+    /*
     margin-left: -2px;
     margin-right: -3px;
+    */
     position: relative;
 }
 
-#resizer:hover, #resizer.active {
+.resizer:hover, .resizer.active {
     background-color: var(--resizer-hover);
 }
+
+#resizer_left {margin-left: -2px; margin-right: -3px;}
+#resizer_right {margin-left: -3px; margin-right: -2px;}
 
 .display_none {
     display: none!important;
@@ -496,9 +565,11 @@ svg {
     word-break: break-word;
     overflow-wrap: break-word;
 
+    /*
     display: flex;
     flex-direction: row;
     gap: 20px;
+    */
 }
 
 .cheatsheet_field {
@@ -526,7 +597,7 @@ svg {
     background-color: #000000A8;
     opacity: 0;
     pointer-events: none;
-    z-index: 14;
+    z-index: 13;
     transition: opacity 0.3s ease;
 }
 
@@ -624,14 +695,14 @@ input[type="text"], textarea {
 
 /* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
-    #cheatsheet_buttons {
+    aside {
         position: fixed;
         top: var(--header-total-height);
         left: 0;
         height: calc(100% - var(--header-total-height));
-        width: 90%;
+        width: 90%!important;
         /* max-width: 85%; */
-        max-width: 90%;
+        max-width: 90%!important;
         z-index: 15;
         border-right: none;
         /* box-shadow: 2px 0 10px var(--shadow-color); */
@@ -640,17 +711,32 @@ input[type="text"], textarea {
         will-change: transform;
     }
 
-    #cheatsheet_buttons.swiping {
+    aside.swiping {
         transition: none;
+    }
+
+    #cheatsheet_buttons {
+        left: 0;
+        border-right: none;
+        transform: translateX(-100%);
+    }
+
+    #toc_sidebar {
+        right: 0;
+        left: auto;
+        border-left: none;
+        transform: translateX(100%);
     }
 
     .cheatsheet_field {
         min-width: 0;
     }
 
-    #resizer {
+    #resizer_left, #resizer_right {display: none;}
+
+    /* #resizer {
         display: none;
-    }
+    } */
 
     .modal_content {
         width: 100%;
@@ -661,7 +747,7 @@ input[type="text"], textarea {
         font-size: 15px;
     }
 
-    .tree_item {
+    .tree_item, .toc_item {
         font-size: 18px;
     }
 
@@ -889,39 +975,6 @@ hr {
 
 
 
-
-
-
-#h_list {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-
-    background-color: #191919;
-    max-height: 40%;
-    max-width: 15rem;
-    font-size: 1rem;
-    padding: 1em;
-    padding-right: 2em;
-    border-radius: 0.6rem;
-    flex-direction: row;
-    overflow-y: auto;
-    overflow-x: auto;
-
-    display: none;
-    position: absolute;
-    top: 17px;
-    right: 124px;
-
-    max-height: 50%;
-    max-width: 40%;
-}
-#h_list::-webkit-scrollbar {display: none;}
-
-.h_list_sel:hover {
-    color: #787878;
-}
 
 p {
     margin-block-start: 0.5em;
