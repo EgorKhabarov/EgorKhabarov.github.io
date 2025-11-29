@@ -34,16 +34,16 @@
     --text-secondary: #555555;
     --border-color: #DDDDDD;
     --icon-color: #555555;
-    --hover-color: rgba(0,0,0,0.05);
+    --hover-color: #0000000D;
 
     --resizer-width: 5px;
     --resizer-hover: var(--accent-color);
 
     --sidebar-width: 20%;
 
-    --overlay-color: rgba(0,0,0,0.5);
-    --modal-backdrop: rgba(0,0,0,0.6);
-    --shadow-color: rgba(0,0,0,0.1);
+    --overlay-color: #00000080;
+    --modal-backdrop: #00000099;
+    --shadow-color: #0000001A;
 
     --tree-line-color: #CCCCCC;
     --tree-line-hover: var(--accent-color);
@@ -83,7 +83,7 @@
     /* Syntax highlighting */
     .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: #CC7832;} /* Keywords */
     .s, .s1, .s2, .sa, .sd {color: #529755!important;} /* Text */
-    .c1, .cp, .cpf {color: hsl(0deg 0% 0% / 58%);} /* Comment */
+    .c1, .cp, .cpf {color: #00000094;} /* Comment */
     .m, .mi, .mf {color: #5897BB;} /* Number */
     .nb, .kt {color: #8888C6;} /* Default functions */
     .fm {color: #B200B2;} /* Magical methods */
@@ -113,11 +113,11 @@
     --text-secondary: #AAAAAA;
     --border-color: #3E3E42;
     --icon-color: #CCCCCC;
-    --hover-color: rgba(255,255,255,0.1);
+    --hover-color: #FFFFFF1A;
 
     --resizer-hover: var(--accent-color);
-    --overlay-color: rgba(0,0,0,0.7);
-    --shadow-color: rgba(0,0,0,0.5);
+    --overlay-color: #000000B3;
+    --shadow-color: #00000080;
 
     --tree-line-color: #444444;
     --tree-line-hover: var(--accent-color);
@@ -140,7 +140,7 @@
     --md-element-code-bg: #272727;
 
     /* Syntax highlighting */
-    .c1, .cp, .cpf {color: hsla(0,0%,100%,.5);} /* Comment */
+    .c1, .cp, .cpf {color: #FFFFFF80;} /* Comment */
     .nf {color: #FFC66D;} /* Function name */
 
 }
@@ -885,7 +885,7 @@ hr {
     -webkit-user-select: none;
     user-select: none;
 
-    background-color: rgb(25, 25, 25);
+    background-color: #191919;
     max-height: 40%;
     max-width: 15rem;
     font-size: 1rem;
@@ -907,7 +907,7 @@ hr {
 #h_list::-webkit-scrollbar {display: none;}
 
 .h_list_sel:hover {
-    color: rgb(120, 120, 120);
+    color: #787878;
 }
 
 p {
@@ -975,7 +975,7 @@ th {
     position: sticky;
     top: -20px;
     z-index: 1;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px #0000000D;
     background-clip: padding-box;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -1008,7 +1008,7 @@ tbody tr:hover {
 }
 
 @keyframes pulse-bg {
-    50% { background-color: rgba(255, 0, 0, 0.8); }
+    50% {background-color: #FF0000CC;}
 }
 
 
