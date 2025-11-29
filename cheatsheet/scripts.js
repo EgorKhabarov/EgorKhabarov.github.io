@@ -1192,33 +1192,33 @@ function css_markdown_preview_func(element) {
     --color-h3: #FFFA00;
 }
 
-#cheatsheet_field h1 {color: var(--color-h1);}
-#cheatsheet_field h2 {color: var(--color-h2);}
-#cheatsheet_field h3 {color: var(--color-h3);}
-#cheatsheet_field h4 {color: var(--color-h4);}
-#cheatsheet_field h5 {color: var(--color-h5);}
-#cheatsheet_field h6 {color: var(--color-h6);}
+.cheatsheet_field h1 {color: var(--color-h1);}
+.cheatsheet_field h2 {color: var(--color-h2);}
+.cheatsheet_field h3 {color: var(--color-h3);}
+.cheatsheet_field h4 {color: var(--color-h4);}
+.cheatsheet_field h5 {color: var(--color-h5);}
+.cheatsheet_field h6 {color: var(--color-h6);}
 
-#cheatsheet_field b, strong    {color: var(--md-color-b);}
-#cheatsheet_field i, em        {color: var(--md-color-i);}
-#cheatsheet_field strong em, i {color: var(--md-color-bi);}
-#cheatsheet_field      b em, i {color: var(--md-color-bi);}
-#cheatsheet_field em strong, b {color: var(--md-color-bi);}
-#cheatsheet_field  i strong, b {color: var(--md-color-bi);}
+.cheatsheet_field b, strong    {color: var(--md-color-b);}
+.cheatsheet_field i, em        {color: var(--md-color-i);}
+.cheatsheet_field strong em, i {color: var(--md-color-bi);}
+.cheatsheet_field      b em, i {color: var(--md-color-bi);}
+.cheatsheet_field em strong, b {color: var(--md-color-bi);}
+.cheatsheet_field  i strong, b {color: var(--md-color-bi);}
 
 strong:has(em), em:has(strong) {color: var(--md-color-bi)!important;}
 
 
-#cheatsheet_field h1:before {content: "# ";}
-#cheatsheet_field h2:before {content: "## ";}
-#cheatsheet_field h3:before {content: "### ";}
-#cheatsheet_field h4:before {content: "#### ";}
-#cheatsheet_field h5:before {content: "##### ";}
-#cheatsheet_field h6:before {content: "###### ";}
-#cheatsheet_field code:before, code:after {content: "\`";}
-#cheatsheet_field mark:before, mark:after {content: "==";}
-#cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
-#cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
+.cheatsheet_field h1:before {content: "# ";}
+.cheatsheet_field h2:before {content: "## ";}
+.cheatsheet_field h3:before {content: "### ";}
+.cheatsheet_field h4:before {content: "#### ";}
+.cheatsheet_field h5:before {content: "##### ";}
+.cheatsheet_field h6:before {content: "###### ";}
+.cheatsheet_field code:before, code:after {content: "\`";}
+.cheatsheet_field mark:before, mark:after {content: "==";}
+.cheatsheet_field i:before, i:after,     em:before,     em:after {content: "_"}
+.cheatsheet_field b:before, b:after, strong:before, strong:after {content: "**"}
 
 `;
         settings.settings_css_markdown_preview = true;

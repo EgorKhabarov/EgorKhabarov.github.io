@@ -144,7 +144,7 @@
 
 }
 
-#cheatsheet_field[data-cheatsheet-path="README"] {
+.cheatsheet_field[data-cheatsheet-path="README"] {
     div {
         display: flex;
         flex-direction: column;
@@ -154,7 +154,7 @@
     h1:before {content: "";}
 }
 
-#cheatsheet_field[data-cheatsheet-path="error-404"] {
+.cheatsheet_field[data-cheatsheet-path="error-404"] {
     color: red;
     height: 100%;
     display: flex;
@@ -169,7 +169,7 @@
     user-select: none;
 }
 
-#cheatsheet_field[data-cheatsheet-path="error-empty"] {
+.cheatsheet_field[data-cheatsheet-path="error-empty"] {
     height: 100%;
     display: flex;
     align-items: center;
@@ -491,7 +491,7 @@ svg {
     margin: auto;
 }
 
-#cheatsheet_field p {
+.cheatsheet_field p {
     white-space: pre-wrap;
 }
 
@@ -623,7 +623,7 @@ input[type="text"], textarea {
         transition: none;
     }
 
-    #cheatsheet_field {
+    .cheatsheet_field {
         min-width: 0;
     }
 
