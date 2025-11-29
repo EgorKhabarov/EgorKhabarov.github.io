@@ -223,7 +223,7 @@ class Drawer {
         this.isOpen = false;
     }
 
-    toggle() {
+    toggle(display_class = null) {
         if (isMobile()) {
             if (this.isOpen) {
                 this.close();
@@ -234,6 +234,11 @@ class Drawer {
                 this.open();
             }
         } else {
+            if (display_class) {
+                const isDisplayed = this.el.classList.contains("display_none");
+                localStorage.setItem(display_class, isDisplayed ? "flex" : "none");
+                document.documentElement.style.setProperty(display_class, isDisplayed ? "flex" : "none");
+            }
             this.el.classList.toggle("display_none");
             this.resizer.resizer.classList.toggle("display_none");
         }
@@ -332,8 +337,8 @@ const leftDrawer = new Drawer("cheatsheet_buttons", "mobile_overlay", "left", le
 const rightDrawer = new Drawer("toc_sidebar", "mobile_overlay", "right", rightResizer);
 let nowDrawer = null;
 const drawer_list = [leftDrawer, rightDrawer];
-sidebarToggleBtn.addEventListener("click", () => leftDrawer.toggle());
-tocSidebarToggleBtn.addEventListener("click", () => rightDrawer.toggle());
+sidebarToggleBtn.addEventListener("click", () => leftDrawer.toggle("--sidebar-left-display"));
+tocSidebarToggleBtn.addEventListener("click", () => rightDrawer.toggle("--sidebar-right-display"));
 
 
 
@@ -384,6 +389,37 @@ window.addEventListener("resize", () => {
         nowDrawer = null;
     }
 });
+
+
+(function load_sidebar_width() {
+    resizer_list.forEach(r => {
+        let sidebar_width = localStorage.getItem(r.varName);
+        if (sidebar_width === null) {
+            sidebar_width = getComputedStyle(document.documentElement).getPropertyValue(r.varName);
+            localStorage.setItem(r.varName, sidebar_width);
+        }
+        document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
+    });
+    [
+        ["--sidebar-left-display", cheatsheet_buttons, leftResizer],
+        ["--sidebar-right-display", toc_sidebar, rightResizer],
+    ].forEach(args => {
+        c = args[0];
+        e = args[1];
+        r = args[2];
+
+        let sidebar_display = localStorage.getItem(c);
+        if (sidebar_display === null) {
+            sidebar_display = getComputedStyle(document.documentElement).getPropertyValue(c);
+            localStorage.setItem(c, sidebar_display);
+        }
+        document.documentElement.style.setProperty(c, sidebar_display);
+        if (sidebar_display === "none") {
+            e.classList.toggle("display_none");
+            r.resizer.classList.toggle("display_none");
+        }
+    });
+})();
 
 
 /* --- KEYBOARD SHORTCUTS --- */
@@ -731,17 +767,6 @@ function closeSearch() {
     searchInput.value = "";
     searchInput.style.border = null;
 }
-
-(function load_sidebar_width() {
-    resizer_list.forEach(r => {
-        let sidebar_width = localStorage.getItem(r.varName);
-        if (sidebar_width === null) {
-            sidebar_width = getComputedStyle(document.documentElement).getPropertyValue(r.varName);
-            localStorage.setItem(r.varName, sidebar_width);
-        }
-        document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
-    })
-})();
 
 
 
@@ -1658,3 +1683,12 @@ function closeMainSearch() {
     mainInput.dispatchEvent(new Event("input"));
     floating_search.style.display = "none";
 }
+
+function reset_settings() {
+    const settings_css = JSON.parse(localStorage.getItem("settings")).settings_css;
+    localStorage.clear();
+    localStorage.setItem("settings", JSON.stringify({settings_css}));
+    location.reload();
+}
+reset_all_settings.onclick = reset_settings;
+

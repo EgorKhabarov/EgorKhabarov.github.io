@@ -253,6 +253,11 @@
                 <span class="setting_label">CSS</span>
                 <textarea placeholder="Your custom CSS…" id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings);"></textarea>
             </div>
+            <div class="setting_group" style="margin-top: 10px;">
+                <div class="setting_row" style="justify-content: flex-start; gap: 10px;">
+                    <button class="setting_btn setting_btn_danger" id="reset_all_settings">Reset all settings</button>
+                </div>
+            </div>
         </div>
     </div>
 

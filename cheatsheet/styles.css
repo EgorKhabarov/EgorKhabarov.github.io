@@ -20,6 +20,9 @@
     --sidebar-left-width: 25%;
     --sidebar-right-width: 20%;
 
+    --sidebar-left-display: flex;
+    --sidebar-right-display: flex;
+
     --bg-body: #FFFFFF;
     --bg-header: #FFFFFF;
     --bg-sidebar: #F7F7F7;
@@ -321,6 +324,7 @@ aside {
     border-right: 1px solid var(--border-color);
     min-width: 10%;
     max-width: 70%;
+    display: var(--sidebar-left-display);
 }
 
 /* RIGHT SIDEBAR (TOC) */
@@ -329,6 +333,7 @@ aside {
     border-left: 1px solid var(--border-color);
     min-width: 10%;
     max-width: 70%;
+    display: var(--sidebar-right-display);
 }
 
 .toc_header {
@@ -613,6 +618,23 @@ aside {
     gap: 10px;
 }
 
+.setting_btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, filter 0.2s;
+}
+.setting_btn_danger {
+    background-color: #EF4444;
+    color: white;
+}
+.setting_btn_danger:hover {
+    background-color: #DC2626;
+}
+
 textarea {
     resize: vertical;
     min-height: 180px;
@@ -627,6 +649,12 @@ input[type="text"], textarea {
     border-radius: 4px;
     font-family: monospace;
     padding-right: 30px;
+}
+input[type="button"] {
+    height: 31px;
+    background: var(--bg-input);
+    padding: 5px;
+    cursor: pointer;
 }
 
 
@@ -696,6 +724,7 @@ input[type="text"], textarea {
         left: 0;
         border-right: none;
         transform: translateX(-100%);
+        display: flex;
     }
 
     #toc_sidebar {
@@ -703,6 +732,7 @@ input[type="text"], textarea {
         left: auto;
         border-left: none;
         transform: translateX(100%);
+        display: flex;
     }
 
     .cheatsheet_field {
@@ -732,6 +762,9 @@ input[type="text"], textarea {
     :root {
         --header-row-height: 58px;
         --header-row-breadcrumbs-height: 45px;
+
+        --sidebar-left-display: flex;
+        --sidebar-right-display: flex;
     }
     .icon_btn {
         width: 38px;
