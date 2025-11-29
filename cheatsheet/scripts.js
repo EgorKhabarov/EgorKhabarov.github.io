@@ -37,7 +37,9 @@ class Drawer {
         this.isOpen = false;
         this.isDragging = false;
         this.startX = 0;
-        this.edgeThreshold = 30; // px from edge to start swipe
+        this.startY = 0;
+        this.axisLocked = null; // "x" | "y" | null
+        this.edgeThreshold = 40; // px from edge to start swipe
 
         // Bind methods
         this.handleStart = this.handleStart.bind(this);
@@ -52,64 +54,90 @@ class Drawer {
         // Touch events
         document.addEventListener("touchstart", (e) => {
             // Ignore if dragging resize
-            if(e.target.classList.contains("resizer")) return;
-            this.handleStart(e.touches[0].clientX);
+            if (e.target.classList.contains("resizer")) return;
+            if (e.touches[0].clientY < headerHeight) return;
+            this.handleStart(e.touches[0].clientX, e.touches[0].clientY);
         }, {passive: false});
 
         document.addEventListener("touchmove", (e) => {
             // Ignore if dragging resize
-            if(e.target.classList.contains("resizer")) return;
-            this.handleMove(e.touches[0].clientX, () => e.preventDefault());
+            if (e.target.classList.contains("resizer")) return;
+            this.handleMove(e.touches[0].clientX, e.touches[0].clientY, () => e.preventDefault());
         }, {passive: false});
 
         document.addEventListener("touchend", (e) => {
             this.handleEnd(e.changedTouches[0].clientX);
         });
 
-        // Mouse simulation (optional, good for debugging)
-        document.addEventListener("mousedown", (e) => {if(e.button === 0) this.handleStart(e.clientX);});
-        document.addEventListener("mousemove", (e) => {this.handleMove(e.clientX);});
-        document.addEventListener("mouseup", (e) => {if(e.button === 0) this.handleEnd(e.clientX);});
+        document.addEventListener("mousedown", (e) => {
+            if (e.button !== 0) return;
+            if (e.clientY < headerHeight) return;
+            this.handleStart(e.clientX, e.clientY);
+        });
+        document.addEventListener("mousemove", (e) => {this.handleMove(e.clientX, e.clientY);});
+        document.addEventListener("mouseup", (e) => {if (e.button === 0) this.handleEnd(e.clientX);});
 
         this.overlay.addEventListener("click", this.handleClickOverlay);
     }
 
-    handleStart(x) {
+    handleStart(x, y) {
         if (!isMobile() || isSettingsOpen) return;
         if (nowDrawer === null || nowDrawer === this) {} else return;
 
+        this.startX = x;
+        this.startY = y;
+        this.axisLocked = null;
+        const func = () => {
+            this.isDragging = true;
+            this.el.classList.add("swiping");
+            nowDrawer = this;
+            body.classList.add("no_select");
+        }
+
         // Logic depends on side
         if (this.side === "left") {
-            this.startX = x;
             if (!this.isOpen && x < this.edgeThreshold) {
-                this.isDragging = true;
-                this.el.classList.add("swiping");
-                nowDrawer = this;
+                func();
             } else if (this.isOpen) {
                 // If open, drag anywhere starts drag (usually to close)
                 // But need to distinguish between left and right drawer if both open?
                 // Overlay click handles close, drag handles swipe back
-                this.isDragging = true;
-                this.el.classList.add("swiping");
-                nowDrawer = this;
+                func();
             }
         } else { // Right side
             const winW = window.innerWidth;
             this.startX = x;
             if (!this.isOpen && x > winW - this.edgeThreshold) {
-                this.isDragging = true;
-                this.el.classList.add("swiping");
-                nowDrawer = this;
+                func();
             } else if (this.isOpen) {
-                this.isDragging = true;
-                this.el.classList.add("swiping");
-                nowDrawer = this;
+                func();
             }
         }
     }
 
-    handleMove(x, preventDefault) {
+    handleMove(x, y, preventDefault) {
         if (!this.isDragging || !isMobile() || isSettingsOpen) return;
+
+        const dx = x - this.startX;
+        const dy = y - this.startY;
+
+        // Detect axis once
+        if (this.axisLocked === null) {
+            if (Math.abs(dx) > 10) {
+                this.axisLocked = "x"; // swipe drawer
+            } else if (Math.abs(dy) > 10) {
+                this.axisLocked = "y"; // scrolling - disable drawer
+                this.isDragging = false;
+                nowDrawer = null;
+                this.el.classList.remove("swiping");
+                body.classList.remove("no_select");
+                return;
+            } else {
+                return; // still undecided
+            }
+        }
+
+        if (this.axisLocked === "y") return;
 
         const winW = window.innerWidth;
         const w = this.el.getBoundingClientRect().width || winW * 0.85;
@@ -157,6 +185,7 @@ class Drawer {
         if (!this.isDragging || !isMobile() || isSettingsOpen) return;
         this.isDragging = false;
         this.el.classList.remove("swiping");
+        body.classList.remove("no_select");
 
         const w = this.el.getBoundingClientRect().width;
         const diff = x - this.startX;
@@ -340,8 +369,18 @@ setupClearButton(mainInput, mainClear);
 
 close_floating_search_btn.onclick = closeMainSearch;
 
+function calcHeaderHeight() {
+    const style = getComputedStyle(document.documentElement);
+    const height1 = parseInt(removeSuffix(style.getPropertyValue("--header-row-height"), "px"));
+    const height2 = parseInt(removeSuffix(style.getPropertyValue("--header-row-breadcrumbs-height"), "px"));
+    return height1 + height2;
+}
+let headerHeight = calcHeaderHeight();
+
 /* --- RESIZE FIX --- */
 window.addEventListener("resize", () => {
+    headerHeight = calcHeaderHeight();
+
     if (isMobile()) {
         drawer_list.forEach(d => {
             d.el.classList.remove("display_none");
