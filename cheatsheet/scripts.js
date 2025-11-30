@@ -1189,10 +1189,8 @@ function processingTOC(h_elements) {
             const h_num = Number(header.tagName[1]);
             const color = color_map[h_num];
             // const indent = indent_map[h_num];
-            const indent = "";
             const element = document.createElement("span");
             element.classList.add("toc_item");
-            element.innerHTML = `${indent}<pre style="color: ${color}">${header.tagName}</pre><span class="label">${header.textContent}</span>`;
             const header_id = header.id;
             element.onclick = () => {
                 rightDrawer.close();
@@ -1200,6 +1198,17 @@ function processingTOC(h_elements) {
             };
             element.title = header.textContent;
             element.id = `--toc--${header_id}`;
+
+            const element_pre = document.createElement("pre");
+            element_pre.style.color = color;
+            element_pre.textContent = header.tagName;
+
+            const element_span = document.createElement("span");
+            element_span.classList.add("label");
+            element_span.textContent = header.textContent;
+
+            element.appendChild(element_pre);
+            element.appendChild(element_span);
             h_list.appendChild(element);
         });
     } else {
