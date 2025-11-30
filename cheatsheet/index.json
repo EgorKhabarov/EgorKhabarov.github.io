@@ -610,6 +610,9 @@
         }
     },
     "Other": {
+        "Cheatsheet": {
+            "css_themes": ""
+        },
         "Minecraft": {
             "Server": {
                 "plugins": {
