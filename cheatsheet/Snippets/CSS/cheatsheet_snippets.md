@@ -18,3 +18,20 @@
     }
 }
 ```
+
+Убрать ограничение на ширину шпаргалки
+```css
+.cheatsheet_field {
+    max-width: 100%;
+}
+```
+
+Accent color
+```css
+:root {
+    --accent-color: #3B82F6;
+}
+[data-theme="dark"] {
+    --accent-color: #005FCC;
+}
+```
