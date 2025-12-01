@@ -23,6 +23,8 @@
     --sidebar-left-display: flex;
     --sidebar-right-display: flex;
 
+    --accent-color: #3B82F6;
+
     --bg-body: #FFFFFF;
     --bg-header: #FFFFFF;
     --bg-sidebar: #F7F7F7;
@@ -49,6 +51,8 @@
     --tree-line-color: #CCCCCC;
     --tree-line-hover: var(--accent-color);
 
+    --pulse-animation-color: var(--accent-color);
+
 
     --color-file-default: #555555;
     --color-file-yellow: #F9C553;
@@ -64,7 +68,9 @@
     --table-row-hover: #FAFAFA;
     --table-border: #E0E0E0;
 
-    --accent-color: #3B82F6;
+    --a-link:    #539BF5;
+    --a-active:  #6BA4E9;
+    --a-visited: #A459E4;
 
     /* Markdown */
     --md-tag-code-bg: #DBD8D8;
@@ -99,6 +105,8 @@
 
 /* Dark Theme Overrides */
 [data-theme="dark"] {
+    --accent-color: #005FCC;
+
     --bg-body: #121212;
     --bg-header: #1E1E1E;
     --bg-sidebar: #252526;
@@ -126,8 +134,6 @@
     --table-header-bg: #252526;
     --table-row-hover: #2A2D2E;
     --table-border: #3E3E42;
-
-    --accent-color: #005FCC;
 
     /* Markdown */
     --md-tag-code-bg: #474747;
@@ -238,6 +244,13 @@ header .actions {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+}
+
+.header_row.bottom > div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 5px;
 }
 
 .breadcrumbs_content {
@@ -657,6 +670,23 @@ input[type="button"] {
     cursor: pointer;
 }
 
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
 
 .modal_backdrop {
     position: absolute;
@@ -787,12 +817,16 @@ input[type="button"] {
 
 
 
-a         {text-decoration: none;}
-a:link    {color: #539BF5;}
-a:active  {color: #6BA4E9;}
-a:visited {color: #A459E4;}
+a {
+    text-decoration: none;
+    color: var(--a-link);
+    cursor: pointer;
+}
+a:link    {color: var(--a-link);}
+a:active  {color: var(--a-active);}
+a:visited {color: var(--a-visited);}
 a:hover   {text-decoration: underline;}
-.wikilink:visited {color: #539BF5;}
+.wikilink:visited {color: var(--a-link);}
 
 
 
@@ -1059,12 +1093,12 @@ tbody tr:hover {
 
 
 
-.pulse-bg {
-    animation: pulse-bg 1.4s infinite;
+.pulse_bg {
+    animation: pulse_bg 1.4s infinite;
 }
 
-@keyframes pulse-bg {
-    50% {background-color: #FF0000CC;}
+@keyframes pulse_bg {
+    50% {background-color: var(--pulse-animation-color);}
 }
 
 

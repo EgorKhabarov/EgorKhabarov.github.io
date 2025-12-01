@@ -435,6 +435,7 @@ document.addEventListener("keydown", (e) => {
             sidebarInput.value = selection;
             sidebarInput.dispatchEvent(new Event("input"));
         }
+        sidebarInput.select();
         return;
     }
 
@@ -452,6 +453,13 @@ document.addEventListener("keydown", (e) => {
             mainInput.dispatchEvent(new Event("input"));
             mainInput.select();
         }
+        return;
+    }
+
+    // Ctrl + i -> Main Search
+    if (e.ctrlKey && e.code === "KeyI") {
+        e.preventDefault();
+        toggleSettings(!isSettingsOpen);
         return;
     }
 
@@ -552,10 +560,7 @@ function renderBreadcrumbs(url) {
             const button = (index === pathArray.length - 1)
                 ? displayValueButton(currentFullPath)
                 : displayKeyButton(currentFullPath);
-            button.classList.add("pulse-bg");
-            setTimeout(function() {
-                button.classList.remove("pulse-bg");
-            }, 1000);
+            pulseHighlight(button);
         });
         breadcrumbsContainer.appendChild(span);
         if (index < pathArray.length - 1) {
@@ -589,6 +594,12 @@ function renderBreadcrumbs(url) {
         });
         breadcrumbsContainer.appendChild(span);
     }
+}
+function pulseHighlight(element, milliseconds=1000) {
+    element.classList.add("pulse_bg");
+    setTimeout(function() {
+        element.classList.remove("pulse_bg");
+    }, milliseconds);
 }
 
 /* --- THEME TOGGLE --- */
@@ -1165,7 +1176,7 @@ function processingTables(table) {
     wrapper.appendChild(table);
 }
 function processingTOC(h_elements) {
-    h_list.innerHTML = ""
+    h_list.innerHTML = "";
     if (h_elements.length !== 0) {
         h_list.classList.remove("empty");
         const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
@@ -1194,7 +1205,7 @@ function processingTOC(h_elements) {
             const header_id = header.id;
             element.onclick = () => {
                 rightDrawer.close();
-                document.getElementById(header_id).scrollIntoView({block: "start", behavior: "smooth"});
+                document.getElementById(header_id)?.scrollIntoView({block: "start", behavior: "smooth"});
             };
             element.title = header.textContent;
             element.id = `--toc--${header_id}`;

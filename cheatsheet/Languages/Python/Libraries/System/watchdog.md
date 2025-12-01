@@ -23,6 +23,7 @@ pip install watchdog
 | `patterns`                                    | Список шаблонов для отслеживания (например, `["*.txt"]`)       |
 
 ### Наблюдение за папкой
+
 ```python
 import time
 

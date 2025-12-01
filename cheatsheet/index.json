@@ -610,9 +610,6 @@
         }
     },
     "Other": {
-        "Cheatsheet": {
-            "css_themes": ""
-        },
         "Minecraft": {
             "Server": {
                 "plugins": {
@@ -693,6 +690,9 @@
         },
         "JavaScript": {
             "js YouTube": "color: brown\n"
+        },
+        "CSS": {
+            "cheatsheet_snippets": ""
         }
     },
     "README": ""

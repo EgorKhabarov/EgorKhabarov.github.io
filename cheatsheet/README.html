@@ -5,10 +5,12 @@
 </div>
 
 <h2>Keyboard</h2>
+<h3>Settings</h3>
+<p>Press <kbd style="cursor: pointer;" onclick="toggleSettings(true);">Ctrl + I</kbd> to open <strong>settings</strong></p>
 <h3>Search</h3>
-<p>Press <kbd style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();">Ctrl + F</kbd> to open <strong>Find in page search</strong>
+<p>Press <kbd style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();pulseHighlight(mainInput);">Ctrl + F</kbd> to open <strong>Find in page search</strong>
 To search using <a href="?Languages/RegExp/RegExp">regular expressions</a>, write a query in the format <code class="code_no_copy" style="cursor: pointer;" onclick="floating_search.style.display='flex';mainInput.focus();mainInput.value='//pattern/flags/';mainInput.dispatchEvent(new Event('input'));">/pattern/flags</code></p>
-<p>Press <kbd style="cursor: pointer;" onclick="openSidebar();sidebarInput.focus();">Ctrl + Shift + F</kbd> to open <strong>global search</strong>
+<p>Press <kbd style="cursor: pointer;" onclick="leftDrawer.open();sidebarInput.focus();pulseHighlight(sidebarInput);">Ctrl + Shift + F</kbd> to open <strong>global search</strong>
 This is a <a href="https://en.wikipedia.org/wiki/Full-text_search">full-text search</a> by both cheat sheet names and their contents </p>
 <blockquote>
 <p>[!TIP]
@@ -23,3 +25,6 @@ You can refine your full-text search using:</p>
 <code>banana~1 -rotten</code><br>
 <code>apple^2 fresh*</code><br></p>
 </blockquote>
+<h2>Customization</h2>
+<p>You can insert your own CSS code in the settings
+<a href="?Snippets/CSS/cheatsheet_snippets">Here</a> you can find examples and frequently used CSS snippets</p>
