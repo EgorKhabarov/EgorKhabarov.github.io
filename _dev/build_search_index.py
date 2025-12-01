@@ -15,7 +15,7 @@ def clean_text(text_: str):
     text_ = re.sub(r"<[^>]+>", " ", text_)
     text_ = re.sub(r"\[([^]]+)]\(([^)]+)\)", r"\1 \2", text_)
     text_ = html.unescape(text_)
-    text_ = re.sub(r"[^\wа-яА-ЯёЁ0-9._/\[\]()^&$#@!~=?№%*\\\s-]", " ", text_)
+    text_ = re.sub(r"[^\wа-яА-ЯёЁ0-9._/\[\]()^&$@!~=?№%*\\\s-]", " ", text_)
     text_ = re.sub(r"\s+", " ", text_)
     return text_.strip()
 
