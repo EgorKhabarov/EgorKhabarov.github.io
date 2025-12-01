@@ -404,7 +404,7 @@ function performSearch(empty) {
 /* Скачать нужную шпаргалку по пути */
 function getCheatSheet(url) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, false); // Используется синхронный запрос
+    xhr.open("GET", "/cheatsheet/"+url, false); // Используется синхронный запрос
     xhr.send();
 
     if (xhr.status === 200 && !xhr.responseText.startsWith("<!-- 404.html -->")) {
@@ -417,7 +417,8 @@ function getCheatSheet(url) {
 /* Вставить шпаргалку */
 function PutHtmlText(html) {
     if (!html) {
-        html = '<img alt="404.png" src="cheatsheet_resources/404.png">';
+        //html = '<img alt="404.png" src="/cheatsheet/old/cheatsheet_resources/404.png">';
+        return;
     }
 
     cheatsheet_field.innerHTML = html;
@@ -801,7 +802,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    fetch("cheatsheet_resources/buttons-old.html")
+    fetch("buttons-old.html")
         .then(response => response.text())
         .then(data => document.getElementById("cheatsheet_buttons").innerHTML += data)
         .then(() => {
@@ -880,7 +881,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     div.innerHTML = str;
                     return div.firstChild;
                 }
-                folder_btn = str_to_element(`<button class="folder_button" kpath="Updated&nbsp;cheatsheet" title="Updated&nbsp;cheatsheet"><img alt="folder_yellow" src="cheatsheet_resources/folders/yellow.svg">Updated&nbsp;cheatsheet</button>`);
+                folder_btn = str_to_element(`<button class="folder_button" kpath="Updated&nbsp;cheatsheet" title="Updated&nbsp;cheatsheet"><img alt="folder_yellow" src="/cheatsheet/cheatsheet_resources/folders/yellow.svg">Updated&nbsp;cheatsheet</button>`);
                 folder = str_to_element(`<div id="updated_cheatsheet_folder_buttons" class="buttons_folder" style="display:block;"></div>`);
 
                 folder_btn.addEventListener("click", function(event) {
@@ -888,7 +889,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     onclickFolderButton(this)
                 });
 
-                fetch("cheatsheet_resources/updated.json")
+                fetch("/cheatsheet/cheatsheet_resources/updated.json")
                     .then(response => response.json())
                     .then(data => {
                         for (vpath of data) {
