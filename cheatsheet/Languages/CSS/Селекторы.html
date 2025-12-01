@@ -1,1 +1,281 @@
 <p><img alt="selectors.png" src="Languages/CSS/css_selectors.png" /></p>
+<h1>Базовые селекторы</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>div {}</code></td>
+<td>Селектор по тегу<br>Выбирает <strong>все</strong> теги данного типа</td>
+</tr>
+<tr>
+<td><code>.warning {}</code></td>
+<td>Селектор по классу<br><code>&lt;p class="warning"&gt;...&lt;/p&gt;</code><br>Для нескольких классов одновременно<br><code>.button.primary {}</code></td>
+</tr>
+<tr>
+<td><code>#main {}</code></td>
+<td>Селектор по ID<br>ID должен быть уникален</td>
+</tr>
+<tr>
+<td><code>* {margin: 0;}</code></td>
+<td>Универсальный селектор<br>Может замедлять рендеринг</td>
+</tr>
+</tbody>
+</table>
+<h1>Иерархические селекторы (отношения элементов)</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>div p {color: red;}</code></td>
+<td>Потомок (любой уровень вложенности)<br>Выберет все <code>&lt;p&gt;</code> внутри <code>&lt;div&gt;</code>, на любом уровне</td>
+</tr>
+<tr>
+<td><code>div &gt; p {}</code></td>
+<td>Прямой ребёнок<br>Только <code>&lt;p&gt;</code>, которые непосредственно внутри <code>&lt;div&gt;</code></td>
+</tr>
+<tr>
+<td><code>h1 + p {}</code></td>
+<td>Сосед (находится сразу после)<br>Элемент, который идёт <strong>сразу после</strong> <code>&lt;h1&gt;</code></td>
+</tr>
+<tr>
+<td><code>h1 ~ p {}</code></td>
+<td>Все следующие соседи<br>Все <code>&lt;p&gt;</code>, расположенные ниже, но в том же родителе</td>
+</tr>
+</tbody>
+</table>
+<h1>Атрибутные селекторы - главный раздел</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a[target] {}</code></td>
+<td>Имеет атрибут<br>Выбирает <code>&lt;a&gt;</code> с <strong>любой</strong> <code>target</code></td>
+</tr>
+<tr>
+<td><code>input[type="text"] {}</code></td>
+<td>Атрибут равен значению</td>
+</tr>
+<tr>
+<td><code>div[class~="item"] {}</code></td>
+<td>Атрибут содержит значение через пробел (token)<br>Сработает на: <code>&lt;div class="item foo bar"&gt;&lt;/div&gt;</code><br>Но <strong>не</strong> сработает на: <code>&lt;div class="myitem"&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td><code>a[href^="https://"] {}</code></td>
+<td>Значение атрибута начинается с строки<br><code>^=</code> - "starts with"</td>
+</tr>
+<tr>
+<td><code>img[src$=".png"] {}</code></td>
+<td>Значение атрибута заканчивается строкой</td>
+</tr>
+<tr>
+<td><code>a[href*="youtube"] {}</code></td>
+<td>Значение содержит подстроку</td>
+</tr>
+<tr>
+<td><code>p[lang|="en"] {}</code></td>
+<td>Специальный селектор языка - |=<br>Совпадение: <code>lang="en"</code> и <code>lang="en-US"</code><br>Но не совпадёт <code>lang="eng"</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Псевдоклассы (динамические состояния)</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>button:hover {}</code></td>
+<td>Наведение</td>
+</tr>
+<tr>
+<td><code>input:focus {}</code></td>
+<td>Фокус</td>
+</tr>
+<tr>
+<td><code>button:active {}</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>li:first-child {}</code></td>
+<td>Первый</td>
+</tr>
+<tr>
+<td><code>li:last-child  {}</code></td>
+<td>Последний ребёнок</td>
+</tr>
+<tr>
+<td><code>li:nth-child(3) {}</code></td>
+<td>N-й ребёнок</td>
+</tr>
+<tr>
+<td><code>li:nth-child(odd)</code></td>
+<td>Нечётные</td>
+</tr>
+<tr>
+<td><code>li:nth-child(even)</code></td>
+<td>Чётные</td>
+</tr>
+<tr>
+<td><code>p:nth-of-type(2) {}</code></td>
+<td>Только конкретный тип</td>
+</tr>
+</tbody>
+</table>
+<h1>Псевдоэлементы</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>p::before {content: "→ ";}</code></td>
+<td>before</td>
+</tr>
+<tr>
+<td><code>p::after {content: "→ ";}</code></td>
+<td>after</td>
+</tr>
+<tr>
+<td><code>p::first-line {}</code></td>
+<td>Первая строка</td>
+</tr>
+<tr>
+<td><code>p::first-letter {}</code></td>
+<td>Первая буква</td>
+</tr>
+</tbody>
+</table>
+<h1>Комбинирование селекторов</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input[type="email"]:last-child {}</code></td>
+<td>Поиск <code>&lt;input type="email"&gt;</code>, который является последним ребёнком</td>
+</tr>
+<tr>
+<td><code>.nav a[href*="profile"] {}</code></td>
+<td>Все <code>&lt;a&gt;</code> внутри <code>.nav</code>, у которых href содержит "profile"</td>
+</tr>
+<tr>
+<td><code>form button[disabled] {}</code></td>
+<td>Все disabled кнопки внутри формы</td>
+</tr>
+</tbody>
+</table>
+<h1>Специфичность CSS - как решается конфликт стилей</h1>
+<p>Очередность:</p>
+<ol>
+<li><code>!important</code></li>
+<li>inline-style <code>style=""</code></li>
+<li><code>#id</code></li>
+<li><code>.class</code>, псевдоклассы, атрибуты</li>
+<li>теги</li>
+<li><code>*</code></li>
+</ol>
+<p>Пример:</p>
+<table>
+<thead>
+<tr>
+<th>Селектор</th>
+<th>Ранг</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#id</code></td>
+<td>Высокий</td>
+<td>Побеждает класс</td>
+</tr>
+<tr>
+<td><code>.item</code></td>
+<td>Средний</td>
+<td>Побеждает тег</td>
+</tr>
+<tr>
+<td><code>div</code></td>
+<td>Низкий</td>
+<td>Проигрывает всем</td>
+</tr>
+</tbody>
+</table>
+<h1>Как выбрать элемент по аттрибутам (итоги)</h1>
+<table>
+<thead>
+<tr>
+<th>Задача</th>
+<th>Селектор</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Любой элемент с атрибутом</td>
+<td><code>[attr]</code></td>
+</tr>
+<tr>
+<td>Равен значению</td>
+<td><code>[attr="value"]</code></td>
+</tr>
+<tr>
+<td>Начинается с</td>
+<td><code>[attr^="prefix"]</code></td>
+</tr>
+<tr>
+<td>Заканчивается на</td>
+<td><code>[attr$="suffix"]</code></td>
+</tr>
+<tr>
+<td>Содержит строку</td>
+<td><code>[attr*="text"]</code></td>
+</tr>
+<tr>
+<td>Содержит слово</td>
+<td><code>[attr~="word"]</code></td>
+</tr>
+<tr>
+<td>Совпадает по языку</td>
+<td><code>[attr|="en"]</code></td>
+</tr>
+</tbody>
+</table>
+<h1>Практические мини-примеры</h1>
+<h3>Выбрать элементы начинающиеся с "data-"</h3>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="o">*[</span><span class="nt">data-</span><span class="o">*]</span><span class="w">  </span><span class="c">/* так нельзя */</span>
+</pre></div></div></div>
+
+<p>Правильно:</p>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="o">[</span><span class="nt">data-role</span><span class="o">]</span><span class="w"> </span><span class="p">{}</span>
+<span class="o">[</span><span class="nt">data-id</span><span class="o">]</span><span class="w">   </span><span class="p">{}</span>
+<span class="o">[</span><span class="nt">data-type</span><span class="o">]</span><span class="w"> </span><span class="p">{}</span>
+</pre></div></div></div>
+
+<h3>Все кнопки "внешние ссылки"</h3>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="o">[</span><span class="nt">href</span><span class="o">^=</span><span class="s2">&quot;http&quot;</span><span class="o">]</span><span class="p">:</span><span class="nd">not</span><span class="o">([</span><span class="nt">href</span><span class="o">*=</span><span class="s2">&quot;mysite.com&quot;</span><span class="o">])</span><span class="w"> </span><span class="p">{}</span>
+</pre></div></div></div>
