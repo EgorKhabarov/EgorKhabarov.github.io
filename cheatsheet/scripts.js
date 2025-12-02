@@ -26,7 +26,7 @@ const tocSidebarToggleBtn = document.getElementById("toc_toggle");
 
 /* Generic Sidebar */
 class Drawer {
-    constructor(elementId, overlayId, side = "left", resizer = null) {
+    constructor(elementId, overlayId, side = "left", resizer = null, edgeThreshold = 80) {
         this.el = document.getElementById(elementId);
         this.overlay = document.getElementById(overlayId);
         this.side = side; // "left" or "right"
@@ -37,7 +37,7 @@ class Drawer {
         this.startX = 0;
         this.startY = 0;
         this.axisLocked = null; // "x" | "y" | null
-        this.edgeThreshold = 40; // px from edge to start swipe
+        this.edgeThreshold = edgeThreshold; // px from edge to start swipe
 
         // Bind methods
         this.handleStart = this.handleStart.bind(this);
