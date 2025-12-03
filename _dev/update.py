@@ -61,12 +61,8 @@ for updated_file_md in updated_files:
 # clean unused **.html files
 white_list_html_files = (
     "index.html",
-    "index-old.html",
-    "index-new.html",
-    "cheatsheet_resources/404.html",
-    "cheatsheet_resources/buttons.html",
-    "cheatsheet_resources/buttons-old.html",
-    "cheatsheet_resources/buttons-new.html",
+    "old/index.html",
+    "old/buttons-old.html",
 )
 unused_files: list[str] = []
 incorrect_name_files: list[tuple[str, str, str]] = []
