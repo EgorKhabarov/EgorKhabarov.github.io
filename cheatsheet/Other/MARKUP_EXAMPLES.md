@@ -165,6 +165,17 @@ blockquote WARNING
 > r
 > 1234tv
 
+# Lists
+
+- list elem1
+- list elem2
+- list elem3
+
+### Checkboxes
+
+- [ ] disables
+- [X] enabled
+
 ---
 
 # SVG
