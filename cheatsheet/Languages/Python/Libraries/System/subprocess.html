@@ -32,7 +32,7 @@
 </tr>
 <tr>
 <td><code>subprocess.check_output()</code></td>
-<td>Выполняет команду и возвращает её вывод.<br>Если процесс завершился с ошибкой, вызывается исключение</td>
+<td>Выполняет команду и возвращает её вывод<br>Если процесс завершился с ошибкой, вызывается исключение</td>
 <td><code>output = subprocess.check_output(["ls", "-l"])</code></td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@
 <tbody>
 <tr>
 <td><code>Popen.poll()</code></td>
-<td>Проверяет завершился ли процесс.<br>Возвращает код завершения или <code>None</code>, если процесс ещё выполняется</td>
+<td>Проверяет завершился ли процесс<br>Возвращает код завершения или <code>None</code>, если процесс ещё выполняется</td>
 <td><code>status = process.poll()</code></td>
 </tr>
 <tr>
@@ -107,7 +107,7 @@
     <span class="p">[</span><span class="s2">&quot;grep&quot;</span><span class="k">,</span> <span class="s2">&quot;pattern&quot;</span><span class="p">]</span><span class="k">,</span>
     <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="k">,</span>
     <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="k">,</span>
-    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span>
+    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="k">,</span>
 <span class="p">)</span>
 
 <span class="n">stdout</span><span class="k">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;text</span><span class="se">\n</span><span class="s2">pattern</span><span class="se">\n</span><span class="s2">another line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -159,7 +159,7 @@
 </tr>
 <tr>
 <td><code>subprocess.TimeoutExpired</code></td>
-<td>Вызывается, если процесс не завершился в течение указанного времени (используется с <code>timeout</code>)</td>
+<td>Вызывается, если процесс не завершился в течение указанного времени<br>(используется с <code>timeout</code>)</td>
 </tr>
 <tr>
 <td><code>subprocess.SubprocessError</code></td>
@@ -178,19 +178,19 @@
 <tbody>
 <tr>
 <td><code>stdin</code></td>
-<td>Определяет источник стандартного ввода процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
+<td>Определяет источник стандартного ввода процесса<br>(например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
 </tr>
 <tr>
 <td><code>stdout</code></td>
-<td>Определяет место, куда будет направлен стандартный вывод процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
+<td>Определяет место, куда будет направлен стандартный вывод процесса<br>(например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
 </tr>
 <tr>
 <td><code>stderr</code></td>
-<td>Определяет место, куда будет направлен стандартный поток ошибок процесса (например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
+<td>Определяет место, куда будет направлен стандартный поток ошибок процесса<br>(например, <code>subprocess.PIPE</code>, <code>None</code>, или файловый объект)</td>
 </tr>
 <tr>
 <td><code>shell</code></td>
-<td>Если <code>True</code>, команда будет выполнена через оболочку (shell). Будьте осторожны, так как это может быть небезопасно</td>
+<td>Если <code>True</code>, команда будет выполнена через оболочку (shell)<br>Будьте осторожны, так как это может быть небезопасно</td>
 </tr>
 <tr>
 <td><code>cwd</code></td>
@@ -202,11 +202,11 @@
 </tr>
 <tr>
 <td><code>universal_newlines</code></td>
-<td>Если <code>True</code>, ввод-вывод будет интерпретироваться как текст (строки), а не байты</td>
+<td>Если <code>True</code>, ввод-вывод будет интерпретироваться как текст (строки),<br>а не байты</td>
 </tr>
 <tr>
 <td><code>timeout</code></td>
-<td>Определяет максимальное время ожидания завершения процесса, после чего будет вызвано исключение <code>TimeoutExpired</code></td>
+<td>Определяет максимальное время ожидания завершения процесса,<br>после чего будет вызвано исключение <code>TimeoutExpired</code></td>
 </tr>
 </tbody>
 </table>
