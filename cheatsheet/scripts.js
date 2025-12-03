@@ -548,10 +548,12 @@ function renderBreadcrumbs(url) {
     pathArray.forEach((part, index) => {
         accumulatedPath.push(part);
         const currentFullPath = accumulatedPath.join("/");
-        const span = document.createElement("span");
+        const span = document.createElement("a");
         span.textContent = part;
         span.className = "crumb_item";
-        span.addEventListener("click", () => {
+        if (index === pathArray.length - 1) span.href = "?"+currentFullPath;
+        span.addEventListener("click", (e) => {
+            e.preventDefault();
             console.log(`Navigating to: ${currentFullPath}`);
             closeSearch();
             closeAllKeyButtons();
@@ -620,7 +622,7 @@ themeBtn.addEventListener("click", () => {
     }
 });
 
-/* --- SEARCH --- */
+/* --- FULL-TEXT SEARCH --- */
 let idx = null;
 let docs = null;
 let indexPromise = null;
@@ -659,11 +661,22 @@ async function searchQuery(text) {
 function prepareQuery(q) {
     q = q.trim();
     q = q.replace(/:/g, " ");
+
+    // ~
     q = q.replace(/~+(?!$|\d)/g, "");
     if (q.match(/(?<=~.{2,}).+(?=$)/g)) {
         q = q.replace(/\~+/g, "");
     }
     if (q.endsWith("~")) {
+        q += "1";
+    }
+
+    // ^
+    q = q.replace(/\^+(?!$|\d)/g, "");
+    if (q.match(/(?<=\^.{2,}).+(?=$)/g)) {
+        q = q.replace(/\^+/g, "");
+    }
+    if (q.endsWith("^")) {
         q += "1";
     }
     return q.replace(/\s+/g, " ").trim();
@@ -1711,4 +1724,241 @@ function reset_settings() {
     location.reload();
 }
 reset_all_settings.onclick = reset_settings;
+
+
+
+class ContextMenu {
+    /**
+     * @param {Array} items  - массив пунктов:
+     *   { action: "key", label: "Text", icon?: "iconId" }
+     *   или "separator"
+     *
+     * @param {string} itemSelector
+     * @param {function} onAction(action, element)
+     */
+    constructor(items, itemSelector, onAction) {
+        this.items = items;
+        this.itemSelector = itemSelector;
+        this.onAction = onAction;
+
+        this.menu = this.createMenuElement();
+        this.longPressTimer = null;
+        this.targetElement = null;
+
+        document.body.appendChild(this.menu);
+        this.init();
+    }
+
+    createMenuElement() {
+        const menu = document.createElement("div");
+        menu.className = "context_menu";
+        menu.style.position = "absolute";
+        menu.style.display = "none";
+
+        for (const item of this.items) {
+            if (item === "separator") {
+                menu.appendChild(document.createElement("hr"));
+                continue;
+            }
+
+            const div = document.createElement("div");
+            div.className = "context_menu_item";
+            div.dataset.action = item.action;
+
+            if (item.icon) {
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                if (item.attrs) {
+                    for (const attr in item.attrs) {
+                        svg.setAttribute(attr, item.attrs[attr]);
+                    }
+                }
+                const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+                use.setAttribute("href", `#${item.icon}`);
+                svg.appendChild(use);
+                div.appendChild(svg);
+            } else {
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                div.appendChild(svg);
+            }
+
+            const text = document.createElement("span");
+            text.textContent = item.label;
+            div.appendChild(text);
+            menu.appendChild(div);
+        }
+        return menu;
+    }
+
+    init() {
+        document.addEventListener("contextmenu", (e) => this.onContextMenu(e));
+
+        document.addEventListener("touchstart", (e) => this.onTouchStart(e));
+        document.addEventListener("touchend", () => this.clearLongPress());
+        document.addEventListener("touchcancel", () => this.clearLongPress());
+
+        document.addEventListener("pointerdown", (e) => this.onPointerDown(e));
+        window.addEventListener("scroll", () => this.hide(), true);
+        window.addEventListener("resize", () => this.hide());
+        window.addEventListener("blur", () => this.hide());
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") this.hide();
+        });
+
+        this.menu.addEventListener("click", (e) => this.onMenuClick(e));
+    }
+
+    isInsideMenu(e) {
+        return !!e.target.closest(".context_menu");
+    }
+
+    clearLongPress() {
+        clearTimeout(this.longPressTimer);
+    }
+
+    show(x, y, target) {
+        this.targetElement = target;
+
+        this.menu.style.display = "block";
+        this.menu.style.left = "0px";
+        this.menu.style.top = "0px";
+
+        const rect = this.menu.getBoundingClientRect();
+        const screenW = window.innerWidth;
+        const screenH = window.innerHeight;
+
+        let left = x - window.scrollX;
+        let top = y - window.scrollY;
+
+        if (left + rect.width > screenW) left = screenW - rect.width - 5;
+        if (top + rect.height > screenH) top = screenH - rect.height - 5;
+
+        if (left < 5) left = 5;
+        if (top < 5) top = 5;
+
+        this.menu.style.left = left + window.scrollX + "px";
+        this.menu.style.top = top + window.scrollY + "px";
+    }
+
+    hide() {
+        if (this.menu.style.display === "none") return;
+        this.menu.style.display = "none";
+        this.targetElement = null;
+    }
+
+    onContextMenu(e) {
+        const item = e.target.closest(this.itemSelector);
+        if (item) {
+            e.preventDefault();
+            this.show(e.pageX, e.pageY, item);
+        } else {
+            this.hide();
+        }
+    }
+
+    onTouchStart(e) {
+        const item = e.target.closest(this.itemSelector);
+        if (!item) return;
+
+        let moved = false;
+
+        const onMove = () => moved = true;
+        const cleanup = () => {
+            document.removeEventListener("touchmove", onMove);
+            document.removeEventListener("touchend", onEnd);
+            document.removeEventListener("touchcancel", onCancel);
+        };
+
+        const onEnd = () => { this.clearLongPress(); cleanup(); };
+        const onCancel = () => { this.clearLongPress(); cleanup(); };
+
+        document.addEventListener("touchmove", onMove, { passive: true });
+        document.addEventListener("touchend", onEnd);
+        document.addEventListener("touchcancel", onCancel);
+
+        this.longPressTimer = setTimeout(() => {
+            if (moved) return;
+            const touch = e.touches[0] || e.changedTouches[0];
+            this.show(touch.pageX, touch.pageY, item);
+            cleanup();
+        }, 500);
+    }
+
+    onPointerDown(e) {
+        if (this.isInsideMenu(e)) return;
+
+        if (!e.target.closest(this.itemSelector)) {
+            this.hide();
+        } else {
+            this.hide();
+        }
+    }
+
+    onMenuClick(e) {
+        const item = e.target.closest(".context_menu_item");
+        if (!item) return;
+
+        const action = item.dataset.action;
+        if (!action) return;
+
+        if (this.onAction && this.targetElement) {
+            this.onAction(action, this.targetElement);
+        }
+
+        this.hide();
+    }
+}
+
+
+
+
+const menu_file = new ContextMenu(
+    [
+        {action: "open_in_new_tab", label: "Открыть в новой вкладке", icon: "icon_open_new_tab"},
+        {action: "open_raw", label: "Открыть в сыром виде", icon: "icon_raw"},
+        /* {action: "open_in_split_screen_mode", label: "Открыть в режиме разделения экрана"}, */
+        {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
+        /*
+        "separator",
+        {action: "to_favorites", label: "Добавить в избранное", icon: "favorites", attrs: {color: "currentColor"}},
+        {action: "delete_from_favorites", label: "Удалить из избранного"},
+        */
+    ],
+    ".tree_item.file",
+    (action, element) => {
+        console.log(`${action} ${element.dataset.vpath}`);
+        const vpath = element.dataset.vpath;
+        const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
+
+        if (action === "copy_path") {
+            copy(element.dataset.vpath);
+        } else if (action === "open_in_new_tab") {
+            window.open("?"+vpath, "_blank");
+        } else if (action === "open_raw") {
+            window.open(vpath+".md", "_blank");
+        } else if (action === "open_in_github") {
+            window.open(base_github_url+vpath+".md", "_blank");
+        }
+    }
+);
+
+const menu_folder = new ContextMenu(
+    [
+        {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
+    ],
+    ".tree_item.folder",
+    (action, element) => {
+        console.log(`${action} ${element.dataset.kpath}`);
+        const kpath = element.dataset.kpath;
+        const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
+
+        if (action === "copy_path") {
+            copy(kpath);
+        } else if (action === "open_in_github") {
+            window.open(base_github_url+kpath, "_blank");
+        }
+    }
+);
 
