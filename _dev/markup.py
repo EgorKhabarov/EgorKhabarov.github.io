@@ -83,6 +83,12 @@ def wikilink_func(match: re.Match) -> str:
     return f'<a target="_self" href="?{path}" class="wikilink">{cheatsheet_name}</a>'
 
 
+def checkbox_callback(match: re.Match) -> str:
+    prefix, value = match[1], match[2]
+    checkbox = f'<input type="checkbox" disabled{" checked" if value in "XxVv" else ""}>'
+    return prefix+checkbox
+
+
 def to_markup(markdown_text: str):
     # WikiLinks
     highlighted_html = re.sub(
@@ -102,6 +108,13 @@ def to_markup(markdown_text: str):
         r"(?P<code>.*?)"
         r"(\2|</code></pre>)",
         code_block_callback,
+        highlighted_html,
+    )
+
+    # Замена чекбоксов в списках
+    highlighted_html = re.sub(
+        r"(?m)(^ *[*-] )\[([ XxVv])](?= )",
+        checkbox_callback,
         highlighted_html,
     )
 
