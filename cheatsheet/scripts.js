@@ -1304,20 +1304,38 @@ window.addEventListener("hashchange", () => {
 })
 
 /* URL Path */
+let is_in_popstate = false;
 function getArgumentFromUrl() {
     const currentUrl = new URL(window.location.href);
     return currentUrl.search ? currentUrl.search.substring(1) : null;
 }
 function addArgumentToUrl(arg) {
     const currentUrl = new URL(window.location.href);
+    if (currentUrl.search === `?${encodeURIComponent(arg)}`) {
+        return;
+    }
     currentUrl.search = arg;
-    window.history.pushState({}, "", currentUrl);
+    if (is_in_popstate) {
+        window.history.replaceState({}, "", currentUrl);
+    } else {
+        window.history.pushState({}, "", currentUrl);
+    }
+    is_in_popstate = false;
 }
 function removeArgumentFromUrl() {
     let url = new URL(window.location.href);
     url.search = "";
     window.history.replaceState(null, null, url.href);
 }
+window.onpopstate = async (event) => {
+    let vpath = getPathFilename(getArgumentFromUrl());
+    if (vpath === null || vpath === "null") {
+        vpath = "README";
+    }
+    console.log("Back to", `"${vpath}"`);
+    is_in_popstate = true;
+    await setup_cheatsheet(vpath, true, true);
+};
 
 /* Title */
 function changeTitle(title) {
