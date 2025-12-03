@@ -240,12 +240,12 @@
 <tr>
 <td><code>re.A</code><br><code>re.ASCII</code></td>
 <td><code>(?a)</code></td>
-<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code> соответствуют все юникодные<br>символы с соответствующим качеством. Ускоряет работу, если все соответствия лежат внутри ASCII</td>
+<td>По умолчанию <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code>, <code>\d</code>, <code>\D</code>, <code>\s</code>, <code>\S</code><br>соответствуют все юникодные символы с соответствующим качеством<br>Ускоряет работу, если все соответствия лежат внутри ASCII</td>
 </tr>
 <tr>
 <td><code>re.I</code><br><code>re.IGNORECASE</code></td>
 <td><code>(?i)</code></td>
-<td>Не различать заглавные и маленькие буквы. Работает медленнее, но иногда удобно</td>
+<td>Не различать заглавные и маленькие буквы<br>Работает медленнее, но иногда удобно</td>
 </tr>
 <tr>
 <td><code>re.M</code><br><code>re.MULTILINE</code></td>
@@ -255,22 +255,22 @@
 <tr>
 <td><code>re.S</code><br><code>re.DOTALL</code></td>
 <td><code>(?s)</code></td>
-<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку. С этим флагом точка - вообще любой символ</td>
+<td>По умолчанию символ <code>\n</code> конца строки не подходит под точку<br>С этим флагом точка - вообще любой символ</td>
 </tr>
 <tr>
 <td><code>re.X</code><br><code>re.VERBOSE</code></td>
 <td><code>(?x)</code></td>
-<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует неэкранированная<br>обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code>. Например, и не допускаются.<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><span class="k">,</span><br>    <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="k">,</span><br><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br><br><span class="c1"># Wrong!</span><br><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?s)</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><br><span class="p">)</span><br></pre></div></pre></div></div></td>
+<td>Пробелы внутри шаблона игнорируются, за исключением случаев,<br>когда они находятся в классе символов, или когда им предшествует<br>неэкранированная обратная косая черта, или внутри токенов,<br>таких как <code>*?</code>, <code>(?:</code> или <code>(?P&lt;...&gt;</code><br>Например, и не допускаются<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><span class="k">,</span><br>    <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="k">,</span><br><span class="p">)</span><br><span class="n">b</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+.\d*&quot;</span><span class="p">)</span><br><br><span class="c1"># Wrong!</span><br><span class="n">c</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><br><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;(?s)</span><br><span class="sd">\d +  # the integral part</span><br><span class="sd">\.    # the decimal point</span><br><span class="sd">\d *  # some fractional digits</span><br><span class="sd">&quot;&quot;&quot;</span><br><span class="p">)</span><br></pre></div></pre></div></div></td>
 </tr>
 <tr>
 <td><code>re.L</code><br><code>re.LOCALE</code></td>
 <td><code>(?L)</code></td>
-<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code> в соответствие без учета регистра зависимым от текущей локали.<br>Этот флаг можно использовать только с шаблонами байтов</td>
+<td>Сделать <code>\w</code>, <code>\W</code>, <code>\b</code>, <code>\B</code><br>в соответствие без учета регистра зависимым от текущей локали<br>Этот флаг можно использовать только с шаблонами байтов</td>
 </tr>
 <tr>
 <td><code>re.U</code><br><code>re.UNICODE</code></td>
 <td></td>
-<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов.<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости</td>
+<td>В Python 3 символы Unicode сопоставляются по умолчанию для <code>str</code> шаблонов<br>Поэтому этот флаг является избыточным, <strong>не имеет никакого эффекта</strong><br>и сохраняется только для обратной совместимости</td>
 </tr>
 <tr>
 <td><code>re.DEBUG</code></td>
