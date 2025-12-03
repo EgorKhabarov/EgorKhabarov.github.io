@@ -47,13 +47,13 @@
 
 # Группы захвата
 
-| Группа захвата      | Название                                                                                                                                  | Регулярка                   | Соответствие                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `(?:pattern)`       | Незахватывающая группа                                                                                                                    | <code>(?:abc\|def)</code>   | 123 <span style="background-color: #999999;color: marktext;">abc</span> 456                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `(pattern)`         | Неименованная группа захвата                                                                                                              | `(123)`                     | 0<span style="background-color: #999999;color: marktext;">123</span>4<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;0(123)4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;01234&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 123</span><br><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 123</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 01234</span><br><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 01234</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># 01234</span><br></pre></div></pre></div></div> |
-| `\1`                | Неименованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы<br>по номеру порядка их появления в регулярном выражении | `(\d+)-\1`                  | 1 <span style="background-color: #999999;color: marktext;">1-1</span> <span style="background-color: #999999;color: marktext;">123-123</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `(?P<name>pattern)` | Именованная группа захвата                                                                                                                | `My name is (?P<name>\w+)`  | My name is <span style="background-color: #999999;color: marktext;">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span> \<br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>  <span class="c1"># John</span><br><span class="n">m</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>        <span class="c1"># John</span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее захваченные группы по имени                                                   | `(?P<word>\w+)\s+(?P=word)` | <span style="background-color: #999999;color: marktext;">hello hello</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Группа захвата      | Название                                                                                                                                        | Регулярка/Соответствие                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `(?:pattern)`       | Незахватывающая группа                                                                                                                          | <code>(?:abc\|def)</code><br>123 <span style="background-color: #999999;color: marktext;">abc</span> 456                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `(pattern)`         | Неименованная группа захвата                                                                                                                    | `(123)`<br>0<span style="background-color: #999999;color: marktext;">123</span>4<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;0(123)4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;01234&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 123</span><br><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 123</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 01234</span><br><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 01234</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># 01234</span><br></pre></div></pre></div></div> |
+| `\1`                | Неименованная обратная ссылка<br>Позволяет ссылаться на ранее<br>захваченные группы<br>по номеру порядка их появления<br>в регулярном выражении | `(\d+)-\1`<br>1 <span style="background-color: #999999;color: marktext;">1-1</span> <span style="background-color: #999999;color: marktext;">123-123</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `(?P<name>pattern)` | Именованная группа захвата                                                                                                                      | `My name is (?P<name>\w+)`<br>My name is <span style="background-color: #999999;color: marktext;">John</span><br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;My name is (?P&lt;name&gt;\w+)&quot;</span><span class="p">)</span> \<br><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;My name is John&quot;</span><span class="p">)</span><br><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>  <span class="c1"># John</span><br><span class="n">m</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>        <span class="c1"># John</span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                              |
+| `(?P=name)`         | Именованная обратная ссылка<br>Позволяет ссылаться на ранее<br>захваченные группы по имени                                                      | `(?P<word>\w+)\s+(?P=word)`<br><span style="background-color: #999999;color: marktext;">hello hello</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 # Другое
 
@@ -87,34 +87,132 @@
 
 # Команды
 
-| Метод                                                                                                                                                                                                                                   | Описание                                                        |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| re.match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Ищет совпадение в начале строки                                 |
-| re.search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Ищет первое совпадение в строке                                 |
-| re.findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                   | Возвращает список всех непересекающихся совпадений в строке     |
-| re.finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator\[Match\[str]] | Возвращает итератор по всем совпадениям в строке                |
-| re.sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match\[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                   | Заменяет совпадения в строке на указанный текст                 |
-| re.subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match\[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple\[str, int]      | То же, что и `re.sub()`, но также возвращает количество замен   |
-| re.split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list\[str]             | Разбивает строку по шаблону и возвращает список строк           |
-| re.fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Проверяет, полностью ли строка соответствует шаблону            |
-| re.compile(  <br>&nbsp;&nbsp;&nbsp;&nbsp;pattern: str,<br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0       <br>) -> Pattern\[AnyStr]                                                                                           | Компилирует регулярное выражение в объект регулярного выражения |
+### re.match
+Ищет совпадение в начале строки
+```python
+re.match(
+    pattern: str,
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+re.compile(...).match(
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+```
 
-| Метод                                                                                                                                                                                                       | Описание                                                                   |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| re.compile(...).match(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Ищет совпадение в начале строки                                            |
-| re.compile(...).search(   <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Ищет первое совпадение в строке                                            |
-| re.compile(...).findall(  <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> list                   | Возвращает список всех непересекающихся совпадений в строке                |
-| re.compile(...).finditer( <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Iterator\[Match\[str]] | Возвращает итератор по всем совпадениям в строке                           |
-| re.compile(...).sub(      <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match\[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> str                   | Заменяет совпадения в строке на указанный текст                            |
-| re.compile(...).subn(     <br>&nbsp;&nbsp;&nbsp;&nbsp;repl: str \| (Match\[str]) -> str, <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str, count: int = 0, flags: int \| RegexFlag = 0<br>) -> tuple\[str, int]      | То же, что и `re.compile(...).sub()`, но также возвращает количество замен |
-| re.compile(...).split(    <br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;maxsplit: int = 0, flags: int \| RegexFlag = 0          <br>) -> list\[str]             | Разбивает строку по шаблону и возвращает список строк                      |
-| re.compile(...).fullmatch(<br>&nbsp;&nbsp;&nbsp;&nbsp;string: str,                      <br>&nbsp;&nbsp;&nbsp;&nbsp;flags: int \| RegexFlag = 0                             <br>) -> Match\[str] \| None    | Проверяет, полностью ли строка соответствует шаблону                       |
+### re.search
+Ищет первое совпадение в строке
+```python
+re.search(
+    pattern: str,
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+re.compile(...).search(
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+```
 
-```pycon
->>> import re
->>> text = "Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед"
->>> print(re.sub(r"\b[хХxX]\w*", lambda m: f"[censored({len(m[0])})]", text))
-Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)]
+### re.findall
+Возвращает список всех непересекающихся совпадений в строке
+```python
+re.findall(
+    pattern: str,
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> list:
+re.compile(...).findall(
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> list:
+```
+
+### re.finditer
+Возвращает итератор по всем совпадениям в строке
+```python
+re.finditer(
+    pattern: str,
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Iterator[Match[str]]:
+re.compile(...).finditer(
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Iterator[Match[str]]:
+```
+
+### re.sub
+Заменяет совпадения в строке на указанный текст
+```python
+re.sub(
+    pattern: str,
+    repl: str | (Match[str]) -> str,
+    string: str,
+    count: int = 0,
+    flags: int | RegexFlag = 0,
+) -> str:
+re.compile(...).sub(
+    repl: str | (Match[str]) -> str,
+    string: str, count: int = 0, flags: int | RegexFlag = 0,
+) -> str:
+```
+
+### re.subn
+То же, что и `re.sub()`, но также возвращает количество замен
+```python
+re.subn(
+    pattern: str,
+    repl: str | (Match[str]) -> str,
+    string: str,
+    count: int = 0,
+    flags: int | RegexFlag = 0,
+) -> tuple[str, int]:
+re.compile(...).subn(
+    repl: str | (Match[str]) -> str,
+    string: str,
+    count: int = 0,
+    flags: int | RegexFlag = 0,
+) -> tuple[str, int]:
+```
+
+### re.split
+Разбивает строку по шаблону и возвращает список строк
+```python
+re.split(
+    pattern: str,
+    string: str,
+    maxsplit: int = 0,
+    flags: int | RegexFlag = 0,
+) -> list[str]:
+re.compile(...).split(
+    string: str,
+    maxsplit: int = 0, flags: int | RegexFlag = 0,
+) -> list[str]:
+```
+
+### re.fullmatch
+Проверяет, полностью ли строка соответствует шаблону
+```python
+re.fullmatch(
+    pattern: str,
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+re.compile(...).fullmatch(
+    string: str,
+    flags: int | RegexFlag = 0,
+) -> Match[str] | None:
+```
+
+### re.compile
+Компилирует регулярное выражение в объект регулярного выражения
+```python
+re.compile(
+    pattern: str,
+    flags: int | RegexFlag = 0,
+) -> Pattern[AnyStr]:
 ```
 
 # Примеры
@@ -139,6 +237,13 @@
 ```python
 IP_RANGE = "(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])"
 IP_REGEXP = f"^{IP_RANGE}\.{IP_RANGE}\.{IP_RANGE}\.{IP_RANGE}$"
+```
+
+```pycon
+>>> import re
+>>> text = "Некоторые хорошие слова подозрительны: хор, хоровод, хороводоводовед"
+>>> print(re.sub(r"\b[хХxX]\w*", lambda m: f"[censored({len(m[0])})]", text))
+Некоторые [censored(7)] слова подозрительны: [censored(3)], [censored(7)], [censored(15)]
 ```
 
 ## Пример атомарной группы
@@ -212,16 +317,20 @@ ac
 Рассмотрим регулярное выражение `a(b|c)*d` и строку `abbbd`:
 
 1. Начало сопоставления с `a` - успех
-2. Далее идет `(b|c)*`, которое может захватить любое количество `b` или `c`. Сначала регулярное выражение захватывает все `b`: `abbb`
-3. Теперь шаблон пытается сопоставить `d` после `abbb`. Строка заканчивается на `d`, и совпадение успешно завершается
+2. Далее идет `(b|c)*`, которое может захватить любое количество `b` или `c`.
+   Сначала регулярное выражение захватывает все `b`: `abbb`
+3. Теперь шаблон пытается сопоставить `d` после `abbb`.
+   Строка заканчивается на `d`, и совпадение успешно завершается
 
 Теперь возьмем строку `abbcd`:
 
 1. Начало сопоставления с `a` - успех
 2. Далее идет `(b|c)*`, которое снова захватывает все `b`: `abb`
-3. Теперь шаблон пытается сопоставить `d` после `abb`. Это неудача, потому что следующий символ `c`
+3. Теперь шаблон пытается сопоставить `d` после `abb`.
+   Это неудача, потому что следующий символ `c`
 4. Регулярное выражение возвращается (бэктрекинг) к последнему совпавшему `b`, теперь пробует совпадение с `c`: `abbc`
-5. Теперь шаблон пытается сопоставить `d` после `abbc`. Строка заканчивается на `d`, и совпадение успешно завершается
+5. Теперь шаблон пытается сопоставить `d` после `abbc`.
+   Строка заканчивается на `d`, и совпадение успешно завершается
 
 # Особенности в разных языках
 
@@ -248,12 +357,12 @@ const regex = new RegExp("pattern");
 
 Флаги изменяют поведение регулярного выражения
 
-- `g` - глобальный поиск (поиск всех совпадений)
-- `i` - игнорировать регистр
-- `m` - многострочный режим (влияет на `^` и `$`)
-- `s` - позволяет `.` соответствовать символам новой строки
-- `u` - поддержка юникода (для работы с многобайтовыми символами)
-- `y` - «приклеенный» режим поиска (начинается с текущей позиции)
+- `g` - Глобальный поиск (поиск всех совпадений)
+- `i` - Игнорировать регистр
+- `m` - Многострочный режим (влияет на `^` и `$`)
+- `s` - Позволяет `.` соответствовать символам новой строки
+- `u` - Поддержка юникода (для работы с многобайтовыми символами)
+- `y` - "приклеенный" режим поиска (начинается с текущей позиции)
 
 ```javascript
 const regex = /abc/i;  // Игнорирует регистр
@@ -297,7 +406,8 @@ console.log(str.split(/,/));  // ["apple", "banana", "grape"]
 ### Особенности и полезные моменты
 
 #### Использование с `g` (глобальный флаг)
-Для получения всех совпадений нужно использовать `g`. Без этого флага будет возвращено только первое совпадение
+Для получения всех совпадений нужно использовать `g`
+Без этого флага будет возвращено только первое совпадение
 ```javascript
 const regex = /\d+/g;
 const result = "abc 123 def 456 ghi".match(regex);
@@ -347,7 +457,8 @@ console.log(regex.test("def"));  // true
 
 ### Работа с многобайтовыми символами и юникодом
 
-- Для работы с юникодом, можно использовать флаг `u` (юникодный режим), что позволяет работать с эмодзи и другими многобайтовыми символами
+- Для работы с юникодом, можно использовать флаг `u` (юникодный режим),
+  что позволяет работать с эмодзи и другими многобайтовыми символами
 ```javascript
 const regex = /\u{1F600}/u;  // Эмодзи 😀
 console.log(regex.test("😀"));  // true
