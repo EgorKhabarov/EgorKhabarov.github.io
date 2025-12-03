@@ -13,7 +13,7 @@
 </tr>
 <tr>
 <td><code>os.scandir(path=".")</code></td>
-<td>Возвращает итератор <code>DirEntry</code>, который предоставляет информацию<br>о файлах и директориях в директории <code>path</code>.<br>Более выгодный аналог <code>os.listdir</code></td>
+<td>Возвращает итератор <code>DirEntry</code>, который предоставляет информацию<br>о файлах и директориях в директории <code>path</code><br>Более выгодный аналог <code>os.listdir</code></td>
 </tr>
 <tr>
 <td><code>os.walk(".")</code></td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td><code>os.replace(src, dst)</code></td>
-<td>Перемещает файл или директорию на новое место. Если целевой путь существует, он будет заменен</td>
+<td>Перемещает файл или директорию на новое место<br>Если целевой путь существует, он будет заменен</td>
 </tr>
 <tr>
 <td><code>os.urandom(n)</code></td>
@@ -96,7 +96,7 @@
 </tr>
 <tr>
 <td><code>os.popen(command)</code></td>
-<td>Выполняет команду в оболочке и возвращает объект файла, связанный с потоком вывода</td>
+<td>Выполняет команду в оболочке и возвращает объект файла,<br>связанный с потоком вывода</td>
 </tr>
 <tr>
 <td><code>os.kill(pid, sig)</code></td>
@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td><code>os.waitpid(pid, options)</code></td>
-<td>Ожидает завершения процесса с указанным идентификатором (PID) и возвращает его код завершения и статус</td>
+<td>Ожидает завершения процесса с указанным идентификатором (PID)<br>и возвращает его код завершения и статус</td>
 </tr>
 <tr>
 <td><code>os.fork()</code></td>
@@ -143,7 +143,7 @@
 <tbody>
 <tr>
 <td><code>os.open(path, flags, mode=0o777)</code></td>
-<td>Открывает файл и возвращает файловый дескриптор. <code>flags</code> определяет режим открытия (например, <code>os.O_RDONLY</code>, <code>os.O_WRONLY</code>)</td>
+<td>Открывает файл и возвращает файловый дескриптор<br><code>flags</code> определяет режим открытия (например, <code>os.O_RDONLY</code>, <code>os.O_WRONLY</code>)</td>
 </tr>
 <tr>
 <td><code>os.close(fd)</code></td>
@@ -159,7 +159,7 @@
 </tr>
 <tr>
 <td><code>os.lseek(fd, pos, how)</code></td>
-<td>Перемещает указатель чтения/записи в файл, связанный с файловым дескриптором <code>fd</code>. <code>how</code> определяет начало перемещения</td>
+<td>Перемещает указатель чтения/записи в файл,<br>связанный с файловым дескриптором <code>fd</code><br><code>how</code> определяет начало перемещения</td>
 </tr>
 <tr>
 <td><code>os.fsync(fd)</code></td>
@@ -213,27 +213,27 @@
 <tbody>
 <tr>
 <td><code>os.altsep</code></td>
-<td>Альтернативный разделитель пути. Используется, если он поддерживается ОС. В Windows это <code>/</code> вместо <code>\</code></td>
+<td>Альтернативный разделитель пути<br>Используется, если он поддерживается ОС<br>В Windows это <code>/</code> вместо <code>\</code></td>
 </tr>
 <tr>
 <td><code>os.curdir</code></td>
-<td>Строка, представляющая текущую директорию. Обычно это <code>.</code></td>
+<td>Строка, представляющая текущую директорию<br>Обычно это <code>.</code></td>
 </tr>
 <tr>
 <td><code>os.pardir</code></td>
-<td>Строка, представляющая родительскую директорию. Обычно это <code>..</code></td>
+<td>Строка, представляющая родительскую директорию<br>Обычно это <code>..</code></td>
 </tr>
 <tr>
 <td><code>os.sep</code></td>
-<td>Строка, представляющая разделитель пути, используемый в операционной системе. В Windows это <code>\</code>, в Unix <code>/</code></td>
+<td>Строка, представляющая разделитель пути, используемый в операционной системе<br>В Windows это <code>\</code>, в Unix <code>/</code></td>
 </tr>
 <tr>
 <td><code>os.pathsep</code></td>
-<td>Строка, разделяющая компоненты в переменных среды, таких как <code>PATH</code>. В Windows это <code>;</code>, в Unix <code>:</code></td>
+<td>Строка, разделяющая компоненты в переменных среды, таких как <code>PATH</code><br>В Windows это <code>;</code>, в Unix <code>:</code></td>
 </tr>
 <tr>
 <td><code>os.linesep</code></td>
-<td>Строка, представляющая разделитель строк, используемый в операционной системе. В Windows это <code>\r\n</code>, в Unix <code>\n</code></td>
+<td>Строка, представляющая разделитель строк, используемый в операционной системе<br>В Windows это <code>\r\n</code>, в Unix <code>\n</code></td>
 </tr>
 <tr>
 <td><code>os.defpath</code></td>
@@ -241,7 +241,7 @@
 </tr>
 <tr>
 <td><code>os.extsep</code></td>
-<td>Разделитель расширения файлов. В большинстве ОС это <code>.</code></td>
+<td>Разделитель расширения файлов<br>В большинстве ОС это <code>.</code></td>
 </tr>
 <tr>
 <td><code>os.devnull</code></td>
@@ -260,7 +260,7 @@
 <tbody>
 <tr>
 <td><code>os.name</code></td>
-<td>Имя операционной системы. Например, <code>posix</code> для Unix-подобных систем, <code>nt</code> для Windows</td>
+<td>Имя операционной системы<br>Например, <code>posix</code> для Unix-подобных систем, <code>nt</code> для Windows</td>
 </tr>
 <tr>
 <td><code>os.getenv(key, default=None)</code></td>
@@ -288,7 +288,7 @@
 </tr>
 <tr>
 <td><code>os.uname()</code></td>
-<td>Возвращает информацию о системе, такую как имя системы, имя узла и версию ОС (только Unix)</td>
+<td>Возвращает информацию о системе,<br>такую как имя системы, имя узла и версию ОС (только Unix)</td>
 </tr>
 <tr>
 <td><code>os.putenv(key, value)</code></td>
