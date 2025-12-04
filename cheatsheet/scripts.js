@@ -821,39 +821,58 @@ settingsBackdrop.addEventListener("click", () => toggleSettings(false));
 
 
 
+let cheatsheet_cache = {};
 async function load_cheatsheet(url) {
-    try {
-        const response = await fetch(`${url}.html`);
-        const text = await response.text();
+    let text = "";
 
-        if (text.startsWith("<!-- 404.html -->")) {
-            cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
-            cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+    if (url in cheatsheet_cache) {
+        text = cheatsheet_cache[url];
+    } else {
+        console.log(`Load "${url}.html"`)
+        try {
+            const response = await fetch(`${url}.html`);
+            const tmp_text = await response.text();
+
+            if (tmp_text.startsWith("<!-- 404.html -->")) {
+                cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
+                cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+                cheatsheet_cache[url] = null;
+                return false;
+            }
+
+            if (tmp_text.trim() === "") {
+                cheatsheet_field.innerHTML = `This page is empty`;
+                cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
+                cheatsheet_cache[url] = "";
+                return true;
+            }
+
+            cheatsheet_cache[url] = tmp_text;
+            text = tmp_text;
+        } catch (e) {
             return false;
         }
-
-        if (text.trim() === "") {
-            cheatsheet_field.innerHTML = `This page is empty`;
-            cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
-            return true;
-        }
-
-        cheatsheet_field.innerHTML = text;
-        cheatsheet_field.setAttribute("data-cheatsheet-path", url);
-        processingCheatSheet();
-
-        const anchor = getAnchor();
-        if (anchor) {
-            console.log(`Anchor found: "${anchor}"`);
-            const anchor_element = document.getElementById(anchor);
-            if (anchor_element) {
-                anchor_element.scrollIntoView({block: "start"});
-            }
-        }
-        return true;
-    } catch (e) {
-        return false;
     }
+
+    if (text === null) {
+        cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
+        cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+        return true;
+    }
+
+    cheatsheet_field.innerHTML = text;
+    cheatsheet_field.setAttribute("data-cheatsheet-path", url);
+    processingCheatSheet();
+
+    const anchor = getAnchor();
+    if (anchor) {
+        console.log(`Anchor found: "${anchor}"`);
+        const anchor_element = document.getElementById(anchor);
+        if (anchor_element) {
+            anchor_element.scrollIntoView({block: "start"});
+        }
+    }
+    return true;
 }
 function closeAllKeyButtons() {
     folderList.querySelectorAll('[data-state="open"]').forEach(e => {
@@ -893,7 +912,7 @@ function displayValueButton(url, scrollIntoActive = true) {
 }
 async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
     const url = url_.trim("/");
-    console.log(`Load "${url}.html"`)
+    console.log(`Setup "${url}"`)
     renderBreadcrumbs(url);
     addArgumentToUrl(url);
     nowDrawer?.close();
@@ -1339,7 +1358,6 @@ window.onpopstate = async (event) => {
 
 /* Title */
 function changeTitle(title) {
-    console.log(`title: "${title}"`);
     result = "Cheat sheet";
     if (title) {
         result += ": " + title;
