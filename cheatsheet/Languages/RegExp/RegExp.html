@@ -147,7 +147,7 @@
 </tr>
 <tr>
 <td><code>(?&lt;!.)</code></td>
-<td>Негативный просмотр назад</td>
+<td>Негативный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
 <td><code>(?&lt;!Сергей )Иванов</code></td>
 <td>Сергей Иванов, Игорь <span style="background-color: #999999;color: marktext;">Иванов</span></td>
 </tr>
@@ -283,126 +283,6 @@
 <p>Можно объединять в одну группу: <code>(?i-sm)</code> (включает режим <code>i</code> и выключает режимы <code>s</code> и <code>m</code>)
 Если требуется только в пределах группы, то шаблон после двоеточия
 Например, <code>(?-i)(?i:A)bc</code> найдёт <code>abc</code> и <code>Abc</code>, но не <code>ABC</code></p>
-<h1>Команды</h1>
-<h3>re.match</h3>
-<p>Ищет совпадение в начале строки</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-</pre></div></div></div>
-
-<h3>re.search</h3>
-<p>Ищет первое совпадение в строке</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-</pre></div></div></div>
-
-<h3>re.findall</h3>
-<p>Возвращает список всех непересекающихся совпадений в строке</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</pre></div></div></div>
-
-<h3>re.finditer</h3>
-<p>Возвращает итератор по всем совпадениям в строке</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
-</pre></div></div></div>
-
-<h3>re.sub</h3>
-<p>Заменяет совпадения в строке на указанный текст</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</pre></div></div></div>
-
-<h3>re.subn</h3>
-<p>То же, что и <code>re.sub()</code>, но также возвращает количество замен</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="k">,</span> <span class="nb">int</span><span class="p">]:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span>
-    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="k">,</span> <span class="nb">int</span><span class="p">]:</span>
-</pre></div></div></div>
-
-<h3>re.split</h3>
-<p>Разбивает строку по шаблону и возвращает список строк</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-</pre></div></div></div>
-
-<h3>re.fullmatch</h3>
-<p>Проверяет, полностью ли строка соответствует шаблону</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span>
-    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-</pre></div></div></div>
-
-<h3>re.compile</h3>
-<p>Компилирует регулярное выражение в объект регулярного выражения</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
-    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pattern</span><span class="p">[</span><span class="n">AnyStr</span><span class="p">]:</span>
-</pre></div></div></div>
-
 <h1>Примеры</h1>
 <table>
 <thead>
@@ -555,6 +435,126 @@
    Строка заканчивается на <code>d</code>, и совпадение успешно завершается</li>
 </ol>
 <h1>Особенности в разных языках</h1>
+<h2>Python</h2>
+<h3>re.match</h3>
+<p>Ищет совпадение в начале строки</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</pre></div></div></div>
+
+<h3>re.search</h3>
+<p>Ищет первое совпадение в строке</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</pre></div></div></div>
+
+<h3>re.findall</h3>
+<p>Возвращает список всех непересекающихся совпадений в строке</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</pre></div></div></div>
+
+<h3>re.finditer</h3>
+<p>Возвращает итератор по всем совпадениям в строке</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+</pre></div></div></div>
+
+<h3>re.sub</h3>
+<p>Заменяет совпадения в строке на указанный текст</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</pre></div></div></div>
+
+<h3>re.subn</h3>
+<p>То же, что и <code>re.sub()</code>, но также возвращает количество замен</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="k">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span>
+    <span class="n">repl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="p">(</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="k">,</span> <span class="nb">int</span><span class="p">]:</span>
+</pre></div></div></div>
+
+<h3>re.split</h3>
+<p>Разбивает строку по шаблону и возвращает список строк</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">maxsplit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</pre></div></div></div>
+
+<h3>re.fullmatch</h3>
+<p>Проверяет, полностью ли строка соответствует шаблону</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</pre></div></div></div>
+
+<h3>re.compile</h3>
+<p>Компилирует регулярное выражение в объект регулярного выражения</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">pattern</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span>
+    <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">RegexFlag</span> <span class="o">=</span> <span class="mi">0</span><span class="k">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pattern</span><span class="p">[</span><span class="n">AnyStr</span><span class="p">]:</span>
+</pre></div></div></div>
+
 <h2>Java</h2>
 <h3>&amp;&amp; ^</h3>
 <p><code>[\w&amp;&amp;[^_]]</code> - Любой символ, подходящий под <code>\w</code>, кроме <code>_</code></p>
