@@ -1242,7 +1242,7 @@ function processingTOC(h_elements) {
         h_elements.forEach(header => {
             const h_num = Number(header.tagName[1]);
             const color = color_map[h_num];
-            // const indent = indent_map[h_num];
+            const indent = indent_map[h_num];
             const element = document.createElement("span");
             element.classList.add("toc_item");
             const header_id = header.id;
@@ -1253,15 +1253,20 @@ function processingTOC(h_elements) {
             element.title = header.textContent;
             element.id = `--toc--${header_id}`;
 
+            const element_indent = document.createElement("pre");
+            element_indent.innerHTML = indent;
+
             const element_pre = document.createElement("pre");
             element_pre.style.color = color;
             element_pre.textContent = header.tagName;
 
-            const element_span = document.createElement("span");
+            const element_span = document.createElement("pre");
             element_span.classList.add("label");
             element_span.textContent = header.textContent;
 
-            element.appendChild(element_pre);
+            element_indent.appendChild(element_pre);
+
+            element.appendChild(element_indent);
             element.appendChild(element_span);
             h_list.appendChild(element);
         });

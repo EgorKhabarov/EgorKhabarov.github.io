@@ -379,10 +379,10 @@ aside {
     padding: 15px;
 }
 .toc_item {
-    padding: 7px 15px;
+    padding: 4px 10px;
     cursor: pointer;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     font-size: 16px;
     color: var(--text-color);
@@ -395,6 +395,10 @@ aside {
     background-color: var(--hover-color);
 }
 
+.toc_item pre {
+    display: flex;
+    flex-direction: row;
+}
 .toc_item .label {
     display: -webkit-box;
     -webkit-line-clamp: 3;
