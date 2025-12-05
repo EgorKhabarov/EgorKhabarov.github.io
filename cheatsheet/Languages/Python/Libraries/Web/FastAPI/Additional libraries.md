@@ -1,20 +1,20 @@
 # Таблица дополнительных библиотек для FastAPI
 
-| Библиотека                         | Описание                                               | Установка                      |
-|------------------------------------|--------------------------------------------------------|--------------------------------|
-| `SlowAPI`                          | Ограничение количества запросов (Rate Limiting)        | `pip install slowapi`          |
-| `FastAPI-Security`                 | Инструменты для безопасности, включая `OAuth2` и `JWT` | `pip install fastapi-security` |
-| `fastapi.middleware.cors`          | Встроенная поддержка `CORS`                            | **Встроено в FastAPI**         |
-| `fastapi_jwt_auth`                 | Аутентификация через `JWT`                             | `pip install fastapi-jwt-auth` |
-| `starlette.middleware.trustedhost` | Ограничение доверенных хостов                          | **Встроено в Starlette**       |
-| `Tortoise-ORM`                     | `ORM` для работы с базами данных                       | `pip install tortoise-orm`     |
-| `SQLAlchemy`                       | `ORM` для работы с базами данных                       | `pip install sqlalchemy`       |
-| `Alembic`                          | Управление миграциями базы данных                      | `pip install alembic`          |
-| `Databases`                        | Асинхронная работа с базами данных                     | `pip install databases`        |
-| `FastAPI-SocketIO`                 | Работа с `WebSocket`                                   | `pip install fastapi-socketio` |
-| `fastapi-mail`                     | Отправка `email`                                       | `pip install fastapi-mail`     |
-| `aiocache`                         | Асинхронное кеширование данных                         | `pip install aiocache`         |
-| `APScheduler`                      | Планирование задач (`cron`, интервалы)                 | `pip install apscheduler`      |
+| Библиотека                                                     | Описание                                               |
+|----------------------------------------------------------------|--------------------------------------------------------|
+| `SlowAPI`<br>`pip install slowapi`                             | Ограничение количества запросов (Rate Limiting)        |
+| `FastAPI-Security`<br>`pip install fastapi-security`           | Инструменты для безопасности, включая `OAuth2` и `JWT` |
+| `fastapi.middleware.cors`<br>**Встроено в FastAPI**            | Встроенная поддержка `CORS`                            |
+| `fastapi_jwt_auth`<br>`pip install fastapi-jwt-auth`           | Аутентификация через `JWT`                             |
+| `starlette.middleware.trustedhost`<br>**Встроено в Starlette** | Ограничение доверенных хостов                          |
+| `Tortoise-ORM`<br>`pip install tortoise-orm`                   | `ORM` для работы с базами данных                       |
+| `SQLAlchemy`<br>`pip install sqlalchemy`                       | `ORM` для работы с базами данных                       |
+| `Alembic`<br>`pip install alembic`                             | Управление миграциями базы данных                      |
+| `Databases`<br>`pip install databases`                         | Асинхронная работа с базами данных                     |
+| `FastAPI-SocketIO`<br>`pip install fastapi-socketio`           | Работа с `WebSocket`                                   |
+| `fastapi-mail`<br>`pip install fastapi-mail`                   | Отправка `email`                                       |
+| `aiocache`<br>`pip install aiocache`                           | Асинхронное кеширование данных                         |
+| `APScheduler`<br>`pip install apscheduler`                     | Планирование задач (`cron`, интервалы)                 |
 
 # Примеры использования
 ### Ограничение запросов

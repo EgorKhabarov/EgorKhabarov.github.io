@@ -167,11 +167,22 @@ blockquote WARNING
 
 # Lists
 
+```markdown
+- list elem1
+- list elem2
+- list elem3
+```
+
 - list elem1
 - list elem2
 - list elem3
 
 ### Checkboxes
+
+```markdown
+- [ ] disables
+- [X] enabled
+```
 
 - [ ] disables
 - [X] enabled
