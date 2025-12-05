@@ -28,7 +28,7 @@ this - это указатель на текущий объект внутри �
 
 ```cpp
 class Person {
-  public:
+public:
     string name;
     void printName() {
       cout << this->name << endl;
