@@ -1,12 +1,10 @@
-<p>Чтобы поменять цвет иконки папки</p>
+<h3>Change the color of the folder icon</h3>
 <div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">folder_list</span><span class="w"> </span><span class="o">[</span><span class="nt">data-kpath</span><span class="o">=</span><span class="s2">&quot;Other/GitHub&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">svg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">use</span><span class="w"> </span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">violet</span><span class="p">;}</span>
 </pre></div></div></div>
-
-<p>Чтобы поменять цвет иконки файла</p>
+<h3>Change the color of the file icon</h3>
 <div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">#</span><span class="nn">folder_list</span><span class="w"> </span><span class="o">[</span><span class="nt">data-vpath</span><span class="o">=</span><span class="s2">&quot;Other/GitHub/Markdown&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">svg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">use</span><span class="w"> </span><span class="p">{</span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">blue</span><span class="p">;}</span>
 </pre></div></div></div>
-
-<p>Шторки на всю ширину</p>
+<h3>Шторки на всю ширину</h3>
 <div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">#</span><span class="nn">cheatsheet_buttons</span><span class="o">,</span><span class="w"> </span><span class="p">#</span><span class="nn">toc_sidebar</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="cp">!important</span><span class="p">;</span>
@@ -14,18 +12,12 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div></div></div>
-
-<p>Убрать ограничение на ширину шпаргалки</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">cheatsheet_field</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-<span class="p">}</span>
+<h3>Remove the cheat sheet width limitation</h3>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">cheatsheet_field</span><span class="w"> </span><span class="p">{</span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;}</span>
 </pre></div></div></div>
-
-<p>Accent color</p>
-<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">--accent-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#3B82F6</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="o">[</span><span class="nt">data-theme</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">--accent-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#005FCC</span><span class="p">;</span>
-<span class="p">}</span>
+<h3>Accent color</h3>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span><span class="nv">--accent-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#3B82F6</span><span class="p">;}</span>
+<span class="o">[</span><span class="nt">data-theme</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="nv">--accent-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#005FCC</span><span class="p">;}</span>
+</pre></div></div></div>
+<div class="code_element"><div class="lang_line"><text>css</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-css"><div class="highlight"><pre><span></span><span class="p">:</span><span class="nd">root</span><span class="p">{</span><span class="nv">--accent-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#239487</span><span class="mi">8</span><span class="n">C</span><span class="p">}</span>
 </pre></div></div></div>

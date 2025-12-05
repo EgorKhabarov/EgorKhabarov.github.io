@@ -1,15 +1,12 @@
-
-Чтобы поменять цвет иконки папки
+### Change the color of the folder icon
 ```css
 #folder_list [data-kpath="Other/GitHub"] > svg > use {color: violet;}
 ```
-
-Чтобы поменять цвет иконки файла
+### Change the color of the file icon
 ```css
 #folder_list [data-vpath="Other/GitHub/Markdown"] > svg > use {color: blue;}
 ```
-
-Шторки на всю ширину
+### Шторки на всю ширину
 ```css
 @media (max-width: 768px) {
     #cheatsheet_buttons, #toc_sidebar {
@@ -18,20 +15,15 @@
     }
 }
 ```
-
-Убрать ограничение на ширину шпаргалки
+### Remove the cheat sheet width limitation
 ```css
-.cheatsheet_field {
-    max-width: 100%;
-}
+.cheatsheet_field {max-width: 100%;}
 ```
-
-Accent color
+### Accent color
 ```css
-:root {
-    --accent-color: #3B82F6;
-}
-[data-theme="dark"] {
-    --accent-color: #005FCC;
-}
+:root {--accent-color: #3B82F6;}
+[data-theme="dark"] {--accent-color: #005FCC;}
+```
+```css
+:root{--accent-color: #2394878C}
 ```

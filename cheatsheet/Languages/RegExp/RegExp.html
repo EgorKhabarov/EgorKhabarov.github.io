@@ -389,8 +389,8 @@
 <li><code>true-regex</code>: Регулярное выражение, которое применяется, если условие истинно</li>
 <li><code>false-regex</code>: Регулярное выражение, которое применяется, если условие ложно (опционально)</li>
 </ul>
-<h3>Примеры условных выражений</h3>
-<h4>Проверка наличия захваченной группы</h4>
+<h2>Примеры условных выражений</h2>
+<h3>Проверка наличия захваченной группы</h3>
 <div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)?(?(1)b|c)
 </pre></div></div></div>
 
@@ -400,7 +400,7 @@
 <li><code>c</code> - применяется, если <code>a</code> отсутствует (т.е., если группа 1 не захвачена)</li>
 </ul>
 <p>Совпадение: <code>ab</code> или <code>c</code></p>
-<h4>Условные выражения с несколькими группами</h4>
+<h3>Условные выражения с несколькими группами</h3>
 <div class="code_element"><div class="lang_line"><text>regexp</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>(a)(?(1)b|c)(d)?
 </pre></div></div></div>
 
@@ -571,15 +571,40 @@
 Конструктор полезен, если паттерн динамический</p>
 </blockquote>
 <h3>Флаги (Modifiers)</h3>
-<p>Флаги изменяют поведение регулярного выражения</p>
-<ul>
-<li><code>g</code> - Глобальный поиск (поиск всех совпадений)</li>
-<li><code>i</code> - Игнорировать регистр</li>
-<li><code>m</code> - Многострочный режим (влияет на <code>^</code> и <code>$</code>)</li>
-<li><code>s</code> - Позволяет <code>.</code> соответствовать символам новой строки</li>
-<li><code>u</code> - Поддержка юникода (для работы с многобайтовыми символами)</li>
-<li><code>y</code> - "приклеенный" режим поиска (начинается с текущей позиции)</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g</code></td>
+<td>Глобальный поиск (поиск всех совпадений)</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>Игнорировать регистр</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>Многострочный режим (влияет на <code>^</code> и <code>$</code>)</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Позволяет <code>.</code> соответствовать символам новой строки</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>Поддержка юникода (для работы с многобайтовыми символами)</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>"приклеенный" режим поиска (начинается с текущей позиции)</td>
+</tr>
+</tbody>
+</table>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/abc/i</span><span class="p">;</span><span class="w">  </span><span class="c1">// Игнорирует регистр</span>
 </pre></div></div></div>
 
@@ -588,28 +613,24 @@
 <p>Проверяет, есть ли совпадения
 Возвращает <code>true</code> или <code>false</code></p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/hello/</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
 </pre></div></div></div>
 <h4>exec</h4>
 <p>Возвращает массив с информацией о первом совпадении (или <code>null</code>, если не найдено)</p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/hello/</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// [&quot;Hello&quot;]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">););</span><span class="w">  </span><span class="c1">// [&quot;Hello&quot;]</span>
 </pre></div></div></div>
 <h4>match</h4>
 <p>Метод строки, возвращает все совпадения (включая глобальные)</p>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ab, ac, ad&quot;</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/a./g</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;ab&quot;, &quot;ac&quot;, &quot;ad&quot;]</span>
+<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;ab, ac, ad&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/a./g</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;ab&quot;, &quot;ac&quot;, &quot;ad&quot;]</span>
 </pre></div></div></div>
 <h4>replace</h4>
 <p>Метод строки, заменяет совпадения на новый текст</p>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;abc def abc&quot;</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/abc/g</span><span class="k">,</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// &quot;xyz def xyz&quot;</span>
+<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;abc def abc&quot;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/abc/g</span><span class="k">,</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// &quot;xyz def xyz&quot;</span>
 </pre></div></div></div>
 <h4>split</h4>
 <p>Разделяет строку по шаблону регулярного выражения</p>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;apple,banana,grape&quot;</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]</span>
+<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;apple,banana,grape&quot;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;apple&quot;, &quot;banana&quot;, &quot;grape&quot;]</span>
 </pre></div></div></div>
 
 <h3>Особенности и полезные моменты</h3>
@@ -617,48 +638,12 @@
 <p>Для получения всех совпадений нужно использовать <code>g</code>
 Без этого флага будет возвращено только первое совпадение</p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\d+/g</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;abc 123 def 456 ghi&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// [&quot;123&quot;, &quot;456&quot;]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;abc 123 def 456 ghi&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">););</span><span class="w">  </span><span class="c1">// [&quot;123&quot;, &quot;456&quot;]</span>
 </pre></div></div></div>
 <h4>Группы (с <code>()</code>)</h4>
 <p>Используй круглые скобки для группировки и захвата частей строки</p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/(\d{3})-(\d{2})-(\d{4})/</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;123-45-6789&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// [&quot;123-45-6789&quot;, &quot;123&quot;, &quot;45&quot;, &quot;6789&quot;]</span>
-</pre></div></div></div>
-<h4>Базовые метасимволы</h4>
-<ul>
-<li><code>.</code> - любой символ, кроме новой строки</li>
-<li><code>\d</code> - цифра (эквивалентно <code>[0-9]</code>)</li>
-<li><code>\w</code> - символ слова (буквы, цифры и подчеркивание)</li>
-<li><code>\s</code> - пробельный символ (пробел, табуляция, новая строка)</li>
-<li><code>\b</code> - граница слова (например, <code>\bword\b</code> найдет "word", но не "sword")</li>
-<li><code>^</code> - начало строки</li>
-<li><code>$</code> - конец строки</li>
-</ul>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^\d{3}-\d{2}-\d{4}$/</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;123-45-6789&#39;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
-</pre></div></div></div>
-<h4>Опциональные элементы (с <code>?</code>)</h4>
-<p>Можно делать часть шаблона необязательной</p>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/colou?r/</span><span class="p">;</span><span class="w">  </span><span class="c1">// &quot;colour&quot; или &quot;color&quot;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;colour&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
-</pre></div></div></div>
-<h4>Квантификаторы</h4>
-<ul>
-<li><code>{n}</code> - точно n раз</li>
-<li><code>{n,}</code> - n и более раз</li>
-<li><code>{n,m}</code> - от n до m раз</li>
-</ul>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/\d{2,4}/</span><span class="p">;</span><span class="w">  </span><span class="c1">// от 2 до 4 цифр</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;1234&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
-</pre></div></div></div>
-<h4><code>(?: ...)</code> - неконтролируемая группа</h4>
-<p>Группа, которая не сохраняет свой результат в массиве (полезно для применения операторов без захвата)</p>
-<div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/(?:abc|def)/</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;def&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;123-45-6789&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">regex</span><span class="p">););</span><span class="w">  </span><span class="c1">// [&quot;123-45-6789&quot;, &quot;123&quot;, &quot;45&quot;, &quot;6789&quot;]</span>
 </pre></div></div></div>
 
 <h3>Работа с многобайтовыми символами и юникодом</h3>
@@ -679,8 +664,7 @@
 <h3>Пример использования с <code>y</code> (прилипание)</h3>
 <p>В режиме "прилипание" регулярное выражение будет искать совпадение начиная с текущей позиции в строке</p>
 <div class="code_element"><div class="lang_line"><text>javascript</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-javascript"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/abc/y</span><span class="p">;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;abcabc&quot;</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;abc&quot;]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="nx">str</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;abc&quot;]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s2">&quot;abcabc&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;abc&quot;]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s2">&quot;abcabc&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// [&quot;abc&quot;]</span>
 </pre></div></div></div>
 <p>В режиме <code>y</code>, если в следующем вызове метода <code>exec()</code> нет совпадений с текущей позиции, вернется <code>null</code></p>
