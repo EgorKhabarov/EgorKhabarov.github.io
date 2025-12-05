@@ -457,7 +457,7 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Ctrl + i -> Main Search
-    if (e.ctrlKey && e.code === "KeyI") {
+    if (e.ctrlKey && !e.shiftKey && e.code === "KeyI") {
         e.preventDefault();
         toggleSettings(!isSettingsOpen);
         return;
