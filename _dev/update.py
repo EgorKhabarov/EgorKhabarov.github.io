@@ -61,6 +61,7 @@ for updated_file_md in updated_files:
 # clean unused **.html files
 white_list_html_files = (
     "index.html",
+    "reset.html",
     "old/index.html",
     "old/buttons-old.html",
 )
