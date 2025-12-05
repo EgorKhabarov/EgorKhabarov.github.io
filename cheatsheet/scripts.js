@@ -860,6 +860,12 @@ async function load_cheatsheet(url) {
         return true;
     }
 
+    if (text === "") {
+        cheatsheet_field.innerHTML = `This page is empty`;
+        cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
+        return true;
+    }
+
     cheatsheet_field.innerHTML = text;
     cheatsheet_field.setAttribute("data-cheatsheet-path", url);
     processingCheatSheet();
@@ -870,6 +876,11 @@ async function load_cheatsheet(url) {
         const anchor_element = document.getElementById(anchor);
         if (anchor_element) {
             anchor_element.scrollIntoView({block: "start"});
+        }
+        const anchor_toc_element = document.getElementById(`--toc--${anchor}`);
+        if (anchor_toc_element) {
+            anchor_toc_element.scrollIntoView({block: "start"});
+            pulseHighlight(anchor_toc_element);
         }
     }
     return true;
@@ -1266,7 +1277,7 @@ function processingCheatSheet() {
             && a.getAttribute("href")[0] !== "#"
             && a.getAttribute("href")[0] !== "?"
         ) {
-            a.target="_blank";
+            a.target = "_blank";
         }
     });
     cheatsheet_field.querySelectorAll("thead").forEach(thead => {

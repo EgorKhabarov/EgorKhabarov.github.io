@@ -1304,7 +1304,7 @@ kbd {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 6px 0;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+    box-shadow: 0 4px 12px #00000033;
     z-index: 9999;
     backdrop-filter: blur(6px);
 }
