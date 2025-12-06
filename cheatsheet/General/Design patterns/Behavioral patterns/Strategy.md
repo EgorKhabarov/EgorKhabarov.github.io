@@ -1,4 +1,4 @@
-# Strategy
+## Strategy
 
 Стратегия
 

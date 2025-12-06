@@ -1,4 +1,4 @@
-### Composite
+## Composite
 
 Компоновщик
 

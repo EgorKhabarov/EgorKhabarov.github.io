@@ -1,4 +1,4 @@
-# Chain of Responsibility
+## Chain of Responsibility
 
 Цепочка обязанностей
 
