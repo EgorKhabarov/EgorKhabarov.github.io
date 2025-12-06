@@ -64,10 +64,10 @@
             "Anti-patterns (Антипаттерны)": ""
         },
         "GIT": {
-            "Команды": "",
+            "Команды": "color: lblue\n",
+            "git": "",
             "gitignore": "",
             "Setup deploy key": "",
-            "git": "",
             "submodule": "",
             "refs": ""
         },
