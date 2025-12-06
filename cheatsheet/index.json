@@ -30,38 +30,38 @@
                 "ACID": ""
             }
         },
-        "Design patterns (Паттерны проектирования)": {
+        "Design patterns": {
             "index": "",
-            "Creational patterns (Порождающие паттерны)": {
-                "Singleton (Одиночка)": "",
-                "Factory (Фабрика)": "",
-                "Abstract Factory (Абстрактная фабрика)": "",
-                "Builder (Строитель)": "",
-                "Prototype (Прототип)": ""
+            "Creational patterns": {
+                "Singleton": "",
+                "Factory": "",
+                "Abstract": "",
+                "Builder": "",
+                "Prototype": ""
             },
-            "Structural patterns (Структурные паттерны)": {
-                "Adapter (Адаптер)": "",
-                "Bridge (Мост)": "",
-                "Composite (Компоновщик)": "",
-                "Decorator (Декоратор)": "",
-                "Facade (Фасад)": "",
-                "Flyweight (Легковес)": "",
-                "Proxy (Заместитель)": ""
+            "Structural patterns": {
+                "Adapter": "",
+                "Bridge": "",
+                "Composite": "",
+                "Decorator": "",
+                "Facade": "",
+                "Flyweight": "",
+                "Proxy": ""
             },
-            "Behavioral patterns (Поведенческие паттерны)": {
-                "Chain of Responsibility (Цепочка обязанностей)": "",
-                "Command (Команда)": "",
-                "Interpreter (Интерпретатор)": "",
-                "Iterator (Итератор)": "",
-                "Mediator (Посредник)": "",
-                "Memento (Снимок)": "",
-                "Observer (Наблюдатель)": "",
-                "State (Состояние)": "",
-                "Strategy (Стратегия)": "",
-                "Template Method (Шаблонный метод)": "",
-                "Visitor (Посетитель)": ""
+            "Behavioral patterns": {
+                "Chain of Responsibility": "",
+                "Command": "",
+                "Interpreter": "",
+                "Iterator": "",
+                "Mediator": "",
+                "Memento": "",
+                "Observer": "",
+                "State": "",
+                "Strategy": "",
+                "Template Method": "",
+                "Visitor": ""
             },
-            "Anti-patterns (Антипаттерны)": ""
+            "Anti-patterns": ""
         },
         "GIT": {
             "Команды": "color: lblue\n",
