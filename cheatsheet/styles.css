@@ -23,7 +23,7 @@
     --sidebar-left-display: flex;
     --sidebar-right-display: flex;
 
-    --accent-color: #3B82F6;
+    --accent-color: #2394878C;
 
     --bg-body: #FFFFFF;
     --bg-header: #FFFFFF;
@@ -93,26 +93,39 @@
     --md-blockquote-warning: #C69026;
     --md-blockquote-caution: #E5534B;
 
-    /* Syntax highlighting */
-    .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: #CC7832;} /* Keywords */
-    .s, .s1, .s2, .sa, .sd {color: #529755!important;} /* Text */
-    .c1, .cp, .cpf {color: #00000094;} /* Comment */
-    .m, .mi, .mf {color: #5897BB;} /* Number */
-    .nb, .kt {color: #8888C6;} /* Default functions */
-    .fm {color: #B200B2;} /* Magical methods */
-    .bp {color: #94558D;} /* Self */
-    .nd {color: #BBB529;} /* Decorator */
-    .nf {color: #FDB648;} /* Function name */
-    .na {color: #AA4926;} /* Argument */
+    --code-highlight-darkula-default: var(--text-color);
+    --code-highlight-darkula-keyword: #CC7832;
+    --code-highlight-darkula-text: #529755;
+    --code-highlight-darkula-comment: #00000094;
+    --code-highlight-darkula-number: #5897BB;
+    --code-highlight-darkula-builtin-function: #8888C6;
+    --code-highlight-darkula-magic-method: #B200B2;
+    --code-highlight-darkula-self: #94558D;
+    --code-highlight-darkula-decorator: #BBB529;
+    --code-highlight-darkula-function: #FDB648;
+    --code-highlight-darkula-argument: #AA4926;
 
-    .language-java .kt {color: #CC7832;}
+    /* Syntax highlighting */
+    .n, .nn, .p, .o {color: var(--code-highlight-darkula-default)} /* Default */
+    .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: var(--code-highlight-darkula-keyword);} /* Keywords */
+    .s, .s1, .s2, .sa, .sd {color: var(--code-highlight-darkula-text)!important;} /* Text */
+    .c1, .cp, .cpf {color: var(--code-highlight-darkula-comment);} /* Comment */
+    .m, .mi, .mf {color: var(--code-highlight-darkula-number);} /* Number */
+    .nb, .kt {color: var(--code-highlight-darkula-builtin-function);} /* Default functions */
+    .fm {color: var(--code-highlight-darkula-magic-method);} /* Magical methods */
+    .bp {color: var(--code-highlight-darkula-self);} /* Self */
+    .nd {color: var(--code-highlight-darkula-decorator);} /* Decorator */
+    .nf {color: var(--code-highlight-darkula-function);} /* Function name */
+    .na {color: var(--code-highlight-darkula-argument);} /* Argument */
+
+    .language-java .kt {color: var(--code-highlight-darkula-keyword);}
     .language-yaml .c1 {color: #629755;}  /* Comment (Text, but lighter) */
+    .language-json .nt {color: var(--code-highlight-darkula-text);}
+    .language-ini .na {color: var(--code-highlight-darkula-default);}
 }
 
 /* Dark Theme Overrides */
 [data-theme="dark"] {
-    --accent-color: #005FCC;
-
     --bg-body: #121212;
     --bg-header: #1E1E1E;
     --bg-sidebar: #252526;
@@ -154,9 +167,10 @@
     --md-element-code-bg: #272727;
 
     /* Syntax highlighting */
-    .c1, .cp, .cpf {color: #FFFFFF80;} /* Comment */
-    .nf {color: #FFC66D;} /* Function name */
-
+    --code-highlight-darkula-comment: #FFFFFF80;
+    --code-highlight-darkula-function: #FFC66D;
+    .c1, .cp, .cpf {color: var(--code-highlight-darkula-comment);} /* Comment */
+    .nf {color: var(--code-highlight-darkula-function);} /* Function name */
 }
 
 .cheatsheet_field[data-cheatsheet-path="README"] {
