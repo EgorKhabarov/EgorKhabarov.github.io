@@ -1977,6 +1977,7 @@ const menu_file = new ContextMenu(
         {action: "open_raw", label: "Открыть в сыром виде", icon: "icon_raw"},
         /* {action: "open_in_split_screen_mode", label: "Открыть в режиме разделения экрана"}, */
         {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_file_name", label: "Скопировать название шпаргалки", icon: "icon_clipboard"},
         {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
         /*
         "separator",
@@ -1992,6 +1993,8 @@ const menu_file = new ContextMenu(
 
         if (action === "copy_path") {
             copy(element.dataset.vpath);
+        } else if (action === "copy_file_name") {
+            copy(getPathFilename(element.dataset.vpath));
         } else if (action === "open_in_new_tab") {
             window.open("?"+vpath, "_blank");
         } else if (action === "open_raw") {
@@ -2005,6 +2008,7 @@ const menu_file = new ContextMenu(
 const menu_folder = new ContextMenu(
     [
         {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_folder_name", label: "Скопировать название папки", icon: "icon_clipboard"},
         {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
     ],
     ".tree_item.folder",
@@ -2015,6 +2019,8 @@ const menu_folder = new ContextMenu(
 
         if (action === "copy_path") {
             copy(kpath);
+        } else if (action === "copy_folder_name") {
+            copy(getPathFilename(kpath));
         } else if (action === "open_in_github") {
             window.open(base_github_url+kpath, "_blank");
         }
