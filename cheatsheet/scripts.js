@@ -593,6 +593,11 @@ function renderBreadcrumbs(url) {
             if (anchor_element) {
                 anchor_element.scrollIntoView({block: "start", behavior: "smooth"});
             }
+            const anchor_toc_element = document.getElementById(`--toc--${anchor}`);
+            if (anchor_toc_element) {
+                anchor_toc_element.scrollIntoView({block: "start"});
+                pulseHighlight(anchor_toc_element);
+            }
         });
         breadcrumbsContainer.appendChild(span);
     }
@@ -928,7 +933,7 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
     addArgumentToUrl(url);
     nowDrawer?.close();
     closeMainSearch();
-    changeTitle(getPathFilename(url));
+    changeTitle(getPath(url));
     cheatsheet_field_container.scrollTo(0, 0);
     let successfully = await load_cheatsheet(url);
 
@@ -1123,7 +1128,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
                 };
             });
 
-            let vpath = getPathFilename(getArgumentFromUrl());
+            let vpath = getPath(getArgumentFromUrl());
             if (vpath === null || vpath === "null") {
                 vpath = "README";
             }
@@ -1363,7 +1368,7 @@ function removeArgumentFromUrl() {
     window.history.replaceState(null, null, url.href);
 }
 window.onpopstate = async (event) => {
-    let vpath = getPathFilename(getArgumentFromUrl());
+    let vpath = getPath(getArgumentFromUrl());
     if (vpath === null || vpath === "null") {
         vpath = "README";
     }
@@ -1374,7 +1379,7 @@ window.onpopstate = async (event) => {
 
 /* Title */
 function changeTitle(title) {
-    result = "Cheat sheet";
+    let result = "Cheat sheet";
     if (title) {
         result += ": " + title;
     }
@@ -1383,24 +1388,26 @@ function changeTitle(title) {
 
 /* Path */
 function getPathWithoutFilename(filePath) {
-    filePath = decodeURIComponent(filePath).trim("/");
-    if (filePath.endsWith("/")) {
-        return filePath
+    const path = getPath(filePath);
+    if (path.endsWith("/")) {
+        return path
     }
-    const lastSlashIndex = filePath.lastIndexOf("/");
+    const lastSlashIndex = path.lastIndexOf("/");
     if (lastSlashIndex !== -1) {
-        return filePath.substring(0, lastSlashIndex);
+        return path.substring(0, lastSlashIndex);
     }
    return "";
 }
+function getPath(filePath) {
+    return decodeURIComponent(filePath).trim("/");;
+}
 function getPathFilename(filePath) {
-    filePath = decodeURIComponent(filePath).trim("/");
-    return filePath;
-    // const lastSlashIndex = filePath.lastIndexOf("/");
-    // if (lastSlashIndex !== -1) {
-    //     return filePath.substring(lastSlashIndex + 1);
-    // }
-    // return "";
+    const path = getPath(filePath);
+    const lastSlashIndex = path.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        return path.substring(lastSlashIndex + 1);
+    }
+    return path;
 }
 
 /* Copy Download Code */
