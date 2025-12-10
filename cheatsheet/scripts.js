@@ -1405,7 +1405,6 @@ class UrlArgs {
         const newHref = url.toString();
         if (oldHref === newHref) return;
 
-        console.log("QQQ", newHref);
         if (this.isInPopstate) {
             history.replaceState({}, "", newHref);
         } else {
