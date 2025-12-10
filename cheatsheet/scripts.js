@@ -603,9 +603,9 @@ function renderBreadcrumbs(url) {
     }
 }
 function pulseHighlight(element, milliseconds=1000) {
-    element.classList.add("pulse_bg");
+    element?.classList.add("pulse_bg");
     setTimeout(function() {
-        element.classList.remove("pulse_bg");
+        element?.classList.remove("pulse_bg");
     }, milliseconds);
 }
 
@@ -2102,16 +2102,16 @@ const menu_file = new ContextMenu(
         const vpath = element.dataset.vpath;
         const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
 
-        if (action === "copy_path") {
-            copy(element.dataset.vpath);
-        } else if (action === "copy_file_name") {
-            copy(getPathFilename(element.dataset.vpath));
-        } else if (action === "open_in_new_tab") {
-            window.open("?"+vpath, "_blank");
+        if (action === "open_in_new_tab") {
+            window.open("?"+myEncodeURIComponent(vpath), "_blank");
         } else if (action === "open_raw") {
             window.open(vpath+".md", "_blank");
         } else if (action === "open_in_github") {
             window.open(base_github_url+vpath+".md", "_blank");
+        } else if (action === "copy_file_name") {
+            copy(getPathFilename(element.dataset.vpath));
+        } else if (action === "copy_path") {
+            copy(element.dataset.vpath);
         }
     }
 );
@@ -2128,12 +2128,12 @@ const menu_folder = new ContextMenu(
         const kpath = element.dataset.kpath;
         const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
 
-        if (action === "copy_path") {
-            copy(kpath);
+        if (action === "open_in_github") {
+            window.open(base_github_url+kpath, "_blank");
         } else if (action === "copy_folder_name") {
             copy(getPathFilename(kpath));
-        } else if (action === "open_in_github") {
-            window.open(base_github_url+kpath, "_blank");
+        } else if (action === "copy_path") {
+            copy(kpath);
         }
     }
 );
