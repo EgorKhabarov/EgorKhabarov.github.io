@@ -10,8 +10,8 @@
 | [Слиянием (Merge)](?Snippets/Python/Algorithms/Sort/MergeSort)          | Может работать со структурами, к которым возможен только<br>последовательный доступ                    | `n*logn` | `n*logn` | `n*logn` | `n (depends)` | `+`             | `+`   |
 | [Пирамидальная (Heap)](?Snippets/Python/Algorithms/Sort/HeapSort)       | Предсказуемая производительность в наихудшем случае,<br>рекомендуется для почти отсортированных данных | `n*logn` | `n*logn` | `n*logn` | `1`           | `-`             | `-`   |
 | [Вставками (Insertion)](?Snippets/Python/Algorithms/Sort/InsertionSort) | Рекомендуется для почти отсортированных данных или для<br>малого количества элементов                  | `n`      | `n^2`    | `n^2`    | `1`           | `+`             | `-`   |
-| [Timsort](?Snippets/Python/Algorithms/Sort/Timsort)                     | Комбинированный алгоритм.<br>Стандарт для `Python`, `Java`, `Swift`                                    | `n*logn` | `n*logn` | `n*logn` | `logn`        | `-`             | `-`   |
-| [Introsort](?Snippets/Python/Algorithms/Sort/Introsort)                 | Комбинированный алгоритм.<br>Стандарт для `.Net`                                                       | `n*logn` | `n*logn` | `n*logn` | `logn`        | `-`             | `-`   |
+| [Timsort](?Snippets/Python/Algorithms/Sort/Timsort)                     | Комбинированный алгоритм<br>Стандарт для `Python`, `Java`, `Swift`                                     | `n*logn` | `n*logn` | `n*logn` | `logn`        | `-`             | `-`   |
+| [Introsort](?Snippets/Python/Algorithms/Sort/Introsort)                 | Комбинированный алгоритм<br>Стандарт для `.Net`                                                        | `n*logn` | `n*logn` | `n*logn` | `logn`        | `-`             | `-`   |
 | [Поразрядная (Radix)](?Snippets/Python/Algorithms/Sort/RadixSort)       | Быстрая сортировка для целых чисел и строк                                                             | `n*w`    | `n*w`    | `n*w`    | `n+w`         | `+/- (depends)` | `+`   |
 
 # Search
