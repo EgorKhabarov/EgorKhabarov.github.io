@@ -37,3 +37,7 @@ This is a [full-text search](https://en.wikipedia.org/wiki/Full-text_search) by 
 You can insert your own CSS code in the settings
 [Here](?Snippets/CSS/cheatsheet_snippets) you can find examples and frequently used CSS snippets
 If a softlock occurs, you can go to <a href="/cheatsheet/reset" target="_self">/cheatsheet/reset</a>
+
+## Creating cheat sheets and checking markup
+
+You can see what all supported markup options look like [here](?Other/MARKUP_EXAMPLES)

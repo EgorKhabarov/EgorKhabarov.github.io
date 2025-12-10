@@ -187,6 +187,48 @@ blockquote WARNING
 - [ ] disables
 - [X] enabled
 
+# Code highlightings
+
+```python
+# comment
+
+text = lambda x=1, y=2, z=3: x
+
+@decorator(2, x=1)
+def foo(x, y=2, z=3, a=lambda i=1, j=2, k=3: k):
+    pass
+
+class Baz(Foo):
+    def __init__(self, qwert):
+        """
+        text
+        """
+        self.qq = qwert
+        print("text")
+        print(f"{123} \\n {"qwe":_} {33!r} {4:4<_} {2.34134:.2f}")
+        print(b"123q\\n\\rwe")
+        print(r"123\\n\\nqwe")
+        print(f"""
+text
+{"text"}
+text
+""")
+
+    @staticmethod
+    def zoo(): pass
+
+    @classmethod
+    def zoo2(cls): pass
+
+    @classmethod
+    def zoo3(woefh): pass
+
+foo(
+    x=1234,
+    y=(lambda x=2, t=lambda d=2, h=1: d, y=2: 5)(x=4, y=lambda c=2: c)
+)
+```
+
 ---
 
 # SVG
