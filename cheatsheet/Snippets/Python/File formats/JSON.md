@@ -15,22 +15,26 @@ Tекстовый формат обмена данными, который ос�
 import json
 
 
-config = {"BOT": {"bot_name": "", "token": ""}}
+data = {
+    "name": "John Smith",
+    "age": 30,
+    "city": "New York",
+}
 
-with open("config.json", "w", encoding="UTF-8") as file:
-    file.write(json.dumps(config, indent=4, ensure_ascii=False))
-    # json.dump(config, file, indent=4, ensure_ascii=False)
+with open("data.json", "w", encoding="UTF-8") as file:
+    file.write(json.dumps(data, indent=4, ensure_ascii=False))
+    # json.dump(data, file, indent=4, ensure_ascii=False)
 
 with open("config.json", "r", encoding="UTF-8") as file:
-    config = json.load(file)
-    # config = json.loads(file.read())
+    data = json.load(file)
+    # data = json.loads(file.read())
 
-print(config)
+print(data)
 ```
 
 # JSONL
 
-```python
+```json
 {"name": "Alice Jones", "age": 25, "city": "Los Angeles"}
 {"name": "John Smith", "age": 30, "city": "New York"}
 {"name": "Bob Johnson", "age": 40, "city": "Chicago"}

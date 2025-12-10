@@ -6,7 +6,8 @@
 //div[@class="head"][@id="top"]
 ```
 
-Restricts a nodeset only if some condition is true. They can be chained.
+Restricts a nodeset only if some condition is true
+They can be chained
 
 # Operators
 
@@ -23,7 +24,7 @@ Restricts a nodeset only if some condition is true. They can be chained.
 //div[(x and y) or not(z)]
 ```
 
-Use comparison and logic operators to make conditionals.
+Use comparison and logic operators to make conditionals
 
 # Using nodes
 
@@ -38,7 +39,7 @@ Use comparison and logic operators to make conditionals.
 //ul[li]
 ```
 
-You can use nodes inside predicates.
+You can use nodes inside predicates
 
 # Indexing
 
@@ -50,7 +51,7 @@ You can use nodes inside predicates.
 //ol/li[position()>1]   # :not(:first-of-type)
 ```
 
-Use [] with a number, or last() or position().
+Use [] with a number, or last() or position()
 
 # Chaining order
 
@@ -59,11 +60,11 @@ a[1][@href='/']
 a[@href='/'][1]
 ```
 
-Order is significant, these two are different.
+Order is significant, these two are different
 
 # Nesting predicates
 
 ```bash
 //section[.//h1[@id='hi']]
 ```
-This returns &lt;section> if it has an &lt;h1> descendant with id='hi'.
+This returns &lt;section> if it has an &lt;h1> descendant with id='hi'
