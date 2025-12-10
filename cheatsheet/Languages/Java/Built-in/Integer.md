@@ -21,7 +21,7 @@ int num = obj;    // Автораспаковка
 | `.parseInt`<br>(String s, int radix)    | Преобразует строку в число указанной системы счисления                                              | `int num = Integer.parseInt("2A", 16); // 42`                   |
 | `.toString(int i)`                      | Преобразует число `int` в строку                                                                    | `String str = Integer.toString(42); // "42"`                    |
 | `.toString`<br>(int i, int radix)       | Преобразует число в строку указанной системы счисления                                              | `String str = Integer.toString(42, 16); // "2a"`                |
-| `.compare(int x, int y)`                | Сравнивает два числа.<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`    | `int result = Integer.compare(42, 24); // 1`                    |
+| `.compare(int x, int y)`                | Сравнивает два числа<br>Возвращает `0`, если равны, < `0`,<br>если `x < y`, > `0`, если `x > y`     | `int result = Integer.compare(42, 24); // 1`                    |
 | `.compareTo`<br>(Integer another)       | Сравнивает текущий объект `Integer` с другим                                                        | `Integer num = 42;`<br>`int result = num.compareTo(24); // 1`   |
 | `.max(int a, int b)`                    | Возвращает большее из двух чисел                                                                    | `int max = Integer.max(42, 24); // 42`                          |
 | `.min(int a, int b)`                    | Возвращает меньшее из двух чисел                                                                    | `int min = Integer.min(42, 24); // 24`                          |
