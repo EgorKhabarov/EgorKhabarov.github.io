@@ -14,13 +14,16 @@ key4 = value4
 ```
 
 ```python
-# config = configparser.ConfigParser()
-# config["BOT"] = {"bot_name": "", "token": ""}
-
 import configparser
 
 
-config = {"BOT": {"bot_name": "", "token": ""}}
+config = {
+    "config": {
+        "name": "John Smith",
+        "age": 30,
+        "city": "New York",
+    },
+}
 config_ini = configparser.ConfigParser()
 
 for key, value in config.items():
