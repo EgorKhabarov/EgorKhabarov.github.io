@@ -10,7 +10,7 @@
 | `subprocess.call()`            | Выполняет команду и возвращает код завершения процесса                                                            | `return_code = subprocess.call(["ls", "-l"])`          |
 | `subprocess.check_call()`      | Выполняет команду и вызывает исключение,<br>если процесс завершился с ошибкой                                     | `subprocess.check_call(["ls", "-l"])`                  |
 | `subprocess.check_output()`    | Выполняет команду и возвращает её вывод<br>Если процесс завершился с ошибкой, вызывается исключение               | `output = subprocess.check_output(["ls", "-l"])`       |
-| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки.<br>Удобно для команд, не требующих сложного взаимодействия | `output = subprocess.getoutput("ls -l")`               |
+| `subprocess.getoutput()`       | Выполняет команду и возвращает её вывод в виде строки<br>Удобно для команд, не требующих сложного взаимодействия  | `output = subprocess.getoutput("ls -l")`               |
 | `subprocess.getstatusoutput()` | Выполняет команду и возвращает кортеж (код завершения, вывод)                                                     | `status, output = subprocess.getstatusoutput("ls -l")` |
 
 ## Класс Popen

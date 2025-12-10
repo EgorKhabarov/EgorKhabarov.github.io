@@ -204,13 +204,13 @@
 <tr>
 <td><code>(?&gt;pattern)</code></td>
 <td>Атомарная группа<br>Захватывает подстроку<br>и запрещает бэктрекинг*<br>внутри этой группы,<br>если остальная часть<br>шаблона не совпала</td>
-<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code>.<br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад</td>
+<td><code>(?&gt;\d{3})\d</code><br>Эта конструкция сначала пытается<br>сопоставить <code>\d{3}</code>, а затем <code>\d</code><br>Если первое выражение не совпадает,<br>оно не пытается вернуться назад</td>
 <td><span style="background-color: #999999;color: marktext;">1234</span></td>
 </tr>
 <tr>
 <td><code>(?R)</code> или <code>(?0)</code></td>
 <td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя</td>
-<td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки.<br><code>re.error: unknown extension ?R at position 13</code></td>
+<td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки<br><code>re.error: unknown extension ?R at position 13</code></td>
 <td><span style="background-color: #999999;color: marktext;">(a(b)c)</span></td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@
 <li>Сначала регулярное выражение пытается сопоставить <code>a</code> внутри атомарной группы <code>(?&gt;a|ab)</code></li>
 <li>После успешного совпадения с <code>a</code>, атомарная группа блокируется, и больше не возвращается назад, даже если дальнейшие совпадения не удаются</li>
 <li>Затем выражение пытается сопоставить <code>c</code>, что не удается, потому что следующий символ <code>b</code></li>
-<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code>.<br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения</li>
+<li>В обычной группе регулярное выражение вернулось бы назад, чтобы попробовать сопоставить <code>ab</code> вместо <code>a</code><br>Но так как группа атомарная, бэктрекинг не происходит, и регулярное выражение не находит совпадения</li>
 </ol>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">simple_group</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(a|ab)c&quot;</span><span class="p">)</span>
