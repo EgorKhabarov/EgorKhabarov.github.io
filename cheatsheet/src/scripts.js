@@ -25,7 +25,18 @@ const tocSidebarToggleBtn = document.getElementById("toc_toggle");
 let nowCheatsheetField = document.querySelector(".cheatsheet_field");
 
 
-/* Generic Sidebar */
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+function calcHeaderHeight() {
+    const style = getComputedStyle(document.documentElement);
+    const height1 = parseInt(removeSuffix(style.getPropertyValue("--header-row-height"), "px"));
+    const height2 = parseInt(removeSuffix(style.getPropertyValue("--header-row-breadcrumbs-height"), "px"));
+    return height1 + height2;
+}
+let headerHeight = calcHeaderHeight();
+
+
 class Drawer {
     constructor(elementId, overlayId, side = "left", resizer = null, edgeThreshold = 80) {
         this.el = document.getElementById(elementId);
@@ -252,6 +263,7 @@ class Drawer {
     }
 }
 
+
 class PanelResizer {
     constructor(resizerId, containerId, varName, direction = "left") {
         this.resizer = document.getElementById(resizerId);
@@ -322,318 +334,17 @@ class PanelResizer {
 }
 
 
-function isMobile() {
-    return window.innerWidth <= 768;
-}
-
-
-/* --- INITIALIZATION --- */
-// Resizers
-const leftResizer = new PanelResizer("resizer_left", "main_container", "--sidebar-left-width", "left");
-const rightResizer = new PanelResizer("resizer_right", "main_container", "--sidebar-right-width", "right");
-const resizer_list = [leftResizer, rightResizer];
-
-// Drawers
-const leftDrawer = new Drawer("cheatsheets_sidebar", "mobile_overlay", "left", leftResizer);
-const rightDrawer = new Drawer("toc_sidebar", "mobile_overlay", "right", rightResizer);
-let nowDrawer = null;
-const drawer_list = [leftDrawer, rightDrawer];
-sidebarToggleBtn.addEventListener("click", () => leftDrawer.toggle("--sidebar-left-display"));
-tocSidebarToggleBtn.addEventListener("click", () => rightDrawer.toggle("--sidebar-right-display"));
 
 
 
 
-function setupClearButton(input, btn) {
-    btn.addEventListener("click", () => {
-        input.value = "";
-        input.focus();
-        input.dispatchEvent(new Event("input"));
-    });
-}
-setupClearButton(ftsInput, ftsClearButton);
-setupClearButton(pageSearchInput, pageSearchClear);
-
-page_search_close.onclick = closeMainSearch;
-
-function calcHeaderHeight() {
-    const style = getComputedStyle(document.documentElement);
-    const height1 = parseInt(removeSuffix(style.getPropertyValue("--header-row-height"), "px"));
-    const height2 = parseInt(removeSuffix(style.getPropertyValue("--header-row-breadcrumbs-height"), "px"));
-    return height1 + height2;
-}
-let headerHeight = calcHeaderHeight();
-
-/* --- RESIZE FIX --- */
-window.addEventListener("resize", () => {
-    headerHeight = calcHeaderHeight();
-
-    if (isMobile()) {
-        drawer_list.forEach(d => {
-            d.el.classList.remove("display_none");
-        })
-        resizer_list.forEach(r => {
-            r.resizer.classList.remove("display_none");
-        })
-    } else {
-        drawer_list.forEach(d => {
-            d.el.style.transform = "";
-            d.el.style.transition = "";
-        })
-        overlay.style.opacity = "";
-        overlay.style.pointerEvents = "";
-        if (nowDrawer) {
-            nowDrawer.close();
-            nowDrawer.isOpen = false;
-            nowDrawer.isDragging = false;
-        }
-        nowDrawer = null;
-    }
-});
 
 
-(function load_sidebar_width() {
-    resizer_list.forEach(r => {
-        let sidebar_width = localStorage.getItem(r.varName);
-        if (sidebar_width === null) {
-            sidebar_width = getComputedStyle(document.documentElement).getPropertyValue(r.varName);
-            localStorage.setItem(r.varName, sidebar_width);
-        }
-        document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
-    });
-    [
-        ["--sidebar-left-display", cheatsheets_sidebar, leftResizer],
-        ["--sidebar-right-display", toc_sidebar, rightResizer],
-    ].forEach(args => {
-        c = args[0];
-        e = args[1];
-        r = args[2];
 
-        let sidebar_display = localStorage.getItem(c);
-        if (sidebar_display === null) {
-            sidebar_display = getComputedStyle(document.documentElement).getPropertyValue(c);
-            localStorage.setItem(c, sidebar_display);
-        }
-        document.documentElement.style.setProperty(c, sidebar_display);
-        if (sidebar_display === "none") {
-            e.classList.toggle("display_none");
-            r.resizer.classList.toggle("display_none");
-        }
-    });
-})();
-
-
-/* --- KEYBOARD SHORTCUTS --- */
-document.addEventListener("keydown", (e) => {
-    // Ctrl + Shift + F -> Sidebar Search
-    if (e.ctrlKey && e.shiftKey && e.code === "KeyF") {
-        e.preventDefault();
-        nowDrawer?.close();
-        leftDrawer.open();
-        const selection = window.getSelection().toString();
-        ftsInput.focus();
-        if (selection && !selection.includes("\n")) {
-            ftsInput.value = selection;
-            ftsInput.dispatchEvent(new Event("input"));
-        }
-        ftsInput.select();
-        return;
-    }
-
-    // Ctrl + F -> Main Search
-    if (e.ctrlKey && e.code === "KeyF") {
-        e.preventDefault();
-        page_search_container.style.display = "flex";
-        const selection = window.getSelection().toString();
-        pageSearchInput.focus();
-        if (selection && !selection.includes("\n")) {
-            pageSearchInput.value = selection;
-            pageSearchInput.dispatchEvent(new Event("input"));
-        } else if (last_search.length > 1) {
-            pageSearchInput.value = last_search;
-            pageSearchInput.dispatchEvent(new Event("input"));
-            pageSearchInput.select();
-        }
-        return;
-    }
-
-    // Ctrl + i -> Main Search
-    if (e.ctrlKey && !e.shiftKey && e.code === "KeyI") {
-        e.preventDefault();
-        toggleSettings(!isSettingsOpen);
-        return;
-    }
-
-    // Esc
-    if (e.key === "Escape") {
-        e.preventDefault();
-        if (isSettingsOpen) {
-            toggleSettings(false)
-            return;
-        }
-        if (isMobile() && nowDrawer) {
-            nowDrawer?.close();
-            return;
-        }
-        if (page_search_container.style.display === "flex") {
-            closeMainSearch();
-            return;
-        }
-        if (ftsInput.value) {
-            closeSearch();
-            return;
-        }
-        return;
-    }
-
-    // Alt + > || Alt + < -> Next selection | Prev selection
-    if (page_search_container.style.display === "flex"
-        && e.altKey
-        && (
-            e.code === "Comma"
-            || e.code === "Period"
-        )
-    ) {
-        e.preventDefault();
-        e.code === "Comma" ? prevHighlight() : nextHighlight();
-        return;
-    }
-});
-
-
-open_search_button.addEventListener("click", () => {
-    if (page_search_container.style.display === "none") {
-        page_search_container.style.display = "flex";
-        pageSearchInput.focus();
-    } else {
-        closeMainSearch();
-    }
-})
-
-
-let isSettingsOpen = false;
-
-function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
-    const childrenContainer = folderItem.nextElementSibling;
-    if (!childrenContainer || !childrenContainer.classList.contains("tree_children")) return;
-
-    const iconUse = folderItem.querySelector("use");
-    let isClosed = childrenContainer.classList.contains("hidden");
-
-    if (forceClose) {
-        isClosed = false;
-    }
-
-    if (isClosed) {
-        childrenContainer.classList.remove("hidden");
-        // iconUse.setAttribute("href", "#icon_folder_open");
-        folderItem.setAttribute("data-state", "open");
-    } else {
-        childrenContainer.classList.add("hidden");
-        // iconUse.setAttribute("href", "#icon_folder");
-        folderItem.setAttribute("data-state", "closed");
-        if (cascadeClose) {
-            folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
-                e.setAttribute("data-state", "closed");
-                e.nextElementSibling.classList.add("hidden");
-            })
-        }
-    }
-}
-
-/* --- BREADCRUMBS --- */
-function renderBreadcrumbs(url) {
-    breadcrumbsContainer.innerHTML = "";
-    let accumulatedPath = [];
-    const pathArray = url.split("/");
-    pathArray.forEach((part, index) => {
-        accumulatedPath.push(part);
-        const currentFullPath = accumulatedPath.join("/");
-        const span = document.createElement("a");
-        span.textContent = part;
-        span.className = "crumb_item";
-        if (index === pathArray.length - 1) span.href = "?"+currentFullPath;
-        span.addEventListener("click", (e) => {
-            e.preventDefault();
-            console.log(`Navigating to: ${currentFullPath}`);
-            closeSearch();
-            closeAllKeyButtons();
-            nowDrawer?.close();
-            leftDrawer.open();
-            const button = (index === pathArray.length - 1)
-                ? displayValueButton(currentFullPath)
-                : displayKeyButton(currentFullPath);
-            pulseHighlight(button);
-        });
-        breadcrumbsContainer.appendChild(span);
-        if (index < pathArray.length - 1) {
-            const sep = document.createElement("span");
-            sep.textContent = "/";
-            sep.className = "crumb_separator";
-            breadcrumbsContainer.appendChild(sep);
-        }
-    });
-
-    const anchor = urlArgs.getAnchor();
-    if (anchor) {
-        const sep = document.createElement("span");
-        sep.textContent = "#";
-        sep.className = "crumb_separator";
-        breadcrumbsContainer.appendChild(sep);
-
-        breadcrumbsContainer.appendChild(sep);
-        const span = document.createElement("span");
-
-        let anchor_tmp = anchor.toLowerCase().replaceAll("-", " ");
-        span.textContent = anchor_tmp.slice(0, 1).toUpperCase()+anchor_tmp.slice(1);
-
-        span.className = "crumb_item";
-        span.addEventListener("click", () => {
-            console.log(`Navigating to: #${anchor}`);
-            const anchor_element = document.getElementById(anchor);
-            if (anchor_element) {
-                anchor_element.scrollIntoView({block: "start", behavior: "smooth"});
-            }
-            const anchor_toc_element = document.getElementById(`--toc--${anchor}`);
-            if (anchor_toc_element) {
-                anchor_toc_element.scrollIntoView({block: "start"});
-                pulseHighlight(anchor_toc_element);
-            }
-        });
-        breadcrumbsContainer.appendChild(span);
-    }
-}
-function pulseHighlight(element, milliseconds=1000) {
-    element?.classList.add("pulse_bg");
-    setTimeout(function() {
-        element?.classList.remove("pulse_bg");
-    }, milliseconds);
-}
-
-/* --- THEME TOGGLE --- */
-let isDark = true;
-themeBtn.addEventListener("click", () => {
-    isDark = !isDark;
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (isDark) {
-        document.documentElement.setAttribute("data-theme", "dark");
-        themeColorMeta.setAttribute("content", "#1E1E1E");
-        settings.theme = "dark";
-        saveSettings(settings);
-    } else {
-        document.documentElement.removeAttribute("data-theme");
-        themeColorMeta.setAttribute("content", "#FFFFFF");
-        settings.theme = "light";
-        saveSettings(settings);
-    }
-});
-
-/* --- FULL-TEXT SEARCH --- */
+/* Full-text search */
 let idx = null;
 let docs = null;
 let indexPromise = null;
-
-
 async function loadIndexLazy() {
     if (idx) return;
 
@@ -802,14 +513,189 @@ function closeSearch() {
 
 
 
-function toggleSettings(show) {
-    isSettingsOpen = show;
-    if (show) settingsModal.classList.add("active");
-    else settingsModal.classList.remove("active");
+
+
+/* Page search */
+let highlightRanges = [];
+let activeIndex = -1;
+function parseSearchQuery(query, inputEl) {
+    // Let's try to determine the format of /pattern/flags
+    if (
+        query.startsWith("/")
+        && query.lastIndexOf("/") > 0
+        && query.slice(1, query.lastIndexOf("/")).length !== 0
+    ) {
+        const lastSlash = query.lastIndexOf("/");
+        const pattern = query.slice(1, lastSlash);
+        const flags = query.slice(lastSlash + 1);
+
+        try {
+            const regex = new RegExp(pattern, flags);
+            inputEl.style.border = ""; // OK
+            pageSearchResultCount.style.color = null;
+            pageSearchResultCount.textContent = "0 results";
+            return regex;
+        } catch (e) {
+            // RegExp syntax error
+            inputEl.style.border = "1px solid red";
+            pageSearchResultCount.style.color = "red";
+            pageSearchResultCount.textContent = "Bad pattern";
+            return null;
+        }
+    }
+
+    // A regular line
+    inputEl.style.border = "";
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = "0 results";
+    return query;
 }
-settingsBtn.addEventListener("click", () => toggleSettings(true));
-closeSettingsBtn.addEventListener("click", () => toggleSettings(false));
-settingsBackdrop.addEventListener("click", () => toggleSettings(false));
+function clearHighlight() {CSS.highlights.delete("search_highlight");}
+function getTextNodes(root) {
+    const nodes = [];
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+        nodes.push(node);
+    }
+    return nodes;
+}
+function locatePositionInNodes(nodes, globalIndex) {
+    let pos = 0;
+
+    for (const node of nodes) {
+        const len = node.textContent.length;
+
+        if (globalIndex < pos + len) {
+            return {
+                node,
+                offset: globalIndex - pos
+            };
+        }
+        pos += len;
+    }
+    return null;
+}
+function highlightText(rawQuery, cheatsheetField, inputEl) {
+    clearHighlight();
+
+    const parsed = parseSearchQuery(rawQuery, inputEl);
+    if (parsed === null || !parsed) {
+        highlightRanges = [];
+        activeIndex = -1;
+        CSS.highlights.delete("active_search_highlight");
+        return;
+    }
+
+    const nodes = getTextNodes(cheatsheetField);
+    const fullText = nodes.map(n => n.textContent).join("");
+
+    let matches = [];
+
+    if (parsed instanceof RegExp) {
+        let m;
+        const regex = new RegExp(parsed.source, parsed.flags.includes("g") ? parsed.flags : parsed.flags + "g");
+        while ((m = regex.exec(fullText)) !== null) {
+            matches.push({ start: m.index, end: m.index + m[0].length });
+            if (m[0].length === 0) regex.lastIndex++;
+        }
+    } else {
+        const q = parsed.toLowerCase();
+        const lower = fullText.toLowerCase();
+        let pos = 0;
+        while (true) {
+            const i = lower.indexOf(q, pos);
+            if (i === -1) break;
+            matches.push({ start: i, end: i + q.length });
+            pos = i + q.length;
+        }
+    }
+
+    highlightRanges = [];
+    activeIndex = -1;
+    CSS.highlights.delete("active_search_highlight");
+
+    if (!matches.length) return;
+
+    const allRanges = [];
+
+    for (const m of matches) {
+        const startPos = locatePositionInNodes(nodes, m.start);
+        const endPos = locatePositionInNodes(nodes, m.end);
+
+        if (startPos && endPos) {
+            const r = new Range();
+            r.setStart(startPos.node, startPos.offset);
+            r.setEnd(endPos.node, endPos.offset);
+            allRanges.push(r);
+        }
+    }
+
+
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = `1/${allRanges.length}`;
+    if (!allRanges.length) return;
+
+    highlightRanges = allRanges;
+
+    const highlight = new Highlight(...allRanges);
+    CSS.highlights.set("search_highlight", highlight);
+}
+function scrollRangeIntoView(range) {
+    // const sel = window.getSelection();
+    // const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
+
+    // sel.removeAllRanges();
+    // sel.addRange(range);
+
+    range.startContainer.parentElement?.scrollIntoView({
+        block: "center",
+        inline: "nearest",
+        behavior: "smooth"
+    });
+
+    // sel.removeAllRanges();
+    // if (prevRange) {
+    //     sel.addRange(prevRange);
+    // }
+}
+function setActiveHighlight(index) {
+    if (highlightRanges.length === 0) return;
+
+    activeIndex = ((index % highlightRanges.length) + highlightRanges.length) % highlightRanges.length;
+
+    const activeRange = highlightRanges[activeIndex];
+
+    CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
+
+    scrollRangeIntoView(activeRange);
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
+}
+function nextHighlight() {
+    if (highlightRanges.length === 0) return;
+    setActiveHighlight(activeIndex + 1);
+}
+function prevHighlight() {
+    if (highlightRanges.length === 0) return;
+    setActiveHighlight(activeIndex - 1);
+}
+page_search_arrow_up.onclick = prevHighlight;
+page_search_arrow_down.onclick = nextHighlight;
+let last_search = "";
+pageSearchInput.addEventListener("input", () => {
+    if (pageSearchInput.value !== "") {
+        console.log(`"${pageSearchInput.value}"`);
+        last_search = pageSearchInput.value;
+    }
+    highlightText(pageSearchInput.value, nowCheatsheetField, pageSearchInput);
+    nextHighlight();
+});
+function closePageSearch() {
+    pageSearchInput.value = "";
+    pageSearchInput.dispatchEvent(new Event("input"));
+    page_search_container.style.display = "none";
+}
 
 
 
@@ -821,13 +707,287 @@ settingsBackdrop.addEventListener("click", () => toggleSettings(false));
 
 
 
+function toggleFolder(folderItem, forceClose = false, cascadeClose = true) {
+    const childrenContainer = folderItem.nextElementSibling;
+    if (!childrenContainer || !childrenContainer.classList.contains("tree_children")) return;
 
+    const iconUse = folderItem.querySelector("use");
+    let isClosed = childrenContainer.classList.contains("hidden");
 
+    if (forceClose) {
+        isClosed = false;
+    }
 
+    if (isClosed) {
+        childrenContainer.classList.remove("hidden");
+        // iconUse.setAttribute("href", "#icon_folder_open");
+        folderItem.setAttribute("data-state", "open");
+    } else {
+        childrenContainer.classList.add("hidden");
+        // iconUse.setAttribute("href", "#icon_folder");
+        folderItem.setAttribute("data-state", "closed");
+        if (cascadeClose) {
+            folderItem.nextElementSibling.querySelectorAll('[data-state="open"]').forEach(e => {
+                e.setAttribute("data-state", "closed");
+                e.nextElementSibling.classList.add("hidden");
+            })
+        }
+    }
+}
+function renderBreadcrumbs(url) {
+    breadcrumbsContainer.innerHTML = "";
+    let accumulatedPath = [];
+    const pathArray = url.split("/");
+    pathArray.forEach((part, index) => {
+        accumulatedPath.push(part);
+        const currentFullPath = accumulatedPath.join("/");
+        const span = document.createElement("a");
+        span.textContent = part;
+        span.className = "crumb_item";
+        if (index === pathArray.length - 1) span.href = "?"+currentFullPath;
+        span.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log(`Navigating to: ${currentFullPath}`);
+            closeSearch();
+            closeAllKeyButtons();
+            nowDrawer?.close();
+            leftDrawer.open();
+            const button = (index === pathArray.length - 1)
+                ? displayValueButton(currentFullPath)
+                : displayKeyButton(currentFullPath);
+            pulseHighlight(button);
+        });
+        breadcrumbsContainer.appendChild(span);
+        if (index < pathArray.length - 1) {
+            const sep = document.createElement("span");
+            sep.textContent = "/";
+            sep.className = "crumb_separator";
+            breadcrumbsContainer.appendChild(sep);
+        }
+    });
 
+    const anchor = urlArgs.getAnchor();
+    if (anchor) {
+        const sep = document.createElement("span");
+        sep.textContent = "#";
+        sep.className = "crumb_separator";
+        breadcrumbsContainer.appendChild(sep);
 
+        breadcrumbsContainer.appendChild(sep);
+        const span = document.createElement("span");
 
+        let anchor_tmp = anchor.toLowerCase().replaceAll("-", " ");
+        span.textContent = anchor_tmp.slice(0, 1).toUpperCase()+anchor_tmp.slice(1);
 
+        span.className = "crumb_item";
+        span.addEventListener("click", () => {
+            console.log(`Navigating to: #${anchor}`);
+            const anchor_element = document.getElementById(anchor);
+            if (anchor_element) {
+                anchor_element.scrollIntoView({block: "start", behavior: "smooth"});
+            }
+            const anchor_toc_element = document.getElementById(`--toc--${anchor}`);
+            if (anchor_toc_element) {
+                anchor_toc_element.scrollIntoView({block: "start"});
+                pulseHighlight(anchor_toc_element);
+            }
+        });
+        breadcrumbsContainer.appendChild(span);
+    }
+}
+function pulseHighlight(element, milliseconds=1000) {
+    element?.classList.add("pulse_bg");
+    setTimeout(function() {
+        element?.classList.remove("pulse_bg");
+    }, milliseconds);
+}
+function getPathWithoutFilename(filePath) {
+    const path = getPath(filePath);
+    if (path.endsWith("/")) {
+        return path
+    }
+    const lastSlashIndex = path.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        return path.substring(0, lastSlashIndex);
+    }
+   return "";
+}
+function getPath(filePath) {
+    return decodeURIComponent(filePath).trim("/");
+}
+function getPathFilename(filePath) {
+    const path = getPath(filePath);
+    const lastSlashIndex = path.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        return path.substring(lastSlashIndex + 1);
+    }
+    return path;
+}
+function changeTitle(title) {
+    let result = "Cheat sheet";
+    if (title) {
+        result += ": " + title;
+    }
+    document.getElementsByTagName("title")[0].textContent = result;
+}
+function removeSuffix(str, suffix) {
+  if (str.endsWith(suffix)) {
+    return str.slice(0, -suffix.length);
+  }
+  return str;
+}
+function removePrefix(str, prefix) {
+    return str.startsWith(prefix)
+           ? str.slice(prefix.length)
+           : str;
+}
+function removePrefixIgnoreCase(str, prefix) {
+    return str.toLowerCase().startsWith(prefix.toLowerCase())
+           ? str.slice(prefix.length)
+           : str;
+}
+function changeActiveButton(element) {
+    for (el of folderList.getElementsByClassName("tree_item_active")) {
+        el.classList.remove("tree_item_active")
+    }
+    element?.classList.add("tree_item_active");
+}
+function processingBlockQuote(blockquote) {
+    if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!note]\n")) {
+        blockquote.classList.add("blockquote_note");
+        // class="unselectable"
+        // textContent
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-note);"><svg><use href="#icon_md_blockquote_note"/></svg>Note</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!note]\n");
+
+        blockquote.style.paddingBottom = "6px";
+        blockquote.style.marginTop = "12px";
+    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!tip]\n")) {
+        blockquote.classList.add("blockquote_tip");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-tip);"><svg><use href="#icon_md_blockquote_tip"/></svg>Tip</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!tip]\n");
+
+        blockquote.style.paddingBottom = "6px";
+        blockquote.style.marginTop = "12px";
+    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!important]\n")) {
+        blockquote.classList.add("blockquote_important");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-important);"><svg><use href="#icon_md_blockquote_important"/></svg>Important</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!important]\n");
+
+        blockquote.style.paddingBottom = "6px";
+        blockquote.style.marginTop = "12px";
+    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!warning]\n")) {
+        blockquote.classList.add("blockquote_warning");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-warning);"><svg><use href="#icon_md_blockquote_warning"/></svg>Warning</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!warning]\n");
+
+        blockquote.style.paddingBottom = "6px";
+        blockquote.style.marginTop = "12px";
+    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!caution]\n")) {
+        blockquote.classList.add("blockquote_caution");
+        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-caution);"><svg><use href="#icon_md_blockquote_caution"/></svg>Caution</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!caution]\n");
+
+        blockquote.style.paddingBottom = "6px";
+        blockquote.style.marginTop = "12px";
+    }
+}
+function processingTables(table) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("table_wrapper");
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+}
+function processingTOC(h_elements) {
+    h_list.innerHTML = "";
+    if (h_elements.length !== 0) {
+        h_list.classList.remove("empty");
+        const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
+        const color_map = {
+            1: "var(--color-h1)",
+            2: "var(--color-h2)",
+            3: "var(--color-h3)",
+            4: "var(--color-h4)",
+            5: "var(--color-h5)",
+            6: "var(--color-h6)",
+        }
+        const indent_map = {
+            1: "",
+            2: "&nbsp;".substring((min_header * 6) - 6),
+            3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+            6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
+        }
+        h_elements.forEach(header => {
+            const h_num = Number(header.tagName[1]);
+            const color = color_map[h_num];
+            const indent = indent_map[h_num];
+            const element = document.createElement("span");
+            element.classList.add("toc_item");
+            const header_id = header.id;
+            element.onclick = () => {
+                rightDrawer.close();
+                document.getElementById(header_id)?.scrollIntoView({block: "start", behavior: "smooth"});
+            };
+            element.title = header.textContent;
+            element.id = `--toc--${header_id}`;
+
+            const element_indent = document.createElement("pre");
+            element_indent.innerHTML = indent;
+
+            const element_pre = document.createElement("pre");
+            element_pre.style.color = color;
+            element_pre.textContent = header.tagName;
+
+            const element_span = document.createElement("pre");
+            element_span.classList.add("label");
+            element_span.textContent = header.textContent;
+
+            element_indent.appendChild(element_pre);
+
+            element.appendChild(element_indent);
+            element.appendChild(element_span);
+            h_list.appendChild(element);
+        });
+    } else {
+        h_list.classList.add("empty");
+        h_list.textContent = "Headings will appear here if they are in the cheat sheet";
+    }
+}
+function processingCheatSheet() {
+    nowCheatsheetField.querySelectorAll("a").forEach(a => {
+        if (
+            a.target == ""
+            && a.getAttribute("href")[0] !== "#"
+            && a.getAttribute("href")[0] !== "?"
+        ) {
+            a.target = "_blank";
+        }
+    });
+    nowCheatsheetField.querySelectorAll("thead").forEach(thead => {
+        if (thead.textContent.trim() == "") {
+            thead.remove();
+        }
+    });
+    nowCheatsheetField.querySelectorAll("blockquote").forEach(blockquote => {
+        blockquote.innerHTML = blockquote.innerHTML.replaceAll(">\n<", "><").replaceAll(">\n    <", "><").trim();
+        if (blockquote.textContent.length > 100) {
+            blockquote.setAttribute("expandable", "")
+        }
+        processingBlockQuote(blockquote);
+    });
+    const h_elements = nowCheatsheetField.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    h_elements.forEach(header => {
+        let id = header.textContent.trim()
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            // .replace(/[^\w\-]+/g, "")
+            .replace(/\-\-+/g, "-")
+            .replace(/^-+/, "")
+            .replace(/-+$/, "");
+        header.id = id;
+        //svg = `<svg style="width: .6em;height: .9em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg>`;
+        header.innerHTML = `<a class="anchor" href="#${id}">${header.innerHTML}</a>`;
+    });
+    nowCheatsheetField.querySelectorAll("table").forEach(processingTables);
+    processingTOC(h_elements);
+}
 
 let cheatsheet_cache = {};
 async function load_cheatsheet(url) {
@@ -935,7 +1095,7 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
     renderBreadcrumbs(url);
     urlArgs.setMain(url);
     nowDrawer?.close();
-    closeMainSearch();
+    closePageSearch();
     changeTitle(getPath(url));
     cheatsheet_field_container.scrollTo(0, 0);
     let successfully = await load_cheatsheet(url);
@@ -946,10 +1106,6 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
         );
     }
 }
-
-
-
-
 
 function generateButtonsOnClick(event) {
     const cascadeClose = false;
@@ -1117,6 +1273,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
     element.addEventListener("click", cascadeClose ? generateButtonsOnClickCascade : generateButtonsOnClick);
 }
 
+const urlArgs = new UrlArgs();
 function init() {  // load_folder_list
     fetch("src/index.json")
         .then(response => response.json())
@@ -1154,297 +1311,108 @@ function init() {  // load_folder_list
 init();
 
 
-let isCtrlPressed = false;
-document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
-document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
-document.addEventListener("click", function(event) {
-    if (event.target.tagName === "CODE") {
-        if (event.target.classList.contains("code_no_copy")) {
-            return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Resizers
+const leftResizer = new PanelResizer("resizer_left", "main_container", "--sidebar-left-width", "left");
+const rightResizer = new PanelResizer("resizer_right", "main_container", "--sidebar-right-width", "right");
+const resizer_list = [leftResizer, rightResizer];
+
+// Drawers
+const leftDrawer = new Drawer("cheatsheets_sidebar", "mobile_overlay", "left", leftResizer);
+const rightDrawer = new Drawer("toc_sidebar", "mobile_overlay", "right", rightResizer);
+let nowDrawer = null;
+const drawer_list = [leftDrawer, rightDrawer];
+
+
+sidebarToggleBtn.addEventListener("click", () => leftDrawer.toggle("--sidebar-left-display"));
+tocSidebarToggleBtn.addEventListener("click", () => rightDrawer.toggle("--sidebar-right-display"));
+
+
+function load_sidebar_width() {
+    resizer_list.forEach(r => {
+        let sidebar_width = localStorage.getItem(r.varName);
+        if (sidebar_width === null) {
+            sidebar_width = getComputedStyle(document.documentElement).getPropertyValue(r.varName);
+            localStorage.setItem(r.varName, sidebar_width);
         }
-        const tempInput = document.createElement("input");
-        document.body.appendChild(tempInput);
-        tempInput.value = event.target.textContent;
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
+        document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
+    });
+    [
+        ["--sidebar-left-display", cheatsheets_sidebar, leftResizer],
+        ["--sidebar-right-display", toc_sidebar, rightResizer],
+    ].forEach(args => {
+        c = args[0];
+        e = args[1];
+        r = args[2];
+
+        let sidebar_display = localStorage.getItem(c);
+        if (sidebar_display === null) {
+            sidebar_display = getComputedStyle(document.documentElement).getPropertyValue(c);
+            localStorage.setItem(c, sidebar_display);
+        }
+        document.documentElement.style.setProperty(c, sidebar_display);
+        if (sidebar_display === "none") {
+            e.classList.toggle("display_none");
+            r.resizer.classList.toggle("display_none");
+        }
+    });
+}
+load_sidebar_width();
+
+
+
+let isDark = true;
+themeBtn.addEventListener("click", () => {
+    isDark = !isDark;
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (isDark) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeColorMeta.setAttribute("content", "#1E1E1E");
+        settings.theme = "dark";
+        saveSettings(settings);
+    } else {
+        document.documentElement.removeAttribute("data-theme");
+        themeColorMeta.setAttribute("content", "#FFFFFF");
+        settings.theme = "light";
+        saveSettings(settings);
     }
 });
-
-
-
-
-
-
-
-
-
-function removeSuffix(str, suffix) {
-  if (str.endsWith(suffix)) {
-    return str.slice(0, -suffix.length);
-  }
-  return str;
-}
-function removePrefix(str, prefix) {
-    return str.startsWith(prefix) ? str.slice(prefix.length) : str;
-}
-function removePrefixIgnoreCase(str, prefix) {
-    return str.toLowerCase().startsWith(prefix.toLowerCase()) ? str.slice(prefix.length) : str;
-}
-
-function changeActiveButton(element) {
-    for (el of folderList.getElementsByClassName("tree_item_active")) {
-        el.classList.remove("tree_item_active")
-    }
-    element?.classList.add("tree_item_active");
-}
-
-function processingBlockQuote(blockquote) {
-    if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!note]\n")) {
-        blockquote.classList.add("blockquote_note");
-        // class="unselectable"
-        // textContent
-        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-note);"><svg><use href="#icon_md_blockquote_note"/></svg>Note</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!note]\n");
-
-        blockquote.style.paddingBottom = "6px";
-        blockquote.style.marginTop = "12px";
-    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!tip]\n")) {
-        blockquote.classList.add("blockquote_tip");
-        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-tip);"><svg><use href="#icon_md_blockquote_tip"/></svg>Tip</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!tip]\n");
-
-        blockquote.style.paddingBottom = "6px";
-        blockquote.style.marginTop = "12px";
-    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!important]\n")) {
-        blockquote.classList.add("blockquote_important");
-        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-important);"><svg><use href="#icon_md_blockquote_important"/></svg>Important</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!important]\n");
-
-        blockquote.style.paddingBottom = "6px";
-        blockquote.style.marginTop = "12px";
-    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!warning]\n")) {
-        blockquote.classList.add("blockquote_warning");
-        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-warning);"><svg><use href="#icon_md_blockquote_warning"/></svg>Warning</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!warning]\n");
-
-        blockquote.style.paddingBottom = "6px";
-        blockquote.style.marginTop = "12px";
-    } else if (blockquote.firstChild.textContent.toLowerCase().startsWith("[!caution]\n")) {
-        blockquote.classList.add("blockquote_caution");
-        blockquote.firstChild.innerHTML = `<p class="blockquote_alerts_p" style="color: var(--md-blockquote-caution);"><svg><use href="#icon_md_blockquote_caution"/></svg>Caution</p>` + removePrefixIgnoreCase(blockquote.firstChild.innerHTML, "[!caution]\n");
-
-        blockquote.style.paddingBottom = "6px";
-        blockquote.style.marginTop = "12px";
-    }
-}
-
-function processingTables(table) {
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("table_wrapper");
-    table.parentNode.insertBefore(wrapper, table);
-    wrapper.appendChild(table);
-}
-function processingTOC(h_elements) {
-    h_list.innerHTML = "";
-    if (h_elements.length !== 0) {
-        h_list.classList.remove("empty");
-        const min_header = Math.min(...Array.from(h_elements).map((header) => {return Number(header.tagName[1])}));
-        const color_map = {
-            1: "var(--color-h1)",
-            2: "var(--color-h2)",
-            3: "var(--color-h3)",
-            4: "var(--color-h4)",
-            5: "var(--color-h5)",
-            6: "var(--color-h6)",
-        }
-        const indent_map = {
-            1: "",
-            2: "&nbsp;".substring((min_header * 6) - 6),
-            3: "&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            4: "&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            5: "&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-            6: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".substring((min_header * 6) - 6),
-        }
-        h_elements.forEach(header => {
-            const h_num = Number(header.tagName[1]);
-            const color = color_map[h_num];
-            const indent = indent_map[h_num];
-            const element = document.createElement("span");
-            element.classList.add("toc_item");
-            const header_id = header.id;
-            element.onclick = () => {
-                rightDrawer.close();
-                document.getElementById(header_id)?.scrollIntoView({block: "start", behavior: "smooth"});
-            };
-            element.title = header.textContent;
-            element.id = `--toc--${header_id}`;
-
-            const element_indent = document.createElement("pre");
-            element_indent.innerHTML = indent;
-
-            const element_pre = document.createElement("pre");
-            element_pre.style.color = color;
-            element_pre.textContent = header.tagName;
-
-            const element_span = document.createElement("pre");
-            element_span.classList.add("label");
-            element_span.textContent = header.textContent;
-
-            element_indent.appendChild(element_pre);
-
-            element.appendChild(element_indent);
-            element.appendChild(element_span);
-            h_list.appendChild(element);
-        });
-    } else {
-        h_list.classList.add("empty");
-        h_list.textContent = "Headings will appear here if they are in the cheat sheet";
-    }
-}
-function processingCheatSheet() {
-    nowCheatsheetField.querySelectorAll("a").forEach(a => {
-        if (
-            a.target == ""
-            && a.getAttribute("href")[0] !== "#"
-            && a.getAttribute("href")[0] !== "?"
-        ) {
-            a.target = "_blank";
-        }
-    });
-    nowCheatsheetField.querySelectorAll("thead").forEach(thead => {
-        if (thead.textContent.trim() == "") {
-            thead.remove();
-        }
-    });
-    nowCheatsheetField.querySelectorAll("blockquote").forEach(blockquote => {
-        blockquote.innerHTML = blockquote.innerHTML.replaceAll(">\n<", "><").replaceAll(">\n    <", "><").trim();
-        if (blockquote.textContent.length > 100) {
-            blockquote.setAttribute("expandable", "")
-        }
-        processingBlockQuote(blockquote);
-    });
-    const h_elements = nowCheatsheetField.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    h_elements.forEach(header => {
-        let id = header.textContent.trim()
-            .toLowerCase()
-            .replace(/\s+/g, "-")
-            // .replace(/[^\w\-]+/g, "")
-            .replace(/\-\-+/g, "-")
-            .replace(/^-+/, "")
-            .replace(/-+$/, "");
-        header.id = id;
-        //svg = `<svg style="width: .6em;height: .9em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg>`;
-        header.innerHTML = `<a class="anchor" href="#${id}">${header.innerHTML}</a>`;
-    });
-    nowCheatsheetField.querySelectorAll("table").forEach(processingTables);
-    processingTOC(h_elements);
-};
-
-
-
-
-
-
-
-/* URL Path */
-const urlArgs = new UrlArgs();
-
-
-window.onpopstate = async () => {
-    let vpath = urlArgs.getMain() || "README";
-
-    console.log("Back to:", `"${vpath}"`);
-
-    urlArgs.isInPopstate = true;
-    await setup_cheatsheet(vpath, true, true);
-};
-window.addEventListener("hashchange", () => {
-    renderBreadcrumbs(urlArgs.getMain());
-})
-
-
-/* Title */
-function changeTitle(title) {
-    let result = "Cheat sheet";
-    if (title) {
-        result += ": " + title;
-    }
-    document.getElementsByTagName("title")[0].textContent = result;
-}
-
-/* Path */
-function getPathWithoutFilename(filePath) {
-    const path = getPath(filePath);
-    if (path.endsWith("/")) {
-        return path
-    }
-    const lastSlashIndex = path.lastIndexOf("/");
-    if (lastSlashIndex !== -1) {
-        return path.substring(0, lastSlashIndex);
-    }
-   return "";
-}
-function getPath(filePath) {
-    return decodeURIComponent(filePath).trim("/");;
-}
-function getPathFilename(filePath) {
-    const path = getPath(filePath);
-    const lastSlashIndex = path.lastIndexOf("/");
-    if (lastSlashIndex !== -1) {
-        return path.substring(lastSlashIndex + 1);
-    }
-    return path;
-}
-
-/* Copy Download Code */
-function copy(text) {
-    const textarea = document.createElement("textarea");
-    document.body.appendChild(textarea);
-    textarea.value = text;
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-}
-function CopyCode(button_element) {
-    let code_element = button_element.parentElement.parentElement.lastElementChild;
-
-    const pre_element = document.createElement("pre");
-    pre_element.innerHTML = code_element.innerHTML;
-    if (!isCtrlPressed) {
-        pre_element.querySelectorAll(".unselectable").forEach(
-            element => element.remove()
-        );
-    }
-    copy(pre_element.textContent);
-
-    html1 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable">Copied!</text>';
-    html2 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text>';
-
-    button_element.innerHTML = html1;
-
-    setTimeout(function() {
-        button_element.innerHTML = html2;
-    }, 1000);
-}
-function DownloadCode(button_element, filename) {
-    code_element = button_element.parentElement.parentElement.lastElementChild;
-
-    text = code_element.textContent;//.split("\n").slice(1).join("\n");
-    const element = document.createElement("a");
-    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
-    element.setAttribute("download", filename);
-    element.style.display = "none";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-
-    download_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
-    downloaded_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable" title="${filename}">Download!</text>`;
-
-    button_element.innerHTML = downloaded_html;
-
-    setTimeout(function() {
-        button_element.innerHTML = download_html;
-    }, 1000);
-}
-
 
 
 function loadSettings() {
@@ -1563,212 +1531,51 @@ function settings_breadcrumbs_func(element) {
         saveSettings(settings);
     }
 }
-
-let settings = loadSettings();
-applySettings(settings);
-css_markdown_preview_func(settings_css_markdown_preview)
-settings_breadcrumbs_func(settings_breadcrumbs_input)
-
-
-
-
-
-let highlightRanges = [];
-let activeIndex = -1;
-
-function parseSearchQuery(query, inputEl) {
-    // Let's try to determine the format of /pattern/flags
-    if (
-        query.startsWith("/")
-        && query.lastIndexOf("/") > 0
-        && query.slice(1, query.lastIndexOf("/")).length !== 0
-    ) {
-        const lastSlash = query.lastIndexOf("/");
-        const pattern = query.slice(1, lastSlash);
-        const flags = query.slice(lastSlash + 1);
-
-        try {
-            const regex = new RegExp(pattern, flags);
-            inputEl.style.border = ""; // OK
-            pageSearchResultCount.style.color = null;
-            pageSearchResultCount.textContent = "0 results";
-            return regex;
-        } catch (e) {
-            // RegExp syntax error
-            inputEl.style.border = "1px solid red";
-            pageSearchResultCount.style.color = "red";
-            pageSearchResultCount.textContent = "Bad pattern";
-            return null;
-        }
-    }
-
-    // A regular line
-    inputEl.style.border = "";
-    pageSearchResultCount.style.color = null;
-    pageSearchResultCount.textContent = "0 results";
-    return query;
-}
-function clearHighlight() {CSS.highlights.delete("search_highlight");}
-function getTextNodes(root) {
-    const nodes = [];
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    let node;
-    while ((node = walker.nextNode())) {
-        nodes.push(node);
-    }
-    return nodes;
-}
-function locatePositionInNodes(nodes, globalIndex) {
-    let pos = 0;
-
-    for (const node of nodes) {
-        const len = node.textContent.length;
-
-        if (globalIndex < pos + len) {
-            return {
-                node,
-                offset: globalIndex - pos
-            };
-        }
-        pos += len;
-    }
-    return null;
-}
-function highlightText(rawQuery, cheatsheetField, inputEl) {
-    clearHighlight();
-
-    const parsed = parseSearchQuery(rawQuery, inputEl);
-    if (parsed === null || !parsed) {
-        highlightRanges = [];
-        activeIndex = -1;
-        CSS.highlights.delete("active_search_highlight");
-        return;
-    }
-
-    const nodes = getTextNodes(cheatsheetField);
-    const fullText = nodes.map(n => n.textContent).join("");
-
-    let matches = [];
-
-    if (parsed instanceof RegExp) {
-        let m;
-        const regex = new RegExp(parsed.source, parsed.flags.includes("g") ? parsed.flags : parsed.flags + "g");
-        while ((m = regex.exec(fullText)) !== null) {
-            matches.push({ start: m.index, end: m.index + m[0].length });
-            if (m[0].length === 0) regex.lastIndex++;
-        }
-    } else {
-        const q = parsed.toLowerCase();
-        const lower = fullText.toLowerCase();
-        let pos = 0;
-        while (true) {
-            const i = lower.indexOf(q, pos);
-            if (i === -1) break;
-            matches.push({ start: i, end: i + q.length });
-            pos = i + q.length;
-        }
-    }
-
-    highlightRanges = [];
-    activeIndex = -1;
-    CSS.highlights.delete("active_search_highlight");
-
-    if (!matches.length) return;
-
-    const allRanges = [];
-
-    for (const m of matches) {
-        const startPos = locatePositionInNodes(nodes, m.start);
-        const endPos = locatePositionInNodes(nodes, m.end);
-
-        if (startPos && endPos) {
-            const r = new Range();
-            r.setStart(startPos.node, startPos.offset);
-            r.setEnd(endPos.node, endPos.offset);
-            allRanges.push(r);
-        }
-    }
-
-
-    pageSearchResultCount.style.color = null;
-    pageSearchResultCount.textContent = `1/${allRanges.length}`;
-    if (!allRanges.length) return;
-
-    highlightRanges = allRanges;
-
-    const highlight = new Highlight(...allRanges);
-    CSS.highlights.set("search_highlight", highlight);
-}
-function scrollRangeIntoView(range) {
-    // const sel = window.getSelection();
-    // const prevRange = sel.rangeCount ? sel.getRangeAt(0) : null;
-
-    // sel.removeAllRanges();
-    // sel.addRange(range);
-
-    range.startContainer.parentElement?.scrollIntoView({
-        block: "center",
-        inline: "nearest",
-        behavior: "smooth"
-    });
-
-    // sel.removeAllRanges();
-    // if (prevRange) {
-    //     sel.addRange(prevRange);
-    // }
-}
-function setActiveHighlight(index) {
-    if (highlightRanges.length === 0) return;
-
-    activeIndex = ((index % highlightRanges.length) + highlightRanges.length) % highlightRanges.length;
-
-    const activeRange = highlightRanges[activeIndex];
-
-    CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
-
-    scrollRangeIntoView(activeRange);
-    pageSearchResultCount.style.color = null;
-    pageSearchResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
-}
-function nextHighlight() {
-    if (highlightRanges.length === 0) return;
-    setActiveHighlight(activeIndex + 1);
-}
-function prevHighlight() {
-    if (highlightRanges.length === 0) return;
-    setActiveHighlight(activeIndex - 1);
-}
-
-page_search_arrow_up.onclick = prevHighlight;
-page_search_arrow_down.onclick = nextHighlight;
-
-
-let last_search = "";
-pageSearchInput.addEventListener("input", () => {
-    if (pageSearchInput.value !== "") {
-        console.log(`"${pageSearchInput.value}"`);
-        last_search = pageSearchInput.value;
-    }
-    highlightText(pageSearchInput.value, nowCheatsheetField, pageSearchInput);
-    nextHighlight();
-});
-
-function closeMainSearch() {
-    pageSearchInput.value = "";
-    pageSearchInput.dispatchEvent(new Event("input"));
-    page_search_container.style.display = "none";
-}
-
 function reset_settings() {
     const settings_css = JSON.parse(localStorage.getItem("settings")).settings_css;
     localStorage.clear();
     localStorage.setItem("settings", JSON.stringify({settings_css}));
     location.reload();
 }
+let settings = loadSettings();
+applySettings(settings);
+css_markdown_preview_func(settings_css_markdown_preview)
+settings_breadcrumbs_func(settings_breadcrumbs_input)
 reset_all_settings.onclick = reset_settings;
 
 
 
+let isSettingsOpen = false;
+function toggleSettings(show) {
+    isSettingsOpen = show;
+    if (show) settingsModal.classList.add("active");
+    else settingsModal.classList.remove("active");
+}
+settingsBtn.addEventListener("click", () => toggleSettings(true));
+closeSettingsBtn.addEventListener("click", () => toggleSettings(false));
+settingsBackdrop.addEventListener("click", () => toggleSettings(false));
+
+
+open_search_button.addEventListener("click", () => {
+    if (page_search_container.style.display === "none") {
+        page_search_container.style.display = "flex";
+        pageSearchInput.focus();
+    } else {
+        closePageSearch();
+    }
+})
+page_search_close.addEventListener("click", closePageSearch);
+
+
+function setupClearButton(input, btn) {
+    btn.addEventListener("click", () => {
+        input.value = "";
+        input.focus();
+        input.dispatchEvent(new Event("input"));
+    });
+}
+setupClearButton(ftsInput, ftsClearButton);
+setupClearButton(pageSearchInput, pageSearchClear);
 
 
 
@@ -1805,7 +1612,6 @@ const menu_file = new ContextMenu(
         }
     }
 );
-
 const menu_folder = new ContextMenu(
     [
         {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
@@ -1827,4 +1633,194 @@ const menu_folder = new ContextMenu(
         }
     }
 );
+
+
+
+
+window.onpopstate = async () => {
+    let vpath = urlArgs.getMain() || "README";
+
+    console.log("Back to:", `"${vpath}"`);
+
+    urlArgs.isInPopstate = true;
+    await setup_cheatsheet(vpath, true, true);
+};
+document.addEventListener("keydown", (e) => {
+    // Ctrl + Shift + F -> Sidebar Search
+    if (e.ctrlKey && e.shiftKey && e.code === "KeyF") {
+        e.preventDefault();
+        nowDrawer?.close();
+        leftDrawer.open();
+        const selection = window.getSelection().toString();
+        ftsInput.focus();
+        if (selection && !selection.includes("\n")) {
+            ftsInput.value = selection;
+            ftsInput.dispatchEvent(new Event("input"));
+        }
+        ftsInput.select();
+        return;
+    }
+
+    // Ctrl + F -> Main Search
+    if (e.ctrlKey && e.code === "KeyF") {
+        e.preventDefault();
+        page_search_container.style.display = "flex";
+        const selection = window.getSelection().toString();
+        pageSearchInput.focus();
+        if (selection && !selection.includes("\n")) {
+            pageSearchInput.value = selection;
+            pageSearchInput.dispatchEvent(new Event("input"));
+        } else if (last_search.length > 1) {
+            pageSearchInput.value = last_search;
+            pageSearchInput.dispatchEvent(new Event("input"));
+            pageSearchInput.select();
+        }
+        return;
+    }
+
+    // Ctrl + i -> Main Search
+    if (e.ctrlKey && !e.shiftKey && e.code === "KeyI") {
+        e.preventDefault();
+        toggleSettings(!isSettingsOpen);
+        return;
+    }
+
+    // Esc
+    if (e.key === "Escape") {
+        e.preventDefault();
+        if (isSettingsOpen) {
+            toggleSettings(false)
+            return;
+        }
+        if (isMobile() && nowDrawer) {
+            nowDrawer?.close();
+            return;
+        }
+        if (page_search_container.style.display === "flex") {
+            closePageSearch();
+            return;
+        }
+        if (ftsInput.value) {
+            closeSearch();
+            return;
+        }
+        return;
+    }
+
+    // Alt + > || Alt + < -> Next selection | Prev selection
+    if (page_search_container.style.display === "flex"
+        && e.altKey
+        && (
+            e.code === "Comma"
+            || e.code === "Period"
+        )
+    ) {
+        e.preventDefault();
+        e.code === "Comma" ? prevHighlight() : nextHighlight();
+        return;
+    }
+});
+window.addEventListener("hashchange", () => {
+    renderBreadcrumbs(urlArgs.getMain());
+})
+window.addEventListener("resize", () => {
+    headerHeight = calcHeaderHeight();
+
+    if (isMobile()) {
+        drawer_list.forEach(d => {
+            d.el.classList.remove("display_none");
+        })
+        resizer_list.forEach(r => {
+            r.resizer.classList.remove("display_none");
+        })
+    } else {
+        drawer_list.forEach(d => {
+            d.el.style.transform = "";
+            d.el.style.transition = "";
+        })
+        overlay.style.opacity = "";
+        overlay.style.pointerEvents = "";
+        if (nowDrawer) {
+            nowDrawer.close();
+            nowDrawer.isOpen = false;
+            nowDrawer.isDragging = false;
+        }
+        nowDrawer = null;
+    }
+});
+
+
+
+
+
+
+
+/* Copy Download Code */
+function copy(text) {
+    const textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    textarea.value = text;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+}
+function CopyCode(button_element) {
+    let code_element = button_element.parentElement.parentElement.lastElementChild;
+
+    const pre_element = document.createElement("pre");
+    pre_element.innerHTML = code_element.innerHTML;
+    if (!isCtrlPressed) {
+        pre_element.querySelectorAll(".unselectable").forEach(
+            element => element.remove()
+        );
+    }
+    copy(pre_element.textContent);
+
+    html1 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable">Copied!</text>';
+    html2 = '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text>';
+
+    button_element.innerHTML = html1;
+
+    setTimeout(function() {
+        button_element.innerHTML = html2;
+    }, 1000);
+}
+function DownloadCode(button_element, filename) {
+    code_element = button_element.parentElement.parentElement.lastElementChild;
+
+    text = code_element.textContent;//.split("\n").slice(1).join("\n");
+    const element = document.createElement("a");
+    element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+    element.setAttribute("download", filename);
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+
+    download_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_download"/></svg><text class="unselectable" title="${filename}">Download code</text>`;
+    downloaded_html = `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_done"/></svg><text class="unselectable" title="${filename}">Download!</text>`;
+
+    button_element.innerHTML = downloaded_html;
+
+    setTimeout(function() {
+        button_element.innerHTML = download_html;
+    }, 1000);
+}
+let isCtrlPressed = false;
+document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
+document.addEventListener("keyup", function(event) {if (!event.ctrlKey) {isCtrlPressed = false;}});
+document.addEventListener("click", function(event) {
+    if (event.target.tagName === "CODE") {
+        if (event.target.classList.contains("code_no_copy")) {
+            return;
+        }
+        const tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = event.target.textContent;
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+});
+
 
