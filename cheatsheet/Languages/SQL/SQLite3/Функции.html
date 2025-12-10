@@ -158,71 +158,71 @@
 <tbody>
 <tr>
 <td><code>MAX</code></td>
-<td>Возвращает максимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MAX(amount) FROM sales;</code></td>
+<td>Возвращает максимальное значение из списка аргументов<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MAX(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>MIN</code></td>
-<td>Возвращает минимальное значение из списка аргументов.<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MIN(amount) FROM sales;</code></td>
+<td>Возвращает минимальное значение из списка аргументов<br>может использоваться с числовыми и дата/время типами данных<br><code>SELECT MIN(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>SUM</code></td>
-<td>Возвращает сумму аргументов.<br>может использоваться только с числовыми типами данных<br><code>SELECT SUM(amount) FROM sales;</code></td>
+<td>Возвращает сумму аргументов<br>может использоваться только с числовыми типами данных<br><code>SELECT SUM(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>AVG</code></td>
-<td>Возвращает среднее арифметическое аргументов.<br>может использоваться только с числовыми типами данных<br><code>SELECT AVG(amount) FROM sales;</code></td>
+<td>Возвращает среднее арифметическое аргументов<br>может использоваться только с числовыми типами данных<br><code>SELECT AVG(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>COUNT</code></td>
-<td>Возвращает количество аргументов.<br>может использоваться с различными типами данных<br><code>SELECT COUNT(amount) FROM sales;</code></td>
+<td>Возвращает количество аргументов<br>может использоваться с различными типами данных<br><code>SELECT COUNT(amount) FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>CONCAT</code></td>
-<td>Соединяет строки.<br>может использоваться с типом данных строка<br><code>SELECT CONCAT(first_name, ' ', last_name) as full_name FROM customers;</code></td>
+<td>Соединяет строки<br>может использоваться с типом данных строка<br><code>SELECT CONCAT(first_name, ' ', last_name) as full_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>UPPER</code></td>
-<td>Преобразует строку в верхний регистр.<br>может использоваться с типом данных строка<br><code>SELECT UPPER(first_name) as first_name, UPPER(last_name) as last_name FROM customers;</code></td>
+<td>Преобразует строку в верхний регистр<br>может использоваться с типом данных строка<br><code>SELECT UPPER(first_name) as first_name, UPPER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>LOWER</code></td>
-<td>Преобразует строку в нижний регистр.<br>может использоваться с типом данных строка<br><code>SELECT LOWER(first_name) as first_name, LOWER(last_name) as last_name FROM customers;</code></td>
+<td>Преобразует строку в нижний регистр<br>может использоваться с типом данных строка<br><code>SELECT LOWER(first_name) as first_name, LOWER(last_name) as last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>SUBSTR</code></td>
-<td>Извлекает подстроку из строки. (столбец, первый символ, количество символов)<br>может использоваться с типом данных строка<br><code>SELECT SUBSTR(phone, 1, 3) as area_code FROM customers;</code></td>
+<td>Извлекает подстроку из строки<br>(столбец, первый символ, количество символов)<br>может использоваться с типом данных строка<br><code>SELECT SUBSTR(phone, 1, 3) as area_code FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>TRIM</code></td>
-<td>Удаляет пробелы из начала и конца строки.<br>может использоваться с типом данных строка<br><code>SELECT TRIM(first_name) as first_name, last_name FROM customers;</code></td>
+<td>Удаляет пробелы из начала и конца строки<br>может использоваться с типом данных строка<br><code>SELECT TRIM(first_name) as first_name, last_name FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>LENGTH</code></td>
-<td>Возвращает количество символов в строке.<br>может использоваться с типом данных строка<br><code>SELECT first_name, LENGTH(first_name) as name_length FROM customers;</code></td>
+<td>Возвращает количество символов в строке<br>может использоваться с типом данных строка<br><code>SELECT first_name, LENGTH(first_name) as name_length FROM customers;</code></td>
 </tr>
 <tr>
 <td><code>ROUND</code></td>
-<td>Округляет число до указанной точности. (столбец, кол-во знаков после запятой)<br>может использоваться с типом данных число<br><code>SELECT product, ROUND(price, 2) as price FROM sales;</code></td>
+<td>Округляет число до указанной точности<br>(столбец, кол-во знаков после запятой)<br>может использоваться с типом данных число<br><code>SELECT product, ROUND(price, 2) as price FROM sales;</code></td>
 </tr>
 <tr>
 <td><code>DATE</code></td>
-<td>Преобразует строку в формат даты. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных дата<br><code>SELECT DATE(order_date) as order_date, product, price FROM orders;</code></td>
+<td>Преобразует строку в формат даты<br>(хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных дата<br><code>SELECT DATE(order_date) as order_date, product, price FROM orders;</code></td>
 </tr>
 <tr>
 <td><code>TIME</code></td>
-<td>Преобразует строку в формат времени. (хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных время<br><code>SELECT TIME(meeting_time) as meeting_time, topic FROM meetings;</code></td>
+<td>Преобразует строку в формат времени<br>(хз проверить на питоне надо)<br>может использоваться с типом данных строка и возвращает тип данных время<br><code>SELECT TIME(meeting_time) as meeting_time, topic FROM meetings;</code></td>
 </tr>
 <tr>
 <td><code>DATETIME</code></td>
-<td>Преобразует строку в формат даты и времени.<br>может использоваться с типом данных строка и возвращает тип данных дата/время<br><code>SELECT DATETIME(event_date_time) as event_date_time, event_name FROM events;</code></td>
+<td>Преобразует строку в формат даты и времени<br>может использоваться с типом данных строка и возвращает тип данных дата/время<br><code>SELECT DATETIME(event_date_time) as event_date_time, event_name FROM events;</code></td>
 </tr>
 <tr>
 <td><code>TIMESTAMP</code></td>
-<td>Преобразует строку в формат времени с меткой времени (<code>timestamp</code>). <br>может использоваться с типом данных строка и возвращает тип данных <code>timestamp</code><br><code>SELECT TIMESTAMP(log_timestamp) as log_timestamp, log_message FROM logs;</code></td>
+<td>Преобразует строку в формат времени с меткой времени (<code>timestamp</code>)<br>может использоваться с типом данных строка и возвращает тип данных <code>timestamp</code><br><code>SELECT TIMESTAMP(log_timestamp) as log_timestamp, log_message FROM logs;</code></td>
 </tr>
 <tr>
 <td><code>NOW</code></td>
-<td>Возвращает текущую дату и время.<br>не требует аргументов и возвращает тип данных <code>timestamp</code><br><code>INSERT INTO orders (order_date, product, price) VALUES (NOW(), 'Shoes', 59.99);</code></td>
+<td>Возвращает текущую дату и время<br>не требует аргументов и возвращает тип данных <code>timestamp</code><br><code>INSERT INTO orders (order_date, product, price) VALUES (NOW(), 'Shoes', 59.99);</code></td>
 </tr>
 <tr>
 <td><code>COALESCE</code></td>
@@ -230,11 +230,11 @@
 </tr>
 <tr>
 <td><code>ISNULL</code></td>
-<td>Проверяет, является ли значение нулевым (<code>NULL</code>).<br>принимает один аргумент и возвращает логическое значение <code>true</code>, если аргумент равен <code>NULL</code>, и <code>false</code>, если аргумент не равен <code>NULL</code><br><code>SELECT first_name, last_name, position FROM employees WHERE ISNULL(bonus);</code></td>
+<td>Проверяет, является ли значение нулевым (<code>NULL</code>)<br>принимает один аргумент и возвращает логическое значение <code>true</code>, если аргумент равен <code>NULL</code>, и <code>false</code>, если аргумент не равен <code>NULL</code><br><code>SELECT first_name, last_name, position FROM employees WHERE ISNULL(bonus);</code></td>
 </tr>
 <tr>
 <td><code>IFNULL</code></td>
-<td>Проверяет, является ли значение нулевым (<code>NULL</code>).<br>принимает два аргумента и возвращает первый аргумент, если он не равен <code>NULL</code>, и второй аргумент, если первый равен <code>NULL</code><br><code>SELECT name, price, IFNULL(description, 'No description') as description FROM products;</code></td>
+<td>Проверяет, является ли значение нулевым (<code>NULL</code>)<br>принимает два аргумента и возвращает первый аргумент, если он не равен <code>NULL</code>, и второй аргумент, если первый равен <code>NULL</code><br><code>SELECT name, price, IFNULL(description, 'No description') as description FROM products;</code></td>
 </tr>
 </tbody>
 </table>
