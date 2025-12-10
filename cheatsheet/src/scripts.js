@@ -1,4 +1,5 @@
 /* --- ELEMENTS --- */
+const body = document.body;
 const sidebar = document.getElementById("cheatsheets_sidebar");
 const container = document.getElementById("main_container");
 const overlay = document.getElementById("mobile_overlay");
@@ -8,20 +9,20 @@ const themeBtn = document.getElementById("theme_btn");
 const settingsModal = document.getElementById("settings_modal");
 const closeSettingsBtn = document.getElementById("close_settings");
 const settingsBackdrop = document.getElementById("settings_backdrop");
-const searchInput = document.getElementById("fts_input");
 const breadcrumbsContainer = document.getElementById("breadcrumbs_content");
-const body = document.body;
 const folderList = document.getElementById("folder_list");
 const folderSearchList = document.getElementById("folder_search_list");
 
-const sidebarInput = document.getElementById("fts_input");
-const sidebarClear = document.getElementById("fts_clear_button");
-const mainInput = document.getElementById("page_search_input");
-const mainInputResultCount = document.getElementById("page_search_result_count");
-const mainClear = document.getElementById("page_search_clear_button");
+// Search
+const ftsInput = document.getElementById("fts_input");
+const ftsClearButton = document.getElementById("fts_clear_button");
+const pageSearchInput = document.getElementById("page_search_input");
+const pageSearchClear = document.getElementById("page_search_clear_button");
+const pageSearchResultCount = document.getElementById("page_search_result_count");
 const sidebarToggleBtn = document.getElementById("sidebar_toggle");
 const tocSidebarToggleBtn = document.getElementById("toc_toggle");
 
+let nowCheatsheetField = document.querySelector(".cheatsheet_field");
 
 
 /* Generic Sidebar */
@@ -350,8 +351,8 @@ function setupClearButton(input, btn) {
         input.dispatchEvent(new Event("input"));
     });
 }
-setupClearButton(sidebarInput, sidebarClear);
-setupClearButton(mainInput, mainClear);
+setupClearButton(ftsInput, ftsClearButton);
+setupClearButton(pageSearchInput, pageSearchClear);
 
 page_search_close.onclick = closeMainSearch;
 
@@ -430,12 +431,12 @@ document.addEventListener("keydown", (e) => {
         nowDrawer?.close();
         leftDrawer.open();
         const selection = window.getSelection().toString();
-        sidebarInput.focus();
+        ftsInput.focus();
         if (selection && !selection.includes("\n")) {
-            sidebarInput.value = selection;
-            sidebarInput.dispatchEvent(new Event("input"));
+            ftsInput.value = selection;
+            ftsInput.dispatchEvent(new Event("input"));
         }
-        sidebarInput.select();
+        ftsInput.select();
         return;
     }
 
@@ -444,14 +445,14 @@ document.addEventListener("keydown", (e) => {
         e.preventDefault();
         page_search_container.style.display = "flex";
         const selection = window.getSelection().toString();
-        mainInput.focus();
+        pageSearchInput.focus();
         if (selection && !selection.includes("\n")) {
-            mainInput.value = selection;
-            mainInput.dispatchEvent(new Event("input"));
+            pageSearchInput.value = selection;
+            pageSearchInput.dispatchEvent(new Event("input"));
         } else if (last_search.length > 1) {
-            mainInput.value = last_search;
-            mainInput.dispatchEvent(new Event("input"));
-            mainInput.select();
+            pageSearchInput.value = last_search;
+            pageSearchInput.dispatchEvent(new Event("input"));
+            pageSearchInput.select();
         }
         return;
     }
@@ -478,7 +479,7 @@ document.addEventListener("keydown", (e) => {
             closeMainSearch();
             return;
         }
-        if (fts_input.value) {
+        if (ftsInput.value) {
             closeSearch();
             return;
         }
@@ -503,7 +504,7 @@ document.addEventListener("keydown", (e) => {
 open_search_button.addEventListener("click", () => {
     if (page_search_container.style.display === "none") {
         page_search_container.style.display = "flex";
-        mainInput.focus();
+        pageSearchInput.focus();
     } else {
         closeMainSearch();
     }
@@ -710,7 +711,7 @@ function buildTree(paths) {
 
     return tree;
 }
-searchInput.addEventListener("input", debounce(async (e) => {
+ftsInput.addEventListener("input", debounce(async (e) => {
     const search_query = e.target.value;
     console.log("Search:", search_query, " || ", prepareQuery(search_query));
     if (search_query) {
@@ -740,10 +741,10 @@ searchInput.addEventListener("input", debounce(async (e) => {
         folderSearchList.style.justifyContent = "center";
         folderSearchList.style.color = "red";
         folderSearchList.textContent = "An error occurred";
-        searchInput.style.border = "1px solid red";
+        ftsInput.style.border = "1px solid red";
         return;
     }
-    searchInput.style.border = null;
+    ftsInput.style.border = null;
     generateButtons(buildTree(results.map(r => r.f)), folderSearchList, false);
     folderSearchList.querySelectorAll('[data-state="closed"]').forEach(e => {
         e.setAttribute("data-state", "open");
@@ -756,9 +757,9 @@ searchInput.addEventListener("input", debounce(async (e) => {
             await setup_cheatsheet(vpath, false, false);
 
             page_search_container.style.display = "flex";
-            mainInput.value = search_query.trim();
+            pageSearchInput.value = search_query.trim();
             setTimeout(function() {
-                mainInput.dispatchEvent(new Event("input"));
+                pageSearchInput.dispatchEvent(new Event("input"));
             }, 300);
         }
     });
@@ -794,8 +795,8 @@ function closeSearch() {
     folderSearchList.style.alignItems = null;
     folderSearchList.style.justifyContent = null;
     folderSearchList.innerHTML = "";
-    searchInput.value = "";
-    searchInput.style.border = null;
+    ftsInput.value = "";
+    ftsInput.style.border = null;
     urlArgs.setParam("s", null);
 }
 
@@ -841,15 +842,15 @@ async function load_cheatsheet(url) {
             const tmp_text = await response.text();
 
             if (tmp_text.startsWith("<!-- 404.html -->")) {
-                cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
-                cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+                nowCheatsheetField.innerHTML = `Sorry, this page isn't available`;
+                nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
                 cheatsheet_cache[url] = null;
                 return false;
             }
 
             if (tmp_text.trim() === "") {
-                cheatsheet_field.innerHTML = `This page is empty`;
-                cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
+                nowCheatsheetField.innerHTML = `This page is empty`;
+                nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-empty");
                 cheatsheet_cache[url] = "";
                 return true;
             }
@@ -862,19 +863,19 @@ async function load_cheatsheet(url) {
     }
 
     if (text === null) {
-        cheatsheet_field.innerHTML = `Sorry, this page isn't available`;
-        cheatsheet_field.setAttribute("data-cheatsheet-path", "error-404");
+        nowCheatsheetField.innerHTML = `Sorry, this page isn't available`;
+        nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
         return true;
     }
 
     if (text === "") {
-        cheatsheet_field.innerHTML = `This page is empty`;
-        cheatsheet_field.setAttribute("data-cheatsheet-path", "error-empty");
+        nowCheatsheetField.innerHTML = `This page is empty`;
+        nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-empty");
         return true;
     }
 
-    cheatsheet_field.innerHTML = text;
-    cheatsheet_field.setAttribute("data-cheatsheet-path", url);
+    nowCheatsheetField.innerHTML = text;
+    nowCheatsheetField.setAttribute("data-cheatsheet-path", url);
     processingCheatSheet();
 
     const anchor = urlArgs.getAnchor();
@@ -1135,8 +1136,8 @@ function init() {  // load_folder_list
 
             const s_param = urlArgs.getParams().s;
             if (s_param) {
-                sidebarInput.value = s_param;
-                sidebarInput.dispatchEvent(new Event("input"));
+                ftsInput.value = s_param;
+                ftsInput.dispatchEvent(new Event("input"));
 
                 // setTimeout(function() {
                 //     if (vpath !== "README") {
@@ -1298,7 +1299,7 @@ function processingTOC(h_elements) {
     }
 }
 function processingCheatSheet() {
-    cheatsheet_field.querySelectorAll("a").forEach(a => {
+    nowCheatsheetField.querySelectorAll("a").forEach(a => {
         if (
             a.target == ""
             && a.getAttribute("href")[0] !== "#"
@@ -1307,19 +1308,19 @@ function processingCheatSheet() {
             a.target = "_blank";
         }
     });
-    cheatsheet_field.querySelectorAll("thead").forEach(thead => {
+    nowCheatsheetField.querySelectorAll("thead").forEach(thead => {
         if (thead.textContent.trim() == "") {
             thead.remove();
         }
     });
-    cheatsheet_field.querySelectorAll("blockquote").forEach(blockquote => {
+    nowCheatsheetField.querySelectorAll("blockquote").forEach(blockquote => {
         blockquote.innerHTML = blockquote.innerHTML.replaceAll(">\n<", "><").replaceAll(">\n    <", "><").trim();
         if (blockquote.textContent.length > 100) {
             blockquote.setAttribute("expandable", "")
         }
         processingBlockQuote(blockquote);
     });
-    const h_elements = cheatsheet_field.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    const h_elements = nowCheatsheetField.querySelectorAll("h1, h2, h3, h4, h5, h6");
     h_elements.forEach(header => {
         let id = header.textContent.trim()
             .toLowerCase()
@@ -1332,7 +1333,7 @@ function processingCheatSheet() {
         //svg = `<svg style="width: .6em;height: .9em;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"></path></svg>`;
         header.innerHTML = `<a class="anchor" href="#${id}">${header.innerHTML}</a>`;
     });
-    cheatsheet_field.querySelectorAll("table").forEach(processingTables);
+    nowCheatsheetField.querySelectorAll("table").forEach(processingTables);
     processingTOC(h_elements);
 };
 
@@ -1589,22 +1590,22 @@ function parseSearchQuery(query, inputEl) {
         try {
             const regex = new RegExp(pattern, flags);
             inputEl.style.border = ""; // OK
-            mainInputResultCount.style.color = null;
-            mainInputResultCount.textContent = "0 results";
+            pageSearchResultCount.style.color = null;
+            pageSearchResultCount.textContent = "0 results";
             return regex;
         } catch (e) {
             // RegExp syntax error
             inputEl.style.border = "1px solid red";
-            mainInputResultCount.style.color = "red";
-            mainInputResultCount.textContent = "Bad pattern";
+            pageSearchResultCount.style.color = "red";
+            pageSearchResultCount.textContent = "Bad pattern";
             return null;
         }
     }
 
     // A regular line
     inputEl.style.border = "";
-    mainInputResultCount.style.color = null;
-    mainInputResultCount.textContent = "0 results";
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = "0 results";
     return query;
 }
 function clearHighlight() {CSS.highlights.delete("search_highlight");}
@@ -1689,8 +1690,8 @@ function highlightText(rawQuery, cheatsheetField, inputEl) {
     }
 
 
-    mainInputResultCount.style.color = null;
-    mainInputResultCount.textContent = `1/${allRanges.length}`;
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = `1/${allRanges.length}`;
     if (!allRanges.length) return;
 
     highlightRanges = allRanges;
@@ -1726,8 +1727,8 @@ function setActiveHighlight(index) {
     CSS.highlights.set("active_search_highlight", new Highlight(activeRange));
 
     scrollRangeIntoView(activeRange);
-    mainInputResultCount.style.color = null;
-    mainInputResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
+    pageSearchResultCount.style.color = null;
+    pageSearchResultCount.textContent = `${activeIndex+1}/${highlightRanges.length}`;
 }
 function nextHighlight() {
     if (highlightRanges.length === 0) return;
@@ -1743,18 +1744,18 @@ page_search_arrow_down.onclick = nextHighlight;
 
 
 let last_search = "";
-mainInput.addEventListener("input", () => {
-    if (mainInput.value !== "") {
-        console.log(`"${mainInput.value}"`);
-        last_search = mainInput.value;
+pageSearchInput.addEventListener("input", () => {
+    if (pageSearchInput.value !== "") {
+        console.log(`"${pageSearchInput.value}"`);
+        last_search = pageSearchInput.value;
     }
-    highlightText(mainInput.value, cheatsheet_field, mainInput);
+    highlightText(pageSearchInput.value, nowCheatsheetField, pageSearchInput);
     nextHighlight();
 });
 
 function closeMainSearch() {
-    mainInput.value = "";
-    mainInput.dispatchEvent(new Event("input"));
+    pageSearchInput.value = "";
+    pageSearchInput.dispatchEvent(new Event("input"));
     page_search_container.style.display = "none";
 }
 

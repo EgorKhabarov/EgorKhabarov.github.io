@@ -12,8 +12,8 @@ Press <kbd style="cursor: pointer;" onclick="toggleSettings(true);">Ctrl + I</kb
 
 ### Search
 
-Press <kbd style="cursor: pointer;" onclick="page_search_container.style.display='flex';mainInput.focus();pulseHighlight(mainInput);">Ctrl + F</kbd> to open **Find in page search**
-To search using <a href="?Languages/RegExp/RegExp">regular expressions</a>, write a query in the format <code class="code_no_copy" style="cursor: pointer;" onclick="page_search_container.style.display='flex';mainInput.focus();mainInput.value='//pattern/flags/';mainInput.dispatchEvent(new Event('input'));">/pattern/flags</code>
+Press <kbd style="cursor: pointer;" onclick="page_search_container.style.display='flex';page_search_input.focus();pulseHighlight(page_search_input);">Ctrl + F</kbd> to open **Find in page search**
+To search using <a href="?Languages/RegExp/RegExp">regular expressions</a>, write a query in the format <code class="code_no_copy" style="cursor: pointer;" onclick="page_search_container.style.display='flex';page_search_input.focus();page_search_input.value='//pattern/flags/';page_search_input.dispatchEvent(new Event('input'));">/pattern/flags</code>
 
 Press <kbd style="cursor: pointer;" onclick="leftDrawer.open();sidebarInput.focus();pulseHighlight(sidebarInput);">Ctrl + Shift + F</kbd> to open **global search**
 This is a [full-text search](https://en.wikipedia.org/wiki/Full-text_search) by both cheat sheet names and their contents 
