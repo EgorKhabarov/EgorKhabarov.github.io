@@ -54,7 +54,7 @@ data = {
     ]
 }
 
-path = Path("..", dir_name, "cheatsheet_resources", "search-index.json")
+path = Path("..", dir_name, "src", "search-index.json")
 json_str = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 # path.write_text(
 #     json_str,

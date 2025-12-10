@@ -12,7 +12,6 @@ from _dev.utils import (
     get_git_diff,
     update_svg_badge,
     update_index_json,
-    update_updated_json,
     get_git_diff_moved_from_cheat_sheet_dict,
 )
 
@@ -45,7 +44,6 @@ updated_files = cheatsheet_list if update_all \
 """Updated .md files"""
 updated_files_count = len(updated_files)
 print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
-update_updated_json(list(map(lambda s: s.removesuffix(".md"), updated_files)))
 
 for updated_file_md in updated_files:
     updated_file = updated_file_md.removesuffix(".md")
@@ -110,8 +108,8 @@ for dirpath, incorrect_filename, filename in incorrect_name_files:
     repo.git.mv(from_path, to_path)
 
 
-# update index.json
-with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
+# update src/index.json
+with open("../cheatsheet/src/index.json", "r", encoding="UTF-8") as index_json_file:
     index_json: dict[str, str | dict[str, str | dict]] = json.load(index_json_file)
 index_json_cheatsheet_list = []
 for directory, dirnames, filenames in dict_walk(index_json):
@@ -139,7 +137,7 @@ moved_cheat_sheets = get_git_diff_moved_from_cheat_sheet_dict(
 index_json = update_index_json(
     index_json, added_cheat_sheets, removed_cheat_sheets, moved_cheat_sheets
 )
-with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
+with open("../cheatsheet/src/index.json", "w", encoding="UTF-8") as index_json_file:
     json.dump(index_json, index_json_file, indent=4, ensure_ascii=False)
 
 print(f"Done in {UNDERLINE}{BOLD}{time.perf_counter()-start_time:.2f}{RESET} sec")

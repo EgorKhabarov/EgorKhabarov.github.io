@@ -1,6 +1,6 @@
 <div>
     <h1>Cheat sheet</h1>
-    <a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="cheatsheet_resources/badge.svg" class="unselectable" style="height:1.667em;"/></a>
+    <a href="https://github.com/EgorKhabarov/EgorKhabarov.github.io"><img alt="GitHub Pages badge" src="src/badge.svg" class="unselectable" style="height:1.667em;"/></a>
     <p>This is a site with cheat sheets</p>
 </div>
 

@@ -242,7 +242,7 @@ def update_svg_badge(cheatsheet_count: int = 0):
     except requests.exceptions.ConnectionError:
         pass
     else:
-        with open("../cheatsheet/cheatsheet_resources/badge.svg", "w", encoding="utf-8") as file:
+        with open("../cheatsheet/src/badge.svg", "w", encoding="utf-8") as file:
             file.write(content)
 
 
@@ -368,7 +368,7 @@ def get_index_decorator(iterable: list):
 
 
 def add_metadata(path_: str, metadata: dict) -> None:
-    with open("../cheatsheet/index.json", "r", encoding="UTF-8") as index_json_file:
+    with open("../cheatsheet/src/index.json", "r", encoding="UTF-8") as index_json_file:
         index_json: dict[str, str | dict[str, str | dict]] = json.load(index_json_file)
     path_dict = PathDict(index_json)
     if not path_dict.exist(path_):
@@ -417,7 +417,7 @@ def add_metadata(path_: str, metadata: dict) -> None:
         path_dict[path_] = yaml.safe_dump(
             result_metadata, sort_keys=False, allow_unicode=True, indent=4
         )
-        with open("../cheatsheet/index.json", "w", encoding="UTF-8") as index_json_file:
+        with open("../cheatsheet/src/index.json", "w", encoding="UTF-8") as index_json_file:
             json.dump(path_dict.data, index_json_file, indent=4, ensure_ascii=False)
         print("\x1b[32mMetadata updated successfully\x1b[0m")
 
@@ -428,9 +428,3 @@ def get_h_tags(path_: str) -> list[str]:
     return [
         heading.text for heading in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])
     ]
-
-
-def update_updated_json(updated_files: list[str]):
-    path = "../cheatsheet/cheatsheet_resources/updated.json"
-    with open(path, "w", encoding="UTF-8") as file:
-        json.dump(updated_files, file, indent=4, ensure_ascii=False)
