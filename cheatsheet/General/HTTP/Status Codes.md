@@ -255,12 +255,14 @@ The user has sent too many requests in a given amount of time ("rate limiting")
 The server is unwilling to process the request because its header fields are too large
 The request may be resubmitted after reducing the size of the request header fields
 ### 440 Login Timout
-A Microsoft extension. Indicates that your session has expired
+A Microsoft extension
+Indicates that your session has expired
 ### 444 No Response
 Used in Nginx logs to indicate that the server has returned
 no information to the client and closed the connection (useful as a deterrent for malware)
 ### 449 Retry With
-A Microsoft extension. The request should be retried after performing the appropriate action
+A Microsoft extension
+The request should be retried after performing the appropriate action
 ### 450 Blocked By Windows Parental Controls
 A Microsoft extension, This error is given when Windows Parental Controls
 are turned on and are blocking access to the given webpage
@@ -280,12 +282,14 @@ to distinguish it from 4XX in a log and an error page redirection
 Nginx internal code used for the plain HTTP requests that are sent to HTTPS port
 to distinguish it from 4XX in a log and an error page redirection
 ### 498 Token Expired/Invalid
-Returned by ArcGIS for Server. A code of 498 indicates an expired or otherwise invalid token
+Returned by ArcGIS for Server
+A code of 498 indicates an expired or otherwise invalid token
 ### 499 Client Closed Request
 Used in Nginx logs to indicate when the connection has been closed by client
 while the server is still processing its request, making server unable to send a status code back
 ### 499 Token Required
-Returned by ArcGIS for Server. A code of 499 indicates that a token is required (if no token was submitted)
+Returned by ArcGIS for Server
+A code of 499 indicates that a token is required (if no token was submitted)
 
 
 <details>

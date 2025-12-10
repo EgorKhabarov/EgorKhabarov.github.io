@@ -43,6 +43,8 @@
 | `Plugins` `Markdown ` `Create Link`                                                 |                    |
 | `Plugins` `Terminal ` `Close Tab`                                                   |                    |
 | `Plugins` `Terminal ` `Delete Previous Word`                                        |                    |
+| `Main Menu` `Navigate` `Last Edit Location`                                         | `Alt`+`Backspace`  |
+
 
 # Editor
 ## Font
