@@ -677,7 +677,7 @@
                 "Hide text in emoji": "color: brown\n",
                 "get_path_executable_by_name_shutil_which": "color: brown\n",
                 "tg_color": "color: brown\n",
-                "Fib": "color: brown\n",
+                "fib": "color: brown\n",
                 "Словарь обращение через точку": "color: brown\n",
                 "get_valid_filename": "color: brown\n"
             },

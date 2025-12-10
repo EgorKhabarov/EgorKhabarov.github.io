@@ -11,19 +11,46 @@ version = "1.0.0"
 authors = ["John Doe <john@example.com>"]
 ```
 
+## tomllib
+
+Built into Python
+Supports read only
+
 ```python
-import toml  # pip install toml
+import tomllib
 
 
-config = {"BOT": {"bot_name": "", "token": ""}}
+with open("config.toml", "rb") as file:
+    data = tomllib.load(file)
+    # data = tomllib.loads(toml_string)
+```
 
-with open("config.toml", "w", encoding="UTF-8") as file:
-    file.write(toml.dumps(config))
-    # toml.dump(config, file)
+## tomlkit
 
-with open("config.toml", "r", encoding="UTF-8") as file:
-    config = toml.load(file)
-    # config = toml.loads(file.read())
+[https://pypi.org/project/tomlkit/](https://pypi.org/project/tomlkit/)
+[https://tomlkit.readthedocs.io/en/latest/](https://tomlkit.readthedocs.io/en/latest/)
 
-print(config)
+`pip install tomlkit`
+
+```python
+import tomlkit
+
+
+data = {
+    "config": {
+        "name": "John Smith",
+        "age": 30,
+        "city": "New York",
+    },
+}
+
+with open("data.toml", "w", encoding="UTF-8") as file:
+    tomlkit.dump(data, file)
+    # file.write(tomlkit.dumps(data))
+
+with open("data.toml", "r", encoding="UTF-8") as file:
+    data = tomlkit.load(file)
+    # data = tomlkit.loads(file.read())
+
+print(data)
 ```

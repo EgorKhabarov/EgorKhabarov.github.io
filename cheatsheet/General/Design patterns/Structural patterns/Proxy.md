@@ -22,6 +22,6 @@ class Proxy:
 real_subject = RealSubject()
 proxy = Proxy(real_subject)
 print(proxy.request())
-# Proxy: Checking access before forwarding request.
+# Proxy: Checking access before forwarding request
 # RealSubject: Handling request.
 ```
