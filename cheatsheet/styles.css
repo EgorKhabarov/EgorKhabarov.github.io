@@ -951,8 +951,8 @@ input[type="checkbox"]:checked::before {
     top: 1px;
     width: 3px;
     height: 8px;
-    border-right: 2px solid #FFFFFF;
-    border-bottom: 2px solid #FFFFFF;
+    border-right: 2px solid var(--text-color);
+    border-bottom: 2px solid var(--text-color);
     transform: rotate(40deg);
 }
 input[type="checkbox"]:disabled {
@@ -1301,15 +1301,16 @@ tbody tr:hover {
     color: black;
 }
 kbd {
+    --kbd-markdown-color: #3D444DB3;
     display: inline-block;
     padding: 0.25rem;
     font: 11px Consolas, Liberation Mono, monospace;
     line-height: 10px;
     vertical-align: middle;
-    border: solid 1px #3D444DB3;
-    border-bottom-color: #3D444DB3;
+    border: solid 1px var(--kbd-markdown-color);
+    border-bottom-color: var(--kbd-markdown-color);
     border-radius: 6px;
-    box-shadow: inset 0 -1px 0 #3D444DB3;
+    box-shadow: inset 0 -1px 0 var(--kbd-markdown-color);
 }
 
 
