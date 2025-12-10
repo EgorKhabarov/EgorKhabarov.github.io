@@ -573,7 +573,7 @@ function renderBreadcrumbs(url) {
         }
     });
 
-    const anchor = getAnchor();
+    const anchor = urlArgs.getAnchor();
     if (anchor) {
         const sep = document.createElement("span");
         sep.textContent = "#";
@@ -721,6 +721,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
         return;
     }
 
+    urlArgs.setParam("s", search_query);
     let results = null;
     try {
         results = await searchQuery(prepareQuery(search_query));
@@ -750,7 +751,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
     })
     folderSearchList.querySelectorAll(".file").forEach(e => {
         e.onclick = async function(event) {
-            delAnchor();
+            urlArgs.setAnchor(null);
             const vpath = e.getAttribute("data-vpath")
             await setup_cheatsheet(vpath, false, false);
 
@@ -795,6 +796,7 @@ function closeSearch() {
     folderSearchList.innerHTML = "";
     searchInput.value = "";
     searchInput.style.border = null;
+    urlArgs.setParam("s", null);
 }
 
 
@@ -875,7 +877,7 @@ async function load_cheatsheet(url) {
     cheatsheet_field.setAttribute("data-cheatsheet-path", url);
     processingCheatSheet();
 
-    const anchor = getAnchor();
+    const anchor = urlArgs.getAnchor();
     if (anchor) {
         console.log(`Anchor found: "${anchor}"`);
         const anchor_element = document.getElementById(anchor);
@@ -930,7 +932,7 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
     const url = url_.trim("/");
     console.log(`Setup "${url}"`)
     renderBreadcrumbs(url);
-    addArgumentToUrl(url);
+    urlArgs.setMain(url);
     nowDrawer?.close();
     closeMainSearch();
     changeTitle(getPath(url));
@@ -1114,7 +1116,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
     element.addEventListener("click", cascadeClose ? generateButtonsOnClickCascade : generateButtonsOnClick);
 }
 
-(function load_folder_list() {
+function init() {  // load_folder_list
     fetch("index.json")
         .then(response => response.json())
         .then(async (json_data) => {
@@ -1122,19 +1124,24 @@ function generateButtons(json_data, element, cascadeClose = true) {
 
             folderList.querySelectorAll(".file").forEach(e => {
                 e.onclick = async function(event) {
-                    delAnchor();
+                    urlArgs.setAnchor(null);
                     const vpath = e.getAttribute("data-vpath")
                     await setup_cheatsheet(vpath, true, false);
                 };
             });
 
-            let vpath = getPath(getArgumentFromUrl());
-            if (vpath === null || vpath === "null") {
-                vpath = "README";
-            }
+            const vpath = urlArgs.getMain() || "README";
             await setup_cheatsheet(vpath, true, true);
+
+            const s_param = urlArgs.getParams().s;
+            if (s_param) {
+                sidebarInput.value = s_param;
+                sidebarInput.dispatchEvent(new Event("input"));
+            }
         });
-})();
+}
+init();
+
 
 let isCtrlPressed = false;
 document.addEventListener("keydown", function(event) {if (event.ctrlKey) {isCtrlPressed = true;}});
@@ -1324,58 +1331,153 @@ function processingCheatSheet() {
 
 
 
-/* Anchor */
-function getAnchor() {
-    const url = new URL(window.location.href);
-    return url.hash ? decodeURIComponent(url.hash.slice(1)) : null;
-}
-function delAnchor() {
-    const url = new URL(window.location.href);
-    url.hash = "";
-    window.history.replaceState({}, "", url.toString());
-}
-function setAnchor(anchor) {
-    const url = new URL(window.location.href);
-    url.hash = anchor ? `#${anchor}` : "";
-    window.history.pushState({}, "", url.toString());
-}
-window.addEventListener("hashchange", () => {
-    renderBreadcrumbs(decodeURIComponent(getArgumentFromUrl()));
-})
 
 /* URL Path */
-let is_in_popstate = false;
-function getArgumentFromUrl() {
-    const currentUrl = new URL(window.location.href);
-    return currentUrl.search ? currentUrl.search.substring(1) : null;
+function myEncodeURIComponent(str) {
+    return encodeURIComponent(str)
+        .replace(/%2F/g, "/")
+        .replace(/%20/g, "+");
 }
-function addArgumentToUrl(arg) {
-    const currentUrl = new URL(window.location.href);
-    if (currentUrl.search === `?${encodeURIComponent(arg)}`) {
-        return;
-    }
-    currentUrl.search = arg;
-    if (is_in_popstate) {
-        window.history.replaceState({}, "", currentUrl);
-    } else {
-        window.history.pushState({}, "", currentUrl);
-    }
-    is_in_popstate = false;
+function myDecodeURIComponent(str) {
+    return decodeURIComponent(str)
+        .replace(/\+/g, " ")
 }
-function removeArgumentFromUrl() {
-    let url = new URL(window.location.href);
-    url.search = "";
-    window.history.replaceState(null, null, url.href);
-}
-window.onpopstate = async (event) => {
-    let vpath = getPath(getArgumentFromUrl());
-    if (vpath === null || vpath === "null") {
-        vpath = "README";
+class UrlArgs {
+    constructor() {
+        this.isInPopstate = false;
     }
-    console.log("Back to", `"${vpath}"`);
-    is_in_popstate = true;
+
+    parse() {
+        const url = new URL(window.location.href);
+        const anchor = url.hash ? myDecodeURIComponent(url.hash.substring(1)) : null;
+
+        const query = url.search.substring(1);
+        if (!query) return {main: null, params: {}, anchor};
+
+        const parts = query.split("&");
+        let main = null;
+        const params = {};
+
+        for (const p of parts) {
+            if (!p) continue;
+
+            const eq = p.indexOf("=");
+
+            if (eq === -1) {
+                if (main === null) main = myDecodeURIComponent(p);
+                continue;
+            }
+
+            const key = myDecodeURIComponent(p.substring(0, eq));
+            const value = myDecodeURIComponent(p.substring(eq + 1));
+            params[key] = value;
+        }
+
+        return {main, params, anchor};
+    }
+
+    buildSearch(main, params) {
+        const parts = [];
+
+        if (main) parts.push(myEncodeURIComponent(main));
+
+        for (const [k, v] of Object.entries(params)) {
+            parts.push(
+                myEncodeURIComponent(k) + "=" + myEncodeURIComponent(v)
+            );
+        }
+
+        return parts.length ? "?" + parts.join("&") : "";
+    }
+
+    commit(url) {
+        const oldHref = window.location.href;
+        const newHref = url.toString();
+        if (oldHref === newHref) return;
+
+        console.log("QQQ", newHref);
+        if (this.isInPopstate) {
+            history.replaceState({}, "", newHref);
+        } else {
+            history.pushState({}, "", newHref);
+        }
+
+        this.isInPopstate = false;
+    }
+
+    // MAIN
+
+    getMain() {
+        return this.parse().main;
+    }
+
+    setMain(value) {
+        const parsed = this.parse();
+        const url = new URL(window.location.href);
+
+        parsed.main = value ? String(value) : null;
+
+        url.search = this.buildSearch(parsed.main, parsed.params);
+        url.hash = parsed.anchor ? "#" + myEncodeURIComponent(parsed.anchor) : "";
+
+        this.commit(url);
+    }
+
+    // PARAMS
+
+    getParams() {
+        return this.parse().params;
+    }
+
+    setParam(name, value) {
+        const parsed = this.parse();
+        const url = new URL(window.location.href);
+
+        if (!value) {
+            delete parsed.params[name];
+        } else {
+            parsed.params[name] = String(value);
+        }
+
+        url.search = this.buildSearch(parsed.main, parsed.params);
+        url.hash = parsed.anchor ? "#" + myEncodeURIComponent(parsed.anchor) : "";
+
+        // Всегда replaceState
+        history.replaceState({}, "", url.toString());
+    }
+
+    // ANCHOR
+
+    getAnchor() {
+        return this.parse().anchor;
+    }
+
+    setAnchor(value) {
+        const parsed = this.parse();
+        const url = new URL(window.location.href);
+
+        url.search = this.buildSearch(parsed.main, parsed.params);
+        url.hash = value ? "#" + myEncodeURIComponent(value) : "";
+
+        this.commit(url);
+    }
+}
+
+const urlArgs = new UrlArgs();
+
+
+window.onpopstate = async () => {
+    let vpath = urlArgs.getMain() || "README";
+
+    console.log("Back to:", `"${vpath}"`);
+
+    urlArgs.isInPopstate = true;
     await setup_cheatsheet(vpath, true, true);
 };
+window.addEventListener("hashchange", () => {
+    renderBreadcrumbs(urlArgs.getMain());
+})
+
 
 /* Title */
 function changeTitle(title) {
