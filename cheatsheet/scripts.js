@@ -929,7 +929,7 @@ function displayValueButton(url, scrollIntoActive = true) {
     return button;
 }
 async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true) {
-    const url = url_.trim("/");
+    const url = url_.trim("/").replace(/(\.md|\.html)$/m, "");
     console.log(`Setup "${url}"`)
     renderBreadcrumbs(url);
     urlArgs.setMain(url);
