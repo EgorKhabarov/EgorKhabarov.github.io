@@ -21,6 +21,7 @@ end_dot_regex = re.compile(r"(?m)\.$")
 header_regex = re.compile(r"(#+|\*|\d+\.) \*\*(?:\d\.){0,2} ?([^\n]+)\*\*")
 hr_regex = re.compile(r"\n\n---")
 quotes_regex = re.compile(r"'[^'\n]*?'")
+md_list_regex = re.compile(r"(?m)^\* ")
 # re.compile(r"(?<=# )[^а-яa-z`]+")
 
 
@@ -32,12 +33,13 @@ def table_bold_func(s: str) -> str:
     )
 
 
-text = text.replace("—", "-")
+text = text.replace("–", "-").replace("—", "-")  # "\u2013" "\u2014"
 text = end_space_regex.sub("", text)
 text = end_dot_regex.sub("", text)
 text = header_regex.sub(r"\1 \2", text)
 text = hr_regex.sub("", text)
 text = table_bold_func(text)
+text = md_list_regex.sub("- ", text)
 
 # print(text)
 path.write_text(text, encoding="UTF-8")
