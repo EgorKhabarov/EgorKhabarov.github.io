@@ -14,7 +14,7 @@
 | ./     | ./a                 | Relative |
 | /      | /html/body/div      | Root     |
 
-Begin your expression with any of these.
+Begin your expression with any of these
 
 
 
@@ -25,7 +25,7 @@ Begin your expression with any of these.
 | /    | //ul/li/a         | Child      |
 | //   | //[@id="list"]//a | Descendant |
 
-Separate your steps with /. Use two (//) if you don’t want to select direct children.
+Separate your steps with /. Use two (//) if you don’t want to select direct children
 
 
 # Steps
@@ -36,7 +36,9 @@ Separate your steps with /. Use two (//) if you don’t want to select direct ch
 //[@id='link']
 ```
 
-A step may have an element name (div) and predicates ([...]). Both are optional. They can also be these other things:
+A step may have an element name (div) and predicates (\[...])
+Both are optional
+They can also be these other things:
 
 ```bash
 //a/text()     #=> "Go home"

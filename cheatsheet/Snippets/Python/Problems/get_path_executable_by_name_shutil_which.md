@@ -5,7 +5,7 @@
 import shutil
 
 
-for name in ["python", "java", "cmd", "git", "svn"]:
+for name in ("python", "java", "cmd", "git", "svn"):
     path = shutil.which(name)
     print(f"{name:10} {path}")
 ```

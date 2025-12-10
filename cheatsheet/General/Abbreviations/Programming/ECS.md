@@ -30,7 +30,7 @@ class Health:
 
 ## Сущности
 
-Сущность - просто уникальный ID (обычно `int` или `uuid.UUID`).
+Сущность - просто уникальный ID (обычно `int` или `uuid.UUID`)
 
 ```python
 import itertools
