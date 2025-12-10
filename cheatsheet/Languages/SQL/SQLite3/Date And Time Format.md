@@ -3,11 +3,11 @@ copied from [https://www.sqlite.org/lang_datefunc.html](https://www.sqlite.org/l
 ## Overview
 SQLite supports seven scalar date and time functions as follows:
 
-1. `date(time-value, modifier, modifier, ...)`  `YYYY-MM-DD`
-2. `time(time-value, modifier, modifier, ...)`  `HH:MM:SS` or as `HH:MM:SS.SSS`
-3. `datetime(time-value, modifier, modifier, ...)`  `YYYY-MM-DD HH:MM:SS` or as `YYYY-MM-DD HH:MM:SS.SSS`
-4. `julianday(time-value, modifier, modifier, ...)`  - the fractional number of days since noon in Greenwich on November 24, 4714 B.C.
-5. `unixepoch(time-value, modifier, modifier, ...)`  unix timestamp
+1. `date(time-value, modifier, modifier, ...)` `YYYY-MM-DD`
+2. `time(time-value, modifier, modifier, ...)` `HH:MM:SS` or as `HH:MM:SS.SSS`
+3. `datetime(time-value, modifier, modifier, ...)` `YYYY-MM-DD HH:MM:SS` or as `YYYY-MM-DD HH:MM:SS.SSS`
+4. `julianday(time-value, modifier, modifier, ...)` - the fractional number of days since noon in Greenwich on November 24, 4714 B.C
+5. `unixepoch(time-value, modifier, modifier, ...)` unix timestamp
 6. `strftime(format, time-value, modifier, modifier, ...)`
 7. `timediff(time-value, time-value)`
 
@@ -54,8 +54,8 @@ SELECT timediff('2023-02-15', '2023-03-15');
 ```
 
 ## Time Values
-A time-value can be in any of the following formats shown below.
-The value is usually a string, though it can be an integer or floating point number in the case of format 12.
+A time-value can be in any of the following formats shown below
+The value is usually a string, though it can be an integer or floating point number in the case of format 12
 
 1. `YYYY-MM-DD`
 2. `YYYY-MM-DD HH:MM`
@@ -72,10 +72,10 @@ The value is usually a string, though it can be an integer or floating point num
 
 
 ## Modifiers
-For all date/time functions other than `timediff()`, the time-value argument can be followed by zero or more modifiers that alter date and/or time.
-Each modifier is a transformation that is applied to the time-value to its left.
-Modifiers are applied from left to right; order is important.
-The available modifiers are as follows.
+For all date/time functions other than `timediff()`, the time-value argument can be followed by zero or more modifiers that alter date and/or time
+Each modifier is a transformation that is applied to the time-value to its left
+Modifiers are applied from left to right; order is important
+The available modifiers are as follows
 
 1. `NNN days`
 2. `NNN hours`
