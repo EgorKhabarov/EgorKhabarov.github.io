@@ -119,6 +119,17 @@
     .na {color: var(--code-highlight-darkula-argument);} /* Argument */
 
     .language-java .kt {color: var(--code-highlight-darkula-keyword);}
+    .language-java .na {
+        color: var(--code-highlight-darkula-default);
+    }
+    /*
+    .language-java .na {
+        color: var(--code-highlight-darkula-self);
+        font-style: italic;
+    }
+    .language-java .na + .p + .na {font-style: normal;}
+    */
+
     .language-yaml .c1 {color: #629755;}  /* Comment (Text, but lighter) */
     .language-json .nt {color: var(--code-highlight-darkula-text);}
     .language-ini .na {color: var(--code-highlight-darkula-default);}
