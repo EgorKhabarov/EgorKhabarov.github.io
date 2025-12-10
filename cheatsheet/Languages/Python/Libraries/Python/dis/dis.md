@@ -10,16 +10,16 @@
 | `dis.code_info(obj)`        | Выводит подробную информацию о коде функции,<br>метода или объекта в виде строки<br>(имя, аргументы, количество инструкций и т.д.)              | `import dis; print(dis.code_info(some_function))`                                                      |
 | `dis.show_code(obj)`        | Показывает информацию о коде объекта,<br>включая аргументы и размеры                                                                            | `dis.show_code(some_function)`                                                                         |
 | `dis.get_instructions(obj)` | Возвращает итератор инструкций байт-кода для объекта<br>(функции, метода или класса)                                                            | `instructions = list(dis.get_instructions(some_function))`                                             |
-| `dis.Bytecode(obj)`         | Возвращает объект `Bytecode`, представляющий<br>инструкции байт-кода для объекта.<br>Можно использовать для итерации по инструкциям             | `bytecode = dis.Bytecode(some_function)`<br>`for instr in bytecode: print(instr.opname, instr.argval)` |
+| `dis.Bytecode(obj)`         | Возвращает объект `Bytecode`, представляющий<br>инструкции байт-кода для объекта<br>Можно использовать для итерации по инструкциям              | `bytecode = dis.Bytecode(some_function)`<br>`for instr in bytecode: print(instr.opname, instr.argval)` |
 | `dis.distb([tb])`           | Дизассемблирует байт-код последней трассировки (traceback)<br>или переданного объекта трассировки,<br>полезно для анализа ошибок в стек-трейсах | `try: 1/0; except ZeroDivisionError: dis.distb()`                                                      |
 | `dis.disassemble(code)`     | Дизассемблирует объект кода (code object) и возвращает его инструкции                                                                           | `code = some_function.__code__`<br>`dis.disassemble(code)`                                             |
 
 ### Классы в библиотеке `dis`
 
-| Класс             | Описание                                                                                                                              | Пример использования                                                                                            |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `dis.Bytecode`    | Представляет последовательность инструкций байт-кода для объекта.<br>Можно итерировать по объектам этого класса для анализа байт-кода | `bytecode = dis.Bytecode(some_function)`<br>`for instr in bytecode:`<br>`    print(instr.opname, instr.argval)` |
-| `dis.Instruction` | Описывает одну инструкцию байт-кода, содержит такие поля как<br>`opcode`, `opname`, `arg`, `argval`, `starts_line` и т.д              | `for instr in dis.get_instructions(some_function):`<br>`    print(instr.opname, instr.argval)`                  |
+| Класс             | Описание                                                                                                                             | Пример использования                                                                                            |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| `dis.Bytecode`    | Представляет последовательность инструкций байт-кода для объекта<br>Можно итерировать по объектам этого класса для анализа байт-кода | `bytecode = dis.Bytecode(some_function)`<br>`for instr in bytecode:`<br>`    print(instr.opname, instr.argval)` |
+| `dis.Instruction` | Описывает одну инструкцию байт-кода, содержит такие поля как<br>`opcode`, `opname`, `arg`, `argval`, `starts_line` и т.д             | `for instr in dis.get_instructions(some_function):`<br>`    print(instr.opname, instr.argval)`                  |
 
 ### Поля класса `dis.Instruction`
 
