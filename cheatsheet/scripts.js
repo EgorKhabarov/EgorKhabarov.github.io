@@ -922,7 +922,7 @@ function displayValueButton(url, scrollIntoActive = true) {
     }
     let button = folderList.querySelector(`[data-vpath="${url}"]`);
     if (scrollIntoActive) {
-        button.scrollIntoView({block: "center"});
+        button?.scrollIntoView({block: "center"});
     }
     return button;
 }
@@ -1178,7 +1178,7 @@ function changeActiveButton(element) {
     for (el of folderList.getElementsByClassName("tree_item_active")) {
         el.classList.remove("tree_item_active")
     }
-    element.classList.add("tree_item_active");
+    element?.classList.add("tree_item_active");
 }
 
 function processingBlockQuote(blockquote) {
