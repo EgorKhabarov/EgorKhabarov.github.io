@@ -164,10 +164,10 @@
 
     <div id="main_container">
         <aside id="cheatsheets_sidebar" class="unselectable">
-            <div class="search_container">
-                <div class="input_wrapper">
-                    <input type="text" class="search_input" placeholder="Search..." id="search_input">
-                    <button class="clear_btn" id="sidebar_clear">
+            <div class="fts_container">
+                <div class="fts_wrapper">
+                    <input type="text" class="fts_input" placeholder="Search..." id="fts_input">
+                    <button class="clear_button" id="fts_clear_button">
                         <svg><use href="#icon_cross"></use></svg>
                     </button>
                 </div>
@@ -183,37 +183,24 @@
         <div id="resizer_left" class="resizer"></div>
 
         <div id="content_wrapper">
-            <div class="floating_search unselectable" id="floating_search" style="display: none;">
-                <div class="floating_search_row">
-                    <div class="floating_search_input_row">
-                        <div class="fs_input_wrapper">
-                            <input type="text" class="fs_input" placeholder="Find on page..." id="main_search_input">
-                            <button class="clear_btn" id="main_clear">
-                                <svg><use href="#icon_cross"></use></svg>
-                            </button>
-                        </div>
+            <div class="page_search_container unselectable" id="page_search_container" style="display: none;">
+                <div>
+                    <div class="page_search_wrapper">
+                        <input type="text" class="page_search_input" placeholder="Find on page..." id="page_search_input">
+                        <button class="clear_button" id="page_search_clear_button">
+                            <svg><use href="#icon_cross"></use></svg>
+                        </button>
                     </div>
-                    <div class="fs_controls">
-                        <!--
-                        <div class="fs_group">
-                            <button class="fs_btn" title="Regular Expression">.*</button>
-                            <button class="fs_btn" title="Match Case">Aa</button>
-                        </div>
-                        -->
-                        <div class="fs_group">
-                            <button class="fs_btn" id="floating_search_arrow_up" title="Alt + <"><svg><use href="#icon_arrow_up"></use></svg></button>
-                            <button class="fs_btn" id="floating_search_arrow_down" title="Alt + >"><svg><use href="#icon_arrow_down"></use></svg></button>
-                            <button class="fs_btn" id="close_floating_search_btn"><svg><use href="#icon_cross"></use></svg></button>
-                        </div>
+                    <div class="page_search_buttons">
+                        <button class="page_search_button" id="page_search_arrow_up" title="Alt + <"><svg><use href="#icon_arrow_up"></use></svg></button>
+                        <button class="page_search_button" id="page_search_arrow_down" title="Alt + >"><svg><use href="#icon_arrow_down"></use></svg></button>
+                        <button class="page_search_button" id="page_search_close" title="Esc"><svg><use href="#icon_cross"></use></svg></button>
                     </div>
                 </div>
                 <div>
-                    <span id="floating_search_result_count">0 results</span>
+                    <span id="page_search_result_count">0 results</span>
                 </div>
             </div>
-            <!--
-            <div class="floating_search" id="h_list" style="top: 0px;right: 0px;height: 400px;z-index: 4;flex-direction: column;"></div>
-            -->
 
             <!-- content from cheatsheet/**/*.html -->
             <div id="cheatsheet_field_container"><div id="cheatsheet_field" class="cheatsheet_field"></div></div>

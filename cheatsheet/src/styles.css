@@ -436,7 +436,7 @@ aside {
     overflow-wrap: break-word;
 }
 
-.search_container {
+.fts_container {
     position: sticky;
     top: 0;
     background-color: var(--bg-sidebar);
@@ -446,12 +446,12 @@ aside {
     flex-shrink: 0;
     transition: background-color 0.3s, border-color 0.3s;
 }
-.input_wrapper {
+.fts_wrapper {
     position: relative;
     display: flex;
     align-items: center;
 }
-.search_input {
+.fts_input {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid var(--border-color);
@@ -463,11 +463,11 @@ aside {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.search_input:focus {
+.fts_input:focus {
     border-color: var(--resizer-hover);
 }
 
-.clear_btn {
+.clear_button {
     position: absolute;
     right: 8px;
     background: none;
@@ -479,14 +479,14 @@ aside {
     justify-content: center;
 }
 
-.search_input:not(:placeholder-shown) + .clear_btn {
+.fts_input:not(:placeholder-shown) + .clear_button {
     display: flex;
 }
-.fs_input:not(:placeholder-shown) + .clear_btn {
+.page_search_input:not(:placeholder-shown) + .clear_button {
     display: flex;
 }
 
-.clear_btn svg {
+.clear_button svg {
     width: 16px;
     height: 16px;
     fill: var(--text-secondary);
@@ -1229,7 +1229,7 @@ tbody tr:hover {
 
 
 /* FLOATING SEARCH BOX */
-.floating_search {
+.page_search_container {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -1247,25 +1247,19 @@ tbody tr:hover {
     font-size: 12px;
 }
 
-.floating_search_row {
+.page_search_container > div {
     display: flex;
     gap: 6px;
 }
 
-.floating_search_input_row {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
-
-.fs_input_wrapper {
+.page_search_wrapper {
     flex-grow: 1;
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.fs_input {
+.page_search_input {
     width: 100%;
     padding: 6px 28px 6px 8px;
     border: 1px solid var(--border-color);
@@ -1276,21 +1270,15 @@ tbody tr:hover {
     outline: none;
 }
 
-.fs_input:focus {
+.page_search_input:focus {
     border-color: var(--resizer-hover);
 }
 
-.fs_controls {
-    display: flex;
-    justify-content: space-between;
-}
-
-.fs_group {
+.page_search_buttons {
     display: flex;
     gap: 4px;
 }
-
-.fs_btn {
+.page_search_button {
     background: var(--control-bg);
     border: 1px solid var(--border-color);
     color: var(--text-color);
@@ -1303,18 +1291,15 @@ tbody tr:hover {
     justify-content: center;
     user-select: none;
 }
-
-.fs_btn:hover {
+.page_search_button:hover {
     background: var(--control-active);
 }
-
-.fs_btn:active {
+.page_search_button:active {
     background: var(--control-selected);
     color: var(--control-selected-text);
     border-color: var(--control-selected);
 }
-
-.fs_btn svg {
+.page_search_button svg {
     width: 14px;
     height: 14px;
     fill: currentColor;

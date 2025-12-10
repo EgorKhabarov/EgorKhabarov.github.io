@@ -8,17 +8,17 @@ const themeBtn = document.getElementById("theme_btn");
 const settingsModal = document.getElementById("settings_modal");
 const closeSettingsBtn = document.getElementById("close_settings");
 const settingsBackdrop = document.getElementById("settings_backdrop");
-const searchInput = document.getElementById("search_input");
+const searchInput = document.getElementById("fts_input");
 const breadcrumbsContainer = document.getElementById("breadcrumbs_content");
 const body = document.body;
 const folderList = document.getElementById("folder_list");
 const folderSearchList = document.getElementById("folder_search_list");
 
-const sidebarInput = document.getElementById("search_input");
-const sidebarClear = document.getElementById("sidebar_clear");
-const mainInput = document.getElementById("main_search_input");
-const mainInputResultCount = document.getElementById("floating_search_result_count");
-const mainClear = document.getElementById("main_clear");
+const sidebarInput = document.getElementById("fts_input");
+const sidebarClear = document.getElementById("fts_clear_button");
+const mainInput = document.getElementById("page_search_input");
+const mainInputResultCount = document.getElementById("page_search_result_count");
+const mainClear = document.getElementById("page_search_clear_button");
 const sidebarToggleBtn = document.getElementById("sidebar_toggle");
 const tocSidebarToggleBtn = document.getElementById("toc_toggle");
 
@@ -353,7 +353,7 @@ function setupClearButton(input, btn) {
 setupClearButton(sidebarInput, sidebarClear);
 setupClearButton(mainInput, mainClear);
 
-close_floating_search_btn.onclick = closeMainSearch;
+page_search_close.onclick = closeMainSearch;
 
 function calcHeaderHeight() {
     const style = getComputedStyle(document.documentElement);
@@ -442,7 +442,7 @@ document.addEventListener("keydown", (e) => {
     // Ctrl + F -> Main Search
     if (e.ctrlKey && e.code === "KeyF") {
         e.preventDefault();
-        floating_search.style.display = "flex";
+        page_search_container.style.display = "flex";
         const selection = window.getSelection().toString();
         mainInput.focus();
         if (selection && !selection.includes("\n")) {
@@ -474,11 +474,11 @@ document.addEventListener("keydown", (e) => {
             nowDrawer?.close();
             return;
         }
-        if (floating_search.style.display === "flex") {
+        if (page_search_container.style.display === "flex") {
             closeMainSearch();
             return;
         }
-        if (search_input.value) {
+        if (fts_input.value) {
             closeSearch();
             return;
         }
@@ -486,7 +486,7 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Alt + > || Alt + < -> Next selection | Prev selection
-    if (floating_search.style.display === "flex"
+    if (page_search_container.style.display === "flex"
         && e.altKey
         && (
             e.code === "Comma"
@@ -501,8 +501,8 @@ document.addEventListener("keydown", (e) => {
 
 
 open_search_button.addEventListener("click", () => {
-    if (floating_search.style.display === "none") {
-        floating_search.style.display = "flex";
+    if (page_search_container.style.display === "none") {
+        page_search_container.style.display = "flex";
         mainInput.focus();
     } else {
         closeMainSearch();
@@ -755,7 +755,7 @@ searchInput.addEventListener("input", debounce(async (e) => {
             const vpath = e.getAttribute("data-vpath")
             await setup_cheatsheet(vpath, false, false);
 
-            floating_search.style.display = "flex";
+            page_search_container.style.display = "flex";
             mainInput.value = search_query.trim();
             setTimeout(function() {
                 mainInput.dispatchEvent(new Event("input"));
@@ -1738,8 +1738,8 @@ function prevHighlight() {
     setActiveHighlight(activeIndex - 1);
 }
 
-floating_search_arrow_up.onclick = prevHighlight;
-floating_search_arrow_down.onclick = nextHighlight;
+page_search_arrow_up.onclick = prevHighlight;
+page_search_arrow_down.onclick = nextHighlight;
 
 
 let last_search = "";
@@ -1755,7 +1755,7 @@ mainInput.addEventListener("input", () => {
 function closeMainSearch() {
     mainInput.value = "";
     mainInput.dispatchEvent(new Event("input"));
-    floating_search.style.display = "none";
+    page_search_container.style.display = "none";
 }
 
 function reset_settings() {
