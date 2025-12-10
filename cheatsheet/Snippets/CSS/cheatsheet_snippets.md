@@ -9,7 +9,7 @@
 ### Шторки на всю ширину
 ```css
 @media (max-width: 768px) {
-    #cheatsheet_buttons, #toc_sidebar {
+    #cheatsheets_sidebar, #toc_sidebar {
         max-width: 100%!important;
         width: 100%!important;
     }

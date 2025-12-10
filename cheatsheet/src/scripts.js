@@ -1,5 +1,5 @@
 /* --- ELEMENTS --- */
-const sidebar = document.getElementById("cheatsheet_buttons");
+const sidebar = document.getElementById("cheatsheets_sidebar");
 const container = document.getElementById("main_container");
 const overlay = document.getElementById("mobile_overlay");
 const resizer = document.getElementById("resizer");
@@ -333,7 +333,7 @@ const rightResizer = new PanelResizer("resizer_right", "main_container", "--side
 const resizer_list = [leftResizer, rightResizer];
 
 // Drawers
-const leftDrawer = new Drawer("cheatsheet_buttons", "mobile_overlay", "left", leftResizer);
+const leftDrawer = new Drawer("cheatsheets_sidebar", "mobile_overlay", "left", leftResizer);
 const rightDrawer = new Drawer("toc_sidebar", "mobile_overlay", "right", rightResizer);
 let nowDrawer = null;
 const drawer_list = [leftDrawer, rightDrawer];
@@ -401,7 +401,7 @@ window.addEventListener("resize", () => {
         document.documentElement.style.setProperty(r.varName, sidebar_width.replace(/\..+(?=%)/, ""));
     });
     [
-        ["--sidebar-left-display", cheatsheet_buttons, leftResizer],
+        ["--sidebar-left-display", cheatsheets_sidebar, leftResizer],
         ["--sidebar-right-display", toc_sidebar, rightResizer],
     ].forEach(args => {
         c = args[0];

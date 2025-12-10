@@ -365,7 +365,7 @@ aside {
 }
 
 /* LEFT SIDEBAR */
-#cheatsheet_buttons {
+#cheatsheets_sidebar {
     width: var(--sidebar-left-width);
     border-right: 1px solid var(--border-color);
     min-width: 10%;
@@ -793,7 +793,7 @@ input[type="color"]::-webkit-color-swatch {
         transition: none;
     }
 
-    #cheatsheet_buttons {
+    #cheatsheets_sidebar {
         left: 0;
         border-right: none;
         transform: translateX(-100%);
