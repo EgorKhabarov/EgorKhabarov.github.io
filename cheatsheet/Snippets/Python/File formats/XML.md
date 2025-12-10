@@ -23,6 +23,7 @@
 
 import xml.etree.ElementTree as xml
 
+
 def dict_to_xml(dct, root_node=None):
     if root_node is None:
         root_node = xml.Element("root")
@@ -33,6 +34,7 @@ def dict_to_xml(dct, root_node=None):
         else:
             node.text = str(value)
     return root_node
+
 
 def xml_to_dict(root):
     from collections import defaultdict
@@ -55,15 +57,25 @@ def xml_to_dict(root):
             dct[root.tag] = text
     return dct
 
-config = {"BOT": {"bot_name": "", "token": ""}}
+
+config = {
+    "config": {
+        "name": "John Smith",
+        "age": 30,
+        "city": "New York",
+    },
+}
 config = dict_to_xml(config)
 tree = xml.ElementTree(config)
+
 
 with open("config.xml", "wb") as file:
     tree.write(file, encoding="utf-8", xml_declaration=True)
 
+
 with open("config.xml", "r") as file:
     tree = xml.parse(file)
+
 
 root = tree.getroot()
 config = xml_to_dict(root)

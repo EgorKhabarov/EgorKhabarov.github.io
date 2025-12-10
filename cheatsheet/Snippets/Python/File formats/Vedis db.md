@@ -1,11 +1,14 @@
 ```python
 from vedis import Vedis
-db = Vedis(":mem:")  # Create an in-memory database.
-db = Vedis("Dict.vedis")
+
+db = Vedis(":mem:")  # Create an in-memory database
+db = Vedis("database.vedis")
+
 with db.transaction():
     db["key"] = "value"
-    db.rollback()  # Undo changes.
+    db.rollback()  # Undo changes
     db.commit()
+
 print(db["key"])
 ```
 

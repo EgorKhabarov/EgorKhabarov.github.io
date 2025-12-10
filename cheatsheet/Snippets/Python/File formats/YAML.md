@@ -12,16 +12,23 @@ city: New York
 ```
 
 ```python
-import yaml  # pip install yaml
+import yaml
 
 
-config = {"BOT": {"bot_name": "", "token": ""}}
+data = {
+    "name": "John Smith",
+    "age": 30,
+    "city": "New York",
+}
 
-with open("config.yaml", "w", encoding="utf-8") as file:
-    file.write(yaml.safe_dump(config, sort_keys=False, allow_unicode=True, indent=4))
+with open("data.yaml", "w", encoding="utf-8") as file:
+    file.write(yaml.safe_dump(data, sort_keys=False, allow_unicode=True, indent=4))
 
-with open("config.yaml", "r", encoding="utf-8") as file:
-    config = yaml.safe_load(file.read())
+with open("data.yaml", "r", encoding="utf-8") as file:
+    data = yaml.safe_load(file.read())
 
-print(config)
+print(data)
 ```
+
+- `pip install yaml`
+- `pip install PyYAML`
