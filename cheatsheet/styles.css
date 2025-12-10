@@ -561,8 +561,14 @@ aside {
     background-color: var(--resizer-hover);
 }
 
-#resizer_left {margin-left: -2px; margin-right: -3px;}
-#resizer_right {margin-left: -3px; margin-right: -2px;}
+#resizer_left {
+    margin-left: -2px;
+    margin-right: -3px;
+}
+#resizer_right {
+    margin-left: -3px;
+    margin-right: -2px;
+}
 
 .display_none {
     display: none!important;
@@ -828,7 +834,7 @@ input[type="color"]::-webkit-color-swatch {
     }
 }
 
-.hidden {display: none !important;}
+.hidden {display: none!important;}
 .no_select {user-select: none;}
 
 
@@ -862,7 +868,7 @@ a:hover   {text-decoration: underline;}
 
 code {
     padding: 0.1em 0.3em;
-    overflow-y:auto;
+    overflow-y: auto;
     border-radius: 0.5em;
     background-color: var(--md-tag-code-bg);
     cursor: pointer;
@@ -899,19 +905,19 @@ blockquote > :last-child {margin-bottom: 0;}
 }
 .blockquote_alerts_p svg {
     display: inline-block;
-    overflow: visible !important;
+    overflow: visible!important;
     vertical-align: text-bottom;
     fill: currentColor;
-    margin-right: 0.5em !important;
-    width:1.34em;
-    height:1.34em;
+    margin-right: 0.5em!important;
+    width: 1.34em;
+    height: 1.34em;
 }
 
 summary {cursor: pointer;}
 
 ul, ol {
     margin: 0px;
-    padding-left: 2em;
+    padding-left: 1.5em;
 }
 li input[type="checkbox"]:first-of-type {
     margin: 0 0.2em 0.25em -1em;
@@ -919,6 +925,8 @@ li input[type="checkbox"]:first-of-type {
 }
 li:has(input[type="checkbox"]:first-of-type) {
     list-style-type: none;
+    gap: 0.5em;
+    display: flex;
 }
 
 
@@ -960,6 +968,12 @@ input[type="checkbox"]:disabled {
     border: 1px solid var(--checkbox-disabled-border-color);
     cursor: default;
 }
+/*
+input[type="checkbox"]:not(:disabled):checked::before {
+    border-right: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+*/
 
 
 
@@ -1000,24 +1014,28 @@ hr {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom:1em;
-    border-radius:.375em;
+    margin-bottom: 1em;
+    border-radius: 0.375em;
+}
+.code_element .code::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    /* border-radius: 0 0 6px 6px; */
 }
 
 .lang_line {
     height: 26px;
-    border-radius: .375em .375em .0em .0em;
+    border-radius: 0.375em 0.375em 0em 0em;
     display: flex;
     align-items: center;
     position: relative;
     color: var(--md-element-code-lang-line-color);
     background-color: var(--md-element-code-lang-line-bg);
     padding-left: 1em;
-    padding-bottom: .35em;
-    padding-top: .35em;
-    gap: .1em;
-    font-family:Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
-                sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    padding-bottom: 0.35em;
+    padding-top: 0.35em;
+    gap: 0.1em;
+    font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
+                 sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 
     position: sticky;
     top: -20px;
@@ -1026,7 +1044,7 @@ hr {
 .copy_code_button {
     display: flex;
     margin-left: auto;
-    gap: .1em;
+    gap: 0.1em;
     background-color: inherit;
     border: 0;
     color: var(--md-element-code-lang-line-color);
@@ -1055,7 +1073,7 @@ hr {
 
 .code {
     padding: 1em;
-    border-radius: .0em .0em .375em .375em;
+    border-radius: 0em 0em 0.375em 0.375em;
     background-color: var(--md-element-code-bg);
     overflow-x: auto;
 }
