@@ -1137,6 +1137,16 @@ function init() {  // load_folder_list
             if (s_param) {
                 sidebarInput.value = s_param;
                 sidebarInput.dispatchEvent(new Event("input"));
+
+                // setTimeout(function() {
+                //     if (vpath !== "README") {
+                //         const search_button = folder_search_list.querySelector(`[data-vpath="${vpath}"]`);
+                //         if (search_button) {
+                //             search_button.scrollIntoView({block: "center"});
+                //             pulseHighlight(search_button);
+                //         }
+                //     }
+                // }, 1000);
             }
         });
 }
