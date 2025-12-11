@@ -110,6 +110,18 @@ blockquote 3
 >> blockquote 2
 >>> blockquote 3
 
+blockquote list
+
+> text
+>- 1
+>- 2
+>- 3
+>text
+>> text
+>>> text
+>> text
+> text
+
 ## Alerts
 
 ```markdown
@@ -164,6 +176,19 @@ blockquote WARNING
 >>> qweret
 > r
 > 1234tv
+
+blockquote list
+
+> [!TIP]
+> text
+> - 1
+> - 2
+> - 3
+> text
+>> text
+>>> text
+>> text
+> text
 
 # Lists
 
