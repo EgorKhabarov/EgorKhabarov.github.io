@@ -456,6 +456,7 @@ ftsInput.addEventListener("input", debounce(async (e) => {
         return;
     }
     ftsInput.style.border = null;
+    folderSearchList.scrollTo(0, 0);
     generateButtons(buildTree(results.map(r => r.f)), folderSearchList, false);
     folderSearchList.querySelectorAll('[data-state="closed"]').forEach(e => {
         e.setAttribute("data-state", "open");
