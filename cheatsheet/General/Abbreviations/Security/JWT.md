@@ -7,11 +7,9 @@ JWT состоит из трёх частей
 header.payload.signature
 ```
 Пример JWT
-```json
+```jwt
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-
 eyJ1c2VyX2lkIjoxMjMsInJvbGUiOiJ1c2VyIn0
-
 SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
 ### Плюсы JWT

@@ -6,6 +6,7 @@
     background-color: var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
 }
+::-webkit-scrollbar-corner {}
 
 /* Light Theme Defaults */
 :root {
@@ -267,7 +268,6 @@ header .actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
 }
 
 .header_row.bottom > div {
@@ -294,6 +294,8 @@ header .actions {
     white-space: nowrap;
     height: 100%;
     overflow-x: auto;
+    user-select: text;
+    padding: 12px;
 }
 
 .crumb_btn {
@@ -313,6 +315,7 @@ header .actions {
     margin: 0 6px;
     color: var(--text-secondary);
     opacity: 0.5;
+    user-select: none;
 }
 
 .icon_btn {
@@ -1050,6 +1053,7 @@ hr {
 
     position: sticky;
     top: -20px;
+    transition: background-color 0.3s;
 }
 
 .copy_code_button {
@@ -1087,6 +1091,7 @@ hr {
     border-radius: 0em 0em 0.375em 0.375em;
     background-color: var(--md-element-code-bg);
     overflow-x: auto;
+    transition: background-color 0.3s;
 }
 .highlight > pre {
     font-family: "JetBrains Mono", monospace;
@@ -1306,11 +1311,11 @@ tbody tr:hover {
 }
 
 
-::highlight(search_highlight) {
+#cheatsheet_field_container::highlight(search_highlight) {
     background: yellow;
     color: black;
 }
-::highlight(active_search_highlight) {
+#cheatsheet_field_container::highlight(active_search_highlight) {
     background: orange;
     color: black;
 }
