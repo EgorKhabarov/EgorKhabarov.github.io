@@ -1021,7 +1021,7 @@ async function load_cheatsheet(url) {
 
         try {
             const response = await fetch(`${url}.html`);
-            const text = await response.text();
+            text = await response.text();
             clearTimeout(loaderTimeout);
             if (loaderShownAt !== null) {
                 const elapsed = performance.now() - loaderShownAt;
