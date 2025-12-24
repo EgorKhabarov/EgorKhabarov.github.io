@@ -991,49 +991,75 @@ function processingCheatSheet() {
 }
 
 let cheatsheet_cache = {};
+function set_loading_page() {
+    nowCheatsheetField.innerHTML = `
+<span class="skeleton title"></span>
+<span class="skeleton line"></span>
+<span class="skeleton short_line"></span>
+<span class="skeleton not_full_line"></span>
+<span class="skeleton big"></span>
+<span class="skeleton short_line"></span>
+`;
+    nowCheatsheetField.setAttribute("data-cheatsheet-path", "__loader");
+}
 async function load_cheatsheet(url) {
     let text = "";
+    let loaderTimeout = null;
+    let loaderShownAt = null;
+    const LOADER_DELAY = 1000;
+    const MIN_LOADER_TIME = 500;
 
     if (url in cheatsheet_cache) {
         text = cheatsheet_cache[url];
     } else {
-        console.log(`Load "${url}.html"`)
+        console.log(`Load "${url}.html"`);
+
+        loaderTimeout = setTimeout(() => {
+            set_loading_page();
+            loaderShownAt = performance.now();
+        }, LOADER_DELAY);
+
         try {
             const response = await fetch(`${url}.html`);
-            const tmp_text = await response.text();
+            const text = await response.text();
+            clearTimeout(loaderTimeout);
+            if (loaderShownAt !== null) {
+                const elapsed = performance.now() - loaderShownAt;
+                const remaining = MIN_LOADER_TIME - elapsed;
 
-            if (tmp_text.startsWith("<!-- 404.html -->")) {
-                nowCheatsheetField.innerHTML = `Sorry, this page isn't available`;
-                nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
-                cheatsheet_cache[url] = null;
-                return false;
+                if (remaining > 0) {
+                    await new Promise(resolve => setTimeout(resolve, remaining));
+                }
             }
-
-            if (tmp_text.trim() === "") {
-                nowCheatsheetField.innerHTML = `This page is empty`;
-                nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-empty");
-                cheatsheet_cache[url] = "";
-                return true;
-            }
-
-            cheatsheet_cache[url] = tmp_text;
-            text = tmp_text;
         } catch (e) {
+            clearTimeout(loaderTimeout);
+            nowCheatsheetField.innerHTML = "An error occurred while loading the page";
+            nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
             return false;
         }
     }
 
+    if (text.startsWith("<!-- 404.html -->")) {
+        nowCheatsheetField.innerHTML = "Sorry, this page isn't available";
+        nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
+        cheatsheet_cache[url] = null;
+        return false;
+    }
+
+    if (text.trim() === "") {
+        nowCheatsheetField.innerHTML = "This page is empty";
+        nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-empty");
+        cheatsheet_cache[url] = "";
+        return true;
+    }
+
     if (text === null) {
-        nowCheatsheetField.innerHTML = `Sorry, this page isn't available`;
+        nowCheatsheetField.innerHTML = "Sorry, this page isn't available";
         nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-404");
         return true;
     }
 
-    if (text === "") {
-        nowCheatsheetField.innerHTML = `This page is empty`;
-        nowCheatsheetField.setAttribute("data-cheatsheet-path", "error-empty");
-        return true;
-    }
+    cheatsheet_cache[url] = text;
 
     nowCheatsheetField.innerHTML = text;
     nowCheatsheetField.setAttribute("data-cheatsheet-path", url);
