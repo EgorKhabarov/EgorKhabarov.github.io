@@ -11,4 +11,4 @@
 | `TitleCase`                      | Как `PascalCase`, но с пробелами между словами<br>Используется в заголовках | `User Name`                |
 | `lowercase`                      | Все буквы строчные, без знаков или пробелов                                 | `username`                 |
 | `UPPER_CASE`                     | Как `snake_case`, но все буквы заглавные<br>Часто для констант              | `USER_NAME`                |
-| `Train-Case`<br>`TRAIN-CASE`     | Как `kebab-case`, но каждое слово с заглавной или полностью заглавными      | `User-Name`<br>`USER-NAME` |
+| `Train-Case`<br>`TRAIN-CASE`     | Как `kebab-case`, но каждое слово<br>с заглавной или полностью заглавными   | `User-Name`<br>`USER-NAME` |
