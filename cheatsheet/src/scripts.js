@@ -1705,7 +1705,7 @@ document.addEventListener("keydown", (e) => {
         return;
     }
 
-    // Ctrl + i -> Main Search
+    // Ctrl + i -> Settings
     if (e.ctrlKey && !e.shiftKey && e.code === "KeyI") {
         e.preventDefault();
         toggleSettings(!isSettingsOpen);
@@ -1746,7 +1746,27 @@ document.addEventListener("keydown", (e) => {
         e.code === "Comma" ? prevHighlight() : nextHighlight();
         return;
     }
-});
+
+    // Ctrl + Shift + "+" -> Open all folders
+    if (e.ctrlKey && e.shiftKey && e.code === "Equal") {
+        e.preventDefault();
+        folderList.querySelectorAll('[data-state="closed"]').forEach(e => {
+            e.setAttribute("data-state", "open");
+            e.nextElementSibling.classList.remove("hidden");
+        });
+        return;
+    }
+
+    // Ctrl + Shift + "-" -> Close all folders
+    if (e.ctrlKey && e.shiftKey && e.code === "Minus") {
+        e.preventDefault();
+        folderList.querySelectorAll('[data-state="open"]').forEach(e => {
+            e.setAttribute("data-state", "closed");
+            e.nextElementSibling.classList.add("hidden");
+        });
+        return;
+    }
+})
 window.addEventListener("hashchange", () => {
     renderBreadcrumbs(urlArgs.getMain());
 })
