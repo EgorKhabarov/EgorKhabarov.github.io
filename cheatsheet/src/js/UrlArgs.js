@@ -97,6 +97,10 @@ class UrlArgs {
         return this.parse().params;
     }
 
+    getParam(name, default_=undefined) {
+        return this.parse().params[name] || default_;
+    }
+
     setParam(name, value) {
         const parsed = this.parse();
         const url = new URL(window.location.href);

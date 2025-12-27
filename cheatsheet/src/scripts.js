@@ -1573,14 +1573,49 @@ reset_all_settings.onclick = reset_settings;
 
 
 let isSettingsOpen = false;
-function toggleSettings(show) {
+function toggleSettings(show, page) {
     isSettingsOpen = show;
-    if (show) settingsModal.classList.add("active");
-    else settingsModal.classList.remove("active");
+    if (show) {
+        settingsModal.classList.add("active");
+        showSettingsPage(page || urlArgs.getParam("settings", "general"));
+        if (isMobile()) {
+            document.querySelector(".category_btn.active").scrollIntoView();
+        }
+    }
+    else {
+        settingsModal.classList.remove("active");
+        urlArgs.setParam("settings", null);
+    }
+}
+function showSettingsPage(page="general") {
+    const btn = document.querySelector(`.category_btn[data-tab="${page}"]`);
+
+    document.querySelectorAll(".category_btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    document.querySelectorAll(".settings_page").forEach(p => p.classList.remove("active"));
+    document.getElementById(`page_${page}`).classList.add("active");
+
+    settings_modal_title.textContent = btn.textContent;
+    urlArgs.setParam("settings", page);
+    settings_content_pages.scrollTo(0, 0);
 }
 settingsBtn.addEventListener("click", () => toggleSettings(true));
 closeSettingsBtn.addEventListener("click", () => toggleSettings(false));
 settingsBackdrop.addEventListener("click", () => toggleSettings(false));
+
+
+
+const settingsPages = document.querySelectorAll(".settings_page");
+document.querySelectorAll(".category_btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        showSettingsPage(btn.dataset.tab);
+    });
+});
+if (urlArgs.getParam("settings")) {
+    toggleSettings(true);
+}
+
 
 
 open_search_button.addEventListener("click", () => {
@@ -1780,6 +1815,9 @@ window.addEventListener("resize", () => {
         resizer_list.forEach(r => {
             r.resizer.classList.remove("display_none");
         })
+        if (isSettingsOpen) {
+            document.querySelector(".category_btn.active").scrollIntoView();
+        }
     } else {
         drawer_list.forEach(d => {
             d.el.style.transform = "";
