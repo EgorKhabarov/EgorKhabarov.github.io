@@ -117,6 +117,52 @@
             <symbol id="icon_close" viewBox="0 0 1024 1024" fill="currentColor">
                 <path d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"/>
             </symbol>
+            <symbol id="theme_preview" viewBox="0 0 500 300">
+                <rect id="base"                         fill="var(--theme-preview-color-body)" width="500" height="300" x="0" y="0"/>
+
+                <rect id="header_top"                   fill="var(--theme-preview-color-header)" width="500" height="19.5" x="0" y="0"/>
+                <rect id="header_top_button1"           fill="var(--theme-preview-color-button)" width="15" height="15" x="5" y="2.2"/>
+                <rect id="header_top_button2"           fill="var(--theme-preview-color-button)" width="15" height="15" x="25" y="2.2"/>
+                <rect id="header_top_button3"           fill="var(--theme-preview-color-button)" width="15" height="15" x="45" y="2.2"/>
+                <rect id="header_top_button4"           fill="var(--theme-preview-color-button)" width="15" height="15" x="440" y="2.2"/>
+                <rect id="header_top_button5"           fill="var(--theme-preview-color-button)" width="15" height="15" x="460" y="2.2"/>
+                <rect id="header_top_button6"           fill="var(--theme-preview-color-button)" width="15" height="15" x="480" y="2.2"/>
+
+                <rect id="header_bottom_left"           fill="var(--theme-preview-color-header)" width="25" height="19.5" x="0" y="20"/>
+                <rect id="header_bottom_center"         fill="var(--theme-preview-color-header)" width="449" height="19.5" x="25.5" y="20"/>
+                <rect id="header_bottom_right"          fill="var(--theme-preview-color-header)" width="25" height="19.5" x="475" y="20"/>
+                <rect id="header_bottom_left_button"    fill="var(--theme-preview-color-button)" width="15" height="15" x="5" y="22"/>
+                <rect id="header_bottom_right_button"   fill="var(--theme-preview-color-button)" width="15" height="15" x="480" y="22"/>
+
+                <rect id="sidepanel_left_top"           fill="var(--theme-preview-color-sidebar)" width="119.5" height="30" x="0" y="40"/>
+                <rect id="fts_input"                    fill="var(--theme-preview-color-button)" width="110" height="20" x="5" y="45"/>
+
+                <rect id="sidepanel_left_bottom"        fill="var(--theme-preview-color-sidebar)" width="119.5" height="229.5" x="0" y="70.5"/>
+                <rect id="chsh_button1"                 fill="var(--theme-preview-color-button)" width="110" height="14" x="5" y="75"/>
+                <rect id="chsh_button2"                 fill="var(--theme-preview-color-button)" width="110" height="14" x="5" y="93"/>
+                <rect id="chsh_button3"                 fill="var(--theme-preview-color-button)" width="110" height="14" x="5" y="111"/>
+                <rect id="chsh_button4"                 fill="var(--theme-preview-color-button)" width="110" height="14" x="5" y="129"/>
+                <rect id="chsh_button5"                 fill="var(--theme-preview-color-button)" width="110" height="14" x="5" y="147"/>
+
+                <rect id="cheatsheet_field"             fill="var(--theme-preview-color-content)" width="260" height="260" x="120" y="40"/>
+
+                <rect id="skeleton1"                     fill="var(--theme-preview-color-content-loader)" width="92" height="17" x="150" y="50" rx="3" ry="3"/>
+                <rect id="skeleton2"                     fill="var(--theme-preview-color-content-loader)" width="200" height="15" x="150" y="75" rx="3" ry="3"/>
+                <rect id="skeleton3"                     fill="var(--theme-preview-color-content-loader)" width="132" height="15" x="150" y="95" rx="3" ry="3"/>
+                <rect id="skeleton4"                     fill="var(--theme-preview-color-content-loader)" width="169" height="15" x="150" y="115" rx="3" ry="3"/>
+                <rect id="skeleton5"                     fill="var(--theme-preview-color-content-loader)" width="200" height="35" x="150" y="137" rx="3" ry="3"/>
+                <rect id="skeleton6"                     fill="var(--theme-preview-color-content-loader)" width="122" height="15" x="150" y="179" rx="3" ry="3"/>
+
+                <rect id="sidepanel_right_top"          fill="var(--theme-preview-color-sidebar)" width="119.5" height="30" x="380.5" y="40"/>
+                <rect id="sidepanel_right_bottom_sec1"  fill="var(--theme-preview-color-sidebar)" width="119.5" height="19.5" x="380.5" y="70.5"/>
+                <rect id="sidepanel_right_bottom_sec2"  fill="var(--theme-preview-color-sidebar)"   width="119.5" height="19.5" x="380.5" y="90.5"/>
+                <rect id="sidepanel_right_bottom_sec3"  fill="var(--theme-preview-color-sidebar)" width="119.5" height="19.5" x="380.5" y="110.5"/>
+                <rect id="sidepanel_right_bottom_sec4"  fill="var(--theme-preview-color-sidebar)" width="119.5" height="170" x="380.5" y="130.5"/>
+
+                <rect id="chsh_button1"                 fill="var(--theme-preview-color-button)" width="113" height="14" x="383.5" y="73"/>
+                <rect id="chsh_button2"                 fill="var(--theme-preview-color-button)" width="113" height="14" x="383.5" y="93"/>
+                <rect id="chsh_button3"                 fill="var(--theme-preview-color-button)" width="113" height="14" x="383.5" y="113"/>
+            </symbol>
         </defs>
     </svg>
 
@@ -138,9 +184,11 @@
                 <button class="icon_btn" id="open_search_button" title="Search">
                     <svg><use href="#icon_search"/></svg>
                 </button>
+                <!--
                 <button class="icon_btn" id="theme_btn" title="Switch theme">
                     <svg><use href="#icon_theme"/></svg>
                 </button>
+                -->
                 <button class="icon_btn" id="settings_btn" title="Settings">
                     <svg><use href="#icon_settings"/></svg>
                 </button>
@@ -221,35 +269,61 @@
         <div class="settings_modal_content">
             <div class="settings_layout">
                 <div class="settings_sidebar">
-                    <button class="category_btn active" data-tab="general">General</button>
+                    <!-- <button class="category_btn" data-tab="general">General</button> -->
                     <button class="category_btn" data-tab="appearance">Appearance</button>
-                    <button class="category_btn" data-tab="advanced">Advanced</button>
-                    <button class="category_btn" data-tab="markup_examples">MARKUP_EXAMPLES</button>
+                    <!-- <button class="category_btn" data-tab="advanced">Advanced</button> -->
+                    <!-- <button class="category_btn" data-tab="customization">Customization</button> -->
+                    <button class="category_btn" data-tab="markup_examples">MARKUP EXAMPLES</button>
                 </div>
                 <div class="settings_content_pane">
                     <div class="settings_modal_header">
-                        <div class="settings_modal_title" id="settings_modal_title">General</div>
+                        <div class="settings_modal_title" id="settings_modal_title">Settings</div>
                         <span class="close_btn" id="close_settings">
                             <svg><use href="#icon_close"/></svg>
                         </span>
                     </div>
                     <div class="settings_content_pages" id="settings_content_pages">
-                        <div class="settings_page active" id="page_general">
+                        <!-- <div class="settings_page" id="page_general">
                             <div class="setting_group">
                                 ...
                             </div>
-                            <div class="setting_group" style="margin-top: 20px;">
-                                <button class="setting_btn setting_btn_danger" id="reset_all_settings">Reset all settings</button>
-                            </div>
-                        </div>
+                        </div> -->
                         <div class="settings_page" id="page_appearance">
+                            <div class="setting_group">
+                                <span class="setting_label">Theme</span>
+                                <div class="setting_row" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                                    <label for="radio_theme_dark" class="theme_preview_container">
+                                        <svg class="theme_preview" data-theme="dark" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
+                                        <span class="theme_preview_row">
+                                            <input type="radio" name="radio_theme" data-theme-name="dark" id="radio_theme_dark" checked>
+                                            Dark
+                                        </span>
+                                    </label>
+                                    <label for="radio_theme_light" class="theme_preview_container">
+                                        <svg class="theme_preview" data-theme="light" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
+                                        <span class="theme_preview_row">
+                                            <input type="radio" name="radio_theme" data-theme-name="light" id="radio_theme_light">
+                                            Light
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="setting_row" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                                    <label for="radio_theme_dark_github" class="theme_preview_container">
+                                        <svg class="theme_preview" data-theme="dark-github" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
+                                        <span class="theme_preview_row">
+                                            <input type="radio" name="radio_theme" data-theme-name="dark-github" id="radio_theme_dark_github">
+                                            Dark GitHub
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
                             <div class="setting_group">
                                 <span class="setting_label">CSS Preview Markdown</span>
                                 <label class="toggle_switch">
                                     <input type="checkbox" id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this);">
                                     <span class="slider"></span>
                                 </label>
-                                <div class="cheatsheet_field cheatsheet_field_nested" style="margin-top: 10px;">
+                                <div class="cheatsheet_field cheatsheet_field_nested" style="margin-top: 10px;font-size: 12px;">
                                     <h1 style="font-size: 1.5em;">Header 1</h1>
                                     <h3 style="font-size: 1.1em;">Header 3</h3>
                                     <div>
@@ -266,10 +340,16 @@
                                 <span class="setting_label">Custom CSS</span>
                                 <textarea placeholder="Your custom CSS…" id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings);"></textarea>
                             </div>
+                            <div class="setting_group" style="margin-top: 20px;">
+                                <button class="setting_btn setting_btn_danger" id="reset_all_settings">Reset all settings</button>
+                            </div>
                         </div>
-                        <div class="settings_page" id="page_advanced">
+                        <!-- <div class="settings_page" id="page_advanced">
                             ...
-                        </div>
+                        </div> -->
+                        <!-- <div class="settings_page" id="page_customization">
+                            ...
+                        </div> -->
                         <div class="settings_page" id="page_markup_examples">
                             <div class="setting_group">
                                 <span class="setting_label">Select</span>
@@ -284,13 +364,28 @@
                                 <input type="text" placeholder="placeholder">
                             </div>
                             <div class="setting_group">
+                                <span class="setting_label">Checkbox</span>
+                                <input type="checkbox" checked>
+                                <span class="setting_label">Checkbox with text</span>
+                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                    <input type="checkbox" id="checkbox_input2" checked>
+                                    <label for="checkbox_input2">Text</label>
+                                </div>
                                 <span class="setting_label">Checkbox slider</span>
                                 <label class="toggle_switch">
                                     <input type="checkbox" checked>
                                     <span class="slider"></span>
                                 </label>
-                                <span class="setting_label">Checkbox</span>
-                                <input type="checkbox" checked>
+                            </div>
+                            <div class="setting_group">
+                                <span class="setting_label">Checkbox slider with text</span>
+                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                    <label class="toggle_switch">
+                                        <input type="checkbox" id="checkbox_input1" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                    <label for="checkbox_input1">Text</label>
+                                </div>
                             </div>
                             <div class="setting_group">
                                 <span class="setting_label">Text</span>

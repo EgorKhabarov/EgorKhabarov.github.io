@@ -5,7 +5,6 @@ const container = document.getElementById("main_container");
 const overlay = document.getElementById("mobile_overlay");
 const resizer = document.getElementById("resizer");
 const settingsBtn = document.getElementById("settings_btn");
-const themeBtn = document.getElementById("theme_btn");
 const settingsModal = document.getElementById("settings_modal");
 const closeSettingsBtn = document.getElementById("close_settings");
 const settingsBackdrop = document.getElementById("settings_backdrop");
@@ -1423,23 +1422,21 @@ function load_sidebar_width() {
 load_sidebar_width();
 
 
-
-let isDark = true;
-themeBtn.addEventListener("click", () => {
-    isDark = !isDark;
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (isDark) {
-        document.documentElement.setAttribute("data-theme", "dark");
-        themeColorMeta.setAttribute("content", "#1E1E1E");
-        settings.theme = "dark";
+const themeColorMetaMap = {
+    "dark": "#1E1E1E",
+    "light": "#FFFFFF",
+    "dark-github": "#1E1E1E",
+};
+document.querySelectorAll('input[name="radio_theme"]').forEach(e => {
+    e.addEventListener("click", () => {
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        const themeName = e.dataset.themeName;
+        document.documentElement.setAttribute("data-theme", themeName);
+        themeColorMeta.setAttribute("content", themeColorMetaMap[themeName]);
+        settings.theme = themeName;
         saveSettings(settings);
-    } else {
-        document.documentElement.removeAttribute("data-theme");
-        themeColorMeta.setAttribute("content", "#FFFFFF");
-        settings.theme = "light";
-        saveSettings(settings);
-    }
-});
+    });
+})
 
 
 function loadSettings() {
@@ -1468,15 +1465,14 @@ function saveSettings(settings) {
 }
 function applySettings(settings) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (settings.theme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-        themeColorMeta.setAttribute("content", "#1E1E1E");
-        isDark = true;
-    } else {
-        document.documentElement.removeAttribute("data-theme");
-        themeColorMeta.setAttribute("content", "#FFFFFF");
-        isDark = false;
+    document.documentElement.setAttribute("data-theme", settings.theme);
+    themeColorMeta.setAttribute("content", themeColorMetaMap[settings.theme]);
+
+    const theme_input = document.querySelector(`input[data-theme-name="${settings.theme}"]`);
+    if (theme_input) {
+        theme_input.checked = true;
     }
+
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
     settings_css_textarea.value = settings.settings_css || "";
     settings_css.textContent = settings.settings_css || "";
@@ -1497,7 +1493,7 @@ function css_markdown_preview_func(element) {
     --md-color-bi: #C39990;
 }
 
-[data-theme="dark"] {
+[data-theme*="dark"] {
     --color-h3: #FFFA00;
 }
 
@@ -1556,7 +1552,7 @@ function toggleSettings(show, page) {
     isSettingsOpen = show;
     if (show) {
         settingsModal.classList.add("active");
-        showSettingsPage(page || urlArgs.getParam("settings", "general"));
+        showSettingsPage(page || urlArgs.getParam("settings", removePrefix(settings_content_pages.firstElementChild.id, "page_")));
         if (isMobile()) {
             document.querySelector(".category_btn.active").scrollIntoView();
         }
@@ -1566,7 +1562,7 @@ function toggleSettings(show, page) {
         urlArgs.setParam("settings", null);
     }
 }
-function showSettingsPage(page="general") {
+function showSettingsPage(page="appearance") {
     const btn = document.querySelector(`.category_btn[data-tab="${page}"]`);
 
     document.querySelectorAll(".category_btn").forEach(b => b.classList.remove("active"));
