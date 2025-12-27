@@ -367,7 +367,6 @@ svg {
     height: 100%;
 }
 
-/* --- MAIN CONTAINER --- */
 #main_container {
     flex-grow: 1;
     display: flex;
@@ -376,7 +375,6 @@ svg {
     overflow: hidden;
 }
 
-/* --- SIDEBARS COMMON --- */
 aside {
     background-color: var(--bg-sidebar);
     overflow-y: auto;
@@ -388,7 +386,6 @@ aside {
     z-index: 10;
 }
 
-/* LEFT SIDEBAR */
 #cheatsheets_sidebar {
     width: var(--sidebar-left-width);
     border-right: 1px solid var(--border-color);
@@ -397,7 +394,6 @@ aside {
     display: var(--sidebar-left-display);
 }
 
-/* RIGHT SIDEBAR (TOC) */
 #toc_sidebar {
     width: var(--sidebar-right-width);
     border-left: 1px solid var(--border-color);
@@ -460,6 +456,7 @@ aside {
     overflow-wrap: break-word;
 }
 
+/* Full-text search */
 .fts_container {
     position: sticky;
     top: 0;
@@ -486,7 +483,6 @@ aside {
     outline: none;
     transition: background-color 0.3s, border-color 0.3s;
 }
-
 .fts_input:focus {
     border-color: var(--resizer-hover);
 }
@@ -516,7 +512,7 @@ aside {
     fill: var(--text-secondary);
 }
 
-/* --- FILE TREE STYLES --- */
+/* File tree */
 .folder_list {
     flex-grow: 1;
     padding: 10px 0;
@@ -560,7 +556,6 @@ aside {
     flex: 1 1 auto;
     min-width: 0;
 }
-
 .tree_children {
     margin-left: 23px;
     padding-left: 5px;
@@ -568,21 +563,18 @@ aside {
     transition: border-color 0.2s;
     position: relative;
 }
-
 .tree_children.hidden {
     display: none;
 }
-
 .tree_children:hover {
     border-left-color: var(--tree-line-hover);
     cursor: pointer;
 }
-
 .tree_children {
     cursor: default;
 }
 
-/* --- RESIZER --- */
+/* Resizer */
 .resizer {
     width: var(--resizer-width);
     background-color: transparent;
@@ -591,11 +583,9 @@ aside {
     z-index: 11;
     position: relative;
 }
-
 .resizer:hover, .resizer.active {
     background-color: var(--resizer-hover);
 }
-
 #resizer_left {
     margin-left: -2px;
     margin-right: -3px;
@@ -605,11 +595,7 @@ aside {
     margin-right: -2px;
 }
 
-.display_none {
-    display: none!important;
-}
-
-/* --- CONTENT --- */
+/* Content */
 #content_wrapper {
     flex-grow: 1;
     position: relative;
@@ -618,7 +604,6 @@ aside {
     overflow: hidden;
     min-width: 30%;
 }
-
 #cheatsheet_field_container {
     flex-grow: 1;
     background-color: var(--bg-content);
@@ -635,7 +620,6 @@ aside {
     word-break: break-word;
     overflow-wrap: break-word;
 }
-
 .cheatsheet_field {
     max-width: 700px;
     margin: 0 auto;
@@ -646,19 +630,17 @@ aside {
     display: flex;
     flex-direction: column;
 }
-
 .cheatsheet_field.cheatsheet_field_nested {
     background: var(--bg-content);
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 0px;
 }
-
 .cheatsheet_field p {
     white-space: pre-wrap;
 }
 
-/* --- MOBILE OVERLAY --- */
+/* Mobile overlay */
 #mobile_overlay {
     position: fixed;
     top: var(--header-total-height);
@@ -672,7 +654,9 @@ aside {
     transition: opacity 0.3s ease;
 }
 
-/* --- SETTINGS MODAL --- */
+
+
+/* Settings modal */
 #settings_modal {
     position: fixed;
     top: 0;
@@ -684,27 +668,30 @@ aside {
     justify-content: center;
     align-items: center;
 }
-
 #settings_modal.active {
     display: flex;
 }
-
 .setting_group {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 20px;
 }
 .setting_label {
     font-size: 0.9em;
     font-weight: 600;
     color: var(--text-secondary);
+    margin-bottom: 8px;
+    display: block;
 }
 .setting_row {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
+/* Setting buttons */
 .setting_btn {
     padding: 8px 16px;
     border-radius: 4px;
@@ -737,51 +724,6 @@ aside {
     background-color: var(--hover-color);
 }
 
-textarea {
-    resize: vertical;
-    min-height: 180px;
-}
-
-input[type="range"] {
-    width: 100%;
-    cursor: pointer;
-}
-input[type="text"], input[type="number"], input[type="date"], select, textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid var(--border-color);
-    background: var(--bg-input);
-    color: var(--text-color);
-    border-radius: 4px;
-    font-family: monospace;
-    padding-right: 30px;
-    outline: none;
-}
-input[type="button"] {
-    height: 31px;
-    background: var(--bg-input);
-    padding: 5px;
-    cursor: pointer;
-}
-
-input[type="color"] {
-    -webkit-appearance: none;
-    border: none;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    background: none;
-    cursor: pointer;
-}
-input[type="color"]::-webkit-color-swatch-wrapper {
-    padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-}
-
-
 .settings_modal_backdrop {
     position: absolute;
     top: 0;
@@ -790,10 +732,8 @@ input[type="color"]::-webkit-color-swatch {
     height: 100%;
     background: var(--modal-backdrop);
 }
-
 .settings_modal_content {
     background: var(--bg-modal);
-    /*padding: 20px;*/
     border-radius: 8px;
     position: relative;
     box-shadow: 0 4px 15px var(--shadow-color);
@@ -803,7 +743,6 @@ input[type="color"]::-webkit-color-swatch {
     height: 500px;
     display: flex;
     flex-direction: column;
-    /*gap: 15px;*/
     max-height: 85vh;
     overflow-y: auto;
 }
@@ -820,21 +759,9 @@ input[type="color"]::-webkit-color-swatch {
     font-size: 1.2em;
     font-weight: 600;
 }
-
-
-
-
-
-
-
-
-
-
-
 .settings_layout {
     display: flex;
     flex-grow: 1;
-    /*overflow: hidden;*/
     height: 100%;
 }
 
@@ -899,24 +826,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* Controls */
-.setting_group {
-    margin-bottom: 20px;
-}
-.setting_label {
-    font-size: 0.9em;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 8px;
-    display: block;
-}
-.setting_row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-
 .close_btn {
     position: absolute;
     top: 10px;
@@ -940,6 +849,13 @@ input[type="color"]::-webkit-color-swatch {
     width: 18px;
     height: 18px;
 }
+
+
+
+
+
+
+
 
 /* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
@@ -1022,9 +938,6 @@ input[type="color"]::-webkit-color-swatch {
         border-bottom: 1px solid var(--border-color);
         padding: 0;
     }
-    /*.settings_sidebar::-webkit-scrollbar {
-        display: none;
-    }*/
     .category_btn {
         flex-shrink: 0;
         padding: 15px;
@@ -1033,12 +946,20 @@ input[type="color"]::-webkit-color-swatch {
     }
     .category_btn.active {
         border-left: none;
-        border-bottom-color: #3B82F6;/*var(--recent-accent);*/
+        border-bottom-color: #3B82F6;
     }
 }
 
 .hidden {display: none!important;}
+.display_none {display: none!important;}
 .no_select {user-select: none;}
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 
 
@@ -1049,8 +970,48 @@ input[type="color"]::-webkit-color-swatch {
 
 
 
-
-
+/* Elements */
+textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+input[type="text"], input[type="number"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-family: monospace;
+    padding-right: 30px;
+    outline: none;
+}
+input[type="button"] {
+    height: 31px;
+    background: var(--bg-input);
+    padding: 5px;
+    cursor: pointer;
+}
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
 
 a {
     text-decoration: none;
@@ -1280,7 +1241,6 @@ hr {
     gap: 0.1em;
     font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,
                  sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-
     position: sticky;
     top: -20px;
     transition: background-color 0.3s;
@@ -1329,13 +1289,6 @@ hr {
 
 
 
-.unselectable {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
 
 
 
@@ -1466,7 +1419,7 @@ tbody tr:hover {
 
 
 
-/* FLOATING SEARCH BOX */
+/* Floating search box */
 .page_search_container {
     position: absolute;
     top: 15px;
