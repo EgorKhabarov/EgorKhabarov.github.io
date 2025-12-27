@@ -1446,15 +1446,11 @@ function loadSettings() {
     const settings = localStorage.getItem("settings");
     let s = settings ? JSON.parse(settings) : {
         "theme": "dark",
-        "breadcrumbs": true,
         "settings_css_markdown_preview": true,
         "settings_css": "",
     };
     if (s.theme === undefined) {
         s.theme = "dark";
-    }
-    if (s.breadcrumbs === undefined) {
-        s.breadcrumbs = true;
     }
     if (s.settings_css_markdown_preview === undefined) {
         s.settings_css_markdown_preview = true;
@@ -1482,7 +1478,6 @@ function applySettings(settings) {
         isDark = false;
     }
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
-    settings_breadcrumbs_input.checked = settings.breadcrumbs;
     settings_css_textarea.value = settings.settings_css || "";
     settings_css.textContent = settings.settings_css || "";
 }
@@ -1543,21 +1538,6 @@ strong:has(em), em:has(strong) {color: var(--md-color-bi)!important;}
         saveSettings(settings);
     }
 }
-function settings_breadcrumbs_func(element) {
-    if (!element.checked) {
-        settings_breadcrumbs_style.textContent = `
-#breadcrumbs_row {display: none;}
-:root {--header-total-height: 40px;}
-.header_row.bottom {display: none;}
-`;
-        settings.breadcrumbs = false;
-        saveSettings(settings);
-    } else {
-        settings_breadcrumbs_style.textContent = "";
-        settings.breadcrumbs = true;
-        saveSettings(settings);
-    }
-}
 function reset_settings() {
     const settings_css = JSON.parse(localStorage.getItem("settings")).settings_css;
     localStorage.clear();
@@ -1567,7 +1547,6 @@ function reset_settings() {
 let settings = loadSettings();
 applySettings(settings);
 css_markdown_preview_func(settings_css_markdown_preview)
-settings_breadcrumbs_func(settings_breadcrumbs_input)
 reset_all_settings.onclick = reset_settings;
 
 
