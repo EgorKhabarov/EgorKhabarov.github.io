@@ -318,11 +318,14 @@
                                 </div>
                             </div>
                             <div class="setting_group">
-                                <span class="setting_label">CSS Preview Markdown</span>
-                                <label class="toggle_switch">
-                                    <input type="checkbox" id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this);">
-                                    <span class="slider"></span>
-                                </label>
+                                <span class="setting_label">Markdown preview</span>
+                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                    <label class="toggle_switch">
+                                        <input type="checkbox" id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this);">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <label for="settings_css_markdown_preview">Show simulated Markdown syntax</label>
+                                </div>
                                 <div class="cheatsheet_field cheatsheet_field_nested" style="margin-top: 10px;font-size: 12px;">
                                     <h1 style="font-size: 1.5em;">Header 1</h1>
                                     <h3 style="font-size: 1.1em;">Header 3</h3>
@@ -338,6 +341,9 @@
                             </div>
                             <div class="setting_group">
                                 <span class="setting_label">Custom CSS</span>
+                                <span class="setting_description">
+                                    Here you can enter your CSS code. Examples can be found <a href="?Snippets/CSS/cheatsheet_snippets">here</a>
+                                </span>
                                 <textarea placeholder="Your custom CSS…" id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings);"></textarea>
                             </div>
                             <div class="setting_group" style="margin-top: 20px;">

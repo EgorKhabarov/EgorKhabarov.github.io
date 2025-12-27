@@ -780,6 +780,12 @@ aside {
     margin-bottom: 8px;
     display: block;
 }
+.setting_description {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    display: block;
+}
 .setting_row {
     display: flex;
     align-items: center;
