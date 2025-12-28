@@ -215,6 +215,7 @@ blockquote list
 # Code highlightings
 
 ```python
+#!hashbang
 # comment
 
 text = lambda x=1, y=2, z=3: x
@@ -228,6 +229,7 @@ class Baz(Foo):
         """
         text
         """
+        super().__init__()
         self.qq = qwert
         print("text")
         print(f"{123} \\n {"qwe":_} {33!r} {4:4<_} {2.34134:.2f}")
