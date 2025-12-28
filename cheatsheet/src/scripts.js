@@ -1433,7 +1433,7 @@ document.querySelectorAll('input[name="radio_theme"]').forEach(e => {
         const themeName = e.dataset.themeName;
         document.documentElement.setAttribute("data-theme", themeName);
 
-        const themeColorMetaMapKey = themeName;
+        let themeColorMetaMapKey = themeName;
         if (!(themeName in themeColorMetaMap)) {
             themeColorMetaMapKey = "dark";
         }
