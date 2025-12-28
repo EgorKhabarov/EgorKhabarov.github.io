@@ -1432,7 +1432,13 @@ document.querySelectorAll('input[name="radio_theme"]').forEach(e => {
         const themeColorMeta = document.querySelector('meta[name="theme-color"]');
         const themeName = e.dataset.themeName;
         document.documentElement.setAttribute("data-theme", themeName);
-        themeColorMeta.setAttribute("content", themeColorMetaMap[themeName]);
+
+        const themeColorMetaMapKey = themeName;
+        if (!(themeName in themeColorMetaMap)) {
+            themeColorMetaMapKey = "dark";
+        }
+        themeColorMeta.setAttribute("content", themeColorMetaMap[themeColorMetaMapKey]);
+
         settings.theme = themeName;
         saveSettings(settings);
     });
