@@ -291,7 +291,7 @@
                         <div class="settings_page" id="page_appearance">
                             <div class="setting_group">
                                 <span class="setting_label">Theme</span>
-                                <div class="setting_row" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                                <div class="setting_row theme_previews" style="margin-bottom: 5px;">
                                     <label for="radio_theme_dark" class="theme_preview_container">
                                         <svg class="theme_preview" data-theme="dark" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
                                         <span class="theme_preview_row">
@@ -307,12 +307,26 @@
                                         </span>
                                     </label>
                                 </div>
-                                <div class="setting_row" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                                <div class="setting_row theme_previews">
                                     <label for="radio_theme_dark_github" class="theme_preview_container">
                                         <svg class="theme_preview" data-theme="dark-github" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
                                         <span class="theme_preview_row">
                                             <input type="radio" name="radio_theme" data-theme-name="dark-github" id="radio_theme_dark_github">
-                                            Dark GitHub
+                                            GitHub Dark
+                                        </span>
+                                    </label>
+                                    <label for="radio_theme_dark_tokyo" class="theme_preview_container">
+                                        <svg class="theme_preview" data-theme="dark-tokyo" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
+                                        <span class="theme_preview_row">
+                                            <input type="radio" name="radio_theme" data-theme-name="dark-tokyo" id="radio_theme_dark_tokyo">
+                                            Tokyo Night
+                                        </span>
+                                    </label>
+                                    <label for="radio_theme_dark_palenight" class="theme_preview_container">
+                                        <svg class="theme_preview" data-theme="dark-palenight" viewBox="0 0 500 300"><use href="#theme_preview"></use></svg>
+                                        <span class="theme_preview_row">
+                                            <input type="radio" name="radio_theme" data-theme-name="dark-palenight" id="radio_theme_dark_palenight">
+                                            Dark Palenight
                                         </span>
                                     </label>
                                 </div>
@@ -347,6 +361,12 @@
                                 <textarea placeholder="Your custom CSS…" id="settings_css_textarea" oninput="settings.settings_css=this.value;settings_css.innerHTML=this.value;saveSettings(settings);"></textarea>
                             </div>
                             <div class="setting_group" style="margin-top: 20px;">
+                                <blockquote class="blockquote_note" style="margin-bottom: 5px;font-size: 0.7em;">
+                                    <div style="margin-block-start: 0.5em;margin-block-end: 0.5em;">
+                                        <div class="blockquote_alerts_p" style="color: var(--md-blockquote-note);margin-block-start: 0.5em;margin-block-end: 0.5em;"><svg><use href="#icon_md_blockquote_note"></use></svg>Note</div>
+                                        The button clears all settings except Custom CSS
+                                    </div>
+                                </blockquote>
                                 <button class="setting_btn setting_btn_danger" id="reset_all_settings">Reset all settings</button>
                             </div>
                         </div>
