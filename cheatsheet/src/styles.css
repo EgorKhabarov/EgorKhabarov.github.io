@@ -1387,6 +1387,8 @@ li:has(input[type="checkbox"]:first-of-type) {
 input[type="checkbox"] {
     width: 16px;
     height: 16px;
+    min-width: 16px;
+    min-height: 16px;
     cursor: pointer;
 
     appearance: none;
