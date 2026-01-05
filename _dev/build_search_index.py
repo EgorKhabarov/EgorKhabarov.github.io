@@ -40,6 +40,7 @@ for i, file in enumerate(get_files(dir_name, lambda _path: _path.endswith(".md")
 index = lunr(
     ref="i",
     fields=[
+        {"field_name": "f", "boost": 20},
         {"field_name": "n", "boost": 20},
         {"field_name": "b", "boost": 1},
     ],
