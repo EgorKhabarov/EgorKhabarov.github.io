@@ -25,7 +25,7 @@ function addExperimentalSettingCheckBox(group, setting_id, text, default_value, 
 
     const input = document.createElement("input");
     input.type = "checkbox";
-    input.id = setting_id;
+    input.id = `${setting_id}_input`;
     input.checked = default_value;
     label1.appendChild(input);
 
@@ -34,7 +34,7 @@ function addExperimentalSettingCheckBox(group, setting_id, text, default_value, 
     label1.appendChild(span);
 
     const label2 = document.createElement("label");
-    label2.setAttribute("for", setting_id);
+    label2.setAttribute("for", `${setting_id}_input`);
     label2.textContent = text;
     checkbox_container.appendChild(label2);
 
@@ -101,12 +101,12 @@ fillExperimentalSettings("page_experimental", {
                 "type": "bool",
                 "pre_func": () => {
                     const style = document.createElement("style");
-                    style.id = "experimental_updated_search_styles";
+                    style.id = "experimental_updated_search_style";
                     document.head.appendChild(style);
                 },
                 "func": (value) => {
                     if (value) {
-                        experimental_updated_search_styles.textContent = `
+                        experimental_updated_search_style.textContent = `
 #page_search_container {
     position: static;
     padding: 0px;
@@ -144,7 +144,37 @@ fillExperimentalSettings("page_experimental", {
 }
 `;
                     } else {
-                        experimental_updated_search_styles.textContent = "";
+                        experimental_updated_search_style.textContent = "";
+                    }
+                },
+            },
+        },
+    },
+    "Settings": {
+        "description": "",
+        "settings_map": {
+            "experimental_updated_settings": {
+                "label": "The settings on a mobile device look different",
+                "type": "bool",
+                "pre_func": () => {
+                    const style = document.createElement("style");
+                    style.id = "experimental_updated_settings_style";
+                    document.head.appendChild(style);
+                },
+                "func": (value) => {
+                    if (value) {
+                        experimental_updated_settings_style.textContent = `
+@media (max-width: 768px) {
+    .settings_layout {
+        flex-direction: column;
+    }
+    .settings_sidebar {
+        width: calc(100% - 45px);
+    }
+}
+`;
+                    } else {
+                        experimental_updated_settings_style.textContent = "";
                     }
                 },
             },
