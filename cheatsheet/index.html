@@ -19,7 +19,7 @@
     <meta name="twitter:description" content="This is a site with cheat sheets">
     <meta name="twitter:image" content="src/icon512x512.png">
 
-    <link href="src/icon512x512.png" rel="icon" type="image/png">
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="src/manifest.json">
 
     <link href="src/styles.css" rel="stylesheet">
@@ -263,6 +263,8 @@
                 <div class="settings_sidebar">
                     <!-- <button class="category_btn" data-tab="general">General</button> -->
                     <button class="category_btn" data-tab="appearance">Appearance</button>
+                    <button class="category_btn" data-tab="experimental">Experimental</button>
+                    <button class="category_btn" data-tab="keymap">Keymap</button>
                     <!-- <button class="category_btn" data-tab="advanced">Advanced</button> -->
                     <!-- <button class="category_btn" data-tab="customization">Customization</button> -->
                     <button class="category_btn" data-tab="markup_examples">MARKUP EXAMPLES</button>
@@ -325,7 +327,7 @@
                             </div>
                             <div class="setting_group">
                                 <span class="setting_label">Markdown preview</span>
-                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                <div class="checkbox_container">
                                     <label class="toggle_switch">
                                         <input type="checkbox" id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this);">
                                         <span class="slider"></span>
@@ -362,6 +364,12 @@
                                 <button class="setting_btn setting_btn_danger" id="reset_all_settings">Reset all settings</button>
                             </div>
                         </div>
+                        <div class="settings_page" id="page_keymap">
+                            ...
+                        </div>
+                        <div class="settings_page" id="page_experimental">
+                            <span class="no_experimental_settings">It seems there are no experimental settings</span>
+                        </div>
                         <!-- <div class="settings_page" id="page_advanced">
                             ...
                         </div> -->
@@ -385,7 +393,7 @@
                                 <span class="setting_label">Checkbox</span>
                                 <input type="checkbox" checked>
                                 <span class="setting_label">Checkbox with text</span>
-                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                <div class="checkbox_container">
                                     <input type="checkbox" id="checkbox_input2" checked>
                                     <label for="checkbox_input2">Text</label>
                                 </div>
@@ -397,7 +405,7 @@
                             </div>
                             <div class="setting_group">
                                 <span class="setting_label">Checkbox slider with text</span>
-                                <div style="display: flex;gap: 10px;flex-direction: row;align-items: center;">
+                                <div class="checkbox_container">
                                     <label class="toggle_switch">
                                         <input type="checkbox" id="checkbox_input1" checked>
                                         <span class="slider"></span>
@@ -479,5 +487,6 @@
     <script src="src/js/ContextMenu.js"></script>
     <script src="src/js/UrlArgs.js"></script>
     <script src="src/scripts.js"></script>
+    <script src="src/js/ExperimentalSetting.js"></script>
 </body>
 </html>
