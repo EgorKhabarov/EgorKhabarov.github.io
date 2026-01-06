@@ -78,7 +78,7 @@ function fillExperimentalSettings(id, settings_map) {
             if (setting.pre_func) {
                 setting.pre_func();
             }
-            if (setting.type === "bool") {
+            if (setting.type === "checkbox") {
                 addExperimentalSettingCheckBox(
                     search_group,
                     setting_id,
@@ -91,22 +91,31 @@ function fillExperimentalSettings(id, settings_map) {
     }
 }
 
+function genExperimentalSettingCheckBoxStyle(setting_id, label, styles) {
+    return {
+        "label": label,
+        "type": "checkbox",
+        "pre_func": () => {
+            const style = document.createElement("style");
+            style.id = `${setting_id}_style`;
+            document.head.appendChild(style);
+        },
+        "func": (value) => {
+            const style = document.getElementById(`${setting_id}_style`);
+            style.textContent = value ? styles : "";
+        },
+    }
+}
+
 const experimental_settings = loadExperimentalSettings();
 fillExperimentalSettings("page_experimental", {
     "Search": {
         "description": "",
         "settings_map": {
-            "experimental_updated_search": {
-                "label": "The cheat sheet search is located differently",
-                "type": "bool",
-                "pre_func": () => {
-                    const style = document.createElement("style");
-                    style.id = "experimental_updated_search_style";
-                    document.head.appendChild(style);
-                },
-                "func": (value) => {
-                    if (value) {
-                        experimental_updated_search_style.textContent = `
+            "experimental_updated_search": genExperimentalSettingCheckBoxStyle(
+                setting_id="experimental_updated_search",
+                label="The cheat sheet search is located differently",
+                styles=`
 #page_search_container {
     position: static;
     padding: 0px;
@@ -138,32 +147,22 @@ fillExperimentalSettings("page_experimental", {
 }
 #page_search_container > div:last-child {
     padding: 2.2px 4px;
+    border-top: 1px solid var(--border-color);
 }
 .toc_header {
     padding: 18px;
 }
-`;
-                    } else {
-                        experimental_updated_search_style.textContent = "";
-                    }
-                },
-            },
+`,
+            ),
         },
     },
     "Settings": {
         "description": "",
         "settings_map": {
-            "experimental_updated_settings": {
-                "label": "The settings on a mobile device look different",
-                "type": "bool",
-                "pre_func": () => {
-                    const style = document.createElement("style");
-                    style.id = "experimental_updated_settings_style";
-                    document.head.appendChild(style);
-                },
-                "func": (value) => {
-                    if (value) {
-                        experimental_updated_settings_style.textContent = `
+            "experimental_updated_settings": genExperimentalSettingCheckBoxStyle(
+                setting_id="experimental_updated_settings",
+                label="The settings on a mobile device look different",
+                styles=`
 @media (max-width: 768px) {
     .settings_layout {
         flex-direction: column;
@@ -172,13 +171,8 @@ fillExperimentalSettings("page_experimental", {
         width: calc(100% - 45px);
     }
 }
-`;
-                    } else {
-                        experimental_updated_settings_style.textContent = "";
-                    }
-                },
-            },
+`,
+            ),
         },
     },
 });
-
