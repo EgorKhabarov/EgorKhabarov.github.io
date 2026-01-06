@@ -16,3 +16,78 @@
 </tr>
 </tbody>
 </table>
+<h3>Таблица магических методов и обычных методов для <code>tuple</code></h3>
+<table>
+<thead>
+<tr>
+<th>Метод(ы)</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tuple.__add__(other)</code> <code>+</code></td>
+<td>Возвращает новый кортеж являющийся результатом<br>конкатенации текущего кортежа и <code>other</code><br><code>(1, 2) + (3, 4) == (1, 2, 3, 4)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__mul__(n)</code> <code>*</code></td>
+<td>Возвращает новый кортеж, состоящий<br>из <code>n</code> повторений текущего кортежа<br><code>(1, 2) * 3 == (1, 2, 1, 2, 1, 2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__rmul__(n)</code> <code>*</code></td>
+<td>Аналогично <code>__mul__</code>, вызывается при <code>n * tuple</code><br><code>3 * (1, 2) == (1, 2, 1, 2, 1, 2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__getitem__(index)</code></td>
+<td>Возвращает элемент по указанному индексу<br><code>(1, 2, 3)[1] == 2</code></td>
+</tr>
+<tr>
+<td><code>tuple.__contains__(item)</code> <code>in</code></td>
+<td>Проверяет содержится ли элемент в кортеже<br><code>2 in (1, 2, 3)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__len__</code> <code>len(tuple)</code></td>
+<td>Возвращает количество элементов в кортеже<br><code>len((1, 2, 3))</code></td>
+</tr>
+<tr>
+<td><code>tuple.__iter__</code></td>
+<td>Возвращает итератор для кортежа<br><code>for x in (1, 2, 3): print(x)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__eq__(other)</code> <code>&lt;mark style=""&gt;</code></td>
+<td>Проверяет равны ли текущий кортеж и <code>other</code><br><code>(1, 2) &lt;/mark&gt; (1, 2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__ne__(other)</code> <code>!=</code></td>
+<td>Проверяет не равны ли текущий кортеж и <code>other</code><br><code>(1, 2) != (3, 4)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__lt__(other)</code> <code>&lt;</code></td>
+<td>Проверяет меньше ли текущий кортеж<br>чем <code>other</code> (лексикографический порядок)<br><code>(1, 2) &lt; (1, 3)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__le__(other)</code> <code>&lt;=</code></td>
+<td>Проверяет меньше или равен<br>текущий кортеж по сравнению с <code>other</code><br><code>(1, 2) &lt;= (1, 2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__gt__(other)</code> <code>&gt;</code></td>
+<td>Проверяет больше ли текущий кортеж, чем <code>other</code><br><code>(1, 3) &gt; (1, 2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__ge__(other)</code> <code>&gt;=</code></td>
+<td>Проверяет больше или равен текущий<br>кортеж по сравнению с <code>other</code><br><code>(1, 2) &gt;= (1, 1)</code></td>
+</tr>
+<tr>
+<td><code>tuple.__hash__</code></td>
+<td>Возвращает хэш-код кортежа<br>(требуется для использования<br>в качестве ключа в словарях)<br><code>hash((1, 2, 3))</code></td>
+</tr>
+<tr>
+<td><code>tuple.count(value)</code></td>
+<td>Возвращает количество вхождений <code>value</code> в кортеже<br><code>(1, 2, 2, 3).count(2)</code></td>
+</tr>
+<tr>
+<td><code>tuple.index(value, [start, [stop]])</code></td>
+<td>Возвращает индекс первого вхождения <code>value</code> в кортеже<br>начиная с <code>start</code> и заканчивая <code>stop</code><br><code>(1, 2, 3).index(2)</code><br><code>(1, 2, 3, 2).index(2, 2)</code></td>
+</tr>
+</tbody>
+</table>
