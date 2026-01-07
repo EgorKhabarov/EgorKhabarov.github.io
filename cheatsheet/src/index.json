@@ -77,7 +77,8 @@
             "Docker Compose": ""
         },
         "HTTP": {
-            "HTTР": "",
+            "httр": "",
+            "url": "",
             "Status Codes": "",
             "Networking Protocols": "",
             "robots.txt": "",
