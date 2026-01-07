@@ -179,3 +179,59 @@ class ContextMenu {
         this.hide();
     }
 }
+
+
+const menu_file = new ContextMenu(
+    [
+        {action: "open_in_new_tab", label: "Открыть в новой вкладке", icon: "icon_open_new_tab"},
+        {action: "open_raw", label: "Открыть в сыром виде", icon: "icon_raw"},
+        /* {action: "open_in_split_screen_mode", label: "Открыть в режиме разделения экрана"}, */
+        {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_file_name", label: "Скопировать название шпаргалки", icon: "icon_clipboard"},
+        {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
+        /*
+        "separator",
+        {action: "to_favorites", label: "Добавить в избранное", icon: "favorites", attrs: {color: "currentColor"}},
+        {action: "delete_from_favorites", label: "Удалить из избранного"},
+        */
+    ],
+    ".tree_item.file",
+    (action, element) => {
+        console.log(`${action} ${element.dataset.vpath}`);
+        const vpath = element.dataset.vpath;
+        const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
+
+        if (action === "open_in_new_tab") {
+            window.open("?"+myEncodeURIComponent(vpath), "_blank");
+        } else if (action === "open_raw") {
+            window.open(vpath+".md", "_blank");
+        } else if (action === "open_in_github") {
+            window.open(base_github_url+vpath+".md", "_blank");
+        } else if (action === "copy_file_name") {
+            copy(getPathFilename(element.dataset.vpath));
+        } else if (action === "copy_path") {
+            copy(element.dataset.vpath);
+        }
+    },
+);
+const menu_folder = new ContextMenu(
+    [
+        {action: "open_in_github", label: "Открыть на GitHub", icon: "github_logo"},
+        {action: "copy_folder_name", label: "Скопировать название папки", icon: "icon_clipboard"},
+        {action: "copy_path", label: "Скопировать путь", icon: "icon_clipboard"},
+    ],
+    ".tree_item.folder",
+    (action, element) => {
+        console.log(`${action} ${element.dataset.kpath}`);
+        const kpath = element.dataset.kpath;
+        const base_github_url = "https://github.com/EgorKhabarov/EgorKhabarov.github.io/blob/master/cheatsheet/";
+
+        if (action === "open_in_github") {
+            window.open(base_github_url+kpath, "_blank");
+        } else if (action === "copy_folder_name") {
+            copy(getPathFilename(kpath));
+        } else if (action === "copy_path") {
+            copy(kpath);
+        }
+    },
+);
