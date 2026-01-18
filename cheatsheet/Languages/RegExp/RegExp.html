@@ -117,10 +117,11 @@
 </tbody>
 </table>
 <h1>Условные выражения</h1>
+<p>Lookarounds</p>
 <table>
 <thead>
 <tr>
-<th>Условное выражение</th>
+<th>Выражение</th>
 <th></th>
 <th>Регулярка</th>
 <th>Соответствие</th>
@@ -129,25 +130,25 @@
 <tbody>
 <tr>
 <td><code>(?=.)</code></td>
-<td>Позитивный просмотр вперёд</td>
+<td>Positive Lookahead<br>Позитивный просмотр вперёд</td>
 <td><code>Людовик(?=XVI)</code></td>
 <td>ЛюдовикXV, <span style="background-color: #999999;color: marktext;">Людовик</span>XVI, <span style="background-color: #999999;color: marktext;">Людовик</span>XVIII, ЛюдовикLXVII, ЛюдовикXXL</td>
 </tr>
 <tr>
 <td><code>(?!.)</code></td>
-<td>Негативный просмотр вперёд</td>
+<td>Negative Lookahead<br>Негативный просмотр вперёд</td>
 <td><code>Людовик(?!XVI)</code></td>
 <td><span style="background-color: #999999;color: marktext;">Людовик</span>XV, ЛюдовикXVI, ЛюдовикXVIII, <span style="background-color: #999999;color: marktext;">Людовик</span>LXVII, <span style="background-color: #999999;color: marktext;">Людовик</span>XXL</td>
 </tr>
 <tr>
 <td><code>(?&lt;=.)</code></td>
-<td>Позитивный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
+<td>Positive Lookbehind<br>Позитивный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
 <td><code>(?&lt;=Сергей )Иванов</code></td>
 <td>Сергей <span style="background-color: #999999;color: marktext;">Иванов</span>, Игорь Иванов</td>
 </tr>
 <tr>
 <td><code>(?&lt;!.)</code></td>
-<td>Негативный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
+<td>Negative Lookbehind<br>Негативный просмотр назад<br><strong>Длина шаблона должна быть фиксированной</strong></td>
 <td><code>(?&lt;!Сергей )Иванов</code></td>
 <td>Сергей Иванов, Игорь <span style="background-color: #999999;color: marktext;">Иванов</span></td>
 </tr>
@@ -345,6 +346,10 @@
 <tr>
 <td>Строка в одинарных кавычках</td>
 <td><code>'[^'\n]*?'</code><br/><code>(?&lt;!\\)'([^'\\\n]*(?:\\.[^'\\\n]*)*)'</code></td>
+</tr>
+<tr>
+<td>hex color</td>
+<td><code>(?i)#[0-9a-f]{3,8};</code><br><code>(?i)#[0-9a-f]{3,4}(?:[0-9a-f]{2}){0,1};</code><br><code>(?&lt;=#)[0-9a-f]{3,8}(?=;)</code></td>
 </tr>
 <tr>
 <td><code>RE_AMP</code> html &amp;</td>
