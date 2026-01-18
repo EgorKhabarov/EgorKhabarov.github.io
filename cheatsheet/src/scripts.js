@@ -513,7 +513,7 @@ function getPathFilename(filePath) {
 function changeTitle(title) {
     let result = "Cheat sheet";
     if (title) {
-        result += ": " + title;
+        result += " " + title;
     }
     document.getElementsByTagName("title")[0].textContent = result;
 }

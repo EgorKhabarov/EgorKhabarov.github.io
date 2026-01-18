@@ -12,8 +12,8 @@ html, body {
     padding: 0;
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
-    background: #0f1117;
-    color: #f4f4f4;
+    background: #0F1117;
+    color: #F4F4F4;
 }
 body::before {
     content: "";
@@ -22,8 +22,8 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle at 20% 30%, #292d3e 0%, transparent 70%),
-                radial-gradient(circle at 80% 70%, #1f2233 0%, transparent 60%);
+    background: radial-gradient(circle at 20% 30%, #292D3E 0%, transparent 70%),
+                radial-gradient(circle at 80% 70%, #1F2233 0%, transparent 60%);
     z-index: -1;
     animation: floatBackground 30s linear infinite;
 }
@@ -34,7 +34,7 @@ body::before {
 }
 a {
     text-decoration: none;
-    color: #f4f4f4;
+    color: #F4F4F4;
 }
 header {
     text-align: center;
@@ -58,7 +58,7 @@ header h1 {
 }
 header p {
     font-size: 1.1rem;
-    color: #ccc;
+    color: #CCCCCC;
 }
 nav {
     margin: 1rem auto;
@@ -68,15 +68,15 @@ nav {
     flex-wrap: wrap;
 }
 nav a {
-    background-color: #1f2233;
-    color: #f4f4f4;
+    background-color: #1F2233;
+    color: #F4F4F4;
     padding: 0.7rem 1.3rem;
     text-decoration: none;
     border-radius: 0.6rem;
     transition: background 0.3s;
 }
 nav a:hover {
-    background-color: #2c3047;
+    background-color: #2C3047;
 }
 section {
     max-width: 900px;
@@ -89,7 +89,7 @@ section {
     gap: 2rem;
 }
 .project {
-    background: #1a1d2b;
+    background: #1A1D2B;
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
@@ -114,7 +114,7 @@ section {
 footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #666;
+    color: #666666;
     padding: 2rem 1rem;
 }
 
@@ -139,7 +139,7 @@ footer {
 .tag-javascript,
 .tag-css
 {
-    --tag-color: #84b6eb;
+    --tag-color: #84B6EB;
 
     display: inline-flex;
     align-items: center;
@@ -159,12 +159,12 @@ footer {
     gap: 5px;
 }
 
-.tag-blue      {--tag-color: #84b6eb;}
-.tag-line      {--tag-color: #57ab5a;}
+.tag-blue      {--tag-color: #84B6EB;}
+.tag-line      {--tag-color: #57AB5A;}
 .tag-green     {--tag-color: #15BB2B;}
-.tag-yellow    {--tag-color: #f9c513;}
-.tag-red       {--tag-color: #e5534b;}
-.tag-dark-gray {--tag-color: #6e7781;}
+.tag-yellow    {--tag-color: #F9C513;}
+.tag-red       {--tag-color: #E5534B;}
+.tag-dark-gray {--tag-color: #6E7781;}
 .tag-gray, .tag-license {--tag-color: #8B8B8B;}
 
 .tag-python     {--tag-color: #4B8EC5;}
