@@ -811,6 +811,7 @@ async function setup_cheatsheet(url_, setActive = true, scrollIntoActive = true)
     closePageSearch();
     changeTitle(getPath(url));
     cheatsheet_field_container.scrollTo(0, 0);
+    h_list.scrollTo(0, 0);
     let successfully = await load_cheatsheet(url);
 
     if (successfully && setActive) {
