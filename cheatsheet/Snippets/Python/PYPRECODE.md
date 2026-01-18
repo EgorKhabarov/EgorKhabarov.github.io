@@ -62,6 +62,7 @@ def video(length: str, speed: int = 1) -> str:
 def rgb_to_hex(r: int, g: int, b: int) -> str:
 def hex_to_rgb(h: str) -> tuple[int, ...]:
 def color(*args: int | str) -> str | tuple[int, ...]:
+def base(n: int, b: int) -> str:
 
 def html_escape_full(text: str) -> str:
 def unicode_escape(text: str) -> str:
@@ -141,7 +142,25 @@ def color(*args: int | str) -> str | tuple[int, ...]:
     else:
         return hex_to_rgb(*args)
 
-    
+
+def base(n: int, b: int) -> str:
+    digits = "0123456789abcdefghijklmnopqrstuvwxyz"
+    if not (2 <= b <= 36):
+        raise ValueError("base must be in range 2..36")
+
+    if n == 0:
+        return "0"
+
+    _sign = "-" if n < 0 else ""
+    n = abs(n)
+    res = []
+    while n:
+        n, r = divmod(n, b)
+        res.append(digits[r])
+
+    return _sign + "".join(reversed(res))
+
+
 # Escape
 def unicode_escape(text: str) -> str:
     return "".join(fr"\U{ord(x):0>8x}" for x in text)
@@ -161,7 +180,7 @@ html_escape = html.escape
 html_unescape = html.unescape
 
 
-@lambda cls: cls()
+@lambda __cls: __cls()
 class base64:  # noqa
     @staticmethod
     def encode(bytes_: bytes | Buffer) -> str:
@@ -171,7 +190,7 @@ class base64:  # noqa
     def decode(string_: str | Buffer) -> bytes:
         return _base64_lib.b64decode(string_)
 
-    @lambda cls: cls()
+    @lambda __cls: __cls()
     class prefix:  # noqa
         flag = True
 
@@ -231,7 +250,7 @@ def fint(i: int) -> str:
     return f"{i:_}"
 
 
-@lambda cls: cls()
+@lambda __cls: __cls()
 class highlight:  # noqa
     regex_line_start_span = re.compile(r'(?m)^<span class="n">(.+?)</span>')
     regex_remove_o_span = re.compile(r'<span class="o">(=)</span>')
@@ -303,7 +322,7 @@ class highlight:  # noqa
         return result.strip()
 
 
-@lambda cls: cls()
+@lambda __cls: __cls()
 class pyhelp:  # noqa
     def __repr__(self):
         return highlight(HELP)

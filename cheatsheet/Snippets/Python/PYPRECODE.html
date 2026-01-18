@@ -58,6 +58,7 @@ arrow
 <span class="s2">def rgb_to_hex(r: int, g: int, b: int) -&gt; str:</span>
 <span class="s2">def hex_to_rgb(h: str) -&gt; tuple[int, ...]:</span>
 <span class="s2">def color(*args: int | str) -&gt; str | tuple[int, ...]:</span>
+<span class="s2">def base(n: int, b: int) -&gt; str:</span>
 
 <span class="s2">def html_escape_full(text: str) -&gt; str:</span>
 <span class="s2">def unicode_escape(text: str) -&gt; str:</span>
@@ -138,6 +139,24 @@ arrow
         <span class="k">return</span> <span class="n">hex_to_rgb</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">base</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="s2">&quot;0123456789abcdefghijklmnopqrstuvwxyz&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">36</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;base must be in range 2..36&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;0&quot;</span>
+
+    <span class="n">_sign</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="k">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="k">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">_sign</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+
+
 <span class="c1"># Escape</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">unicode_escape</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">fr</span><span class="s2">&quot;\U</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">0&gt;8x</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
@@ -157,7 +176,7 @@ arrow
 <span class="n">html_unescape</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">unescape</span>
 
 
-<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="nd">@lambda</span> <span class="n">__cls</span><span class="p">:</span> <span class="n">__cls</span><span class="p">()</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">base64</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -167,7 +186,7 @@ arrow
     <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">string_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">_base64_lib</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">string_</span><span class="p">)</span>
 
-    <span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+    <span class="nd">@lambda</span> <span class="n">__cls</span><span class="p">:</span> <span class="n">__cls</span><span class="p">()</span>
     <span class="k">class</span><span class="w"> </span><span class="nc">prefix</span><span class="p">:</span>  <span class="c1"># noqa</span>
         <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -227,7 +246,7 @@ arrow
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">_</span><span class="si">}</span><span class="s2">&quot;</span>
 
 
-<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="nd">@lambda</span> <span class="n">__cls</span><span class="p">:</span> <span class="n">__cls</span><span class="p">()</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">highlight</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="n">regex_line_start_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?m)^&lt;span class=&quot;n&quot;&gt;(.+?)&lt;/span&gt;&#39;</span><span class="p">)</span>
     <span class="n">regex_remove_o_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;o&quot;&gt;(=)&lt;/span&gt;&#39;</span><span class="p">)</span>
@@ -299,7 +318,7 @@ arrow
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
 
-<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="nd">@lambda</span> <span class="n">__cls</span><span class="p">:</span> <span class="n">__cls</span><span class="p">()</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">pyhelp</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">HELP</span><span class="p">)</span>
