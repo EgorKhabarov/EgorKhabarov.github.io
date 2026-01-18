@@ -1853,7 +1853,7 @@ kbd {
     --kbd-markdown-color: #3D444DB3;
     display: inline-block;
     padding: 0.25rem;
-    font: 11px Consolas, Liberation Mono, monospace;
+    font-family: Consolas, Liberation Mono, monospace;
     line-height: 10px;
     vertical-align: middle;
     border: solid 1px var(--kbd-markdown-color);
