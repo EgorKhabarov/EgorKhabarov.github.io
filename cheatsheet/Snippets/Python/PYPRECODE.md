@@ -52,20 +52,27 @@ from table2string import (
     link,
     style,
 )
+# noinspection PyUnresolvedReferences
+from PIL import ImageGrab
+# noinspection PyUnresolvedReferences
+from pyautogui import position
 
 
 HELP = r"""
 def sqrt(x: int | float, p: int = 2) -> int:
 def uuid() -> str:
+def cuid(x: int = 16):
 def video(length: str, speed: int = 1) -> str:
 
 def rgb_to_hex(r: int, g: int, b: int) -> str:
 def hex_to_rgb(h: str) -> tuple[int, ...]:
 def color(*args: int | str) -> str | tuple[int, ...]:
+def print_color(r: int, g: int, b: int) -> None:
+def pipette() -> str:
 def base(n: int, b: int) -> str:
 
-def html_escape_full(text: str) -> str:
 def unicode_escape(text: str) -> str:
+def html_escape_full(text: str) -> str:
 
 class base64:
     prefix = "data:{};base64,"  # "data:image/png;base64,"
@@ -89,6 +96,7 @@ sign = s = def signature(func: Callable) -> str:
 
 __ = lambda a: not a.startswith("__")
 lp = lambda: len(paste())
+def cp(func: callable = str, *args, **kwargs) -> None:
 fint = lambda i: f"{i:_}"
 
 class highlight:
@@ -103,6 +111,10 @@ def sqrt(x: int | float, p: int = 2) -> int:
 
 def uuid() -> str:
     return str(uuid4()).replace("-", "")
+
+
+def cuid(x: int = 16):
+    return copy(uuid()[:x])
 
 
 def video(length: str, speed: int = 1) -> str:
@@ -141,6 +153,18 @@ def color(*args: int | str) -> str | tuple[int, ...]:
         return rgb_to_hex(*args*3)
     else:
         return hex_to_rgb(*args)
+
+
+def print_color(r: int, g: int, b: int) -> None:
+    print(f"\x1b[48;2;{r};{g};{b}m{'':>10}\x1b[0m")
+
+
+def pipette() -> str:
+    x, y = position()
+    r, g, b = ImageGrab.grab().getpixel((x, y))
+    print_color(r, g, b)
+    hex_color = rgb_to_hex(r, g, b)
+    return hex_color
 
 
 def base(n: int, b: int) -> str:
@@ -244,6 +268,23 @@ def __(a: str) -> bool:
 
 def lp() -> int:
     return len(paste())
+
+
+def cp(func: callable = str, *args, **kwargs) -> None:
+    """
+    copy - paste
+
+    Examples
+
+    `cp(str.lower)`
+
+    `cp(lambda s: s.lower.replace(" ", "_"))`
+
+    :param func: function
+    :param args: args
+    :param kwargs: kwargs
+    """
+    copy(func(paste(), *args, **kwargs))
 
 
 def fint(i: int) -> str:
