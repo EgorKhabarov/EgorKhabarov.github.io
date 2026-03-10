@@ -1,13 +1,242 @@
-| Метод                                           | Описание                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|:------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dict`.clear`()                                  | Удаляет все элементы<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| dict`.copy`()                                   | Возвращает поверхностную копию словаря<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                          |
-| dict`.fromkeys`(iterable: Iterable, value=None) | Создает словарь из заданной последовательности<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;key1&quot;</span><span class="k">,</span> <span class="s2">&quot;key2&quot;</span><span class="k">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span><br><span class="unselectable"><span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                        |
-| dict`.get`(key)                                 | Возвращает значение ключа<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">({</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Mustang&quot;</span><span class="k">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="n">Mustang</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">({</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Mustang&quot;</span><span class="k">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="k">,</span> <span class="s2">&quot;red&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="n">red</span></span><br></pre></div></pre></div></div>                                                  |
-| dict`.pop`(key)                                 | Удаляет и возвращает элемент с заданным ключом<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><br><span class="unselectable"><span class="mi">4</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                  |
-| dict`.popitem`()                                | Возвращает и удаляет последний элемент из словаря<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">())</span><br><span class="unselectable"><span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                         |
-| dict`.setdefault`(key, default=None)            | Возвращает значение по ключу<br>Если ключ отсутствует он вставляет ключ<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="k">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;d&quot;</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><br><span class="unselectable"><span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">}</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| dict`.update`(m, **kwargs)                      | Обновляет словарь указанными парами ключ-значение<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span></span><br></pre></div></pre></div></div> |
-| dict`.items`()                                  | Возвращает вид пары словаря (ключ, значение)<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_items</span><span class="p">([(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)])</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                              |
-| dict`.keys`()                                   | Возвращает объект просмотра всех ключей<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_keys</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">3</span><span class="p">])</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| dict`.values`()                                 | Возвращает список всех значений в словаре<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_values</span><span class="p">([</span><span class="mi">2</span><span class="k">,</span> <span class="mi">4</span><span class="p">])</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+# dict
+
+### clear
+dict.`clear`()
+Удаляет все элементы из словаря
+```pycon
+>>> d = {"a": 1, "b": 2}
+>>> d.clear()
+>>> d
+{}
+```
+### copy
+dict.`copy`()
+Создаёт поверхностную копию словаря
+```pycon
+>>> d = {"a": 1, "b": 2}
+>>> d2 = d.copy()
+>>> d2
+{"a": 1, "b": 2}
+```
+### fromkeys
+dict.`fromkeys`(iterable, value=None)
+Создаёт новый словарь с ключами из iterable и одинаковым значением value
+```pycon
+>>> dict.fromkeys(("a", "b", "c"), 0)
+{"a": 0, "b": 0, "c": 0}
+```
+### get
+dict.`get`(key, default=None)
+Возвращает значение по ключу
+Если ключа нет - возвращает default вместо ошибки
+```pycon
+>>> d = {"a": 1}
+>>> d.get("a")
+1
+>>> d.get("b", 0)
+0
+```
+### setdefault
+dict.`setdefault`(key, default=None)
+Возвращает значение по ключу
+Если ключа нет - добавляет его со значением default
+```pycon
+>>> d = {"a": 1}
+>>> d.setdefault("b", 2)
+2
+>>> d
+{"a": 1, "b": 2}
+```
+### update
+dict.`update`(other, **kwargs)
+Обновляет словарь значениями из другого словаря или итерируемого объекта с парами
+```pycon
+>>> d = {"a": 1}
+>>> d.update({"b": 2, "c": 3})
+>>> d
+{"a": 1, "b": 2, "c": 3}
+```
+### keys
+dict.`keys`()
+Возвращает представление всех ключей словаря
+```pycon
+>>> tuple({"a": 1, "b": 2}.keys())
+("a", "b")
+```
+### values
+dict.`values`()
+Возвращает представление всех значений словаря
+```pycon
+>>> tuple({"a": 1, "b": 2}.values())
+(1, 2)
+```
+### items
+dict.`items`()
+Возвращает представление словаря в виде пар (ключ, значение)
+```pycon
+>>> tuple({"a": 1, "b": 2}.items())
+(("a", 1), ("b", 2))
+```
+### pop
+dict.`pop`(key, default)
+Удаляет ключ и возвращает его значение
+Если ключа нет и default не указан - возникает KeyError
+```pycon
+>>> d = {"a": 1, "b": 2}
+>>> d.pop("a")
+1
+>>> d
+{"b": 2}
+```
+### popitem
+dict.`popitem`()
+Удаляет и возвращает последнюю добавленную пару (ключ, значение)
+```pycon
+>>> d = {"a": 1, "b": 2}
+>>> d.popitem()
+("b", 2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### \_\_setitem\_\_
+`[]` и dict.`__setitem__`(key, value)
+Устанавливает значение по ключу
+Используется оператором `[] =`
+```pycon
+>>> d = {}
+>>> d["a"] = 1
+>>> d
+{"a": 1}
+>>> d.__setitem__("b", 2)
+>>> d
+{"a": 1, "b": 2}
+```
+### \_\_getitem\_\_
+`[]` и dict.`__getitem__`(key)
+Возвращает значение по ключу
+Используется оператором `[]`
+```pycon
+>>> d = {"a": 1}
+>>> d["a"]
+1
+>>> d.__getitem__("a")
+1
+```
+### \_\_delitem\_\_
+`del` и dict.`__delitem__`(key)
+Удаляет элемент по ключу
+Используется оператором `del`
+```pycon
+>>> d = {"a": 1, "b": 2}
+>>> del d["a"]
+>>> d
+{"b": 2}
+>>> d.__delitem__("b")
+>>> d
+{}
+```
+
+
+
+### == и \_\_eq\_\_ или != и \_\_ne\_\_
+`==` и dict.`__eq__`(other)
+Сравнивает два словаря на равенство
+`!=` и dict.`__ne__`(other)
+Проверяет, что словари не равны
+```pycon
+>>> {"a": 1} == {"a": 1}
+True
+>>> {"a": 1}.__eq__({"a": 2})
+False
+>>> {"a": 1} != {"a": 2}
+True
+>>> {"a": 1}.__ne__({"a": 1})
+False
+```
+### | и \_\_or\_\_ или \_\_ror\_\_
+`|` и dict.`__or__`(other)
+Создаёт новый словарь, объединяя два словаря
+dict.`__ror__`(other)
+Вызывается, если словарь стоит справа от оператора `|`
+```pycon
+>>> {"a": 1} | {"b": 2}
+{"a": 1, "b": 2}
+>>> {"a": 1}.__or__({"b": 2})
+{"a": 1, "b": 2}
+>>> {"a": 1}.__ror__({"b": 2})
+{"b": 2, "a": 1}
+>>> {"b": 2} | {"a": 1}
+{"b": 2, "a": 1}
+```
+### |= и \_\_ior\_\_
+`|=` и dict.`__ior__`(other)
+Объединяет словари и обновляет текущий
+```pycon
+>>> d = {"a": 1}
+>>> d |= {"b": 2}
+>>> d
+{"a": 1, "b": 2}
+```
+### \_\_reversed\_\_
+dict.`__reversed__`()
+Возвращает итератор по ключам в обратном порядке вставки
+```pycon
+>>> d = {"a": 1, "b": 2, "c": 3}
+>>> list(reversed(d))
+["c", "b", "a"]
+>>> list(d.__reversed__())
+["c", "b", "a"]
+```

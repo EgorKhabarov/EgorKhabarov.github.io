@@ -1,54 +1,167 @@
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Метод</th>
-<th style="text-align: left;">Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">dict<code>.clear</code>()</td>
-<td style="text-align: left;">Удаляет все элементы<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.copy</code>()</td>
-<td style="text-align: left;">Возвращает поверхностную копию словаря<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.fromkeys</code>(iterable: Iterable, value=None)</td>
-<td style="text-align: left;">Создает словарь из заданной последовательности<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;key1&quot;</span><span class="k">,</span> <span class="s2">&quot;key2&quot;</span><span class="k">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">),</span> <span class="mi">0</span><span class="p">))</span><br><span class="unselectable"><span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="k">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.get</code>(key)</td>
-<td style="text-align: left;">Возвращает значение ключа<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">({</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Mustang&quot;</span><span class="k">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="n">Mustang</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">({</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Mustang&quot;</span><span class="k">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1964</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="k">,</span> <span class="s2">&quot;red&quot;</span><span class="p">))</span><br><span class="unselectable"><span class="n">red</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.pop</code>(key)</td>
-<td style="text-align: left;">Удаляет и возвращает элемент с заданным ключом<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><br><span class="unselectable"><span class="mi">4</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.popitem</code>()</td>
-<td style="text-align: left;">Возвращает и удаляет последний элемент из словаря<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">())</span><br><span class="unselectable"><span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.setdefault</code>(key, default=None)</td>
-<td style="text-align: left;">Возвращает значение по ключу<br>Если ключ отсутствует он вставляет ключ<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="k">,</span> <span class="s2">&quot;d&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="s2">&quot;d&quot;</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><br><span class="unselectable"><span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.update</code>(m, **kwargs)</td>
-<td style="text-align: left;">Обновляет словарь указанными парами ключ-значение<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><br><span class="unselectable"><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.items</code>()</td>
-<td style="text-align: left;">Возвращает вид пары словаря (ключ, значение)<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_items</span><span class="p">([(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)])</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.keys</code>()</td>
-<td style="text-align: left;">Возвращает объект просмотра всех ключей<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_keys</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">3</span><span class="p">])</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">dict<code>.values</code>()</td>
-<td style="text-align: left;">Возвращает список всех значений в словаре<br><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><br><span class="unselectable"><span class="n">dict_values</span><span class="p">([</span><span class="mi">2</span><span class="k">,</span> <span class="mi">4</span><span class="p">])</span></span><br></pre></div></pre></div></div></td>
-</tr>
-</tbody>
-</table>
+<h1>dict</h1>
+<h3>clear</h3>
+<p>dict.<code>clear</code>()
+Удаляет все элементы из словаря</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{}</span>
+</span></pre></div></div></div>
+<h3>copy</h3>
+<p>dict.<code>copy</code>()
+Создаёт поверхностную копию словаря</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d2</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+</span></pre></div></div></div>
+<h3>fromkeys</h3>
+<p>dict.<code>fromkeys</code>(iterable, value=None)
+Создаёт новый словарь с ключами из iterable и одинаковым значением value</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;a&quot;</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="k">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span><span class="k">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 0, &quot;b&quot;: 0, &quot;c&quot;: 0}</span>
+</span></pre></div></div></div>
+<h3>get</h3>
+<p>dict.<code>get</code>(key, default=None)
+Возвращает значение по ключу
+Если ключа нет - возвращает default вместо ошибки</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">1</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="k">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="unselectable"><span class="go">0</span>
+</span></pre></div></div></div>
+<h3>setdefault</h3>
+<p>dict.<code>setdefault</code>(key, default=None)
+Возвращает значение по ключу
+Если ключа нет - добавляет его со значением default</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="k">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="unselectable"><span class="go">2</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+</span></pre></div></div></div>
+<h3>update</h3>
+<p>dict.<code>update</code>(other, **kwargs)
+Обновляет словарь значениями из другого словаря или итерируемого объекта с парами</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}</span>
+</span></pre></div></div></div>
+<h3>keys</h3>
+<p>dict.<code>keys</code>()
+Возвращает представление всех ключей словаря</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">tuple</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="unselectable"><span class="go">(&quot;a&quot;, &quot;b&quot;)</span>
+</span></pre></div></div></div>
+<h3>values</h3>
+<p>dict.<code>values</code>()
+Возвращает представление всех значений словаря</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">tuple</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="unselectable"><span class="go">(1, 2)</span>
+</span></pre></div></div></div>
+<h3>items</h3>
+<p>dict.<code>items</code>()
+Возвращает представление словаря в виде пар (ключ, значение)</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">tuple</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="unselectable"><span class="go">((&quot;a&quot;, 1), (&quot;b&quot;, 2))</span>
+</span></pre></div></div></div>
+<h3>pop</h3>
+<p>dict.<code>pop</code>(key, default)
+Удаляет ключ и возвращает его значение
+Если ключа нет и default не указан - возникает KeyError</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">1</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;b&quot;: 2}</span>
+</span></pre></div></div></div>
+<h3>popitem</h3>
+<p>dict.<code>popitem</code>()
+Удаляет и возвращает последнюю добавленную пару (ключ, значение)</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+<span class="unselectable"><span class="go">(&quot;b&quot;, 2)</span>
+</span></pre></div></div></div>
+
+<h3>__setitem__</h3>
+<p><code>[]</code> и dict.<code>__setitem__</code>(key, value)
+Устанавливает значение по ключу
+Используется оператором <code>[] =</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1}</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="k">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+</span></pre></div></div></div>
+<h3>__getitem__</h3>
+<p><code>[]</code> и dict.<code>__getitem__</code>(key)
+Возвращает значение по ключу
+Используется оператором <code>[]</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="unselectable"><span class="go">1</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">1</span>
+</span></pre></div></div></div>
+<h3>__delitem__</h3>
+<p><code>del</code> и dict.<code>__delitem__</code>(key)
+Удаляет элемент по ключу
+Используется оператором <code>del</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;b&quot;: 2}</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">d</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{}</span>
+</span></pre></div></div></div>
+
+<h3>== и __eq__ или != и __ne__</h3>
+<p><code>==</code> и dict.<code>__eq__</code>(other)
+Сравнивает два словаря на равенство
+<code>!=</code> и dict.<code>__ne__</code>(other)
+Проверяет, что словари не равны</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="unselectable"><span class="go">False</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="o">!=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span><span class="o">.</span><span class="fm">__ne__</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="unselectable"><span class="go">False</span>
+</span></pre></div></div></div>
+<h3>| и __or__ или __ror__</h3>
+<p><code>|</code> и dict.<code>__or__</code>(other)
+Создаёт новый словарь, объединяя два словаря
+dict.<code>__ror__</code>(other)
+Вызывается, если словарь стоит справа от оператора <code>|</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span><span class="o">.</span><span class="fm">__or__</span><span class="p">({</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span><span class="o">.</span><span class="fm">__ror__</span><span class="p">({</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="unselectable"><span class="go">{&quot;b&quot;: 2, &quot;a&quot;: 1}</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="go">{&quot;b&quot;: 2, &quot;a&quot;: 1}</span>
+</span></pre></div></div></div>
+<h3>|= и __ior__</h3>
+<p><code>|=</code> и dict.<code>__ior__</code>(other)
+Объединяет словари и обновляет текущий</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">|=</span> <span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span>
+<span class="unselectable"><span class="go">{&quot;a&quot;: 1, &quot;b&quot;: 2}</span>
+</span></pre></div></div></div>
+<h3>__reversed__</h3>
+<p>dict.<code>__reversed__</code>()
+Возвращает итератор по ключам в обратном порядке вставки</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="k">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="unselectable"><span class="go">[&quot;c&quot;, &quot;b&quot;, &quot;a&quot;]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="fm">__reversed__</span><span class="p">())</span>
+<span class="unselectable"><span class="go">[&quot;c&quot;, &quot;b&quot;, &quot;a&quot;]</span>
+</span></pre></div></div></div>
