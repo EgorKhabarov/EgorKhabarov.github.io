@@ -58,7 +58,7 @@
 | Атрибут                 | Описание                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `__class__`             | Ссылка на класс объекта                                                                                                                                                                                                                                                                                                                                                             |
-| `__subclasses__()`      | Возвращает список подклассов                                                                                                                                                                                                                                                                                                                                                        |
+| `__subclasses__()`      | Возвращает список подклассов в runtime                                                                                                                                                                                                                                                                                                                                              |
 | `__dict__`              | Словарь атрибутов класса или экземпляра                                                                                                                                                                                                                                                                                                                                             |
 | `__slots__`             | Оптимизация памяти, ограничивает атрибуты                                                                                                                                                                                                                                                                                                                                           |
 | `__bases__`             | Кортеж родительских классов                                                                                                                                                                                                                                                                                                                                                         |
@@ -83,16 +83,16 @@ class MyClass:
 
 obj = MyClass(10)
 print(MyClass.__dict__)  # Словарь атрибутов класса
-# {'__module__': '__main__',
-#  '__firstlineno__': 1,
-#  'class_attr': 42,
-#  '__init__': <function MyClass.__init__ at 0x...>,
-#  '__static_attributes__': ('instance_attr',),
-#  '__dict__': <attribute '__dict__' of 'MyClass' objects>,
-#  '__weakref__': <attribute '__weakref__' of 'MyClass' objects>,
-#  '__doc__': None}
+# {"__module__": "__main__",
+#  "__firstlineno__": 1,
+#  "class_attr": 42,
+#  "__init__": <function MyClass.__init__ at 0x...>,
+#  "__static_attributes__": ("instance_attr",),
+#  "__dict__": <attribute '__dict__' of 'MyClass' objects>,
+#  "__weakref__": <attribute '__weakref__' of 'MyClass' objects>,
+#  "__doc__": None}
 print(obj.__dict__)  # Словарь атрибутов экземпляра
-# {'instance_attr': 10}
+# {"instance_attr": 10}
 ```
 
 ## \_\_slots\_\_
@@ -159,10 +159,8 @@ class MyClass:
         self.count += 1
 
 print(MyClass.__static_attributes__)
-# ('count', 'value')
+# ("count", "value")
 ```
-
-
 
 # Примеры использования
 
@@ -221,8 +219,6 @@ print(closure_func.__code__.co_freevars)  # ("x",)
 print(closure_func.__code__.co_cellvars)  # ()
 ```
 
-
-
 # Exception
 
 [Подробнее про методы исключений](?Languages/Python/Built-in/Exception#методы-exception)
@@ -236,7 +232,6 @@ print(closure_func.__code__.co_cellvars)  # ()
 | `__notes__`            | Список строк, содержащих примечания, добавленные к исключению с помощью метода `add_note`                                                                                                                                                                                                                                                                       |
 
 Магические методы `__cause__`, `__context__`, `__suppress_context__` и `__traceback__` позволяют более гибко управлять цепочкой исключений, контекстом и трассировками, что особенно полезно при перехвате, повторном возбуждении и обработке исключений
-
 
 ### \_\_context\_\_
 ```pycon
@@ -275,6 +270,3 @@ try:
 except ValueError as e:
     print(f"Traceback: {e.__traceback__} {dir(e.__traceback__)}")
 ```
-
-
-

@@ -7,7 +7,7 @@ function myEncodeURIComponent(str) {
 
 function myDecodeURIComponent(str) {
     return decodeURIComponent(str)
-        .replace(/\+/g, " ")
+        .replace(/\+/g, " ");
 }
 
 

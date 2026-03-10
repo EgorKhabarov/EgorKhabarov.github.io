@@ -1,12 +1,112 @@
-| Метод                                                       | Описание                                                                                            | Пример вызова                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|:------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| int`.as_integer_ratio`()                                    | Возвращает кортеж, представляющий рациональное число,<br>близкое к данному целому числу             | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">10</span><span class="k">,</span> <span class="mi">1</span><span class="p">)</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| int`.bit_count`()                                           | Возвращает количество установленных битов (битов со значением 1)<br>в двоичном представлении числа  | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">bit_count</span><span class="p">()</span><br><span class="unselectable"><span class="mi">6</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| int`.bit_length`()                                          | Возвращает количество битов, необходимых для представления числа в двоичном виде                    | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span><br><span class="unselectable"><span class="mi">9</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| int`.conjugate`()                                           | Возвращает сопряженное комплексное число                                                            | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| int`.from_bytes`<br>(bytes, byteorder="big", signed=False)  | Преобразует байтовую последовательность в целое число,<br>используя указанный порядок байтов и знак | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x10</span><span class="s2">&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><br><span class="unselectable"><span class="mi">16</span></span><br></pre></div></pre></div></div>                                                                                                    |
-| int`.to_bytes`<br>(length=1, byteorder="big", signed=False) | Преобразует целое число в байтовую последовательность,<br>используя указанный порядок байтов и знак | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">length</span><span class="o">=</span><span class="mi">2</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><br><span class="unselectable"><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x04\x00</span><span class="s2">&quot;</span></span><br></pre></div></pre></div></div> |
-| int`.imag`                                                  | Возвращает мнимую часть комплексного числа                                                          | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span><br><span class="unselectable"><span class="mf">4.0</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| int`.real`                                                  | Возвращает действительную часть комплексного числа                                                  | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><br><span class="unselectable"><span class="mf">3.0</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| int`.numerator`                                             | Возвращает числитель числа в виде рациональной дроби                                                | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span><br><span class="unselectable"><span class="mi">3</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| int`.denominator`                                           | Возвращает знаменатель числа в виде рациональной дроби                                              | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">denominator</span><br><span class="unselectable"><span class="mi">1</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+# int
+
+### as_integer_ratio
+int.`as_integer_ratio`()
+Возвращает кортеж, представляющий рациональное число, близкое к данному целому числу
+```pycon
+>>> (10).as_integer_ratio()
+(10, 1)
+```
+### bit_count
+int.`bit_count`()
+Возвращает количество установленных битов (битов со значением 1) в двоичном представлении числа
+```pycon
+>>> (123).bit_count()
+6
+>>> bin(123).count("1")
+6
+```
+### bit_length
+int.`bit_length`()
+Возвращает количество битов, необходимых для представления числа в двоичном виде
+```pycon
+>>> (256).bit_length()
+9
+>>> len(bin(256)[2:])
+9
+```
+### conjugate
+int.`conjugate`()
+Возвращает сопряженное комплексное число
+```pycon
+>>> (3 + 4j).conjugate()
+(3-4j)
+```
+### from_bytes
+int.`from_bytes`(bytes, byteorder="big", signed=False)
+Преобразует байтовую последовательность в целое число, используя указанный порядок байтов и знак
+```pycon
+>>> int.from_bytes(b"\x00\x10", byteorder="big", signed=False)
+16
+>>> int.from_bytes(b'\x01\x00', "big")
+256
+```
+### to_bytes
+int.`to_bytes`(length=1, byteorder="big", signed=False)
+Преобразует целое число в байтовую последовательность, используя указанный порядок байтов и знак
+```pycon
+>>> (1024).to_bytes(length=2, byteorder="big", signed=False)
+b"\x04\x00"
+>>> (256).to_bytes(2, "big")
+b'\x01\x00'
+```
+#### byteorder
+"big" big-endian Старший байт первым
+"little" little-endian Младший байт первым
+```pycon
+>>> 0x1234.to_bytes(2, "big")
+b'\x12\x34'
+>>> 0x1234.to_bytes(2, "little")
+b'\x34\x12'
+```
+#### signed
+`signed=True` Позволяет хранить отрицательные числа
+```pycon
+>>> (-1).to_bytes(1, "big")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    (-1).to_bytes(1, "big")
+    ~~~~~~~~~~~~~^^^^^^^^^^
+OverflowError: can't convert negative int to unsigned
+>>> (-1).to_bytes(1, "big", signed=True)
+b'\xff'
+```
+### imag
+int.`imag`
+Возвращает мнимую часть комплексного числа
+```pycon
+>>> (5).imag
+0
+>>> (3 + 4j).imag
+4.0
+```
+### real
+int.`real`
+Возвращает действительную часть комплексного числа
+```pycon
+>>> (5).real
+5
+>>> (3 + 4j).real
+3.0
+```
+### numerator
+int.`numerator`
+Возвращает числитель числа в виде рациональной дроби
+```pycon
+>>> (3).numerator
+3
+```
+### denominator
+int.`denominator`
+Возвращает знаменатель числа в виде рациональной дроби
+```pycon
+>>> (3).denominator
+1
+```
+### is_integer
+int.`is_integer`()
+Всегда возвращает True (для совместимости с float)
+```pycon
+>>> (5).is_integer())
+True
+```

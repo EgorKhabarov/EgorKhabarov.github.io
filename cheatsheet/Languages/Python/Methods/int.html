@@ -1,61 +1,98 @@
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Метод</th>
-<th style="text-align: left;">Описание</th>
-<th style="text-align: left;">Пример вызова</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">int<code>.as_integer_ratio</code>()</td>
-<td style="text-align: left;">Возвращает кортеж, представляющий рациональное число,<br>близкое к данному целому числу</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">10</span><span class="k">,</span> <span class="mi">1</span><span class="p">)</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.bit_count</code>()</td>
-<td style="text-align: left;">Возвращает количество установленных битов (битов со значением 1)<br>в двоичном представлении числа</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">bit_count</span><span class="p">()</span><br><span class="unselectable"><span class="mi">6</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.bit_length</code>()</td>
-<td style="text-align: left;">Возвращает количество битов, необходимых для представления числа в двоичном виде</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span><br><span class="unselectable"><span class="mi">9</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.conjugate</code>()</td>
-<td style="text-align: left;">Возвращает сопряженное комплексное число</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.from_bytes</code><br>(bytes, byteorder="big", signed=False)</td>
-<td style="text-align: left;">Преобразует байтовую последовательность в целое число,<br>используя указанный порядок байтов и знак</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x10</span><span class="s2">&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><br><span class="unselectable"><span class="mi">16</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.to_bytes</code><br>(length=1, byteorder="big", signed=False)</td>
-<td style="text-align: left;">Преобразует целое число в байтовую последовательность,<br>используя указанный порядок байтов и знак</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">length</span><span class="o">=</span><span class="mi">2</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span><br><span class="unselectable"><span class="o">...</span> </span>    <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><br><span class="unselectable"><span class="o">...</span> </span><span class="p">)</span><br><span class="unselectable"><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x04\x00</span><span class="s2">&quot;</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.imag</code></td>
-<td style="text-align: left;">Возвращает мнимую часть комплексного числа</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span><br><span class="unselectable"><span class="mf">4.0</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.real</code></td>
-<td style="text-align: left;">Возвращает действительную часть комплексного числа</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><br><span class="unselectable"><span class="mf">3.0</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.numerator</code></td>
-<td style="text-align: left;">Возвращает числитель числа в виде рациональной дроби</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span><br><span class="unselectable"><span class="mi">3</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">int<code>.denominator</code></td>
-<td style="text-align: left;">Возвращает знаменатель числа в виде рациональной дроби</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">denominator</span><br><span class="unselectable"><span class="mi">1</span></span><br></pre></div></pre></div></div></td>
-</tr>
-</tbody>
-</table>
+<h1>int</h1>
+<h3>as_integer_ratio</h3>
+<p>int.<code>as_integer_ratio</code>()
+Возвращает кортеж, представляющий рациональное число, близкое к данному целому числу</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="unselectable"><span class="go">(10, 1)</span>
+</span></pre></div></div></div>
+<h3>bit_count</h3>
+<p>int.<code>bit_count</code>()
+Возвращает количество установленных битов (битов со значением 1) в двоичном представлении числа</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">bit_count</span><span class="p">()</span>
+<span class="unselectable"><span class="go">6</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">6</span>
+</span></pre></div></div></div>
+<h3>bit_length</h3>
+<p>int.<code>bit_length</code>()
+Возвращает количество битов, необходимых для представления числа в двоичном виде</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span>
+<span class="unselectable"><span class="go">9</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">256</span><span class="p">)[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="unselectable"><span class="go">9</span>
+</span></pre></div></div></div>
+<h3>conjugate</h3>
+<p>int.<code>conjugate</code>()
+Возвращает сопряженное комплексное число</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span class="unselectable"><span class="go">(3-4j)</span>
+</span></pre></div></div></div>
+<h3>from_bytes</h3>
+<p>int.<code>from_bytes</code>(bytes, byteorder="big", signed=False)
+Преобразует байтовую последовательность в целое число, используя указанный порядок байтов и знак</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\x10</span><span class="s2">&quot;</span><span class="k">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="unselectable"><span class="go">16</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x01\x00</span><span class="s1">&#39;</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">256</span>
+</span></pre></div></div></div>
+<h3>to_bytes</h3>
+<p>int.<code>to_bytes</code>(length=1, byteorder="big", signed=False)
+Преобразует целое число в байтовую последовательность, используя указанный порядок байтов и знак</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">2</span><span class="k">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="k">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="unselectable"><span class="go">b&quot;\x04\x00&quot;</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">b&#39;\x01\x00&#39;</span>
+</span></pre></div></div></div>
+<h4>byteorder</h4>
+<p>"big" big-endian Старший байт первым
+"little" little-endian Младший байт первым</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mh">0x1234</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">b&#39;\x12\x34&#39;</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="mh">0x1234</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="k">,</span> <span class="s2">&quot;little&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="go">b&#39;\x34\x12&#39;</span>
+</span></pre></div></div></div>
+<h4>signed</h4>
+<p><code>signed=True</code> Позволяет хранить отрицательные числа</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="gt">Traceback (most recent call last):</span></span>
+<span class="unselectable">  File <span class="nb">&quot;&lt;input&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span></span>
+<span class="unselectable"><span class="w">    </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span></span>
+<span class="unselectable"><span class="w">    </span><span class="pm">~~~~~~~~~~~~~^^^^^^^^^^</span></span>
+<span class="unselectable"><span class="gr">OverflowError</span>: <span class="n">can&#39;t convert negative int to unsigned</span></span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="s2">&quot;big&quot;</span><span class="k">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="unselectable"><span class="go">b&#39;\xff&#39;</span>
+</span></pre></div></div></div>
+<h3>imag</h3>
+<p>int.<code>imag</code>
+Возвращает мнимую часть комплексного числа</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+<span class="unselectable"><span class="go">0</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+<span class="unselectable"><span class="go">4.0</span>
+</span></pre></div></div></div>
+<h3>real</h3>
+<p>int.<code>real</code>
+Возвращает действительную часть комплексного числа</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="unselectable"><span class="go">5</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="unselectable"><span class="go">3.0</span>
+</span></pre></div></div></div>
+<h3>numerator</h3>
+<p>int.<code>numerator</code>
+Возвращает числитель числа в виде рациональной дроби</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span>
+<span class="unselectable"><span class="go">3</span>
+</span></pre></div></div></div>
+<h3>denominator</h3>
+<p>int.<code>denominator</code>
+Возвращает знаменатель числа в виде рациональной дроби</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">denominator</span>
+<span class="unselectable"><span class="go">1</span>
+</span></pre></div></div></div>
+<h3>is_integer</h3>
+<p>int.<code>is_integer</code>()
+Всегда возвращает True (для совместимости с float)</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">is_integer</span><span class="p">())</span>
+<span class="unselectable"><span class="go">True</span>
+</span></pre></div></div></div>

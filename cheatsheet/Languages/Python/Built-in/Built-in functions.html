@@ -1,6 +1,17 @@
 <h2>slice</h2>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># [2, 3, 4]</span>
 <span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">][</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">4</span><span class="p">)])</span>  <span class="c1"># [2, 3, 4]</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="k">,</span> <span class="mi">10</span><span class="k">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># (1, 5, 2)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="k">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># (7, 10, 1)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="k">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># (0, 5, 1)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="k">,</span> <span class="kc">None</span><span class="k">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">getitem</span><span class="p">(</span><span class="n">seq</span><span class="k">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="k">,</span> <span class="nb">slice</span><span class="p">):</span>
+        <span class="n">start</span><span class="k">,</span> <span class="n">stop</span><span class="k">,</span> <span class="n">step</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="k">,</span> <span class="n">stop</span><span class="k">,</span> <span class="n">step</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">seq</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 </pre></div></div></div>
 
 <h2>frozenset</h2>
@@ -11,12 +22,17 @@
 <h2>memoryview</h2>
 <p>Доступ к буферу памяти объекта без копирования его данных</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="s2">&quot;ABC&quot;</span><span class="k">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">))</span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># доступ к нулевому индексу представления памяти</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1"># Доступ к нулевому индексу представления памяти</span>
 <span class="unselectable"><span class="go">65</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytes</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># создать байт из представления памяти</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">bytes</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Создать байт из представления памяти</span>
 <span class="unselectable"><span class="go">b&quot;AB&quot;</span>
-<span class="o">&gt;&gt;&gt; </span></span><span class="nb">list</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># создать список из представления памяти</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="nb">list</span><span class="p">(</span><span class="n">mv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># Создать список из представления памяти</span>
 <span class="unselectable"><span class="go">[65, 66, 67]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">b</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">m</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">b</span>
+<span class="unselectable"><span class="go">bytearray(b&#39;Hello&#39;)</span>
 </span></pre></div></div></div>
 
 <h2>hasattr</h2>
@@ -74,9 +90,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span>
 
-    <span class="nd">@my_attr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@my_attr.setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div></div></div>
 
 <h2>object</h2>

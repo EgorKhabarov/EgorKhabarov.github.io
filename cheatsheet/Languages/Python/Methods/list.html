@@ -1,54 +1,162 @@
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Метод</th>
-<th style="text-align: left;"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">list<code>.append</code>(object)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.clear</code>()</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.сору</code>()</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l1</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="ow">is</span> <span class="n">l1</span><br><span class="unselectable"><span class="kc">False</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.count</code>(value)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><br><span class="unselectable"><span class="mi">2</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.extend</code>(iterable)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">])</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.index</code>(value[, start=0[, stop=sys.maxsize]])</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><br><span class="unselectable"><span class="mi">1</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.insert</code>(index, object)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.pop</code>(index)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><br><span class="unselectable"><span class="mi">3</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.remove</code>(value)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.reverse</code>()</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">3</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">1</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-<tr>
-<td style="text-align: left;">list<code>.sort</code>(key=None, reverse=False)</td>
-<td style="text-align: left;"><div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">5</span><span class="p">]</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><br><span class="unselectable"><span class="p">[</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">]</span></span><br></pre></div></pre></div></div></td>
-</tr>
-</tbody>
-</table>
+<h1>list</h1>
+<h3>append</h3>
+<p>list.<code>append</code>(object)
+Добавляет элемент в конец списка</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4]</span>
+</span></pre></div></div></div>
+<h3>clear</h3>
+<p>list.<code>clear</code>()
+Удаляет все элементы списка</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[]</span>
+</span></pre></div></div></div>
+<h3>сору</h3>
+<p>list.<code>сору</code>()
+Возвращает поверхностную копию списка</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst1</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 2, 3]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">lst</span> <span class="o">==</span> <span class="n">lst1</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">lst</span> <span class="ow">is</span> <span class="n">lst1</span>
+<span class="unselectable"><span class="go">False</span>
+</span></pre></div></div></div>
+<h3>count</h3>
+<p>list.<code>count</code>(value)
+Возвращает количество вхождений значения</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="unselectable"><span class="go">2</span>
+</span></pre></div></div></div>
+<h3>extend</h3>
+<p>list.<code>extend</code>(iterable)
+Добавляет все элементы из итерируемого объекта</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4, 5]</span>
+</span></pre></div></div></div>
+<h3>index</h3>
+<p>list.<code>index</code>(value[, start=0[, stop=sys.maxsize]])
+Возвращает индекс первого вхождения</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="unselectable"><span class="go">1</span>
+</span></pre></div></div></div>
+<h3>insert</h3>
+<p>list.<code>insert</code>(index, object)
+Вставляет элемент по индексу</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4]</span>
+</span></pre></div></div></div>
+<h3>pop</h3>
+<p>list.<code>pop</code>(index=-1)
+Удаляет и возвращает элемент по индексу (по умолчанию последний)</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="unselectable"><span class="go">3</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 2]</span>
+</span></pre></div></div></div>
+<h3>remove</h3>
+<p>list.<code>remove</code>(value)
+Удаляет первое вхождение значения</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[1, 3]</span>
+</span></pre></div></div></div>
+<h3>reverse</h3>
+<p>list.<code>reverse</code>()
+Разворачивает список на месте</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[3, 2, 1]</span>
+</span></pre></div></div></div>
+<h3>sort</h3>
+<p>list.<code>sort</code>(*, key=None, reverse=False)
+Сортирует список на месте</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">lst</span>
+<span class="unselectable"><span class="go">[3, 4, 5]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[5, 4, 3]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[4, 3, 5]</span>
+</span></pre></div></div></div>
+<h3>__add__</h3>
+<p>list.<code>__add__</code>(other) и <code>+</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span><span class="k">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="k">,</span> <span class="p">[</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">a</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4]</span>
+</span></pre></div></div></div>
+<h3>__iadd__</h3>
+<p>list.<code>__iadd__</code>(other) и <code>+=</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="n">a</span><span class="o">.</span><span class="fm">__iadd__</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span>
+<span class="unselectable"><span class="go">[1, 2, 3, 4, 5]</span>
+</span></pre></div></div></div>
+<h3>__mul__ и __rmul__</h3>
+<p>list.<code>__mul__</code>(n) и <code>*</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__rmul__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+</span></pre></div></div></div>
+<h3>__imul__</h3>
+<p>list.<code>__imul__</code>(n) и <code>*=</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span> <span class="o">*=</span> <span class="mi">3</span>
+<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">a</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__imul__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="unselectable"><span class="go">[1, 2, 1, 2, 1, 2]</span>
+</span></pre></div></div></div>
+<h3>__eq__</h3>
+<p>list.<code>__eq__</code>(other) и <code>==</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="unselectable"><span class="go">True</span>
+</span></pre></div></div></div>
+<h3>__lt__ и __gt__</h3>
+<p>list.<code>__lt__</code>(other) или list.<code>__gt__</code>(other) и <code>&lt;</code> или <code>&gt;</code>
+Проверяет "меньше" или "больше" (лексикографически)</p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__lt__</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__gt__</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="unselectable"><span class="go">True</span>
+</span></pre></div></div></div>
+<h3>__le__ и __ge__</h3>
+<p>list.<code>__le__</code>(other) или list.<code>__ge__</code>(other) и <code>&lt;=</code> или <code>&gt;=</code></p>
+<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__le__</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="unselectable"><span class="go">True</span>
+<span class="o">&gt;&gt;&gt; </span></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="fm">__ge__</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<span class="unselectable"><span class="go">True</span>
+</span></pre></div></div></div>

@@ -453,7 +453,7 @@
 <tr>
 <td><code>def __sizeof__(self):</code></td>
 <td><code>sys.getsizeof</code>(self)</td>
-<td>Возвращает размер объекта в байтах</td>
+<td>Возвращает размер объекта в памяти (без вложенных объектов)</td>
 </tr>
 <tr>
 <td><code>def __fspath__(self):</code></td>
@@ -600,7 +600,7 @@
 <td>Возвращает объект, поддерживающий асинхронное ожидание</td>
 </tr>
 <tr>
-<td><code>def __class_getitem__(cls, item):</code></td>
+<td><code>def __class_getitem__(cls, item):</code> (<a href="#__class_getitem__">*Подробнее</a>)</td>
 <td>item_type = MyGenericClass.<code>__class_getitem__</code>(Item)</td>
 <td>Обобщенный тип объекта</td>
 </tr>
@@ -683,41 +683,23 @@
 <h1>Примеры</h1>
 <h2>__class_getitem__</h2>
 <p>Появился в версии 3.7 и используется в основном для поддержки аннотаций типов и работы с обобщёнными типами <code>generics</code>
-Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code></p>
-<h3>Обобщённые классы (Generics)</h3>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="k">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Класс вызван с параметром: </span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span>
+Этот метод срабатывает, когда класс вызывается с использованием синтаксиса индексации <code>[]</code>
+Может возвращать любое значение, но для Generic класса делается так</p>
+<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Generic</span><span class="k">,</span> <span class="n">TypeVar</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>
-<span class="c1"># Класс вызван с параметром: &lt;class &#39;int&#39;&gt;</span>
-<span class="c1"># &lt;class &#39;__main__.MyClass&#39;&gt;</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Box</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="k">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__class_getitem__</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="c1"># Box       # __main__.Box</span>
+<span class="c1"># Box[int]  # __main__.Box[int]</span>
 </pre></div></div></div>
 
-<h3>Пример для создания обобщённых классов</h3>
-<p><code>__class_getitem__</code> часто используется в таких библиотеках, как <code>typing</code>, для создания обобщённых <code>generics</code> классов</p>
-<h4>Пример реализации собственного Generic-класса:</h4>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyGeneric</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">__class_getitem__</span><span class="p">(</span><span class="bp">cls</span><span class="k">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">]&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span>  <span class="c1"># MyGeneric[int]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">MyGeneric</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span>  <span class="c1"># MyGeneric[str]</span>
-</pre></div></div></div>
-
-<h3>Зачем нужен <code>__class_getitem__</code>?</h3>
-<ol>
-<li><strong>Работа с аннотациями типов.</strong> Он упрощает создание обобщённых классов, таких как <code>List[int]</code>
-или <code>Dict[str, int]</code>, поддерживая работу с типами в библиотеках, связанных с проверкой типов</li>
-<li><strong>Интерфейсы для собственных классов.</strong> Если вы создаёте классы, которые должны поддерживать функциональность,
-связанную с типами или шаблонами, метод <code>__class_getitem__</code> позволит вам реализовать подобную логику</li>
-<li><strong>Гибкость.</strong> Он позволяет передавать классу параметры,
-которые могут управлять тем, как класс себя ведёт или что возвращает</li>
-</ol>
-<p><code>__class_getitem__</code> может работать в связке с другими магическими методами для более сложных конструкций
-Например, его можно использовать вместе с методами <code>__getitem__</code>, <code>__setitem__</code>
-для создания классов, которые поддерживают индексацию и динамическое изменение поведения</p>
 <p>Магический метод <code>__class_getitem__</code> - это мощный инструмент для работы с обобщёнными типами и аннотациями
 С его помощью можно реализовывать гибкие и типизированные API,
 которые позволяют делать код более понятным и удобным для сопровождения</p>

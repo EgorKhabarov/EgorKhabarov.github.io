@@ -11,11 +11,11 @@
 <span class="p">)</span>
 </pre></div></div></div>
 
-<h3>Параметры</h3>
-<h4>file путь к файлу</h4>
+<h2>Параметры</h2>
+<h3>file путь к файлу</h3>
 <p>Обязательный параметр
 Строка или объект с методом <code>__fspath__</code>, например <code>pathlib.Path</code></p>
-<h4>mode режим открытия файла</h4>
+<h3>mode режим открытия файла</h3>
 <table>
 <thead>
 <tr>
@@ -55,7 +55,7 @@
 </tbody>
 </table>
 <p>Допустимы комбинации, например: <code>"rb"</code>, <code>"w+t"</code>, <code>"a+b"</code>, <code>"r+"</code></p>
-<h4>buffering управление буферизацией</h4>
+<h3>buffering управление буферизацией</h3>
 <table>
 <thead>
 <tr>
@@ -82,9 +82,9 @@
 </tr>
 </tbody>
 </table>
-<h4>encoding (только в текстовом режиме)</h4>
+<h3>encoding (только в текстовом режиме)</h3>
 <p>Кодировка, например <code>"UTF-8"</code>, <code>"cp1251"</code>, <code>"ASCII"</code></p>
-<h4>errors обработка ошибок кодировки</h4>
+<h3>errors обработка ошибок кодировки</h3>
 <table>
 <thead>
 <tr>
@@ -111,7 +111,7 @@
 </tr>
 </tbody>
 </table>
-<h4>newline перевод строк</h4>
+<h3>newline перевод строк</h3>
 <table>
 <thead>
 <tr>
@@ -142,13 +142,13 @@
 </tr>
 </tbody>
 </table>
-<h4>closefd</h4>
+<h3>closefd</h3>
 <p>Используется только при передаче числового файлового дескриптора:</p>
 <ul>
 <li><code>True</code> Закрыть дескриптор при <code>close()</code> (по умолчанию)</li>
 <li><code>False</code> Не закрывать дескриптор</li>
 </ul>
-<h4>opener</h4>
+<h3>opener</h3>
 <p>Позволяет задать пользовательскую функцию открытия:</p>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">custom_opener</span><span class="p">(</span><span class="n">path</span><span class="k">,</span> <span class="n">flags</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="k">,</span> <span class="n">flags</span><span class="p">)</span>
@@ -235,7 +235,7 @@
 </tr>
 </tbody>
 </table>
-<h1>Пример использования</h1>
+<h2>Пример использования</h2>
 <div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="k">,</span> <span class="s2">&quot;r&quot;</span><span class="k">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>

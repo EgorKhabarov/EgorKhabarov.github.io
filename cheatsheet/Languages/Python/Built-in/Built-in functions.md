@@ -3,6 +3,17 @@
 ```python
 print([1, 2, 3, 4, 5][1:4])  # [2, 3, 4]
 print([1, 2, 3, 4, 5][slice(1, 4)])  # [2, 3, 4]
+slice(1, 10, 2).indices(5)  # (1, 5, 2)
+slice(-3, None).indices(10)  # (7, 10, 1)
+slice(-100, 100).indices(5)  # (0, 5, 1)
+slice(None, None, -1).indices(5)
+
+def getitem(seq, key):
+    if isinstance(key, slice):
+        start, stop, step = key.indices(len(seq))
+        return [seq[i] for i in range(start, stop, step)]
+    else:
+        return seq[key]
 ```
 
 ## frozenset
@@ -17,12 +28,17 @@ print(frozenset([1, 2, 2, 3, 4]))  # frozenset({1, 2, 3, 4})
 
 ```pycon
 >>> mv = memoryview(bytearray("ABC", "UTF-8"))
->>> mv[0]           # доступ к нулевому индексу представления памяти
+>>> mv[0]           # Доступ к нулевому индексу представления памяти
 65
->>> bytes(mv[0:2])  # создать байт из представления памяти
+>>> bytes(mv[0:2])  # Создать байт из представления памяти
 b"AB"
->>> list(mv[0:3])   # создать список из представления памяти
+>>> list(mv[0:3])   # Создать список из представления памяти
 [65, 66, 67]
+>>> b = bytearray(b"hello")
+>>> m = memoryview(b)
+>>> m[0] = ord("H")
+>>> b
+bytearray(b'Hello')
 ```
 
 ## hasattr
@@ -94,7 +110,7 @@ class MyClass:
 
     @my_attr.setter
     def my_attr(self, value):
-        self._my_attr
+        self._my_attr = value
 ```
 
 ## object

@@ -234,7 +234,7 @@
 </tr>
 <tr>
 <td><code>__subclasses__()</code></td>
-<td>Возвращает список подклассов</td>
+<td>Возвращает список подклассов в runtime</td>
 </tr>
 <tr>
 <td><code>__dict__</code></td>
@@ -298,16 +298,16 @@
 
 <span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  <span class="c1"># Словарь атрибутов класса</span>
-<span class="c1"># {&#39;__module__&#39;: &#39;__main__&#39;,</span>
-<span class="c1">#  &#39;__firstlineno__&#39;: 1,</span>
-<span class="c1">#  &#39;class_attr&#39;: 42,</span>
-<span class="c1">#  &#39;__init__&#39;: &lt;function MyClass.__init__ at 0x...&gt;,</span>
-<span class="c1">#  &#39;__static_attributes__&#39;: (&#39;instance_attr&#39;,),</span>
-<span class="c1">#  &#39;__dict__&#39;: &lt;attribute &#39;__dict__&#39; of &#39;MyClass&#39; objects&gt;,</span>
-<span class="c1">#  &#39;__weakref__&#39;: &lt;attribute &#39;__weakref__&#39; of &#39;MyClass&#39; objects&gt;,</span>
-<span class="c1">#  &#39;__doc__&#39;: None}</span>
+<span class="c1"># {&quot;__module__&quot;: &quot;__main__&quot;,</span>
+<span class="c1">#  &quot;__firstlineno__&quot;: 1,</span>
+<span class="c1">#  &quot;class_attr&quot;: 42,</span>
+<span class="c1">#  &quot;__init__&quot;: &lt;function MyClass.__init__ at 0x...&gt;,</span>
+<span class="c1">#  &quot;__static_attributes__&quot;: (&quot;instance_attr&quot;,),</span>
+<span class="c1">#  &quot;__dict__&quot;: &lt;attribute &#39;__dict__&#39; of &#39;MyClass&#39; objects&gt;,</span>
+<span class="c1">#  &quot;__weakref__&quot;: &lt;attribute &#39;__weakref__&#39; of &#39;MyClass&#39; objects&gt;,</span>
+<span class="c1">#  &quot;__doc__&quot;: None}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>  <span class="c1"># Словарь атрибутов экземпляра</span>
-<span class="c1"># {&#39;instance_attr&#39;: 10}</span>
+<span class="c1"># {&quot;instance_attr&quot;: 10}</span>
 </pre></div></div></div>
 
 <h2>__slots__</h2>
@@ -367,7 +367,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="n">__static_attributes__</span><span class="p">)</span>
-<span class="c1"># (&#39;count&#39;, &#39;value&#39;)</span>
+<span class="c1"># (&quot;count&quot;, &quot;value&quot;)</span>
 </pre></div></div></div>
 
 <h1>Примеры использования</h1>

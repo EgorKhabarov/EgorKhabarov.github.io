@@ -1,9 +1,52 @@
-| Метод                      | Описание                                                                                | Пример вызова                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|----------------------------|-----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| float`.as_integer_ratio`() | Возвращает кортеж, представляющий рациональное число,<br>близкое к данному целому числу | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span><br><span class="unselectable"><span class="p">(</span><span class="mi">21</span><span class="k">,</span> <span class="mi">2</span><span class="p">)</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                          |
-| float`.conjugate`()        | Возвращает сопряженное комплексное число                                                | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><br><span class="unselectable"><span class="mf">10.5</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                 |
-| float`.fromhex`(string)    |                                                                                         | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&quot;ff&quot;</span><span class="p">)</span><br><span class="unselectable"><span class="mf">255.0</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                    |
-| float`.hex`()              |                                                                                         | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;-0x1.999999999999ap-4&quot;</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">3.14159</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><br><span class="unselectable"><span class="s2">&quot;0x1.921f9f01b866ep+1&quot;</span></span><br></pre></div></pre></div></div> |
-| float`.is_integer`()       |                                                                                         | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span><br><span class="unselectable"><span class="kc">False</span></span><br><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.0</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span><br><span class="unselectable"><span class="kc">True</span></span><br></pre></div></pre></div></div>                                                                                                                     |
-| float`.imag`               | Возвращает мнимую часть комплексного числа                                              | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.5</span><span class="o">.</span><span class="n">imag</span><br><span class="unselectable"><span class="mf">0.0</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                                |
-| float`.real`               | Возвращает действительную часть комплексного числа                                      | <div class="code" style="border-radius:.375rem .375rem;"><div class="highlight"><pre><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="mf">10.0</span><span class="o">.</span><span class="n">real</span><br><span class="unselectable"><span class="mf">10.0</span></span><br></pre></div></pre></div></div>                                                                                                                                                                                                                                                                                                                                                                                                               |
+# float
+
+### as_integer_ratio
+float.`as_integer_ratio`()
+Возвращает кортеж, представляющий рациональное число, близкое к данному целому числу
+```pycon
+>>> 10.5.as_integer_ratio()
+(21, 2)
+```
+### conjugate
+float.`conjugate`()
+Возвращает сопряженное комплексное число
+```pycon
+>>> 10.5.conjugate()
+10.5
+```
+### fromhex
+float.`fromhex`(string)
+```pycon
+>>> float.fromhex("ff")
+255.0
+```
+### hex
+float.`hex`()
+```pycon
+>>> (-0.1).hex()
+"-0x1.999999999999ap-4"
+>>> 3.14159.hex()
+"0x1.921f9f01b866ep+1"
+```
+### imag
+float.`imag`
+Возвращает мнимую часть комплексного числа
+```pycon
+>>> 10.5.imag
+0.0
+```
+### real
+float.`real`
+Возвращает действительную часть комплексного числа
+```pycon
+>>> 10.0.real
+10.0
+```
+### is_integer
+float.`is_integer`()
+```pycon
+>>> 10.5.is_integer()
+False
+>>> 10.0.is_integer()
+True
+```
