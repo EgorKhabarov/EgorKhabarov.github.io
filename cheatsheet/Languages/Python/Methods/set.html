@@ -1,6 +1,6 @@
 <h1>set</h1>
 <h3>add</h3>
-<p>set<code>.add</code>(element)
+<p>set.<code>add</code>(element)
 Добавляет элемент <code>element</code> во множество
 Если элемент уже присутствует, ничего не происходит</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
@@ -12,7 +12,7 @@
 <span class="unselectable"><span class="go">{1, 2, 3, 4}</span>
 </span></pre></div></div></div>
 <h3>issubset</h3>
-<p>set<code>.issubset</code>(set2)
+<p>set.<code>issubset</code>(set2)
 Проверяет, является ли <code>set</code> подмножеством <code>set2</code>
 Возвращает <code>True</code>, если так, иначе <code>False</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span><span class="o">.</span><span class="n">issubset</span><span class="p">({</span><span class="mi">0</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">})</span>
@@ -21,7 +21,7 @@
 <span class="unselectable"><span class="go">False</span>
 </span></pre></div></div></div>
 <h3>isdisjoint</h3>
-<p>set<code>.isdisjoint</code>(set2)
+<p>set.<code>isdisjoint</code>(set2)
 Проверяет, есть ли общие элементы между <code>set</code> и <code>set2</code>
 Возвращает <code>True</code>, <strong>если нет</strong>, иначе <code>False</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">({</span><span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="k">,</span> <span class="mi">6</span><span class="p">})</span>
@@ -30,7 +30,7 @@
 <span class="unselectable"><span class="go">False</span>
 </span></pre></div></div></div>
 <h3>issuperset</h3>
-<p>set<code>.issuperset</code>(set2)
+<p>set.<code>issuperset</code>(set2)
 Проверяет, является ли <code>set</code> надмножеством <code>set2</code>
 Возвращает <code>True</code>, если так, иначе <code>False</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">0</span><span class="k">,</span> <span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">}</span><span class="o">.</span><span class="n">issuperset</span><span class="p">({</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">})</span>
@@ -39,7 +39,7 @@
 <span class="unselectable"><span class="go">False</span>
 </span></pre></div></div></div>
 <h3>copy</h3>
-<p>set<code>.copy()</code>
+<p>set.<code>copy()</code>
 Возвращает копию множества</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">first_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">id</span><span class="p">(</span><span class="n">first_set</span><span class="p">)</span>
@@ -48,7 +48,7 @@
 <span class="unselectable"><span class="go">...........88</span>
 </span></pre></div></div></div>
 <h3>| и union</h3>
-<p><code>|</code> и set<code>.union</code>(set2)
+<p><code>|</code> и set.<code>union</code>(set2)
 Возвращает новое множество, содержащее все элементы из <code>set</code> и <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="unselectable"><span class="go">{1, 2, 3, 4}</span>
@@ -56,7 +56,7 @@
 <span class="unselectable"><span class="go">{1, 2, 3, 4}</span>
 </span></pre></div></div></div>
 <h3>- и difference</h3>
-<p><code>-</code> и set<code>.difference</code>(set2)
+<p><code>-</code> и set.<code>difference</code>(set2)
 Возвращает новое множество, содержащее элементы из <code>set</code>, которые отсутствуют в <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="go">{1, 4}</span>
@@ -64,7 +64,7 @@
 <span class="unselectable"><span class="go">{1, 4}</span>
 </span></pre></div></div></div>
 <h3>&amp; и intersection</h3>
-<p><code>&amp;</code> и set<code>.intersection</code>(set2)
+<p><code>&amp;</code> и set.<code>intersection</code>(set2)
 Возвращает новое множество, содержащее только элементы, присутствующие одновременно в <code>set</code> и <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">&amp;</span> <span class="p">{</span><span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">}</span>
 <span class="unselectable"><span class="go">{2, 3}</span>
@@ -72,7 +72,7 @@
 <span class="unselectable"><span class="go">{2, 3}</span>
 </span></pre></div></div></div>
 <h3>^ и symmetric_difference</h3>
-<p><code>^</code> и set<code>.symmetric_difference</code>(set2)
+<p><code>^</code> и set.<code>symmetric_difference</code>(set2)
 Возвращает новое множество, содержащее элементы, присутствующие только в одном из <code>set</code> и <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span> <span class="o">^</span> <span class="p">{</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">}</span>
 <span class="unselectable"><span class="go">{1, 2, 4, 5}</span>
@@ -80,7 +80,7 @@
 <span class="unselectable"><span class="go">{1, 2, 4, 5}</span>
 </span></pre></div></div></div>
 <h3>|= и update</h3>
-<p><code>|=</code> и set<code>.update</code>(set2)
+<p><code>|=</code> и set.<code>update</code>(set2)
 Обновляет множество, добавляя элементы из <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">|=</span> <span class="p">{</span><span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">}</span>
@@ -91,7 +91,7 @@
 <span class="unselectable"><span class="go">{1, 2, 3, 4, 5, 6, 7}</span>
 </span></pre></div></div></div>
 <h3>-= и difference_update</h3>
-<p><code>-=</code> и set<code>.difference_update</code>(set2)
+<p><code>-=</code> и set.<code>difference_update</code>(set2)
 Обновляет множество, удаляя элементы из <code>set</code>, которые присутствуют в <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">-=</span> <span class="p">{</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">}</span>
@@ -102,7 +102,7 @@
 <span class="unselectable"><span class="go">{1}</span>
 </span></pre></div></div></div>
 <h3>&amp;= и intersection_update</h3>
-<p><code>&amp;=</code> и set<code>.intersection_update</code>(set2)
+<p><code>&amp;=</code> и set.<code>intersection_update</code>(set2)
 Обновляет множество, оставляя только элементы, присутствующие одновременно в <code>set</code> и <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">&amp;=</span> <span class="p">{</span><span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">}</span>
@@ -113,7 +113,7 @@
 <span class="unselectable"><span class="go">{2, 3}</span>
 </span></pre></div></div></div>
 <h3>^= и symmetric_difference_update</h3>
-<p><code>^=</code> и set<code>.symmetric_difference_update</code>(set2)
+<p><code>^=</code> и set.<code>symmetric_difference_update</code>(set2)
 Обновляет множество, оставляя только элементы, присутствующие только в одном из <code>set</code> и <code>set2</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s1</span> <span class="o">^=</span> <span class="p">{</span><span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="k">,</span> <span class="mi">5</span><span class="p">}</span>
@@ -124,14 +124,14 @@
 <span class="unselectable"><span class="go">{1, 2, 6}</span>
 </span></pre></div></div></div>
 <h3>pop</h3>
-<p>set<code>.pop()</code>
+<p>set.<code>pop()</code>
 Удаляет и возвращает произвольный элемент из множества
 Если множество пустое, возникает исключение <code>KeyError</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="unselectable"><span class="go">1</span>
 </span></pre></div></div></div>
 <h3>clear</h3>
-<p>set<code>.clear()</code>
+<p>set.<code>clear()</code>
 Удаляет все элементы из множества, делая его пустым</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -139,7 +139,7 @@
 <span class="unselectable"><span class="go">set()</span>
 </span></pre></div></div></div>
 <h3>remove</h3>
-<p>set<code>.remove</code>(element)
+<p>set.<code>remove</code>(element)
 Удаляет элемент <code>element</code> из множества
 Если элемент не найден, возникает исключение <code>KeyError</code></p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>
@@ -152,7 +152,7 @@
 <span class="unselectable"><span class="gr">KeyError</span>: <span class="n">145</span></span>
 </pre></div></div></div>
 <h3>discard</h3>
-<p>set<code>.discard</code>(element)
+<p>set.<code>discard</code>(element)
 Удаляет элемент <code>element</code> из множества
 Если элемент не найден, ничего не происходит</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">}</span>

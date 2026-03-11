@@ -1,7 +1,7 @@
 # set
 
 ### add
-set`.add`(element)
+set.`add`(element)
 Добавляет элемент `element` во множество
 Если элемент уже присутствует, ничего не происходит
 ```pycon
@@ -14,7 +14,7 @@ set`.add`(element)
 {1, 2, 3, 4}
 ```
 ### issubset
-set`.issubset`(set2)
+set.`issubset`(set2)
 Проверяет, является ли `set` подмножеством `set2`
 Возвращает `True`, если так, иначе `False`
 ```pycon
@@ -24,7 +24,7 @@ True
 False
 ```
 ### isdisjoint
-set`.isdisjoint`(set2)
+set.`isdisjoint`(set2)
 Проверяет, есть ли общие элементы между `set` и `set2`
 Возвращает `True`, **если нет**, иначе `False`
 ```pycon
@@ -34,7 +34,7 @@ True
 False
 ```
 ### issuperset
-set`.issuperset`(set2)
+set.`issuperset`(set2)
 Проверяет, является ли `set` надмножеством `set2`
 Возвращает `True`, если так, иначе `False`
 ```pycon
@@ -44,7 +44,7 @@ True
 False
 ```
 ### copy
-set`.copy()`
+set.`copy()`
 Возвращает копию множества
 ```pycon
 >>> first_set = {1, 2, 3}
@@ -54,7 +54,7 @@ set`.copy()`
 ...........88
 ```
 ### | и union
-`|` и set`.union`(set2)
+`|` и set.`union`(set2)
 Возвращает новое множество, содержащее все элементы из `set` и `set2`
 ```pycon
 >>> {1, 2} | {1, 2, 3, 4}
@@ -63,7 +63,7 @@ set`.copy()`
 {1, 2, 3, 4}
 ```
 ### - и difference
-`-` и set`.difference`(set2)
+`-` и set.`difference`(set2)
 Возвращает новое множество, содержащее элементы из `set`, которые отсутствуют в `set2`
 ```pycon
 >>> {1, 2, 3, 4} - {2, 3}
@@ -72,7 +72,7 @@ set`.copy()`
 {1, 4}
 ```
 ### & и intersection
-`&` и set`.intersection`(set2)
+`&` и set.`intersection`(set2)
 Возвращает новое множество, содержащее только элементы, присутствующие одновременно в `set` и `set2`
 ```pycon
 >>> {1, 2, 3} & {2, 3, 4}
@@ -81,7 +81,7 @@ set`.copy()`
 {2, 3}
 ```
 ### ^ и symmetric_difference
-`^` и set`.symmetric_difference`(set2)
+`^` и set.`symmetric_difference`(set2)
 Возвращает новое множество, содержащее элементы, присутствующие только в одном из `set` и `set2`
 ```pycon
 >>> {1, 2, 3} ^ {3, 4, 5}
@@ -90,7 +90,7 @@ set`.copy()`
 {1, 2, 4, 5}
 ```
 ### |= и update
-`|=` и set`.update`(set2)
+`|=` и set.`update`(set2)
 Обновляет множество, добавляя элементы из `set2`
 ```pycon
 >>> s1 = {1, 2, 3}
@@ -102,7 +102,7 @@ set`.copy()`
 {1, 2, 3, 4, 5, 6, 7}
 ```
 ### -= и difference_update
-`-=` и set`.difference_update`(set2)
+`-=` и set.`difference_update`(set2)
 Обновляет множество, удаляя элементы из `set`, которые присутствуют в `set2`
 ```pycon
 >>> s1 = {1, 2, 3}
@@ -114,7 +114,7 @@ set`.copy()`
 {1}
 ```
 ### &= и intersection_update
-`&=` и set`.intersection_update`(set2)
+`&=` и set.`intersection_update`(set2)
 Обновляет множество, оставляя только элементы, присутствующие одновременно в `set` и `set2`
 ```pycon
 >>> s1 = {1, 2, 3}
@@ -126,7 +126,7 @@ set`.copy()`
 {2, 3}
 ```
 ### ^= и symmetric_difference_update
-`^=` и set`.symmetric_difference_update`(set2)
+`^=` и set.`symmetric_difference_update`(set2)
 Обновляет множество, оставляя только элементы, присутствующие только в одном из `set` и `set2`
 ```pycon
 >>> s1 = {1, 2, 3}
@@ -138,7 +138,7 @@ set`.copy()`
 {1, 2, 6}
 ```
 ### pop
-set`.pop()`
+set.`pop()`
 Удаляет и возвращает произвольный элемент из множества
 Если множество пустое, возникает исключение `KeyError`
 ```pycon
@@ -146,7 +146,7 @@ set`.pop()`
 1
 ```
 ### clear
-set`.clear()`
+set.`clear()`
 Удаляет все элементы из множества, делая его пустым
 ```pycon
 >>> s = {1, 2, 3}
@@ -155,7 +155,7 @@ set`.clear()`
 set()
 ```
 ### remove
-set`.remove`(element)
+set.`remove`(element)
 Удаляет элемент `element` из множества
 Если элемент не найден, возникает исключение `KeyError`
 ```pycon
@@ -169,7 +169,7 @@ Traceback (most recent call last):
 KeyError: 145
 ```
 ### discard
-set`.discard`(element)
+set.`discard`(element)
 Удаляет элемент `element` из множества
 Если элемент не найден, ничего не происходит
 ```pycon
