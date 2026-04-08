@@ -3,6 +3,8 @@
 **F-строки** - это новый способ форматирования строк в Python 3.6 и выше
 Они позволяют встраивать выражения Python внутри строк посредством указания их в `{}` внутри строки, заключенной в `f`
 
+`[[fill]align][sign][#][0][width][grouping][.precision][type]`
+
 ```ebnf
 replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
 

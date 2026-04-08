@@ -15,7 +15,7 @@ def cache_decorator(func):
 
 @cache_decorator
 def expensive_function(x):
-    # дорогая расчетная функция
+    # Дорогая расчетная функция
     return x**2
 
 print(expensive_function(2))  # 4

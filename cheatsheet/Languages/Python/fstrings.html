@@ -1,6 +1,7 @@
 <h1>F-Strings</h1>
 <p><strong>F-строки</strong> - это новый способ форматирования строк в Python 3.6 и выше
 Они позволяют встраивать выражения Python внутри строк посредством указания их в <code>{}</code> внутри строки, заключенной в <code>f</code></p>
+<p><code>[[fill]align][sign][#][0][width][grouping][.precision][type]</code></p>
 <div class="code_element"><div class="lang_line"><text>ebnf</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-ebnf"><div class="highlight"><pre><span></span><span class="k">replacement_field </span><span class="err">::</span><span class="o">=</span>  <span class="s2">&quot;{&quot;</span> <span class="p">[</span><span class="k">field_name</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;!&quot;</span> <span class="k">conversion</span><span class="p">]</span> <span class="p">[</span><span class="s2">&quot;:&quot;</span> <span class="k">format_spec</span><span class="p">]</span> <span class="s2">&quot;}&quot;</span>
 
 <span class="k">field_name        </span><span class="err">::=</span>  <span class="k">arg_name </span><span class="p">(</span><span class="s2">&quot;.&quot;</span> <span class="k">attribute_name </span><span class="p">|</span> <span class="s2">&quot;[&quot;</span> <span class="k">element_index </span><span class="s2">&quot;]&quot;</span><span class="p">)</span><span class="err">*</span>
