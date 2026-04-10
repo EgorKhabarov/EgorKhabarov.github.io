@@ -638,14 +638,14 @@
         "GitHub": {
             "Markdown": ""
         },
+        "FreeCAD": {
+            "settings": ""
+        },
         "Chrome Dino": "",
         "Alt Symbols": "",
         "Links": "",
         "TODO": "color: red\n",
-        "MARKUP_EXAMPLES": "",
-        "FreeCAD": {
-            "settings": ""
-        }
+        "MARKUP_EXAMPLES": ""
     },
     "Snippets": {
         "Python": {
