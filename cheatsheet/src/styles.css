@@ -1209,6 +1209,8 @@ aside {
 
     .tree_item, .toc_item {
         font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .tree_children svg {
@@ -1276,7 +1278,7 @@ textarea {
     min-height: 180px;
 }
 input[type="range"] {
-    width: 100%;
+    /*width: 100%;*/
     cursor: pointer;
 }
 input[type="text"], input[type="number"], input[type="date"], select, textarea {
