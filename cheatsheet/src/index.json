@@ -642,7 +642,10 @@
         "Alt Symbols": "",
         "Links": "",
         "TODO": "color: red\n",
-        "MARKUP_EXAMPLES": ""
+        "MARKUP_EXAMPLES": "",
+        "FreeCAD": {
+            "settings": ""
+        }
     },
     "Snippets": {
         "Python": {
