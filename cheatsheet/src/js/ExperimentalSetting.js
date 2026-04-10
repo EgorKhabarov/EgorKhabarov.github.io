@@ -2,9 +2,13 @@ function loadExperimentalSettings() {
     const experimental_settings = localStorage.getItem("experimental_settings");
     const es = experimental_settings ? JSON.parse(experimental_settings) : {
         "experimental_updated_search": false,
+        "experimental_font_size": 12,
     };
     if (es.experimental_updated_search === undefined) {
         es.experimental_updated_search = false;
+    }
+    if (es.experimental_font_size === undefined) {
+        es.experimental_font_size = 12;
     }
     return es;
 }
@@ -48,6 +52,44 @@ function addExperimentalSettingCheckBox(group, setting_id, text, default_value, 
     });
     return checkbox_container;
 }
+function addExperimentalSettingRange(group, setting_id, min, max, step, default_value, text, func, functype) {
+    const checkbox_container = document.createElement("div");
+    checkbox_container.classList.add("checkbox_container");
+
+    const input = document.createElement("input");
+    input.type = "range";
+    input.min = min;
+    input.max = max;
+    input.step = step;
+    input.value = default_value;
+    input.id = `${setting_id}_input`;
+    checkbox_container.appendChild(input);
+
+    const label = document.createElement("label");
+    label.setAttribute("for", `${setting_id}_input`);
+    label.textContent = text;
+    label.id = `${setting_id}_label`;
+    checkbox_container.appendChild(label);
+
+    group.appendChild(checkbox_container);
+    func(input.value);
+    if (functype === "input") {
+        input.addEventListener("input", (event) => {
+            const value = event.target.value;
+            experimental_settings[setting_id] = value;
+            saveExperimentalSettings();
+            func(value);
+        });
+    } else if (functype === "change" || undefined) {
+        input.addEventListener("change", () => {
+            const value = input.value;
+            experimental_settings[setting_id] = value;
+            saveExperimentalSettings();
+            func(value);
+        });
+    }
+    return checkbox_container;
+}
 
 function addExperimentalSettingsGroup(page, name, description) {
     const group = document.createElement("div");
@@ -73,18 +115,30 @@ function fillExperimentalSettings(id, settings_map) {
     page_experimental.innerHTML = "";
 
     for (let [group_name, data] of Object.entries(settings_map)) {
-        const search_group = addExperimentalSettingsGroup(page_experimental, group_name, data.description);
+        const group = addExperimentalSettingsGroup(page_experimental, group_name, data.description);
         for (let [setting_id, setting] of Object.entries(data.settings_map)) {
             if (setting.pre_func) {
                 setting.pre_func();
             }
             if (setting.type === "checkbox") {
                 addExperimentalSettingCheckBox(
-                    search_group,
+                    group,
                     setting_id,
                     setting.label,
                     experimental_settings[setting_id],
                     setting.func,
+                );
+            } else if (setting.type === "range") {
+                addExperimentalSettingRange(
+                    group,
+                    setting_id,
+                    setting.min,
+                    setting.max,
+                    setting.step,
+                    experimental_settings[setting_id],
+                    setting.label,
+                    setting.func,
+                    setting.functype,
                 );
             }
         }
@@ -103,6 +157,31 @@ function genExperimentalSettingCheckBoxStyle(setting_id, label, styles) {
         "func": (value) => {
             const style = document.getElementById(`${setting_id}_style`);
             style.textContent = value ? styles : "";
+        },
+    }
+}
+function genExperimentalSettingRangeStyle(setting_id, label, styles_func) {
+    return {
+        "label": label,
+        "type": "range",
+        "min": "8",
+        "max": "20",
+        "step": "2",
+        "functype": "input",
+        "pre_func": () => {
+            const style = document.createElement("style");
+            style.id = `${setting_id}_style`;
+            document.head.appendChild(style);
+        },
+        "func": (value) => {
+            const style = document.getElementById(`${setting_id}_style`);
+            if (value) {
+                style.textContent = styles_func(value);
+            } else {
+                style.textContent = "";
+            }
+            const label_element = document.getElementById(`${setting_id}_label`);
+            label_element.textContent = label + ` ${value}`;
         },
     }
 }
@@ -173,6 +252,49 @@ fillExperimentalSettings("page_experimental", {
 }
 `,
             ),
+        },
+    },
+    "Font": {
+        "description": "",
+        "settings_map": {
+            "experimental_font_size": genExperimentalSettingRangeStyle(
+                setting_id="experimental_font_size",
+                label="Font size",
+                styles_func=(value)=>`
+.cheatsheet_field {
+    font-size: ${value}px;
+}
+`,
+            ),
+        },
+        "settings_map": {
+            "experimental_font_size": {
+                "label": "Font size",
+                "type": "range",
+                "min": "8",
+                "max": "20",
+                "step": "2",
+                "functype": "input",
+                "pre_func": () => {
+                    const style = document.createElement("style");
+                    style.id = `${setting_id}_style`;
+                    document.head.appendChild(style);
+                },
+                "func": (value) => {
+                    const style = document.getElementById(`${setting_id}_style`);
+                    if (value) {
+                        style.textContent = ((value) => `.cheatsheet_field {font-size: ${value}px;}`)(value);
+                    } else {
+                        style.textContent = "";
+                    }
+                    const label_element = document.getElementById(`${setting_id}_label`);
+                    if (!label_element.dataset.text) {
+                        label_element.dataset.text = label_element.textContent;
+                    }
+                    label_element.textContent = label_element.dataset.text + ` ${value}`;
+                    label_element.style.fontSize = `${value}px`;
+                },
+            },
         },
     },
 });
