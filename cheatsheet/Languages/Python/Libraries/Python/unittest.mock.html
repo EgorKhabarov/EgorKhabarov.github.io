@@ -189,7 +189,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TestTimeout</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="nd">@unittest</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 1 секунда</span>
+    <span class="nd">@unittest.timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 1 секунда</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">test_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Этот тест завершится по таймауту</span>
             <span class="k">pass</span>
