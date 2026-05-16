@@ -215,10 +215,16 @@
 <td><span style="background-color: #999999;color: marktext;">1234</span></td>
 </tr>
 <tr>
-<td><code>(?R)</code> или <code>(?0)</code></td>
-<td>Рекурсивный шаблон<br>Вставляет текущее регулярное<br>выражение внутрь самого себя</td>
-<td><code>\((?:[^()]+|(?R))*\)</code><br>Это регулярное выражение<br>сопоставляет сбалансированные скобки<br><code>re.error: unknown extension ?R at position 13</code></td>
-<td><span style="background-color: #999999;color: marktext;">(a(b)c)</span></td>
+<td><code>(?|pattern1|pattern2)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>(?R)</code> или <code>(?0)</code><br><mark style=""><strong>TODO</strong></mark></td>
+<td>Branch Reset Group (PCRE, Oniguruma)<br>Сбрасывает нумерацию групп</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>(?P&lt;name1&gt;pattern1|(?P&lt;name2&gt;pattern2))</code></td>
