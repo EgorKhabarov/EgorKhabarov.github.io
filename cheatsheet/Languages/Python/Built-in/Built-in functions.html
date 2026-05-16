@@ -66,17 +66,7 @@
 </span></pre></div></div></div>
 
 <h3>classmethod</h3>
-<p>Создание метода класса. Этот метод может быть вызван без создания экземпляра класса</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="n">my_class_attr</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nd">@classmethod</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span><span class="w"> </span><span class="nf">my_class_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="nb">print</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">my_class_attr</span><span class="p">)</span>
-<span class="unselectable"><span class="o">...</span> </span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">MyClass</span><span class="o">.</span><span class="n">my_class_method</span><span class="p">()</span>
-<span class="unselectable"><span class="go">42</span>
-</span></pre></div></div></div>
-
+<p><a target="_self" href="?Languages/Python/Decorators Closure/classmethod" class="wikilink">classmethod</a></p>
 <h3>compile</h3>
 <p>Для компиляции строки с кодом Python в объект-код</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="s1">&#39;print(&quot;Hello, world!&quot;)&#39;</span><span class="k">,</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="k">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">))</span>
@@ -94,6 +84,7 @@
 <h3>delattr</h3>
 <p>Удаление атрибута объекта</p>
 <h3>dict</h3>
+<p><a target="_self" href="?Languages/Python/Methods/dict" class="wikilink">dict</a></p>
 <h3>dir</h3>
 <p>Получение списка всех атрибутов объекта</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">dir</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -117,7 +108,9 @@
 </span></pre></div></div></div>
 
 <h3>float</h3>
+<p><a target="_self" href="?Languages/Python/Methods/float" class="wikilink">float</a></p>
 <h3>format</h3>
+<p><a target="_self" href="?Languages/Python/fstrings" class="wikilink">fstrings</a></p>
 <h3>frozenset</h3>
 <p>Неизменяемый тип данных, представляющий собой неупорядоченное множество уникальных элементов</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">3</span><span class="k">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -160,6 +153,7 @@
 <h3>id</h3>
 <h3>input</h3>
 <h3>int</h3>
+<p><a target="_self" href="?Languages/Python/Methods/int" class="wikilink">int</a></p>
 <h3>isinstance</h3>
 <h3>issubclass</h3>
 <h3>iter</h3>
@@ -174,6 +168,7 @@
 <h3>len</h3>
 <h3>license</h3>
 <h3>list</h3>
+<p><a target="_self" href="?Languages/Python/Methods/list" class="wikilink">list</a></p>
 <h3>locals</h3>
 <h3>map</h3>
 <h3>max</h3>
@@ -213,20 +208,7 @@
 <h3>pow</h3>
 <h3>print</h3>
 <h3>property</h3>
-<p>Для создания свойства объекта, которое можно читать и записывать, как обычный атрибут</p>
-<div class="code_element"><div class="lang_line"><text>python</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-python"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span> <span class="o">=</span> <span class="mi">42</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span>
-
-    <span class="nd">@my_attr.setter</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">my_attr</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_my_attr</span> <span class="o">=</span> <span class="n">value</span>
-</pre></div></div></div>
-
+<p><a target="_self" href="?Languages/Python/Decorators Closure/property" class="wikilink">property</a></p>
 <h3>quit</h3>
 <h3>range</h3>
 <h3>repr</h3>
@@ -240,6 +222,7 @@
 
 <h3>round</h3>
 <h3>set</h3>
+<p><a target="_self" href="?Languages/Python/Methods/set" class="wikilink">set</a></p>
 <h3>setattr</h3>
 <p>Для установки значения атрибута объекта</p>
 <div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
@@ -276,20 +259,13 @@
 
 <h3>sorted</h3>
 <h3>staticmethod</h3>
-<p>Для создания метода класса, который не принимает первый аргумент self (или cls для методов класса)</p>
-<div class="code_element"><div class="lang_line"><text>pycon</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-pycon"><div class="highlight"><pre><span></span><span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="nd">@staticmethod</span>
-<span class="unselectable"><span class="o">...</span> </span>    <span class="k">def</span><span class="w"> </span><span class="nf">my_static_method</span><span class="p">():</span>
-<span class="unselectable"><span class="o">...</span> </span>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a static method&quot;</span><span class="p">)</span>
-<span class="unselectable"><span class="o">...</span> </span>
-<span class="unselectable"><span class="o">&gt;&gt;&gt;</span> </span><span class="n">MyClass</span><span class="o">.</span><span class="n">my_static_method</span><span class="p">()</span>
-<span class="unselectable"><span class="go">This is a static method</span>
-</span></pre></div></div></div>
-
+<p><a target="_self" href="?Languages/Python/Decorators Closure/staticmethod" class="wikilink">staticmethod</a></p>
 <h3>str</h3>
+<p><a target="_self" href="?Languages/Python/Methods/str" class="wikilink">str</a></p>
 <h3>sum</h3>
 <h3>super</h3>
 <h3>tuple</h3>
+<p><a target="_self" href="?Languages/Python/Methods/tuple" class="wikilink">tuple</a></p>
 <h3>type</h3>
 <h3>vars</h3>
 <h3>zip</h3>

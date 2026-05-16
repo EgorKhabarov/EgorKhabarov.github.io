@@ -346,7 +346,8 @@
                 "list": "tags: pop clear count append remove reverse sort index insert сору extend\n",
                 "tuple": "tags: index count\n",
                 "dict": "tags: get fromkeys clear pop update popitem keys values setdefault copy items\n",
-                "set": "tags: intersection_update discard remove add isdisjoint intersection pop symmetric_difference_update\n    update union difference_update copy issuperset difference clear symmetric_difference\n    issubset\n"
+                "set": "tags: intersection_update discard remove add isdisjoint intersection pop symmetric_difference_update\n    update union difference_update copy issuperset difference clear symmetric_difference\n    issubset\n",
+                "complex": ""
             },
             "Decorators Closure": {
                 "Decorators Closure": "",

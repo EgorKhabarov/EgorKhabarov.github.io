@@ -29,8 +29,8 @@ int.`bit_length`()
 int.`conjugate`()
 Возвращает сопряженное комплексное число
 ```pycon
->>> (3 + 4j).conjugate()
-(3-4j)
+>>> (3).conjugate()
+3
 ```
 ### from_bytes
 int.`from_bytes`(bytes, byteorder="big", signed=False)
