@@ -1741,3 +1741,22 @@ window.addEventListener("resize", () => {
     }
 });
 
+
+window_print_button.addEventListener("click", () => {
+    // const themeName = document.documentElement.getAttribute("data-theme");
+    // document.documentElement.setAttribute("data-theme", "light");
+    window.print();
+    // document.documentElement.setAttribute("data-theme", themeName);
+});
+window.addEventListener("beforeprint", () => {
+    document.querySelectorAll("details:not([open])").forEach(details => {
+        details.setAttribute("data-was-closed", "true");
+        details.open = true;
+    });
+});
+window.addEventListener("afterprint", () => {
+    document.querySelectorAll("details[data-was-closed]").forEach(details => {
+        details.removeAttribute("data-was-closed");
+        details.open = false;
+    });
+});

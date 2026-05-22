@@ -648,6 +648,10 @@ svg {
     width: 100%;
     height: 100%;
 }
+#window_print_button.icon_btn svg {
+    width: 20px;
+    height: 20px;
+}
 
 #main_container {
     flex-grow: 1;
@@ -1261,6 +1265,77 @@ aside {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+
+
+
+
+
+
+
+@media print {
+    /* @page {
+        size: A4;
+        margin: 15mm;
+    } */
+    @page {
+        margin: 10mm;
+        size: portrait;
+    }
+    /* * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    } */
+    tr, .code_element {  /* pre, blockquote, */
+        page-break-inside: avoid;
+    }
+    section, h1, h2, h3, h4, h5, h6 {
+        break-after: avoid!important;
+        page-break-after: avoid!important;
+    }
+    p, table, .code_element {
+        break-before: auto;
+    }
+
+    #main_container {
+        display: block!important;
+        float: none!important;
+        position: static!important;
+    }
+
+    header,
+    aside,
+    #mobile_overlay,
+    #settings_modal.active,
+    .context_menu,
+    .page_search_buttons,
+    .copy_code_button,
+    .download_code_button
+    {display: none!important;}
+
+    html, body {
+        height: auto!important;
+        overflow: visible!important;
+    }
+    pre {white-space: break-spaces!important;}
+    #main_container {height: unset!important;}
+    #cheatsheet_field_container {overflow-y: hidden!important;}
+    th, td {white-space: unset!important;}
+    code {white-space: nowrap!important;}
+
+    details summary::-webkit-details-marker {
+        display: none!important;
+    }
+    details summary {
+        list-style: none!important;
+        list-style-type: none!important;
+    }
+    details summary::before {
+        display: none!important;
+        content: ""!important;
+    }
 }
 
 
