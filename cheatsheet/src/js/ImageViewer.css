@@ -1,0 +1,49 @@
+.ImageViewer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1000;
+}
+.ImageViewer-overlay.ImageViewer-active {
+    display: flex;
+}
+
+.ImageViewer-viewer {
+    position: relative;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.22, 0.8, 0.3, 1);
+    cursor: grab;
+    touch-action: none;
+}
+.ImageViewer-viewer.ImageViewer-grabbing {
+    cursor: grabbing;
+    transition: none;
+}
+
+.ImageViewer-viewer img {
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.ImageViewer-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1001;
+    user-select: none;
+    pointer-events: auto;
+}

@@ -647,6 +647,14 @@ function processingCheatSheet() {
             a.target = "_blank";
         }
     });
+    nowCheatsheetField.querySelectorAll("img").forEach(img => {
+        img.setAttribute("draggable", "false");
+    });
+    nowCheatsheetField.querySelectorAll("img:not(a img)").forEach(img => {
+        img.addEventListener("click", (event) => {
+            image_viewer.open(img);
+        });
+    });
     nowCheatsheetField.querySelectorAll("thead").forEach(thead => {
         if (thead.textContent.trim() == "") {
             thead.remove();
@@ -1760,3 +1768,7 @@ window.addEventListener("afterprint", () => {
         details.open = false;
     });
 });
+
+
+// ImageViewer
+const image_viewer = new ImageViewer({animateBack: true});
