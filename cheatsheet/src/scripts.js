@@ -1439,14 +1439,18 @@ function loadSettings() {
     const settings = localStorage.getItem("settings");
     let s = settings ? JSON.parse(settings) : {
         "theme": "dark",
-        "settings_css_markdown_preview": true,
+        "settings_css_markdown_color": true,
+        "settings_css_markdown_preview": false,
         "settings_css": "",
     };
     if (s.theme === undefined) {
         s.theme = "dark";
     }
+    if (s.settings_css_markdown_color === undefined) {
+        s.settings_css_markdown_color = true;
+    }
     if (s.settings_css_markdown_preview === undefined) {
-        s.settings_css_markdown_preview = true;
+        s.settings_css_markdown_preview = false;
     }
     if (s.settings_css === undefined) {
         s.settings_css = "";
@@ -1469,13 +1473,14 @@ function applySettings(settings) {
         theme_input.checked = true;
     }
 
+    settings_css_markdown_color.checked = settings.settings_css_markdown_color;
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
     settings_css_textarea.value = settings.settings_css || "";
     settings_css.textContent = settings.settings_css || "";
 }
-function css_markdown_preview_func(element) {
+function css_markdown_color_func(element) {
     if (element.checked) {
-        css_markdown_preview.textContent = `
+        css_markdown_color.textContent = `
 
 :root {
     --color-h1: #FF0000;
@@ -1509,6 +1514,18 @@ function css_markdown_preview_func(element) {
 
 strong:has(em), em:has(strong) {color: var(--md-color-bi)!important;}
 
+`;
+        settings.settings_css_markdown_color = true;
+        saveSettings(settings);
+    } else {
+        css_markdown_color.textContent = "";
+        settings.settings_css_markdown_color = false;
+        saveSettings(settings);
+    }
+}
+function css_markdown_preview_func(element) {
+    if (element.checked) {
+        css_markdown_preview.textContent = `
 
 .cheatsheet_field h1:before {content: "# ";      white-space: nowrap;}
 .cheatsheet_field h2:before {content: "## ";     white-space: nowrap;}
@@ -1539,6 +1556,7 @@ function reset_settings() {
 let settings = loadSettings();
 applySettings(settings);
 css_markdown_preview_func(settings_css_markdown_preview)
+css_markdown_color_func(settings_css_markdown_color)
 reset_all_settings.onclick = reset_settings;
 
 

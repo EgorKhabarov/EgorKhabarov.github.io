@@ -27,6 +27,7 @@
     <link href="src/js/ContextMenu.css" rel="stylesheet">
     <link href="src/js/ImageViewer.css" rel="stylesheet">
 
+    <style id="css_markdown_color"></style>
     <style id="css_markdown_preview"></style>
     <style id="settings_css"></style>
 </head>
@@ -338,14 +339,24 @@
                                 <span class="setting_label">Markdown preview</span>
                                 <div class="checkbox_container">
                                     <label class="toggle_switch">
+                                        <input type="checkbox" id="settings_css_markdown_color" onclick="css_markdown_color_func(this);">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <label for="settings_css_markdown_color">Show Markdown color</label>
+                                </div>
+                                <div class="checkbox_container">
+                                    <label class="toggle_switch">
                                         <input type="checkbox" id="settings_css_markdown_preview" onclick="css_markdown_preview_func(this);">
                                         <span class="slider"></span>
                                     </label>
                                     <label for="settings_css_markdown_preview">Show simulated Markdown syntax</label>
                                 </div>
                                 <div class="cheatsheet_field cheatsheet_field_nested" style="margin-top: 10px;font-size: 12px;">
-                                    <h1 style="font-size: 1.5em;">Header 1</h1>
-                                    <h3 style="font-size: 1.1em;">Header 3</h3>
+                                    <h1 style="font-size: 2.00em; margin-bottom: 0px;">Header 1</h1>
+                                    <h2 style="font-size: 1.50em; margin-bottom: 0px;">Header 2</h2>
+                                    <h3 style="font-size: 1.17em; margin-bottom: 0px;">Header 3</h3>
+                                    <h4 style="font-size: 1.00em; margin-bottom: 0px;">Header 4</h4>
+                                    <h5 style="font-size: 0.83em; margin-bottom: 0px;">Header 5</h5>
                                     <div>
                                         text<br>
                                         <strong>b | strong</strong> (bold)<br>

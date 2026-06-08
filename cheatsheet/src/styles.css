@@ -1420,6 +1420,13 @@ code:active {
     background-color: var(--md-tag-code-active-bg);
 }
 
+code.code_no_copy {
+    cursor: inherit;
+}
+code.code_no_copy:active {
+    background-color: var(--md-tag-code-bg);
+}
+
 blockquote {
     margin-left: 0px;
     padding: 0px 1em;
