@@ -1,49 +1,49 @@
 # Keymap
-|                                                                                     |                    |
-|-------------------------------------------------------------------------------------|--------------------|
-| `Editor Actions` `Delete Line`                                                      |                    |
-| `Editor Actions` `Extend Selection`                                                 | `Ctrl`+`S`         |
-| `Editor Actions` `Column Selection Mode`                                            | `Alt`+`S`          |
-| `Editor Actions` `Add or Remove Caret`                                              | `Alt`+`Click`      |
-| `Main Menu` `File` `File Open Actions` `New…`                                       | `Ctrl`+`T`         |
-| `Main Menu` `File` `File Open Actions` `Scratch File`                               | `Ctrl`+`Shift`+`T` |
-| `Main Menu` `Edit` `Redo`                                                           | `Ctrl`+`Y`         |
-| `Main Menu` `Edit` `Find` `Find Next / Move to Next Occurrence`                     | `Alt`+`.`          |
-| `Main Menu` `Edit` `Find` `Find Previous / Move to Previous Occurrence`             | `Alt`+`Comma`      |
-| `Main Menu` `Edit` `Find` `Select All Occurrences`                                  | `Alt`+`M`          |
-| `Main Menu` `Edit` `Column Selection Mode`                                          | `Alt`+`S`          |
-| `Main Menu` `Edit` `Editor Select Actions` `Select Word Actions` `Extend Selection` | `Ctrl`+`S`         |
-| `Main Menu` `View` `Appearance` `Toggle Presentation mode`                          | `Alt`+`P`          |
-| `Main Menu` `Navigate` `Goto by Reference Actions` `Go to Test`                     |                    |
-| `Main Menu` `Refactor` `Rename…`                                                    | `Alt`+`R`          |
-| `Main Menu` `Run` `Run/Debug` `Run`                                                 | `Alt`+`X`          |
-| `Main Menu` `Run` `Run/Debug` `Debug`                                               | `Alt`+`Z`          |
-| `Main Menu` `Run` `Run…`                                                            |                    |
-| `Main Menu` `Run` `Stop`                                                            | `Alt`+`C`          |
-| `Main Menu` `Git` `VCS Group` `Update Project`                                      |                    |
-| `Main Menu` `Git` `Update Project`                                                  |                    |
-| `Main Menu` `Window` `Active Tool Window` `Close Active Tab`                        | `Ctrl`+`W`         |
-| `Main Menu` `Window` `Editor Tabs` `Editor Close Actions` `Close Tab`               | `Ctrl`+`W`         |
-| `Tool Windows` `BookMarks`                                                          |                    |
-| `Tool Windows` `Commit`                                                             |                    |
-| `Tool Windows` `Debug`                                                              |                    |
-| `Tool Windows` `Find`                                                               |                    |
-| `Tool Windows` `Problems`                                                           |                    |
-| `Tool Windows` `Project`                                                            |                    |
-| `Tool Windows` `Run`                                                                |                    |
-| `Tool Windows` `Services`                                                           |                    |
-| `Tool Windows` `Structure`                                                          |                    |
-| `Tool Windows` `Git`                                                                |                    |
-| `Version Control Systems` `Diff & Merge/Next Difference`                            | `Alt`+`.`          |
-| `Version Control Systems` `Diff & Merge/Previous Difference`                        | `Alt`+`Comma`      |
-| `Version Control Systems` `Amend Commit`                                            | `Ctrl`+`K`         |
-| `Version Control Systems` `Update Project`                                          |                    |
-| `Plugins` `Code With Me ` `New Tab`                                                 |                    |
-| `Plugins` `Images ` `Close Thumbnails`                                              |                    |
-| `Plugins` `Markdown ` `Create Link`                                                 |                    |
-| `Plugins` `Terminal ` `Close Tab`                                                   |                    |
-| `Plugins` `Terminal ` `Delete Previous Word`                                        |                    |
-| `Main Menu` `Navigate` `Last Edit Location`                                         | `Alt`+`Backspace`  |
+|                         |                                                                                     |                    |
+|-------------------------|-------------------------------------------------------------------------------------|--------------------|
+| <input type="checkbox"> | `Editor Actions` `Delete Line`                                                      |                    |
+| <input type="checkbox"> | `Editor Actions` `Extend Selection`                                                 | `Ctrl`+`S`         |
+| <input type="checkbox"> | `Editor Actions` `Column Selection Mode`                                            | `Alt`+`S`          |
+| <input type="checkbox"> | `Editor Actions` `Add or Remove Caret`                                              | `Alt`+`Click`      |
+| <input type="checkbox"> | `Main Menu` `File` `File Open Actions` `New…`                                       | `Ctrl`+`T`         |
+| <input type="checkbox"> | `Main Menu` `File` `File Open Actions` `Scratch File`                               | `Ctrl`+`Shift`+`T` |
+| <input type="checkbox"> | `Main Menu` `Edit` `Redo`                                                           | `Ctrl`+`Y`         |
+| <input type="checkbox"> | `Main Menu` `Edit` `Find` `Find Next / Move to Next Occurrence`                     | `Alt`+`.`          |
+| <input type="checkbox"> | `Main Menu` `Edit` `Find` `Find Previous / Move to Previous Occurrence`             | `Alt`+`Comma`      |
+| <input type="checkbox"> | `Main Menu` `Edit` `Find` `Select All Occurrences`                                  | `Alt`+`M`          |
+| <input type="checkbox"> | `Main Menu` `Edit` `Column Selection Mode`                                          | `Alt`+`S`          |
+| <input type="checkbox"> | `Main Menu` `Edit` `Editor Select Actions` `Select Word Actions` `Extend Selection` | `Ctrl`+`S`         |
+| <input type="checkbox"> | `Main Menu` `View` `Appearance` `Toggle Presentation mode`                          | `Alt`+`P`          |
+| <input type="checkbox"> | `Main Menu` `Navigate` `Goto by Reference Actions` `Go to Test`                     |                    |
+| <input type="checkbox"> | `Main Menu` `Refactor` `Rename…`                                                    | `Alt`+`R`          |
+| <input type="checkbox"> | `Main Menu` `Run` `Run/Debug` `Run`                                                 | `Alt`+`X`          |
+| <input type="checkbox"> | `Main Menu` `Run` `Run/Debug` `Debug`                                               | `Alt`+`Z`          |
+| <input type="checkbox"> | `Main Menu` `Run` `Run…`                                                            |                    |
+| <input type="checkbox"> | `Main Menu` `Run` `Stop`                                                            | `Alt`+`C`          |
+| <input type="checkbox"> | `Main Menu` `Git` `VCS Group` `Update Project`                                      |                    |
+| <input type="checkbox"> | `Main Menu` `Git` `Update Project`                                                  |                    |
+| <input type="checkbox"> | `Main Menu` `Window` `Active Tool Window` `Close Active Tab`                        | `Ctrl`+`W`         |
+| <input type="checkbox"> | `Main Menu` `Window` `Editor Tabs` `Editor Close Actions` `Close Tab`               | `Ctrl`+`W`         |
+| <input type="checkbox"> | `Tool Windows` `BookMarks`                                                          |                    |
+| <input type="checkbox"> | `Tool Windows` `Commit`                                                             |                    |
+| <input type="checkbox"> | `Tool Windows` `Debug`                                                              |                    |
+| <input type="checkbox"> | `Tool Windows` `Find`                                                               |                    |
+| <input type="checkbox"> | `Tool Windows` `Problems`                                                           |                    |
+| <input type="checkbox"> | `Tool Windows` `Project`                                                            |                    |
+| <input type="checkbox"> | `Tool Windows` `Run`                                                                |                    |
+| <input type="checkbox"> | `Tool Windows` `Services`                                                           |                    |
+| <input type="checkbox"> | `Tool Windows` `Structure`                                                          |                    |
+| <input type="checkbox"> | `Tool Windows` `Git`                                                                |                    |
+| <input type="checkbox"> | `Version Control Systems` `Diff & Merge` `Next Difference`                          | `Alt`+`.`          |
+| <input type="checkbox"> | `Version Control Systems` `Diff & Merge` `Previous Difference`                      | `Alt`+`Comma`      |
+| <input type="checkbox"> | `Version Control Systems` `Amend Commit`                                            | `Ctrl`+`K`         |
+| <input type="checkbox"> | `Version Control Systems` `Update Project`                                          |                    |
+| <input type="checkbox"> | `Plugins` `Code With Me ` `New Tab`                                                 |                    |
+| <input type="checkbox"> | `Plugins` `Images ` `Close Thumbnails`                                              |                    |
+| <input type="checkbox"> | `Plugins` `Markdown ` `Create Link`                                                 |                    |
+| <input type="checkbox"> | `Plugins` `Terminal ` `Close Tab`                                                   |                    |
+| <input type="checkbox"> | `Plugins` `Terminal ` `Delete Previous Word`                                        |                    |
+| <input type="checkbox"> | `Main Menu` `Navigate` `Last Edit Location`                                         | `Alt`+`Backspace`  |
 
 
 # Editor
