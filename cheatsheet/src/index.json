@@ -630,8 +630,8 @@
             "Maps": ""
         },
         "JetBrains IDE": {
-            "settings": "",
-            "font": ""
+            "Settings": "",
+            "Font": ""
         },
         "ChatGPT": {
             "Promts": ""
@@ -640,7 +640,7 @@
             "Markdown": ""
         },
         "FreeCAD": {
-            "settings": ""
+            "Settings": ""
         },
         "Chrome Dino": "",
         "Alt Symbols": "",
