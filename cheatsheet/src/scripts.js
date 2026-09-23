@@ -34,13 +34,13 @@ let indexPromise = null;
 async function loadIndexLazy() {
     if (idx) return;
 
-    console.log('Load "src/search-index.json.gz"');
-    let response = await fetch("src/search-index.json.gz");
+    console.log('Load "/cheatsheet/src/search-index.json.gz"');
+    let response = await fetch("/cheatsheet/src/search-index.json.gz");
     let data = null;
     try {
         data = await response.json();
     } catch (e) {
-        response = await fetch("src/search-index.json.gz");
+        response = await fetch("/cheatsheet/src/search-index.json.gz");
         const ds = new DecompressionStream("gzip");
         const decompressedStream = response.body.pipeThrough(ds);
         const text = await new Response(decompressedStream).text();
@@ -714,7 +714,7 @@ async function load_cheatsheet(url) {
         }, LOADER_DELAY);
 
         try {
-            const response = await fetch(`${url}.html`);
+            const response = await fetch(`/cheatsheet/${url}.html`);
             text = await response.text();
             clearTimeout(loaderTimeout);
             if (loaderShownAt !== null) {
@@ -997,7 +997,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
 
 const urlArgs = new UrlArgs();
 function init() {  // load_folder_list
-    fetch("src/index.json")
+    fetch("/cheatsheet/src/index.json")
         .then(response => response.json())
         .then(async (json_data) => {
             generateButtons(json_data, folder_list);

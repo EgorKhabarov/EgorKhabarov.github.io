@@ -640,6 +640,11 @@ header .actions {
     background-color: var(--hover-color);
 }
 
+.action.icon_btn {
+    width: 24px;
+    height: 24px;
+}
+
 svg {
     transition: fill 0.3s;
 }
