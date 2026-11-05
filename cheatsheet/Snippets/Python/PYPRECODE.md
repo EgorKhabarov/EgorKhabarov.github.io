@@ -23,6 +23,7 @@ import builtins
 import urllib.parse
 import base64 as _base64_lib
 from uuid import uuid4
+from random import randint
 from typing import Any, Callable
 from typing_extensions import Buffer
 
@@ -109,12 +110,36 @@ def sqrt(x: int | float, p: int = 2) -> int:
     return pow(x, (1 / p))
 
 
-def uuid() -> str:
-    return str(uuid4()).replace("-", "")
+# noinspection PyPep8Naming
+@lambda cls: cls()
+class uuid:
+    """def uuid() -> str:
+        return str(uuid4()).replace("-", "")"""
+    def __call__(self, x: int = 32) -> str:
+        return f"{uuid4()}".replace("-", "")[:x]
+    def __repr__(self) -> str:
+        return f"{self()!r}"
+    def __str__(self) -> str:
+        return self()
+    def __getitem__(self, item) -> str:
+        return self()[item]
+    def __add__(self, other: str) -> str:
+        return self() + str(other)
+    def __mul__(self, count: int) -> str:
+        return self() * count
 
 
-def cuid(x: int = 16):
-    return copy(uuid()[:x])
+# noinspection PyPep8Naming
+@lambda cls: cls()
+class cuid:
+    """def cuid(x: int = 16):
+        return copy(uuid[:x])"""
+    def __call__(self, x: int = 32) -> str:
+        data = f"{uuid4()}".replace("-", "")[:x]
+        copy(data)
+        return data
+    def __repr__(self) -> str:
+        return f"{self(16)!r}"
 
 
 def video(length: str, speed: int = 1) -> str:
@@ -191,8 +216,17 @@ def html_escape_full(text: str) -> str:
     return "".join(f"&#x{ord(x):x};" for x in text)
 
 
-def uurl() -> None:
-    copy(url_unescape(paste()))
+# noinspection PyPep8Naming
+@lambda cls: cls()
+class uurl:
+    """def uurl() -> None:
+        copy(url_unescape(paste()))"""
+    def __call__(self) -> str:
+        data = url_unescape(paste())
+        copy(data)
+        return data
+    def __repr__(self) -> str:
+        return f"{self()!r}"
 
 
 url_escape = urllib.parse.quote
@@ -262,9 +296,15 @@ sign = s = signature
 def __(a: str) -> bool:
     return not a.startswith("__")
 
-
-def lp() -> int:
-    return len(paste())
+# noinspection PyPep8Naming
+@lambda cls: cls()
+class lp:
+    """def lp() -> int:
+        return len(paste())"""
+    def __call__(self) -> int:
+        return len(paste())
+    def __repr__(self) -> str:
+        return f"{len(paste())}"
 
 
 def cp(func: callable = str, *args, **kwargs) -> None:

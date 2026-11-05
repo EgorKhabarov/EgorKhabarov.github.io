@@ -19,6 +19,7 @@ arrow
 <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.parse</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_base64_lib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">uuid4</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="k">,</span> <span class="n">Callable</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Buffer</span>
 
@@ -54,7 +55,7 @@ arrow
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyautogui</span><span class="w"> </span><span class="kn">import</span> <span class="n">position</span>
 
 
-<span class="n">HELP</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">HELP</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"""</span>
 <span class="s2">def sqrt(x: int | float, p: int = 2) -&gt; int:</span>
 <span class="s2">def uuid() -&gt; str:</span>
 <span class="s2">def cuid(x: int = 16):</span>
@@ -71,33 +72,33 @@ arrow
 <span class="s2">def html_escape_full(text: str) -&gt; str:</span>
 
 <span class="s2">class base64:</span>
-<span class="s2">    prefix = &quot;data:</span><span class="si">{}</span><span class="s2">;base64,&quot;  # &quot;data:image/png;base64,&quot;</span>
+<span class="s2">    prefix = "data:</span><span class="si">{}</span><span class="s2">;base64,"  # "data:image/png;base64,"</span>
 <span class="s2">    def encode(bytes_: bytes | Buffer) -&gt; str:</span>
 <span class="s2">    def decode(string_: str | Buffer) -&gt; bytes:</span>
 
 <span class="s2">def url_escape(string: str,</span>
-<span class="s2">               safe: str | Iterable[int] = &quot;/&quot;,</span>
+<span class="s2">               safe: str | Iterable[int] = "/",</span>
 <span class="s2">               encoding: str | None = None,</span>
 <span class="s2">               errors: str | None = None) -&gt; str:</span>
-<span class="s2">def url_unescape(string: str | bytes, encoding: str = &quot;UTF-8&quot;, errors: str = &quot;replace&quot;) -&gt; str:</span>
+<span class="s2">def url_unescape(string: str | bytes, encoding: str = "UTF-8", errors: str = "replace") -&gt; str:</span>
 <span class="s2">def html_escape(s: str, quote: bool = True) -&gt; str:</span>
 <span class="s2">def html_unescape(s: str) -&gt; str:</span>
 <span class="s2">def uurl() -&gt; None: copy(url_unescape(paste()))</span>
 
-<span class="s2">re_amp = re.compile(r&quot;(?i)&amp;(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)&quot;)</span>
+<span class="s2">re_amp = re.compile(r"(?i)&amp;(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)")</span>
 
 <span class="s2">cmd = os.system</span>
 <span class="s2">def dir(obj: Any | None = None, func: Callable = None) -&gt; list[str]:</span>
 <span class="s2">sign = s = def signature(func: Callable) -&gt; str:</span>
 
-<span class="s2">__ = lambda a: not a.startswith(&quot;__&quot;)</span>
+<span class="s2">__ = lambda a: not a.startswith("__")</span>
 <span class="s2">lp = lambda: len(paste())</span>
 <span class="s2">def cp(func: callable = str, *args, **kwargs) -&gt; None:</span>
-<span class="s2">fint = lambda i: f&quot;{i:_}&quot;</span>
+<span class="s2">fint = lambda i: f"{i:_}"</span>
 
 <span class="s2">class highlight:</span>
 <span class="s2">    def __call__(self, text: str):</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s2">"""</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
 
 <span class="c1"># Math</span>
@@ -105,12 +106,36 @@ arrow
     <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="k">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">p</span><span class="p">))</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">uuid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="k">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1"># noinspection PyPep8Naming</span>
+<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">uuid</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""def uuid() -&gt; str:</span>
+<span class="sd">        return str(uuid4()).replace("-", "")"""</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="k">,</span> <span class="s2">""</span><span class="p">)[:</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="p">()</span><span class="si">!r}</span><span class="s2">"</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">()[</span><span class="n">item</span><span class="p">]</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">()</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">()</span> <span class="o">*</span> <span class="n">count</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">cuid</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">copy</span><span class="p">(</span><span class="n">uuid</span><span class="p">()[:</span><span class="n">x</span><span class="p">])</span>
+<span class="c1"># noinspection PyPep8Naming</span>
+<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">cuid</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""def cuid(x: int = 16):</span>
+<span class="sd">        return copy(uuid[:x])"""</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="k">,</span> <span class="s2">""</span><span class="p">)[:</span><span class="n">x</span><span class="p">]</span>
+        <span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="si">!r}</span><span class="s2">"</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">video</span><span class="p">(</span><span class="n">length</span><span class="p">:</span> <span class="nb">str</span><span class="k">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -121,7 +146,7 @@ arrow
                 <span class="nb">list</span><span class="p">(</span>
                     <span class="nb">map</span><span class="p">(</span>
                         <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span><span class="k">,</span>
-                        <span class="nb">str</span><span class="p">(</span><span class="n">length</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                        <span class="nb">str</span><span class="p">(</span><span class="n">length</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
             <span class="p">)</span>
@@ -130,16 +155,16 @@ arrow
     <span class="n">hours</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">video_seconds</span> <span class="o">//</span> <span class="mi">3600</span><span class="p">)</span>
     <span class="n">minutes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">video_seconds</span> <span class="o">%</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">//</span> <span class="mi">60</span><span class="p">)</span>
     <span class="n">seconds</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">video_seconds</span> <span class="o">%</span> <span class="mi">60</span><span class="p">)</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hours</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">minutes</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">seconds</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2"> (seconds=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">video_seconds</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;0:&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">hours</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">minutes</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">seconds</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2"> (seconds=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">video_seconds</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">"0:"</span><span class="p">)</span>
 
 
 <span class="c1"># Converters</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">rgb_to_hex</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">g</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{:02x}{:02x}{:02x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="k">,</span> <span class="n">g</span><span class="k">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="si">{:02x}{:02x}{:02x}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="k">,</span> <span class="n">g</span><span class="k">,</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">hex_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="k">,</span> <span class="o">...</span><span class="p">]:</span>
-    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="k">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">"#"</span><span class="p">)[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="k">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="k">,</span> <span class="mi">2</span><span class="k">,</span> <span class="mi">4</span><span class="p">))</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="k">,</span> <span class="o">...</span><span class="p">]:</span>
@@ -152,7 +177,7 @@ arrow
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">print_color</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">g</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[48;2;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">m</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="se">\x1b</span><span class="s2">[0m&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\x1b</span><span class="s2">[48;2;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">m</span><span class="si">{</span><span class="s1">''</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="se">\x1b</span><span class="s2">[0m"</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">pipette</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -164,31 +189,40 @@ arrow
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">base</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="k">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="n">digits</span> <span class="o">=</span> <span class="s2">&quot;0123456789abcdefghijklmnopqrstuvwxyz&quot;</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="s2">"0123456789abcdefghijklmnopqrstuvwxyz"</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">36</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;base must be in range 2..36&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"base must be in range 2..36"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;0&quot;</span>
-    <span class="n">_sign</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">"0"</span>
+    <span class="n">_sign</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">""</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">while</span> <span class="n">n</span><span class="p">:</span>
         <span class="n">n</span><span class="k">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="k">,</span> <span class="n">b</span><span class="p">)</span>
         <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">_sign</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_sign</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
 
 
 <span class="c1"># Escape</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">unicode_escape</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">fr</span><span class="s2">&quot;\U</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">0&gt;8x</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">fr</span><span class="s2">"\U</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">0&gt;8x</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">html_escape_full</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&amp;#x</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">;&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"&amp;#x</span><span class="si">{</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">;"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">uurl</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">copy</span><span class="p">(</span><span class="n">url_unescape</span><span class="p">(</span><span class="n">paste</span><span class="p">()))</span>
+<span class="c1"># noinspection PyPep8Naming</span>
+<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">uurl</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""def uurl() -&gt; None:</span>
+<span class="sd">        copy(url_unescape(paste()))"""</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">url_unescape</span><span class="p">(</span><span class="n">paste</span><span class="p">())</span>
+        <span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="p">()</span><span class="si">!r}</span><span class="s2">"</span>
 
 
 <span class="n">url_escape</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span>
@@ -201,7 +235,7 @@ arrow
 <span class="k">class</span><span class="w"> </span><span class="nc">base64</span><span class="p">:</span>  <span class="c1"># noqa</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">_base64_lib</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;UTF-8&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_base64_lib</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">bytes_</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"UTF-8"</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">string_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Buffer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
@@ -213,23 +247,23 @@ arrow
 
         <span class="k">def</span><span class="w"> </span><span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">instance</span><span class="k">,</span> <span class="n">owner</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flag</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">style</span><span class="p">(</span><span class="n">link</span><span class="p">(</span><span class="s2">&quot;https://mimetype.io/all-types&quot;</span><span class="p">)</span><span class="k">,</span> <span class="n">underline</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">style</span><span class="p">(</span><span class="n">link</span><span class="p">(</span><span class="s2">"https://mimetype.io/all-types"</span><span class="p">)</span><span class="k">,</span> <span class="n">underline</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">return</span> <span class="s2">&quot;data:</span><span class="si">{}</span><span class="s2">;base64,&quot;</span>
+            <span class="k">return</span> <span class="s2">"data:</span><span class="si">{}</span><span class="s2">;base64,"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span>
-<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">"""</span>
 <span class="sd">class base64:</span>
-<span class="sd">    prefix = &quot;data:{};base64,&quot;  # &quot;data:image/png;base64,&quot;</span>
+<span class="sd">    prefix = "data:{};base64,"  # "data:image/png;base64,"</span>
 <span class="sd">    def encode(bytes_: bytes | Buffer) -&gt; str:</span>
 <span class="sd">    def decode(string_: str | Buffer) -&gt; bytes:</span>
-<span class="sd">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="sd">"""</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="p">)</span>
 
 
 <span class="c1"># RegExp</span>
-<span class="n">re_amp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?i)&amp;(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)&quot;</span><span class="p">)</span>
+<span class="n">re_amp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(?i)&amp;(?!(?:#[0-9]+|#x[0-9a-f]+|[0-9a-z]+);)"</span><span class="p">)</span>
 
 
 <span class="c1"># Python</span>
@@ -246,9 +280,9 @@ arrow
 
 <span class="k">def</span><span class="w"> </span><span class="nf">signature</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">""""""</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}{</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s2">""""""</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
 
 <span class="n">sign</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="n">signature</span>
@@ -256,60 +290,66 @@ arrow
 
 <span class="c1"># Utils</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">__</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">return</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"__"</span><span class="p">)</span>
 
-
-<span class="k">def</span><span class="w"> </span><span class="nf">lp</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">paste</span><span class="p">())</span>
+<span class="c1"># noinspection PyPep8Naming</span>
+<span class="nd">@lambda</span> <span class="bp">cls</span><span class="p">:</span> <span class="bp">cls</span><span class="p">()</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">lp</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""def lp() -&gt; int:</span>
+<span class="sd">        return len(paste())"""</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">paste</span><span class="p">())</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">paste</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">cp</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="nb">callable</span> <span class="o">=</span> <span class="nb">str</span><span class="k">,</span> <span class="o">*</span><span class="n">args</span><span class="k">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    copy - paste</span>
 
 <span class="sd">    Examples</span>
 
 <span class="sd">    &#x60;cp(str.lower)&#x60;</span>
 
-<span class="sd">    &#x60;cp(lambda s: s.lower.replace(&quot; &quot;, &quot;_&quot;))&#x60;</span>
+<span class="sd">    &#x60;cp(lambda s: s.lower.replace(" ", "_"))&#x60;</span>
 
 <span class="sd">    :param func: function</span>
 <span class="sd">    :param args: args</span>
 <span class="sd">    :param kwargs: kwargs</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">copy</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">paste</span><span class="p">()</span><span class="k">,</span> <span class="o">*</span><span class="n">args</span><span class="k">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">fint</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">_</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">_</span><span class="si">}</span><span class="s2">"</span>
 
 
 <span class="nd">@lambda</span> <span class="n">__cls</span><span class="p">:</span> <span class="n">__cls</span><span class="p">()</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">highlight</span><span class="p">:</span>  <span class="c1"># noqa</span>
-    <span class="n">regex_line_start_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?m)^&lt;span class=&quot;n&quot;&gt;(.+?)&lt;/span&gt;&#39;</span><span class="p">)</span>
-    <span class="n">regex_remove_o_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;o&quot;&gt;(=)&lt;/span&gt;&#39;</span><span class="p">)</span>
-    <span class="n">regex_def_color_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; = &lt;span class=&quot;n&quot;&gt;(.+?)&lt;/span&gt; = &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&#39;</span><span class="p">)</span>
-    <span class="n">regex_comma_color_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&#39;</span><span class="p">)</span>
-    <span class="n">regex_color_class_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;(.+?)&quot;&gt;(.+?)&lt;/span&gt;&#39;</span><span class="p">)</span>
+    <span class="n">regex_line_start_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(?m)^&lt;span class="n"&gt;(.+?)&lt;/span&gt;'</span><span class="p">)</span>
+    <span class="n">regex_remove_o_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;span class="o"&gt;(=)&lt;/span&gt;'</span><span class="p">)</span>
+    <span class="n">regex_def_color_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">' = &lt;span class="n"&gt;(.+?)&lt;/span&gt; = &lt;span class="k"&gt;def&lt;/span&gt;'</span><span class="p">)</span>
+    <span class="n">regex_comma_color_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;span class="p"&gt;,&lt;/span&gt;'</span><span class="p">)</span>
+    <span class="n">regex_color_class_span</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;span class="(.+?)"&gt;(.+?)&lt;/span&gt;'</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="k">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;k&quot;</span><span class="k">,</span> <span class="s2">&quot;ow&quot;</span><span class="k">,</span> <span class="s2">&quot;kn&quot;</span><span class="k">,</span> <span class="s2">&quot;si&quot;</span><span class="k">,</span> <span class="s2">&quot;se&quot;</span><span class="k">,</span> <span class="s2">&quot;kd&quot;</span><span class="k">,</span> <span class="s2">&quot;kc&quot;</span><span class="k">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;CC7832&quot;</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Keywords</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;s&quot;</span><span class="k">,</span> <span class="s2">&quot;s1&quot;</span><span class="k">,</span> <span class="s2">&quot;s2&quot;</span><span class="k">,</span> <span class="s2">&quot;sa&quot;</span><span class="k">,</span> <span class="s2">&quot;sd&quot;</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;529755&quot;</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Text</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;m&quot;</span><span class="k">,</span> <span class="s2">&quot;mi&quot;</span><span class="k">,</span> <span class="s2">&quot;mf&quot;</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;5897BB&quot;</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Number</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;nb&quot;</span><span class="k">,</span> <span class="s2">&quot;kt&quot;</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;8888C6&quot;</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Default functions</span>
-            <span class="s2">&quot;fm&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;B200B2&quot;</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Magical methods</span>
-            <span class="s2">&quot;bp&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;94558D&quot;</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Self</span>
-            <span class="s2">&quot;nd&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;BBB529&quot;</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Decorator</span>
-            <span class="s2">&quot;nf&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;FFC66D&quot;</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Function name</span>
-            <span class="s2">&quot;na&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;AA4926&quot;</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Argument</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">&quot;c1&quot;</span><span class="k">,</span> <span class="s2">&quot;cp&quot;</span><span class="k">,</span> <span class="s2">&quot;cpf&quot;</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">&quot;7F7F7F&quot;</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Comment hsla(0,0%,100%,.5)  </span>
+            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">"k"</span><span class="k">,</span> <span class="s2">"ow"</span><span class="k">,</span> <span class="s2">"kn"</span><span class="k">,</span> <span class="s2">"si"</span><span class="k">,</span> <span class="s2">"se"</span><span class="k">,</span> <span class="s2">"kd"</span><span class="k">,</span> <span class="s2">"kc"</span><span class="k">,</span> <span class="s2">"nt"</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"CC7832"</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Keywords</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">"s"</span><span class="k">,</span> <span class="s2">"s1"</span><span class="k">,</span> <span class="s2">"s2"</span><span class="k">,</span> <span class="s2">"sa"</span><span class="k">,</span> <span class="s2">"sd"</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"529755"</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Text</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">"m"</span><span class="k">,</span> <span class="s2">"mi"</span><span class="k">,</span> <span class="s2">"mf"</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"5897BB"</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Number</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">"nb"</span><span class="k">,</span> <span class="s2">"kt"</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"8888C6"</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Default functions</span>
+            <span class="s2">"fm"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"B200B2"</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Magical methods</span>
+            <span class="s2">"bp"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"94558D"</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Self</span>
+            <span class="s2">"nd"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"BBB529"</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Decorator</span>
+            <span class="s2">"nf"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"FFC66D"</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Function name</span>
+            <span class="s2">"na"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"AA4926"</span><span class="p">)</span><span class="k">,</span>  <span class="c1"># Argument</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">((</span><span class="s2">"c1"</span><span class="k">,</span> <span class="s2">"cp"</span><span class="k">,</span> <span class="s2">"cpf"</span><span class="p">)</span><span class="k">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__format_color</span><span class="p">(</span><span class="s2">"7F7F7F"</span><span class="p">))</span><span class="k">,</span>  <span class="c1"># Comment hsla(0,0%,100%,.5)  </span>
         <span class="p">}</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">__format_color</span><span class="p">(</span><span class="n">hex_color</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">r</span><span class="k">,</span> <span class="n">g</span><span class="k">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">hex_to_rgb</span><span class="p">(</span><span class="n">hex_color</span><span class="p">)</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[38;2;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">m&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="se">\x1b</span><span class="s2">[38;2;</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">m"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="k">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -319,40 +359,40 @@ arrow
             <span class="kn">from</span><span class="w"> </span><span class="nn">pygments.formatters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlFormatter</span>
         <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">(</span>
-                <span class="s2">&quot;</span><span class="se">\x1b</span><span class="s2">[31mRun &#x60;&quot;</span>
-                <span class="s2">&quot;pip install pygments&quot;</span>
-                <span class="s2">&quot;&#x60; and restart the console for syntax highlighting</span><span class="se">\x1b</span><span class="s2">[0m&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="s2">"</span><span class="se">\x1b</span><span class="s2">[31mRun &#x60;"</span>
+                <span class="s2">"pip install pygments"</span>
+                <span class="s2">"&#x60; and restart the console for syntax highlighting</span><span class="se">\x1b</span><span class="s2">[0m"</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
 
-        <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
-        <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;python&quot;</span>
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"default"</span><span class="p">)</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="s2">"python"</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">language</span><span class="k">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">ClassNotFound</span><span class="p">:</span>
-            <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
+            <span class="n">language</span> <span class="o">=</span> <span class="s2">"text"</span>
             <span class="n">lexer</span> <span class="o">=</span> <span class="n">get_lexer_by_name</span><span class="p">(</span><span class="n">language</span><span class="k">,</span> <span class="n">stripall</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="n">highlighted_code</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">highlight</span><span class="p">(</span><span class="n">text</span><span class="k">,</span> <span class="n">lexer</span><span class="k">,</span> <span class="n">formatter</span><span class="p">)</span>
             <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&#39;</span><span class="p">)</span>
-            <span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">&quot;&lt;/pre&gt;&lt;/div&gt;&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s1">'&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;'</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">"&lt;/pre&gt;&lt;/div&gt;"</span><span class="p">)</span>
         <span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_line_start_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;nf&quot;&gt;\1&lt;/span&gt;&#39;</span><span class="k">,</span> <span class="n">highlighted_code</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_remove_o_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_def_color_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; = &lt;span class=&quot;nf&quot;&gt;\1&lt;/span&gt; = &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;&#39;</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_comma_color_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;span class=&quot;k&quot;&gt;,&lt;/span&gt;&#39;</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_line_start_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;span class="nf"&gt;\1&lt;/span&gt;'</span><span class="k">,</span> <span class="n">highlighted_code</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_remove_o_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\1'</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_def_color_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">' = &lt;span class="nf"&gt;\1&lt;/span&gt; = &lt;span class="k"&gt;def&lt;/span&gt;'</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_comma_color_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'&lt;span class="k"&gt;,&lt;/span&gt;'</span><span class="k">,</span> <span class="n">result</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex_color_class_span</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
             <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="p">(</span>
                 <span class="n">html</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span>
-                <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="si">}{</span><span class="n">html</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="se">\x1b</span><span class="s2">[0m&quot;</span>
+                <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="si">}{</span><span class="n">html</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="se">\x1b</span><span class="s2">[0m"</span>
             <span class="p">)</span><span class="k">,</span>
             <span class="n">result</span><span class="k">,</span>
         <span class="p">)</span>
-        <span class="c1"># result = result.replace(&quot;\x1b&quot;, &quot;\\x1b&quot;)</span>
+        <span class="c1"># result = result.replace("\x1b", "\\x1b")</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
 
@@ -362,16 +402,16 @@ arrow
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">HELP</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="k">if</span> <span class="s2">&quot;get_ipython&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">"get_ipython"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"""</span>
 <span class="s2">Python </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="si">}</span>
-<span class="s2">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PYPRECODE v1.0.0 Type &quot;pyhelp&quot; for more information.&#39;</span><span class="p">)</span>
+<span class="s2">Type "help", "copyright", "credits" or "license" for more information.</span>
+<span class="s2">"""</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'PYPRECODE v1.0.0 Type "pyhelp" for more information.'</span><span class="p">)</span>
 </pre></div></div></div>
 
-<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;%USERPROFILE%/PYPRECODE.py&quot;</span>
+<div class="code_element"><div class="lang_line"><text>bash</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-bash"><div class="highlight"><pre><span></span>python<span class="w"> </span>-i<span class="w"> </span><span class="s2">"%USERPROFILE%/PYPRECODE.py"</span>
 </pre></div></div></div>
 
 <!--
