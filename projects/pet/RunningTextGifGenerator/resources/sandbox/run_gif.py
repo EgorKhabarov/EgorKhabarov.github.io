@@ -1,5 +1,6 @@
 import base64
 import json
+
 # from io import BytesIO
 from js import send_err  # noqa
 
@@ -13,29 +14,30 @@ def running_text_gif_json(
     try:
         json_content: list[dict[str, str | bool | int]] = json.loads(json_fragments)
         assert isinstance(json_content, list), "JSON must be a list of fragments"
-        assert 1 <= len(json_content) <= 20, "The number of fragments must be greater than 1 and less than 20"
-        assert all(isinstance(i, dict) for i in json_content), "All fragments must be JSON dictionaries"
+        assert (
+            1 <= len(json_content) <= 20
+        ), "The number of fragments must be greater than 1 and less than 20"
         assert all(
-            set(i.keys()) - {"text", "direction", "intro", "outro", "duration", "speed"} == set()
+            isinstance(i, dict) for i in json_content
+        ), "All fragments must be JSON dictionaries"
+        assert all(
+            set(i.keys()) - {"text", "direction", "intro", "outro", "duration", "speed"}
+            == set()
             for i in json_content
         ), "Check the parameter names"
         assert all(
             1 <= len(i["text"]) <= 150
             and (
-                ("direction" in i and i["direction"] in ["left", "right", "up", "down", "none"]) or True
+                (
+                    "direction" in i
+                    and i["direction"] in ["left", "right", "up", "down", "none"]
+                )
+                or True
             )
-            and (
-                ("intro" in i and isinstance(i["intro"], bool)) or True
-            )
-            and (
-                ("outro" in i and isinstance(i["outro"], bool)) or True
-            )
-            and (
-                ("duration" in i and 20 <= i["duration"] <= 1000) or True
-            )
-            and (
-                ("speed" in i and 1 <= i["speed"] <= 5) or True
-            )
+            and (("intro" in i and isinstance(i["intro"], bool)) or True)
+            and (("outro" in i and isinstance(i["outro"], bool)) or True)
+            and (("duration" in i and 20 <= i["duration"] <= 1000) or True)
+            and (("speed" in i and 1 <= i["speed"] <= 5) or True)
             for i in json_content
         ), "Check the parameter values"
     except (json.JSONDecodeError, AssertionError) as e:

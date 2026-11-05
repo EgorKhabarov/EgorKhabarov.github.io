@@ -1,7 +1,6 @@
 import re
 from pathlib import Path
 
-
 cheatsheet_path = (
     r"""
 

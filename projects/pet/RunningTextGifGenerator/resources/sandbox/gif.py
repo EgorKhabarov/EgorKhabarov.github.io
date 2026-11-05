@@ -8,7 +8,6 @@ from typing import Callable, Generator, Any, Literal
 
 from PIL import Image, ImageDraw, ImageFont
 
-
 global_color_config = {
     "color_border": "#000000",
     "color_background": "#222222",

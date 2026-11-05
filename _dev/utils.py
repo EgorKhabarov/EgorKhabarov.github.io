@@ -8,7 +8,6 @@ import git
 import requests
 from bs4 import BeautifulSoup
 
-
 try:
     repo: git.Repo = git.Repo(r"..")
 except git.exc.InvalidGitRepositoryError:
@@ -151,7 +150,7 @@ def set_unselectable(text: str, sep: str = "\n"):
 
 def get_files(
     dirname: str,
-    filter_func: Callable[[str], bool] = lambda p: True
+    filter_func: Callable[[str], bool] = lambda p: True,
 ) -> Generator[str, Any, None]:
     """
 
@@ -169,7 +168,7 @@ def get_files(
 
 def get_git_diff(
     dirname: str,
-    filter_func: Callable[[str], bool] = lambda p: True
+    filter_func: Callable[[str], bool] = lambda p: True,
 ) -> Generator[str, Any, None]:
     """
 
@@ -190,7 +189,7 @@ def get_git_diff(
 
 
 def get_git_diff_moved_from_cheat_sheet_dict(
-    filter_func: Callable[[str], bool] = lambda p: True
+    filter_func: Callable[[str], bool] = lambda p: True,
 ) -> dict[str, str]:
     """
 
@@ -277,6 +276,7 @@ class PathDict(UserDict):
             return super().__setitem__(key, value)
         path, key = key.rsplit("/", maxsplit=1)
         self.__getitem__(path, _is_dir=True)[key] = value
+        return None
 
     def __delitem__(self, key: str):
         # Удаляет значение или директорию по ключу
@@ -291,6 +291,7 @@ class PathDict(UserDict):
                 del self.__getitem__("", _is_dir=True)[parent_dir]
                 break
             del self.__getitem__(parent_dir, _is_dir=True)[value[0]]
+        return None
 
     def __getitem__(self, key: str, _is_dir: bool = False):
         if not key:
@@ -417,9 +418,14 @@ def add_metadata(path_: str, metadata: dict) -> None:
         path_dict[path_] = yaml.safe_dump(
             result_metadata, sort_keys=False, allow_unicode=True, indent=4
         )
-        with open("../cheatsheet/src/index.json", "w", encoding="UTF-8") as index_json_file:
+        with open(
+            "../cheatsheet/src/index.json",
+            "w",
+            encoding="UTF-8",
+        ) as index_json_file:
             json.dump(path_dict.data, index_json_file, indent=4, ensure_ascii=False)
         print("\x1b[32mMetadata updated successfully\x1b[0m")
+    return None
 
 
 def get_h_tags(path_: str) -> list[str]:

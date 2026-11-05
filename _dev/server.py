@@ -2,7 +2,6 @@ import os
 from werkzeug.exceptions import NotFound
 from flask import Flask, send_file, send_from_directory, abort, redirect
 
-
 app = Flask(__name__)
 
 

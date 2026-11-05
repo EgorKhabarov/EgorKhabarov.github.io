@@ -29,12 +29,14 @@ for i, file in enumerate(get_files(dir_name, lambda _path: _path.endswith(".md")
     text = Path("..", dir_name, file).read_text(encoding="UTF-8")
     file = file.removesuffix(".md")
     body = clean_text(text)
-    documents.append({
-        "i": str(i),
-        "f": file,
-        "n": file.replace("/", " "),
-        "b": body
-    })
+    documents.append(
+        {
+            "i": str(i),
+            "f": file,
+            "n": file.replace("/", " "),
+            "b": body,
+        }
+    )
 
 
 index = lunr(
@@ -49,10 +51,7 @@ index = lunr(
 )
 data = {
     "index": index.serialize(),
-    "docs": [
-        {"i": d["i"], "f": d["f"]}
-        for d in documents
-    ]
+    "docs": [{"i": d["i"], "f": d["f"]} for d in documents],
 }
 
 path = Path("..", dir_name, "src", "search-index.json")

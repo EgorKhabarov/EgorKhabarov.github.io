@@ -15,7 +15,6 @@ from _dev.utils import (
     get_git_diff_moved_from_cheat_sheet_dict,
 )
 
-
 update_all = False
 dir_name = "cheatsheet"
 
@@ -39,8 +38,11 @@ update_svg_badge(cheatsheet_count)
 
 
 # get a list of updated cheat sheets
-updated_files = cheatsheet_list if update_all \
+updated_files = (
+    cheatsheet_list
+    if update_all
     else list(get_git_diff(dir_name, lambda path: path.endswith(".md")))
+)
 """Updated .md files"""
 updated_files_count = len(updated_files)
 print(f"Found {UNDERLINE}{BOLD}{updated_files_count}{RESET} updated files")
