@@ -1,5 +1,4 @@
-# noinspection PyUnresolvedReferences
-from _dev.utils import add_metadata, get_h_tags
+from _dev.utils import add_metadata  # , get_h_tags
 
 path = (
     """

@@ -1,8 +1,8 @@
 import base64
 import json
 
-# from io import BytesIO
-from js import send_err  # noqa
+# noinspection PyUnresolvedReferences
+from js import send_err
 
 
 def running_text_gif_json(
@@ -60,7 +60,6 @@ def running_text_gif_json(
             **{"duration": content["duration"]} if content.get("duration") else {},
             **{"speed": content["speed"]} if content.get("speed") else {},
         )
-    # file = BytesIO()
     gif.save("export.git")
 
     with open("export.git", "rb") as file:

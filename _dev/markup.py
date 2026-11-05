@@ -2,16 +2,13 @@ import re
 
 import markdown
 from pygments import highlight
-from pygments.lexers import get_lexer_by_name
+from pygments import unistring as uni
 from pygments.formatters import HtmlFormatter
+from pygments.lexers import PythonLexer, get_lexer_by_name
+from pygments.token import Name
 from pygments.util import ClassNotFound
 
 from _dev.utils import set_unselectable
-
-# Monkey patch
-from pygments.lexers import PythonLexer
-from pygments.token import Name
-from pygments import unistring as uni
 
 uni_name = f"[{uni.xid_start}][{uni.xid_continue}.]*"
 PythonLexer.tokens["name"][0] = (r"@" + uni_name, Name.Decorator)

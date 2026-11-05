@@ -6,13 +6,13 @@ from colorama import init
 
 from _dev.markup import to_markup
 from _dev.utils import (
-    repo,
-    get_files,
     dict_walk,
+    get_files,
     get_git_diff,
-    update_svg_badge,
-    update_index_json,
     get_git_diff_moved_from_cheat_sheet_dict,
+    repo,
+    update_index_json,
+    update_svg_badge,
 )
 
 update_all = False
@@ -119,12 +119,12 @@ for directory, dirnames, filenames in dict_walk(index_json):
         if filename in (".",):
             continue
         index_json_cheatsheet_list.append(f"{directory}/{filename}".lstrip("/"))
-cheatsheet_set = set(path.removesuffix(".md") for path in cheatsheet_list)
-index_json_set = set(
+cheatsheet_set = {path.removesuffix(".md") for path in cheatsheet_list}
+index_json_set = {
     path
     for path in index_json_cheatsheet_list
     if not path.split("/")[-1].startswith(":")  # links
-)
+}
 added_cheat_sheets = list(cheatsheet_set - index_json_set)
 removed_cheat_sheets = list(index_json_set - cheatsheet_set)
 modified_files_count = len(added_cheat_sheets) + len(removed_cheat_sheets)

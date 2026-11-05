@@ -1,10 +1,10 @@
-import re
-import json
 import gzip
 import html
+import json
+import re
+from pathlib import Path
 
 from lunr import lunr
-from pathlib import Path
 
 from _dev.utils import get_files
 

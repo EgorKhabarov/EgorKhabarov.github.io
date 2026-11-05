@@ -1,10 +1,11 @@
-import time
 import itertools
+import time
+from collections.abc import Callable, Generator
+from copy import deepcopy
 from io import BytesIO
 from os import PathLike
 from pathlib import Path
-from copy import deepcopy
-from typing import Callable, Generator, Any, Literal
+from typing import Any, Literal
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -308,26 +309,22 @@ class GIF:
                     new_image_cols += self.columns - text_cols
                     paste_col += self.columns - text_cols
             case "up":
-                if new_image_cols < self.columns:
-                    new_image_cols = self.columns
+                new_image_cols = max(new_image_cols, self.columns)
                 if intro:
                     new_image_rows += self.rows
                     paste_row += self.rows
                 if outro:
                     new_image_rows += self.rows
             case "down":
-                if new_image_cols < self.columns:
-                    new_image_cols = self.columns
+                new_image_cols = max(new_image_cols, self.columns)
                 if intro:
                     new_image_rows += self.rows
                 if outro:
                     new_image_rows += self.rows
                     paste_row += self.rows
 
-        if new_image_cols < self.columns:
-            new_image_cols = self.columns
-        if new_image_rows < self.rows:
-            new_image_rows = self.rows
+        new_image_cols = max(new_image_cols, self.columns)
+        new_image_rows = max(new_image_rows, self.rows)
 
         image = Image.new(
             mode="RGB",
@@ -363,7 +360,7 @@ class GIF:
         elif isinstance(gif_file, Image.Image):
             gif = gif_file
         else:
-            raise ValueError("Wrong type")
+            raise TypeError("Wrong type")
 
         while True:
             if frame_index % speed != 0:
@@ -413,7 +410,7 @@ class GIF:
         elif isinstance(image_path, Image.Image):
             image = image_path
         else:
-            raise ValueError("Wrong type")
+            raise TypeError("Wrong type")
 
         columns, rows = image.size
         if (columns, rows) < (self.columns, self.rows):
@@ -447,15 +444,13 @@ class GIF:
                 c += start_col
                 r += start_row
                 pixel = image.getpixel((c, r))
-                if (
+                return not (
                     c < 0
                     or r < 0
                     or not pixel
                     or isinstance(pixel, float)
                     or pixel[:3] != (0, 0, 0)
-                ):
-                    return False
-                return True
+                )
 
             return func
 
@@ -547,7 +542,7 @@ class GIF:
         elif isinstance(gif_path, Image.Image):
             gif_file = gif_path
         else:
-            raise ValueError("Wrong type")
+            raise TypeError("Wrong type")
 
         columns, rows = gif_file.size
         if (columns, rows) != (self.columns_pixels, self.rows_pixels):
@@ -674,9 +669,9 @@ class GIF:
         generator = GIF.extract_gif_frames(path, duration=duration, speed=speed)
         frames = []
         durations = []
-        for frame, duration in generator:
+        for frame, _duration in generator:
             frames.append(frame)
-            durations.append(duration)
+            durations.append(_duration)
 
         gif = GIF(
             *frames[0].size,

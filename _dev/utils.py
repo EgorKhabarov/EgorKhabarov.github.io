@@ -1,17 +1,16 @@
-import os
 import json
-import yaml
+import os
 from collections import UserDict
-from typing import Generator, Any, Callable
+from collections.abc import Callable, Generator
+from typing import Any
 
 import git
 import requests
+import yaml
 from bs4 import BeautifulSoup
 
-try:
-    repo: git.Repo = git.Repo(r"..")
-except git.exc.InvalidGitRepositoryError:
-    raise
+# git.exc.InvalidGitRepositoryError
+repo: git.Repo = git.Repo(r"..")
 
 try:
     branch: str = repo.active_branch.name
@@ -374,7 +373,7 @@ def add_metadata(path_: str, metadata: dict) -> None:
     path_dict = PathDict(index_json)
     if not path_dict.exist(path_):
         print(f'\x1b[31mThis path is not exist "{path_}"\x1b[0m')
-        return None
+        return
     result_metadata = yaml.safe_load(path_dict[path_]) or {}
     string_result_metadata = json.dumps(result_metadata, indent=4, ensure_ascii=False)
     print(f'\x1b[31mPath "{path_}"\x1b[0m')
@@ -396,7 +395,7 @@ def add_metadata(path_: str, metadata: dict) -> None:
     )
     if not (color or tags):
         print("\x1b[31mNo new metadata\x1b[0m")
-        return None
+        return
 
     if color:
         result_metadata["color"] = color
@@ -425,7 +424,7 @@ def add_metadata(path_: str, metadata: dict) -> None:
         ) as index_json_file:
             json.dump(path_dict.data, index_json_file, indent=4, ensure_ascii=False)
         print("\x1b[32mMetadata updated successfully\x1b[0m")
-    return None
+    return
 
 
 def get_h_tags(path_: str) -> list[str]:
