@@ -1,4 +1,4 @@
-/* --- ELEMENTS --- */
+/* Elements */
 const body = document.body;
 const sidebar = document.getElementById("cheatsheets_sidebar");
 const container = document.getElementById("main_container");
@@ -427,7 +427,7 @@ function renderBreadcrumbs(url) {
     const pathArray = url.split("/");
     pathArray.forEach((part, index) => {
         accumulatedPath.push(part);
-        const currentFullPath = accumulatedPath.join("/");
+        const currentFullPath = accumulatedPath.join("/").replaceAll(" ", "+").replaceAll("%20", "+");
         const span = document.createElement("a");
         span.textContent = part;
         span.className = "crumb_item";
@@ -714,7 +714,7 @@ async function load_cheatsheet(url) {
         }, LOADER_DELAY);
 
         try {
-            const response = await fetch(`/cheatsheet/${url}.html`);
+            const response = await fetch(`${url}.html`);
             text = await response.text();
             clearTimeout(loaderTimeout);
             if (loaderShownAt !== null) {
@@ -954,7 +954,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
                 path += "/";
             }
 
-            // --- metadata parsing ---
+            // Metadata parsing
             let currentMetadataStr = typeof value === "string" ? value : String(value["."]);
             let currentMetadata = {};
             if (currentMetadataStr !== "") {
@@ -963,7 +963,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
             if (typeof currentMetadata === "string" || currentMetadata == null) {
                 currentMetadata = {};
             }
-            // --- skip link (Python commented) ---
+            // Skip link (Python commented)
             if (key.startsWith(":") && key.slice(1)) {
                 continue;
             }
@@ -971,7 +971,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
             const keyPath = directory ? `${directory}/${key}` : key;
             const directoryE = directory.replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
 
-            // --- folder ---
+            // Folder
             if (typeof value === "object" && value !== null) {
                 const buttonsFolderData = __generateButtons(value, keyPath)[0];
                 const kpath = `${directoryE}/${key}`.replace(/^\/+/, "");
@@ -980,7 +980,7 @@ function generateButtons(json_data, element, cascadeClose = true) {
                 textList.push(formatFolderButton(title, svg, kpath, display, buttonsFolderData));
 
             } else {
-                // --- file/tag ---
+                // File/tag
                 const vpath = `${directoryE}/${key}`.replace(/^\/+/, "");
                 const svg = formatTagSvg(currentMetadata.color || "default");
                 const tags = currentMetadata.tags;
@@ -1450,7 +1450,7 @@ function loadSettings() {
         s.settings_css_markdown_color = true;
     }
     if (s.settings_css_markdown_preview === undefined) {
-        s.settings_css_markdown_preview = false;
+        s.settings_css_markdown_preview = true;
     }
     if (s.settings_css === undefined) {
         s.settings_css = "";
@@ -1467,12 +1467,10 @@ function applySettings(settings) {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     document.documentElement.setAttribute("data-theme", settings.theme);
     themeColorMeta.setAttribute("content", themeColorMetaMap[settings.theme]);
-
     const theme_input = document.querySelector(`input[data-theme-name="${settings.theme}"]`);
     if (theme_input) {
         theme_input.checked = true;
     }
-
     settings_css_markdown_color.checked = settings.settings_css_markdown_color;
     settings_css_markdown_preview.checked = settings.settings_css_markdown_preview;
     settings_css_textarea.value = settings.settings_css || "";

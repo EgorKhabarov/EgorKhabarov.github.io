@@ -171,17 +171,14 @@ def base(n: int, b: int) -> str:
     digits = "0123456789abcdefghijklmnopqrstuvwxyz"
     if not (2 <= b <= 36):
         raise ValueError("base must be in range 2..36")
-
     if n == 0:
         return "0"
-
     _sign = "-" if n < 0 else ""
     n = abs(n)
     res = []
     while n:
         n, r = divmod(n, b)
         res.append(digits[r])
-
     return _sign + "".join(reversed(res))
 
 
