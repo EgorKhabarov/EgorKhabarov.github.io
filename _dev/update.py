@@ -102,9 +102,12 @@ for unused_file in unused_files:
         unused_file_path.parent.rmdir()
         unused_file_path = unused_file_path.parent
 incorrect_name_files_count = len(incorrect_name_files)
-print(f"Found {UNDERLINE}{BOLD}{incorrect_name_files_count}{RESET} files with incorrect name")
+tmp_text_1 = f"{UNDERLINE}{BOLD}{incorrect_name_files_count}{RESET}"
+print(f"Found {tmp_text_1} files with incorrect name")
 for dirpath, incorrect_filename, filename in incorrect_name_files:
-    print(f'  {YELLOW}Rename {GREEN}"{dirpath}/{incorrect_filename}" {YELLOW}to {GREEN}"{filename}"{RESET}')
+    tmp_text_2 = f'{GREEN}"{dirpath}/{incorrect_filename}"'
+    tmp_text_3 = f'{GREEN}"{filename}"'
+    print(f"  {YELLOW}Rename {tmp_text_2} {YELLOW}to {tmp_text_3}{RESET}")
     from_path = f"cheatsheet/{dirpath}/{incorrect_filename}"
     to_path = f"cheatsheet/{dirpath}/{filename}"
     repo.git.mv(from_path, to_path)
@@ -128,7 +131,8 @@ index_json_set = {
 added_cheat_sheets = list(cheatsheet_set - index_json_set)
 removed_cheat_sheets = list(index_json_set - cheatsheet_set)
 modified_files_count = len(added_cheat_sheets) + len(removed_cheat_sheets)
-print(f"Found {UNDERLINE}{BOLD}{modified_files_count}{RESET} differences with index.json")
+tmp_text_4 = f"{UNDERLINE}{BOLD}{modified_files_count}{RESET}"
+print(f"Found {tmp_text_4} differences with index.json")
 for added_cheat_sheet in added_cheat_sheets:
     print(f"  {GREEN}Added cheat sheet {added_cheat_sheet}{RESET}")
 for removed_cheat_sheet in removed_cheat_sheets:
