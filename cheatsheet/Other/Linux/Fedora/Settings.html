@@ -1,0 +1,195 @@
+<h1>Settings</h1>
+<style>hide {display: none;}</style>
+
+<p><hide>
+???
+Display &amp; Monitor -&gt; Screen Edges
+Maximize: [X]
+Tile: [X]
+Behavior: [ ]
+Trigger quarter tiling in: Outer 25%
+Switch desktop on edge: Disabled
+Activation delay: 75ms
+Reactivation delay: 350ms
+Corner barrier: [X]
+Edge barrier: 100px
+</hide></p>
+<p><hide>
+[General Behavior]
+[Plasma]
+Allow Plasma to show: [X] Panel and widget tooltips
+                      [X] OSD popups for status changes
+[Scrolling]
+Clicking in scrollbar track: (X) Scrolls to the clicked location
+                             ( ) Scrolls one page up or down
+                                 Middle-click to scroll to clicked location
+                             [X] Prefer smooth scrolling
+[Clicking]
+Clicking files or folders: (X) Selects them
+                               Open by double-clicking instead
+                           ( ) Opens them
+                               Select by clicking on item's selection marker
+Middle-click: [X] Pastes selected text
+Double-click interval: 400ms
+-
+Dragging files or folders: (X) Always ask what to do
+Enable Tablet Mode: (X) Automatically enable as needed
+</hide></p>
+<div class="code_element"><div class="lang_line"><text>json</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Keyboard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Keyboard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"NumLock on startup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turn on"</span>
+<span class="w">        </span><span class="p">}</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"Shortcuts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Add New -&gt; Command"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w">     </span><span class="s2">"%Y-%m-%d_%H-%M-%S.png"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Command"</span><span class="p">:</span><span class="w">  </span><span class="s2">"bash -c 'source ~/.PYPRECODE/bin/activate &amp;&amp; python -c \"__import__(\\\"pyperclip\\\").copy(f\\\"{__import__(\\\"datetime\\\").datetime.now():%Y-%m-%d_%H-%M-%S}.png\\\")\"'"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Shortcut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+Shift+Y"</span>
+<span class="w">                </span><span class="p">}</span><span class="k">,</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w">     </span><span class="s2">"CUID"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Command"</span><span class="p">:</span><span class="w">  </span><span class="s2">"bash -c 'source ~/.PYPRECODE/bin/activate &amp;&amp; python -c \"__import__(\\\"pyperclip\\\").copy(str(__import__(\\\"uuid\\\").uuid4()).replace(\\\"-\\\", \\\"\\\")[:16])\"'"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Shortcut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+Shift+U"</span>
+<span class="w">                </span><span class="p">}</span><span class="k">,</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w">     </span><span class="s2">"TOTP"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Command"</span><span class="p">:</span><span class="w">  </span><span class="s2">"bash -c 'source ~/.PYPRECODE/bin/activate &amp;&amp; python -c \"__import__(\\\"pyperclip\\\").copy(\\\"/totp code \\\"+__import__(\\\"pyotp\\\").TOTP(\\\"&lt;TOKEN&gt;\\\").now())\"'"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Shortcut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+Shift+P"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span><span class="k">,</span>
+<span class="w">            </span><span class="nt">"Window Management"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"Peek at Desktop"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No active shortcuts"</span>
+<span class="w">            </span><span class="p">}</span><span class="k">,</span>
+<span class="w">            </span><span class="nt">"Plasma Workspace"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"Activate Minimize All Windows Windget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+D"</span><span class="k">,</span>
+<span class="w">                </span><span class="nt">"Walk through activities"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+A"</span><span class="k">,</span>
+<span class="w">                </span><span class="nt">"Walk through activities (Reverse)"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+Shift+A"</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Accesibility"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Zoom &amp; Magnifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"( ) Full screen"</span><span class="k">,</span>
+<span class="w">            </span><span class="s2">"(X) Magnify region"</span><span class="k">,</span>
+<span class="w">            </span><span class="s2">"( ) Disabled"</span>
+<span class="w">        </span><span class="p">]</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"Shake Pointer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Shake pointer to find it"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[ ] Enable"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Colors &amp; Themes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Windows Decorations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows 10 Light"</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"Pointers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Windows10Light"</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Text &amp; Fonts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Fonts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Sub-pixel rendering"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"[ ] While a fullscreen application is focused"</span>
+<span class="w">    </span><span class="p">]</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Windows Management"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Task Swither"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Shortcuts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"All windows"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"Forward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alt+Tab or Meta+Tab"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Reverse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+Shift+Tab or Alt+Shift+Tab"</span>
+<span class="w">                </span><span class="p">}</span><span class="k">,</span>
+<span class="w">                </span><span class="nt">"Current application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"Forward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alt+&#x60; or Meta+&#x60;"</span><span class="k">,</span>
+<span class="w">                    </span><span class="nt">"Reverse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meta+~ or Alt+~"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"Virtual Desktops"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Screen Locking"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"Lock screen automatically"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"10 minuted"</span><span class="k">,</span>
+<span class="w">            </span><span class="s2">"[X] Lock after waking from sleep"</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span><span class="k">,</span>
+<span class="w">    </span><span class="nt">"Power Management"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"On AC Power"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"When inactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sleep | After 10 minutes"</span>
+<span class="w">        </span><span class="p">}</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"On Battery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"Switch to power profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power Save"</span>
+<span class="w">        </span><span class="p">}</span><span class="k">,</span>
+<span class="w">        </span><span class="nt">"On Low Battery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"When inactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sleep | After 1 minute"</span><span class="k">,</span>
+<span class="w">            </span><span class="nt">"Change screen brightness"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[X] 20%"</span><span class="k">,</span>
+<span class="w">            </span><span class="nt">"Switch to power profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Power Save"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span># Windows rules
+## Windows matching
+Description:                 Windows settings for Picture in picture
+Windows class (application): Unimportant | &lt;empty&gt;
+Windows types:               Normal windows
+Windows title:               Exact match | Picture in picture
+## Size &amp; Position
+Position:                    Apply initially | 1535 x 935
+Size:                        Apply initially | 367 x 200
+initially placement:         Force | Default
+## Arrangement &amp; Access
+Keep above other windows:    Force | (X) Yes
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>## Windows matching
+Description:                 Application settings for Minecraft* 1.21.11
+Windows class (application): Exact match | Minecraft* 1.21.11
+Match whole windows class:   (X) No
+Windows types:               All selected
+## Size &amp; Position
+Position:                    Remember | 116 x 0
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>## Windows matching
+Description:                 Window settings for Minecraft* 1.21.11
+Windows class (application): Exact match | Minecraft* 1.21.11
+Match whole windows class:   (X) No
+Windows types:               Exact match | Minecraft* 1.21.11
+## Size &amp; Position
+Position:                    Remember | 0 x 0
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>## Windows matching
+Description:                 Windows settings for org.kde.discover
+Windows class (application): Exact match | plasma-discover org.kde.discover
+Match whole windows class:   (X) Yes
+Windows types:               Normal windows
+## Size &amp; Position
+Maximized horizontally:      Apply initially | (X) No
+Maximized vertivally:        Apply initially | (X) No
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>KDE Menu Editor
+[Development]
+Name:                  IPython
+Program:               konsole
+Command-line argument: --hold -e bash -c 'source ~/.PYPRECODE/bin/activate &amp;&amp; ipython -i ~/PYPRECODE.py'
+
+Name:                  Python
+Program:               konsole
+Command-line argument: --hold -e bash -c 'source ~/.PYPRECODE/bin/activate &amp;&amp; python -i ~/PYPRECODE.py'
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>[Internet]
+Microsoft Edge (Web Browser)
+Name:                  Microsoft Edge
+Program:               /usr/bin/microsoft-edge-stable
+Command-line argument: %U --enable-features=msForceNoRoundedCornerAndMargin --disable-features=msFeatureGroupNewLookAndFeelHoldout
+</pre></div></div></div>
+
+<div class="code_element"><div class="lang_line"><text>text</text><button class="copy_code_button" onclick="CopyCode(this)"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"><use href="#icon_code_copy"/></svg><text class="unselectable">Copy code</text></button></div><div class="code language-text"><div class="highlight"><pre><span></span>Flatpak
+Telegram
+Discord
+</pre></div></div></div>

@@ -642,6 +642,11 @@
         "FreeCAD": {
             "Settings": ""
         },
+        "Linux": {
+            "Fedora": {
+                "Settings": ""
+            }
+        },
         "Chrome Dino": "",
         "Alt Symbols": "",
         "Links": "",
