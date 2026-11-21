@@ -110,6 +110,9 @@
     --code-highlight-darkula-function: #FDB648;
     --code-highlight-darkula-argument: #AA4926;
 
+    --search_highlight: yellow;
+    --active_search_highlight: orange;
+
     /* Syntax highlighting */
     .n, .nn, .p, .o {color: var(--code-highlight-darkula-default)} /* Default */
     .k, .ow, .kn, .si, .se, .kd, .kc, .nt {color: var(--code-highlight-darkula-keyword);} /* Keywords */
@@ -1313,6 +1316,7 @@ aside {
     header,
     aside,
     #mobile_overlay,
+    #page_search_container,
     #settings_modal.active,
     .context_menu,
     .page_search_buttons,
@@ -1335,11 +1339,16 @@ aside {
     }
     details summary {
         list-style: none!important;
-        list-style-type: none!important;
     }
     details summary::before {
         display: none!important;
         content: ""!important;
+    }
+
+    /* maybe remove this */
+    :root {
+        --search_highlight: transparent;
+        --active_search_highlight: transparent;
     }
 }
 
@@ -1931,11 +1940,11 @@ tbody tr:hover {
 
 
 #cheatsheet_field_container::highlight(search_highlight) {
-    background: yellow;
+    background: var(--search_highlight);
     color: black;
 }
 #cheatsheet_field_container::highlight(active_search_highlight) {
-    background: orange;
+    background: var(--active_search_highlight);
     color: black;
 }
 kbd {

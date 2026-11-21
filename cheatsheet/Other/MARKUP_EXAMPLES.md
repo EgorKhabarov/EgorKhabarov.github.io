@@ -40,6 +40,12 @@
 
 ---
 
+## Details
+
+<details><summary>summary</summary>
+details
+</details>
+
 ---
 
 # Table
